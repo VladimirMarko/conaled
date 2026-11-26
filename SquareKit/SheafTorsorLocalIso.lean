@@ -10,7 +10,7 @@ variable {G : Sheaf J GrpCat.{max u v}} {X : Sheaf J (Type (max u v))}
 variable {B : SplitSheaf.Ty X}
 
 /-- Local isomorphisms determine transport by conjugating canonical descent. -/
-def ofLocalIso (P : Torsor G X) (Q : Torsor G (SplitSheaf.Ext B))
+def ofLocalIso (P : Torsor G X) (Q : Torsor G (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) : Datum B Q where
     transport x b c z := e.iso.inv.app (SheafTorsor.Descent.point B x c)
       (e.iso.hom.app (SheafTorsor.Descent.point B x b) z)
@@ -34,7 +34,7 @@ def ofLocalIso (P : Torsor G X) (Q : Torsor G (SplitSheaf.Ext B))
       exact e.inverse.equivariant (SheafTorsor.Descent.point B x c) g
         (e.iso.hom.app (SheafTorsor.Descent.point B x b) z)
 
-def ofLocalIsoMap (P : Torsor G X) (Q : Torsor G (SplitSheaf.Ext B))
+def ofLocalIsoMap (P : Torsor G X) (Q : Torsor G (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) :
     Map (ofLocalIso P Q e) (canonicalDatum B P) where
   hom := e.iso.hom
@@ -44,13 +44,13 @@ def ofLocalIsoMap (P : Torsor G X) (Q : Torsor G (SplitSheaf.Ext B))
 
 /-- Effective descent recovers the original torsor from the chosen local isomorphism. -/
 def ofLocalIsoRecovery [Presheaf.IsLocallySurjective J (SplitSheaf.p B).hom]
-    (P : Torsor G X) (Q : Torsor G (SplitSheaf.Ext B))
+    (P : Torsor G X) (Q : Torsor G (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) :
     Arrow (torsor (ofLocalIso P Q e)) P :=
   ((ofLocalIsoMap P Q e).arrow).comp (canonicalRecovery B P)
 
 /-- Effective descent recovers each local arrow after evaluation. -/
-theorem map_comparison {P Q : Torsor G (SplitSheaf.Ext B)}
+theorem map_comparison {P Q : Torsor G (SplitSheaf.extension B)}
     {d : Datum B P} {e : Datum B Q}
     [Presheaf.IsLocallySurjective J (SplitSheaf.p B).hom] (h : Map d e) :
     (h.arrow.reindex (SplitSheaf.p B)).comp (comparison e) =
@@ -72,7 +72,7 @@ theorem canonicalRecovery_reindex
 
 theorem ofLocalIsoRecovery_reindex
     [Presheaf.IsLocallySurjective J (SplitSheaf.p B).hom]
-    (P : Torsor G X) (Q : Torsor G (SplitSheaf.Ext B))
+    (P : Torsor G X) (Q : Torsor G (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) :
     (ofLocalIsoRecovery P Q e).reindex (SplitSheaf.p B) =
       (comparison (ofLocalIso P Q e)).comp e := by
@@ -99,7 +99,7 @@ theorem reindex_injective [Presheaf.IsLocallySurjective J (SplitSheaf.p B).hom]
   have hh := NatTrans.naturality_apply h.iso.hom (ElementFamilies.along X.obj f.op x.val) p
   have hk := NatTrans.naturality_apply k.iso.hom (ElementFamilies.along X.obj f.op x.val) p
   have he := congrArg (fun e : Arrow (reindex P (SplitSheaf.p B)) (reindex Q (SplitSheaf.p B)) =>
-    e.iso.hom.app ((SplitSheaf.Ext B).obj.elementsMk (op V) ⟨X.obj.map f.op x.val, b⟩)
+    e.iso.hom.app ((SplitSheaf.extension B).obj.elementsMk (op V) ⟨X.obj.map f.op x.val, b⟩)
       (P.family.family.map (ElementFamilies.along X.obj f.op x.val) p)) eq
   exact hh.symm.trans (he.trans hk)
 
@@ -112,7 +112,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {G : Sheaf J GrpCat.{max u v}} {M X : Sheaf J (Type (max u v))}
 variable {a : Action G M} {B : SplitSheaf.Ty X}
 
-def ofLocalIso (P : Object a X) (Q : Object a (SplitSheaf.Ext B))
+def ofLocalIso (P : Object a X) (Q : Object a (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) : Datum (a := a) B where
   localObject := Q
   torsorDatum := SheafTorsor.Descent.ofLocalIso P.torsor Q.torsor e.torsorArrow
@@ -121,20 +121,20 @@ def ofLocalIso (P : Object a X) (Q : Object a (SplitSheaf.Ext B))
       (e.torsorArrow.iso.hom.app (SheafTorsor.Descent.point B x b) z)).trans
       (e.preserves (SheafTorsor.Descent.point B x b) z)
 
-def ofLocalIsoMap (P : Object a X) (Q : Object a (SplitSheaf.Ext B))
+def ofLocalIsoMap (P : Object a X) (Q : Object a (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) :
     Map (ofLocalIso P Q e) (canonicalDatum B P) where
   torsorMap := SheafTorsor.Descent.ofLocalIsoMap P.torsor Q.torsor e.torsorArrow
   preserves := e.preserves
 
 def ofLocalIsoRecovery [Presheaf.IsLocallySurjective J (SplitSheaf.p B).hom]
-    (P : Object a X) (Q : Object a (SplitSheaf.Ext B))
+    (P : Object a X) (Q : Object a (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) : Arrow (ofLocalIso P Q e).object P :=
   ((ofLocalIsoMap P Q e).arrow).comp (canonicalRecovery B P)
 
 theorem ofLocalIsoRecovery_reindex
     [Presheaf.IsLocallySurjective J (SplitSheaf.p B).hom]
-    (P : Object a X) (Q : Object a (SplitSheaf.Ext B))
+    (P : Object a X) (Q : Object a (SplitSheaf.extension B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) :
     (ofLocalIsoRecovery P Q e).reindex (SplitSheaf.p B) =
       (ofLocalIso P Q e).comparison.comp e := by

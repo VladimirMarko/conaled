@@ -15,11 +15,11 @@ variable {X Y Z : Sh J}
 theorem tmSub_transport_heq {A B : SplitSheaf.Ty X} (h : A = B) (t : SplitSheaf.Tm A) (s : Y ⟶ X) :
     HEq (tmSub (transport h t) s) (tmSub t s) := by cases h; rfl
 
-theorem lam_heq (A : SplitSheaf.Ty X) {B D : SplitSheaf.Ty (Ext A)} (h : B = D)
+theorem lam_heq (A : SplitSheaf.Ty X) {B D : SplitSheaf.Ty (extension A)} (h : B = D)
     {t : SplitSheaf.Tm B} {u : SplitSheaf.Tm D} (ht : HEq t u) :
     HEq (SplitSheafPi.lam A t) (SplitSheafPi.lam A u) := by cases h; cases ht; rfl
 
-theorem unlam_heq (A : SplitSheaf.Ty X) {B D : SplitSheaf.Ty (Ext A)} (h : B = D)
+theorem unlam_heq (A : SplitSheaf.Ty X) {B D : SplitSheaf.Ty (extension A)} (h : B = D)
     {t : SplitSheaf.Tm (SplitSheafPi.pi A B)} {u : SplitSheaf.Tm (SplitSheafPi.pi A D)} (ht : HEq t u) :
     HEq (SplitSheafPi.unlam A t) (SplitSheafPi.unlam A u) := by cases h; cases ht; rfl
 

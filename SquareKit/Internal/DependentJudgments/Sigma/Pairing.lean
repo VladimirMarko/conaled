@@ -95,7 +95,7 @@ theorem pair_eval {V : Type} (ρ : V → Value M.toStructuralModel)
 theorem pair_valid : Satisfies (algebra M S) pairRule := by
   intro ρ h
   let ρ₀ : Fin 3 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
-  have h₀ : ∀ i, (formationRule.premise i).eval (algebra M S) ρ₀ := by
+  have h₀ : ∀ i, (formationRule.premise i).Eval (algebra M S) ρ₀ := by
     intro i
     fin_cases i <;> first | exact h 0 | exact h 1
   rcases formationSchema_inputs M S _ ρ₀ h₀ with ⟨Γ, A, B, e⟩

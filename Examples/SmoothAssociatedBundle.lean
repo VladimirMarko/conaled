@@ -13,13 +13,13 @@ variable {n m : ℕ} {G B E B' E' : Type} [Group G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
   [ChartedSpace (Space m) B'] [ChartedSpace (Space m) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
-  [IsManifold (Model m) ∞ B'] [IsManifold (Model m) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
+  [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners m) ∞ E']
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
   (Q : Bundle (n := m) (G := G) (B := B') (E := E'))
 
 /-- The regular associated sheaf is the actual independently supplied ordinary total. -/
-def regularTotalIso : SplitSheaf.Ext (associated P.realizedTorsor
+def regularTotalIso : SplitSheaf.extension (associated P.realizedTorsor
     (regularAction (locallyConstantGroup G))) ≅ object n E :=
   (SplitSheaf.toOver ⋙ Over.forget _).mapIso (regularIso P.realizedTorsor) ≪≫ P.realizedTotalIso
 
@@ -31,8 +31,8 @@ theorem regularTotalIso_projection :
   rw [P.realizedTotalIso_projection]
   exact SplitSheaf.totalMap_projection _
 
-variable (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-  (k : E' → E) (hk : ContMDiff (Model m) (Model n) ∞ k)
+variable (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+  (k : E' → E) (hk : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ k)
   (hp : ∀ e, P.projection (k e) = f (Q.projection e))
   (ha : ∀ (g : G) e, k (g • e) = g • k e)
 
@@ -81,7 +81,7 @@ theorem regularAlong_total :
 def pointFiber : Sheaf topology Type := Sheaf.terminal topology Limits.Types.isTerminalPUnit
 
 /-- The trivial one-point fiber has exactly the realized ordinary base as total. -/
-def pointTotalIso : SplitSheaf.Ext (associated P.realizedTorsor
+def pointTotalIso : SplitSheaf.extension (associated P.realizedTorsor
     (trivialAction (locallyConstantGroup G) pointFiber)) ≅
       object n B :=
   (SplitSheaf.toOver ⋙ Over.forget _).mapIso

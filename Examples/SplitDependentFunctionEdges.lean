@@ -14,7 +14,7 @@ abbrev dependentDisplay := Family.reindex falsePoint (SplitSheaf.displayIso base
 
 /-- The result depends on the argument: its false fiber is inhabited. -/
 theorem dependent_false_inhabited : Nonempty (dependentResult.family.obj
-    ((Ext boolArgument).obj.elementsMk (op X) ((SplitSheaf.displayIso base).inv.hom.app (op X) false))) := by
+    ((extension boolArgument).obj.elementsMk (op X) ((SplitSheaf.displayIso base).inv.hom.app (op X) false))) := by
   let a := (SplitSheaf.displayIso base).inv.hom.app (op X) false
   have ha : (SplitSheaf.displayIso base).hom.hom.app (op X) a = false :=
     congrArg (fun k => k.hom.app (op X) false) (SplitSheaf.displayIso base).inv_hom_id
@@ -41,10 +41,10 @@ abbrev eArgument := ofDisplay eDisplay
 abbrev eResult := SplitSheafPi.resultPresentation eDisplay (SheafRelation.snd D E)
 abbrev eFunctions := SplitSheafPi.pi eArgument eResult
 
-def eComparison : Ext eFunctions ≅ DependentProducts.nonconstantResult.left :=
+def eComparison : extension eFunctions ≅ DependentProducts.nonconstantResult.left :=
   (Over.forget _).mapIso (SplitSheafPi.ordinaryPresentation eDisplay (SheafRelation.snd D E))
 
-def eName (b : Bool) : SheafImage.terminal ⟶ Ext eFunctions :=
+def eName (b : Bool) : SheafImage.terminal ⟶ extension eFunctions :=
   DependentProducts.nonconstantName b ≫ eComparison.inv
 
 /-- Existing distinct natural functions remain distinct in the split model. -/
@@ -59,25 +59,25 @@ theorem e_names_distinct :
     (hh.trans (congrArg (fun k => k.hom.app (op X) ()) (he true)))
 
 theorem no_pointwise_equivalence :
-    ¬ Nonempty ((Ext eFunctions).obj.obj (op X) ≃ (E.obj.obj (op X) → D.obj.obj (op X))) := by
+    ¬ Nonempty ((extension eFunctions).obj.obj (op X) ≃ (E.obj.obj (op X) → D.obj.obj (op X))) := by
   rintro ⟨e⟩
   apply e_names_distinct
   apply e.injective
-  exact (SheafFunctions.unique_pointwise.uniq _).trans (SheafFunctions.unique_pointwise.uniq _).symm
+  exact (SheafFunctions.pointwiseUnique.uniq _).trans (SheafFunctions.pointwiseUnique.uniq _).symm
 
 /-- Reconstructed inputs retain E's empty and incompatible fibers. -/
-theorem input_empty (a : (Ext eArgument).obj.obj (op X)) : False :=
+theorem input_empty (a : (extension eArgument).obj.obj (op X)) : False :=
   nomatch (SplitSheaf.displayIso eDisplay).hom.hom.app (op X) a
 
-theorem input_wu (a : (Ext eArgument).obj.obj (op U)) :
+theorem input_wu (a : (extension eArgument).obj.obj (op U)) :
     (SplitSheaf.displayIso eDisplay).hom.hom.app (op W)
-      ((Ext eArgument).obj.map (show W ⟶ U from Arrow.wu).op a) = false := by
+      ((extension eArgument).obj.map (show W ⟶ U from Arrow.wu).op a) = false := by
   rw [NatTrans.naturality_apply]
   rfl
 
-theorem input_wv (a : (Ext eArgument).obj.obj (op V)) :
+theorem input_wv (a : (extension eArgument).obj.obj (op V)) :
     (SplitSheaf.displayIso eDisplay).hom.hom.app (op W)
-      ((Ext eArgument).obj.map (show W ⟶ V from Arrow.wv).op a) = true := by
+      ((extension eArgument).obj.map (show W ⟶ V from Arrow.wv).op a) = true := by
   rw [NatTrans.naturality_apply]
   rfl
 

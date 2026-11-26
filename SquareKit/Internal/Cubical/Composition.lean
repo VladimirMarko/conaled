@@ -13,7 +13,7 @@ structure Composition {Γ : Context.{u}} (A : Family Γ) where
 
 structure Composition.Lawful {Γ : Context.{u}} {A : Family Γ} (C : Composition A) : Prop where
   boundary : ∀ {Δ : Context.{u}} (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
-    (b : OpenBox (reindex A p) φ) (x : Δ.Elements) (hx : φ.full x),
+    (b : OpenBox (reindex A p) φ) (x : Δ.Elements) (hx : φ.Full x),
     (C.comp p φ b).val x = b.tube.val ((endpointSub Δ true).mapElements.obj x) hx
   uniform : ∀ {Δ Θ : Context.{u}} (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
     (b : OpenBox (reindex A p) φ) (σ : Θ ⟶ Δ),

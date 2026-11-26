@@ -88,18 +88,18 @@ theorem stale_rejected (hw : Config m width) (old fresh : Input m)
 variable {n : Nat}
 
 def lcaOps (hw : Config (tourSize n) width) := (TreeReduction.reduction n).apply (ops hw)
-def lcaValid (hw : Config (tourSize n) width) := (TreeReduction.reduction n).Valid (Valid hw)
+def LCAValid (hw : Config (tourSize n) width) := (TreeReduction.reduction n).Valid (Valid hw)
 def lcaStorage (hw : Config (tourSize n) width) :=
   (TreeReduction.reduction n).storage (ops hw) (TreeReduction.arena n) (storage hw)
 def lcaProfile (n : Nat) :=
   (TreeReduction.reduction n).profile (profile (tourSize n)) (TreeReduction.capacity n)
 
 theorem lca_laws (hw : Config (tourSize n) width) :
-    Laws sourceLCA (lcaOps hw) (lcaValid hw) :=
+    Laws sourceLCA (lcaOps hw) (LCAValid hw) :=
   TreeReduction.laws Backend.spec (Backend.spec_correct _) (ops hw) (Valid hw) (laws hw)
 
 theorem lca_bounds (hw : Config (tourSize n) width) :
-    Bounds (lcaOps hw) (lcaValid hw) (lcaStorage hw) (lcaProfile n) :=
+    Bounds (lcaOps hw) (LCAValid hw) (lcaStorage hw) (lcaProfile n) :=
   TreeReduction.bounds n (bounds hw)
 
 def lcaRealtime (n : Nat) : Requirements where

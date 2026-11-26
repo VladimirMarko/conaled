@@ -51,8 +51,8 @@ noncomputable def algebra (M : PathTransport.Typed.Model.{u})
   operation
     | .inl op => (Contextual.algebra M).operation op
     | .inr op => operation M.toStructuralModel S op
-  predicate
-    | .inl p => (Contextual.algebra M).predicate p
+  Predicate
+    | .inl p => (Contextual.algebra M).Predicate p
     | .inr p => nomatch p
 
 @[simp] theorem restrict_algebra (M : PathTransport.Typed.Model.{u})
@@ -67,14 +67,14 @@ noncomputable def algebra (M : PathTransport.Typed.Model.{u})
 @[simp] theorem eval_old_judgment (M : PathTransport.Typed.Model.{u})
     (S : Capability M.toStructuralModel) {V : Type} (a : Contextual.Judgment V)
     (ρ : V → Value M.toStructuralModel) :
-    (a.inl extraSignature).eval (algebra M S) ρ = a.eval (Contextual.algebra M) ρ :=
+    (a.inl extraSignature).Eval (algebra M S) ρ = a.Eval (Contextual.algebra M) ρ :=
   Atom.eval_inl _ _ _
 
 /-- Guard inversion retains the actual dependent second family. -/
 theorem formationSchema_inputs (M : PathTransport.Typed.Model.{u})
     (S : Capability M.toStructuralModel) (out : Judgment (Fin 3))
     (ρ : Fin 3 → Value M.toStructuralModel)
-    (h : ∀ i, ((formationSchema out).premise i).eval (algebra M S) ρ) :
+    (h : ∀ i, ((formationSchema out).premise i).Eval (algebra M S) ρ) :
     ∃ (Γ : M.Context) (A : M.Family Γ) (B : M.Family (M.extend Γ A)),
       ρ = ![.context Γ, .family Γ A, .family (M.extend Γ A) B] := by
   rcases h 0 with ⟨Γ, A, hΓ, hA⟩
@@ -97,7 +97,7 @@ theorem formationSchema_inputs (M : PathTransport.Typed.Model.{u})
 theorem formationSchema_valid (M : PathTransport.Typed.Model.{u})
     (S : Capability M.toStructuralModel) (out : Judgment (Fin 3))
     (valid : ∀ (Γ : M.Context) (A : M.Family Γ) (B : M.Family (M.extend Γ A)),
-      out.eval (algebra M S) ![.context Γ, .family Γ A, .family (M.extend Γ A) B]) :
+      out.Eval (algebra M S) ![.context Γ, .family Γ A, .family (M.extend Γ A) B]) :
     Satisfies (algebra M S) (formationSchema out) := by
   intro ρ h
   rcases formationSchema_inputs M S out ρ h with ⟨Γ, A, B, rfl⟩

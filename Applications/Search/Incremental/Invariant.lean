@@ -150,13 +150,13 @@ theorem expand_nextLabels (w : Graph n) (start : Fin n) (s : State n)
   simp only [expand_g, nextLabels, hs.1]
 
 theorem no_select_not_active (w : Graph n) (start goal : Fin n) (h : Fin n → ℚ)
-    (s : State n) (hs : Valid w start s) (hn : select h s = none) : ¬ active goal h s := by
+    (s : State n) (hs : Valid w start s) (hn : select h s = none) : ¬ Active goal h s := by
   have hq := (select_none h s).mp hn
   have hc : s.g goal = s.rhs goal := by
     by_contra he
     have hm := (hs.2.2.1 goal).mpr he
     simp [hq] at hm
-  simp only [active, topKey, hn, Option.map_none, Option.getD_none, hc, ne_eq, not_true_eq_false, or_false]
+  simp only [Active, topKey, hn, Option.map_none, Option.getD_none, hc, ne_eq, not_true_eq_false, or_false]
   change ¬ toLex (⊤, ⊤) < toLex _
   rw [Prod.Lex.lt_iff]
   simp

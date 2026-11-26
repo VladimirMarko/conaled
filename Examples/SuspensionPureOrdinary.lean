@@ -19,9 +19,9 @@ open Suspensions.Pure.Compatibility Suspensions.Pure.Domain Suspensions.Pure.Dom
 
 def parameters : Machine.Parameters BasicOperation := basicPureParameters 0 1
 def rawParameters : Core.Machine.Parameters BasicOperation := basicRawParameters 0 1
-def selected : BasicOperation → Prop := fun _ => True
+def Selected : BasicOperation → Prop := fun _ => True
 
-theorem compatible : ParametersCompatible selected rawParameters parameters :=
+theorem compatible : ParametersCompatible Selected rawParameters parameters :=
   basic_parameters_compatible 0 1
 
 def world : World BasicOperation := fun _ => none
@@ -35,7 +35,7 @@ theorem literal_step : OrdinaryStepRep parameters world memory
     (.inr ⟨memory, .value (.atom (.integer 7)), []⟩)
     (.inr ⟨.value (.atom (.integer 7)), []⟩) := by
   exact ordinary_step (ConfigRep.start empty_represented .nil (integer 7))
-    (start_allowed (operations := selected) .nil (CodeAllowed.atom (.integer 7))) compatible trivial
+    (start_allowed (operations := Selected) .nil (CodeAllowed.atom (.integer 7))) compatible trivial
 
 theorem literal_delivery : OrdinaryStepRep parameters world memory
     (.inl ⟨memory, .value (.atom (.integer 7))⟩) (.inl (.value (.atom (.integer 7)))) := by
@@ -49,7 +49,7 @@ theorem nonaddress_force : OrdinaryStepRep parameters world memory
     (.inl ⟨memory, .stuck .expectedAddress⟩) (.inl (.stuck .expectedSuspension)) := by
   exact ordinary_step
     (ConfigRep.startPattern empty_represented .nil (.atom (.integer 7)) (.suspended .wildcard))
-    (startPattern_allowed (operations := selected) .nil (.suspended .wildcard) (.atom (.integer 7)))
+    (startPattern_allowed (operations := Selected) .nil (.suspended .wildcard) (.atom (.integer 7)))
     compatible trivial
 
 theorem nonaddress_force_has_no_body_event (address : Nat) :
@@ -68,7 +68,7 @@ private theorem no_pending {rawStack : List (Core.Machine.Frame BasicOperation)}
   exact False.elim (absent address environment inner (List.mem_of_getElem? found))
 
 private theorem one_frame_allowed {frame : Machine.Frame BasicOperation}
-    (head : FrameAllowed selected frame) : List.Forall (FrameAllowed selected) [frame] :=
+    (head : FrameAllowed Selected frame) : List.Forall (FrameAllowed Selected) [frame] :=
   (List.forall_cons _ _ _).mpr ⟨head, trivial⟩
 
 private theorem successor_input (atom : Core.Atom) : ConfigRep parameters world
@@ -78,7 +78,7 @@ private theorem successor_input (atom : Core.Atom) : ConfigRep parameters world
     .cons (.argument (.primitive BasicOperation.successor)) .nil,
     no_pending (by intro address environment inner; simp)⟩
 
-private theorem successor_allowed (atom : Core.Atom) : ConfigAllowed selected
+private theorem successor_allowed (atom : Core.Atom) : ConfigAllowed Selected
     ⟨.value (.atom atom), [.argument (.primitive .successor)]⟩ :=
   ⟨.atom atom, one_frame_allowed (.primitive trivial)⟩
 
@@ -96,15 +96,15 @@ theorem successor_boolean_fault : OrdinaryStepRep parameters world memory
 ordinary correspondence itself requires only relational compatibility. -/
 private theorem checked_next {raw nextRaw : Core.Machine.Config BasicOperation}
     {view nextView : Machine.Config BasicOperation}
-    (represented : ConfigRep parameters world raw view) (allowed : ConfigAllowed selected view)
+    (represented : ConfigRep parameters world raw view) (allowed : ConfigAllowed Selected view)
     (ordinary : IsOrdinary raw)
     (rawStep : Core.Machine.step rawParameters raw = .inr nextRaw)
     (pureStep : Machine.step parameters view = .inr nextView) :
-    ConfigRep parameters world nextRaw nextView ∧ ConfigAllowed selected nextView := by
+    ConfigRep parameters world nextRaw nextView ∧ ConfigAllowed Selected nextView := by
   have moved := ordinary_step represented allowed compatible ordinary
   rw [rawStep, pureStep] at moved
-  have retained := step_preserves (basic_parameters_preserve selected 0 1) allowed
-  change OutcomeAllowed selected (Machine.step parameters view) at retained
+  have retained := step_preserves (basic_parameters_preserve Selected 0 1) allowed
+  change OutcomeAllowed Selected (Machine.step parameters view) at retained
   rw [pureStep] at retained
   cases moved with
   | next unchanged nextRep => exact ⟨nextRep, retained⟩
@@ -122,7 +122,7 @@ theorem rejecting_clause_represented : ConfigRep parameters world rawReject pure
     .cons (.clause _ _ .nil (.atom (.integer 7))) .nil,
     no_pending (by intro address environment inner; simp [rawReject])⟩
 
-theorem rejecting_clause_allowed : ConfigAllowed selected pureReject :=
+theorem rejecting_clause_allowed : ConfigAllowed Selected pureReject :=
   ⟨⟨.nil, .atom (.integer 0), .atom (.integer 7)⟩,
     one_frame_allowed ⟨.nil, CodeAllowed.atom (.integer 99),
       (ClausesCodeAllowed.cons_iff _ _ _).mpr
@@ -138,7 +138,7 @@ theorem ordered_fallback_enters_eight :
     Recurrence.Reaches parameters 5 pureReject (Machine.start [] (integer 8)) ∧
     ConfigRep parameters world
       (Core.Machine.start memory [] (integer 8)) (Machine.start [] (integer 8)) ∧
-    ConfigAllowed selected (Machine.start [] (integer 8)) := by
+    ConfigAllowed Selected (Machine.start [] (integer 8)) := by
   refine ⟨rfl, rfl, ?_⟩
   have rejected := checked_next rejecting_clause_represented rejecting_clause_allowed trivial rfl rfl
   have continued := checked_next rejected.1 rejected.2 trivial rfl rfl

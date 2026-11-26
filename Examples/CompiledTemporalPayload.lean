@@ -23,51 +23,51 @@ example (x : Nat) : compiledTwice (Eq : Nat → Nat → Prop) (fun x => x * 2) x
   simp [twice, Nat.mul_assoc]
 
 /-- One source value relates to either tag; the relation has no chosen inverse. -/
-def tagged (x : Nat) (y : Nat × Bool) : Prop := x = y.1
+def Tagged (x : Nat) (y : Nat × Bool) : Prop := x = y.1
 def bump (y : Nat × Bool) : Nat × Bool := (y.1+1, !y.2)
 def double (y : Nat × Bool) : Nat × Bool := (y.1*2, y.2)
-theorem bump_related (x y) (h : tagged x y) : tagged (x+1) (bump y) :=
+theorem bump_related (x y) (h : Tagged x y) : Tagged (x+1) (bump y) :=
   congrArg (· + 1) h
-theorem double_related (x y) (h : tagged x y) : tagged (x*2) (double y) :=
+theorem double_related (x y) (h : Tagged x y) : Tagged (x*2) (double y) :=
   congrArg (· * 2) h
-example : tagged 1 (1,false) ∧ tagged 1 (1,true) ∧ (1,false) ≠ (1,true) := by unfold tagged; decide
+example : Tagged 1 (1,false) ∧ Tagged 1 (1,true) ∧ (1,false) ≠ (1,true) := by unfold Tagged; decide
 
 abbrev Cert (X : Type) := Until (fun _ => Unit) (fun _ => List X) 0
 def source : Cert Nat := .wait () (.wait () (.now [1,1,2]))
 def target : Cert (Nat × Bool) := .wait () (.wait () (.now [(1,false),(1,true),(2,false)]))
-theorem source_related : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ tagged) source target :=
+theorem source_related : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ Tagged) source target :=
   .wait rfl (.wait rfl (.now (.cons rfl (.cons rfl (.cons rfl .nil)))))
 
-theorem mapped_related : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ tagged)
-    (mapBatch (compiledTwice tagged (· + 1)) source) (mapBatch (twice bump) target) :=
+theorem mapped_related : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ Tagged)
+    (mapBatch (compiledTwice Tagged (· + 1)) source) (mapBatch (twice bump) target) :=
   compiled_batch_related _ _ _ _ bump_related source_related
-example : Until.terminal (mapBatch (compiledTwice tagged (· + 1)) source) = [3,3,4] := rfl
-example : (mapBatch (compiledTwice tagged (· + 1)) source).horizon = 2 :=
+example : Until.terminal (mapBatch (compiledTwice Tagged (· + 1)) source) = [3,3,4] := rfl
+example : (mapBatch (compiledTwice Tagged (· + 1)) source).horizon = 2 :=
   mapBatch_horizon _ _
 example : (mapBatch (twice bump) target).horizon = 2 := mapBatch_horizon _ _
 
 /-- Two independently supplied related functions compose through the same lifting. -/
-example : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ tagged)
-    (mapBatch (compiledTwice tagged (· * 2)) (mapBatch (compiledTwice tagged (· + 1)) source))
+example : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ Tagged)
+    (mapBatch (compiledTwice Tagged (· * 2)) (mapBatch (compiledTwice Tagged (· + 1)) source))
     (mapBatch (twice double) (mapBatch (twice bump) target)) :=
   compiled_batch_related _ _ _ _ double_related mapped_related
 example : mapBatch (twice (· * 2)) (mapBatch (twice (· + 1)) source) =
     mapBatch (twice (· * 2) ∘ twice (· + 1)) source := mapBatch_comp _ _ _
 example : Until.terminal (mapBatch (twice (· * 2)) (mapBatch (twice (· + 1)) source)) =
     [12,12,16] := rfl
-example : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ tagged)
-    (mapBatch (compiledTwice tagged (· + 1)) (.now [] : Cert Nat))
+example : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ Tagged)
+    (mapBatch (compiledTwice Tagged (· + 1)) (.now [] : Cert Nat))
     (mapBatch (twice bump) (.now [] : Cert (Nat × Bool))) :=
   compiled_batch_related _ _ _ _ bump_related (.now .nil)
 
 /-- The window presentation and relational composition retain the same timing. -/
-example : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ tagged)
+example : Until.Rel (fun _ => Eq) (fun _ => List.Forall₂ Tagged)
     (Until.ofWindow (A := fun _ => Unit) (B := fun _ => List Nat) 0 2 (fun _ => ()) [1,1,2])
     (Until.ofWindow (A := fun _ => Unit) (B := fun _ => List (Nat × Bool)) 0 2 (fun _ => ()) [(1,false),(1,true),(2,false)]) :=
   Until.Rel.ofWindow 0 2 _ _ _ _ (fun _ => rfl)
     (.cons rfl (.cons rfl (.cons rfl .nil)))
 example : Until.Rel (fun _ a c => ∃ b, a = b ∧ b = c)
-    (fun _ xs zs => ∃ ys, List.Forall₂ tagged xs ys ∧ ys = zs) source target :=
+    (fun _ xs zs => ∃ ys, List.Forall₂ Tagged xs ys ∧ ys = zs) source target :=
   source_related.comp (Until.Rel.refl target)
 
 /-- Terminal values alone cannot reconstruct a finite witness's horizon. -/

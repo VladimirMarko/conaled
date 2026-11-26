@@ -245,7 +245,7 @@ theorem reachable_reuse_safe {c : Config} {cells : CopyState} {target : Snapshot
     {pc : CopyPC} {events : List Label}
     (run : Execution (MachineStep c) events initialMachine (.copying cells target ctl pc)) :
     borrowedAccess (.copying cells target ctl pc) = Access.afterPublication ∧
-    (borrowedAccess (.copying cells target ctl pc)).safeOverwrite (!cells.disk.selected) ∧
+    (borrowedAccess (.copying cells target ctl pc)).SafeOverwrite (!cells.disk.selected) ∧
     cells.disk.selected ≠ !cells.disk.selected := by
   have ready := reachable_copy_ready run
   have eq : borrowedAccess (.copying cells target ctl pc) = Access.afterPublication := by

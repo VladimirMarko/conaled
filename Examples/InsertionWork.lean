@@ -80,14 +80,14 @@ theorem worst_family (n : Nat) :
 /-- The measured result meets the source's independently indexed specification. -/
 theorem source_contract (xs : List Nat) :
     xs.Perm (sortMeasured (· ≤ ·) xs).1 ∧
-    InsertionSorting.sorted' (sortMeasured (· ≤ ·) xs).1 ∧
+    InsertionSorting.IndexedSorted (sortMeasured (· ≤ ·) xs).1 ∧
     xs.length - 1 ≤ sortComparisons (· ≤ ·) xs ∧
     sortComparisons (· ≤ ·) xs ≤ xs.length * (xs.length - 1) / 2 := by
   refine ⟨?_, ?_, sortComparisons_lower _ xs, sortComparisons_le _ xs⟩
   · rw [sortMeasured_value]
     exact InsertionSorting.sort_perm xs
   · rw [sortMeasured_value]
-    exact InsertionSorting.sort_sorted' xs
+    exact InsertionSorting.sort_indexedSorted xs
 
 /-- Payloads need no order: the call projection transfers the existing stable contract. -/
 theorem keyed_contract {payload : Type u} (xs : List (Nat × payload)) :

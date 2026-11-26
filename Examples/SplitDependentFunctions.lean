@@ -11,7 +11,7 @@ open Examples.SheafImage Examples.SheafImage.Diamond Examples.SheafBaseChange Ex
 open SplitSheaf
 
 abbrev argument : Ty D := ofDisplay falsePoint
-abbrev result : Ty (Ext argument) := SplitSheafPi.resultPresentation falsePoint base
+abbrev result : Ty (extension argument) := SplitSheafPi.resultPresentation falsePoint base
 abbrev functions := SplitSheafPi.pi argument result
 abbrev comparison := SplitSheafPi.ordinaryPresentation falsePoint base
 
@@ -30,7 +30,7 @@ theorem empty_index_unique (M : Diamond)
 def boolPoint (b : Bool) : SheafImage.terminal ⟶ D := ⟨{ app _ := ↾fun _ => b }⟩
 abbrev resultDisplay := Family.reindex base (SplitSheaf.displayIso falsePoint).hom
 
-def bodyMap (b : Bool) : Ext argument ⟶ pullback base (SplitSheaf.displayIso falsePoint).hom :=
+def bodyMap (b : Bool) : extension argument ⟶ pullback base (SplitSheaf.displayIso falsePoint).hom :=
   Family.pair base (SplitSheaf.displayIso falsePoint).hom
     ((SplitSheaf.displayIso falsePoint).hom ≫ boolPoint b) (𝟙 _) rfl
 

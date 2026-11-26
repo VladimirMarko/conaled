@@ -16,7 +16,7 @@ with [checked client and failure cases](../../Examples/NestedSetting.lean).
 
 The existing finite geometric scheme has predicates p and q, coverage,
 disjointness, and a bound p implies r. `FiniteSetting.Formula`, `Sequent`,
-`axioms` and `Formula.eval` provide its syntax and interpretation. Its parameter
+`axioms` and `Formula.Eval` provide its syntax and interpretation. Its parameter
 is a predicate in the base context, not an externally supplied category or model.
 For P over X, the constructed classifier object is
 

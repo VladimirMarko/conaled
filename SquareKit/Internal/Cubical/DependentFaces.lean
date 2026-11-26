@@ -15,7 +15,7 @@ def dependentValue (x : Γ.Elements) (ρ : Face.Assignment x.obj.unop.dimension)
 
 theorem dependentValue_true (x : Γ.Elements) (ρ : Face.Assignment x.obj.unop.dimension) :
     dependentValue φ ψ x ρ = true ↔
-      ∃ h : (φ.app x.obj x.val).down.holds ρ = true, ψ.full (φ.restrictedElement x ρ h) := by
+      ∃ h : (φ.app x.obj x.val).down.holds ρ = true, ψ.Full (φ.restrictedElement x ρ h) := by
   by_cases h : (φ.app x.obj x.val).down.holds ρ = true
   · simp only [dependentValue,dite_eq_left h]
     exact ⟨fun hp => ⟨h,hp⟩, fun ⟨_,hp⟩ => hp⟩
@@ -66,23 +66,23 @@ def dependent : Cofibration Γ where
     exact dependentValue_natural φ ψ (show Γ.elementsMk I x ⟶ Γ.elementsMk J (Γ.map f x) from
       Functor.Elements.homMk f rfl) ρ
 
-theorem restrictedElement_none (x : Γ.Elements) (h : φ.full x) :
+theorem restrictedElement_none (x : Γ.Elements) (h : φ.Full x) :
     φ.restrictedElement x (fun _ => none) h =
       (restrictContext φ).elementsMk x.obj ⟨x.val,h⟩ :=
   congrArg ((restrictContext φ).elementsMk x.obj) (Subtype.ext (Γ.map_id_apply x.obj x.val))
 
 theorem dependent_full (x : Γ.Elements) :
-    (dependent φ ψ).full x ↔ ∃ h : φ.full x,
-      ψ.full ((restrictContext φ).elementsMk x.obj ⟨x.val,h⟩) := by
+    (dependent φ ψ).Full x ↔ ∃ h : φ.Full x,
+      ψ.Full ((restrictContext φ).elementsMk x.obj ⟨x.val,h⟩) := by
   change dependentValue φ ψ x (fun _ => none) = true ↔ _
   rw [dependentValue_true]
   constructor
   · rintro ⟨h,hψ⟩
-    exact ⟨h,(congrArg ψ.full (restrictedElement_none φ x h)).mp hψ⟩
+    exact ⟨h,(congrArg ψ.Full (restrictedElement_none φ x h)).mp hψ⟩
   · rintro ⟨h,hψ⟩
-    exact ⟨h,(congrArg ψ.full (restrictedElement_none φ x h)).mpr hψ⟩
+    exact ⟨h,(congrArg ψ.Full (restrictedElement_none φ x h)).mpr hψ⟩
 
-theorem ext_full {φ ψ : Cofibration Γ} (h : ∀ x : Γ.Elements, φ.full x ↔ ψ.full x) : φ = ψ := by
+theorem ext_full {φ ψ : Cofibration Γ} (h : ∀ x : Γ.Elements, φ.Full x ↔ ψ.Full x) : φ = ψ := by
   ext I γ
   apply congrArg ULift.up
   apply Face.Carrier.ext

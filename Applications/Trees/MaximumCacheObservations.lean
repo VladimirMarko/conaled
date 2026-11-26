@@ -47,13 +47,13 @@ theorem summary_eq_some_iff (t : BinaryTree α) (m : α) :
   simp only [Trees.mem_inorder_iff_mem_setTree]
 
 /-- All-node raw validity connects the direct reader to the canonical key list. -/
-theorem mx_eq_max?_inorder (t : BinaryTree (α × α)) (ht : invarMx t) :
+theorem mx_eq_max?_inorder (t : BinaryTree (α × α)) (ht : Valid t) :
     mx t = (Trees.inorder (Trees.Cached.erase t)).max? := by
   rw [mx_eq_summary t ht, summary_eq_max?_inorder]
 
 /-- A valid source cache returns exactly the greatest element of its key set.
 The membership conjunct retains attainment and excludes an invented default. -/
-theorem mx_eq_some_iff (t : BinaryTree (α × α)) (ht : invarMx t) (m : α) :
+theorem mx_eq_some_iff (t : BinaryTree (α × α)) (ht : Valid t) (m : α) :
     mx t = some m ↔ m ∈ Trees.setTree (Trees.Cached.erase t) ∧
       ∀ x ∈ Trees.setTree (Trees.Cached.erase t), x ≤ m := by
   rw [mx_eq_summary t ht, summary_eq_some_iff]

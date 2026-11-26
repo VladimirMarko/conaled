@@ -24,22 +24,22 @@ abbrev adjunction := SliceDependentProduct.adjunction (toUnit Nat)
 def comparison : newPi ≅ TerminalProduct.pi Nat :=
   adjunction.rightAdjointUniq (TerminalProduct.adjunction Nat)
 
-abbrev input := TypeTerminalProduct.family values
+abbrev input := TypeTerminalProduct.family Values
 abbrev result := (newPi.obj input).left
 
-def valuesEquiv : result ≃ TypeTerminalProduct.object values :=
+def valuesEquiv : result ≃ TypeTerminalProduct.object Values :=
   ((Over.forget unit).mapIso (comparison.app input)).toEquiv
 
 def last : result := valuesEquiv.symm Examples.TerminalProducts.Native.last
 
 /-- The new construction recovers the existing source-native dependent lambda. -/
 theorem last_native :
-    TypeTerminalProduct.piTyEquiv values (valuesEquiv last) = DependentSquares.lam body PUnit.unit := by
+    TypeTerminalProduct.piTyEquiv Values (valuesEquiv last) = DependentSquares.lam body PUnit.unit := by
   rw [last, Equiv.apply_symm_apply]
   exact Examples.TerminalProducts.Native.last_native
 
 theorem last_component (n : Nat) :
-    (TypeTerminalProduct.evaluate values (valuesEquiv last) n).val = n := by
+    (TypeTerminalProduct.evaluate Values (valuesEquiv last) n).val = n := by
   rw [last, Equiv.apply_symm_apply]
   exact Examples.TerminalProducts.Native.last_component n
 

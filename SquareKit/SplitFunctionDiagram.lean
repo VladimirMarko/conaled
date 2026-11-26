@@ -38,8 +38,8 @@ theorem restrictions_sub (σ : G ⟶ F) (x : G.Elements) :
 
 /-- Lift a diagram of base sections to a diagram of their dependent values. -/
 def totalDiagram (A : SplitPresheaf.Ty F) (K : D ⥤ F.Elements) :
-    (K ⋙ A).Elements ⥤ (SplitPresheaf.Ext A).Elements where
-  obj x := (SplitPresheaf.Ext A).elementsMk (K.obj x.obj).obj ⟨(K.obj x.obj).val, x.val⟩
+    (K ⋙ A).Elements ⥤ (SplitPresheaf.extension A).Elements where
+  obj x := (SplitPresheaf.extension A).elementsMk (K.obj x.obj).obj ⟨(K.obj x.obj).val, x.val⟩
   map {x y} f := Functor.Elements.homMk (K.map f.hom).hom (by
     apply total_ext F (K.map f.hom).map_val
     change A.map _ (A.map _ x.val) = y.val
@@ -56,11 +56,11 @@ def totalDiagram (A : SplitPresheaf.Ty F) (K : D ⥤ F.Elements) :
 abbrev Tower (D : Type u') [Category.{v'} D] :=
   (A : D ⥤ Type w) × (A.Elements ⥤ Type w)
 
-def diagram (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+def diagram (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (K : D ⥤ F.Elements) : Tower D := ⟨K ⋙ A, totalDiagram A K ⋙ B⟩
 
 /-- Pulling both levels of a dependent diagram commutes with its formation. -/
-theorem diagram_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem diagram_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (σ : G ⟶ F) (K : D ⥤ G.Elements) :
     diagram (SplitPresheaf.tySub A σ) (SplitPresheaf.tySub B (SplitPresheaf.lift A σ)) K =
       diagram A B (K ⋙ σ.mapElements) := rfl
@@ -69,10 +69,10 @@ theorem diagram_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPreshea
 abbrev Sections (T : Tower.{w} D) := SplitPresheaf.Tm T.2
 
 /-- A Kripke function retains a dependent value at every restriction and input. -/
-abbrev Value (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+abbrev Value (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (x : F.Elements) := Sections (diagram A B (restrictions F x))
 
-theorem value_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem value_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (σ : G ⟶ F) (x : G.Elements) :
     Value (SplitPresheaf.tySub A σ) (SplitPresheaf.tySub B (SplitPresheaf.lift A σ)) x =
       Value A B (σ.mapElements.obj x) := by
@@ -97,7 +97,7 @@ def pullSections (L : E ⥤ D) (T : Tower.{w} D) (t : Sections T) : Sections (pu
   val x := t.val ((precompElements L T.1).obj x)
   natural f := t.natural ((precompElements L T.1).map f)
 
-theorem diagram_precomp (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem diagram_precomp (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (K : D ⥤ F.Elements) (L : E ⥤ D) :
     pullTower L (diagram A B K) = diagram A B (L ⋙ K) := rfl
 
@@ -118,7 +118,7 @@ theorem restrictions_map {x y : F.Elements} (f : x ⟶ y) :
     simp
 
 /-- Restrict a dependent function by retaining its values at all further arrows. -/
-def restrict (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+def restrict (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y : F.Elements} (f : x ⟶ y) (t : Value A B x) : Value A B y :=
   cast (congrArg (fun K => Sections (diagram A B K)) (restrictions_map f))
     (pullSections (Under.map f.hom) (diagram A B (restrictions F x)) t)
@@ -135,18 +135,18 @@ theorem pullSections_functor_heq {E : Type*} [Category E] {L M : E ⥤ D}
     (h : L = M) (T : Tower.{w} D) (t : Sections T) :
     HEq (pullSections L T t) (pullSections M T t) := by cases h; rfl
 
-theorem restrict_heq (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem restrict_heq (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y : F.Elements} (f : x ⟶ y) (t : Value A B x) :
     HEq (restrict A B f t)
       (pullSections (Under.map f.hom) (diagram A B (restrictions F x)) t) := cast_heq _ _
 
-theorem restrict_id (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem restrict_id (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (x : F.Elements) (t : Value A B x) : restrict A B (𝟙 x) t = t := by
   apply eq_of_heq
   exact (restrict_heq A B (𝟙 x) t).trans
     (pullSections_functor_heq (Under.mapId_eq x.obj) _ t)
 
-theorem restrict_comp (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem restrict_comp (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y z : F.Elements} (f : x ⟶ y) (g : y ⟶ z) (t : Value A B x) :
     restrict A B g (restrict A B f t) = restrict A B (f ≫ g) t := by
   apply eq_of_heq
@@ -159,7 +159,7 @@ theorem restrict_comp (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresh
     (restrict_heq A B (f ≫ g) t).symm
 
 /-- Dependent natural functions form a family on the original context. -/
-def pi (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A)) :
+def pi (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A)) :
     F.Elements ⥤ Type (max u v w) where
   obj := Value A B
   map f := ↾restrict A B f
@@ -177,7 +177,7 @@ theorem type_hom_hext {X Y X' Y' : Type w} (hx : X = X') (hy : Y = Y')
   intro x
   exact eq_of_heq (h x x HEq.rfl)
 
-theorem restrict_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem restrict_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (σ : G ⟶ F) {x y : G.Elements} (f : x ⟶ y)
     (t : Value (SplitPresheaf.tySub A σ) (SplitPresheaf.tySub B (SplitPresheaf.lift A σ)) x)
     (s : Value A B (σ.mapElements.obj x)) (h : HEq t s) :
@@ -191,7 +191,7 @@ theorem restrict_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPreshe
     (restrict_heq A B (σ.mapElements.map f) s).symm
 
 /-- Strict stability is a proved equality of functors, not an isomorphism. -/
-theorem pi_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem pi_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (σ : G ⟶ F) :
     pi (SplitPresheaf.tySub A σ) (SplitPresheaf.tySub B (SplitPresheaf.lift A σ)) =
       σ.mapElements ⋙ pi A B := by
@@ -202,18 +202,18 @@ theorem pi_sub (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext
 
 
 /-- Read a dependent term along a whole restriction diagram. -/
-def abstractValue (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+def abstractValue (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm B) (K : D ⥤ F.Elements) : Sections (diagram A B K) where
   val x := t.val ((totalDiagram A K).obj x)
   natural f := t.natural ((totalDiagram A K).map f)
 
-theorem abstractValue_heq (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+theorem abstractValue_heq (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm B) {K L : D ⥤ F.Elements} (h : K = L) :
     HEq (abstractValue A t K) (abstractValue A t L) := by cases h; rfl
 
 variable {F : C ⥤ Type (max u v)}
 /-- Abstraction retains all restriction values of the body. -/
-def lam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+def lam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm B) : SplitPresheaf.Tm (pi A B) where
   val x := abstractValue A t (restrictions F x)
   natural f := by

@@ -74,7 +74,7 @@ open Authoring
 /-- Use the existing generated source term and its existing composition rule.
 The result compares repeated substitution of that fixed term, not a newly
 constructed concatenation in a different context presentation. -/
-def transport_twice
+def transportTwice
     (hs : SubDeriv Δ δ (TransferFrame.contextRaw UniversalTransfer.context)
       (TransferFrame.contextCode UniversalTransfer.context) σ s)
     (ht : SubDeriv Θ θ Δ δ τ t) :=
@@ -82,7 +82,7 @@ def transport_twice
 
 /-- The known dependent second-component conversion remains generated source
 conversion, and remains available under two further substitutions. -/
-def dependent_tail_twice
+def dependentTailTwice
     (hs : SubDeriv Δ δ (TransferFrame.contextRaw CongruenceCaller.context)
       (TransferFrame.contextCode CongruenceCaller.context) σ s)
     (ht : SubDeriv Θ θ Δ δ τ t) :=

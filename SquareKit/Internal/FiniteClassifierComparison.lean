@@ -14,7 +14,7 @@ open CategoryTheory CategoryTheory.Limits
 universe u
 variable {X : Type u} (T : Presentation X)
 
-def parameterDisplay : Over X := Over.mk (↾Subtype.val : {x // T.parameter x} ⟶ X)
+def parameterDisplay : Over X := Over.mk (↾Subtype.val : {x // T.Parameter x} ⟶ X)
 
 def formedDisplay : Over X := Over.mk (↾fun x : Total T => x.1)
 
@@ -83,14 +83,14 @@ universe u
 variable {X : Type u} (T : Presentation X)
 
 def parameterTerminal : parameterDisplay T ⟶ ⊤_ (Over X) :=
-  (Over.homMk (↾Subtype.val : {x // T.parameter x} ⟶ X) (by exact Category.comp_id _) :
+  (Over.homMk (↾Subtype.val : {x // T.Parameter x} ⟶ X) (by exact Category.comp_id _) :
     parameterDisplay T ⟶ Over.mk (𝟙 X)) ≫ (Over.mkIdTerminal.uniqueUpToIso terminalIsTerminal).hom
 
 instance : Mono (parameterTerminal T) := by
   unfold parameterTerminal
-  have : Mono (↾Subtype.val : {x // T.parameter x} ⟶ X) :=
+  have : Mono (↾Subtype.val : {x // T.Parameter x} ⟶ X) :=
     (CategoryTheory.mono_iff_injective _).mpr Subtype.val_injective
-  have : Mono (Over.homMk (↾Subtype.val : {x // T.parameter x} ⟶ X) (by exact Category.comp_id _) :
+  have : Mono (Over.homMk (↾Subtype.val : {x // T.Parameter x} ⟶ X) (by exact Category.comp_id _) :
       parameterDisplay T ⟶ Over.mk (𝟙 X)) := Over.mono_of_mono_left _
   infer_instance
 
@@ -105,7 +105,7 @@ def modelClassifierSectionEquiv : Model T ≃ (⊤_ (Over X) ⟶ parameterDispla
 /-- Finite predicate-preserving model maps are discrete by the proved complement argument. -/
 def modelDiscreteEquivalence : Model T ≌ Discrete (Model T) :=
   (modelComplementaryEquivalence T).trans
-    ((ComplementaryModel.discreteEquivalence T.parameter).trans
+    ((ComplementaryModel.discreteEquivalence T.Parameter).trans
       (Discrete.equivalence (modelComplementaryEquiv T).symm))
 
 /-- The formation model category agrees with the categorical complementary predicates. -/

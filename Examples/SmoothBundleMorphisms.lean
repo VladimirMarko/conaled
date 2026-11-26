@@ -13,8 +13,8 @@ local instance : TopologicalSpace C4 := ⊥
 local instance : DiscreteTopology C4 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) C4 := ChartedSpace.ofDiscreteTopology
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ C4 := IsManifold.of_discreteTopology _
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ C4 := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 
 def rotation (g : C4) : Map SmoothFiniteCover.C4Bundle.bundle SmoothFiniteCover.C4Bundle.bundle where
   toFun e := e * g
@@ -54,8 +54,8 @@ local instance : TopologicalSpace S3 := ⊥
 local instance : DiscreteTopology S3 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) S3 := ChartedSpace.ofDiscreteTopology
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ S3 := IsManifold.of_discreteTopology _
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ S3 := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 
 def sheet (g : S3ᵐᵒᵖ) : OpenPartialHomeomorph S3 PUnit where
   toFun _ := PUnit.unit
@@ -125,8 +125,8 @@ local instance : TopologicalSpace C4 := ⊥
 local instance : DiscreteTopology C4 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) C4 := ChartedSpace.ofDiscreteTopology
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ C4 := IsManifold.of_discreteTopology _
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ C4 := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 local instance : MulAction C4 PUnit where
   smul _ x := x
   one_smul _ := rfl
@@ -174,10 +174,10 @@ open scoped Manifold ContDiff
 local instance : TopologicalSpace G := ⊥
 local instance : DiscreteTopology G := ⟨rfl⟩
 local instance : ChartedSpace (Space 2) E := manifoldCharts
-local instance : IsManifold (Model 2) ∞ E := manifoldSmooth
+local instance : IsManifold (modelWithCorners 2) ∞ E := manifoldSmooth
 local instance : MulAction G E := rootAction
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 local instance : MulAction G PUnit where
   smul _ x := x
   one_smul _ := rfl

@@ -40,7 +40,7 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation theory Ω a) (ρ : V → Value.{u})
-    (h : ∀ p ∈ Ω, p.eval algebra ρ) : a.eval algebra ρ :=
+    (h : ∀ p ∈ Ω, p.Eval algebra ρ) : a.Eval algebra ρ :=
   d.sound model ρ h
 
 noncomputable def substitute {V W : Type} {Ω : List (Judgment V)} {a : Judgment V}
@@ -50,11 +50,11 @@ noncomputable def substitute {V W : Type} {Ω : List (Judgment V)} {a : Judgment
 /-- Typing soundness recovers a coherent section in the declared dependent family. -/
 theorem typed_result {V : Type} {Ω : List (Judgment V)} {γ a t : Expression V}
     (d : Derivation theory Ω (term γ a t)) (ρ : V → Value.{u})
-    (h : ∀ p ∈ Ω, p.eval algebra ρ) (Γ : Context.{u}) (A : Family Γ)
+    (h : ∀ p ∈ Ω, p.Eval algebra ρ) (Γ : Context.{u}) (A : Family Γ)
     (hΓ : γ.eval algebra ρ = .context Γ) (hA : a.eval algebra ρ = .family Γ A) :
     ∃ b : Presheaf.Term A, t.eval algebra ρ = .term Γ A b := by
   have ht := interpret d ρ h
-  change Source.predicate .term ![γ.eval algebra ρ,a.eval algebra ρ,t.eval algebra ρ] at ht
+  change Source.Predicate .term ![γ.eval algebra ρ,a.eval algebra ρ,t.eval algebra ρ] at ht
   rw [hΓ,hA] at ht
   exact Value.term_input Γ A _ ht
 
@@ -67,14 +67,14 @@ theorem typed_result_unique {V : Type} (ρ : V → Value.{u}) (t : Expression V)
 subTy/subTm rules separately validate actual context maps and dependent reindexing. -/
 theorem interpret_substitute {V W : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation theory Ω a) (σ : V → Expression W) (ρ : W → Value.{u})
-    (h : ∀ p ∈ Ω, p.eval algebra (fun x => (σ x).eval algebra ρ)) :
-    (a.subst σ).eval algebra ρ := by
+    (h : ∀ p ∈ Ω, p.Eval algebra (fun x => (σ x).eval algebra ρ)) :
+    (a.subst σ).Eval algebra ρ := by
   rw [Atom.eval_subst]
   exact interpret d _ h
 
 theorem familyEquality {V : Type} {Ω : List (Judgment V)} {a b : Expression V}
     (d : Derivation theory Ω (.eq a b)) (ρ : V → Value.{u})
-    (h : ∀ p ∈ Ω, p.eval algebra ρ) (Γ : Context.{u}) (A B : Family Γ)
+    (h : ∀ p ∈ Ω, p.Eval algebra ρ) (Γ : Context.{u}) (A B : Family Γ)
     (ha : a.eval algebra ρ = .family Γ A) (hb : b.eval algebra ρ = .family Γ B) : A = B := by
   have he := interpret d ρ h
   change a.eval algebra ρ = b.eval algebra ρ at he
@@ -86,7 +86,7 @@ theorem familyEquality {V : Type} {Ω : List (Judgment V)} {a b : Expression V}
 transport of every dependent section. This uses the proved rule interpreter. -/
 theorem conversion_independent {V : Type} {Ω : List (Judgment V)} {a b : Expression V}
     (d e : Derivation theory Ω (.eq a b)) (ρ : V → Value.{u})
-    (h : ∀ p ∈ Ω, p.eval algebra ρ) (Γ : Context.{u}) (A B : Family Γ)
+    (h : ∀ p ∈ Ω, p.Eval algebra ρ) (Γ : Context.{u}) (A B : Family Γ)
     (ha : a.eval algebra ρ = .family Γ A) (hb : b.eval algebra ρ = .family Γ B)
     (t : Presheaf.Term A) :
     t.convert (familyEquality d ρ h Γ A B ha hb) =

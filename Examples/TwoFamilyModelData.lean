@@ -16,7 +16,7 @@ local instance : IsGroupoid B where
     exact ⟨⟨g,h,k⟩⟩
 
 def integerContext : Context where
-  carrier := B
+  Carrier := B
   bicategory := inferInstance
   strict := inferInstance
   groupoid := inferInstance

@@ -53,7 +53,7 @@ theorem faceJoin_valid : Satisfies algebra.{u} faceJoinRule := by
   rw [hΓ,hφ,hψ,extra_faceJoin]
 
 theorem faceSubSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.{u})
-    (h : ∀ i, ((faceSubSchema out).premise i).eval algebra ρ) :
+    (h : ∀ i, ((faceSubSchema out).premise i).Eval algebra ρ) :
     ∃ (Γ Δ : Context.{u}) (φ : Cofibration Γ) (σ : Δ ⟶ Γ),
       ρ = ![.context Δ,.context Γ,.cofibration Γ φ,.substitution Δ Γ σ] := by
   obtain ⟨Γ,φ,hΓ,hφ⟩ := h 0

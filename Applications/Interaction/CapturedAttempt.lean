@@ -368,16 +368,16 @@ inductive Phase (A : Type u) (B : Type v) (H : Type w) (P : Type) where
 
 variable {A : Type u} {B : Type v} {H : Type w} {P : Type}
 
-def captureValid (ra : H → A → Prop) (rb : H → B → Prop) (c : Capture A B H) : Prop :=
+def CaptureValid (ra : H → A → Prop) (rb : H → B → Prop) (c : Capture A B H) : Prop :=
   ra c.ha c.returned.1 ∧ rb c.hb c.returned.2 ∧
     c.sealed.1 = c.returned.1 ∧ c.sealed.2 = c.returned.2
 
-def executionValid (ra : H → A → Prop) (rb : H → B → Prop) (e : Execution A B H) : Prop :=
-  captureValid ra rb e.capture ∧ e.childId = e.authorizedId ∧
+def ExecutionValid (ra : H → A → Prop) (rb : H → B → Prop) (e : Execution A B H) : Prop :=
+  CaptureValid ra rb e.capture ∧ e.childId = e.authorizedId ∧
     e.consumed.1 = e.capture.sealed.1 ∧ e.consumed.2 = e.capture.sealed.2
 
 /-- The completion decision is selected once. Reaping does not reselect it. -/
-def exitSupported (c : Completion) (actual : Option Nat) : Prop :=
+def ExitSupported (c : Completion) (actual : Option Nat) : Prop :=
   ∀ n, c = .exited n → actual = some n
 
 def beforePublication : Phase A B H P → Bool
@@ -459,7 +459,7 @@ def Primitive (ra : H → A → Prop) (rb : H → B → Prop)
   | .sealB value => ∀ ha a sa hb b, s = .readB ha a sa hb b → value = b
   | .spawn child x => ∀ c id, s = .authorized c id →
       child = id ∧ x.1 = c.sealed.1 ∧ x.2 = c.sealed.2
-  | .wait c actual => exitSupported c actual
+  | .wait c actual => ExitSupported c actual
   | .cleanup k actual reaped =>
       (k = .confirmed → reaped = true) ∧
       ∀ e c old, s = .decided e c old → ∀ n, old = some n → actual = some n
@@ -481,7 +481,7 @@ inductive PhaseStep (ra : H → A → Prop) (rb : H → B → Prop)
   | authorize (c id) : PhaseStep ra rb encode (.sealed c) (.authorize id) (.authorized c id)
   | spawn (c id child x) : child = id → x.1 = c.sealed.1 → x.2 = c.sealed.2 →
       PhaseStep ra rb encode (.authorized c id) (.spawn child x) (.running ⟨c,id,child,x⟩)
-  | wait (e c actual) : exitSupported c actual →
+  | wait (e c actual) : ExitSupported c actual →
       PhaseStep ra rb encode (.running e) (.wait c actual) (.decided e c actual)
   | cleanup (e c old k actual reaped) : (k = .confirmed → reaped = true) →
       (∀ n, old = some n → actual = some n) →
@@ -530,12 +530,12 @@ def Valid (ra : H → A → Prop) (rb : H → B → Prop) (encode : Phase A B H 
   | .readA h a => ra h a
   | .sealA h a sa => ra h a ∧ sa = a
   | .readB ha a sa hb b => ra ha a ∧ sa = a ∧ rb hb b
-  | .sealed c | .authorized c _ => captureValid ra rb c
-  | .running e => executionValid ra rb e
-  | .decided e c actual => executionValid ra rb e ∧ exitSupported c actual
-  | .cleaned e c actual k reaped => executionValid ra rb e ∧ exitSupported c actual ∧
+  | .sealed c | .authorized c _ => CaptureValid ra rb c
+  | .running e => ExecutionValid ra rb e
+  | .decided e c actual => ExecutionValid ra rb e ∧ ExitSupported c actual
+  | .cleaned e c actual k reaped => ExecutionValid ra rb e ∧ ExitSupported c actual ∧
       (k = .confirmed → reaped = true)
-  | .channels e c actual k reaped b finished => executionValid ra rb e ∧ exitSupported c actual ∧
+  | .channels e c actual k reaped b finished => ExecutionValid ra rb e ∧ ExitSupported c actual ∧
       (k = .confirmed → reaped = true) ∧ (b = true → finished = true)
   | .aborted s _ => Valid ra rb encode s
   | .requested s p => Valid ra rb encode s ∧ canRequest s = true ∧ p = encode s
@@ -581,7 +581,7 @@ theorem step_valid {ra : H → A → Prop} {rb : H → B → Prop}
     {encode : Phase A B H P → P} {s t event}
     (h : PhaseStep ra rb encode s event t) (valid : Valid ra rb encode s) :
     Valid ra rb encode t := by
-  cases h <;> simp_all [Valid, captureValid, executionValid]
+  cases h <;> simp_all [Valid, CaptureValid, ExecutionValid]
   case cleanup e c old k actual reaped hk preserve =>
     exact fun n hn => preserve n (valid.2 n hn)
 

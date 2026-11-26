@@ -10,9 +10,9 @@ inductive World where
 /-- Atom zero is the bottom diagonal; every other atom is true. -/
 def model : Model where
   World := World
-  access u v := u = .root ∧ v = .leaf
+  Access u v := u = .root ∧ v = .leaf
   transitive := by rintro u v w ⟨_, hv⟩ ⟨hv', _⟩; cases hv.symm.trans hv'
-  atom n w := n = 0 → w = .root
+  Atom n w := n = 0 → w = .root
 
 def negative : Formula := .atom 0
 def positive : Formula := .atom 1
@@ -27,7 +27,7 @@ inductive Axioms : Theory where
 
 theorem valid_axioms (P : Formula) (a : Axioms P) : model.Valid P := by
   cases a <;> intro w <;> cases w <;>
-    simp [Model.holds, model, negative, positive, target]
+    simp [Model.Holds, model, negative, positive, target]
 
 def bottomDiagonal : Diagonal Axioms .bot where
   sentence := negative
@@ -63,9 +63,9 @@ theorem rejected_open_necessitation : ¬ Nonempty (Derives Axioms [negative] (�
   rintro ⟨d⟩
   have h := d.sound model valid_axioms World.root
     (by intro i; refine Fin.cases ?_ (fun j => Fin.elim0 j) i
-        simp [Model.holds, model, negative])
+        simp [Model.Holds, model, negative])
   have bad := h .leaf ⟨rfl, rfl⟩
-  simp [Model.holds, model, negative] at bad
+  simp [Model.Holds, model, negative] at bad
 
 /-- Ordinary contextual identity does not suffice for theorem-level reflection. -/
 theorem no_open_necessitation_rule : ¬ Nonempty

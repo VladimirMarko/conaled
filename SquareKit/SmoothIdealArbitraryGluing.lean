@@ -9,7 +9,7 @@ namespace SquareKit.SmoothAlgebra.LocalIdeal
 variable {n m : ℕ} {ι : Type*}
 
 /-- Local ideal membership is closed under a genuinely finite sum. -/
-theorem finset_sum (r : Fin m → Free n) (f : ι → Space n → ℝ) (x : Space n)
+theorem finset_sum (r : Fin m → freeAlgebra n) (f : ι → Space n → ℝ) (x : Space n)
     (S : Finset ι) (h : ∀ i ∈ S, Mem r (f i) x) : Mem r (fun y => ∑ i ∈ S, f i y) x := by
   classical
   induction S using Finset.induction_on with
@@ -20,15 +20,15 @@ theorem finset_sum (r : Fin m → Free n) (f : ι → Space n → ℝ) (x : Spac
 
 /-- Arbitrary cover gluing retains local coefficient equations in the full ideal.
 A locally finite subordinate smooth partition supplies the assembled function. -/
-theorem arbitrary_gluing (r : Fin m → Free n) (U : ι → Set (Space n))
+theorem arbitrary_gluing (r : Fin m → freeAlgebra n) (U : ι → Set (Space n))
     (hU : ∀ i, IsOpen (U i)) (hcover : ∀ x, ∃ i, x ∈ U i)
     (f : ι → Space n → ℝ) (hf : ∀ i, ContDiffOn ℝ ∞ (f i) (U i))
     (hc : ∀ i j x, x ∈ U i → x ∈ U j → Mem r (fun y => f i y-f j y) x) :
-    ∃ g : Free n, ∀ i x, x ∈ U i → Mem r (fun y => g.val y-f i y) x := by
+    ∃ g : freeAlgebra n, ∀ i x, x ∈ U i → Mem r (fun y => g.val y-f i y) x := by
   classical
   obtain ⟨ρ,hρ⟩ := SmoothPartitionOfUnity.exists_isSubordinate (𝓘(ℝ,Space n))
     isClosed_univ U hU (fun x _ => mem_iUnion.mpr (hcover x))
-  let g : Free n := ⟨fun x => ∑ᶠ j, ρ j x * f j x, by
+  let g : freeAlgebra n := ⟨fun x => ∑ᶠ j, ρ j x * f j x, by
     exact (hρ.contMDiff_finsum_smul hU (fun i => (hf i).contMDiffOn)).contDiff⟩
   refine ⟨g,fun i x hx => ?_⟩
   obtain ⟨V,hV,hfin⟩ := ρ.locallyFinite x

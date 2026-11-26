@@ -11,7 +11,7 @@ variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable {Δ : Type*} [Bicategory Δ] [Strict Δ]
 variable (x : Section F) (σ : StrictPseudofunctor Δ Γ)
-omit [∀ (γ : Γ), IsGroupoid (F.obj γ).carrier] [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).carrier] in
+omit [∀ (γ : Γ), IsGroupoid (F.obj γ).Carrier] [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).Carrier] in
 theorem rootedEndpoint_reindex :
     (rootedEndpoint (reindex σ F) (x.reindex F σ)).comp (endpointReindex F σ) =
       (reindexHigher F σ).comp (rootedEndpoint F x) := by

@@ -78,7 +78,7 @@ theorem primitiveConeLaws : CechMatching.ConeLaws
 
 include hx
 
-theorem localComposite_baseTerm (f : Y ⟶ SplitSheaf.Ext A) :
+theorem localComposite_baseTerm (f : Y ⟶ SplitSheaf.extension A) :
     baseFunctor (ξ (model a A)).down ⋙ (parameterSignature a A f).base.map =
       (localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f) ⋙
         baseFunctor (ξ (SmoothQuotientSource.model a Y)).down := by

@@ -89,7 +89,7 @@ theorem comparison_computation (b : Boundary north west) (universal : b.Universa
   exact (Cocone.post_comp (b.gap universal c) h b.cocone).symm.trans
     (congrArg (Cocone.post h) (gap_section b universal c))
 
-def mapping_square_local (b : Boundary north west) (universal : b.Universal)
+def mappingSquareLocalEquivalence (b : Boundary north west) (universal : b.Universal)
     (c : Cocone north west S) (Z : Type u) (hm : IsEquiv (mappingComparison c Z)) :
     IsEquiv (fun h : S → Z => h ∘ b.gap universal c) :=
   cancelRight _ (b.restriction Z)
@@ -135,7 +135,7 @@ namespace Experiment
 
 def result (e : Experiment) : IsEquiv
     (fun h : e.S → e.Z => h ∘ e.boundary.gap e.universal e.target) :=
-  e.boundary.mapping_square_local e.universal e.target e.Z e.comparisonEquiv
+  e.boundary.mappingSquareLocalEquivalence e.universal e.target e.Z e.comparisonEquiv
 
 /-- The dependent tail records a chosen input, its image and the selected
 center of the actual fiber, not an arbitrary inhabitant of its type. -/

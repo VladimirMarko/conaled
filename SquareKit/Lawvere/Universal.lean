@@ -103,7 +103,7 @@ instance : Category P.EquationModel.{u,w} where
 def toGuarded (A : P.EquationModel.{u,w}) : GuardedTheory.Model P.guarded where
   Carrier := A.Carrier
   operation := A.operation
-  predicate := fun p => nomatch p
+  Predicate := fun p => nomatch p
   rules e x _ := A.laws e x
 
 def toAlgebra (A : P.EquationModel.{u,w}) : P.operations.Algebra := P.algebra A.toGuarded

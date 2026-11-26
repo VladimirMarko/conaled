@@ -9,8 +9,8 @@ abbrev tubeFace {Γ : Context.{0}} (φ : Cofibration Γ) := φ.reindex (projecti
 abbrev tubeSieve {Γ : Context.{0}} (φ : Cofibration Γ) := faceSieve (tubeFace φ)
 
 theorem freshPreservesTube {Γ : Context.{0}} (φ : Cofibration Γ)
-    (X : (total (interval Γ)).Elementsᵒᵖ) (p : (tubeSieve φ).contains X) :
-    (tubeSieve φ).contains ((freshenElements Γ).op.obj X) :=
+    (X : (total (interval Γ)).Elementsᵒᵖ) (p : (tubeSieve φ).Contains X) :
+    (tubeSieve φ).Contains ((freshenElements Γ).op.obj X) :=
   φ.full_natural (Functor.Elements.homMk (dropOpp X.unop.obj) rfl :
     intervalBaseElement X.unop ⟶ Γ.elementsMk _ (Γ.map (dropOpp X.unop.obj) X.unop.val.1)) p
 
@@ -22,7 +22,7 @@ def tubePrimitive {Γ : Context.{0}} (φ : Cofibration Γ) (z : PartialCocycle2 
 theorem tubePrimitive_boundary {Γ : Context.{0}} (φ : Cofibration Γ)
     (z : PartialCocycle2 (tubeSieve φ))
     {X Y Z : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) (g : Y ⟶ Z)
-    (p : (tubeSieve φ).contains Z) :
+    (p : (tubeSieve φ).Contains Z) :
     tubePrimitive φ z g p - tubePrimitive φ z (f ≫ g) p +
       tubePrimitive φ z f ((tubeSieve φ).downward g p) =
       z.cochain f g p - z.cochain ((intervalCap Γ false).mapElements.op.map f)
@@ -38,7 +38,7 @@ theorem tubePrimitive_boundary {Γ : Context.{0}} (φ : Cofibration Γ)
 /-- Both graph specializations coincide on the cap, including their selected cochain values. -/
 theorem tubePrimitive_cap {Γ : Context.{0}} (φ : Cofibration Γ)
     (z : PartialCocycle2 (tubeSieve φ))
-    {X Y : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) (p : (tubeSieve φ).contains Y) :
+    {X Y : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) (p : (tubeSieve φ).Contains Y) :
     tubePrimitive φ z ((intervalCap Γ false).mapElements.op.map f) p = 0 := by
   exact sub_self _
 

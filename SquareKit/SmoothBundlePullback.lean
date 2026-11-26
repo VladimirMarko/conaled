@@ -134,43 +134,43 @@ theorem chart_transition_source (z w : Pullback P f) :
       ((chartAt (Space m) (fst P f z)).symm.trans (chartAt (Space m) (fst P f w))).source :=
   (projectionSheets P f hf).chart_transition_source z w
 
-theorem isManifold [IsManifold (Model m) ∞ B'] :
+theorem isManifold [IsManifold (modelWithCorners m) ∞ B'] :
     letI := chartedSpace (m := m) P f hf
-    IsManifold (Model m) ∞ (Pullback P f) :=
+    IsManifold (modelWithCorners m) ∞ (Pullback P f) :=
   (projectionSheets P f hf).isManifold
 
-theorem smooth_of_fst_at [IsManifold (Model m) ∞ B'] {k : ℕ} {N : Type}
+theorem smooth_of_fst_at [IsManifold (modelWithCorners m) ∞ B'] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N]
     (h : N → Pullback P f) (x : N) (hc : ContinuousAt h x)
-    (hs : ContMDiffAt (Model k) (Model m) ∞ (fst P f ∘ h) x) :
+    (hs : ContMDiffAt (modelWithCorners k) (modelWithCorners m) ∞ (fst P f ∘ h) x) :
     letI := chartedSpace (m := m) P f hf
-    ContMDiffAt (Model k) (Model m) ∞ h x :=
+    ContMDiffAt (modelWithCorners k) (modelWithCorners m) ∞ h x :=
   (projectionSheets P f hf).smooth_of_proj_at h x hc hs
 
-theorem smooth_of_fst [IsManifold (Model m) ∞ B'] {k : ℕ} {N : Type}
+theorem smooth_of_fst [IsManifold (modelWithCorners m) ∞ B'] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N]
     (h : N → Pullback P f) (hc : Continuous h)
-    (hs : ContMDiff (Model k) (Model m) ∞ (fst P f ∘ h)) :
+    (hs : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ (fst P f ∘ h)) :
     letI := chartedSpace (m := m) P f hf
-    ContMDiff (Model k) (Model m) ∞ h :=
+    ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ h :=
   (projectionSheets P f hf).smooth_of_proj h hc hs
 
-theorem smooth_fst [IsManifold (Model m) ∞ B'] :
+theorem smooth_fst [IsManifold (modelWithCorners m) ∞ B'] :
     letI := chartedSpace (m := m) P f hf
-    ContMDiff (Model m) (Model m) ∞ (fst P f) :=
+    ContMDiff (modelWithCorners m) (modelWithCorners m) ∞ (fst P f) :=
   (projectionSheets P f hf).smooth_proj
 
-theorem smooth_iff_fst [IsManifold (Model m) ∞ B'] {k : ℕ} {N : Type}
+theorem smooth_iff_fst [IsManifold (modelWithCorners m) ∞ B'] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N] (h : N → Pullback P f) :
     letI := chartedSpace (m := m) P f hf
-    ContMDiff (Model k) (Model m) ∞ h ↔
-      Continuous h ∧ ContMDiff (Model k) (Model m) ∞ (fst P f ∘ h) :=
+    ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ h ↔
+      Continuous h ∧ ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ (fst P f ∘ h) :=
   (projectionSheets P f hf).smooth_iff_proj h
 
-theorem smooth_snd [IsManifold (Model m) ∞ B']
-    (hs : ContMDiff (Model m) (Model n) ∞ f) :
+theorem smooth_snd [IsManifold (modelWithCorners m) ∞ B']
+    (hs : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) :
     letI := chartedSpace (m := m) P f hf
-    ContMDiff (Model m) (Model n) ∞ (snd P f) := by
+    ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ (snd P f) := by
   let := chartedSpace (m := m) P f hf
   intro z
   have hi := ((trivialization P f z).smooth_inverse (sheetLabel P f z)).contMDiffAt
@@ -182,25 +182,25 @@ theorem smooth_snd [IsManifold (Model m) ∞ B']
   rw [equation P f y]
   exact ((trivialization P f z).inverse_projection _ _ hy).symm
 
-theorem smooth_action [IsManifold (Model m) ∞ B'] (g : G) :
+theorem smooth_action [IsManifold (modelWithCorners m) ∞ B'] (g : G) :
     letI := chartedSpace (m := m) P f hf
-    ContMDiff (Model m) (Model m) ∞ (fun z : Pullback P f => g • z) := by
+    ContMDiff (modelWithCorners m) (modelWithCorners m) ∞ (fun z : Pullback P f => g • z) := by
   let := chartedSpace (m := m) P f hf
   apply smooth_of_fst P f hf
   · exact ((continuous_fst P f).prodMk
       ((P.smooth_action g).continuous.comp (continuous_snd P f))).subtype_mk _
   · exact smooth_fst P f hf
 
-theorem smooth_sheet_inverse [IsManifold (Model m) ∞ B'] (z : Pullback P f)
+theorem smooth_sheet_inverse [IsManifold (modelWithCorners m) ∞ B'] (z : Pullback P f)
     (t : LocalTrivialization (n := n) (G := G) P.projection) (g : G) :
     letI := chartedSpace (m := m) P f hf
-    ContMDiffOn (Model m) (Model m) ∞ (sheet P f hf z t g).symm (f ⁻¹' t.base) := by
+    ContMDiffOn (modelWithCorners m) (modelWithCorners m) ∞ (sheet P f hf z t g).symm (f ⁻¹' t.base) := by
   let := chartedSpace (m := m) P f hf
   intro b hb
   apply (smooth_of_fst_at P f hf _ b
     ((sheet P f hf z t g).continuousOn_symm.continuousAt
       ((sheet P f hf z t g).open_target.mem_nhds hb)) ?_).contMDiffWithinAt
-  apply (contMDiffAt_id (I := Model m) (n := ∞)).congr_of_eventuallyEq
+  apply (contMDiffAt_id (I := modelWithCorners m) (n := ∞)).congr_of_eventuallyEq
   filter_upwards [(sheet P f hf z t g).open_target.mem_nhds hb] with c hc
   exact (sheet P f hf z t g).right_inv hc
 
@@ -212,7 +212,7 @@ theorem sheet_symm_apply (z : Pullback P f)
   change (if hb : f b ∈ t.base then _ else _) = _
   rw [dite_eq_left hb]
 
-def liftTrivialization [IsManifold (Model m) ∞ B'] (z : Pullback P f)
+def liftTrivialization [IsManifold (modelWithCorners m) ∞ B'] (z : Pullback P f)
     (t : LocalTrivialization (n := n) (G := G) P.projection) :
     letI := chartedSpace (m := m) P f hf
     LocalTrivialization (n := m) (G := G) (fst P f) := by
@@ -231,7 +231,7 @@ def liftTrivialization [IsManifold (Model m) ∞ B'] (z : Pullback P f)
       exact Prod.ext rfl (t.equivariant g h (f b) hb) }
 
 /-- The ordinary pullback bundle is derived from the original local sheets. -/
-def bundle [IsManifold (Model m) ∞ B'] :
+def bundle [IsManifold (modelWithCorners m) ∞ B'] :
     letI := chartedSpace (m := m) P f hf
     Bundle (n := m) (G := G) (B := B') (E := Pullback P f) := by
   letI := chartedSpace (m := m) P f hf
@@ -248,7 +248,7 @@ def bundle [IsManifold (Model m) ∞ B'] :
 section Maps
 variable {E' E'' : Type} [TopologicalSpace E'] [TopologicalSpace E'']
   [ChartedSpace (Space n) E'] [ChartedSpace (Space n) E'']
-  [MulAction G E'] [MulAction G E''] [IsManifold (Model m) ∞ B']
+  [MulAction G E'] [MulAction G E''] [IsManifold (modelWithCorners m) ∞ B']
 variable {Q : Bundle (n := n) (G := G) (B := B) (E := E')}
   {R : Bundle (n := n) (G := G) (B := B) (E := E'')}
 
@@ -301,7 +301,7 @@ theorem map_comp (k : Map P Q) (l : Map Q R) :
 end Maps
 
 section Identity
-variable [IsManifold (Model n) ∞ B]
+variable [IsManifold (modelWithCorners n) ∞ B]
 
 def identityEquiv : Pullback P (id : B → B) ≃ E where
   toFun := snd P id
@@ -362,8 +362,8 @@ theorem identityMap_natural {E' : Type} [TopologicalSpace E']
 end Identity
 
 section Composition
-variable [IsManifold (Model m) ∞ B'] {k : ℕ} {B'' : Type}
-  [TopologicalSpace B''] [ChartedSpace (Space k) B''] [IsManifold (Model k) ∞ B'']
+variable [IsManifold (modelWithCorners m) ∞ B'] {k : ℕ} {B'' : Type}
+  [TopologicalSpace B''] [ChartedSpace (Space k) B''] [IsManifold (modelWithCorners k) ∞ B'']
   (g : B'' → B') (hg : Continuous g)
 
 /-- Flatten the actual iterated fiber product, retaining both base and total points. -/

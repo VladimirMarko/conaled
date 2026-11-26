@@ -62,13 +62,13 @@ theorem FullCut.shift {e : Nat} (h : FullCut e) : FullCut (encode (shiftCode e))
 /-- Finite cuts carry no bound in their realizers. -/
 noncomputable def iterationCuts : Assembly.{u} where
   Carrier := ULift.{u} Nat
-  realizes e n := Cut e n.down
+  Realizes e n := Cut e n.down
   inhabited n := ⟨encode (cutCode n.down), cutCode_realizes n.down⟩
 
 /-- `none` denotes the infinite cut, whereas `some n` denotes a finite cut. -/
 noncomputable def finalCuts : Assembly.{u} where
   Carrier := ULift.{u} (Option Nat)
-  realizes e n := match n.down with
+  Realizes e n := match n.down with
     | some n => Cut e n
     | none => FullCut e
   inhabited n := by

@@ -15,8 +15,8 @@ noncomputable def liftNatExtensionValue {Γ : Assembly}
 theorem liftNatExtension_graph {Γ : Assembly}
     {h : Hom (prod Γ iterationCuts) (programLift (encoded Nat))}
     {p : Code} (hp : Tracks (prod Γ iterationCuts) (programLift (encoded Nat)) p.eval h.toFun)
-    {γ : Γ.Carrier} {r : Nat} (hr : Γ.realizes r γ)
-    {e : Nat} {t : Option Nat} (he : finalCuts.{0}.realizes e ⟨t⟩) (v : Nat) :
+    {γ : Γ.Carrier} {r : Nat} (hr : Γ.Realizes r γ)
+    {e : Nat} {t : Option Nat} (he : finalCuts.{0}.Realizes e ⟨t⟩) (v : Nat) :
     v ∈ run (encode (searchCode (encode (observerCode p r)) e)) ↔
       liftNatExtensionValue h γ t = some v := by
   rw [cutSearch_mem hp hr]

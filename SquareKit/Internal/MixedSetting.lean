@@ -120,10 +120,10 @@ def pulled {X Y : Type} (T : Presentation X) (σ : Y → X) :
 respectively the constructed total family and the pullback of the old family. -/
 theorem graph_routes {X Y : Type} (T : Presentation X) (σ : Y → X)
     (a : Total (T.subst σ)) (b : Bool) :
-    (formula (fun _ : Unit => pulled T σ) (composite Arrow.first Arrow.second) ()
+    (FormulaHolds (fun _ : Unit => pulled T σ) (composite Arrow.first Arrow.second) ()
       (environment (pullbackEquiv T σ).symm (fun p => p.original.2.isLeft) a b) ↔
       b = a.2.isLeft) ∧
-    (formula (fun _ : Unit => formed T σ) (composite Arrow.first Arrow.second) ()
+    (FormulaHolds (fun _ : Unit => formed T σ) (composite Arrow.first Arrow.second) ()
       (environment id (fun p : Total (T.subst σ) => p.2.isLeft) a b) ↔
       b = a.2.isLeft) :=
   ⟨graph (fun _ : Unit => pulled T σ) Arrow.first Arrow.second () _,
@@ -176,9 +176,9 @@ It includes the existential binder in the graph formula. -/
 theorem graph_substitution {X Y : Bool → Type} (T : ∀ b, Presentation (X b))
     (σ : ∀ b, Y b → X b) (θ : Sub Arrow [.input, .output] Δ)
     (ρ : Context (pairedPulled T σ) Δ false) :
-    formula (reindex (swap (pairedPulled T σ)) (fun _ : Unit => true))
+    FormulaHolds (reindex (swap (pairedPulled T σ)) (fun _ : Unit => true))
       ((composite Arrow.first Arrow.second).subst θ) () ρ ↔
-    formula (pairedPulled T σ) (composite Arrow.first Arrow.second) false
+    FormulaHolds (pairedPulled T σ) (composite Arrow.first Arrow.second) false
       (fun x => term (pairedPulled T σ) (θ x) false ρ) :=
   substitution (swap (pairedPulled T σ)) (fun _ : Unit => true) _ θ () ρ
 end SquareKit.Internal.MixedSetting

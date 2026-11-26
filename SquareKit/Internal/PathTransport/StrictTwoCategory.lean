@@ -10,12 +10,12 @@ universe u v w
 
 /-- A fixed universe of strict 2-categories; no elimination laws are fields. -/
 structure StrictTwoCategory where
-  carrier : Type u
-  [bicategory : Bicategory.{w,v} carrier]
-  [strict : Bicategory.Strict carrier]
+  Carrier : Type u
+  [bicategory : Bicategory.{w,v} Carrier]
+  [strict : Bicategory.Strict Carrier]
 
 attribute [instance] StrictTwoCategory.bicategory StrictTwoCategory.strict
-instance : CoeSort (StrictTwoCategory.{u,v,w}) (Type u) := ⟨StrictTwoCategory.carrier⟩
+instance : CoeSort (StrictTwoCategory.{u,v,w}) (Type u) := ⟨StrictTwoCategory.Carrier⟩
 
 namespace StrictTwoCategory
 instance : CategoryStruct StrictTwoCategory.{u,v,w} where

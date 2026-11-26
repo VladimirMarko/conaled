@@ -37,7 +37,7 @@ theorem split_source_agreement :
 strong provider, with no additional model-builder obligations. -/
 theorem interpret_strong {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (proof : Derivation theory Ω a) (ρ : V → Value M.toStructuralModel)
-    (h : ∀ p ∈ Ω, p.eval (algebra M (ofStrong S)) ρ) :
-    a.eval (algebra M (ofStrong S)) ρ := interpret proof M (ofStrong S) ρ h
+    (h : ∀ p ∈ Ω, p.Eval (algebra M (ofStrong S)) ρ) :
+    a.Eval (algebra M (ofStrong S)) ρ := interpret proof M (ofStrong S) ρ h
 
 end SquareKit.Internal.DependentJudgments.PrimitiveSigma

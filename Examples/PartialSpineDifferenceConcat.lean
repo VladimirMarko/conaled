@@ -61,15 +61,15 @@ theorem paused_disagrees (s : Nat) :
   exact guarded_disagrees s
 
 theorem guarded_first (p : Nat → Prop) (s : Nat) :
-    first p (Observations.concat (observations (guarded repeatCounting) s)) = p s ∧
-      first p (Observations.concatD (observations (guarded repeatCounting) s)) = False := by
+    First p (Observations.concat (observations (guarded repeatCounting) s)) = p s ∧
+      First p (Observations.concatD (observations (guarded repeatCounting) s)) = False := by
   rw [(guarded_disagrees s).2.1, (guarded_disagrees s).1]
   exact ⟨first_guarded p PartialSpineProgress.count s,
     Observations.foldr_bottom _ False (fun a => (ScottContinuous.const (p a)).monotone)⟩
 
 theorem paused_first (p : Nat → Prop) (s : Nat) :
-    first p (Observations.concat (observations (paused repeatCounting) (false, s))) = p s ∧
-      first p (Observations.concatD (observations (paused repeatCounting) (false, s))) = False := by
+    First p (Observations.concat (observations (paused repeatCounting) (false, s))) = p s ∧
+      First p (Observations.concatD (observations (paused repeatCounting) (false, s))) = False := by
   rw [← guarded_paused_observations repeatCounting s]
   exact guarded_first p s
 

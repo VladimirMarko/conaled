@@ -126,15 +126,15 @@ theorem successor_not_natural : ¬ RawTransformation.Natural (equality endomaps)
   omega
 
 /-- Preserving the selected nullary operation restricts arrows to zero-preserving maps. -/
-def preservesZero {a b : Unit} (f : endomaps.Hom a b) := PLift (f 0 = 0)
+def PreservesZero {a b : Unit} (f : endomaps.Hom a b) := PLift (f 0 = 0)
 
-def zeroClosure : MorphismRestriction.CategoryClosure endomaps preservesZero where
+def zeroClosure : MorphismRestriction.CategoryClosure endomaps PreservesZero where
   ident := ⟨rfl⟩
   comp {_a _b _c} {g _f} hg hf := ⟨(congrArg g hf.down).trans hg.down⟩
 
 /-- The native category and the raw restricted presentation recover each entire arrow. -/
 def pointedHomEquiv :
-    MorphismRestriction.Hom endomaps preservesZero () () ≃ (Pointed.of (0 : Nat) ⟶ Pointed.of (0 : Nat)) where
+    MorphismRestriction.Hom endomaps PreservesZero () () ≃ (Pointed.of (0 : Nat) ⟶ Pointed.of (0 : Nat)) where
   toFun f := ⟨f.arrow, f.sat.down⟩
   invFun f := ⟨f.toFun, ⟨f.map_point⟩⟩
   left_inv _ := rfl
@@ -145,7 +145,7 @@ example (f g : (MorphismRestriction.ops zeroClosure).Hom () ()) :
     pointedHomEquiv ((MorphismRestriction.ops zeroClosure).comp g f) =
       pointedHomEquiv f ≫ pointedHomEquiv g := rfl
 
-theorem successor_excluded : ¬ Nonempty (preservesZero (a := ()) (b := ()) Nat.succ) := by
+theorem successor_excluded : ¬ Nonempty (PreservesZero (a := ()) (b := ()) Nat.succ) := by
   rintro ⟨h⟩
   exact Nat.noConfusion h.down
 

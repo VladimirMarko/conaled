@@ -73,7 +73,7 @@ theorem splitDouble_diagonal :
     (SplitSheaf.Cech.diagonal (SplitSheaf.ofDisplay f))]
 
 abbrev splitThird : SplitSheaf.Cech.triple (SplitSheaf.ofDisplay f) ⟶
-    SplitSheaf.Ext (SplitSheaf.ofDisplay f) :=
+    SplitSheaf.extension (SplitSheaf.ofDisplay f) :=
   SplitSheaf.lift (SplitSheaf.ofDisplay f)
     (SplitSheaf.Cech.first (SplitSheaf.ofDisplay f) ≫ SplitSheaf.p (SplitSheaf.ofDisplay f))
 

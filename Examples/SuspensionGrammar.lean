@@ -15,26 +15,26 @@ namespace Examples.SuspensionGrammar
 open Suspensions.Core Suspensions.Grammar
 
 def base : Base Empty where
-  identifier := fun text => text ∈ ["f", "x", "C", "$", "$+"]
-  atomicExpression := Empty
-  expression := Empty
-  atomicPattern := Empty
-  pattern := Empty
+  Identifier := fun text => text ∈ ["f", "x", "C", "$", "$+"]
+  AtomicExpression := Empty
+  Expression := Empty
+  AtomicPattern := Empty
+  Pattern := Empty
   embedAtomicExpression := fun impossible => nomatch impossible
   embedExpression := fun impossible => nomatch impossible
   embedAtomicPattern := fun impossible => nomatch impossible
   embedPattern := fun impossible => nomatch impossible
 
-def f : Identifier base.identifier := ⟨"f", by simp [base], by decide, .valueVariable 0⟩
-def x : Identifier base.identifier := ⟨"x", by simp [base], by decide, .valueVariable 1⟩
-def c : Identifier base.identifier := ⟨"C", by simp [base], by decide, .valueConstructor 2⟩
-def dollarPlus : Identifier base.identifier := ⟨"$+", by simp [base], by decide, .valueVariable 3⟩
+def f : Identifier base.Identifier := ⟨"f", by simp [base], by decide, .valueVariable 0⟩
+def x : Identifier base.Identifier := ⟨"x", by simp [base], by decide, .valueVariable 1⟩
+def c : Identifier base.Identifier := ⟨"C", by simp [base], by decide, .valueConstructor 2⟩
+def dollarPlus : Identifier base.Identifier := ⟨"$+", by simp [base], by decide, .valueVariable 3⟩
 
 /-- Reservation removes the exact dollar word even though the inherited
 identifier class admitted it. It does not remove all longer symbolic names. -/
 theorem exact_reserved_word :
-    base.identifier "$" ∧
-      (¬ ∃ name : Identifier base.identifier, name.spelling = "$") ∧
+    base.Identifier "$" ∧
+      (¬ ∃ name : Identifier base.Identifier, name.spelling = "$") ∧
       dollarPlus.spelling = "$+" := by
   exact ⟨by simp [base], dollar_not_identifier _, rfl⟩
 

@@ -69,7 +69,7 @@ example : IsLimit (DeMorgan.operations.powerFan 0) := DeMorgan.operations.powerL
 example : PreservesFiniteProducts realModel.toFunctor := inferInstance
 
 /-- Existing smooth freeness remains available alongside the categorical API. -/
-example (n : Nat) : SmoothAlgebra.Hom (SmoothAlgebra.Free n) ℝ ≃ (Fin n → ℝ) :=
+example (n : Nat) : SmoothAlgebra.Hom (SmoothAlgebra.freeAlgebra n) ℝ ≃ (Fin n → ℝ) :=
   SmoothAlgebra.freeEquiv n
 
 example (a b : Cubical.Cube) :

@@ -56,12 +56,12 @@ abbrev packSubRule := schema (.eq (comp sumLift (pack first second))
 theorem schema_valid (out : Judgment (Fin 5))
     (valid : ∀ (Γ : M.Context) (A : M.Family Γ) (B : M.Family (M.extend Γ A))
       (Δ : M.Context) (σ : M.Substitution Δ Γ),
-      out.eval (algebra M S.toCapability)
+      out.Eval (algebra M S.toCapability)
         ![.context Γ, .family Γ A, .family (M.extend Γ A) B, .context Δ, .substitution Δ Γ σ]) :
     Satisfies (algebra M S.toCapability) (schema out) := by
   intro ρ h
   let ρ₀ : Fin 3 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
-  have h₀ : ∀ i, (formationRule.premise i).eval (algebra M S.toCapability) ρ₀ := by
+  have h₀ : ∀ i, (formationRule.premise i).Eval (algebra M S.toCapability) ρ₀ := by
     intro i
     fin_cases i <;> first | exact h 0 | exact h 1
   rcases formationSchema_inputs M S.toCapability _ ρ₀ h₀ with ⟨Γ, A, B, e⟩
@@ -195,7 +195,7 @@ theorem splitSchema_valid (out : Judgment (Fin 7))
       (C : M.Family (M.extend Γ (S.sigma A B)))
       (d : M.Section (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B)))
       (Δ : M.Context) (σ : M.Substitution Δ Γ),
-      out.eval (algebra M S.toCapability)
+      out.Eval (algebra M S.toCapability)
         ![.context Γ, .family Γ A, .family (M.extend Γ A) B,
           .family (M.extend Γ (S.sigma A B)) C,
           .term (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B)) d,
@@ -203,7 +203,7 @@ theorem splitSchema_valid (out : Judgment (Fin 7))
     Satisfies (algebra M S.toCapability) (splitSchema out) := by
   intro ρ h
   let ρ₀ : Fin 5 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
-  have h₀ : ∀ i, (PrimitiveSigma.splitRule.premise i).eval (algebra M S.toCapability) ρ₀ := by
+  have h₀ : ∀ i, (PrimitiveSigma.splitRule.premise i).Eval (algebra M S.toCapability) ρ₀ := by
     intro i
     fin_cases i <;> first | exact h 0 | exact h 1 | exact h 2 | exact h 3
   rcases PrimitiveSigma.splitSchema_inputs M S.toCapability _ ρ₀ h₀ with ⟨Γ, A, B, C, d, e⟩
@@ -342,8 +342,8 @@ supply source derivations and assumptions, including for dependent elimination. 
 theorem interpret {a : Judgment V} (d : Derivation theory Ω a)
     (M : PathTransport.Typed.Model.{u}) (S : Stable M.toStructuralModel)
     (ρ : V → Value M.toStructuralModel)
-    (h : ∀ p ∈ Ω, p.eval (algebra M S.toCapability) ρ) :
-    a.eval (algebra M S.toCapability) ρ := d.sound (model M S) ρ h
+    (h : ∀ p ∈ Ω, p.Eval (algebra M S.toCapability) ρ) :
+    a.Eval (algebra M S.toCapability) ρ := d.sound (model M S) ρ h
 
 /-- Forgetting stability equations recovers the selected original interpreter. -/
 noncomputable def forget : GuardedTheory.Model PrimitiveSigma.theory where

@@ -25,7 +25,7 @@ theorem recover_coordinate {n : Nat} (q : (boundedSequences n).Carrier) (k : Nat
   exact (coordinate_eq_some _ _ _).trans (recover_graph q k v)
 
 theorem recover_realizer_iff {n e : Nat} (q : (boundedSequences n).Carrier) :
-    StateRealizer e (recover q) ↔ partialSequences.realizes e q.val := by
+    StateRealizer e (recover q) ↔ partialSequences.Realizes e q.val := by
   constructor
   · intro hr k r hk
     change r = k at hk

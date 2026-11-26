@@ -6,7 +6,7 @@ open GraphTarget
 universe v
 
 inductive Telescope (M : Interpretation Graph.Arrow) : Frame M → E → E → Prop → Prop where
-  | implication : f.prop p P → f.prop q Q →
+  | implication : f.Prop p P → f.Prop q Q →
       ProofDenotes M f.proofBinder
         (addHyp (fun _ _ _ => False) (.bvar 0) p.shift P) body q.shift Q →
       Telescope M f (.all p q.shift) (.lam p body) (P → Q)
@@ -98,15 +98,15 @@ theorem ArtifactDenotes.sound (h : ArtifactDenotes artifact P) : P := by
   exact hd.sound
 
 theorem emitCore_denotes (d : GraphTarget.Declaration) :
-    ClosedDenotes.{v} (emitCore d).1 (emitCore d).2 (Declaration.denote.{v} d) := by
+    ClosedDenotes.{v} (emitCore d).1 (emitCore d).2 (Declaration.Denote.{v} d) := by
   apply ClosedDenotes.parameters
   intro M
   apply context_denotes
   intro m a ρ
   have hp : ProofDenotes M ⟨d.context, m.shift, shift a, ρ⟩
       (addHyp (fun _ _ _ => False) (.bvar 0) (formula m a d.premise).shift
-        (d.premise.eval M ρ)) (.bvar 0)
-      (formula m.shift (shift a) d.premise) (d.premise.eval M ρ) := by
+        (d.premise.Eval M ρ)) (.bvar 0)
+      (formula m.shift (shift a) d.premise) (d.premise.Eval M ρ) := by
     rw [formula_weaken]
     exact .hyp (.inl ⟨rfl, rfl, rfl⟩)
   have hd := code_denotes M d.code m.shift (shift a) ρ _ (.bvar 0) hp
@@ -117,7 +117,7 @@ theorem emitCore_denotes (d : GraphTarget.Declaration) :
 
 /-- Preservation for every declaration and all its Code constructors. -/
 theorem emit_denotes (d : GraphTarget.Declaration) :
-    ArtifactDenotes.{v} (emit d) (Declaration.denote.{v} d) :=
+    ArtifactDenotes.{v} (emit d) (Declaration.Denote.{v} d) :=
   ⟨_, _, (emit_decodes d).1, (emit_decodes d).2, emitCore_denotes d⟩
 
 end SquareKit.Internal.GraphEmissionPure

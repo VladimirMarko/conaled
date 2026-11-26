@@ -20,7 +20,7 @@ theorem splitEta_valid (M : PathTransport.Typed.Model.{u}) (S : Capability M.toS
     Satisfies (algebra M S) splitEtaRule := by
   intro ρ h
   let ρ₀ : Fin 3 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
-  have h₀ : ∀ i, (formationRule.premise i).eval (algebra M S) ρ₀ := by
+  have h₀ : ∀ i, (formationRule.premise i).Eval (algebra M S) ρ₀ := by
     intro i
     fin_cases i <;> first | exact h 0 | exact h 1
   rcases formationSchema_inputs M S _ ρ₀ h₀ with ⟨Γ, A, B, e⟩
@@ -66,8 +66,8 @@ noncomputable def closureAlgebra (M : PathTransport.Typed.Model.{u}) (S : Capabi
   operation
     | .inl op => (algebra M S).operation op
     | .inr op => nomatch op
-  predicate
-    | .inl p => (algebra M S).predicate p
+  Predicate
+    | .inl p => (algebra M S).Predicate p
     | .inr p => nomatch p
 
 /-- Sequential extension is valid because the extra law follows from the first

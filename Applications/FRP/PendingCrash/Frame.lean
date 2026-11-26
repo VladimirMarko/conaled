@@ -39,7 +39,7 @@ def Frame.update (f : Frame) (slot : Bool) (r : Request) : Frame :=
 
 def terminal (phase : Phase) : Bool := phase == .committed || phase == .cancelled
 
-def requestValid (state : Bool) (r : Request) : Prop :=
+def RequestValid (state : Bool) (r : Request) : Prop :=
   (r.routeOpen = false → terminal r.phase = true) ∧
   match r.phase with
   | .accepted => r.output = none ∧ r.receipt = none
@@ -50,8 +50,8 @@ def requestValid (state : Bool) (r : Request) : Prop :=
       r.receipt = some ⟨r.identity, .published r.input y⟩
   | .cancelled => r.receipt = some ⟨r.identity, .prevented r.input⟩
 
-instance (state : Bool) (r : Request) : Decidable (requestValid state r) := by
-  unfold requestValid
+instance (state : Bool) (r : Request) : Decidable (RequestValid state r) := by
+  unfold RequestValid
   cases r.phase <;> infer_instance
 
 /-- Finite slot checks retain the lifetime counter and the exact occupied order. -/
@@ -59,7 +59,7 @@ def Frame.Valid (f : Frame) : Prop :=
   f.order.Nodup ∧ f.order.length ≤ 2 ∧
   (∀ slot : Bool, slot ∈ f.order ↔ (f.requests.get slot).isSome = true) ∧
   (∀ slot : Bool, ∀ r ∈ f.requests.get slot,
-    r.identity < f.nextIdentity ∧ requestValid f.logical r ∧
+    r.identity < f.nextIdentity ∧ RequestValid f.logical r ∧
     (slot ∈ f.order.tail → r.phase = .accepted ∨ r.phase = .cancelled)) ∧
   (∀ l ∈ f.requests.left, ∀ r ∈ f.requests.right, l.identity ≠ r.identity)
 

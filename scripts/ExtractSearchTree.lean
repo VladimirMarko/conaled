@@ -498,7 +498,7 @@ private def stableSortCase {W : Type} (carrier : String) (inRange : Int → Bool
   unless encoded.map (fun (key, label) => (decode key, label)) == input do
     throw (IO.userError s!"{carrier}: labelled conversion changed an input")
   let output ← IO.lazyPure fun _ =>
-    Examples.ExtractedPrograms.sort_int (fun a b => leb a.1 b.1) encoded
+    Examples.ExtractedPrograms.decodedSort (fun a b => leb a.1 b.1) encoded
   let decoded ← IO.lazyPure fun _ => output.map (fun (key, label) => (decode key, label))
   unless decoded == [(1, "middle"), (2, "first"), (2, "last")] do
     throw (IO.userError s!"{carrier}: source sort did not preserve labelled ties")
@@ -518,7 +518,7 @@ private def finiteSortCase {W : Type} (carrier : String) (width : Nat)
   let encoded ← IO.lazyPure fun _ => input.map encode
   unless encoded.map decode == input do
     throw (IO.userError s!"{carrier}: signed conversion changed an input key")
-  let output ← IO.lazyPure fun _ => Examples.ExtractedPrograms.sort_int leb encoded
+  let output ← IO.lazyPure fun _ => Examples.ExtractedPrograms.decodedSort leb encoded
   let decoded ← IO.lazyPure fun _ => output.map decode
   unless decoded == [minimum, -1, -1, 0, maximum] do
     throw (IO.userError s!"{carrier}: source sort returned an incorrect signed result")

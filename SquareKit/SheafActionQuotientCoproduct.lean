@@ -20,9 +20,9 @@ def valueMap : SheafTorsor.Coproduct.total (torsors P) ⟶ M :=
   Sigma.desc (fun i => (P i).totalMap)
 
 lemma valueMap_inclusion (i : I) (U : Cᵒᵖ)
-    (p : (SplitSheaf.Ext (P i).torsor.family).obj.obj U) :
+    (p : (SplitSheaf.extension (P i).torsor.family).obj.obj U) :
     (valueMap P).hom.app U
-      ((Sigma.ι (fun i => SplitSheaf.Ext (P i).torsor.family) i).hom.app U p) =
+      ((Sigma.ι (fun i => SplitSheaf.extension (P i).torsor.family) i).hom.app U p) =
       (P i).value ((Y i).obj.elementsMk U p.1) p.2 :=
   congrArg (fun f => f.hom.app U p) (Sigma.ι_comp_desc (fun i => (P i).totalMap) i)
 

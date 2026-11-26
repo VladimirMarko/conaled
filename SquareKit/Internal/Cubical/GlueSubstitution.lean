@@ -43,20 +43,20 @@ def inverseFace {x : Δ.Elements}
     (s : CompatibleElement (φ.reindex σ) (reindex A σ)
       (reindex T (restrictSubstitution φ σ))
       (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e) x)
-    {y : Γ.Elements} (f : σ.mapElements.obj x ⟶ y) (h : φ.full y) : T.obj (faceObj φ y h) :=
+    {y : Γ.Elements} (f : σ.mapElements.obj x ⟶ y) (h : φ.Full y) : T.obj (faceObj φ y h) :=
   Equiv.piCongrLeft (P := fun z : Σ y, σ.mapElements.obj x ⟶ y =>
-    ∀ h : φ.full z.1, T.obj (faceObj φ z.1 h)) (substitutionArrowEquiv σ x)
+    ∀ h : φ.Full z.1, T.obj (faceObj φ z.1 h)) (substitutionArrowEquiv σ x)
       (fun z h => s.face z.2 h) ⟨y,f⟩ h
 
 theorem inverseFace_map {x y : Δ.Elements}
     (s : CompatibleElement (φ.reindex σ) (reindex A σ)
       (reindex T (restrictSubstitution φ σ))
       (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e) x)
-    (f : x ⟶ y) (h : φ.full (σ.mapElements.obj y)) :
+    (f : x ⟶ y) (h : φ.Full (σ.mapElements.obj y)) :
     inverseFace φ A T e σ s (σ.mapElements.map f) h = s.face f h :=
   congrFun (Equiv.piCongrLeft_apply_apply
     (P := fun z : Σ y, σ.mapElements.obj x ⟶ y =>
-      ∀ h : φ.full z.1, T.obj (faceObj φ z.1 h))
+      ∀ h : φ.Full z.1, T.obj (faceObj φ z.1 h))
     (e := substitutionArrowEquiv σ x) (fun z h => s.face z.2 h) ⟨y,f⟩) h
 
 def inverseElement {x : Δ.Elements}

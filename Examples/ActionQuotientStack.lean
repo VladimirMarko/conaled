@@ -121,7 +121,7 @@ def regularAction : Action group (SheafTorsor.groupSheaf group) where
   natural {U _} f g m := (group.obj.map f).hom.map_mul g (show group.obj.obj U from m)
 
 /-- The cover's group coordinate is a varying target value. -/
-def coverLabel : SplitSheaf.Ext regularCover ⟶ SheafTorsor.groupSheaf group := ⟨{
+def coverLabel : SplitSheaf.extension regularCover ⟶ SheafTorsor.groupSheaf group := ⟨{
   app _ := ↾fun p => p.2
   naturality _ _ _ := rfl }⟩
 

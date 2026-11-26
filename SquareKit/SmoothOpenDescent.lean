@@ -12,12 +12,12 @@ open PresentedLocalization PrincipalCover
 variable {n m : ℕ} {ι : Type*}
 
 /-- Every compatible tuple, including tuples containing nilpotent coefficients, has one gluing. -/
-theorem exists_unique (r : Fin m → Free n) (p : ι → Free n)
+theorem exists_unique (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i)))
     (a : ∀ i, Carrier r (p i)) (ha : Compatible r p a) :
     ∃! b : Presentation.Carrier r, ∀ i, base r (p i) b = a i := by
   choose H hH using (fun i => Ideal.Quotient.mk_surjective (a i))
-  let v : ι ⊕ Fin m → Free n := Sum.elim p r
+  let v : ι ⊕ Fin m → freeAlgebra n := Sum.elim p r
   let U : ι ⊕ Fin m → Set (Fin n → ℝ) := fun i => {x | (v i).val x ≠ 0}
   let f : ι ⊕ Fin m → (Fin n → ℝ) → ℝ := Sum.elim (fun i => graphValue (p i) (H i)) (fun _ _ => 0)
   have hU : ∀ i, IsOpen (U i) := fun i => isOpen_ne_fun
@@ -66,7 +66,7 @@ theorem exists_unique (r : Fin m → Free n) (p : ι → Free n)
       simpa [f] using hl
     change (Presentation.projection (Presentation.relations r (equation (p i)))).toAlgHom (Localization.extend g-H i)=0 at hz
     rw [map_sub,sub_eq_zero] at hz
-    have hp := congrArg (fun h : Hom (Free n) (Carrier r (p i)) => h g) (Presentation.inclusion_projection r (equation (p i)))
+    have hp := congrArg (fun h : Hom (freeAlgebra n) (Carrier r (p i)) => h g) (Presentation.inclusion_projection r (equation (p i)))
     change base r (p i) (Presentation.projection r g) = Presentation.projection _ (Localization.extend g) at hp
     exact hp.trans (hz.trans (hH i))
   exact ⟨Presentation.projection r g,hresult,fun b hb => separated r p hs b _ (fun i => (hb i).trans (hresult i).symm)⟩

@@ -21,7 +21,7 @@ theorem search_zero_cut_diverges (p : Code)
   intro hd
   obtain ⟨v, hv⟩ := Part.dom_iff_mem.mp hd
   obtain ⟨n, hn, hnvalue⟩ := (cutSearch_mem hp (γ := (17 : Nat)) rfl _ v).mp hv
-  have he : finalCuts.{0}.realizes (encode (cutCode 0)) ⟨some 0⟩ := cutCode_realizes 0
+  have he : finalCuts.{0}.Realizes (encode (cutCode 0)) ⟨some 0⟩ := cutCode_realizes 0
   have hz : n = 0 := by have := (accessible_final he).mp hn; omega
   subst n
   cases hnvalue
@@ -36,7 +36,7 @@ example : ∃ p : Code,
 
 def emptyContext : Assembly where
   Carrier := Empty
-  realizes _ _ := False
+  Realizes _ _ := False
   inhabited x := x.elim
 
 example : Function.Bijective (fun h : Hom (prod emptyContext finalCuts) (programLift N) =>

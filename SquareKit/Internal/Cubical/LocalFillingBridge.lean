@@ -179,9 +179,9 @@ theorem LocalFilling.toFilling_fills {Γ Δ : Context.{u}} {A : Family Γ}
     exact eq_of_heq (hy.trans ((heq_of_eq hc).trans (b.base.val_heq e)))
   · intro x hx
     let σ := represented (intervalBase x)
-    have ht : (φ.reindex (projection (interval Δ))).full
+    have ht : (φ.reindex (projection (interval Δ))).Full
         ((liftSub (interval Δ) σ).mapElements.obj (intervalGeneric x)) :=
-      (congrArg (φ.reindex (projection (interval Δ))).full (intervalEvaluation_source x)).mpr hx
+      (congrArg (φ.reindex (projection (interval Δ))).Full (intervalEvaluation_source x)).mpr hx
     have hl := (hF.fills (liftSub (interval Δ) σ ≫ p) (φ.reindex σ) (b.reindex σ)).2
       (intervalGeneric x) ht
     change (Presheaf.reindex A p).map (intervalEvaluation x) _ = _
@@ -227,7 +227,7 @@ theorem LocalFilling.comp_boundary {Γ : Context.{u}} {A : Family Γ}
     (F : LocalFilling A) (hF : F.Lawful) {I : Cube}
     (p : total (interval (representable.{u} I)) ⟶ Γ)
     (φ : Cofibration (representable.{u} I)) (b : OpenBox (Presheaf.reindex A p) φ)
-    (x : (representable.{u} I).Elements) (hx : φ.full x) :
+    (x : (representable.{u} I).Elements) (hx : φ.Full x) :
     (F.comp p φ b).val x = b.tube.val ((endpointSub _ true).mapElements.obj x) hx :=
   (hF.fills p φ b).2 ((endpointSub _ true).mapElements.obj x) hx
 

@@ -19,7 +19,7 @@ def retain {T : Type} [MeasurableSpace T] {X Y : Space}
   pair (fst X _) k
 
 /-- A random curve is itself an admitted real-parameter family. -/
-def randomFamily {X : Space} (a : ℝ → X) (ha : X.random a) :
+def randomFamily {X : Space} (a : ℝ → X) (ha : X.Random a) :
     Hom (ofMeasurable ℝ) X := ⟨a, fun hr => X.reparam ha hr⟩
 
 /-- Integrating a measurable event over fresh noise is measurable on the

@@ -158,20 +158,20 @@ example : ¬ Nonempty (Section dependentFunctions (𝟙 SheafImage.terminal)) :=
   exact dependent_no_term ⟨(sections _ _).symm t⟩
 
 example : Nonempty (dependentResult.family.obj
-    ((Ext boolArgument).obj.elementsMk (op X) ((displayIso base).inv.hom.app (op X) false))) :=
+    ((extension boolArgument).obj.elementsMk (op X) ((displayIso base).inv.hom.app (op X) false))) :=
   dependent_false_inhabited
 
 /-- Varying argument fibers retain their incompatible overlap restrictions. -/
 example (a : (ClassifierDisplayComparison.extension SheafImage.terminal.obj
     (classify eArgument)).obj (op X)) : False := input_empty a
 
-example (a : (Ext eArgument).obj.obj (op U)) :
+example (a : (extension eArgument).obj.obj (op U)) :
     (displayIso eDisplay).hom.hom.app (op W)
-      ((Ext eArgument).obj.map (show W ⟶ U from Arrow.wu).op a) = false := input_wu a
+      ((extension eArgument).obj.map (show W ⟶ U from Arrow.wu).op a) = false := input_wu a
 
-example (a : (Ext eArgument).obj.obj (op V)) :
+example (a : (extension eArgument).obj.obj (op V)) :
     (displayIso eDisplay).hom.hom.app (op W)
-      ((Ext eArgument).obj.map (show W ⟶ V from Arrow.wv).op a) = true := input_wv a
+      ((extension eArgument).obj.map (show W ⟶ V from Arrow.wv).op a) = true := input_wv a
 
 /-- Even at the empty top input fiber, classified functions remember restrictions. -/
 example : ¬ Nonempty

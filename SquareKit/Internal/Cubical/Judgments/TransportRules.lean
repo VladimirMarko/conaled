@@ -10,7 +10,7 @@ theorem transpSchema_valid (out : Judgment (Fin 5))
     (valid : ∀ (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ))) (F : Filling B)
       (φ : Cofibration Γ) (a : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false))),
       F.Lawful → RestrictedConstancy B φ →
-      out.eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
+      out.Eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
         .filling (total (Presheaf.interval Γ)) B F,.cofibration Γ φ,
         .term Γ (reindex B (Presheaf.endpointSub Γ false)) a]) :
     Satisfies algebra.{u} (transpSchema out) := by

@@ -39,7 +39,7 @@ noncomputable def extend (e : HomotopyEquivalence f)
 theorem extend_boundary (e : HomotopyEquivalence f)
     (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
     (b : Term B) {φ : Subcontext Γ} (t : PartialSection (Homotopy.fiber f b) φ)
-    (x : Γ.Elements) (hx : φ.holds x) : (e.extend F hF G hG b t).val x = t.val x hx :=
+    (x : Γ.Elements) (hx : φ.Holds x) : (e.extend F hF G hG b t).val x = t.val x hx :=
   Contractible.extend_boundary _ _ (Homotopy.fiberFilling_lawful F hF G hG f b) t x hx
 
 noncomputable def extendAlong {Δ : Context.{u}} (e : HomotopyEquivalence f)
@@ -54,7 +54,7 @@ theorem extendAlong_boundary {Δ : Context.{u}} (e : HomotopyEquivalence f)
     (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
     (σ : Δ ⟶ total B) {φ : Subcontext Δ}
     (a : PartialSection (Cartesian.reindex (Homotopy.genericFiber f) σ) φ)
-    (x : Δ.Elements) (hx : φ.holds x) : (e.extendAlong F hF G hG σ a).val x = a.val x hx :=
+    (x : Δ.Elements) (hx : φ.Holds x) : (e.extendAlong F hF G hG σ a).val x = a.val x hx :=
   (e.fibers.reindex σ).extend_boundary _
     ((Homotopy.fiberFilling_lawful _ (hF.reindex _) _ (hG.reindex _) _ _).reindex σ) a x hx
 
@@ -560,7 +560,7 @@ noncomputable def Contractible.ofExtensions {Γ : Context.{u}} {A : Family Γ}
     (extend : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ),
       PartialSection (Cartesian.reindex A σ) φ → Term (Cartesian.reindex A σ))
     (boundary : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
-      (a : PartialSection (Cartesian.reindex A σ) φ) (x : Δ.Elements) (hx : φ.holds x),
+      (a : PartialSection (Cartesian.reindex A σ) φ) (x : Δ.Elements) (hx : φ.Holds x),
       (extend σ φ a).val x = a.val x hx) : Contractible A := by
   let empty : PartialSection (Cartesian.reindex A (𝟙 Γ)) ((Subcontext.bot (Γ := Γ))) :=
     ⟨fun _ h => h.elim, fun _ h => h.elim⟩
@@ -574,9 +574,9 @@ noncomputable def Contractible.ofExtensions {Γ : Context.{u}} {A : Family Γ}
     apply Term.ext
     intro x
     let y := (endpointSub (total A) false).mapElements.obj x
-    have hy : (intervalFace (total A) false).holds y :=
+    have hy : (intervalFace (total A) false).Holds y :=
       rfl
-    have hu : φ.holds y := (Subcontext.full_join _ _ y).mpr (Or.inl hy)
+    have hu : φ.Holds y := (Subcontext.full_join _ _ y).mpr (Or.inl hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_zero _ _ _ y hu hy)).trans
         (endpointSection_val (Cartesian.reindex A p) false (Term.reindex c π) y hy)))
@@ -584,9 +584,9 @@ noncomputable def Contractible.ofExtensions {Γ : Context.{u}} {A : Family Γ}
     apply Term.ext
     intro x
     let y := (endpointSub (total A) true).mapElements.obj x
-    have hy : (intervalFace (total A) true).holds y :=
+    have hy : (intervalFace (total A) true).Holds y :=
       rfl
-    have hu : φ.holds y := (Subcontext.full_join _ _ y).mpr (Or.inr hy)
+    have hu : φ.Holds y := (Subcontext.full_join _ _ y).mpr (Or.inr hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_one _ _ _ y hu hy)).trans
         (endpointSection_val (Cartesian.reindex A p) true (generic A) y hy)))
@@ -611,7 +611,7 @@ theorem line_zero : Term.reindex (line c F s) (endpointSub Γ false) = a := by
   apply Term.ext
   intro x
   let y := (endpointSub Γ false).mapElements.obj x
-  have hy : (intervalFace Γ false).holds y :=
+  have hy : (intervalFace Γ false).Holds y :=
     rfl
   have hp := pathBoundaryFace_endpoint φ false x
   exact ((c.reindex (projection (interval Γ))).extend_boundary
@@ -622,7 +622,7 @@ theorem line_one : Term.reindex (line c F s) (endpointSub Γ true) = b := by
   apply Term.ext
   intro x
   let y := (endpointSub Γ true).mapElements.obj x
-  have hy : (intervalFace Γ true).holds y :=
+  have hy : (intervalFace Γ true).Holds y :=
     rfl
   have hp := pathBoundaryFace_endpoint φ true x
   exact ((c.reindex (projection (interval Γ))).extend_boundary
@@ -632,14 +632,14 @@ theorem line_one : Term.reindex (line c F s) (endpointSub Γ true) = b := by
 noncomputable def extend : Term (homogeneousPath A a b) :=
   pathLam (line c F s) (line_zero c F hF s) (line_one c F hF s)
 
-theorem extend_boundary (x : Γ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Γ.Elements) (hx : φ.Holds x) :
     (extend c F hF s).val x = s.val x hx := by
   apply Subtype.ext
   apply PiElement.ext
   intro y f r
   let z := extendObj (interval Γ) y r
-  have hy : φ.holds y := φ.natural f hx
-  have hz : (pathBoundaryFace φ).holds z := (Subcontext.full_join _ _ z).mpr (Or.inl hy)
+  have hy : φ.Holds y := φ.natural f hx
+  have hz : (pathBoundaryFace φ).Holds z := (Subcontext.full_join _ _ z).mpr (Or.inl hy)
   have h := (c.reindex (projection (interval Γ))).extend_boundary
     (F.reindex (projection (interval Γ))) (hF.reindex _) s.pathBoundary z hz
   have hs := congrArg (fun p => p.val.val (𝟙 y) r) (s.natural f hx)
@@ -660,7 +660,7 @@ noncomputable def center : Term A := c.extend F s.sigmaFst
 
 include hF
 
-theorem center_boundary (x : Γ.Elements) (hx : φ.holds x) :
+theorem center_boundary (x : Γ.Elements) (hx : φ.Holds x) :
     (center c F s).val x = (s.val x hx).1 := c.extend_boundary F hF s.sigmaFst x hx
 
 noncomputable def partialContraction :
@@ -674,14 +674,14 @@ noncomputable def witness : Contractible A :=
     (hF.reindex _) (partialContraction c F hF s))
 
 noncomputable def extend : Term (contr A) := encodeContr (witness c F hF s)
-theorem extend_boundary (x : Γ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Γ.Elements) (hx : φ.Holds x) :
     (extend c F hF s).val x = s.val x hx := by
   let a := center c F s
   let ha := center_boundary c F hF s
   let e := contractionsAtIso A a
   let p := (s.sigmaSnd a ha).map e.hom
   let t := (ContractiblePaths.extend (c.reindex (projection A)) (F.reindex (projection A)) (hF.reindex _) (partialContraction c F hF s))
-  have ht (z : (total A).Elements) (hz : (φ.reindex (projection A)).holds z) :
+  have ht (z : (total A).Elements) (hz : (φ.reindex (projection A)).Holds z) :
       t.val z = p.app.val z hz :=
     ContractiblePaths.extend_boundary (c.reindex (projection A))
       (F.reindex (projection A)) (hF.reindex _) (partialContraction c F hF s) z hz
@@ -715,7 +715,7 @@ noncomputable def contrExtend {Γ Δ : Context.{u}} {A : Family Γ}
 theorem contrExtend_boundary {Γ Δ : Context.{u}} {A : Family Γ}
     (c : Contractible A) (F : Filling A) (hF : F.Lawful)
     (σ : Δ ⟶ Γ) (φ : Subcontext Δ) (s : PartialSection (reindex (contr A) σ) φ)
-    (x : Δ.Elements) (hx : φ.holds x) : (contrExtend c F hF σ φ s).val x = s.val x hx :=
+    (x : Δ.Elements) (hx : φ.Holds x) : (contrExtend c F hF σ φ s).val x = s.val x hx :=
   (congrArg ((contrReindexIso A σ).inv.app x)
     (ContractibilityExtension.extend_boundary (c.reindex σ) (F.reindex σ) (hF.reindex σ)
       (s.map (contrReindexIso A σ).hom) x hx)).trans
@@ -746,7 +746,7 @@ noncomputable def extend : Term (reindex (isEquiv f) σ) :=
   Term.map (piReindexIso B (contr (fiber (f := f))) σ).inv
     (lam (extendedBody e F hF G hG σ φ s))
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Holds x) :
     (extend e F hF G hG σ φ s).val x = s.val x hx := by
   let i := piReindexIso B (contr (fiber (f := f))) σ
   let p := s.map i.hom
@@ -780,7 +780,7 @@ noncomputable def contractAt {Γ : Context.{u}} {A : Family Γ}
     (extend : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ),
       PartialSection (Cartesian.reindex A σ) φ → Term (Cartesian.reindex A σ))
     (boundary : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
-      (a : PartialSection (Cartesian.reindex A σ) φ) (x : Δ.Elements) (hx : φ.holds x),
+      (a : PartialSection (Cartesian.reindex A σ) φ) (x : Δ.Elements) (hx : φ.Holds x),
       (extend σ φ a).val x = a.val x hx) : Contractible A := by
   let π := projection A
   let p := projection (interval (total A)) ≫ π
@@ -791,9 +791,9 @@ noncomputable def contractAt {Γ : Context.{u}} {A : Family Γ}
     apply Term.ext
     intro x
     let y := (endpointSub (total A) false).mapElements.obj x
-    have hy : (intervalFace (total A) false).holds y :=
+    have hy : (intervalFace (total A) false).Holds y :=
       rfl
-    have hu : φ.holds y := (Subcontext.full_join _ _ y).mpr (Or.inl hy)
+    have hu : φ.Holds y := (Subcontext.full_join _ _ y).mpr (Or.inl hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_zero _ _ _ y hu hy)).trans
         (endpointSection_val (Cartesian.reindex A p) false (Term.reindex c π) y hy)))
@@ -801,9 +801,9 @@ noncomputable def contractAt {Γ : Context.{u}} {A : Family Γ}
     apply Term.ext
     intro x
     let y := (endpointSub (total A) true).mapElements.obj x
-    have hy : (intervalFace (total A) true).holds y :=
+    have hy : (intervalFace (total A) true).Holds y :=
       rfl
-    have hu : φ.holds y := (Subcontext.full_join _ _ y).mpr (Or.inr hy)
+    have hu : φ.Holds y := (Subcontext.full_join _ _ y).mpr (Or.inr hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_one _ _ _ y hu hy)).trans
         (endpointSection_val (Cartesian.reindex A p) true (generic A) y hy)))
@@ -949,7 +949,7 @@ variable {Γ : Context.{u}} {A : Family Γ}
     (extend : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ),
       PartialSection (Cartesian.reindex A σ) φ → Term (Cartesian.reindex A σ))
     (boundary : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
-      (a : PartialSection (Cartesian.reindex A σ) φ) (x : Δ.Elements) (hx : φ.holds x),
+      (a : PartialSection (Cartesian.reindex A σ) φ) (x : Δ.Elements) (hx : φ.Holds x),
       (extend σ φ a).val x = a.val x hx)
     (uniform : ∀ {Δ Θ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
       (a : PartialSection (Cartesian.reindex A σ) φ) (τ : Θ ⟶ Δ),
@@ -990,7 +990,7 @@ theorem ofExtensions_map {B : Family Γ} (e : A ≅ B)
     (extendB : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ),
       PartialSection (Cartesian.reindex B σ) φ → Term (Cartesian.reindex B σ))
     (boundaryB : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
-      (a : PartialSection (Cartesian.reindex B σ) φ) (x : Δ.Elements) (hx : φ.holds x),
+      (a : PartialSection (Cartesian.reindex B σ) φ) (x : Δ.Elements) (hx : φ.Holds x),
       (extendB σ φ a).val x = a.val x hx)
     (commutes : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
       (a : PartialSection (Cartesian.reindex A σ) φ),

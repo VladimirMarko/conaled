@@ -156,8 +156,8 @@ selected ua of the supplied complete swap equivalence.
 
 `Examples.NativeStructureLaws` constructs a raw pointed-unary path from a native
 point path while retaining the identity operation, then reconstructs a path of
-fixed-point-law models. `pointedModelPath_projection` recovers the whole raw
-path. `pointedModelPath_roundtrip` exercises the final law-bearing inverse and
+fixed-point-law models. `pointedModelPathProjection` recovers the whole raw
+path. `pointedModelPathRoundtrip` exercises the final law-bearing inverse and
 map on that constructed model path.
 
 ### Independently supplied composition and inversion (#687)
@@ -191,8 +191,8 @@ arbitrary lawful native families. The bounded operation interface here does not
 claim composition for every recursive description.
 
 `Equivalence.reindex` retains the complete substituted witness.
-`Coded.path_reindex` compares fresh selection after substitution with the
-substituted selected whole path. `composition_reindex` and `inversion_reindex`
+`Coded.pathReindex` compares fresh selection after substitution with the
+substituted selected whole path. `compositionReindex` and `inversionReindex`
 compare freshly constructed operations after substitution with substitution of
 the original selected path. Their lawful fillers are explicit; the conclusions
 are whole-path homotopies, rather than strict equations between chosen fillers
@@ -244,7 +244,7 @@ correspondence to arbitrary law-bearing objects. The source retains the raw
 carrier equivalence and independent field preservation; the proposition
 witnesses already present in both endpoint objects supply the law extension.
 `modelInverse`, both recovery homotopies and their `At` specializations retain
-whole paths and witnesses. `modelMap_projection` recovers the raw selected-ua
+whole paths and witnesses. `modelMapProjection` recovers the raw selected-ua
 path by a native homotopy after forgetting the laws. This is a whole-path
 comparison, not a claim of strict equality between the law-extension path and
 the raw path.

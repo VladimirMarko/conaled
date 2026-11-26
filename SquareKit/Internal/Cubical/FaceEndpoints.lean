@@ -93,7 +93,7 @@ def Cofibration.endpoint {Γ : Context.{u}} (r : Term (interval Γ)) (b : Bool) 
     rw [Face.endpoint_substitute,h]
 
 theorem Cofibration.full_endpoint {Γ : Context.{u}} (r : Term (interval Γ)) (b : Bool) (x : Γ.Elements) :
-    (Cofibration.endpoint r b).full x ↔ r.val x = (Presheaf.endpoint Γ b).val x := by
+    (Cofibration.endpoint r b).Full x ↔ r.val x = (Presheaf.endpoint Γ b).val x := by
   change Face.Full (Face.endpoint (r.val x).down b) ↔ _
   rw [Face.full_endpoint_iff]
   exact ⟨fun h => congrArg ULift.up h, fun h => congrArg ULift.down h⟩

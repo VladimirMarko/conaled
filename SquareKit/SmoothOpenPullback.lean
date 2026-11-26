@@ -28,7 +28,7 @@ theorem real_map {U V : Domain} (f : U ⟶ V) (h : Hom (Principal U.defining) �
  change h (Localization.pullback f (principalBase V.defining (generator i))) = _
  exact (real_apply U h _).trans ((Localization.pullback_apply f _ _).trans
    (toOpen_base V.defining (generator i) _))
-theorem inverse_unit {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
+theorem inverse_unit {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension)
    (B : Code) (u : Hom (Principal U.defining) (Carrier B))
    (hu : IsUnit (u (Localization.pullback f (principalBase V.defining q)))) :
    IsUnit (u (principalBase U.defining (inverseDefining f q))) := by
@@ -45,7 +45,7 @@ theorem inverse_unit {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
 end SquareKit.EuclideanOpen
 namespace SquareKit.EuclideanOpen
 open CategoryTheory CategoryTheory.Limits Opposite SmoothAlgebra SmoothAlgebra.Localization SmoothPresentationSite
-theorem inverse_universal {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
+theorem inverse_universal {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension)
    (B : Code) (u : Hom (Principal U.defining) (Carrier B))
    (v : Hom (Principal (V.defining*q)) (Carrier B))
    (hc : u.comp (Localization.pullback f) = v.comp (Localization.pullback (subInclusion V q))) :
@@ -76,7 +76,7 @@ theorem inverse_universal {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
 end SquareKit.EuclideanOpen
 namespace SquareKit.EuclideanOpen
 open CategoryTheory CategoryTheory.Limits Opposite SmoothAlgebra SmoothAlgebra.Localization SmoothPresentationSite
-theorem inverse_site_pullback {U V : Domain} (f : U ⟶ V) (q : Free V.dimension) :
+theorem inverse_site_pullback {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension) :
    IsPullback (toSite.map (subInclusion U (inverseDefining f q)))
      (toSite.map (inverseRestriction f q)) (toSite.map f) (toSite.map (subInclusion V q)) := by
  have hp : IsPushout
@@ -102,7 +102,7 @@ theorem inverse_site_pullback {U V : Domain} (f : U ⟶ V) (q : Free V.dimension
      ((congrArg (fun k : Map _ _ => Localization.pullback k) (inverseRestriction_square f q).symm).trans
        (Localization.pullback_comp (inverseRestriction f q) (subInclusion V q)))
  exact hp.op.flip
-theorem inverse_sheaf_pullback {U V : Domain} (f : U ⟶ V) (q : Free V.dimension) :
+theorem inverse_sheaf_pullback {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension) :
    IsPullback (embedding.map (subInclusion U (inverseDefining f q)))
      (embedding.map (inverseRestriction f q)) (embedding.map f) (embedding.map (subInclusion V q)) :=
  SmoothOpenSite.topology.yoneda.map_isPullback (inverse_site_pullback f q)

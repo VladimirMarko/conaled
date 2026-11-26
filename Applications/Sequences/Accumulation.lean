@@ -191,7 +191,7 @@ theorem labelSums_eq_map (blocks : List (List Int)) :
   induction blocks <;> simp_all [labelSums, cache]
 
 theorem labelSums_valid (blocks : List (List Int)) :
-    ∀ c ∈ labelSums blocks, listValid sumMeasure c := by
+    ∀ c ∈ labelSums blocks, ListValid sumMeasure c := by
   intro c hc
   rw [labelSums_eq_map] at hc
   obtain ⟨xs, _, rfl⟩ := List.mem_map.mp hc
@@ -207,7 +207,7 @@ def cachedResult (blocks : List (List Int)) : List Int × Multiplicative Int :=
 def collapseCached (blocks : List (List Int)) : List Int := (cachedResult blocks).1
 
 theorem cachedResult_refines (blocks : List (List Int)) :
-    listValid sumMeasure (cachedResult blocks) ∧ collapseCached blocks = collapse blocks := by
+    ListValid sumMeasure (cachedResult blocks) ∧ collapseCached blocks = collapse blocks := by
   simpa only [cachedResult, collapseCached, collapse, id_eq, labelSums_values] using
     cachedRun_refines (fun _ => True) id List.append
       (fun _ _ _ _ => trivial) (fun _ _ _ _ => rfl)
@@ -223,11 +223,11 @@ def differenceLabels (blocks : List (List Int)) :
   (labelSums blocks).map (fun c => (Batteries.DList.ofList c.1, c.2))
 
 theorem differenceLabels_valid (blocks : List (List Int)) :
-    ∀ c ∈ differenceLabels blocks, dlistValid sumMeasure c := by
+    ∀ c ∈ differenceLabels blocks, DlistValid sumMeasure c := by
   intro c hc
   obtain ⟨p, hp, rfl⟩ := List.mem_map.mp hc
   have h := labelSums_valid blocks p hp
-  simpa only [dlistValid, Valid, Batteries.DList.toList_ofList, listValid, id_eq] using h
+  simpa only [DlistValid, Valid, Batteries.DList.toList_ofList, ListValid, id_eq] using h
 
 @[simp] theorem differenceLabels_values (blocks : List (List Int)) :
     (differenceLabels blocks).map (fun c => c.1.toList) = blocks := by
@@ -241,7 +241,7 @@ def collapseDifference (blocks : List (List Int)) : List Int :=
   (differenceResult blocks).1.toList
 
 theorem differenceResult_refines (blocks : List (List Int)) :
-    dlistValid sumMeasure (differenceResult blocks) ∧
+    DlistValid sumMeasure (differenceResult blocks) ∧
       collapseDifference blocks = collapse blocks := by
   simpa only [differenceResult, collapseDifference, collapse,
     Batteries.DList.toList_empty, differenceLabels_values] using

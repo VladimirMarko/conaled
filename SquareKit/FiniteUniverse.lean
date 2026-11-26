@@ -96,12 +96,12 @@ theorem product_naturality {n m : Nat} {b : Fin n → Nat} {c : Fin m → Nat}
 
 /-- The ordinary finite-set groupoid is a second presentation. -/
 structure FiniteSet where
-  carrier : Type
-  finite : Fintype carrier
+  Carrier : Type
+  finite : Fintype Carrier
 attribute [instance] FiniteSet.finite
 
 instance : Groupoid FiniteSet where
-  Hom A B := A.carrier ≃ B.carrier
+  Hom A B := A.Carrier ≃ B.Carrier
   id _ := Equiv.refl _
   comp p q := p.trans q
   inv p := p.symm
@@ -112,7 +112,7 @@ instance : Groupoid FiniteSet where
   comp_inv p := Equiv.ext p.symm_apply_apply
 
 abbrev elements : FiniteSet ⥤ Type where
-  obj A := A.carrier
+  obj A := A.Carrier
   map p := ↾p.toFun
   map_id _ := rfl
   map_comp _ _ := rfl
@@ -125,25 +125,25 @@ def realize : Route decode elements where
 
 def classify : Route elements decode where
   base :=
-    { obj := fun A => (enumerate A.carrier).code
-      map := fun {A B} p => (enumerate A.carrier).map (enumerate B.carrier) p
+    { obj := fun A => (enumerate A.Carrier).code
+      map := fun {A B} p => (enumerate A.Carrier).map (enumerate B.Carrier) p
       map_id := fun A => Enumeration.map_identity _
       map_comp := fun p q => Enumeration.map_comp _ _ _ p q }
   fiber :=
-    { app := fun A => ↾(enumerate A.carrier).decode.symm
+    { app := fun A => ↾(enumerate A.Carrier).decode.symm
       naturality := by
         intro A B p
         ext x
-        change (enumerate B.carrier).decode.symm ((show A.carrier ≃ B.carrier from p) x) =
-          (enumerate A.carrier).map (enumerate B.carrier) p ((enumerate A.carrier).decode.symm x)
+        change (enumerate B.Carrier).decode.symm ((show A.Carrier ≃ B.Carrier from p) x) =
+          (enumerate A.Carrier).map (enumerate B.Carrier) p ((enumerate A.Carrier).decode.symm x)
         simp [Enumeration.map] }
 
 /-- Bounded generic-family property: every finite set with its chosen Fintype
 has a decoding bijection; naturality covers every bijection between fibres. -/
-def genericFiber (A : FiniteSet) : Fin (classify.base.obj A).size ≃ A.carrier :=
-  (enumerate A.carrier).decode
+def genericFiber (A : FiniteSet) : Fin (classify.base.obj A).size ≃ A.Carrier :=
+  (enumerate A.Carrier).decode
 
-theorem generic_natural {A B : FiniteSet} (p : A.carrier ≃ B.carrier)
+theorem generic_natural {A B : FiniteSet} (p : A.Carrier ≃ B.Carrier)
     (x : Fin (classify.base.obj A).size) :
     genericFiber B ((show Fin (classify.base.obj A).size ≃ Fin (classify.base.obj B).size from classify.base.map p) x) = p (genericFiber A x) :=
   Enumeration.naturality _ _ _ _
@@ -151,7 +151,7 @@ theorem generic_natural {A B : FiniteSet} (p : A.carrier ≃ B.carrier)
 /-- Chosen finite families are pullbacks of decoding on their object sets.
 The projection is unchanged; `family_transport` supplies the arrow comparison. -/
 def familyEquiv {C : Type} [Category C] (B : C ⥤ FiniteSet) :
-    (Σ x, Fin (classify.base.obj (B.obj x)).size) ≃ (Σ x, (B.obj x).carrier) :=
+    (Σ x, Fin (classify.base.obj (B.obj x)).size) ≃ (Σ x, (B.obj x).Carrier) :=
   Equiv.sigmaCongrRight fun x => genericFiber (B.obj x)
 
 theorem family_projection {C : Type} [Category C] (B : C ⥤ FiniteSet)

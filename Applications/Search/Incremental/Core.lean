@@ -50,10 +50,10 @@ def select (h : Fin n → ℚ) (s : State n) : Option (Fin n) :=
 def topKey (h : Fin n → ℚ) (s : State n) : Key :=
   ((select h s).map (labelKey h s.g s.rhs)).getD (toLex (⊤, ⊤))
 
-def active (goal : Fin n) (h : Fin n → ℚ) (s : State n) : Prop :=
+def Active (goal : Fin n) (h : Fin n → ℚ) (s : State n) : Prop :=
   topKey h s < labelKey h s.g s.rhs goal ∨ s.g goal ≠ s.rhs goal
 
-instance (goal : Fin n) (h : Fin n → ℚ) (s : State n) : Decidable (active goal h s) :=
+instance (goal : Fin n) (h : Fin n → ℚ) (s : State n) : Decidable (Active goal h s) :=
   inferInstanceAs (Decidable (_ ∨ _))
 
 def expand (w : Graph n) (start : Fin n) (s : State n) (u : Fin n) : State n :=
@@ -78,7 +78,7 @@ def runWith (w : Graph n) (start : Fin n) (h : Fin n → ℚ)
 
 /-- Check the goal stopping rule before consuming fuel. -/
 def run (w : Graph n) (start goal : Fin n) (h : Fin n → ℚ) : Nat → State n → Outcome n :=
-  runWith w start h (active goal h)
+  runWith w start h (Active goal h)
 
 def drain (w : Graph n) (start : Fin n) (h : Fin n → ℚ) : Nat → State n → Outcome n :=
   runWith w start h (fun s => select h s ≠ none)

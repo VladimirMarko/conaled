@@ -41,7 +41,7 @@ local macro "eval_simp" : tactic => `(tactic|
   simp [target, strongModel, Term.eval, FinitaryTerm.fold, PrimitiveSigma.algebra, PrimitiveSigma.operation, Contextual.algebra,
     DependentJudgments.operation, valuation, ofStrong])
 
-theorem premises : ∀ i, (reindexedBetaRule.premise i).eval target.toAlgebra valuation := by
+theorem premises : ∀ i, (reindexedBetaRule.premise i).Eval target.toAlgebra valuation := by
   intro i
   fin_cases i
   · exact ⟨Unit, A, rfl, rfl⟩
@@ -64,7 +64,7 @@ noncomputable def transported : Derivation etaTheory
     (List.ofFn reindexedBetaRule.premise) reindexedBetaRule.conclusion :=
   (composedView.compose clientView).transport client
 
-theorem selected_computation : reindexedBetaRule.conclusion.eval target.toAlgebra valuation :=
+theorem selected_computation : reindexedBetaRule.conclusion.Eval target.toAlgebra valuation :=
   transported.sound target valuation (by
     intro p hp
     rcases List.mem_ofFn.mp hp with ⟨i, rfl⟩

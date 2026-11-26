@@ -126,17 +126,17 @@ theorem selected_value (s : List α) (i : Cursor s) (a : Stream α) (n : Nat) :
 
 abbrev Parameters (α : Type) := Stream α × Nat
 
-def forwardFamily (s : List α) : Parameters α → Type :=
+def ForwardFamily (s : List α) : Parameters α → Type :=
   fun p => Cursor (state (forward s) p.1 p.2)
-def backwardFamily (t : List α) : Parameters α → Type :=
+def BackwardFamily (t : List α) : Parameters α → Type :=
   fun p => Cursor (state (backward t) p.1 p.2)
-def forwardSection (s : List α) (i : Cursor s) : Tm (forwardFamily s) :=
+def forwardSection (s : List α) (i : Cursor s) : Tm (ForwardFamily s) :=
   fun p => forwardCursor s i p.1 p.2
-def backwardSection (t : List α) (j : Cursor t) : Tm (backwardFamily t) :=
+def backwardSection (t : List α) (j : Cursor t) : Tm (BackwardFamily t) :=
   fun p => backwardCursor t j p.1 p.2
 
 def sectionRel (s t : List α) (h : Repr s t) :
-    TyRel (Eq : Parameters α → Parameters α → Prop) (forwardFamily s) (backwardFamily t) :=
+    TyRel (Eq : Parameters α → Parameters α → Prop) (ForwardFamily s) (BackwardFamily t) :=
   fun p q hp => by
     cases hp
     exact CursorRel _ _ (history_related s t h p.1 p.2)
@@ -153,17 +153,17 @@ theorem sections_related (s t : List α) (h : Repr s t) (i : Cursor s) (j : Curs
 def later : Parameters α → Parameters α := fun p => (p.1,p.2+1)
 
 def mapUntil (s t : List α) (h : Repr s t) (a : Stream α) {n : Nat}
-    (w : Temporal.Until (fun _ => PUnit) (fun n => forwardFamily s (a,n)) n) :
-    Temporal.Until (fun _ => PUnit) (fun n => backwardFamily t (a,n)) n :=
+    (w : Temporal.Until (fun _ => PUnit) (fun n => ForwardFamily s (a,n)) n) :
+    Temporal.Until (fun _ => PUnit) (fun n => BackwardFamily t (a,n)) n :=
   w.map (fun _ => id) (fun n => encode _ _ (history_related s t h a n))
 
 theorem until_related (s t : List α) (h : Repr s t) (a : Stream α) {n : Nat}
-    (w : Temporal.Until (fun _ => PUnit) (fun n => forwardFamily s (a,n)) n) :
+    (w : Temporal.Until (fun _ => PUnit) (fun n => ForwardFamily s (a,n)) n) :
     Temporal.Until.Rel (fun _ => Eq)
       (fun n => CursorRel _ _ (history_related s t h a n)) w (mapUntil s t h a w) := by
   have mapped := (Temporal.Until.Rel.refl w).map
-    (A' := fun _ => PUnit) (B' := fun n => forwardFamily s (a,n))
-    (C' := fun _ => PUnit) (D' := fun n => backwardFamily t (a,n))
+    (A' := fun _ => PUnit) (B' := fun n => ForwardFamily s (a,n))
+    (C' := fun _ => PUnit) (D' := fun n => BackwardFamily t (a,n))
     (fun _ => id) (fun _ => id) (fun _ => id)
     (fun n => encode _ _ (history_related s t h a n))
     (RA' := fun _ => Eq)

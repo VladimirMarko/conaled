@@ -7,15 +7,15 @@ noncomputable section
 namespace SquareKit.Cubical.CategoryCocycles
 open CategoryTheory Presheaf
 
-abbrev SecondIdentityFamily (Γ : Context.{0}) :=
+abbrev secondIdentityFamily (Γ : Context.{0}) :=
   normalizedIdentity (normalizedIdentity (cocycleFamily Γ) (zeroTerm Γ) (zeroTerm Γ))
     (normalizedIdentityRefl (zeroTerm Γ)) (normalizedIdentityRefl (zeroTerm Γ))
 
 noncomputable def secondElementValue {Γ : Context.{0}} {x : Γ.Elements}
-    (p : (SecondIdentityFamily Γ).obj x) (r s : (interval Γ).obj x) : CubeCocycle x.obj.unop :=
+    (p : (secondIdentityFamily Γ).obj x) (r s : (interval Γ).obj x) : CubeCocycle x.obj.unop :=
   (p.eval r).eval s
 
-noncomputable def secondValue {Γ : Context.{0}} (t : Term (SecondIdentityFamily Γ))
+noncomputable def secondValue {Γ : Context.{0}} (t : Term (secondIdentityFamily Γ))
     (x : Γ.Elements) (r s : (interval Γ).obj x) : CubeCocycle x.obj.unop :=
   secondElementValue (t.val x) r s
 
@@ -56,10 +56,10 @@ private theorem squareAxes_pair : Cube.pair (squareAxis 1) (squareAxis 0) = 𝟙
   apply congrArg (@Cube.ofRaw ⟨2⟩ ⟨2⟩)
   decide
 
-noncomputable def secondSquare (t : Term (SecondIdentityFamily terminal.{0})) : CubeCocycle (⟨2⟩ : Cube) :=
+noncomputable def secondSquare (t : Term (secondIdentityFamily terminal.{0})) : CubeCocycle (⟨2⟩ : Cube) :=
   secondValue t (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩
 
-noncomputable def secondObservation (t : Term (SecondIdentityFamily terminal.{0})) : ℤ :=
+noncomputable def secondObservation (t : Term (secondIdentityFamily terminal.{0})) : ℤ :=
   observeSquare (secondSquare t)
 
 theorem secondSquare_selected : secondSquare (secondIdentity terminal.{0}) = squareCocycle := by

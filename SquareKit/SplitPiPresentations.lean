@@ -17,7 +17,7 @@ theorem presentationSquare (d : S ⟶ Γ) :
   IsPullback.of_vert_isIso ⟨by rw [Category.comp_id, SplitSheaf.displayIso_projection]⟩
 
 /-- Present an arbitrary dependent result over the reconstructed argument. -/
-abbrev resultPresentation (d : S ⟶ Γ) (e : T ⟶ S) : Ty (Ext (ofDisplay d)) :=
+abbrev resultPresentation (d : S ⟶ Γ) (e : T ⟶ S) : Ty (extension (ofDisplay d)) :=
   ofDisplay (Family.reindex e (SplitSheaf.displayIso d).hom)
 
 /-- Every earlier ordinary Π consumer can be recovered through this actual iso. -/

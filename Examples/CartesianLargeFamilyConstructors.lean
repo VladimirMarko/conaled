@@ -12,7 +12,7 @@ open CategoryTheory SquareKit.Cubical.Cartesian SmallUniverse
 noncomputable def constant (Γ : Context.{1}) (S : Type) :
     LargeConstructors.Result (constantFamily Γ (ULift.{1} S)) :=
   LargeConstructors.construct
-    { fiber := fun _ => S, equiv := fun _ => Equiv.ulift.symm }
+    { Fiber := fun _ => S, equiv := fun _ => Equiv.ulift.symm }
     (presentedFilling (Iso.refl _)) (presentedFilling_lawful (Iso.refl _))
 
 abbrev context : Context.{1} := total (constantFamily smallFamilyCodes.{0} (ULift.{1} Nat))
@@ -65,7 +65,7 @@ theorem indexed_bijective {Γ : Context.{1}} (q : Term (constantFamily Γ (ULift
 noncomputable def indexedAdmission {Γ : Context.{1}}
     (q : Term (constantFamily Γ (ULift.{1} Nat))) : LargeConstructors.Result (indexed q) :=
   LargeConstructors.construct
-    { fiber := fun x => Fin ((q.val x).down+1), equiv := fun _ => Equiv.ulift.symm }
+    { Fiber := fun x => Fin ((q.val x).down+1), equiv := fun _ => Equiv.ulift.symm }
     (bijectiveFilling (indexed_bijective q)) (bijectiveFilling_lawful (indexed_bijective q))
 noncomputable def dependent := indexedAdmission argument
 noncomputable def sum := LargeConstructors.sigma domain.code dependent.code

@@ -24,7 +24,7 @@ variable {α : Type u} {β : Type v}
 /-- A known pair is observable without inspecting an arbitrary continuation. -/
 theorem first_zip_cons (p : β × α → Prop) (σ : Stream' β) (a : α)
     (I : Observations α) :
-    PartialSpineLimits.first p (Observations.zipStream σ (Observations.cons a I)) =
+    PartialSpineLimits.First p (Observations.zipStream σ (Observations.cons a I)) =
       p (σ 0, a) := by
   rw [Observations.zipStream_cons, PartialSpineLimits.first_cons]
 
@@ -84,14 +84,14 @@ variable {S T A B : Type w}
 
 theorem first_zip_guarded (p : A × B → Prop) (c : Coalgebra S A)
     (d : Coalgebra T B) (s : S) (t : T) :
-    PartialSpineLimits.first p (Observations.zipStream (Stream'.corec' c s)
+    PartialSpineLimits.First p (Observations.zipStream (Stream'.corec' c s)
       (observations (guarded d) t)) = p ((c s).1, (d t).1) := by
   rw [zip_observations_guarded, PartialSpineLimits.first_guarded]
   rfl
 
 theorem first_zip_paused (p : A × B → Prop) (c : Coalgebra S A)
     (d : Coalgebra T B) (s : S) (t : T) :
-    PartialSpineLimits.first p (Observations.zipStream (Stream'.corec' c s)
+    PartialSpineLimits.First p (Observations.zipStream (Stream'.corec' c s)
       (observations (paused d) (false, t))) = p ((c s).1, (d t).1) := by
   rw [zip_observations_paused, PartialSpineLimits.first_paused]
   rfl
@@ -166,10 +166,10 @@ theorem paired_deliveries :
       (zipCoalgebra PartialSpineProgress.count PartialSpineProgress.count) (10, 4) 3
 
 theorem labelled_first (p : Nat × Nat → Prop) :
-    PartialSpineLimits.first p
+    PartialSpineLimits.First p
         (Observations.labelFrom 10 (observations (guarded PartialSpineProgress.count) 4)) =
         p (10, 4) ∧
-      PartialSpineLimits.first p
+      PartialSpineLimits.First p
         (Observations.labelFrom 10 (observations (paused PartialSpineProgress.count) (false, 4))) =
         p (10, 4) := by
   rw [label_count_guarded, label_count_paused,

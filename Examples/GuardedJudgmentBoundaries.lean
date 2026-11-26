@@ -20,10 +20,10 @@ abbrev rightFamily : Contextual.Expression (Fin 3) := .var 2
 def typingPremises : List (Contextual.Judgment (Fin 3)) :=
   [Contextual.family gamma leftFamily, Contextual.family gamma rightFamily]
 
-def left_typed : Contextual.Ty (Ω := typingPremises) gamma leftFamily :=
+def leftFormation : Contextual.Ty (Ω := typingPremises) gamma leftFamily :=
   .hypothesis (by simp [typingPremises])
 
-def right_typed : Contextual.Ty (Ω := typingPremises) gamma rightFamily :=
+def rightFormation : Contextual.Ty (Ω := typingPremises) gamma rightFamily :=
   .hypothesis (by simp [typingPremises])
 
 /-- Both family parameters have the same decoded meaning in this valuation. -/
@@ -34,12 +34,12 @@ def agreeing : Fin 3 → Value native.toStructuralModel :=
 def separating : Fin 3 → Value native.toStructuralModel :=
   ![.context Unit, .family Unit (fun _ => Empty), .family Unit (fun _ => Unit)]
 
-theorem agreeing_valid : ∀ p ∈ typingPremises, p.eval (Contextual.algebra native) agreeing := by
+theorem agreeing_valid : ∀ p ∈ typingPremises, p.Eval (Contextual.algebra native) agreeing := by
   intro p hp
   simp only [typingPremises, List.mem_cons, List.not_mem_nil, or_false] at hp
   rcases hp with rfl | rfl <;> exact ⟨Unit, (fun _ => Unit), rfl, rfl⟩
 
-theorem separating_valid : ∀ p ∈ typingPremises, p.eval (Contextual.algebra native) separating := by
+theorem separating_valid : ∀ p ∈ typingPremises, p.Eval (Contextual.algebra native) separating := by
   intro p hp
   simp only [typingPremises, List.mem_cons, List.not_mem_nil, or_false] at hp
   rcases hp with rfl | rfl

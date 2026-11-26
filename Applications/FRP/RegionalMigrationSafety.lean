@@ -25,7 +25,7 @@ theorem prepare_target (s : Session) (e c : Sites) (r : Requirements) (a v : Boo
   · simp [prepare,h0,h1,refuse] at h
   by_cases h2 : e ≠ s.active.sites
   · simp [prepare,h0,h1,h2,refuse] at h
-  by_cases h3 : eligible r c
+  by_cases h3 : Eligible r c
   · by_cases h4 : required s.active c ≤ r.capacity
     · by_cases h5 : (!a) = true
       · simp [prepare,h0,h1,h2,h3,h4,h5,refuse] at h

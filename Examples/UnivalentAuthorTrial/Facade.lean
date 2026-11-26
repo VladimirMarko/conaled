@@ -106,13 +106,13 @@ example : (mainDecoded E).step ([2,3], [5]) = ([1,2,3], [1,5]) := by
   rw [mainDecoded_target]
   rfl
 
-example : (variationDecoded E).invariant ([2,3], [5]) ∧
-    ¬ (mainDecoded E).invariant ([2,3], [5]) := by
+example : (variationDecoded E).Invariant ([2,3], [5]) ∧
+    ¬ (mainDecoded E).Invariant ([2,3], [5]) := by
   rw [variationDecoded_target, mainDecoded_target]
   simp [targetSum, targetLength]
 
-example : (mainDecoded E).invariant ([2], [3]) ∧
-    ¬ (variationDecoded E).invariant ([2], [3]) := by
+example : (mainDecoded E).Invariant ([2], [3]) ∧
+    ¬ (variationDecoded E).Invariant ([2], [3]) := by
   rw [variationDecoded_target, mainDecoded_target]
   simp [targetSum, targetLength]
 

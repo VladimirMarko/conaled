@@ -173,7 +173,7 @@ theorem equalLows_corruption_preserves_membership (query : IntervalKey Nat) :
   OrderedMap.containsKey_congr_erase (left := equalLows) (right := corruptedEqualLows) rfl query
 
 theorem overlapping_key_can_be_absent :
-    OrderedMap.containsKey lowFour equalLows = false ∧ IntervalKey.overlap lowFour lowFive := by
+    OrderedMap.containsKey lowFour equalLows = false ∧ IntervalKey.Overlap lowFour lowFive := by
   constructor
   · rfl
   · decide
@@ -526,16 +526,16 @@ def eightPoint : IntervalKey Nat := IntervalKey.ofBounds 8 8 (by decide)
 def ninePoint : IntervalKey Nat := IntervalKey.ofBounds 9 9 (by decide)
 
 theorem indexed_image_touches :
-    IntervalSet.hasOverlap (indexedInterval '' ({indexedZero, indexedOne} : Set IndexedKey))
+    IntervalSet.HasOverlap (indexedInterval '' ({indexedZero, indexedOne} : Set IndexedKey))
       eightPoint := by
   apply (IntervalSet.hasOverlap_image_iff indexedInterval _ eightPoint).mpr
   exact ⟨indexedZero, by simp, by decide⟩
 
 theorem indexed_image_has_gap :
-    ¬IntervalSet.hasOverlap (indexedInterval '' ({indexedZero, indexedOne} : Set IndexedKey))
+    ¬IntervalSet.HasOverlap (indexedInterval '' ({indexedZero, indexedOne} : Set IndexedKey))
       ninePoint := by
   rw [IntervalSet.hasOverlap_image_iff]
-  simp [indexedInterval, indexedZero, indexedOne, IntervalKey.overlap, rootEight, ninePoint,
+  simp [indexedInterval, indexedZero, indexedOne, IntervalKey.Overlap, rootEight, ninePoint,
     IntervalKey.low, IntervalKey.high, IntervalKey.ofBounds]
 
 theorem indexed_images_agree :

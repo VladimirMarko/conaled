@@ -11,11 +11,11 @@ open Examples.CubicalCocycleAssignment Examples.FrozenOrdinaryAction
 
 /-- The same selected family, exposing its raw functor without expanding the frozen context. -/
 def assignedLoopFamily : LawfulFamily terminal.{0} :=
-  ⟨⟨FirstIdentityFamily terminal, assignedType.filling⟩, assignedType.lawful⟩
+  ⟨⟨firstIdentityFamily terminal, assignedType.filling⟩, assignedType.lawful⟩
 
 theorem assignedLoopFamily_eq : assignedLoopFamily = assignedType := rfl
 
-def assignedTransport : Term (reindex (FirstIdentityFamily terminal.{0}) (projection (FirstIdentityFamily terminal))) :=
+def assignedTransport : Term (reindex (firstIdentityFamily terminal.{0}) (projection (firstIdentityFamily terminal))) :=
   (reindexedTransport cocycleModel cocycleBase cocycleRootedFamily ⟨assignInput⟩).down
 
 private def rawBeta (Base : LawfulFamily terminal.{0}) (Fiber : LawfulFamily (total Base.family))
@@ -26,8 +26,8 @@ private def rawBeta (Base : LawfulFamily terminal.{0}) (Fiber : LawfulFamily (to
       (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.endomapBetaFamily (Contextual.model Base Fiber) F t)) :
     Term (normalizedIdentity (reindex F.family (projection F.family)) t.down (generic F.family)) := b.down
 
-def assignedBeta : Term (normalizedIdentity (reindex (FirstIdentityFamily terminal.{0}) (projection (FirstIdentityFamily terminal)))
-    assignedTransport (generic (FirstIdentityFamily terminal))) :=
+def assignedBeta : Term (normalizedIdentity (reindex (firstIdentityFamily terminal.{0}) (projection (firstIdentityFamily terminal)))
+    assignedTransport (generic (firstIdentityFamily terminal))) :=
   rawBeta cocycleBase cocycleRootedFamily assignedType
     (reindexedTransport cocycleModel cocycleBase cocycleRootedFamily ⟨assignInput⟩)
     (reindexedBeta cocycleModel cocycleBase cocycleRootedFamily ⟨assignInput⟩)

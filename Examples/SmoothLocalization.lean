@@ -9,10 +9,10 @@ namespace Examples.SmoothLocalization
 open scoped ContDiff
 open SquareKit.SmoothAlgebra SquareKit.SmoothAlgebra.Localization
 
-def exponential : Free 1 := ⟨fun x => Real.exp (x 0), by
+def exponential : freeAlgebra 1 := ⟨fun x => Real.exp (x 0), by
   change ContDiff ℝ ∞ (fun x : Fin 1 → ℝ => Real.exp (x 0))
   exact Real.contDiff_exp.comp (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) (0 : Fin 1))⟩
-def coordinate : Free 1 := generator 0
+def coordinate : freeAlgebra 1 := generator 0
 
 def exponentialPoint (x : ℝ) : Hom (Principal exponential) ℝ :=
   principalLift exponential (evaluate (fun _ => x)) (isUnit_iff_ne_zero.mpr (Real.exp_ne_zero x))
@@ -39,7 +39,7 @@ theorem exponential_dual_inverse (x v : ℝ) :
 /-- Invert both exp(x) and x, then evaluate at x=1 through the iterated UP. -/
 def twicePoint : Hom (Iterated exponential coordinate) ℝ :=
   iteratedLift exponential coordinate (exponentialPoint 1) (by
-    have h := congrArg (fun k : Hom (Free 1) ℝ => k coordinate) (exponentialPoint_base 1)
+    have h := congrArg (fun k : Hom (freeAlgebra 1) ℝ => k coordinate) (exponentialPoint_base 1)
     change IsUnit (exponentialPoint 1 (principalBase exponential coordinate))
     rw [show exponentialPoint 1 (principalBase exponential coordinate) = 1 from h]
     exact isUnit_one)
@@ -52,9 +52,9 @@ theorem product_roundtrip :
   product_iterated_inverse _ _
 
 theorem nullary_one_unchanged :
-    Hom.comp (principalBase (1 : Free 0)) oneRetraction = Hom.ident := one_inverse_base
+    Hom.comp (principalBase (1 : freeAlgebra 0)) oneRetraction = Hom.ident := one_inverse_base
 
-theorem nullary_zero_improper : Subsingleton (Principal (0 : Free 0)) := zero_subsingleton
+theorem nullary_zero_improper : Subsingleton (Principal (0 : freeAlgebra 0)) := zero_subsingleton
 
 theorem epsilon_not_unit : ¬IsUnit (DualNumber.eps : DualNumber ℝ) := by
   rw [TrivSqZeroExt.isUnit_iff_isUnit_fst]

@@ -30,14 +30,14 @@ def rawParameters : Core.Machine.Parameters Empty where
   matchException := 0
   bindException := 1
 
-def operations : Empty → Prop := fun _ => False
+def Operations : Empty → Prop := fun _ => False
 
-private theorem compatible : ParametersCompatible operations rawParameters parameters where
+private theorem compatible : ParametersCompatible Operations rawParameters parameters where
   primitive impossible := nomatch impossible
   matchException := rfl
   bindException := rfl
 
-private theorem preserve : ParametersPreserve operations parameters := by
+private theorem preserve : ParametersPreserve Operations parameters := by
   intro impossible
   cases impossible
 
@@ -97,7 +97,7 @@ private theorem meaning_injective {first second : Meaning Empty}
 the self-address meaning needed by the remainder of the source run. -/
 theorem creation_recovers_self_meaning :
     ∃ world,
-      Durability.Extends (fun _ => none) world ∧ WorldAllowed operations world ∧
+      Durability.Extends (fun _ => none) world ∧ WorldAllowed Operations world ∧
       ConfigRep parameters world rawAfterCreation pureAfterCreation ∧ world 0 = some selfMeaning := by
   obtain ⟨world, rawNext, pureNext, extension, allowed, rawPrefix, purePrefix, represented, _events⟩ :=
     recursive_entry rawParameters (StateRep.empty parameters) WorldAllowed.empty EnvRep.nil
@@ -143,7 +143,7 @@ actual completed source run. Its capture relation is recovered from that
 cached value's representation, not separately postulated. -/
 theorem source_recovers_cached_recursive_closure :
     ∃ world,
-      Durability.Extends (fun _ => none) world ∧ WorldAllowed operations world ∧
+      Durability.Extends (fun _ => none) world ∧ WorldAllowed Operations world ∧
       StateRep parameters world finalMemory ∧ world 0 = some selfMeaning ∧
       ValueRep world rawCached pureCached ∧ EnvRep world rawSelf pureSelf ∧
       Core.Env.lookup rawSelf 1 = some (.address 0) ∧
@@ -155,7 +155,7 @@ theorem source_recovers_cached_recursive_closure :
       Progress.Evaluates (Machine.step parameters)
         (Machine.start [] returningClosure) (.value (.atom (.integer 7))) 51 := by
   obtain ⟨initialWorld, extension, worldAllowed, represented, initialFound⟩ := creation_recovers_self_meaning
-  have initialCode := start_allowed (EnvAllowed.nil (operations := operations))
+  have initialCode := start_allowed (EnvAllowed.nil (operations := Operations))
     Examples.SuspensionPureDomainState.Returned.program_code
   have bodyCode := reaches_preserves preserve initialCode pure_creation_prefix
   obtain ⟨world, result, steps, finalExtension, allowed, state, _resultRep, pureRun⟩ :=

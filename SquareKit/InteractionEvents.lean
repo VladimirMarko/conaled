@@ -12,20 +12,20 @@ namespace Interaction.Events
 universe u v w
 
 /-- Events need not be enumerable; mathematical handlers need not be executable. -/
-def interpret {E : Type u} {S : Type v} (handle : E → S → S → Prop) :
+def Interpret {E : Type u} {S : Type v} (handle : E → S → S → Prop) :
     List E → S → S → Prop
   | [], s, t => s = t
-  | e :: es, s, t => Relation.Comp (handle e) (interpret handle es) s t
+  | e :: es, s, t => Relation.Comp (handle e) (Interpret handle es) s t
 
 theorem interpret_append {E : Type u} {S : Type v} (h : E → S → S → Prop)
     (xs ys : List E) :
-    interpret h (xs ++ ys) = Relation.Comp (interpret h xs) (interpret h ys) := by
+    Interpret h (xs ++ ys) = Relation.Comp (Interpret h xs) (Interpret h ys) := by
   funext s t
   apply propext
   induction xs generalizing s with
-  | nil => simp [interpret, Relation.Comp]
+  | nil => simp [Interpret, Relation.Comp]
   | cons e es ih =>
-    simp only [List.cons_append, interpret, Relation.Comp]
+    simp only [List.cons_append, Interpret, Relation.Comp]
     constructor
     · rintro ⟨a, hea, rest⟩
       obtain ⟨b, hab, hbt⟩ := (ih a).mp rest
@@ -42,8 +42,8 @@ theorem interpret_simulation {E : Type u} {C : Type v} {A : Type w}
     (primitive : ∀ e c c' a, related c a → concrete e c c' →
       ∃ a', abstract e a a' ∧ related c' a')
     (script : List E) {c c' a} (initial : related c a)
-    (run : interpret concrete script c c') :
-    ∃ a', interpret abstract script a a' ∧ related c' a' := by
+    (run : Interpret concrete script c c') :
+    ∃ a', Interpret abstract script a a' ∧ related c' a' := by
   induction script generalizing c a with
   | nil =>
     have eq : c = c' := run
@@ -59,8 +59,8 @@ theorem interpret_safe {E : Type u} {S : Type v}
     {concrete abstract : E → S → S → Prop}
     (primitive : ∀ e s t, concrete e s t → abstract e s t)
     {script : List E} {P Q : S → Prop}
-    (source : Safe P (interpret abstract script) Q) :
-    Safe P (interpret concrete script) Q := by
+    (source : Safe P (Interpret abstract script) Q) :
+    Safe P (Interpret concrete script) Q := by
   intro s t hs run
   obtain ⟨a, ha, eq⟩ := interpret_simulation concrete abstract Eq
     (fun e c c' a h step => by subst a; exact ⟨c', primitive e c c' step, rfl⟩)
@@ -71,7 +71,7 @@ theorem interpret_safe {E : Type u} {S : Type v}
 /-- A primitive invariant lifts to any finite script without caller induction. -/
 theorem interpret_invariant {E : Type u} {S : Type v} {h : E → S → S → Prop}
     {P : S → Prop} (preserves : ∀ e, Stable (h e) P) (script : List E) :
-    Safe P (interpret h script) P := by
+    Safe P (Interpret h script) P := by
   intro s t hs run
   induction script generalizing s with
   | nil => exact run ▸ hs

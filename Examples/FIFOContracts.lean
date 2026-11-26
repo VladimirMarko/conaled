@@ -82,7 +82,7 @@ example : paidObservation (Resources.run listMeasure.measured [.enqueue 1] []) =
 once in each branch while counted once in their combined resource bound. -/
 def chargedQueue : ValidQueue Nat := ⟨([0], [1, 2, 3, 4, 5, 6, 7]), by simp [Sequences.Symmetric.Inv]⟩
 
-example : symmetricInitialized chargedQueue 12 := by unfold symmetricInitialized; decide
+example : SymmetricInitialized chargedQueue 12 := by unfold SymmetricInitialized; decide
 
 example :
     (Resources.run symmetricMeasure.measured [.delete] chargedQueue).2 ≤ 12 + 8 ∧

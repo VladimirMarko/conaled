@@ -77,21 +77,21 @@ structure Access where
 
 def Access.mutation (selected : Bool) : Access := ⟨none, none, some (!selected)⟩
 
-def Access.safeOverwrite (a : Access) (bank : Bool) : Prop :=
+def Access.SafeOverwrite (a : Access) (bank : Bool) : Prop :=
   a.reader ≠ some bank ∧ a.cursor ≠ some bank ∧
   (a.plan = none ∨ a.plan = some bank)
 
 theorem mutation_safe (selected : Bool) :
-    (Access.mutation selected).safeOverwrite (!selected) ∧ selected ≠ !selected := by
-  cases selected <;> simp [Access.mutation, Access.safeOverwrite]
+    (Access.mutation selected).SafeOverwrite (!selected) ∧ selected ≠ !selected := by
+  cases selected <;> simp [Access.mutation, Access.SafeOverwrite]
 
 /-- A plan contains no pointers to the retired bank after publication. Crash
 cancels the plan; a restarted process constructs a new one from the selector. -/
 def Access.afterPublication : Access := ⟨none, none, none⟩
 
 theorem retired_safe (selected : Bool) :
-    Access.afterPublication.safeOverwrite selected := by
-  simp [Access.afterPublication, Access.safeOverwrite]
+    Access.afterPublication.SafeOverwrite selected := by
+  simp [Access.afterPublication, Access.SafeOverwrite]
 
 /-- Concrete paired write/persist operations, one pair per retained record. -/
 def recordOps (xs : List Bool) (i : Nat := 0) : List Primitive :=

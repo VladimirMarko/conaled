@@ -6,13 +6,13 @@ noncomputable section
 namespace SquareKit.Cubical.CategoryCocycles
 open CategoryTheory Presheaf
 
-variable {t : Term (reindex (FirstIdentityFamily terminal.{0}) (projection (FirstIdentityFamily terminal.{0}))) }
-variable (β : Term (normalizedIdentity (reindex (FirstIdentityFamily terminal.{0}) (projection (FirstIdentityFamily terminal.{0})))
-  t (generic (FirstIdentityFamily terminal.{0}))))
+variable {t : Term (reindex (firstIdentityFamily terminal.{0}) (projection (firstIdentityFamily terminal.{0}))) }
+variable (β : Term (normalizedIdentity (reindex (firstIdentityFamily terminal.{0}) (projection (firstIdentityFamily terminal.{0})))
+  t (generic (firstIdentityFamily terminal.{0}))))
 
-variable (h : Term (SecondIdentityFamily terminal.{0}))
-variable (a : Term (LoopSquareFamily (mappedPoint t)))
-variable (H : Term (normalizedIdentity (LoopSquareFamily (mappedPoint t)) a (mappedHigher t h)))
+variable (h : Term (secondIdentityFamily terminal.{0}))
+variable (a : Term (loopSquareFamily (mappedPoint t)))
+variable (H : Term (normalizedIdentity (loopSquareFamily (mappedPoint t)) a (mappedHigher t h)))
 
 def sourceConjugationCube : CubeCocycle (⟨3⟩ : Cube) :=
   sourceConjugationValue β h a H (terminalPoint ⟨3⟩) ⟨cubeAxis 0⟩ ⟨cubeAxis 1⟩ ⟨cubeAxis 2⟩

@@ -19,15 +19,15 @@ universe u
 namespace Represented
 /-- Codes are small native types; the code object lives one level higher. -/
 structure Code where
-  carrier : Type u
+  Carrier : Type u
 
-def pi (A : Code) (B : A.carrier → Code) : Code := ⟨(a : A.carrier) → (B a).carrier⟩
-def sigma (A : Code) (B : A.carrier → Code) : Code := ⟨(a : A.carrier) × (B a).carrier⟩
-def identity (A : Code) (a b : A.carrier) : Code := ⟨ULift (PLift (a = b))⟩
+def pi (A : Code) (B : A.Carrier → Code) : Code := ⟨(a : A.Carrier) → (B a).Carrier⟩
+def sigma (A : Code) (B : A.Carrier → Code) : Code := ⟨(a : A.Carrier) × (B a).Carrier⟩
+def identity (A : Code) (a b : A.Carrier) : Code := ⟨ULift (PLift (a = b))⟩
 
 abbrev Ty (Γ : Type u) := Γ → Code.{u}
-abbrev Tm {Γ : Type u} (A : Ty Γ) := (γ : Γ) → (A γ).carrier
-abbrev Ext {Γ : Type u} (A : Ty Γ) := (γ : Γ) × (A γ).carrier
+abbrev Tm {Γ : Type u} (A : Ty Γ) := (γ : Γ) → (A γ).Carrier
+abbrev Ext {Γ : Type u} (A : Ty Γ) := (γ : Γ) × (A γ).Carrier
 
 def reindex {Γ Δ : Type u} (A : Ty Γ) (σ : Δ → Γ) : Ty Δ := A ∘ σ
 
@@ -39,7 +39,7 @@ pair elimination. These are the elements of the pullback of the term projection.
 def represent {Γ Δ : Type u} (A : Ty Γ) :
     (Δ → Ext A) ≃ ((σ : Δ → Γ) × Tm (reindex A σ)) :=
   SquareKit.LocalUniverses.Family.comprehensionEquiv
-    (SquareKit.LocalUniverses.Family.present (fun γ => (A γ).carrier))
+    (SquareKit.LocalUniverses.Family.present (fun γ => (A γ).Carrier))
 
 theorem represent_natural {Γ Δ Θ : Type u} (A : Ty Γ) (f : Δ → Ext A) (τ : Θ → Δ) :
     represent A (f ∘ τ) =
@@ -52,11 +52,11 @@ theorem pair_unique {Γ Δ : Type u} {A : Ty Γ} (σ : Δ → Γ)
   (represent A).injective h
 /-- Closure under Σ and native Id reconstructs the extensional fiber's carrier.
 The map keeps the selected preimage. It cannot retain higher identity labels. -/
-def fiberCode (A B : Code) (f : A.carrier → B.carrier) (b : B.carrier) : Code :=
+def fiberCode (A B : Code) (f : A.Carrier → B.Carrier) (b : B.Carrier) : Code :=
   sigma A (fun a => identity B (f a) b)
 
-def fiberCodeEquiv (A B : Code) (f : A.carrier → B.carrier) (b : B.carrier) :
-    (fiberCode A B f b).carrier ≃ Extensional.Fiber f b where
+def fiberCodeEquiv (A B : Code) (f : A.Carrier → B.Carrier) (b : B.Carrier) :
+    (fiberCode A B f b).Carrier ≃ Extensional.Fiber f b where
   toFun a := ⟨a.1, a.2.down.down⟩
   invFun a := ⟨a.val, ⟨⟨a.property⟩⟩⟩
   left_inv a := by rcases a with ⟨a, ⟨⟨p⟩⟩⟩; rfl
@@ -64,8 +64,8 @@ def fiberCodeEquiv (A B : Code) (f : A.carrier → B.carrier) (b : B.carrier) :
 
 /-- Dependent application for the native code operation. This is semantic
 closure, not formation or elimination in an object-language universe. -/
-def applyPi {A : Code} {B : A.carrier → Code} (f : (pi A B).carrier)
-    (a : A.carrier) : (B a).carrier := f a
+def applyPi {A : Code} {B : A.Carrier → Code} (f : (pi A B).Carrier)
+    (a : A.Carrier) : (B a).Carrier := f a
 
 end Represented
 
@@ -171,7 +171,7 @@ def operate : Op → Value (Z := Z) north west → Value (Z := Z) north west →
   | .post, .map h, .cone c => .cone (c.post h)
   | _, _, _ => .invalid
 
-def holds : Pred → Value (Z := Z) north west → Prop
+def Holds : Pred → Value (Z := Z) north west → Prop
   | .map, .map _ => True
   | .cone, .cone _ => True
   | _, _ => False
@@ -179,21 +179,21 @@ def holds : Pred → Value (Z := Z) north west → Prop
 abbrev algebra : Algebra signature where
   Carrier := Value (Z := Z) north west
   operation op a := operate north west op (a 0) (a 1)
-  predicate p a := holds north west p (a 0)
+  Predicate p a := Holds north west p (a 0)
 
 theorem rule_valid : Satisfies (algebra (Z := Z) north west) postCompRule := by
   intro ρ h
   have h0 := h 0
   have h1 := h 1
   have h2 := h 2
-  simp [postCompRule, unary, Atom.eval, Term.eval, algebra, holds] at h0 h1 h2
+  simp [postCompRule, unary, Atom.Eval, Term.eval, algebra, Holds] at h0 h1 h2
   generalize e0 : ρ 0 = v0 at *
   generalize e1 : ρ 1 = v1 at *
   generalize e2 : ρ 2 = v2 at *
   cases v0 <;> dsimp only at h0
   cases v1 <;> dsimp only at h1
   cases v2 <;> dsimp only at h2
-  simp only [postCompRule, Atom.eval, Term.eval, FinitaryTerm.fold, algebra,
+  simp only [postCompRule, Atom.Eval, Term.eval, FinitaryTerm.fold, algebra,
     binary, Matrix.cons_val_zero, Matrix.cons_val_one, e0, e1, e2, operate]
   exact congrArg Value.cone (Cocone.post_comp _ _ _)
 

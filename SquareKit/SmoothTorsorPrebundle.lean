@@ -10,7 +10,7 @@ namespace SquareKit.SmoothTorsorReconstruction
 open Topology CategoryTheory Opposite ManifoldRealization SmoothManifoldAction SmoothOpenSite EuclideanOpen
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 attribute [local instance] Classical.propDecidable
 

@@ -54,7 +54,7 @@ theorem cover_pullback {X Y Z : Sheaf J (Type (max u v))} (f : Y ⟶ X) (g : Z �
     ∃ (W : Sheaf J (Type (max u v))) (p : W ⟶ Z) (q : W ⟶ Y),
       Presheaf.IsLocallySurjective J p.hom ∧ q ≫ f = p ≫ g := by
   let A := SplitSheaf.ofDisplay f
-  refine ⟨SplitSheaf.Ext (SplitSheaf.tySub A g), SplitSheaf.p _,
+  refine ⟨SplitSheaf.extension (SplitSheaf.tySub A g), SplitSheaf.p _,
     SplitSheaf.lift A g ≫ (SplitSheaf.displayIso f).hom, inferInstance, ?_⟩
   rw [Category.assoc, SplitSheaf.displayIso_projection, SplitSheaf.lift_p]
 

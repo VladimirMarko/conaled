@@ -13,7 +13,7 @@ open SheafRelation SheafFunction
 inductive Stage
   | real
   | free (n : ℕ)
-  | presented (n m : ℕ) (relations : Fin m → Free n)
+  | presented (n m : ℕ) (relations : Fin m → freeAlgebra n)
   | dual (base : Stage)
 
 structure SmoothObject where
@@ -25,8 +25,8 @@ attribute [instance] SmoothObject.commRing SmoothObject.realAlgebra SmoothObject
 
 def algebra : Stage → SmoothObject
   | .real => ⟨ℝ⟩
-  | .free n => ⟨Free n⟩
-  | .presented n _ r => ⟨Free n ⧸ Ideal.span (Set.range r)⟩
+  | .free n => ⟨freeAlgebra n⟩
+  | .presented n _ r => ⟨freeAlgebra n ⧸ Ideal.span (Set.range r)⟩
   | .dual A => let B := algebra A
                { Carrier := DualNumber B.Carrier, smooth := DualExtension.smoothStructure }
 

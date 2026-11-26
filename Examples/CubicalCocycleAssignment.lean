@@ -8,13 +8,13 @@ open CategoryTheory SquareKit.Cubical SquareKit.Cubical.Presheaf
 open SquareKit.Cubical.CategoryCocycles
 open Examples.FrozenMemoStages
 
-abbrev CM := cocycleModel.toStructuralModel
-abbrev points := ((Points.initial (M := CM) cocycleBase cocycleRootedFamily).addY).addZ
+abbrev cocycleStructuralModel := cocycleModel.toStructuralModel
+abbrev points := ((Points.initial (M := cocycleStructuralModel) cocycleBase cocycleRootedFamily).addY).addZ
 abbrev onePath := points.addP
 abbrev parallelPoints := onePath.addParallel
 
 def assignX : terminal.{0} ⟶ total cocycleBase.family := pair (𝟙 _) (zeroTerm terminal)
-def assignY : terminal.{0} ⟶ (Points.initial (M := CM) cocycleBase cocycleRootedFamily).addY.context :=
+def assignY : terminal.{0} ⟶ (Points.initial (M := cocycleStructuralModel) cocycleBase cocycleRootedFamily).addY.context :=
   pair assignX (zeroTerm terminal)
 def assignZ : terminal.{0} ⟶ points.context := pair assignY (zeroTerm terminal)
 

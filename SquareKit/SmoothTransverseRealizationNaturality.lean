@@ -61,7 +61,7 @@ open CategoryTheory Opposite SmoothAlgebra SmoothAlgebra.Localization
 open SmoothPresentationSite
 
 /-- A principal support for an arbitrary relatively open part of an ordinary domain. -/
-def relativeSupport (U : Domain) (O : Set (Points U)) (hO : IsOpen O) : Free U.dimension :=
+def relativeSupport (U : Domain) (O : Set (Points U)) (hO : IsOpen O) : freeAlgebra U.dimension :=
   openDefining (Subtype.val '' O) ((domain_open U).isOpenMap_subtype_val O hO)
 
 theorem relativeSupport_iff (U : Domain) (O : Set (Points U)) (hO : IsOpen O)

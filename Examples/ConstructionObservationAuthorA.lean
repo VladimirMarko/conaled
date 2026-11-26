@@ -120,11 +120,11 @@ theorem extend_direct (p q : Parser P) :
   · intro h
     exact ⟨h, Prod.ext (h []) (h ['a'])⟩
 
-def descend_direct : Quotient (exactAgreement P) → Decision (P []) × Decision (P ['a']) :=
+def descendDirect : Quotient (exactAgreement P) → Decision (P []) × Decision (P ['a']) :=
   Quotient.lift pairObservation (fun _ _ h => Prod.ext (h []) (h ['a']))
 
-theorem descend_direct_mk (p : Parser P) :
-    descend_direct (Quotient.mk (exactAgreement P) p) = pairObservation p := rfl
+theorem descendDirect_mk (p : Parser P) :
+    descendDirect (Quotient.mk (exactAgreement P) p) = pairObservation p := rfl
 
 theorem recovery_direct {p q : Parser P}
     (h : (extend (exactAgreement P) pairObservation).r p q) (w : List Char) :
@@ -149,9 +149,9 @@ theorem star_a_lookup : (pairObservation starParser).2 =
   (WitnessTrie.lookup_unfold starParser 1 ['a'] (by decide)).symm
 
 theorem star_direct_quotient :
-    descend_direct (Quotient.mk (exactAgreement StarLanguage) starParser) =
+    descendDirect (Quotient.mk (exactAgreement StarLanguage) starParser) =
       (Decision.yes emptyWitness, Decision.yes aWitness) := by
-  rw [descend_direct_mk]
+  rw [descendDirect_mk]
   exact Prod.ext star_empty star_a
 
 theorem ambiguous_pair_different :
@@ -177,11 +177,11 @@ theorem extend_shared (p q : Parser P) :
     (extend (exactAgreement P) pairObservation).r p q ↔ (exactAgreement P).r p q :=
   extend_iff (exactAgreement P) pairObservation compatible_shared p q
 
-def descend_shared : Quotient (exactAgreement P) → Decision (P []) × Decision (P ['a']) :=
+def descendShared : Quotient (exactAgreement P) → Decision (P []) × Decision (P ['a']) :=
   descend (exactAgreement P) pairObservation compatible_shared
 
-theorem descend_shared_mk (p : Parser P) :
-    descend_shared (Quotient.mk (exactAgreement P) p) = pairObservation p :=
+theorem descendShared_mk (p : Parser P) :
+    descendShared (Quotient.mk (exactAgreement P) p) = pairObservation p :=
   descend_mk (exactAgreement P) pairObservation compatible_shared p
 
 theorem recovery_shared {p q : Parser P}
@@ -189,9 +189,9 @@ theorem recovery_shared {p q : Parser P}
     p.parse w = q.parse w := (extend_shared p q).mp h w
 
 theorem star_shared_quotient :
-    descend_shared (Quotient.mk (exactAgreement StarLanguage) starParser) =
+    descendShared (Quotient.mk (exactAgreement StarLanguage) starParser) =
       (Decision.yes emptyWitness, Decision.yes aWitness) := by
-  rw [descend_shared_mk]
+  rw [descendShared_mk]
   exact Prod.ext star_empty star_a
 
 end Parsing

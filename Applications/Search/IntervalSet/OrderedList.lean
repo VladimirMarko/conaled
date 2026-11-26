@@ -17,12 +17,12 @@ variable {α : Type u} {κ : Type v} [LE α] [DecidableLE α]
 
 def orderedListSearch (iv : κ → IntervalKey α) (xs : List κ)
     (query : IntervalKey α) : Bool :=
-  xs.any (fun key => decide ((iv key).overlap query))
+  xs.any (fun key => decide ((iv key).Overlap query))
 
 theorem orderedListSearch_correct (iv : κ → IntervalKey α) (xs : List κ)
     (query : IntervalKey α) :
     orderedListSearch iv xs query = true ↔
-      hasOverlap (iv '' {key | key ∈ xs}) query := by
+      HasOverlap (iv '' {key | key ∈ xs}) query := by
   rw [hasOverlap_image_iff]
   simp [orderedListSearch, List.any_eq_true]
 

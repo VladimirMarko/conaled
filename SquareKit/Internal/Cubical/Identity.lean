@@ -84,7 +84,7 @@ theorem identityFace_refl {Γ : Context.{u}} {A : Family Γ} (a : Term A) :
 
 def identityIntro {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
     (p : Term (path (reindex A (projection (interval Γ))) a b)) (φ : Cofibration Γ)
-    (h : ∀ (x : Γ.Elements), φ.full x → ∀ r : (interval Γ).obj x,
+    (h : ∀ (x : Γ.Elements), φ.Full x → ∀ r : (interval Γ).obj x,
       (p.val x).val.val (𝟙 _) r = a.val x) : Term (identity A a b) where
   val x := {
     path := p.val x
@@ -95,7 +95,7 @@ def identityIntro {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
       change (φ.app y.obj (Γ.map f.hom x.val)).down =
         Face.substitute f.hom.unop (φ.app x.obj x.val).down at he
       rw [f.map_val] at he
-      have hy : φ.full y := (congrArg Face.Full he).mpr hf
+      have hy : φ.Full y := (congrArg Face.Full he).mpr hf
       have hp := congrArg (fun q => q.val.val (𝟙 _) r) (p.property f)
       change (p.val x).val.val (f ≫ 𝟙 _) r = (p.val y).val.val (𝟙 _) r at hp
       have hp' : (p.val x).val.val f r = (p.val y).val.val (𝟙 _) r := by
@@ -111,13 +111,13 @@ def identityIntro {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
 
 theorem identityPath_intro {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
     (p : Term (path (reindex A (projection (interval Γ))) a b)) (φ : Cofibration Γ)
-    (h : ∀ (x : Γ.Elements), φ.full x → ∀ r : (interval Γ).obj x,
+    (h : ∀ (x : Γ.Elements), φ.Full x → ∀ r : (interval Γ).obj x,
       (p.val x).val.val (𝟙 _) r = a.val x) :
     Term.map (identityPath A a b) (identityIntro p φ h) = p := rfl
 
 theorem identityFace_intro {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
     (p : Term (path (reindex A (projection (interval Γ))) a b)) (φ : Cofibration Γ)
-    (h : ∀ (x : Γ.Elements), φ.full x → ∀ r : (interval Γ).obj x,
+    (h : ∀ (x : Γ.Elements), φ.Full x → ∀ r : (interval Γ).obj x,
       (p.val x).val.val (𝟙 _) r = a.val x) : identityFace (identityIntro p φ h) = φ := rfl
 
 end SquareKit.Cubical.Presheaf

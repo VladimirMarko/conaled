@@ -14,7 +14,7 @@ variable (C D : Context.{u}) {Γ : Context.{u}}
 local notation "M" => fullModel C D
 def SourceOrdinaryVerticalAction (A : Family Γ) (p q : TwoFamily.Section A.data)
  (s : TwoFamily.Section (reindex (projectionHigher A.data) A.data)) : Prop :=
- VerticalValueAction A p q s (endpointSub_native C D A p q)
+ VerticalValueAction A p q s (endpointSubNative C D A p q)
   (ordinaryActionFamily C D A p q s) (fun h => (ordinaryApValue M A A ⟨s⟩ ⟨p⟩ ⟨q⟩ ⟨h⟩).down)
 theorem sourceOrdinaryVerticalAction (A : Family Γ) (p q : TwoFamily.Section A.data)
  (s : TwoFamily.Section (reindex (projectionHigher A.data) A.data))
@@ -41,7 +41,7 @@ theorem sourceIdentityFiberAction (A : Family Γ) (x y : TwoFamily.Section A.dat
  have hf := endpointSub_fiber_action C D A x y p q s
  have hv := sourceOrdinaryVerticalAction C D (A.identity x y) p q s
  have f := identityFiberValueFormula_of_vertical A x y p q s
-  (endpointSub_native C D (A.identity x y) p q)
+  (endpointSubNative C D (A.identity x y) p q)
   (ordinaryActionFamily C D (A.identity x y) p q s)
   (fun h => (ordinaryApValue M (A.identity x y) (A.identity x y) ⟨s⟩ ⟨p⟩ ⟨q⟩ ⟨h⟩).down)
  run_tac Lean.Elab.Tactic.withMainContext do

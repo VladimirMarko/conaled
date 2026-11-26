@@ -20,11 +20,11 @@ theorem unfoldSteps_succ_left {α : Type u} (c : α → Option α) (n : Nat) (x 
     rw [ih, Option.bind_assoc]
     rfl
 
-def unfoldObserves {α : Type u} (c : α → Option α) (x : α) (k : Nat) : Prop :=
+def UnfoldObserves {α : Type u} (c : α → Option α) (x : α) (k : Nat) : Prop :=
   ∃ y, unfoldSteps c (k + 1) x = some y
 
 theorem unfoldObserves_down {α : Type u} (c : α → Option α) (x : α) (k : Nat) :
-    unfoldObserves c x (k + 1) → unfoldObserves c x k := by
+    UnfoldObserves c x (k + 1) → UnfoldObserves c x k := by
   rintro ⟨y, hy⟩
   unfold unfoldSteps at hy
   cases hs : unfoldSteps c (k + 1) x with
@@ -32,10 +32,10 @@ theorem unfoldObserves_down {α : Type u} (c : α → Option α) (x : α) (k : N
   | some z => exact ⟨z, hs⟩
 
 noncomputable def unfoldLength {α : Type u} (c : α → Option α) (x : α) : Option Nat :=
-  cutLength (unfoldObserves c x)
+  cutLength (UnfoldObserves c x)
 
 theorem unfoldLength_test {α : Type u} (c : α → Option α) (x : α) (k : Nat) :
-    cutTest (unfoldLength c x) k ↔ unfoldObserves c x k :=
+    CutTest (unfoldLength c x) k ↔ UnfoldObserves c x k :=
   cutLength_test _ (unfoldObserves_down c x) k
 
 /-- One internal unfolding first runs the coalgebra tracker, then the lifted output. -/
@@ -61,7 +61,7 @@ theorem unfoldProgram_recursive (q : Code) : Partrec₂ (unfoldProgram q) := by
 def PartialRealizes (A : Assembly.{u}) (p : Part Nat) (x : Option A.Carrier) : Prop :=
   match x with
   | none => ¬ p.Dom
-  | some x => ∃ e, e ∈ p ∧ A.realizes e x
+  | some x => ∃ e, e ∈ p ∧ A.Realizes e x
 
 theorem PartialRealizes.dom {A : Assembly.{u}} {p : Part Nat} {x : Option A.Carrier}
     (h : PartialRealizes A p x) : p.Dom ↔ ∃ y, x = some y := by
@@ -73,7 +73,7 @@ theorem PartialRealizes.dom {A : Assembly.{u}} {p : Part Nat} {x : Option A.Carr
 
 theorem PartialRealizes.bind {A : Assembly.{u}} {p : Part Nat} {x : Option A.Carrier}
     (h : PartialRealizes A p x) (c : A.Carrier → Option A.Carrier) (φ : Nat → Part Nat)
-    (ht : ∀ a e, A.realizes e a → PartialRealizes A (φ e) (c a)) :
+    (ht : ∀ a e, A.Realizes e a → PartialRealizes A (φ e) (c a)) :
     PartialRealizes A (p.bind φ) (x.bind c) := by
   cases x with
   | none => exact fun hd => h hd.1
@@ -85,7 +85,7 @@ theorem PartialRealizes.bind {A : Assembly.{u}} {p : Part Nat} {x : Option A.Car
 
 theorem unfoldProgramStep_realizes {A : Assembly.{u}} (c : Hom A (programLift A))
     (q : Code) (hq : Tracks A (programLift A) q.eval c.toFun)
-    (x : A.Carrier) (e : Nat) (he : A.realizes e x) :
+    (x : A.Carrier) (e : Nat) (he : A.Realizes e x) :
     PartialRealizes A (unfoldProgramStep q e) (c.toFun x) := by
   obtain ⟨m, hm, hy⟩ := hq x e he
   have hp : q.eval e = Part.some m := Part.eq_some_iff.mpr hm
@@ -95,7 +95,7 @@ theorem unfoldProgramStep_realizes {A : Assembly.{u}} (c : Hom A (programLift A)
 
 theorem unfoldProgram_realizes {A : Assembly.{u}} (c : Hom A (programLift A))
     (q : Code) (hq : Tracks A (programLift A) q.eval c.toFun)
-    (x : A.Carrier) (e : Nat) (he : A.realizes e x) (k : Nat) :
+    (x : A.Carrier) (e : Nat) (he : A.Realizes e x) (k : Nat) :
     PartialRealizes A (unfoldProgram q e k) (unfoldSteps c.toFun k x) := by
   induction k with
   | zero => exact ⟨e, by simp [unfoldProgram], he⟩
@@ -114,14 +114,14 @@ noncomputable def cutUnfold {A : Assembly.{u}} (c : Hom A (programLift A)) : Hom
     refine ⟨fun e => Part.some (encode (d.curry e)), Partrec.nat_iff.mp hd, ?_⟩
     intro x e he
     refine ⟨encode (d.curry e), by simp, ?_⟩
-    have ht : ∀ k, ((d.curry e).eval k).Dom ↔ cutTest (unfoldLength c.toFun x) k := by
+    have ht : ∀ k, ((d.curry e).eval k).Dom ↔ CutTest (unfoldLength c.toFun x) k := by
       intro k
       rw [Code.eval_curry, templateCode_eval]
       exact (unfoldProgram_realizes c q hq x e he (k + 1)).dom.trans
         (unfoldLength_test c.toFun x k).symm
     dsimp only [finalCuts]
     cases hh : unfoldLength c.toFun x with
-    | none => intro k; simpa [hh, cutTest] using (ht k).mpr (by simp [hh, cutTest])
-    | some n => intro k; simpa [hh, cutTest] using ht k
+    | none => intro k; simpa [hh, CutTest] using (ht k).mpr (by simp [hh, CutTest])
+    | some n => intro k; simpa [hh, CutTest] using ht k
 
 end Realizability.Assembly

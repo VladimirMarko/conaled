@@ -9,12 +9,12 @@ namespace Realizability.Assembly
 
 /-- Defined values must belong to the retained fiber; bottom imposes no
 condition on that fiber. -/
-def sliceCondition {A B : Assembly.{u}} (p : Hom A B)
+def SliceCondition {A B : Assembly.{u}} (p : Hom A B)
     (bt : (prod B (programLift A)).Carrier) : Prop :=
   ∀ x, bt.2 = some x → p.toFun x = bt.1
 
 def sliceLift {A B : Assembly.{u}} (p : Hom A B) : Assembly.{u} :=
-  restrict (prod B (programLift A)) (sliceCondition p)
+  restrict (prod B (programLift A)) (SliceCondition p)
 
 def sliceBase {A B : Assembly.{u}} (p : Hom A B) : Hom (sliceLift p) B :=
   (inclusion _ _).comp (fst _ _)
@@ -104,7 +104,7 @@ theorem sliceClassify_unique {A B D : Assembly.{u}} (p : Hom A B) (b : Hom D B)
 admitted input, including maps whose domain has no computable decision. -/
 theorem slice_unclassify_compatible {A B D : Assembly.{u}} (p : Hom A B) (b : Hom D B)
     (g : Hom D (sliceLift p)) (hb : g.comp (sliceBase p) = b)
-    (x : D.Carrier) (h : (unclassify (g.comp (sliceValue p))).domain x) :
+    (x : D.Carrier) (h : (unclassify (g.comp (sliceValue p))).Domain x) :
     p.toFun ((unclassify (g.comp (sliceValue p))).map.toFun ⟨x, h⟩) = b.toFun x :=
   ((g.toFun x).property _ (definedMap_spec (g.comp (sliceValue p)) ⟨x, h⟩)).trans
     (congrArg (fun k => k.toFun x) hb)
@@ -119,7 +119,7 @@ theorem sliceClassify_unclassify {A B D : Assembly.{u}} (p : Hom A B) (b : Hom D
 
 /-- An empty partial map into any assembly, without a target inhabitant. -/
 def nowhere (D A : Assembly.{u}) : PartialMap D A where
-  domain _ := False
+  Domain _ := False
   admissible := admissible_empty D
   map := ⟨fun x => False.elim x.property, fun _ => Part.none, Nat.Partrec.none,
     fun x => False.elim x.property⟩

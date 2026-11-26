@@ -110,10 +110,10 @@ namespace Scalar
 open Suspensions.Pure.Compatibility
 
 private def parameters : Parameters BasicOperation := basicPureParameters 10 11
-private def selected : BasicOperation → Prop := fun _ => True
+private def Selected : BasicOperation → Prop := fun _ => True
 
 private theorem scalar_start (operation : BasicOperation) (input : Suspensions.Core.Atom) :
-    ConfigAllowed selected (start [] (.apply (.primitive operation) (.atom input))) :=
+    ConfigAllowed Selected (start [] (.apply (.primitive operation) (.atom input))) :=
   start_allowed EnvAllowed.nil ((CodeAllowed.apply_iff _ _).mpr
     ⟨(CodeAllowed.primitive_iff operation).mpr trivial, CodeAllowed.atom input⟩)
 
@@ -121,24 +121,24 @@ theorem successor_preserved :
     Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .successor) (.atom (.integer 41))))
       (.value (.atom (.integer 42))) 6 ∧
-    ResultAllowed selected (.value (.atom (.integer 42))) := by
+    ResultAllowed Selected (.value (.atom (.integer 42))) := by
   have run : Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .successor) (.atom (.integer 41))))
       (.value (.atom (.integer 42))) 6 :=
     .next rfl (.next rfl (.next rfl (.next rfl (.next rfl (.done rfl)))))
-  exact ⟨run, evaluates_preserves (basic_parameters_preserve selected 10 11)
+  exact ⟨run, evaluates_preserves (basic_parameters_preserve Selected 10 11)
     (scalar_start .successor (.integer 41)) run⟩
 
 theorem boolean_preserved :
     Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .isZero) (.atom (.integer 0))))
       (.value (.atom (.boolean true))) 6 ∧
-    ResultAllowed selected (.value (.atom (.boolean true))) := by
+    ResultAllowed Selected (.value (.atom (.boolean true))) := by
   have run : Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .isZero) (.atom (.integer 0))))
       (.value (.atom (.boolean true))) 6 :=
     .next rfl (.next rfl (.next rfl (.next rfl (.next rfl (.done rfl)))))
-  exact ⟨run, evaluates_preserves (basic_parameters_preserve selected 10 11)
+  exact ⟨run, evaluates_preserves (basic_parameters_preserve Selected 10 11)
     (scalar_start .isZero (.integer 0)) run⟩
 
 end Scalar

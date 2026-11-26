@@ -97,14 +97,14 @@ noncomputable def latticePath (e : X ≃o Y) :
   Term.map (UaComparison.modelPathInverse lattice (sourceObject a) (targetObject a b e))
     (rawPath a b e)
 
-noncomputable def latticePath_projection (e : X ≃o Y) :=
-  UaComparison.modelPathInverse_projection lattice (sourceObject a) (targetObject a b e)
+noncomputable def latticePathProjection (e : X ≃o Y) :=
+  UaComparison.modelPathInverseProjection lattice (sourceObject a) (targetObject a b e)
     (rawPath a b e)
 
-noncomputable def latticePath_roundtrip (e : X ≃o Y) :=
+noncomputable def latticePathRoundtrip (e : X ≃o Y) :=
   UaComparison.modelRightInverseAt lattice (sourceObject a) (targetObject a b e) (latticePath a b e)
 
-noncomputable def equivalence_roundtrip (e : X ≃o Y) :=
+noncomputable def equivalenceRoundtrip (e : X ≃o Y) :=
   UaComparison.explicitLeftInverseAt rawLattice a.code (fields a) b.code (movedFields a b e)
     (structuredEquivalence a b e)
 
@@ -228,7 +228,7 @@ noncomputable def carrierProjection (e : X ≃o Y) :
       (latticeCarrierPath a b e) (carrierPath a b e)) :=
   homogeneousPathMap (HomotopyLevels.pathMap (SIP.Exchange.first (SIP.objectFields rawLattice))
     (objectOf rawLattice a.code (fields a)) (objectOf rawLattice b.code (movedFields a b e)))
-    (latticePath_projection a b e)
+    (latticePathProjection a b e)
 
 omit [Lattice X] [Lattice Y] in
 noncomputable def evaluatePath (v : X) :
@@ -310,7 +310,7 @@ theorem latticePathData_path (e : X ≃o Y) :
 
 /-- Retain the complete selected equivalence and its native recovery path. -/
 noncomputable def equivalenceRecoveryData (e : X ≃o Y) :=
-  PathData.ofPath (equivalence_roundtrip a b e)
+  PathData.ofPath (equivalenceRoundtrip a b e)
 
 theorem equivalenceRecoveryData_target (e : X ≃o Y) :
     (equivalenceRecoveryData a b e).target = structuredEquivalence a b e := rfl
@@ -318,7 +318,7 @@ theorem equivalenceRecoveryData_target (e : X ≃o Y) :
 /-- The law-bearing path still projects to the original raw path by the same
 native two-path. -/
 noncomputable def latticeProjectionData (e : X ≃o Y) :=
-  PathData.ofPath (latticePath_projection a b e)
+  PathData.ofPath (latticePathProjection a b e)
 
 end Presheaf
 namespace Cartesian
@@ -409,14 +409,14 @@ noncomputable def latticePath (e : X ≃o Y) :
   Term.map (UaComparison.modelPathInverse lattice (sourceObject a) (targetObject a b e))
     (rawPath a b e)
 
-noncomputable def latticePath_projection (e : X ≃o Y) :=
-  UaComparison.modelPathInverse_projection lattice (sourceObject a) (targetObject a b e)
+noncomputable def latticePathProjection (e : X ≃o Y) :=
+  UaComparison.modelPathInverseProjection lattice (sourceObject a) (targetObject a b e)
     (rawPath a b e)
 
-noncomputable def latticePath_roundtrip (e : X ≃o Y) :=
+noncomputable def latticePathRoundtrip (e : X ≃o Y) :=
   UaComparison.modelRightInverseAt lattice (sourceObject a) (targetObject a b e) (latticePath a b e)
 
-noncomputable def equivalence_roundtrip (e : X ≃o Y) :=
+noncomputable def equivalenceRoundtrip (e : X ≃o Y) :=
   UaComparison.explicitLeftInverseAt rawLattice a.code (fields a) b.code (movedFields a b e)
     (structuredEquivalence a b e)
 
@@ -540,7 +540,7 @@ noncomputable def carrierProjection (e : X ≃o Y) :
       (latticeCarrierPath a b e) (carrierPath a b e)) :=
   homogeneousPathMap (HomotopyLevels.pathMap (SIP.Exchange.first (SIP.objectFields rawLattice))
     (objectOf rawLattice a.code (fields a)) (objectOf rawLattice b.code (movedFields a b e)))
-    (latticePath_projection a b e)
+    (latticePathProjection a b e)
 
 omit [Lattice X] [Lattice Y] in
 noncomputable def evaluatePath (v : X) :
@@ -622,7 +622,7 @@ theorem latticePathData_path (e : X ≃o Y) :
 
 /-- Retain the complete selected equivalence and its native recovery path. -/
 noncomputable def equivalenceRecoveryData (e : X ≃o Y) :=
-  PathData.ofPath (equivalence_roundtrip a b e)
+  PathData.ofPath (equivalenceRoundtrip a b e)
 
 theorem equivalenceRecoveryData_target (e : X ≃o Y) :
     (equivalenceRecoveryData a b e).target = structuredEquivalence a b e := rfl
@@ -630,7 +630,7 @@ theorem equivalenceRecoveryData_target (e : X ≃o Y) :
 /-- The law-bearing path still projects to the original raw path by the same
 native two-path. -/
 noncomputable def latticeProjectionData (e : X ≃o Y) :=
-  PathData.ofPath (latticePath_projection a b e)
+  PathData.ofPath (latticePathProjection a b e)
 
 end Cartesian
 end Examples.NativeLatticeTransport

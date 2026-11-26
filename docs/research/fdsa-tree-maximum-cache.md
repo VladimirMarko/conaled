@@ -22,7 +22,7 @@ An empty child contributes no invented zero, bottom or default inhabitant.
 Construction, the independent `summary` fold and all cache transport laws
 require only `Max α`. Greatest-element meaning has a separate ordered owner.
 
-The recursive `invarMx` requires both child invariants and the actual local
+The recursive `Valid` requires both child invariants and the actual local
 root equation. The new root does not repair an invalid descendant. Neither
 the reader nor the constructor calls a representation adapter or traverses a
 child. Equality of ordinary tree values makes no physical-sharing claim.
@@ -35,7 +35,7 @@ that always produces `some (localMax ...)`.
 
 `lift` maps every raw annotation b to `some b`, preserving keys and shape.
 Its reader, key-erasure and smart-node laws are exact. The equivalence
-`invarMx_iff_valid_lift` identifies the source invariant with generic validity
+`valid_iff_valid_lift` identifies the source invariant with generic validity
 of the lifted tree. `nodeMx_valid_iff` then consumes
 `Cached.smartNode_valid_iff`; `mx_eq_summary` consumes `Cached.read_eq_fold`.
 There is no duplicate induction proving generic cached-fold correctness.

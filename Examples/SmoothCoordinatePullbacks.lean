@@ -13,7 +13,7 @@ local notation "P" => SmoothOpenSite.scalarPower
 
 /-- The free smooth-algebra statement retains two arbitrary, independent inputs. -/
 theorem twoFreeAlgebra {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A] (a b : A) :
-    ∃! w : Hom (Free 2) A,
+    ∃! w : Hom (freeAlgebra 2) A,
       w.comp (SmoothAlgebra.Coordinates.zeroSection 2 1) =
         evaluate (Fin.addCases ![a,b] (fun _ : Fin 1 => 0)) ∧
       w.comp (SmoothAlgebra.Coordinates.constants 2) = evaluate Fin.elim0 := by
@@ -22,7 +22,7 @@ theorem twoFreeAlgebra {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A] (a
   intro i
   change evaluate (Fin.addCases ![a,b] (fun _ : Fin 1 => 0))
     (evaluate (fun j => generator (Fin.natAdd 2 j)) (generator i)) =
-      evaluate (Fin.elim0 : Fin 0 → A) (evaluate (fun _ : Fin 1 => (0 : Free 0)) (generator i))
+      evaluate (Fin.elim0 : Fin 0 → A) (evaluate (fun _ : Fin 1 => (0 : freeAlgebra 0)) (generator i))
   rw [evaluate_generator, evaluate_generator, evaluate_generator, Fin.addCases_right]
   exact (evaluate (Fin.elim0 : Fin 0 → A)).toAlgHom.map_zero.symm
 
@@ -112,9 +112,9 @@ theorem nilpotent_composite_restriction :
 open EuclideanOpen Localization
 
 /-- A proper principal open that contains the nilpotent point (d,0). -/
-def support : Free 2 := 1 + generator 0
+def support : freeAlgebra 2 := 1 + generator 0
 
-def fiberFull : Hom (Principal (1 : Free 1)) (Carrier stage) :=
+def fiberFull : Hom (Principal (1 : freeAlgebra 1)) (Carrier stage) :=
   (fullHomEquiv 1 stage).symm
     ((SmoothOpenSite.Coordinates.fiberLift (SmoothOpenSite.Coordinates.insertZero 1 1)).hom.app
       (atStage stage) (fun _ => d))
@@ -122,13 +122,13 @@ def fiberFull : Hom (Principal (1 : Free 1)) (Carrier stage) :=
 theorem fiberFull_coordinate : fiberFull (principalBase 1 (generator 0)) = d := by
   exact (congrFun ((fullHomEquiv 1 stage).apply_symm_apply _) 0).trans nilpotent_reconstruction
 
-def ambientFull : Hom (Principal (1 : Free 2)) (Carrier stage) :=
+def ambientFull : Hom (Principal (1 : freeAlgebra 2)) (Carrier stage) :=
   fiberFull.comp (Localization.pullback (EuclideanOpen.Coordinates.insertZero 1 1))
 
 theorem support_value : ambientFull (principalBase 1 support) = 1+d := by
-  rw [support, (principalBase (1 : Free 2)).map_add, ambientFull.map_add]
+  rw [support, (principalBase (1 : freeAlgebra 2)).map_add, ambientFull.map_add]
   have h1 : ambientFull (principalBase 1 1) = 1 := by
-    exact (congrArg ambientFull (principalBase (1 : Free 2)).toAlgHom.map_one).trans
+    exact (congrArg ambientFull (principalBase (1 : freeAlgebra 2)).toAlgHom.map_one).trans
       ambientFull.toAlgHom.map_one
   rw [h1]
   congr 1
@@ -172,10 +172,10 @@ theorem restrictedPoint_second :
 theorem restrictedPoint_coordinate :
     restrictedPoint (principalBase (1 * inverseDefining (EuclideanOpen.Coordinates.insertZero 1 1) support)
       (generator 0)) = d := by
-  have h := congrArg (fun f : Hom (Principal (1 : Free 1)) (Carrier stage) =>
+  have h := congrArg (fun f : Hom (Principal (1 : freeAlgebra 1)) (Carrier stage) =>
     f (principalBase 1 (generator 0))) restrictedPoint_first
   rw [nested_pullback] at h
-  have hb := congrArg (fun f : Hom (Free 1) (Principal
+  have hb := congrArg (fun f : Hom (freeAlgebra 1) (Principal
       (1 * inverseDefining (EuclideanOpen.Coordinates.insertZero 1 1) support)) => f (generator 0))
     (nestedMap_base 1 (inverseDefining (EuclideanOpen.Coordinates.insertZero 1 1) support))
   exact (congrArg restrictedPoint hb).symm.trans (h.trans fiberFull_coordinate)
@@ -187,7 +187,7 @@ theorem restrictedPoint_nonzero :
   exact d_nonzero
 
 /-- A different ambient principal open, with value 1-d at this stage. -/
-def otherSupport : Free 2 := 1 - generator 0
+def otherSupport : freeAlgebra 2 := 1 - generator 0
 
 theorem otherSupport_value : ambientFull (principalBase 1 otherSupport) = 1-d := by
   change (ambientFull.comp (principalBase 1)).toAlgHom (1 - generator 0) = _

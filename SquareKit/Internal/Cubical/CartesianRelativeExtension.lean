@@ -492,7 +492,7 @@ noncomputable def tube : PartialSection (reindex A (cubeBase (Γ := Γ)))
   (tubeY F p).glue (tubeX F p) (compatible F hF p)
 
 include hF in
-theorem tubeY_source (z : (square (Γ := Γ)).Elements) (h : (faceY (Γ := Γ)).holds z) :
+theorem tubeY_source (z : (square (Γ := Γ)).Elements) (h : (faceY (Γ := Γ)).Holds z) :
     (tubeY F p).val ((endpointSub (square (Γ := Γ)) false).mapElements.obj z) h =
       (Term.reindex a (NativeSquare.squareBase Γ)).val z := by
   rcases h with h | h
@@ -521,13 +521,13 @@ noncomputable def squareTerm : Term (reindex A (NativeSquare.squareBase Γ)) :=
 
 include hF in
 theorem filling_onY (z : (total (interval (square (Γ := Γ)))).Elements)
-    (h : (faceY (Γ := Γ)).holds ((projection (interval (square (Γ := Γ)))).mapElements.obj z)) :
+    (h : (faceY (Γ := Γ)).Holds ((projection (interval (square (Γ := Γ)))).mapElements.obj z)) :
     (filling F hF p).val z = (tubeY F p).val z h :=
   ((hF.fills _ _ _ (box F hF p)).2 z (Or.inl h)).trans
     (glueValue_left (tubeY F p) (tubeX F p) z (Or.inl h) h)
 include hF in
 theorem filling_onX (z : (total (interval (square (Γ := Γ)))).Elements)
-    (h : (faceX (Γ := Γ)).holds ((projection (interval (square (Γ := Γ)))).mapElements.obj z)) :
+    (h : (faceX (Γ := Γ)).Holds ((projection (interval (square (Γ := Γ)))).mapElements.obj z)) :
     (filling F hF p).val z = (tubeX F p).val z h :=
   ((hF.fills _ _ _ (box F hF p)).2 z (Or.inr h)).trans
     (glueValue_right (tubeY F p) (tubeX F p) (compatible F hF p) z (Or.inr h) h)

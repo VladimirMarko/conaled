@@ -27,14 +27,14 @@ private theorem supported_mul {U : Set (Space n)} (hU : IsOpen U)
 
 /-- Compatible local representatives glue modulo the ideal on a finite open cover.
 Compatibility is an equality of germs with smooth ideal coefficients. -/
-theorem finite_gluing (r : Fin m → Free n) (U : Fin k → Set (Space n))
+theorem finite_gluing (r : Fin m → freeAlgebra n) (U : Fin k → Set (Space n))
     (hU : ∀ i, IsOpen (U i)) (hcover : ∀ x, ∃ i, x ∈ U i)
     (f : Fin k → Space n → ℝ) (hf : ∀ i, ContDiffOn ℝ ∞ (f i) (U i))
     (hc : ∀ i j x, x ∈ U i → x ∈ U j → Mem r (fun y => f i y-f j y) x) :
-    ∃ g : Free n, ∀ i x, x ∈ U i → Mem r (fun y => g.val y-f i y) x := by
+    ∃ g : freeAlgebra n, ∀ i x, x ∈ U i → Mem r (fun y => g.val y-f i y) x := by
   obtain ⟨ρ,hρ⟩ := SmoothPartitionOfUnity.exists_isSubordinate (𝓘(ℝ,Space n))
     isClosed_univ U hU (fun x _ => mem_iUnion.mpr (hcover x))
-  let g : Free n := ⟨fun x => ∑ j, ρ j x*f j x,
+  let g : freeAlgebra n := ⟨fun x => ∑ j, ρ j x*f j x,
     ContDiff.sum (fun j _ => supported_mul (hU j) (ρ j) (f j) (ρ j).contMDiff.contDiff (hρ j) (hf j))⟩
   refine ⟨g,fun i x hx => ?_⟩
   have hterm (j : Fin k) : Mem r (fun y => ρ j y*(f j y-f i y)) x := by

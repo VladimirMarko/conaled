@@ -20,7 +20,7 @@ def realize (hw : TargetBackend.Config m width) : (c : Strategy) →
   | .sparse => SparseCatalog.ops m
   | .shared => TargetBackend.ops hw
 
-def valid (hw : TargetBackend.Config m width) : (c : Strategy) → Input m → Rep m width c → Prop
+def Valid (hw : TargetBackend.Config m width) : (c : Strategy) → Input m → Rep m width c → Prop
   | .direct => fun s r => r=s
   | .sparse => SparseCatalog.Valid
   | .shared => TargetBackend.Valid hw
@@ -45,14 +45,14 @@ def storage (hw : TargetBackend.Config m width) : (c : Strategy) → Storage (In
   | .shared => TargetBackend.storage hw
 
 theorem laws (hw : TargetBackend.Config m width) (c : Strategy) :
-    Laws (@Backend.spec m) (realize hw c) (valid hw c) := by
+    Laws (@Backend.spec m) (realize hw c) (Valid hw c) := by
   cases c
   · exact Catalog.direct_laws m
   · exact SparseCatalog.laws m
   · exact TargetBackend.laws hw
 
 theorem bounds (hw : TargetBackend.Config m width) (c : Strategy) :
-    Bounds (realize hw c) (valid hw c) (storage hw c) (profile m c) := by
+    Bounds (realize hw c) (Valid hw c) (storage hw c) (profile m c) := by
   cases c
   · exact Catalog.direct_bounds m
   · exact SparseCatalog.bounds m
@@ -66,7 +66,7 @@ theorem chosen_correct (hw : TargetBackend.Config m width)
     {requirements : Requirements} {input : Input m} {c : Strategy}
     (h : choose hw requirements input = some c) (q : Nat × Nat) :
     ((realize hw c).answer ((realize hw c).prepare input).1 q).1 = Backend.spec input q :=
-  selected_agreement (realize hw) (valid hw) (fun c _ => laws hw c)
+  selected_agreement (realize hw) (Valid hw) (fun c _ => laws hw c)
     (show Resources.Prepared.select StrategySelection.catalog (profile m) requirements input
       (fun c => (profile m c).preparation input) = some c from h) q
 

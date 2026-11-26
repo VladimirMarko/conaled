@@ -9,14 +9,14 @@ It does not choose trivializations for arbitrary torsors.
 
 `SmoothManifoldAction.representation` takes `G M : Type`, `Group G`,
 `MulAction G M`, `TopologicalSpace M`, `ChartedSpace (Fin d → ℝ) M` and
-`IsManifold (ManifoldRealization.Model d) ∞ M`. Its remaining input is the
+`IsManifold (ManifoldRealization.modelWithCorners d) ∞ M`. Its remaining input is the
 smoothness of each actual map `x ↦ g • x`. The representation interprets those
 maps with `ManifoldRealization.map`; unit and multiplication follow from its
 functor laws. `Representation.action` extends this representation to locally
 constant sheaf labels, including labels varying on disconnected parameters.
 
 The external arrow comparison also names a discrete topology on `G` and uses
-`FiniteActionPresentation.arrowModel (Model d)`. Finiteness is unnecessary for
+`FiniteActionPresentation.arrowModel (modelWithCorners d)`. Finiteness is unnecessary for
 the comparison itself. The separately available external `proper_etale`
 theorem requires `Fintype G`, `DecidableEq G`, `T2Space M` and
 `SecondCountableTopology M`. None of these, nor compactness or effectiveness,
@@ -54,7 +54,7 @@ translation label. A forward label `g` followed by `h` composes as `h * g`.
 The disk recovery compares the chosen forward and inverse maps of the old
 `smoothChartEquiv`. It uses a manifold in finite real coordinates and explicitly
 converts its arrow maps to the complex disk. The complex model is not identified
-definitionally with `Model 2`. The real-line controls similarly use the explicit
+definitionally with `modelWithCorners 2`. The real-line controls similarly use the explicit
 continuous linear equivalence `lineCoordinates : (Fin 1 → ℝ) ≃L[ℝ] ℝ`, with
 smoothness in both directions.
 

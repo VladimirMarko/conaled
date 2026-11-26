@@ -15,7 +15,7 @@ open scoped ContDiff
 abbrev line := free 1
 abbrev relations := noRelations 1
 
-def defining (i : ℕ) : Free 1 :=
+def defining (i : ℕ) : freeAlgebra 1 :=
   ⟨fun x => expNegInvGlue (((i : ℝ)+1)^2-(x 0)^2),
     expNegInvGlue.contDiff.comp (contDiff_const.sub ((contDiff_apply ℝ _ 0).pow 2))⟩
 

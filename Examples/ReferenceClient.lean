@@ -14,7 +14,7 @@ noncomputable section
 
 variable {V : Type} {Ξ : List (Reference.Declaration V)} {Γ A t : Expression V}
 
-def doublePair_typed (ht : Reference.Derives Ξ (.has (.tm Γ A) t)) :
+def doublePairTyping (ht : Reference.Derives Ξ (.has (.tm Γ A) t)) :
     Reference.Derives Ξ
       (.has (.sub Γ (extend (extend Γ A) (secondFamily Γ A))) (doublePair Γ A t)) := by
   have hA := ht.termFamily
@@ -36,7 +36,7 @@ abbrev hFamily : Reference.Derives declarations (.has (.ty context) family) :=
 abbrev hPoint : Reference.Derives declarations (.has (.tm context family) point) :=
   .termDecl (by simp [declarations]) hFamily
 
-def signature_valid : Reference.WellFormedSignature declarations := by
+def signatureValidity : Reference.WellFormedSignature declarations := by
   have h0 : Reference.WellFormedSignature
       ([.family empty base] : List (Reference.Declaration (Fin 3))) :=
     .family 0 .nil .empty (by simp [Reference.Fresh])
@@ -51,7 +51,7 @@ def signature_valid : Reference.WellFormedSignature declarations := by
   exact .term 2 h1 hf (by simp [Reference.Fresh, Reference.Declaration.name, base, family])
 
 abbrev chosen := doublePair context family point
-def chosen_typed := doublePair_typed hPoint
+def chosenTyping := doublePairTyping hPoint
 
 namespace Interpretation
 open SquareKit.Internal.DependentJudgments SquareKit.Internal.PathTransport.Typed
@@ -72,7 +72,7 @@ theorem context_eval : context.eval (Contextual.algebra M) (environment M) =
   rfl
 
 theorem declarations_valid : ∀ d ∈ declarations,
-    d.encode.eval (Contextual.algebra M) (environment M) := by
+    d.encode.Eval (Contextual.algebra M) (environment M) := by
   intro d hd
   simp [declarations] at hd
   rcases hd with rfl | rfl | rfl
@@ -85,7 +85,7 @@ theorem declarations_valid : ∀ d ∈ declarations,
 theorem typed : (Reference.Claim.has
     (.sub context (extend (extend context family) (secondFamily context family))) chosen).Valid
       M (environment M) :=
-  Reference.sound M (environment M) (declarations_valid M) chosen_typed
+  Reference.sound M (environment M) (declarations_valid M) chosenTyping
 
 /-- The selected certificate of the original retained argument is recovered
 exactly. The source derivation here covers its right endpoint. -/

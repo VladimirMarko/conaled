@@ -15,7 +15,7 @@ variable {n m : ℕ} {M N : Type}
 /-- A covered local coordinate description implies actual Mathlib smoothness,
 without assuming continuity of the underlying function in advance. -/
 theorem contMDiff_of_localMap {f : M → N} (l : Charts.LocalMap A.charts B.charts f) :
-    ContMDiff (Model n) (Model m) ∞ f := by
+    ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f := by
   intro x
   obtain ⟨i, hi⟩ := A.covers x
   let e := A.chart i
@@ -27,7 +27,7 @@ theorem contMDiff_of_localMap {f : M → N} (l : Charts.LocalMap A.charts B.char
   let d := B.chart (l.index i k)
   let c : EuclideanOpen.Map U (chartDomain d) := l.coordinate i k
   have hu : e x ∈ Points U := mul_ne_zero hx hk
-  have he : ContMDiffAt (Model n) (Model n) ∞ e x :=
+  have he : ContMDiffAt (modelWithCorners n) (modelWithCorners n) ∞ e x :=
     contMDiffAt_of_mem_maximalAtlas (A.smooth i) hi
   have hc := c.smooth_representative.contDiffAt ((domain_open U).mem_nhds hu)
   have hd : c.representative (e x) ∈ d.target := by
@@ -46,7 +46,7 @@ theorem contMDiff_of_localMap {f : M → N} (l : Charts.LocalMap A.charts B.char
 /-- Local coordinate data characterize smooth maps for any two covering smooth
 chart families, including manifolds of different finite dimensions. -/
 theorem contMDiff_iff_localMap (f : M → N) :
-    ContMDiff (Model n) (Model m) ∞ f ↔ Nonempty (Charts.LocalMap A.charts B.charts f) :=
+    ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f ↔ Nonempty (Charts.LocalMap A.charts B.charts f) :=
   ⟨fun hf => ⟨A.localMap B f hf⟩, fun ⟨l⟩ => A.contMDiff_of_localMap B l⟩
 
 end SquareKit.ManifoldRealization.ChartFamily

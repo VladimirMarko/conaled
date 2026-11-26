@@ -38,7 +38,7 @@ def isoMk {A B : Ty X} (e : A.family ≅ B.family) : A ≅ B where
   inv_hom_id := e.inv_hom_id
 
 /-- Total space retains the base section and every fiber map. -/
-def totalMap {A B : Ty X} (h : A ⟶ B) : Ext A ⟶ Ext B :=
+def totalMap {A B : Ty X} (h : A ⟶ B) : extension A ⟶ extension B :=
   ⟨ElementFamilies.totalNat X.obj h⟩
 
 def toOver : Ty X ⥤ Over X where
@@ -103,10 +103,10 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
   {X : Sheaf J (Type w)} {A B : Ty X}
 
 /-- Recover a fiber map from an arbitrary map of total spaces over the base. -/
-def mapOfTotal (f : Ext A ⟶ Ext B) (hf : f ≫ p B = p A) : A.family ⟶ B.family :=
+def mapOfTotal (f : extension A ⟶ extension B) (hf : f ≫ p B = p A) : A.family ⟶ B.family :=
   overEquivalence.functor.preimage (Over.homMk f hf)
 
-theorem totalMap_mapOfTotal (f : Ext A ⟶ Ext B) (hf : f ≫ p B = p A) :
+theorem totalMap_mapOfTotal (f : extension A ⟶ extension B) (hf : f ≫ p B = p A) :
     totalMap (mapOfTotal f hf) = f :=
   congrArg (fun h => h.left) (overEquivalence.functor.map_preimage (Over.homMk f hf))
 
@@ -116,7 +116,7 @@ theorem totalMap_injective : Function.Injective (totalMap (A := A) (B := B)) := 
   exact Over.OverMorphism.ext h
 
 theorem totalMap_value {Y Z : Sheaf J (Type w)} (k : A.family ⟶ B.family)
-    (h : Ext B ⟶ Z) (u : Ext A ⟶ Y) (v : Y ⟶ Z)
+    (h : extension B ⟶ Z) (u : extension A ⟶ Y) (v : Y ⟶ Z)
     (he : totalMap k ≫ h = u ≫ v) (x : X.obj.Elements) (p : A.family.obj x) :
     h.hom.app x.obj ⟨x.val, k.app x p⟩ =
       v.hom.app x.obj (u.hom.app x.obj ⟨x.val, p⟩) :=
@@ -124,7 +124,7 @@ theorem totalMap_value {Y Z : Sheaf J (Type w)} (k : A.family ⟶ B.family)
 
 theorem totalMap_projection (k : A.family ⟶ B.family) : totalMap k ≫ p B = p A := rfl
 
-theorem conjugate_value {Y Z : Sheaf J (Type w)} (e : Ext A ≅ Y) (f : Ext B ≅ Z)
+theorem conjugate_value {Y Z : Sheaf J (Type w)} (e : extension A ≅ Y) (f : extension B ≅ Z)
     (k : A.family ⟶ B.family) (x : X.obj.Elements) (p : A.family.obj x) :
     (e.inv ≫ totalMap k ≫ f.hom).hom.app x.obj (e.hom.hom.app x.obj ⟨x.val,p⟩) =
       f.hom.hom.app x.obj ⟨x.val,k.app x p⟩ := by
@@ -138,7 +138,7 @@ open CategoryTheory
 universe u v w
 variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
   {X : Sheaf J (Type w)} {A B D : Ty X}
-@[simp] theorem totalMap_id : totalMap (𝟙 A.family) = 𝟙 (Ext A) := rfl
+@[simp] theorem totalMap_id : totalMap (𝟙 A.family) = 𝟙 (extension A) := rfl
 @[simp] theorem totalMap_comp (f : A.family ⟶ B.family) (g : B.family ⟶ D.family) :
     totalMap (f ≫ g) = totalMap f ≫ totalMap g := rfl
 end SquareKit.SplitSheaf

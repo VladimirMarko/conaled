@@ -29,7 +29,7 @@ theorem PartialSection.pathApp_val {Γ : Context.{u}} {B : Family (total (interv
     {a₀ : Term (Presheaf.reindex B (endpointSub Γ false))}
     {a₁ : Term (Presheaf.reindex B (endpointSub Γ true))} {φ : Cofibration Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (h : (φ.reindex (projection (interval Γ))).full x) :
+    (h : (φ.reindex (projection (interval Γ))).Full x) :
     s.pathApp.val x h =
       (s.val ((projection (interval Γ)).mapElements.obj x) h).val.val (𝟙 _) x.val.2 := rfl
 
@@ -44,7 +44,7 @@ theorem PartialSection.pathApp_zero {Γ : Context.{u}} {B : Family (total (inter
     {a₀ : Term (Presheaf.reindex B (endpointSub Γ false))}
     {a₁ : Term (Presheaf.reindex B (endpointSub Γ true))} {φ : Cofibration Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (h : (φ.reindex (projection (interval Γ))).full x) (h₀ : (intervalFace Γ false).full x) :
+    (h : (φ.reindex (projection (interval Γ))).Full x) (h₀ : (intervalFace Γ false).Full x) :
     HEq (s.pathApp.val x h) (a₀.val ((projection (interval Γ)).mapElements.obj x)) := by
   rcases x with @⟨I,⟨γ,r⟩⟩
   have hr := (Cofibration.full_endpoint (generic (interval Γ)) false
@@ -57,7 +57,7 @@ theorem PartialSection.pathApp_one {Γ : Context.{u}} {B : Family (total (interv
     {a₀ : Term (Presheaf.reindex B (endpointSub Γ false))}
     {a₁ : Term (Presheaf.reindex B (endpointSub Γ true))} {φ : Cofibration Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (h : (φ.reindex (projection (interval Γ))).full x) (h₁ : (intervalFace Γ true).full x) :
+    (h : (φ.reindex (projection (interval Γ))).Full x) (h₁ : (intervalFace Γ true).Full x) :
     HEq (s.pathApp.val x h) (a₁.val ((projection (interval Γ)).mapElements.obj x)) := by
   rcases x with @⟨I,⟨γ,r⟩⟩
   have hr := (Cofibration.full_endpoint (generic (interval Γ)) true

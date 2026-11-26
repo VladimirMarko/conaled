@@ -9,18 +9,18 @@ open DependentTheoryMaps DependentPairPresentations Judgment TypedSubstitution
 
 /-- Every constructor congruence is certified; the projection cases are
 consequences of target split congruence with dependent motives. -/
-def GCongruence : ∀ r, GCongruenceCertificate r
-  | .formation Γ A A' B B' => GFormationCongruence Γ A A' B B'
-  | .pair Γ A A' B B' a a' b b' => GPairCongruence Γ A A' B B' a a' b b'
-  | .first Γ A A' B B' p p' => GFirstCongruence Γ A A' B B' p p'
-  | .second Γ A A' B B' p p' => GSecondCongruence Γ A A' B B' p p'
+def gCongruence : ∀ r, GCongruenceCertificate r
+  | .formation Γ A A' B B' => gFormationCongruence Γ A A' B B'
+  | .pair Γ A A' B B' a a' b b' => gPairCongruence Γ A A' B B' a a' b b'
+  | .first Γ A A' B B' p p' => gFirstCongruence Γ A A' B B' p p'
+  | .second Γ A A' B B' p p' => gSecondCongruence Γ A A' B B' p p'
 
 /-- The full map has no remaining certificate parameters. -/
 def fullG : MetavariableTheoryMap (projectionPresentation true) eliminationPresentation (map G) :=
-  fullGWithCongruence GCongruence
+  fullGWithCongruence gCongruence
 
 def pairPipeline : CertificatePipeline (projectionPresentation false) eliminationPresentation (map G ∘ id) :=
-  pairPipelineWithCongruence GCongruence
+  pairPipelineWithCongruence gCongruence
 
 /-- Forward compilation of closed derivations checks typed metavariable uses
 through the target's proved substitution theorem. -/

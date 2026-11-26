@@ -29,9 +29,9 @@ noncomputable def relativeExtension {S : SieveObjects C} (z : Cocycle2 C)
 
 theorem relativeExtension_inside {S : SieveObjects C} (z : Cocycle2 C)
     (t : PartialCocycle2 S) (b : PartialCochain1 S)
-    (hb : ∀ {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) (p : S.contains Z),
+    (hb : ∀ {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) (p : S.Contains Z),
       b g p - b (f ≫ g) p + b f (S.downward g p) = t.cochain f g p - z.cochain f g)
-    {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) (p : S.contains Z) :
+    {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) (p : S.Contains Z) :
     (relativeExtension z b).cochain f g = t.cochain f g p := by
   change z.cochain f g + δ1 (extendZero b) f g = _
   rw [δ1_extendZero_inside b f g p,hb f g p]

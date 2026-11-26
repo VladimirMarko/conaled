@@ -66,7 +66,7 @@ def lastDomain : Term (liftedDecode countCode) :=
 def innerWitness : Term (data 0).inner :=
   sigmaIntro (lastDomain.reindex (labelProjection count))
     ((homogeneousRefl (data 0).target).reindex
-      (pair (𝟙 (LabelContext count)) (lastDomain.reindex (labelProjection count))))
+      (pair (𝟙 (labelContext count)) (lastDomain.reindex (labelProjection count))))
 
 noncomputable def decodedInnerWitness : Term (liftedDecode (data 0).innerResult.code) :=
   Term.map (data 0).innerResult.decoding.inv innerWitness
@@ -144,7 +144,7 @@ def functionCount : Count functionContext :=
 def targetFunction : Term (Presheaf.pi (liftedDecode functionD)
     (liftedDecode (projection (liftedDecode functionD) ≫ functionY))) :=
   Term.map (piReindexIso _ _ (projection functions)).hom (generic functions)
-def labelledD : LabelContext functionCount ⟶ smallFamilyCodes.{0} :=
+def labelledD : labelContext functionCount ⟶ smallFamilyCodes.{0} :=
   labelProjection functionCount ≫ functionD
 def targetSection : Term (liftedDecode
     (projection (liftedDecode labelledD) ≫ labelProjection functionCount ≫ functionY)) :=

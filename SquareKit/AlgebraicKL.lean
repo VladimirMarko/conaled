@@ -12,16 +12,16 @@ open AlgebraicStage SheafRelation SheafFunction
 
 abbrev atStage (A : Stage) : Siteᵒᵖ := op (op A)
 abbrev stageMap {A B : Stage} (f : A ⟶ B) : atStage A ⟶ atStage B := f.op.op
-abbrev inl (A : Stage) : A ⟶ .dual A := algebraMap (Carrier A) (DualNumber (Carrier A))
+abbrev inl (A : Stage) : A ⟶ .dual A := algebraMap (carrierAlgebra A) (DualNumber (carrierAlgebra A))
 abbrev eps (A : Stage) : infinitesimal.obj.obj (atStage (.dual A)) :=
   ⟨DualNumber.eps, DualNumber.eps_mul_eps⟩
 
-theorem dualLift_inl (A B : Stage) (f : Carrier A →+* Carrier B)
-    (d : {d : Carrier B // d * d = 0}) : (dualLift A B (f, d)).comp (inl A) = f :=
+theorem dualLift_inl (A B : Stage) (f : carrierAlgebra A →+* carrierAlgebra B)
+    (d : {d : carrierAlgebra B // d * d = 0}) : (dualLift A B (f, d)).comp (inl A) = f :=
   congrArg Prod.fst ((dualLift A B).symm_apply_apply (f, d))
 
-theorem dualLift_eps (A B : Stage) (f : Carrier A →+* Carrier B)
-    (d : {d : Carrier B // d * d = 0}) : dualLift A B (f, d) DualNumber.eps = d.val :=
+theorem dualLift_eps (A B : Stage) (f : carrierAlgebra A →+* carrierAlgebra B)
+    (d : {d : carrierAlgebra B // d * d = 0}) : dualLift A B (f, d) DualNumber.eps = d.val :=
   congrArg (fun p => p.2.val) ((dualLift A B).symm_apply_apply (f, d))
 
 abbrev dualMap {A B : Stage} (f : A ⟶ B) : Stage.dual A ⟶ Stage.dual B :=
@@ -42,11 +42,11 @@ theorem dual_reconstruct {R : Type} [CommRing R] (a b : R) :
   apply TrivSqZeroExt.ext <;>
     simp [TrivSqZeroExt.algebraMap_eq_inl]
 
-theorem dualMap_coordinates {A B : Stage} (f : A ⟶ B) (z : DualNumber (Carrier A)) :
+theorem dualMap_coordinates {A B : Stage} (f : A ⟶ B) (z : DualNumber (carrierAlgebra A)) :
     (ringMap (dualMap f) z).fst = ringMap f z.fst ∧
     (ringMap (dualMap f) z).snd = ringMap f z.snd := by
   have h : ringMap (dualMap f) z =
-      (⟨ringMap f z.fst, ringMap f z.snd⟩ : DualNumber (Carrier B)) :=
+      (⟨ringMap f z.fst, ringMap f z.snd⟩ : DualNumber (carrierAlgebra B)) :=
     dual_reconstruct _ _
   exact ⟨congrArg TrivSqZeroExt.fst h, congrArg TrivSqZeroExt.snd h⟩
 
@@ -90,7 +90,7 @@ abbrev representableMap {A B : Stage} (f : A ⟶ B) : representable B ⟶ repres
   ⟨yoneda.map f.op⟩
 
 theorem dualLift_source {A B T : Stage} (f : A ⟶ B)
-    (g : Carrier B →+* Carrier T) (d : {d : Carrier T // d * d = 0}) :
+    (g : carrierAlgebra B →+* carrierAlgebra T) (d : {d : carrierAlgebra T // d * d = 0}) :
     (dualLift B T (g, d)).comp (ringMap (dualMap f)) =
       dualLift A T (g.comp (ringMap f), d) := by
   ext z
@@ -127,7 +127,7 @@ theorem operation_natural (h : product infinitesimal X ⟶ scalar)
 
 /-- Evaluate at the universal infinitesimal after extending the parameter. -/
 def universalValue (h : product infinitesimal X ⟶ scalar) (A : Stage)
-    (x : X.obj.obj (atStage A)) : DualNumber (Carrier A) :=
+    (x : X.obj.obj (atStage A)) : DualNumber (carrierAlgebra A) :=
   h.hom.app (atStage (.dual A)) (eps A, X.obj.map (stageMap (inl A)) x)
 
 theorem universalValue_natural (h : product infinitesimal X ⟶ scalar)
@@ -194,7 +194,7 @@ theorem coefficients_rebuild (p : X ⟶ product scalar scalar) :
   change ((universalValue (rebuild p) A.unop.unop x).fst,
     (universalValue (rebuild p) A.unop.unop x).snd) = _
   have hv : universalValue (rebuild p) A.unop.unop x =
-      (⟨(p.hom.app A x).1, (p.hom.app A x).2⟩ : DualNumber (Carrier A.unop.unop)) := by
+      (⟨(p.hom.app A x).1, (p.hom.app A x).2⟩ : DualNumber (carrierAlgebra A.unop.unop)) := by
     unfold universalValue rebuild
     change (p.hom.app (atStage (.dual A.unop.unop))
       (X.obj.map (stageMap (inl A.unop.unop)) x)).1 +

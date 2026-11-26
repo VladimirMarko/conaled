@@ -5,7 +5,7 @@ noncomputable section
 open CategoryTheory SquareKit.SmoothAlgebra
 namespace SquareKit.EuclideanOpen
 
-theorem subInclusion_openEmbedding (U : Domain) (g : Free U.dimension) :
+theorem subInclusion_openEmbedding (U : Domain) (g : freeAlgebra U.dimension) :
     Topology.IsOpenEmbedding (show Map _ _ from subInclusion U g) := by
   apply Topology.IsOpenEmbedding.of_comp _ (domain_open U).isOpenEmbedding_subtypeVal
   exact (domain_open (subdomain U g)).isOpenEmbedding_subtypeVal
@@ -48,7 +48,7 @@ end Charts
 
 /-- Every ordinary principal cover gives an atlas on the covered open domain.
 The transition is the actual overlap inclusion, not an ambient global map. -/
-abbrev coverAtlas (U : Domain) {ι : Type} (g : ι → Free U.dimension) (hc : Covers U g) :
+abbrev coverAtlas (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension) (hc : Covers U g) :
     Atlas (Points U) where
   Index := ι
   domain i := subdomain U (g i)
@@ -64,7 +64,7 @@ abbrev coverAtlas (U : Domain) {ι : Type} (g : ι → Free U.dimension) (hc : C
       exact right_ne_zero_of_mul y.property
     exact ⟨g j, hx, overlapRight U (g i) (g j), fun _ => rfl⟩
 
-def coverAtlasRefinement (U : Domain) {ι : Type} (g : ι → Free U.dimension) (hc : Covers U g) :
+def coverAtlasRefinement (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension) (hc : Covers U g) :
     Charts.Refinement (coverAtlas U g hc).toCharts (singleAtlas U).toCharts where
   map := ⟨id, fun _ => (), fun i => subInclusion U (g i), fun _ _ => rfl⟩
   point_identity := rfl
@@ -75,11 +75,11 @@ def coverAtlasRefinement (U : Domain) {ι : Type} (g : ι → Free U.dimension) 
   lift _ _ := 𝟙 _
   agreement _ _ _ := rfl
 
-def coverAtlasIso (U : Domain) {ι : Type} (g : ι → Free U.dimension) (hc : Covers U g) :
+def coverAtlasIso (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension) (hc : Covers U g) :
     (coverAtlas U g hc).toCharts.realization ≅ embedding.obj U :=
   (coverAtlasRefinement U g hc).iso ≪≫ Charts.singleIso U
 
-@[reassoc] theorem coverAtlas_chart (U : Domain) {ι : Type} (g : ι → Free U.dimension)
+@[reassoc] theorem coverAtlas_chart (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension)
     (hc : Covers U g) (i : ι) :
     (coverAtlas U g hc).toCharts.chart i ≫ (coverAtlasIso U g hc).hom =
       embedding.map (subInclusion U (g i)) := by

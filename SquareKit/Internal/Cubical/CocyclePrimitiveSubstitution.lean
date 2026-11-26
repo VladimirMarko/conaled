@@ -8,7 +8,7 @@ open CategoryTheory Presheaf
 theorem boxPrimitive_reindex {Γ Δ : Context.{0}} {φ : Cofibration Γ}
     (b : OpenBox (cocycleFamily (total (interval Γ))) φ) (σ : Δ ⟶ Γ)
     {X Y : (total (interval Δ)).Elementsᵒᵖ} (f : X ⟶ Y)
-    (p : (tubeSieve (φ.reindex σ)).contains Y) :
+    (p : (tubeSieve (φ.reindex σ)).Contains Y) :
     boxPrimitive (b.reindex σ) f p =
       boxPrimitive b ((liftSub (interval Γ) σ).mapElements.op.map f) p := by
   let L := liftSub (interval Γ) σ

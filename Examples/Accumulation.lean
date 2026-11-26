@@ -97,7 +97,7 @@ theorem positive_seed_stops : collapseAux [5] [[99]] = [5] := by
 
 /-- The raw pair interface does not silently certify arbitrary cached sums. -/
 theorem incorrect_cache_rejected :
-    ¬ Sequences.OrderedSummary.listValid sumMeasure ([99], Multiplicative.ofAdd 0) := by
+    ¬ Sequences.OrderedSummary.ListValid sumMeasure ([99], Multiplicative.ofAdd 0) := by
   intro h
   have bad := congrArg Multiplicative.toAdd h.2
   simp only [id_eq, summary_sum] at bad

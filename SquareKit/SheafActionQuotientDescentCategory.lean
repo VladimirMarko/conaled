@@ -36,7 +36,7 @@ def Map.localArrow {d e : Datum (a := a) A} (h : Map d e) :
   preserves := h.preserves
 
 /-- Forget the cocycle while retaining the local quotient and its arrows. -/
-def localFunctor : Datum (a := a) A ⥤ Object a (SplitSheaf.Ext A) where
+def localFunctor : Datum (a := a) A ⥤ Object a (SplitSheaf.extension A) where
   obj d := d.localObject
   map h := h.localArrow
   map_id d := by

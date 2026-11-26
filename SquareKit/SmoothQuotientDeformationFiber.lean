@@ -18,7 +18,7 @@ def Deformation.arcObject {P : Object a X} (h : Deformation P) : Object a (produ
   torsor := SheafTorsor.reindex P.torsor (snd D X)
   value y p := h.map.hom.app y.obj (y.val.1,⟨y.val.2,p⟩)
   natural {y z} f p := by
-    have hn := NatTrans.naturality_apply h.map.hom f.hom (show (product D (SplitSheaf.Ext P.torsor.family)).obj.obj y.obj from (y.val.1,⟨y.val.2,p⟩))
+    have hn := NatTrans.naturality_apply h.map.hom f.hom (show (product D (SplitSheaf.extension P.torsor.family)).obj.obj y.obj from (y.val.1,⟨y.val.2,p⟩))
     apply hn.symm.trans
     apply congrArg (h.map.hom.app z.obj)
     apply Prod.ext
@@ -81,15 +81,15 @@ theorem liftBoundary_zero {P : Object a X} (F : Fiber P) :
 
 /-- Reassociate the parameter and torsor element without choosing a section. -/
 def parameterTotal (P : Object a X) :
-    product D (SplitSheaf.Ext P.torsor.family) ⟶
-      SplitSheaf.Ext (SheafTorsor.reindex P.torsor (snd D X)).family :=
+    product D (SplitSheaf.extension P.torsor.family) ⟶
+      SplitSheaf.extension (SheafTorsor.reindex P.torsor (snd D X)).family :=
   ⟨{ app U := ↾fun y => ⟨(y.1,y.2.1),y.2.2⟩
      naturality {_ _} _ := by rfl }⟩
 
 def fromFiber {P : Object a X} (F : Fiber P) : Deformation P where
   map := parameterTotal P ≫
-    (show SplitSheaf.Ext (SheafTorsor.reindex P.torsor (snd D X)).family ⟶
-      SplitSheaf.Ext F.right.torsor.family from
+    (show SplitSheaf.extension (SheafTorsor.reindex P.torsor (snd D X)).family ⟶
+      SplitSheaf.extension F.right.torsor.family from
       ⟨ElementFamilies.totalNat (product D X).obj (liftBoundary F).iso.hom⟩) ≫ F.right.totalMap
   zero := by
     ext U p

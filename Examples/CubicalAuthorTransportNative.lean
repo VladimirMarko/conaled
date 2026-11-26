@@ -109,13 +109,13 @@ example : (mainDecoded E).step ([2,3], [5]) = ([1,2,3], [1,5]) := by
   rw [mainDecoded_target]
   rfl
 
-example : (variationDecoded E).invariant ([2,3], [5]) ∧
-    ¬ (mainDecoded E).invariant ([2,3], [5]) := by
+example : (variationDecoded E).Invariant ([2,3], [5]) ∧
+    ¬ (mainDecoded E).Invariant ([2,3], [5]) := by
   rw [variationDecoded_target, mainDecoded_target]
   simp [targetSum, targetLength]
 
-example : (mainDecoded E).invariant ([2], [3]) ∧
-    ¬ (variationDecoded E).invariant ([2], [3]) := by
+example : (mainDecoded E).Invariant ([2], [3]) ∧
+    ¬ (variationDecoded E).Invariant ([2], [3]) := by
   rw [variationDecoded_target, mainDecoded_target]
   simp [targetSum, targetLength]
 
@@ -142,20 +142,20 @@ theorem complete_packages : (RepairedFacade.mainDecoded E) = targetLength ∧ (R
 theorem all_observations (a b : List Nat) :
     (RepairedFacade.mainDecoded E).initial = ([], []) ∧
     (RepairedFacade.mainDecoded E).step (a,b) = (1::a,1::b) ∧
-    ((RepairedFacade.mainDecoded E).invariant (a,b) ↔ a.length = b.length) ∧
+    ((RepairedFacade.mainDecoded E).Invariant (a,b) ↔ a.length = b.length) ∧
     (RepairedFacade.variationDecoded E).initial = ([], []) ∧
     (RepairedFacade.variationDecoded E).step (a,b) = (1::a,1::b) ∧
-    ((RepairedFacade.variationDecoded E).invariant (a,b) ↔ a.sum = b.sum) := by
+    ((RepairedFacade.variationDecoded E).Invariant (a,b) ↔ a.sum = b.sum) := by
   rw [(RepairedFacade.mainDecoded_target E), (RepairedFacade.variationDecoded_target E)]
   exact ⟨rfl, rfl, Iff.rfl, rfl, rfl, Iff.rfl⟩
 
 /-- The step check distinguishes prepend from append away from the initial orbit. -/
 theorem separating_observations :
     (RepairedFacade.mainDecoded E).step ([2,3],[5]) = ([1,2,3],[1,5]) ∧
-    ¬ (RepairedFacade.mainDecoded E).invariant ([2,3],[5]) ∧
-    (RepairedFacade.variationDecoded E).invariant ([2,3],[5]) ∧
-    (RepairedFacade.mainDecoded E).invariant ([2],[3]) ∧
-    ¬ (RepairedFacade.variationDecoded E).invariant ([2],[3]) := by
+    ¬ (RepairedFacade.mainDecoded E).Invariant ([2,3],[5]) ∧
+    (RepairedFacade.variationDecoded E).Invariant ([2,3],[5]) ∧
+    (RepairedFacade.mainDecoded E).Invariant ([2],[3]) ∧
+    ¬ (RepairedFacade.variationDecoded E).Invariant ([2],[3]) := by
   rw [(RepairedFacade.mainDecoded_target E), (RepairedFacade.variationDecoded_target E)]
   simp [targetLength, targetSum]
 
@@ -271,8 +271,8 @@ theorem composed_decoded : twice.transport evenPackage =
 theorem composed_observations :
     (twice.transport evenPackage).initial = 2 ∧
     (twice.transport evenPackage).step 4 = 6 ∧
-    (twice.transport evenPackage).invariant 2 ∧
-    ¬ (twice.transport evenPackage).invariant 3 := by
+    (twice.transport evenPackage).Invariant 2 ∧
+    ¬ (twice.transport evenPackage).Invariant 3 := by
   rw [composed_decoded]
   change (2 : Int) = 2 ∧ (6 : Int) = 6 ∧ (0 : Int) % 2 = 0 ∧ ¬ (1 : Int) % 2 = 0
   decide

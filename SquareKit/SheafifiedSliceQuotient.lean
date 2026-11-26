@@ -152,8 +152,8 @@ def stabilizerEquiv (P : SheafActionQuotient.Object a (context J U)) :
 
 /-- The recovered total display preserves its independently supplied target map. -/
 def displayComparison (P : SheafActionQuotient.Object a (context J U)) :
-    SplitSheaf.Ext P.torsor.family ≅
-      SplitSheaf.Ext (((equivalence a U).functor ⋙ (equivalence a U).inverse).obj P).torsor.family :=
+    SplitSheaf.extension P.torsor.family ≅
+      SplitSheaf.extension (((equivalence a U).functor ⋙ (equivalence a U).inverse).obj P).torsor.family :=
   ObjectProperty.isoMk _ (ElementFamilies.totalFunctor _ |>.mapIso
     ((equivalence a U).unitIso.app P).hom.torsorArrow.iso |> (Over.forget _).mapIso)
 

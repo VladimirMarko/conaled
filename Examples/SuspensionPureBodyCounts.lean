@@ -24,20 +24,20 @@ open Suspensions.Pure.Compatibility Suspensions.Pure.Simulation
 
 abbrev rawParameters := Examples.SuspensionPureCachedClosure.rawParameters
 private abbrev pureParameters := Examples.SuspensionPureMachine.parameters
-private def operations : Empty → Prop := fun _ => False
+private def Operations : Empty → Prop := fun _ => False
 
-private theorem compatible : ParametersCompatible operations rawParameters pureParameters where
+private theorem compatible : ParametersCompatible Operations rawParameters pureParameters where
   primitive impossible := nomatch impossible
   matchException := rfl
   bindException := rfl
 
-private theorem preserve : ParametersPreserve operations pureParameters := by
+private theorem preserve : ParametersPreserve Operations pureParameters := by
   intro impossible
   cases impossible
 
 private theorem empty_source_bound {program : Core.Expr Empty}
     {answer : Core.Machine.Answer Empty} {steps : Nat}
-    (code : CodeAllowed operations program)
+    (code : CodeAllowed Operations program)
     (run : Progress.Evaluates (Core.Machine.step rawParameters)
       (Core.Machine.start Suspensions.empty [] program) answer steps)
     (address : Nat)
@@ -54,7 +54,7 @@ namespace Repeated
 
 abbrev program := Examples.SuspensionPureCacheCounts.Repeated.program
 
-private theorem allowed : CodeAllowed operations program := by
+private theorem allowed : CodeAllowed Operations program := by
   apply (CodeAllowed.bind_iff _ _ _).mpr
   refine ⟨.variable 0, (CodeAllowed.delay_iff _).mpr (CodeAllowed.atom (.integer 7)), ?_⟩
   apply (CodeAllowed.bind_iff _ _ _).mpr
@@ -131,7 +131,7 @@ namespace Distinct
 
 abbrev program := Examples.SuspensionPureCacheCounts.Distinct.program
 
-private theorem allowed : CodeAllowed operations program := by
+private theorem allowed : CodeAllowed Operations program := by
   apply (CodeAllowed.bind_iff _ _ _).mpr
   refine ⟨?_, ?_, ?_⟩
   · change PatternAllowed (.record [(0, .variable 1), (1, .variable 2)])
@@ -205,13 +205,13 @@ def program : Core.Expr Empty :=
     (.bind (.suspended .wildcard) (.variable 1)
       (.bind (.suspended .wildcard) (.variable 1) (.atom (.integer 9))))
 
-private theorem body_allowed : CodeAllowed operations body := by
+private theorem body_allowed : CodeAllowed Operations body := by
   apply (CodeAllowed.handle_iff _ _).mpr
   refine ⟨(CodeAllowed.raise_iff _).mpr (CodeAllowed.variable 3), ?_⟩
   apply (ClausesCodeAllowed.cons_iff _ _ []).mpr
   exact ⟨.exception 3, CodeAllowed.atom (.integer 7), ClausesCodeAllowed.nil⟩
 
-private theorem allowed : CodeAllowed operations program := by
+private theorem allowed : CodeAllowed Operations program := by
   apply (CodeAllowed.bind_iff _ _ _).mpr
   refine ⟨.variable 1, (CodeAllowed.delay_iff _).mpr body_allowed, ?_⟩
   apply (CodeAllowed.bind_iff _ _ _).mpr
@@ -263,7 +263,7 @@ theorem all_budgets (address budget : Nat) :
         (Core.Machine.start Suspensions.empty rawCapture program)).2 ≤ 1 := by
   obtain ⟨answer, run, _⟩ := execution
   have captured : EnvRep (fun _ => none) rawCapture capture := .cons (.exception .none) .nil
-  have captureAllowed : EnvAllowed operations capture := .cons (.exception .none) .nil
+  have captureAllowed : EnvAllowed Operations capture := .cons (.exception .none) .nil
   exact source_bodyEntries_le_one compatible preserve WorldAllowed.empty
     (Memory.StateRep.empty pureParameters) captured captureAllowed allowed run
     address (no_unwind address) budget
@@ -290,14 +290,14 @@ abbrev program := Examples.SuspensionPureCacheCounts.Exceptions.program
 private def handler (result : Core.Expr Empty) : Core.Expr Empty :=
   .handle (Core.force (.variable 1)) [(.exception 3 none, result)]
 
-private theorem handler_allowed {result : Core.Expr Empty} (code : CodeAllowed operations result) :
-    CodeAllowed operations (handler result) := by
+private theorem handler_allowed {result : Core.Expr Empty} (code : CodeAllowed Operations result) :
+    CodeAllowed Operations (handler result) := by
   apply (CodeAllowed.handle_iff _ _).mpr
   refine ⟨(CodeAllowed.variable 1).force, ?_⟩
   apply (ClausesCodeAllowed.cons_iff _ _ []).mpr
   exact ⟨.exception 3, code, ClausesCodeAllowed.nil⟩
 
-private theorem allowed : CodeAllowed operations program := by
+private theorem allowed : CodeAllowed Operations program := by
   apply (CodeAllowed.bind_iff _ _ _).mpr
   refine ⟨.variable 1, (CodeAllowed.delay_iff _).mpr
     ((CodeAllowed.raise_iff _).mpr (CodeAllowed.variable 3)), ?_⟩
@@ -329,7 +329,7 @@ theorem no_unwind_fails :
   intro safe
   obtain ⟨answer, run, _⟩ := execution
   have captured : EnvRep (fun _ => none) rawCapture capture := .cons (.exception .none) .nil
-  have captureAllowed : EnvAllowed operations capture := .cons (.exception .none) .nil
+  have captureAllowed : EnvAllowed Operations capture := .cons (.exception .none) .nil
   have bound := source_bodyEntry_count_le_one compatible preserve WorldAllowed.empty
     (Memory.StateRep.empty pureParameters) captured captureAllowed allowed run 0 safe 50
   have counted : (FreeAddMonoid.toList (Core.Observation.observe rawParameters 50

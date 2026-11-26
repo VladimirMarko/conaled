@@ -10,7 +10,7 @@ open CategoryTheory Limits
 /-- A terminal assembly in every carrier universe. -/
 def terminal : Assembly.{u} where
   Carrier := PUnit
-  realizes _ _ := True
+  Realizes _ _ := True
   inhabited _ := ⟨0, trivial⟩
 
 def terminalArrow (A : Assembly.{u}) : Hom A terminal where

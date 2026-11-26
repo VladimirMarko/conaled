@@ -19,10 +19,10 @@ def Frame.proofBinder (f : Frame M) : Frame M :=
 def Frame.dataBinder (f : Frame M) (x : M.Carrier s) : Frame M :=
   ⟨s :: f.context, f.model.shift, extend (shift f.assignment) (.bvar 0), Env.extend x f.values⟩
 
-def Frame.term (f : Frame M) (e : E) (x : M.Carrier s) : Prop :=
+def Frame.Term (f : Frame M) (e : E) (x : M.Carrier s) : Prop :=
   TermDenotes M f.model f.assignment f.values e x
 
-def Frame.prop (f : Frame M) (e : E) (P : Prop) : Prop :=
+def Frame.Prop (f : Frame M) (e : E) (P : Prop) : Prop :=
   FormulaDenotes M f.model f.assignment f.values e P
 
 abbrev Hypotheses := E → E → Prop → Prop
@@ -41,7 +41,7 @@ inductive ProofDenotes (M : Interpretation Graph.Arrow) :
   | mapHyp : (∀ e p P, H e p P → H' e p P) →
       ProofDenotes M f H e p P → ProofDenotes M f H' e p P
   | reindex : f.model = g.model →
-      (∀ {s} (i : Var f.context s), g.term (f.assignment i) (f.values i)) →
+      (∀ {s} (i : Var f.context s), g.Term (f.assignment i) (f.values i)) →
       ProofDenotes M f H e p P → ProofDenotes M g H e p P
   | cutHyp : ProofDenotes M f H e p P →
       ProofDenotes M f (addHyp H e p P) d q Q → ProofDenotes M f H d q Q
@@ -49,43 +49,43 @@ inductive ProofDenotes (M : Interpretation Graph.Arrow) :
       ProofDenotes M f.proofBinder (shiftHyp H) e.shift p.shift P
   | weakenData (x : M.Carrier s) : ProofDenotes M f H e p P →
       ProofDenotes M (f.dataBinder x) (shiftHyp H) e.shift p.shift P
-  | left : f.prop p P → f.prop q Q → ProofDenotes M f H e (conj p q) (P ∧ Q) →
+  | left : f.Prop p P → f.Prop q Q → ProofDenotes M f H e (conj p q) (P ∧ Q) →
       ProofDenotes M f H (.apps (.const ``And.left []) [p, q, e]) p P
-  | right : f.prop p P → f.prop q Q → ProofDenotes M f H e (conj p q) (P ∧ Q) →
+  | right : f.Prop p P → f.Prop q Q → ProofDenotes M f H e (conj p q) (P ∧ Q) →
       ProofDenotes M f H (.apps (.const ``And.right []) [p, q, e]) q Q
-  | pair : f.prop p P → f.prop q Q →
+  | pair : f.Prop p P → f.Prop q Q →
       ProofDenotes M f H e p P → ProofDenotes M f H d q Q →
       ProofDenotes M f H (.apps (.const ``And.intro []) [p, q, e, d]) (conj p q) (P ∧ Q)
-  | refl {s : Ty} {x : M.Carrier s} : f.term t x →
+  | refl {s : Ty} {x : M.Carrier s} : f.Term t x →
       ProofDenotes M f H (.apps (.const ``Eq.refl [f.model.level]) [f.model.carrier s, t])
         (eq f.model s t t) (x = x)
-  | symm {s : Ty} {x y : M.Carrier s} : f.term a x → f.term b y →
+  | symm {s : Ty} {x y : M.Carrier s} : f.Term a x → f.Term b y →
       ProofDenotes M f H e (eq f.model s a b) (x = y) →
       ProofDenotes M f H
         (.apps (.const ``Eq.symm [f.model.level]) [f.model.carrier s, a, b, e])
         (eq f.model s b a) (y = x)
-  | trans {s : Ty} {x y z : M.Carrier s} : f.term a x → f.term b y → f.term c z →
+  | trans {s : Ty} {x y z : M.Carrier s} : f.Term a x → f.Term b y → f.Term c z →
       ProofDenotes M f H e (eq f.model s a b) (x = y) →
       ProofDenotes M f H d (eq f.model s b c) (y = z) →
       ProofDenotes M f H
         (.apps (.const ``Eq.trans [f.model.level]) [f.model.carrier s, a, b, c, e, d])
         (eq f.model s a c) (x = z)
   | congr {s t : Ty} {x y : M.Carrier s} (g : Graph.Arrow s t) :
-      f.term a x → f.term b y → ProofDenotes M f H e (eq f.model s a b) (x = y) →
+      f.Term a x → f.Term b y → ProofDenotes M f H e (eq f.model s a b) (x = y) →
       ProofDenotes M f H
         (.apps (.const ``congrArg [f.model.level, f.model.level])
           [f.model.carrier s, f.model.carrier t, a, b, f.model.arrow g, e])
         (eq f.model t (.app (f.model.arrow g) a) (.app (f.model.arrow g) b))
         (M.arrow g x = M.arrow g y)
   | intro {s : Ty} {x : M.Carrier s} {P : M.Carrier s → Prop} :
-      (∀ x, (f.dataBinder x).prop p (P x)) → f.term t x →
+      (∀ x, (f.dataBinder x).Prop p (P x)) → f.Term t x →
       ProofDenotes M f H e (p.subst (singleCore t)) (P x) →
       ProofDenotes M f H
         (.apps (.const ``Exists.intro [f.model.level])
           [f.model.carrier s, .lam (f.model.carrier s) p, t, e])
         (ex f.model s p) (∃ x, P x)
   | elim {s : Ty} {P : M.Carrier s → Prop} :
-      (∀ x, (f.dataBinder x).prop p (P x)) → f.prop q Q →
+      (∀ x, (f.dataBinder x).Prop p (P x)) → f.Prop q Q →
       ProofDenotes M f H e (ex f.model s p) (∃ x, P x) →
       (∀ x, ProofDenotes M (f.dataBinder x).proofBinder
         (addHyp (shiftHyp (shiftHyp H)) (.bvar 0) p.shift (P x))
@@ -129,8 +129,8 @@ theorem ProofDenotes.sound (d : ProofDenotes M f H e p P) (h : SoundHyp H) : P :
 
 theorem code_denotes (M : Interpretation Graph.Arrow) {p q : GraphTarget.Formula Γ}
     (d : Code p q) (m : Model) (a : Assignment Γ) (ρ : Env M Γ) (H : Hypotheses) (h : E)
-    (hp : ProofDenotes M ⟨Γ, m, a, ρ⟩ H h (formula m a p) (p.eval M ρ)) :
-    ProofDenotes M ⟨Γ, m, a, ρ⟩ H (code m a d h) (formula m a q) (q.eval M ρ) := by
+    (hp : ProofDenotes M ⟨Γ, m, a, ρ⟩ H h (formula m a p) (p.Eval M ρ)) :
+    ProofDenotes M ⟨Γ, m, a, ρ⟩ H (code m a d h) (formula m a q) (q.Eval M ρ) := by
   induction d generalizing m H h with
   | ident => exact hp
   | cut d e hd he => exact he m a ρ H _ (hd m a ρ H h hp)
@@ -167,9 +167,9 @@ theorem code_denotes (M : Interpretation Graph.Arrow) {p q : GraphTarget.Formula
     have hb : ProofDenotes M
         ⟨s :: Γ, m.shift.shift, shift (extend (shift a) (.bvar 0)), ρ.extend x⟩
         (addHyp (shiftHyp (shiftHyp H)) (.bvar 0)
-          (formula m.shift (extend (shift a) (.bvar 0)) p).shift (p.eval M (ρ.extend x)))
+          (formula m.shift (extend (shift a) (.bvar 0)) p).shift (p.Eval M (ρ.extend x)))
         (.bvar 0) (formula m.shift.shift (shift (extend (shift a) (.bvar 0))) p)
-        (p.eval M (ρ.extend x)) := by
+        (p.Eval M (ρ.extend x)) := by
       rw [formula_weaken]
       exact .hyp (.inl ⟨rfl, rfl, rfl⟩)
     have hr := ih m.shift.shift _ (ρ.extend x) _ (.bvar 0) hb
@@ -181,14 +181,14 @@ theorem code_denotes (M : Interpretation Graph.Arrow) {p q : GraphTarget.Formula
       (.right (f := ⟨_, m, a, ρ⟩) (formula_denotes M m a ρ b) (formula_denotes M m a ρ (.ex p)) hp)
     intro x
     let B := formula m.shift (extend (shift a) (.bvar 0)) p
-    let H' := addHyp (shiftHyp (shiftHyp H)) (.bvar 0) B.shift (p.eval M (ρ.extend x))
+    let H' := addHyp (shiftHyp (shiftHyp H)) (.bvar 0) B.shift (p.Eval M (ρ.extend x))
     have hh := ProofDenotes.weakenProof (ProofDenotes.weakenData x
       (ProofDenotes.left (f := ⟨_, m, a, ρ⟩) (formula_denotes M m a ρ b) (formula_denotes M m a ρ (.ex p)) hp))
     have hh' := ProofDenotes.mapHyp (H' := H') (fun _ _ _ hx => Or.inr hx) hh
     have hw : ProofDenotes M
         ⟨s :: Γ, m.shift.shift, shift (extend (shift a) (.bvar 0)), ρ.extend x⟩ H'
         (.bvar 0) (formula m.shift.shift (shift (extend (shift a) (.bvar 0))) p)
-        (p.eval M (ρ.extend x)) := by
+        (p.Eval M (ρ.extend x)) := by
       rw [formula_weaken]
       exact .hyp (.inl ⟨rfl, rfl, rfl⟩)
     have hh'' : ProofDenotes M
@@ -196,7 +196,7 @@ theorem code_denotes (M : Interpretation Graph.Arrow) {p q : GraphTarget.Formula
         (CoreSyntax.Expr.apps (.const ``And.left [])
           [formula m a b, formula m a (.ex p), h]).shift.shift
         (formula m.shift.shift (shift (extend (shift a) (.bvar 0))) (b.shift (s := s)))
-        (b.shift.eval M (ρ.extend x)) := by
+        (b.shift.Eval M (ρ.extend x)) := by
       simpa only [formula_weaken, formula_shift, GraphTarget.formula_shift,
         Frame.dataBinder, Frame.proofBinder] using hh'
     have hb := ProofDenotes.pair (f := ⟨s :: Γ, m.shift.shift,

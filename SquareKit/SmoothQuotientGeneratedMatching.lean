@@ -31,7 +31,7 @@ theorem restriction_comp {X Y Z : Sheaf topology Type} (f : Y ⟶ X) (g : Z ⟶ 
 
 /-- The endpoint identifications are the proved generated parameter laws. -/
 def strictDiagram (A : SplitSheaf.Ty X) : CechMatching.StrictDiagram.{1} where
-  localCategory := context a hΓ (SplitSheaf.Ext A)
+  localCategory := context a hΓ (SplitSheaf.extension A)
   doubleCategory := context a hΓ (SplitSheaf.Cech.double A)
   tripleCategory := context a hΓ (SplitSheaf.Cech.triple A)
   first := restriction a hΓ (SplitSheaf.Cech.first A)

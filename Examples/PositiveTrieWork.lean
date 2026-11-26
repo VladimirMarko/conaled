@@ -32,7 +32,7 @@ theorem ten_insert_then_read :
 def sourceBuild : Measured (Search.PositiveTrie.Table Bool) Cost :=
   bind (insertRun 10 true (Search.PositiveTrie.empty false)) (insertRun 3 true)
 
-theorem sourceBuild_value : sourceBuild.1 = PositiveTries.three_ten := by
+theorem sourceBuild_value : sourceBuild.1 = PositiveTries.threeTenTable := by
   simp only [sourceBuild, bind_value, insertRun_value]
   rfl
 
@@ -41,13 +41,13 @@ theorem sourceBuild_cost : sourceBuild.2 = (6, 6) := by
   rfl
 
 theorem source_measured_queries :
-    [3, 1, 4, 1, 5].map (fun key : PosNum => lookupRun key PositiveTries.three_ten) =
+    [3, 1, 4, 1, 5].map (fun key : PosNum => lookupRun key PositiveTries.threeTenTable) =
       [(true, (2, 0)), (false, (1, 0)), (false, (3, 0)), (false, (1, 0)), (false, (3, 0))] := rfl
 
 theorem overwrite_constructions_are_not_size_increase :
-    (insertRun 10 false PositiveTries.three_ten).2 = (4, 4) ∧
-      (insertRun 10 false PositiveTries.three_ten).1.2.numNodes =
-        PositiveTries.three_ten.2.numNodes :=
+    (insertRun 10 false PositiveTries.threeTenTable).2 = (4, 4) ∧
+      (insertRun 10 false PositiveTries.threeTenTable).1.2.numNodes =
+        PositiveTries.threeTenTable.2.numNodes :=
   ⟨insertRun_cost 10 false _, rfl⟩
 
 theorem different_raw_default :
@@ -144,8 +144,8 @@ theorem exact_client_overhead (keys : List PosNum) (counter : Nat)
   ⟨collisionRun_loopSteps keys _, collisionRun_terminalCalls keys _⟩
 
 theorem ten_logarithmic_bound :
-    (lookupRun 10 PositiveTries.three_ten).2.1 ≤ 4 :=
-  lookupRun_calls_le_log 10 PositiveTries.three_ten
+    (lookupRun 10 PositiveTries.threeTenTable).2.1 ≤ 4 :=
+  lookupRun_calls_le_log 10 PositiveTries.threeTenTable
 
 theorem source_pi_work : collisionsRun [3, 1, 4, 1, 5, 9, 2, 6] =
     (1, ((35, 18), (2, (8, 1)))) := by

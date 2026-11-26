@@ -14,8 +14,8 @@ namespace DisjointCover
 
 /-- Transport retains the chosen contraction on each disjoint branch. -/
 theorem contractible_transport {Γ : Context.{u}} (φ ψ : Cofibration Γ)
-    (cover : ∀ x : Γ.Elements, φ.full x ∨ ψ.full x)
-    (disjoint : ∀ x : Γ.Elements, φ.full x → ψ.full x → False)
+    (cover : ∀ x : Γ.Elements, φ.Full x ∨ ψ.Full x)
+    (disjoint : ∀ x : Γ.Elements, φ.Full x → ψ.Full x → False)
     {A B : Family Γ} (e : A ≅ B)
     (a : HomotopyContractible (reindex A (restrictInclusion φ)))
     (b : HomotopyContractible (reindex A (restrictInclusion ψ))) :
@@ -62,7 +62,7 @@ variable {Γ Δ : Context.{u}} {φ ψ : Cofibration Γ}
   {A B : Family (restrictContext (φ.join ψ))}
   (a : reindex A (includeLeft φ ψ) ⟶ reindex B (includeLeft φ ψ))
   (b : reindex A (includeRight φ ψ) ⟶ reindex B (includeRight φ ψ))
-  (disjoint : ∀ x : Γ.Elements, φ.full x → ψ.full x → False)
+  (disjoint : ∀ x : Γ.Elements, φ.Full x → ψ.Full x → False)
   (σ : Δ ⟶ Γ)
 
 theorem disjointGlue_reindex :
@@ -113,7 +113,7 @@ theorem rightEquivalence_reindex (eb : HomotopyEquivalence b) :
 
 private noncomputable def branchFibers {Ξ : Context.{u}} (α β : Cofibration Ξ)
     {C D : Family (restrictContext (α.join β))}
-    (d : ∀ x : Ξ.Elements, α.full x → β.full x → False) (f : C ⟶ D)
+    (d : ∀ x : Ξ.Elements, α.Full x → β.Full x → False) (f : C ⟶ D)
     (l : HomotopyEquivalence (Functor.whiskerLeft (includeLeft α β).mapElements f))
     (r : HomotopyEquivalence (Functor.whiskerLeft (includeRight α β).mapElements f)) :
     HomotopyContractible (homotopyFiber (Functor.whiskerLeft (projection D).mapElements f) (generic D)) :=
@@ -643,9 +643,9 @@ private theorem branchFibers_reindex (f : A ⟶ B)
   let π := liftSub B τ
   let α := φ.reindex (targetBase B)
   let β := ψ.reindex (targetBase B)
-  let cover : ∀ x, α.full x ∨ β.full x :=
+  let cover : ∀ x, α.Full x ∨ β.Full x :=
     fun x => (Cofibration.full_join φ ψ ((targetBase B).mapElements.obj x)).mp x.val.1.property
-  let d : ∀ x, α.full x → β.full x → False := fun x => disjoint ((targetBase B).mapElements.obj x)
+  let d : ∀ x, α.Full x → β.Full x → False := fun x => disjoint ((targetBase B).mapElements.obj x)
   let CL := (L.fibers.transport (genericFiberReindexIso f (includeLeft φ ψ)).symm).reindex (leftTarget B)
   let CR := (R.fibers.transport (genericFiberReindexIso f (includeRight φ ψ)).symm).reindex (rightTarget B)
   let J := genericFiberReindexIso f τ
@@ -898,7 +898,7 @@ private theorem disjointEquivalence_source_heq {Ξ : Context.{u}} {φ ψ : Cofib
     (r : reindex A (CodeSystem.includeRight φ ψ) ⟶ reindex B (CodeSystem.includeRight φ ψ))
     (l' : reindex A' (CodeSystem.includeLeft φ ψ) ⟶ reindex B (CodeSystem.includeLeft φ ψ))
     (r' : reindex A' (CodeSystem.includeRight φ ψ) ⟶ reindex B (CodeSystem.includeRight φ ψ))
-    (d : ∀ x : Ξ.Elements, φ.full x → ψ.full x → False)
+    (d : ∀ x : Ξ.Elements, φ.Full x → ψ.Full x → False)
     (L : HomotopyEquivalence l) (R : HomotopyEquivalence r)
     (L' : HomotopyEquivalence l') (R' : HomotopyEquivalence r')
     (hl : HEq l l') (hr : HEq r r') (hL : HEq L L') (hR : HEq R R') :

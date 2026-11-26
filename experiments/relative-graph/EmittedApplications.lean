@@ -66,7 +66,7 @@ example : (∃ y : Nat, y = (3 + 1) ∧ 8 = y * 2) ↔ 8 = (3 + 1) * 2 :=
 
 example : GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit GraphTarget.forwardDeclaration) ∧
     GraphEmissionPure.ArtifactDenotes.{0} (GraphEmissionPure.emit GraphTarget.forwardDeclaration)
-      (GraphTarget.Declaration.denote.{0} GraphTarget.forwardDeclaration) :=
+      (GraphTarget.Declaration.Denote.{0} GraphTarget.forwardDeclaration) :=
   ⟨GraphEmissionPure.emit_typed _, GraphEmissionPure.emit_denotes _⟩
 
 end EmittedApplications

@@ -251,7 +251,7 @@ theorem injective (x : X.obj.Elements) : Function.Injective (f.hom.app x) := by
   rw [hg1, P.one_act] at hg
   exact hg
 
-def totalMap : SplitSheaf.Ext P.family ⟶ SplitSheaf.Ext Q.family :=
+def totalMap : SplitSheaf.extension P.family ⟶ SplitSheaf.extension Q.family :=
   ⟨ElementFamilies.totalNat X.obj f.hom⟩
 
 theorem totalMap_injective (U : Cᵒᵖ) : Function.Injective (f.totalMap.hom.app U) := by

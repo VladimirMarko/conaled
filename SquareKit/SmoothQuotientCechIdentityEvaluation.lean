@@ -55,9 +55,9 @@ theorem identityEvaluationValues_included
 
 theorem identityEvaluation_conjugateLocal
     (ex : (localMap a A (.ext hΓ hB)).obj ((ξ (model a A)).down.lift.obj c) =
-      (ξ (SmoothQuotientSource.model a (SplitSheaf.Ext A))).down.lift.obj ((localMap a A hΓ).obj c))
+      (ξ (SmoothQuotientSource.model a (SplitSheaf.extension A))).down.lift.obj ((localMap a A hΓ).obj c))
     (ey : (localMap a A (.ext hΓ hB)).obj ((η (model a A)).down.lift.obj c) =
-      (η (SmoothQuotientSource.model a (SplitSheaf.Ext A))).down.lift.obj ((localMap a A hΓ).obj c))
+      (η (SmoothQuotientSource.model a (SplitSheaf.extension A))).down.lift.obj ((localMap a A hΓ).obj c))
     (p : (ξ (model a A)).down.obj c ⟶ (η (model a A)).down.obj c) :
     (Grothendieck.ι ((relativeFamilyData a hΓ hB A).localFamily ⋙ Grpd.forgetToCat)
       ((localMap a A hΓ).obj c)).map

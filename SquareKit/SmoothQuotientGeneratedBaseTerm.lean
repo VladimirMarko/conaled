@@ -16,7 +16,7 @@ variable (hx : Typed.TmDeriv.{2} Γ γ .base (Typed.baseCode γ) x ξ)
 
 def baseTermDiagram (A : SplitSheaf.Ty X) :
     CechMatching.StrictMap (strictDiagram a hΓ A) (baseDiagram a A) where
-  localMap := baseFunctor (ξ (SmoothQuotientSource.model a (SplitSheaf.Ext A))).down
+  localMap := baseFunctor (ξ (SmoothQuotientSource.model a (SplitSheaf.extension A))).down
   doubleMap := baseFunctor (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down
   tripleMap := baseFunctor (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.triple A))).down
   first := generatedBaseTerm_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.first A)) hΓ hx

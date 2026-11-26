@@ -45,15 +45,15 @@ theorem concat_once_paused (c : Coalgebra S α) (s : S) :
 
 /-- The first-output consumer uses the public fold/concat law with its nested algebra. -/
 theorem first_concat (p : α → Prop) (xss : Observations (Observations α)) :
-    first p (Observations.concat xss) =
+    First p (Observations.concat xss) =
       Observations.foldr (fun xs r => Observations.foldr (fun a (_ : Prop) => p a) r xs) False xss :=
   Observations.foldr_concat (fun a (_ : Prop) => p a) False
     (fun a => ScottContinuous.const (p a)) xss
 
 /-- Fusion consumes an actual open singleton without requiring its completed end. -/
 theorem first_concat_once (p : α → Prop) (xs : Observations α) :
-    first p (Observations.concat (observations PartialSpineProgress.once (some xs))) =
-      first p xs := by
+    First p (Observations.concat (observations PartialSpineProgress.once (some xs))) =
+      First p xs := by
   rw [first_concat, PartialSpineProgress.once_observations]
   rw [Observations.foldr_principal
     (fun ys (r : Prop) => Observations.foldr (fun a (_ : Prop) => p a) r ys) False
@@ -74,9 +74,9 @@ theorem allCuts_once_paused (c : Coalgebra S α) (s : S) :
   rw [concat_once_paused, allCuts_paused]
 
 theorem counting_first (p : Nat → Prop) (s : Nat) :
-    first p (Observations.concat (observations PartialSpineProgress.once
+    First p (Observations.concat (observations PartialSpineProgress.once
       (some (observations (guarded PartialSpineProgress.count) s)))) = p s ∧
-      first p (Observations.concat (observations PartialSpineProgress.once
+      First p (Observations.concat (observations PartialSpineProgress.once
         (some (observations (paused PartialSpineProgress.count) (false, s))))) = p s := by
   constructor
   · rw [first_concat_once, first_guarded]

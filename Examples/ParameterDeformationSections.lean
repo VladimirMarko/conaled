@@ -34,7 +34,7 @@ variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 
 /-- The public theorem recovers the complete local section at every local
 parameter, not only at contexts known to extend globally. -/
-example (g : Y ⟶ SplitSheaf.Ext A) :
+example (g : Y ⟶ SplitSheaf.extension A) :
     ((constantFamily (a := a) (A := A)).baseChange (g ≫ SplitSheaf.p A)).glue =
       constantSection (a := a) (X := Y) :=
   (constantFamily (a := a) (A := A)).recover_local_section g
@@ -46,7 +46,7 @@ example (f : Y ⟶ X) (P : Object a X) :
   (constantFamily (a := a) (A := A)).glue_natural f P
 
 /-- The full local section recovery retains selected distinct quotient loops. -/
-example (g : Y ⟶ SplitSheaf.Ext A) (P : Object a Y) (p q : P ⟶ P) (hpq : p ≠ q) :
+example (g : Y ⟶ SplitSheaf.extension A) (P : Object a Y) (p q : P ⟶ P) (hpq : p ≠ q) :
     (((constantFamily (a := a) (A := A)).baseChange
       (g ≫ SplitSheaf.p A)).glue).lift.map p ≠
     (((constantFamily (a := a) (A := A)).baseChange

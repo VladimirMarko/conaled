@@ -79,9 +79,9 @@ Parameter blocks may themselves contain dependent pairs or vectors. -/
 structure Signature (I : Type v) where
   Constructor : I → Type w
   Observer : I → Type w
-  fields : {i : I} → Constructor i → Type u
-  arguments : {i : I} → Observer i → Type u
-  result : {i : I} → Observer i → Type u
+  Fields : {i : I} → Constructor i → Type u
+  Arguments : {i : I} → Observer i → Type u
+  Result : {i : I} → Observer i → Type u
 
 variable {I : Type v} {S : Signature.{u,v,w} I}
 variable {P : Type u → Type u → Type (u+1)}
@@ -89,12 +89,12 @@ variable {P : Type u → Type u → Type (u+1)}
 /-- Data declaration plus exhaustive observer definitions (columns). -/
 structure DataProgram (S : Signature.{u,v,w} I) (P : Type u → Type u → Type (u+1)) where
   body : ∀ i (d : S.Observer i) (c : S.Constructor i),
-    Expr P (Slot (S.fields c) (S.arguments d)) (S.result d)
+    Expr P (Slot (S.Fields c) (S.Arguments d)) (S.Result d)
 
 /-- Codata declaration plus exhaustive constructor definitions (rows). -/
 structure CodataProgram (S : Signature.{u,v,w} I) (P : Type u → Type u → Type (u+1)) where
   body : ∀ i (c : S.Constructor i) (d : S.Observer i),
-    Expr P (Slot (S.arguments d) (S.fields c)) (S.result d)
+    Expr P (Slot (S.Arguments d) (S.Fields c)) (S.Result d)
 
 def transpose (p : DataProgram S P) : CodataProgram S P :=
   ⟨fun i c d => (p.body i d c).swap⟩
@@ -118,36 +118,36 @@ theorem transpose_untranspose (p : CodataProgram S P) : transpose (untranspose p
     funext i c d
     exact Expr.swap_swap _
 
-abbrev DataValue (S : Signature.{u,v,w} I) (i : I) := (c : S.Constructor i) × S.fields c
+abbrev DataValue (S : Signature.{u,v,w} I) (i : I) := (c : S.Constructor i) × S.Fields c
 abbrev CodataValue (S : Signature.{u,v,w} I) (i : I) :=
-  (d : S.Observer i) → S.arguments d → S.result d
+  (d : S.Observer i) → S.Arguments d → S.Result d
 
 def DataProgram.observe (p : DataProgram S P) (m : ∀ {A B}, P A B → A → B)
-    (d : S.Observer i) (x : DataValue S i) (a : S.arguments d) : S.result d :=
+    (d : S.Observer i) (x : DataValue S i) (a : S.Arguments d) : S.Result d :=
   (p.body i d x.1).eval m (Slot.env x.2 a)
 
 def CodataProgram.construct (p : CodataProgram S P) (m : ∀ {A B}, P A B → A → B)
-    (c : S.Constructor i) (x : S.fields c) : CodataValue S i :=
+    (c : S.Constructor i) (x : S.Fields c) : CodataValue S i :=
   fun d a => (p.body i c d).eval m (Slot.env a x)
 
 /-- Equality of all selected observations, not an isomorphism of all data/codata values. -/
 theorem transpose_preserves (p : DataProgram S P) (m : ∀ {A B}, P A B → A → B)
-    (c : S.Constructor i) (x : S.fields c) (d : S.Observer i) (a : S.arguments d) :
+    (c : S.Constructor i) (x : S.Fields c) (d : S.Observer i) (a : S.Arguments d) :
     (transpose p).construct m c x d a = p.observe m d ⟨c,x⟩ a :=
   Expr.eval_swap _ _ _ _
 
 /-- Restriction makes the extension boundary explicit: existing cells are retained. -/
 def restrictConstructors (p : DataProgram S P) (C : I → Type w)
     (f : ∀ i, C i → S.Constructor i) :
-    DataProgram { S with Constructor := C, fields := fun {i} c => S.fields (f i c) } P :=
+    DataProgram { S with Constructor := C, Fields := fun {i} c => S.Fields (f i c) } P :=
   ⟨fun i d c => p.body i d (f i c)⟩
 
 def restrictObservers (p : DataProgram S P) (D : I → Type w)
     (f : ∀ i, D i → S.Observer i) :
     DataProgram { S with
       Observer := D
-      arguments := fun {i} d => S.arguments (f i d)
-      result := fun {i} d => S.result (f i d) } P :=
+      Arguments := fun {i} d => S.Arguments (f i d)
+      Result := fun {i} d => S.Result (f i d) } P :=
   ⟨fun i d c => p.body i (f i d) c⟩
 
 theorem restrict_constructor_cell (p : DataProgram S P) (C : I → Type w)
@@ -159,7 +159,7 @@ theorem restrict_observer_cell (p : DataProgram S P) (D : I → Type w)
     (transpose (restrictObservers p D f)).body i c d = (transpose p).body i c (f i d) := rfl
 /-- The reverse view change preserves the same typed cell values. -/
 theorem untranspose_preserves (p : CodataProgram S P) (m : ∀ {A B}, P A B → A → B)
-    (c : S.Constructor i) (x : S.fields c) (d : S.Observer i) (a : S.arguments d) :
+    (c : S.Constructor i) (x : S.Fields c) (d : S.Observer i) (a : S.Arguments d) :
     (untranspose p).observe m d ⟨c,x⟩ a = p.construct m c x d a :=
   Expr.eval_swap _ _ _ _
 
@@ -168,17 +168,17 @@ abbrev Signature.addConstructors (S : Signature.{u,v,w} I)
     (C : I → Type w) (F : {i : I} → C i → Type u) : Signature I where
   Constructor i := S.Constructor i ⊕ C i
   Observer := S.Observer
-  fields c := match c with
-    | .inl old => S.fields old
+  Fields c := match c with
+    | .inl old => S.Fields old
     | .inr new => F new
-  arguments := S.arguments
-  result := S.result
+  Arguments := S.Arguments
+  Result := S.Result
 
 /-- Author new rows in the constructor-grouped view, supplying every old observer. -/
 def CodataProgram.addConstructors (p : CodataProgram S P)
     (C : I → Type w) (F : {i : I} → C i → Type u)
     (body : ∀ i (c : C i) (d : S.Observer i),
-      Expr P (Slot (S.arguments d) (F c)) (S.result d)) :
+      Expr P (Slot (S.Arguments d) (F c)) (S.Result d)) :
     CodataProgram (S.addConstructors C F) P where
   body i c d := match c with
     | .inl old => p.body i old d
@@ -188,7 +188,7 @@ def CodataProgram.addConstructors (p : CodataProgram S P)
 theorem CodataProgram.addConstructors_old (p : CodataProgram S P)
     (C : I → Type w) (F : {i : I} → C i → Type u)
     (body : ∀ i (c : C i) (d : S.Observer i),
-      Expr P (Slot (S.arguments d) (F c)) (S.result d))
+      Expr P (Slot (S.Arguments d) (F c)) (S.Result d))
     (i) (c : S.Constructor i) (d : S.Observer i) :
     (p.addConstructors C F body).body i (.inl c) d = p.body i c d := rfl
 
@@ -197,19 +197,19 @@ abbrev Signature.addObservers (S : Signature.{u,v,w} I)
     (D : I → Type w) (A R : {i : I} → D i → Type u) : Signature I where
   Constructor := S.Constructor
   Observer i := S.Observer i ⊕ D i
-  fields := S.fields
-  arguments d := match d with
-    | .inl old => S.arguments old
+  Fields := S.Fields
+  Arguments d := match d with
+    | .inl old => S.Arguments old
     | .inr new => A new
-  result d := match d with
-    | .inl old => S.result old
+  Result d := match d with
+    | .inl old => S.Result old
     | .inr new => R new
 
 /-- Author new columns in the observer-grouped view, supplying every constructor. -/
 def DataProgram.addObservers (p : DataProgram S P)
     (D : I → Type w) (A R : {i : I} → D i → Type u)
     (body : ∀ i (d : D i) (c : S.Constructor i),
-      Expr P (Slot (S.fields c) (A d)) (R d)) :
+      Expr P (Slot (S.Fields c) (A d)) (R d)) :
     DataProgram (S.addObservers D A R) P where
   body i d c := match d with
     | .inl old => p.body i old c
@@ -218,7 +218,7 @@ def DataProgram.addObservers (p : DataProgram S P)
 theorem DataProgram.addObservers_old (p : DataProgram S P)
     (D : I → Type w) (A R : {i : I} → D i → Type u)
     (body : ∀ i (d : D i) (c : S.Constructor i),
-      Expr P (Slot (S.fields c) (A d)) (R d))
+      Expr P (Slot (S.Fields c) (A d)) (R d))
     (i) (d : S.Observer i) (c : S.Constructor i) :
     (p.addObservers D A R body).body i (.inl d) c = p.body i d c := rfl
 

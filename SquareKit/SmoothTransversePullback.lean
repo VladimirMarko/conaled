@@ -175,26 +175,26 @@ def chart : OpenPartialHomeomorph (Pullback f g) (Space (m + n - p)) where
 
 end LocalModel
 
-variable [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N]
-  [IsManifold (Model p) ∞ P]
+variable [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N]
+  [IsManifold (modelWithCorners p) ∞ P]
 
 /-- Pointwise transversality is required only at actual points of the fiber product. -/
 def Transverse (f : M → P) (g : N → P) : Prop :=
   ∀ q : Pullback f g, TransverseAt (m := m) (n := n) (p := p) f g q.val.1 q.val.2 q.property
 
-omit [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N]
-  [IsManifold (Model p) ∞ P] in
+omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N]
+  [IsManifold (modelWithCorners p) ∞ P] in
 theorem derivative_surjective
-    (hf : ContMDiff (Model m) (Model p) ∞ f)
-    (hg : ContMDiff (Model n) (Model p) ∞ g)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)
+    (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
     (ht : Transverse (m := m) (n := n) (p := p) f g) (q : Pullback f g) :
     Surjective (derivative (m := m) (n := n) (p := p) q) :=
   (transverseAt_iff_coordinate_surjective ((hf _).mdifferentiableAt (by simp))
     ((hg _).mdifferentiableAt (by simp)) q.property).mp (ht q)
 
 def localModel
-    (hf : ContMDiff (Model m) (Model p) ∞ f)
-    (hg : ContMDiff (Model n) (Model p) ∞ g)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)
+    (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
     (ht : Transverse (m := m) (n := n) (p := p) f g) (q : Pullback f g) :
     LocalModel (m := m) (n := n) (p := p) q where
   normal := Classical.choice (nonempty_coordinateNormalForm hf hg q.property (ht q))
@@ -202,11 +202,11 @@ def localModel
     rw [kernel_finrank (derivative q) (derivative_surjective hf hg ht q)]
     simp [Space])
 
-omit [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N]
-  [IsManifold (Model p) ∞ P] in
+omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N]
+  [IsManifold (modelWithCorners p) ∞ P] in
 theorem dimension_inequality
-    (hf : ContMDiff (Model m) (Model p) ∞ f)
-    (hg : ContMDiff (Model n) (Model p) ∞ g)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)
+    (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
     (ht : Transverse (m := m) (n := n) (p := p) f g) (q : Pullback f g) : p ≤ m + n := by
   have h := kernel_finrank_add (derivative q) (derivative_surjective hf hg ht q)
   simp only [Module.finrank_prod, Space, Module.finrank_fin_fun] at h

@@ -250,7 +250,7 @@ theorem line_zero : (line c F s).reindex (endpointSub Γ false) = a := by
   apply Term.ext
   intro x
   let y := (endpointSub Γ false).mapElements.obj x
-  have hy : (intervalFace Γ false).full y :=
+  have hy : (intervalFace Γ false).Full y :=
     (Cofibration.full_endpoint (generic (interval Γ)) false y).mpr rfl
   have hp := pathBoundaryFace_endpoint φ false x
   exact ((c.reindex (projection (interval Γ))).extend_boundary
@@ -261,7 +261,7 @@ theorem line_one : (line c F s).reindex (endpointSub Γ true) = b := by
   apply Term.ext
   intro x
   let y := (endpointSub Γ true).mapElements.obj x
-  have hy : (intervalFace Γ true).full y :=
+  have hy : (intervalFace Γ true).Full y :=
     (Cofibration.full_endpoint (generic (interval Γ)) true y).mpr rfl
   have hp := pathBoundaryFace_endpoint φ true x
   exact ((c.reindex (projection (interval Γ))).extend_boundary
@@ -271,14 +271,14 @@ theorem line_one : (line c F s).reindex (endpointSub Γ true) = b := by
 noncomputable def extend : Term (homogeneousPath A a b) :=
   pathLam (line c F s) (line_zero c F hF s) (line_one c F hF s)
 
-theorem extend_boundary (x : Γ.Elements) (hx : φ.full x) :
+theorem extend_boundary (x : Γ.Elements) (hx : φ.Full x) :
     (extend c F hF s).val x = s.val x hx := by
   apply Subtype.ext
   apply PiElement.ext
   intro y f r
   let z := extendObj (interval Γ) y r
-  have hy : φ.full y := φ.full_natural f hx
-  have hz : (pathBoundaryFace φ).full z := (Cofibration.full_join _ _ z).mpr (Or.inl hy)
+  have hy : φ.Full y := φ.full_natural f hx
+  have hz : (pathBoundaryFace φ).Full z := (Cofibration.full_join _ _ z).mpr (Or.inl hy)
   have h := (c.reindex (projection (interval Γ))).extend_boundary
     (F.reindex (projection (interval Γ))) (hF.reindex _) s.pathBoundary z hz
   have hs := congrArg (fun p => p.val.val (𝟙 y) r) (s.property f hx)
@@ -299,7 +299,7 @@ noncomputable def center : Term A := c.extend F s.sigmaFst
 
 include hF
 
-theorem center_boundary (x : Γ.Elements) (hx : φ.full x) :
+theorem center_boundary (x : Γ.Elements) (hx : φ.Full x) :
     (center c F s).val x = (s.val x hx).1 := c.extend_boundary F hF s.sigmaFst x hx
 
 noncomputable def partialContraction :
@@ -314,14 +314,14 @@ noncomputable def witness : HomotopyContractible A where
     (hF.reindex _) (partialContraction c F hF s)
 
 noncomputable def extend : Term (contr A) := encodeContr (witness c F hF s)
-theorem extend_boundary (x : Γ.Elements) (hx : φ.full x) :
+theorem extend_boundary (x : Γ.Elements) (hx : φ.Full x) :
     (extend c F hF s).val x = s.val x hx := by
   let a := center c F s
   let ha := center_boundary c F hF s
   let e := contractionsAtIso A a
   let p := (s.sigmaSnd a ha).map e.hom
   let t := (witness c F hF s).contraction
-  have ht (z : (total A).Elements) (hz : (φ.reindex (projection A)).full z) :
+  have ht (z : (total A).Elements) (hz : (φ.reindex (projection A)).Full z) :
       t.val z = p.app.val z hz :=
     ContractiblePaths.extend_boundary (c.reindex (projection A))
       (F.reindex (projection A)) (hF.reindex _) (partialContraction c F hF s) z hz
@@ -355,7 +355,7 @@ noncomputable def contrExtend {Γ Δ : Context.{u}} {A : Family Γ}
 theorem contrExtend_boundary {Γ Δ : Context.{u}} {A : Family Γ}
     (c : HomotopyContractible A) (F : Filling A) (hF : F.Lawful)
     (σ : Δ ⟶ Γ) (φ : Cofibration Δ) (s : PartialSection (reindex (contr A) σ) φ)
-    (x : Δ.Elements) (hx : φ.full x) : (contrExtend c F hF σ φ s).val x = s.val x hx :=
+    (x : Δ.Elements) (hx : φ.Full x) : (contrExtend c F hF σ φ s).val x = s.val x hx :=
   (congrArg ((contrReindexIso A σ).inv.app x)
     (ContractibilityExtension.extend_boundary (c.reindex σ) (F.reindex σ) (hF.reindex σ)
       (s.map (contrReindexIso A σ).hom) x hx)).trans
@@ -386,7 +386,7 @@ noncomputable def extend : Term (reindex (isEquiv f) σ) :=
   Term.map (piReindexIso B (contr (fiber (f := f))) σ).inv
     (lam (extendedBody e F hF G hG σ φ s))
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (extend e F hF G hG σ φ s).val x = s.val x hx := by
   let i := piReindexIso B (contr (fiber (f := f))) σ
   let p := s.map i.hom
@@ -510,7 +510,7 @@ noncomputable def contractAt {Γ : Context.{u}} {A : Family Γ}
     (extend : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Cofibration Δ),
       PartialSection (Presheaf.reindex A σ) φ → Term (Presheaf.reindex A σ))
     (boundary : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Cofibration Δ)
-      (a : PartialSection (Presheaf.reindex A σ) φ) (x : Δ.Elements) (hx : φ.full x),
+      (a : PartialSection (Presheaf.reindex A σ) φ) (x : Δ.Elements) (hx : φ.Full x),
       (extend σ φ a).val x = a.val x hx) : HomotopyContractible A := by
   let π := projection A
   let p := projection (interval (total A)) ≫ π
@@ -521,9 +521,9 @@ noncomputable def contractAt {Γ : Context.{u}} {A : Family Γ}
     apply Term.ext
     intro x
     let y := (endpointSub (total A) false).mapElements.obj x
-    have hy : (intervalFace (total A) false).full y :=
+    have hy : (intervalFace (total A) false).Full y :=
       (Cofibration.full_endpoint (generic (interval (total A))) false y).mpr rfl
-    have hu : φ.full y := (Cofibration.full_join _ _ y).mpr (Or.inl hy)
+    have hu : φ.Full y := (Cofibration.full_join _ _ y).mpr (Or.inl hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_zero _ _ _ y hu hy)).trans
         (endpointSection_val (Presheaf.reindex A p) false (c.reindex π) y hy)))
@@ -531,9 +531,9 @@ noncomputable def contractAt {Γ : Context.{u}} {A : Family Γ}
     apply Term.ext
     intro x
     let y := (endpointSub (total A) true).mapElements.obj x
-    have hy : (intervalFace (total A) true).full y :=
+    have hy : (intervalFace (total A) true).Full y :=
       (Cofibration.full_endpoint (generic (interval (total A))) true y).mpr rfl
-    have hu : φ.full y := (Cofibration.full_join _ _ y).mpr (Or.inr hy)
+    have hu : φ.Full y := (Cofibration.full_join _ _ y).mpr (Or.inr hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_one _ _ _ y hu hy)).trans
         (endpointSection_val (Presheaf.reindex A p) true (generic A) y hy)))

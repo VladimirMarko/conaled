@@ -32,7 +32,7 @@ def equation {S : Type} (l r : List S) : Rule (unary S) where
 def algebra {S X : Type} (op : S → X → X) : Algebra (unary S) where
   Carrier := X
   operation s xs := op s (xs ⟨0, by change 0 < 1; decide⟩)
-  predicate p := Empty.elim p
+  Predicate p := Empty.elim p
 
 theorem eval_term {S X : Type} (op : S → X → X) (w : List S) (ρ : Fin 1 → X) :
     (term w).eval (algebra op) ρ = run op w (ρ 0) := by

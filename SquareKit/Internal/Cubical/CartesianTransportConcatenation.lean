@@ -23,7 +23,7 @@ noncomputable def tube
 theorem tube_left
     (l : Term (reindex D (side false))) (r : Term (reindex D (side true)))
     (x : (total (interval (total (interval Γ)))).Elements)
-    (h : (intervalFace Γ false).holds
+    (h : (intervalFace Γ false).Holds
       ((projection (interval (total (interval Γ)))).mapElements.obj x)) :
     HEq ((tube D l r).val x (Or.inl h))
       (l.val ((intervalSub (projection (interval Γ))).mapElements.obj x)) := by
@@ -35,7 +35,7 @@ theorem tube_left
 theorem tube_right
     (l : Term (reindex D (side false))) (r : Term (reindex D (side true)))
     (x : (total (interval (total (interval Γ)))).Elements)
-    (h : (intervalFace Γ true).holds
+    (h : (intervalFace Γ true).Holds
       ((projection (interval (total (interval Γ)))).mapElements.obj x)) :
     HEq ((tube D l r).val x (Or.inr h))
       (r.val ((intervalSub (projection (interval Γ))).mapElements.obj x)) := by
@@ -96,7 +96,7 @@ variable {Γ : Context.{u}} {A B : Family Γ} {f : A ⟶ B}
   (L : MapLifting f) (a b : Term A) (h : Term.map f a = Term.map f b)
 include h in
 private theorem fiberPath_boundary (x : (total (interval Γ)).Elements)
-    (hx : ((intervalFace Γ false).join (intervalFace Γ true)).holds x) :
+    (hx : ((intervalFace Γ false).join (intervalFace Γ true)).Holds x) :
     f.app ((projection (interval Γ)).mapElements.obj x)
       ((endpointBoundary (intervalCoefficient A) a b).val x hx) =
       (Term.reindex (Term.map f a) (projection (interval Γ))).val x := by
@@ -530,7 +530,7 @@ theorem map_congr {s t : total (interval Γ) ⟶ smallFamilyCodes.{u}}
     CodeTransport.map s a c hs₀ hs₁ = CodeTransport.map t a c ht₀ ht₁ := by
   cases h
   rfl
-noncomputable def comparison_paths
+noncomputable def comparisonPaths
     (S : total (interval (total (interval Γ))) ⟶ smallFamilyCodes.{u})
     (p : Term (NativeUnivalence.paths a b)) (q : Term (NativeUnivalence.paths b c))
     (r : Term (NativeUnivalence.paths a c))
@@ -568,7 +568,7 @@ noncomputable def concatComparison (x : Term (liftedDecode a)) :
     Term (homogeneousPath (liftedDecode c)
       (Term.map (pathToMap (homogeneousConcat F hF p q)) x)
       (Term.map (pathToMap q) (Term.map (pathToMap p) x))) :=
-  CodeTransportSquare.comparison_paths (concatCodeSquare F p q) p q (homogeneousConcat F hF p q)
+  CodeTransportSquare.comparisonPaths (concatCodeSquare F p q) p q (homogeneousConcat F hF p q)
     (concatCodeSquare_bottom F hF p q) (concatCodeSquare_left F hF p q)
     (concatCodeSquare_right F hF p q) (concatCodeSquare_top F hF p q) x
 noncomputable def concatMapHomotopy :

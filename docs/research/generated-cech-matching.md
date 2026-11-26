@@ -227,7 +227,7 @@ sections through the full generated evaluation.
 checked generated substitution, including the selected overlap and arrow action.
 `SmoothQuotientCechGeneratedFamilyEvaluation` uses its weakening case to construct
 `familyEvaluation` into the independently defined relative matching fiber over
-the evaluated base datum. `familyEvaluation_total` recovers the complete total
+the evaluated base datum. `familyEvaluationTotalIso` recovers the complete total
 matching evaluation naturally on every vertical arrow.
 
 The generic `Comprehension.fixedBaseFunctor` extracts such a relative fiber from

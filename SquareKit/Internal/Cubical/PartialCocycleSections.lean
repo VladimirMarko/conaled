@@ -6,7 +6,7 @@ namespace SquareKit.Cubical.CategoryCocycles
 open CategoryTheory Presheaf
 
 def faceSieve {Γ : Context.{0}} (φ : Cofibration Γ) : SieveObjects Γ.Elementsᵒᵖ where
-  contains X := φ.full X.unop
+  Contains X := φ.Full X.unop
   downward f := φ.full_natural f.unop
 
 def partialSectionCocycle {Γ : Context.{0}} {φ : Cofibration Γ}

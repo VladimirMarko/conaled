@@ -32,7 +32,7 @@ def box : OpenBox (reindex C (contraction A a)) (markedFace A a) where
     exact (Term.convert_val_heq _ _ _).trans (Term.convert_val_heq _ (d.reindex (base A a)) x).symm
 
 theorem tube_val_heq (x : (total (interval (context A a))).Elements)
-    (hx : ((markedFace A a).reindex (projection (interval (context A a)))).full x) :
+    (hx : ((markedFace A a).reindex (projection (interval (context A a)))).Full x) :
     HEq ((tube A a C d).val x hx)
       (d.val ((projection (interval (context A a)) ≫ base A a).mapElements.obj x)) :=
   Term.convert_val_heq _ _ _
@@ -52,7 +52,7 @@ theorem eliminate_beta (G : Composition C) (hG : G.Lawful) :
   apply eq_of_heq
   apply (Term.convert_val_heq _ _ ((reflexivity A a).mapElements.obj x)).trans
   have h := hG.boundary (contraction A a) (markedFace A a) (box A a C d)
-    ((reflexivity A a).mapElements.obj x) (show (markedFace A a).full
+    ((reflexivity A a).mapElements.obj x) (show (markedFace A a).Full
       ((reflexivity A a).mapElements.obj x) from rfl)
   apply (heq_of_eq h).trans
   exact Term.convert_val_heq _ _ _

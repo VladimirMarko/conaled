@@ -271,10 +271,10 @@ def stateModelEquiv (X : Type) : state.Model X ≃ CubicalStateTransport.StatePa
   toFun s := {
     initial := s.val.1
     step := s.val.2.1
-    invariant := s.val.2.2
+    Invariant := s.val.2.2
     initial_valid := s.property.1
     preserves := s.property.2 }
-  invFun s := ⟨(s.initial, s.step, s.invariant), ⟨s.initial_valid, s.preserves⟩⟩
+  invFun s := ⟨(s.initial, s.step, s.Invariant), ⟨s.initial_valid, s.preserves⟩⟩
   left_inv s := Subtype.ext rfl
   right_inv s := by
     apply CubicalStatePackageFamily.statePackage_ext <;> rfl
@@ -351,9 +351,9 @@ example : Description.carrier.transport (secondSwap.trans firstSwap) (0 : Fin 3)
 /-- The generic law transport recovers the previous even/odd invariant client. -/
 example :
     (stateModelEquiv Int (state.transport CubicalStateTransport.successor
-      ((stateModelEquiv Int).symm CubicalStateTransport.evenPackage))).invariant 3 := by
+      ((stateModelEquiv Int).symm CubicalStateTransport.evenPackage))).Invariant 3 := by
   rw [state_transport, Equiv.apply_symm_apply]
-  change CubicalStateTransport.oddPackage.invariant 3
+  change CubicalStateTransport.oddPackage.Invariant 3
   exact (CubicalStateTransport.odd_invariant 3).mpr rfl
 
 end Examples.CompositionalStructureIdentity

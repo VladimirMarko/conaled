@@ -95,10 +95,10 @@ theorem run_native (a : Adapter presentation) (is : List Unit) (z : MachineState
     (fun _ _ _ => trivial) (fun i s _ => advance_value a i s) is z trivial
 
 theorem run_invariant (a : Adapter presentation) (is : List Unit) (z : MachineState)
-    (hz : machineTransported.invariant z.1) :
-    machineTransported.invariant (Resources.run (advance a) is z).1.1 := by
+    (hz : machineTransported.Invariant z.1) :
+    machineTransported.Invariant (Resources.run (advance a) is z).1.1 := by
   rw [machineTransported_eq] at hz ⊢
-  apply Resources.run_invariant (advance a) (fun s => presentedMachine.invariant s.1) _ is z hz
+  apply Resources.run_invariant (advance a) (fun s => presentedMachine.Invariant s.1) _ is z hz
   intro i s hs
   rw [advance_value]
   exact presentedMachine.preserves s.1 hs

@@ -30,7 +30,7 @@ SHA-256 `f512f6b3723e8e036e9292aab985e93d15b2bf49b1c2c6dff79b3e6911ffcaad`.
 | FDSA-5-81 | A selected nonempty left subtree with no overlap excludes the right through an attained left maximum and ordered lows. | `high_lt_low_of_left_no_overlap` and `not_overlap_right_of_left`, using the existing `maxHi_attained`. |
 | FDSA-5-82 | Empty left, or a failed maximum threshold, excludes overlap in the left subtree. | `not_overlap_nil` and `not_overlap_of_maxHi_lt`, using the existing `high_le_maxHi`. |
 | FDSA-5-83 | Theorem 5.3, with boundary contact, singleton intervals and overlapping stored intervals. | `search_complete`, `search_correct`, `search_correct_of_strict` and `search_correct_book`. |
-| FDSA-5-84 | Exercise 5.8's own point-containment recursion and semantic theorem. | `containsPoint`, `searchPoint`, `searchPoint_eq_search`, `searchPoint_correct` and its strict/book specializations. |
+| FDSA-5-84 | Exercise 5.8's own point-containment recursion and semantic theorem. | `ContainsPoint`, `searchPoint`, `searchPoint_eq_search`, `searchPoint_correct` and its strict/book specializations. |
 
 The Lean implementation and proof organization are original. They reuse the
 repository's actual tree/list/set refinements and maximum-cache results, rather
@@ -175,8 +175,8 @@ order/equality, tree equality, valid cache or ordered-low premise.
 
 `search_sound` follows this exact recursion. A root hit gives the root's
 complete key; a recursive hit gives a child witness that is also in the parent
-set. The program tests `overlap query (iv key)`, while the semantic observer
-uses `overlap (iv key) query`; `IntervalKey.overlap_comm` connects those
+set. The program tests `Overlap query (iv key)`, while the semantic observer
+uses `Overlap (iv key) query`; `IntervalKey.overlap_comm` connects those
 orientations. This is an existential correctness statement, not a claim that
 the Boolean program returns the witness. Arbitrary malformed caches or key
 placement can cause false negatives, but a raw true answer has a real stored
@@ -228,7 +228,7 @@ state; no second search induction is needed.
 
 ## Independent point program
 
-`containsPoint point interval` means
+`ContainsPoint point interval` means
 `interval.low ≤ point ∧ point ≤ interval.high`. Under a preorder,
 `containsPoint_iff_mem` identifies it with the existing closed-interval set
 observation. The raw predicate itself requires only `LE`.
@@ -240,8 +240,8 @@ query `[point,point]` on every raw tree. With bare `LE`, the theorem explicitly
 takes `point ≤ point` to construct that singleton; the point program itself
 does not require reflexivity.
 
-For the literal query-first test, `overlap [point,point] (iv key)` reduces to
-the same conjunction order as `containsPoint`. Both branch thresholds and
+For the literal query-first test, `Overlap [point,point] (iv key)` reduces to
+the same conjunction order as `ContainsPoint`. Both branch thresholds and
 constructor guards agree. The bridge needs no cache, low-order, strict-key or
 injectivity premise. The stored-first semantic overlap reverses the two
 conjuncts; the semantic point proof handles that equivalence after using the

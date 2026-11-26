@@ -296,20 +296,20 @@ All source IDs and original line numbers come from the immutable inventory.
 | `Sort.insert@30` | `insert`, the Nat alias of `List.orderedInsert`; `insert_nil` and `insert_cons` expose the source recurrence, including the non-strict left-tie branch. |
 | `Sort.sort@36` | `sort`, the Nat alias of `List.insertionSort`; `sort_nil` and `sort_cons` expose the same tail-first recurrence as the source. |
 | `Sort.sort_pi@42` | `sort_pi`, with the exact eleven-element input and output `[1,1,2,3,3,4,5,5,5,6,9]`; `pi_contract` and `pi_indexed` connect this calculation to the ordinary and independently indexed results. |
-| `Sort.sorted@95` | `sorted` uses `List.IsChain`, with `sorted_nil`, `sorted_1` and `sorted_cons` retaining the three source rules. The Pairwise correspondence requires the stated transitivity assumption. |
-| `Sort.sorted''@131` | `sorted''` retains Nat indices, default `0`, and the valid upper-index bound in the source `List.getD` presentation; `sorted''_iff_sorted'` connects it to successful optional lookups. |
-| `Sort.sorted'@140` | `sorted'` specializes `Specification.Indexed` to Nat `≤`, preserving both successful-lookup premises and `i < j`. |
-| `Sort.is_a_sorting_algorithm@157` | `isASortingAlgorithm` retains `∀ xs, xs.Perm (f xs) ∧ sorted (f xs)`. This is input-to-output occurrence permutation and adjacent sortedness; stability is a separate observation. |
+| `Sort.sorted@95` | `Sorted` uses `List.IsChain`, with `sorted_nil`, `sorted_1` and `sorted_cons` retaining the three source rules. The Pairwise correspondence requires the stated transitivity assumption. |
+| `Sort.sorted''@131` | `GetDSorted` retains Nat indices, default `0`, and the valid upper-index bound in the source `List.getD` presentation; `getDSorted_iff_indexedSorted` connects it to successful optional lookups. |
+| `Sort.sorted'@140` | `IndexedSorted` specializes `Specification.Indexed` to Nat `≤`, preserving both successful-lookup premises and `i < j`. |
+| `Sort.is_a_sorting_algorithm@157` | `IsSortingAlgorithm` retains `∀ xs, xs.Perm (f xs) ∧ Sorted (f xs)`. This is input-to-output occurrence permutation and adjacent sortedness; stability is a separate observation. |
 | `Sort.insert_sorted@174` | `insert_sorted`, the ordinary source-preservation route through standard insertion correctness and the adjacent/Pairwise bridge at Nat order. |
 | `Sort.sort_sorted@187` | `sort_sorted`, using list induction and the source-facing `insert_sorted` on the actual sorted tail. |
 | `Sort.insert_perm@198` | `insert_perm`, orienting `List.perm_orderedInsert` from `a :: xs` to the insertion result. No sorted-input premise is added. |
 | `Sort.sort_perm@209` | `sort_perm`, using list induction, permutation under cons and `insert_perm` on the actual sorted tail, in the source input-to-output direction. |
-| `Sort.insertion_sort_correct@219` | `insertion_sort_correct`, combining the source-oriented permutation and sortedness in `isASortingAlgorithm`. |
-| `Sort.sorted_sorted'@239` | `sorted_sorted'`, the Nat forward direction of `Specification.adjacent_iff_indexed`; the source's advanced obligation is retained. |
-| `Sort.sorted'_sorted@250` | `sorted'_sorted`, the converse direction of that same correspondence, with successful indices still explicit. |
+| `Sort.insertion_sort_correct@219` | `insertion_sort_correct`, combining the source-oriented permutation and sortedness in `IsSortingAlgorithm`. |
+| `Sort.sorted_sorted'@239` | `sorted_indexedSorted`, the Nat forward direction of `Specification.adjacent_iff_indexed`; the source's advanced obligation is retained. |
+| `Sort.sorted'_sorted@250` | `indexedSorted_sorted`, the converse direction of that same correspondence, with successful indices still explicit. |
 | `Sort.nth_error_insert@277` | `nth_error_insert`, specializing `getElem?_orderedInsert_origin`: the returned value equals the inserted value or occurs at an actual successful old index. No sortedness or order laws are required by the generic origin theorem. |
-| `Sort.insert_sorted'@283` | `insert_sorted'`, specializing `indexed_orderedInsert`, whose positional induction is independent of ordinary sortedness and the specification equivalences. |
-| `Sort.sort_sorted'@289` | `sort_sorted'`, specializing `indexed_insertionSort`, proved by list induction using direct indexed insertion. The source's `Qed` depends on an admitted insertion lemma; the dependency is retained as part of this proof route. |
+| `Sort.insert_sorted'@283` | `insert_indexedSorted`, specializing `indexed_orderedInsert`, whose positional induction is independent of ordinary sortedness and the specification equivalences. |
+| `Sort.sort_sorted'@289` | `sort_indexedSorted`, specializing `indexed_insertionSort`, proved by list induction using direct indexed insertion. The source's `Qed` depends on an admitted insertion lemma; the dependency is retained as part of this proof route. |
 
 ### Complete exercises and the independent proof route
 
@@ -567,8 +567,8 @@ Names below are in `Examples.MultisetSorting` unless explicitly qualified.
 
 | Source identity | Current declaration or disposition |
 |---|---|
-| Multiset.value@42 | `value := Nat` |
-| Multiset.multiset@44 | `multiset := Sequences.Multiplicity.Counts value`, unrestricted functions |
+| Multiset.value@42 | `Value := Nat` |
+| Multiset.multiset@44 | `Multiset := Sequences.Multiplicity.Counts Value`, unrestricted functions |
 | Multiset.empty@48 | `empty`, using shared `empty_apply` |
 | Multiset.singleton@53 | `singleton`, using shared query-oriented `singleton_apply` |
 | Multiset.union@58 | `union`, using shared `union_apply` |
@@ -577,7 +577,7 @@ Names below are in `Examples.MultisetSorting` unless explicitly qualified.
 | Multiset.union_swap@95 | `union_swap`, derived from the two preceding algebraic laws |
 | Multiset.contents@122 | `contents`, `contents_nil`, `contents_cons`, `contents_eq_foldr` |
 | Multiset.sort_pi_same_contents@131 | `sort_pi_same_contents`; `pi_fives` checks all three occurrences of 5 |
-| Multiset.is_a_sorting_algorithm'@142 | `isASortingAlgorithm`, same source adjacent sortedness |
+| Multiset.is_a_sorting_algorithm'@142 | `IsSortingAlgorithm`, same source adjacent sortedness |
 | Multiset.insert_contents@163 | `insert_contents`, induction on the actual source insertion recurrence using union laws |
 | Multiset.sort_contents@175 | `sort_contents`, induction on actual tail-first sorting using insertion preservation |
 | Multiset.insertion_sort_correct@186 | `insertion_sort_correct` |
@@ -602,14 +602,14 @@ Names below are in `Examples.BagPermutation`.
 
 | Source identity | Current declaration or disposition |
 |---|---|
-| BagPerm.bag@21 | `bag := List Nat`, retaining raw list equality separately |
+| BagPerm.bag@21 | `Bag := List Nat`, retaining raw list equality separately |
 | BagPerm.count@23 | `count`, `count_nil`, `count_cons`, `count_eq_foldr`; literal stored-head/query recurrence |
-| BagPerm.bag_eqv@33 | `bagEqv`, with `bagEqv_iff_contents` connecting pointwise and function equality |
+| BagPerm.bag_eqv@33 | `BagEquiv`, with `bagEquiv_iff_contents` connecting pointwise and function equality |
 | BagPerm.bag_eqv_refl@40 | `bag_eqv_refl` |
 | BagPerm.bag_eqv_sym@44 | `bag_eqv_sym` |
 | BagPerm.bag_eqv_trans@48 | `bag_eqv_trans` |
 | BagPerm.bag_eqv_cons@54 | `bag_eqv_cons` |
-| BagPerm.is_a_sorting_algorithm'@67 | `isASortingAlgorithm`, same source adjacent sortedness |
+| BagPerm.is_a_sorting_algorithm'@67 | `IsSortingAlgorithm`, same source adjacent sortedness |
 | BagPerm.insert_bag@76 | `insert_bag`, direct induction on source insertion and pointwise count arithmetic |
 | BagPerm.sort_bag@84 | `sort_bag`, list induction using cons congruence and insertion preservation |
 | BagPerm.insertion_sort_correct@90 | `insertion_sort_correct`, accounting for the supplied source proof |
@@ -755,24 +755,24 @@ The labels enumerate this chapter's existing headings, not new ticket IDs.
 | `Selection.selsort@77` | `selsort`, `selsort_zero`, `selsort_nil`, `selsort_cons`; zero fuel and empty input remain separate clauses. |
 | `Selection.out_of_fuel@87` | `out_of_fuel`, connected to the general output-length law; `partial_output` computes `[1,1,3]`. |
 | `Selection.extra_fuel@94` | `extra_fuel`, using the generic saturation theorem. |
-| `Selection.selection_sort@102` | `selection_sort`, `selection_sort_eq`; fuel equals actual input length. |
+| `Selection.selection_sort@102` | `selectionSort`, `selectionSort_eq`; fuel equals actual input length. |
 | `Selection.sort_pi@105` | `sort_pi`, the exact eleven-element calculation; `pi_contract` connects it to permutation and adjacent sortedness. |
-| `Selection.sorted@119` | `sorted`, `sorted_nil`, `sorted_1`, `sorted_cons`; the accepted `IsChain` presentation has the source's three rules. |
-| `Selection.is_a_sorting_algorithm@126` | `isASortingAlgorithm`, reusing the arbitrary-function source contract from Sort: input-to-output permutation and adjacent order, with no stability field. |
+| `Selection.sorted@119` | `Sorted`, `sorted_nil`, `sorted_1`, `sorted_cons`; the accepted `IsChain` presentation has the source's three rules. |
+| `Selection.is_a_sorting_algorithm@126` | `IsSortingAlgorithm`, reusing the arbitrary-function source contract from Sort: input-to-output permutation and adjacent order, with no stability field. |
 | `Selection.pairs_example@139` | `pairs_example`; pair decomposition retains the source's universally quantified unused components as underscore-prefixed parameters. |
 | `Selection.select_perm@153` E1 | `select_perm`; select equality gives input-to-output permutation, reversing the generic output-first theorem. |
 | `Selection.select_rest_length@166` E2 | `select_rest_length`; the source's length orientation follows by permutation length and successor cancellation. |
 | `Selection.selsort_perm@178` E3 | `selsort_perm`; retains `l.length = n`, using the stronger sufficient-fuel theorem. |
-| `Selection.selection_sort_perm@189` E4 | `selection_sort_perm`. |
+| `Selection.selection_sort_perm@189` E4 | `selectionSort_perm`. |
 | `Selection.select_fst_leq@201` E5 | `select_fst_leq`; generic candidate-minimum bound. |
-| `Selection.le_all@212` | `le_all` is `List.Forall`; `le_all_iff` exposes the membership-wise lower-bound meaning. |
-| `Selection.le_all__le_one@222` E6 | `le_all_le_one`, consuming the explicit Forall/membership bridge. |
+| `Selection.le_all@212` | `IsLowerBound` is `List.Forall`; `isLowerBound_iff` exposes the membership-wise lower-bound meaning. |
+| `Selection.le_all__le_one@222` E6 | `isLowerBound_le_one`, consuming the explicit Forall/membership bridge. |
 | `Selection.select_smallest@234` E7 | `select_smallest`; selected value is below every returned remainder entry. |
 | `Selection.select_in@247` E8 | `select_in`; the selected value is an actual input occurrence. |
 | `Selection.cons_of_small_maintains_sort@262` E9 | `cons_of_small_maintains_sort`; retains `n = bl.length` and transports the bound through fuelled permutation. |
 | `Selection.selsort_sorted@278` E10 | `selsort_sorted`; source length premise retained. The generic theorem proves ordering even for truncated output, while occurrence preservation still requires enough fuel. |
-| `Selection.selection_sort_sorted@289` E11 | `selection_sort_sorted`, bridging pairwise order to the source adjacent presentation. |
-| `Selection.selection_sort_is_correct@300` E12 | `selection_sort_is_correct`. |
+| `Selection.selection_sort_sorted@289` E11 | `selectionSort_sorted`, bridging pairwise order to the source adjacent presentation. |
+| `Selection.selection_sort_is_correct@300` E12 | `selectionSort_is_correct`. |
 | `Selection.selsort'@329` | `selsort'`, independent `SourceSelection.sortWF`, length termination proof, `selsort'_nil` and `selsort'_cons`. |
 | `Selection.selsort'_example@353` | `selsort'_example`, the distinct nine-element calculation through the well-founded equations; `wf_example_contract` connects the result to correctness. |
 | `Selection.selsort'_perm@375` E13 | `selsort'_perm`; the redundant `n` and length premise remain in the source wrapper. |
@@ -780,7 +780,7 @@ The labels enumerate this chapter's existing headings, not new ticket IDs.
 | `Selection.selsort'_sorted@401` E15 | `selsort'_sorted`; source quantifiers retained around the stronger generic result. |
 | `Selection.selsort'_is_correct@411` E16 | `selsort'_is_correct`. |
 | `Selection.select_contents@431` O1 | `select_contents`; source singleton/union equation from the independent direct contents proof. |
-| `Selection.selection_sort_contents@440` O2 | `selection_sort_contents`; retains redundant `n` and length equality, and the output is full `selection_sort`, as in the source. |
+| `Selection.selection_sort_contents@440` O2 | `selectionSort_contents`; retains redundant `n` and length equality, and the output is full `selectionSort`, as in the source. |
 | `Selection.sorted_iff_sorted@449` O3 | `sorted_iff_sorted`; both chapter presentations explicitly use the same accepted adjacent relation and constructor adapters. |
 | `Selection.selection_sort_correct'@456` O4 | `selection_sort_correct'`; the shared Multiset sorting contract, direct contents preservation, and the explicit sortedness bridge. |
 
@@ -841,7 +841,7 @@ selection output fails pairwise order.
 ### Teaching commands, remaining boundaries and acceptance
 
 Source warning options, imports, constructor hints and `<=*` notation become
-pinned Lean imports, namespaces, explicit lemmas and the `le_all` adapter; no
+pinned Lean imports, namespaces, explicit lemmas and the `IsLowerBound` adapter; no
 global hint database or warning suppression is introduced. Induction suggestions
 guide the direct recurrence proofs, while ordinary library lemmas handle pair
 decomposition, permutation transport and adjacent/pairwise equivalence.
@@ -920,7 +920,7 @@ primary file.
 |---|---|
 | `Merge.split@47` | `split`, aliasing the exact generic source splitter and its empty/singleton/two-cons equations. |
 | `Merge.split_len_first_try@63` | The true statement is supplied by `split_len`; the aborted ordinary-tail induction is explained below, without retaining an admission. |
-| `Merge.list_ind2_principle@87` | The universe-polymorphic `list_ind2_principle` proposition preserves all three cases and quantifiers. |
+| `Merge.list_ind2_principle@87` | The universe-polymorphic `TwoStepListInduction` proposition preserves all three cases and quantifiers. |
 | `Merge.split_len'@99` | `split_len'` retains and actually uses its supplied induction-schema premise. |
 | `Merge.list_ind2@118` | `list_ind2` proves the schema through the constructive generic principle. |
 | `Merge.split_len@148` | `split_len` supplies the proved principle to the conditional theorem and retains both weak length bounds. |
@@ -1174,7 +1174,7 @@ not establish this invariant.
 and key nodup in `Search.OrderedMap.ordered_entries_keys_pairwise` and
 `Search.OrderedMap.ordered_entries_keys_nodup` need only a preorder on keys;
 the Nat source sortedness result uses the already accepted
-`Examples.InsertionSorting.sorted` representation. Key order is not replaced
+`Examples.InsertionSorting.Sorted` representation. Key order is not replaced
 by lexicographic order or an order on payloads.
 
 ### Observation boundaries and the raw algebra
@@ -1266,7 +1266,7 @@ the grading placeholder and the false Abort have explicit dispositions.
 | `SearchTree.elements_complete_inverse@688` | `Examples.SearchTrees.elements_complete_inverse`: on a BST, absent presence excludes every listed value at that key. |
 | `SearchTree.bound_value@703` | `Examples.SearchTrees.bound_value`: presence gives `∃ value, ∀ default, lookup default k t = value`; the witness precedes and is independent of the default, with no BST premise. |
 | `SearchTree.elements_correct_inverse@710` | `Examples.SearchTrees.elements_correct_inverse`: exclusion of every value at a key from entries implies absence, on every raw tree; uses the preceding witness and completeness. |
-| `SearchTree.sorted_app@731` | `Examples.SearchTrees.sorted_app` retains sorted left/right Nat lists and both strict separator predicates; the conclusion uses the accepted `Examples.InsertionSorting.sorted` adapter. |
+| `SearchTree.sorted_app@731` | `Examples.SearchTrees.sorted_app` retains sorted left/right Nat lists and both strict separator predicates; the conclusion uses the accepted `Examples.InsertionSorting.Sorted` adapter. |
 | `SearchTree.list_keys@745` | `Examples.SearchTrees.listKeys` is `List.map Prod.fst` on the actual binding list. |
 | `SearchTree.sorted_elements@751` | `Examples.SearchTrees.sorted_elements` derives accepted non-strict Nat sortedness from `Search.OrderedMap.ordered_entries_keys_pairwise` and the BST premise. |
 | `SearchTree.disjoint@772` | `Examples.SearchTrees.Disjoint` is the source membership condition `∀ x, x ∈ left → x ∉ right`, for arbitrary element types. |
@@ -2642,10 +2642,10 @@ are present; it does not close the chapter's execution or acceptance gates.
 | `Extract.Z_geb_reflect@198` | Supported: `SC.intGeb_true_iff`, `SC.intGeb_false_iff`, with reversed non-strict operands. |
 | `Extract.bdestruct_guard@211` | Supported language adaptation: ordinary `by_cases`, reflection and `simp`, exercised by `EP.choose_minimum` and `DI.insert_eq_orderedInsert`; no custom tactic framework. |
 | `Extract.bdall@225` | Supported proof-method adaptation: the same branch laws compose in `EP.comparison_equality_branch`, retaining injection for equality of originals; `EP.integer_reflection_orientations` separates comparison directions. |
-| `Extract.ins_int@233` | Supported: `EP.ins_int` calls `DI.insert`; `DI.insert_nil`/`insert_cons` expose the exact supplied-Boolean recurrence. |
-| `Extract.sort_int@239` | Supported: `EP.sort_int` calls `DI.sort`; `DI.sort_nil`/`sort_cons` retain the source recursion. |
+| `Extract.ins_int@233` | Supported: `EP.decodedInsert` calls `DI.insert`; `DI.insert_nil`/`insert_cons` expose the exact supplied-Boolean recurrence. |
+| `Extract.sort_int@239` | Supported: `EP.decodedSort` calls `DI.sort`; `DI.sort_nil`/`sort_cons` retain the source recursion. |
 | `Extract.sorted@253` | Supported: `EP.sorted`, `DI.Sorted`, `DI.sorted_nil`, `DI.sorted_singleton`, `DI.sorted_cons`, `DI.sorted_cons_iff`, `DI.sorted_iff_keySorted`. |
-| `Extract.sort_int_correct@270` | Supported: `EP.sort_int_correct` retains original-value input-to-output permutation and adjacent decoded order for every input; `EP.sort_int_stable` and `EP.sort_decode` strengthen and connect the result. |
+| `Extract.sort_int_correct@270` | Supported: `EP.decodedSort_correct` retains original-value input-to-output permutation and adjacent decoded order for every input; `EP.decodedSort_stable` and `EP.sort_decode` strengthen and connect the result. |
 | `Extract.key@282` | Open: reuse the same carrier as tree keys, with no added arithmetic structure. |
 | `Extract.tree@284` | Open: specialize the existing `BinaryTree (W × V)` carrier with exact empty/node presentation and independent key/payload universes. |
 | `Extract.empty_tree@291` | Open: specialize existing empty without requiring a payload default. |
@@ -2661,7 +2661,7 @@ are present; it does not close the chapter's execution or acceptance gates.
 
 | Exercise and source lines | Current status |
 | --- | --- |
-| `sort_int_correct`, 263–275, three stars | Mathematical support present: `EP.sort_int_correct`, Int/word/Int64 correctness and decoding clients, noninjective-decoder and labelled-payload cases. Chapter execution and acceptance remain open. |
+| `sort_int_correct`, 263–275, three stars | Mathematical support present: `EP.decodedSort_correct`, Int/word/Int64 correctness and decoding clients, noninjective-decoder and labelled-payload cases. Chapter execution and acceptance remain open. |
 | `lookup_insert_eq`, 323–329, one star | Open: exact universal raw-tree law, same-key replacement example and concrete comparison realization. |
 | `lookup_insert_neq`, 331–337, two stars | Open: exact original-key inequality, justified injection dependency, universal raw-tree scope and connected distinct-key case. |
 | `int_elements`, 339–345, four stars, optional | Open in full. The prompt has no named starter theorem; every group below is required, and the optional label waives none. |
@@ -2873,7 +2873,7 @@ records; it does not discharge the separate execution commands.
 
 ### All four exercises and the complete optional enumeration transfer
 
-`sort_int_correct` retains the original-value input-to-output permutation,
+`decodedSort_correct` retains the original-value input-to-output permutation,
 decoded adjacent sortedness, stable-key strengthening and concrete clients from
 checkpoint 036. The current `ET.lookup_insert_eq` and `lookup_insert_neq`
 discharge the two source tree admissions with the scopes just stated.
@@ -3402,7 +3402,7 @@ path; shared examples can discharge several source directives.
 | 86 — `Recursive Extraction sortZ` | `examples` calls `EP.sortZ`; signed duplicates `[-3,2,-3,0,1]` produce `[-3,-3,0,1,2]`, with separate empty and singleton cases. |
 | 114 — inline carrier `int` | Explicit `Int`, signed `BitVec 63` and `Int64` realizations retain distinct carrier labels, guarded finite conversions and signed endpoints. |
 | 127 — inline strict comparison | Actual `intLtb`, `wordLtb` or `int64Ltb` reaches tree branches and comparison cases; the four-bit signed/unsigned disagreement remains explicit. |
-| 131 — inline nonstrict comparison | The supplied `leb` reaches `EP.sort_int`; labelled equal keys preserve original payload order for all three carriers. |
+| 131 — inline nonstrict comparison | The supplied `leb` reaches `EP.decodedSort`; labelled equal keys preserve original payload order for all three carriers. |
 | 245 — `Recursive Extraction sort_int` | `finiteSortCase` and `stableSortCase` call the existing Boolean-only sort; signed minimum/maximum, negative repeats and labelled ties retain full results. |
 | 349 — native `prod` | Ordinary Prod carries original keys and unequal payloads through writes, trees and enumeration, including the exact arbitrary traversal suffix. |
 | 350 — recursive empty/insert/lookup/elements | `tableCase` and workloads use ET/DecodedKeys and shared `bindAll`: empty lookup, latest repeated write, stored zero versus absence, caller defaults and complete canonical entries. |

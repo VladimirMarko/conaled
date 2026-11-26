@@ -27,11 +27,11 @@ def selected : Argument first second := ⟨firstChoice, secondChoice⟩
 def tags (a : Nested first second) : Bool × Bool := (a.1.2.isLeft, a.2.isLeft)
 
 /-- This fiber varies with the second selected generic value as well as n. -/
-def payload (a : Nested first second) : Type :=
+def Payload (a : Nested first second) : Type :=
   Fin (if a.2.isLeft then a.1.1 + 2 else 1)
 
-def payloadChoice (a : Nested first second) : payload a := by
-  unfold payload
+def payloadChoice (a : Nested first second) : Payload a := by
+  unfold Payload
   split
   · exact ⟨a.1.1 + 1, Nat.lt_succ_self _⟩
   · exact ⟨0, Nat.zero_lt_succ 0⟩
@@ -52,8 +52,8 @@ theorem no_first_left_zero (a : Fiber first 0) : a.isLeft = false := by
 
 /-- At the same positive base, the first choice changes the second parameter. -/
 theorem second_really_depends :
-    second.parameter ⟨1, .inl ⟨Nat.zero_lt_succ 0⟩⟩ ∧
-      ¬ second.parameter ⟨1, .inr ()⟩ := by
+    second.Parameter ⟨1, .inl ⟨Nat.zero_lt_succ 0⟩⟩ ∧
+      ¬ second.Parameter ⟨1, .inr ()⟩ := by
   exact ⟨rfl, Bool.false_ne_true⟩
 
 /-- The pair classifies two actual models of the existing geometric axioms. -/
@@ -114,11 +114,11 @@ example : IsPullback (↾(map first second (shift ∘ double)))
 /-- Arbitrary dependent type compatibility specializes to a nonconstant finite
 payload fiber. -/
 example (a : SquareKit.Internal.NestedSetting.Pullback first second shift) :
-    typeSub payload shift (comparison first second shift a) = payload a.original :=
-  type_comparison payload shift a
+    typeSub Payload shift (comparison first second shift a) = Payload a.original :=
+  type_comparison Payload shift a
 
 example (a : SquareKit.Internal.NestedSetting.Pullback first second shift) :
-    cast (type_comparison payload shift a)
+    cast (type_comparison Payload shift a)
       (termSub payloadChoice shift (comparison first second shift a)) =
       payloadChoice a.original := term_comparison payloadChoice shift a
 
@@ -149,7 +149,7 @@ theorem payload_whole_twice :
       termSub (termSub payloadChoice shift) double
         (comparison first second (shift ∘ double)
           (rebase first second shift double secondStagePoint))⟩ :
-            (z : Nested first second) × payload z) =
+            (z : Nested first second) × Payload z) =
       ⟨classify selected 5, (⟨6, Nat.lt_succ_self 6⟩ : Fin 7)⟩ := by
   rw [dependent_comparison_comp]
   rfl

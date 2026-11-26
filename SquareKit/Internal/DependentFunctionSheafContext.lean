@@ -39,7 +39,7 @@ def reindexRealization (E : Env M Γ) {Y : Sh J} (s : Y ⟶ E.carrier) :
   func _v := transport_heq _ _
 
 def familyEnv (E : Env M Γ) (b : Base n) : Env M (.family Γ b) where
-  carrier := Ext (family M E.base b)
+  carrier := extension (family M E.base b)
   base i := p (family M E.base b) ≫ E.base i
   dep
     | .top => transport (family_precomp M E.base (p (family M E.base b)) b) (q (family M E.base b))
@@ -47,7 +47,7 @@ def familyEnv (E : Env M Γ) (b : Base n) : Env M (.family Γ b) where
   func | .family v => (reindexEnv M E (p (family M E.base b))).func v
 
 def functionEnv (E : Env M Γ) (b : Base (n+1)) : Env M (.function Γ b) where
-  carrier := Ext (function M E.base b)
+  carrier := extension (function M E.base b)
   base i := p (function M E.base b) ≫ E.base i
   dep | .function v => (reindexEnv M E (p (function M E.base b))).dep v
   func

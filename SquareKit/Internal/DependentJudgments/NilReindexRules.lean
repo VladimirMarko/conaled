@@ -10,11 +10,11 @@ universe u
 theorem jSubSchema_valid_length (M : PathTransport.Typed.Model.{u}) (n : Nat)
     (out : Judgment (Fin 8))
     (valid : ∀ (p : Problem M.toStructuralModel), p.length = n → ∀ (Δ : M.Context) (σ : M.Substitution Δ p.context),
-      out.eval (algebra M) (substitutedEnvironment M.toStructuralModel p Δ σ)) :
+      out.Eval (algebra M) (substitutedEnvironment M.toStructuralModel p Δ σ)) :
     Satisfies (algebra M) (jSubSchema n out) := by
   intro ρ h
   let ρ₀ : Fin 6 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
-  have h₀ : ∀ i, ((jRule n).premise i).eval (algebra M) ρ₀ := by
+  have h₀ : ∀ i, ((jRule n).premise i).Eval (algebra M) ρ₀ := by
     intro i
     fin_cases i <;> first | exact h 0 | exact h 1 | exact h 2 | exact h 3
   rcases jSchema_inputs M n _ ρ₀ h₀ with ⟨p, hn, hp⟩
@@ -53,14 +53,14 @@ theorem pathTailNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algeb
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
   cases T
-  simp [Atom.eval, Term.eval, FinitaryTerm.fold, algebra, operation, DependentJudgments.operation,
+  simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation, DependentJudgments.operation,
     StructuralModel.pathTail, Telescope.pullback, Telescope.reindex]
 
 theorem pathTailMapNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathTailMapNilRule := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
   cases T
-  simp [Atom.eval, Term.eval, FinitaryTerm.fold, algebra, operation,
+  simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation,
     StructuralModel.pathTail, StructuralModel.pathTailMap, Telescope.pullback, Telescope.liftSub,
     Telescope.reindex, Telescope.total]
 

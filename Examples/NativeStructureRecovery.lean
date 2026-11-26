@@ -78,11 +78,11 @@ example (x : Γ.Elements) : (statePackageEquiv x (movedState.val x)).down.initia
   rw [movedState_recovery]
   rfl
 
-example (x : Γ.Elements) : (statePackageEquiv x (movedState.val x)).down.invariant true := by
+example (x : Γ.Elements) : (statePackageEquiv x (movedState.val x)).down.Invariant true := by
   rw [movedState_recovery]
   rfl
 
-example (x : Γ.Elements) : ¬ (statePackageEquiv x (movedState.val x)).down.invariant false := by
+example (x : Γ.Elements) : ¬ (statePackageEquiv x (movedState.val x)).down.Invariant false := by
   rw [movedState_recovery]
   exact Bool.noConfusion
 
@@ -235,11 +235,11 @@ example (x : Γ.Elements) : (statePackageEquiv x (movedState.val x)).down.initia
   rw [movedState_recovery]
   rfl
 
-example (x : Γ.Elements) : (statePackageEquiv x (movedState.val x)).down.invariant true := by
+example (x : Γ.Elements) : (statePackageEquiv x (movedState.val x)).down.Invariant true := by
   rw [movedState_recovery]
   rfl
 
-example (x : Γ.Elements) : ¬ (statePackageEquiv x (movedState.val x)).down.invariant false := by
+example (x : Γ.Elements) : ¬ (statePackageEquiv x (movedState.val x)).down.Invariant false := by
   rw [movedState_recovery]
   exact Bool.noConfusion
 

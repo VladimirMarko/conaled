@@ -18,8 +18,8 @@ local instance : TopologicalSpace C4 := ⊥
 local instance : DiscreteTopology C4 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) C4 := ChartedSpace.ofDiscreteTopology
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ C4 := IsManifold.of_discreteTopology _
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ C4 := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 
 def bundle : Ordinary 0 C4 PUnit := Ordinary.ofBundle SmoothFiniteCover.C4Bundle.bundle
 
@@ -55,7 +55,7 @@ def ineffectiveTarget : Ordinary.WithTarget 0 0 C4 PUnit PUnit where
   equivariant _ _ := rfl
 
 theorem ineffectiveAction (g : C4) :
-    ContMDiff (Model 0) (Model 0) ∞ (fun x : PUnit => g • x) := contMDiff_const
+    ContMDiff (modelWithCorners 0) (modelWithCorners 0) ∞ (fun x : PUnit => g • x) := contMDiff_const
 
 def targetRotation (g : C4) : ineffectiveTarget ⟶ ineffectiveTarget where
   toMap := rotation g
@@ -87,7 +87,7 @@ open SmoothFiniteCover.SquareBundle
 local instance : TopologicalSpace G := ⊥
 local instance : DiscreteTopology G := ⟨rfl⟩
 local instance : ChartedSpace (Space 2) E := manifoldCharts
-local instance : IsManifold (Model 2) ∞ E := manifoldSmooth
+local instance : IsManifold (modelWithCorners 2) ∞ E := manifoldSmooth
 local instance : MulAction G E := rootAction
 
 def ordinary : Ordinary 2 G E := Ordinary.ofBundle bundle
@@ -138,7 +138,7 @@ abbrev torsor := Ordinary.realization.obj ordinary
 abbrev recovered := Ordinary.reconstructed torsor
 local instance : MulAction PUnit recovered.Total := recovered.action
 
-def comparison : D ≃ₘ⟮Model 1, Model 1⟯ recovered.Total := Ordinary.unitDiffeomorph ordinary
+def comparison : D ≃ₘ⟮modelWithCorners 1, modelWithCorners 1⟯ recovered.Total := Ordinary.unitDiffeomorph ordinary
 
 theorem recovered_not_t2 : ¬ T2Space recovered.Total := by
   intro h
@@ -188,7 +188,7 @@ def reconstructedDimensionChanging := Ordinary.reconstructionPullback (G := PUni
 
 def nonlinear (x : Space 1) : Space 2 := fun i => if i = 0 then x 0 else (x 0)^2
 
-theorem nonlinear_smooth : ContMDiff (Model 1) (Model 2) ∞ nonlinear := by
+theorem nonlinear_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 2) ∞ nonlinear := by
   apply ContDiff.contMDiff
   apply contDiff_pi.mpr
   intro i
@@ -203,7 +203,7 @@ def target : Ordinary.WithTarget 1 2 PUnit (Space 1) (Space 2) where
   equivariant _ _ := rfl
 
 theorem targetAction (g : PUnit) :
-    ContMDiff (Model 2) (Model 2) ∞ (fun x : Space 2 => g • x) := contMDiff_id
+    ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ (fun x : Space 2 => g • x) := contMDiff_id
 
 abbrev quotient := (Ordinary.WithTarget.realization targetAction).obj target
 abbrev recoveredTarget := Ordinary.WithTarget.reconstructed targetAction quotient
@@ -232,7 +232,7 @@ theorem target_composite : type_of% (Ordinary.WithTarget.pullbackRealization_com
   Ordinary.WithTarget.pullbackRealization_comp targetAction
     (scale 2) (scale_smooth 2) (scale 3) (scale_smooth 3) target
 
-def target_dimensionChanging := Ordinary.WithTarget.reconstructionPullbackComponent targetAction
+def targetDimensionChanging := Ordinary.WithTarget.reconstructionPullbackComponent targetAction
   SmoothBundlePullback.coordinate SmoothBundlePullback.coordinate_smooth quotient
 
 end BaseChange
@@ -242,7 +242,7 @@ open Orbifolds.QuarterTurn
 local instance : TopologicalSpace C4 := ⊥
 local instance : DiscreteTopology C4 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) Empty := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ Empty := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ Empty := IsManifold.of_discreteTopology _
 abbrev torsor := SmoothTorsorReconstruction.EmptyBase.torsor
 
 def recovery : Ordinary.realization.obj (Ordinary.reconstructed torsor) ≅ torsor :=

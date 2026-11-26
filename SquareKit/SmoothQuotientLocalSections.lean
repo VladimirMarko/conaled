@@ -31,7 +31,7 @@ namespace LocalSection
 
 /-- The section's local values satisfy the actual transport equation of every
 quotient cocycle. This states local matching, without a global reconstruction. -/
-def Matching (s : Section (setFamily (family a (SplitSheaf.Ext A)))) : Prop :=
+def Matching (s : Section (setFamily (family a (SplitSheaf.extension A)))) : Prop :=
   ∀ (d : Descent.Datum (a := a) A) (x : X.obj.Elements) (b c : A.family.obj x)
     (t : infinitesimal.obj.obj x.obj)
     (p : d.localObject.torsor.family.family.obj (SheafTorsor.Descent.point A x b)),
@@ -39,7 +39,7 @@ def Matching (s : Section (setFamily (family a (SplitSheaf.Ext A)))) : Prop :=
       (t, ⟨⟨x.val,c⟩,d.torsorDatum.transport x b c p⟩) =
     ((s.obj d.localObject).as).map.hom.app x.obj (t,⟨⟨x.val,b⟩,p⟩)
 
-variable (s : Section (setFamily (family a (SplitSheaf.Ext A)))) (hs : Matching s)
+variable (s : Section (setFamily (family a (SplitSheaf.extension A)))) (hs : Matching s)
 
 /-- A local section yields compatible local deformation data at each cocycle. -/
 def datum (d : Descent.Datum (a := a) A) : CocycleDatum (a := a) A where
@@ -107,7 +107,7 @@ theorem glue_eq_descend (d : Descent.Datum (a := a) A) :
 /-- Compatible covering-context section values remain compatible after gluing
 and changing parameter, through the chosen comparison of descended contexts. -/
 theorem glue_baseChange (f : Y ⟶ X)
-    (t : Section (setFamily (family a (SplitSheaf.Ext (SplitSheaf.tySub A f)))))
+    (t : Section (setFamily (family a (SplitSheaf.extension (SplitSheaf.tySub A f)))))
     (ht : Matching t) (d : Descent.Datum (a := a) A)
     (hlocal : restrict (SplitSheaf.lift A f) (s.obj d.localObject).as =
       (t.obj (d.baseChange f).localObject).as) :

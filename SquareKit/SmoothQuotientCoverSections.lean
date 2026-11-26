@@ -105,7 +105,7 @@ def toSplit (s : CoverSectionFamily (a := a) f) :
 
 /-- The selected map between split presentations retains the original map. -/
 def splitSquareMap {X' Y' : Sheaf topology Type} {k : Y' ⟶ X'} (v : Y' ⟶ Y) :
-    SplitSheaf.Ext (SplitSheaf.ofDisplay k) ⟶ SplitSheaf.Ext (SplitSheaf.ofDisplay f) :=
+    SplitSheaf.extension (SplitSheaf.ofDisplay k) ⟶ SplitSheaf.extension (SplitSheaf.ofDisplay f) :=
   (SplitSheaf.displayIso k).hom ≫ v ≫ (SplitSheaf.displayIso f).inv
 
 theorem splitSquareMap_projection {X' Y' : Sheaf topology Type} {k : Y' ⟶ X'}
@@ -120,7 +120,7 @@ on complete sections, rather than only on their object values. -/
 theorem toSplit_alongSquare_sections {X' Y' : Sheaf topology Type} {k : Y' ⟶ X'}
     (s : CoverSectionFamily (a := a) f) (u : X' ⟶ X) (v : Y' ⟶ Y)
     (square : v ≫ f = k ≫ u) {Z : Sheaf topology Type}
-    (g : Z ⟶ SplitSheaf.Ext (SplitSheaf.ofDisplay k)) :
+    (g : Z ⟶ SplitSheaf.extension (SplitSheaf.ofDisplay k)) :
     (s.alongSquare u v square).toSplit.sections g =
       s.toSplit.sections (g ≫ splitSquareMap (f := f) (k := k) v) := by
   simp only [toSplit, alongSquare, splitSquareMap, Category.assoc, Iso.inv_hom_id,
@@ -149,7 +149,7 @@ theorem fromSplit_toSplit (s : CoverSectionFamily (a := a) f) :
 
 theorem toSplit_fromSplit_sections
     (s : LocalSection.ParameterFamily (a := a) (SplitSheaf.ofDisplay f))
-    {Z : Sheaf topology Type} (g : Z ⟶ SplitSheaf.Ext (SplitSheaf.ofDisplay f)) :
+    {Z : Sheaf topology Type} (g : Z ⟶ SplitSheaf.extension (SplitSheaf.ofDisplay f)) :
     (fromSplit s).toSplit.sections g = s.sections g := by
   change s.sections ((g ≫ (SplitSheaf.displayIso f).hom) ≫
     (SplitSheaf.displayIso f).inv) = _
@@ -157,7 +157,7 @@ theorem toSplit_fromSplit_sections
 
 /-- The split pullback maps to the ordinary pullback over the original cover. -/
 def pullbackComparison {Z : Sheaf topology Type} (u : Z ⟶ X) :
-    SplitSheaf.Ext (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) ⟶ Limits.pullback f u :=
+    SplitSheaf.extension (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) ⟶ Limits.pullback f u :=
   Limits.pullback.lift
     (SplitSheaf.lift (SplitSheaf.ofDisplay f) u ≫ (SplitSheaf.displayIso f).hom)
     (SplitSheaf.p (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u)) (by
@@ -176,7 +176,7 @@ theorem originalPullbackSquare {Z : Sheaf topology Type} (u : Z ⟶ X) :
   · simp
 
 def originalPullbackIso {Z : Sheaf topology Type} (u : Z ⟶ X) :
-    SplitSheaf.Ext (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) ≅ Limits.pullback f u :=
+    SplitSheaf.extension (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) ≅ Limits.pullback f u :=
   (originalPullbackSquare (f := f) u).isoPullback
 
 theorem originalPullbackIso_hom {Z : Sheaf topology Type} (u : Z ⟶ X) :
@@ -198,7 +198,7 @@ instance pullback_locallySurjective {Z : Sheaf topology Type} (u : Z ⟶ X) :
   have h : pullbackComparison (f := f) u ≫ Limits.pullback.snd f u =
       SplitSheaf.p (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) :=
     Limits.pullback.lift_snd _ _ _
-  exact congrArg (fun k : SplitSheaf.Ext (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) ⟶ Z =>
+  exact congrArg (fun k : SplitSheaf.extension (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) ⟶ Z =>
     k.hom) h
 
 /-- Glue independently supplied parameter-local sections using the constructed

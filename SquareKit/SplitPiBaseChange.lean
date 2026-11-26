@@ -17,7 +17,7 @@ def typeIso {A B : Ty Γ} (h : A = B) : Over.mk (p A) ≅ Over.mk (p B) :=
   eqToIso (congrArg (fun A => Over.mk (p A)) h)
 
 /-- This is built from the equality-level formation law, not from Beck–Chevalley. -/
-def splitBaseChange (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+def splitBaseChange (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     (Over.pullback σ).obj (Over.mk (p (pi A B))) ≅
       Over.mk (p (pi (tySub A σ) (tySub B (lift A σ)))) :=
   (displaySubIso (pi A B) σ).symm ≪≫ typeIso (substitution A B σ)
@@ -26,7 +26,7 @@ def splitBaseChange (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
 abbrev square (A : Ty Γ) (σ : Δ ⟶ Γ) := (extension_pullback A σ).flip
 
 /-- The canonical mate, with only the already constructed display adapters. -/
-def canonicalBaseChange (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+def canonicalBaseChange (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     (Over.pullback σ).obj (Over.mk (p (pi A B))) ≅
       Over.mk (p (pi (tySub A σ) (tySub B (lift A σ)))) :=
   (Over.pullback σ).mapIso (displayIso A B) ≪≫
@@ -39,7 +39,7 @@ theorem typeIso_terms {A B : Ty Γ} (h : A = B) :
     overTerms B (Over.mk (p A)) (typeIso h).hom =
       transport (congrArg (fun B => tySub B (p A)) h) (q A) := by cases h; rfl
 
-theorem unlamAt_comp (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ)
+theorem unlamAt_comp (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ)
     (t : Tm (tySub (pi A B) (τ ≫ σ))) :
     unlamAt (tySub A σ) (tySub B (lift A σ)) τ
       (transport (congrArg (fun T => tySub T τ) (substitution A B σ)) t) =
@@ -48,13 +48,13 @@ theorem unlamAt_comp (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ 
   erw [transport_trans]
   rfl
 
-theorem inputTerms_uncurry (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem inputTerms_uncurry (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (h : Over.mk σ ⟶ Over.mk (p (pi A B))) :
     inputTerms A B σ ((homEquiv A B (Over.mk σ)).symm h) =
       unlamAt A B σ (overTerms (pi A B) (Over.mk σ) h) :=
   (inputTerms A B σ).apply_symm_apply _
 
-theorem typeIso_body (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem typeIso_body (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     inputTerms (tySub A σ) (tySub B (lift A σ)) (p (tySub (pi A B) σ))
       ((homEquiv (tySub A σ) (tySub B (lift A σ)) (Over.mk (p (tySub (pi A B) σ)))).symm
         (typeIso (substitution A B σ)).hom) =
@@ -63,7 +63,7 @@ theorem typeIso_body (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
   exact unlamAt_comp A B σ _ _
 
 theorem readTerm_lift (B : Ty Γ) (σ : Δ ⟶ Γ) {τ : Ξ ⟶ Δ}
-    (k : Ξ ⟶ Ext (tySub B σ)) (h : k ≫ p (tySub B σ) = τ) :
+    (k : Ξ ⟶ extension (tySub B σ)) (h : k ≫ p (tySub B σ) = τ) :
     readTerm (tySub B σ) k h =
       readTerm B (σ := τ ≫ σ) (k ≫ lift B σ) (by rw [Category.assoc, lift_p, ← Category.assoc, h]) := by
   cases h
@@ -80,7 +80,7 @@ theorem readTerm_lift (B : Ty Γ) (σ : Δ ⟶ Γ) {τ : Ξ ⟶ Δ}
   rw [Iso.inv_comp_eq]
   exact (substitution_value A σ).symm
 
-def changedEvaluation (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+def changedEvaluation (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     (Over.pullback (p (tySub A σ))).obj (Over.mk (p (tySub (pi A B) σ))) ⟶
       Over.mk (p (tySub B (lift A σ))) :=
   (Over.pullback (p (tySub A σ))).map (displaySubIso (pi A B) σ).hom ≫
@@ -112,7 +112,7 @@ theorem argument_change (A S : Ty Γ) (σ : Δ ⟶ Γ) :
       argument_snd_assoc, Category.assoc, argument_snd]
     rfl
 
-theorem changedEvaluation_value (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem changedEvaluation_value (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     (argumentIso (tySub A σ) (p (tySub (pi A B) σ))).hom.left ≫
       (changedEvaluation A B σ).left ≫ lift B (lift A σ) =
     lift (tySub A (p (pi A B))) (lift (pi A B) σ) ≫
@@ -124,7 +124,7 @@ theorem changedEvaluation_value (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
   exact h
 
 
-theorem changedEvaluation_body (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem changedEvaluation_body (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     inputTerms (tySub A σ) (tySub B (lift A σ)) (p (tySub (pi A B) σ)) (changedEvaluation A B σ) =
       unlamAt A B (p (tySub (pi A B) σ) ≫ σ) (q (tySub (pi A B) σ)) := by
   rw [inputTerms_eq, readTerm_lift]
@@ -149,7 +149,7 @@ theorem changedEvaluation_body (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
     (unlamAt_natural A B (p (pi A B)) (lift (pi A B) σ) (q (pi A B))).symm
 
 /-- The equality-based split map has the expected base-changed transpose. -/
-theorem split_transpose (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem split_transpose (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     homEquiv (tySub A σ) (tySub B (lift A σ)) (Over.mk (p (tySub (pi A B) σ)))
       (changedEvaluation A B σ) = (typeIso (substitution A B σ)).hom := by
   apply (homEquiv (tySub A σ) (tySub B (lift A σ)) _).symm.injective
@@ -158,7 +158,7 @@ theorem split_transpose (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
   rw [changedEvaluation_body, typeIso_body]
 
 
-theorem canonical_transpose (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem canonical_transpose (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     (displaySubIso (pi A B) σ).hom ≫ (canonicalBaseChange A B σ).hom =
       homEquiv (tySub A σ) (tySub B (lift A σ)) (Over.mk (p (tySub (pi A B) σ)))
         (changedEvaluation A B σ) := by
@@ -183,7 +183,7 @@ theorem canonical_transpose (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
       (Over.pullback (lift A σ)).map (evaluation A B) ≫ (displaySubIso B (lift A σ)).inv)).symm
 
 /-- Equality-level split substitution is the canonical Beck–Chevalley mate. -/
-theorem baseChange_eq (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem baseChange_eq (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     canonicalBaseChange A B σ = splitBaseChange A B σ := by
   apply Iso.ext
   apply (cancel_epi (displaySubIso (pi A B) σ).hom).mp
@@ -211,7 +211,7 @@ theorem transport_twice (P : Ty Γ) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ)
   exact (displaySubIso (tySub P σ) τ).hom_inv_id
 
 /-- Canonical base change obeys the identity coherence through the old adapter. -/
-theorem baseChange_identity (A : Ty Γ) (B : Ty (Ext A)) :
+theorem baseChange_identity (A : Ty Γ) (B : Ty (extension A)) :
     (displaySubIso (pi A B) (𝟙 Γ)).hom ≫ (canonicalBaseChange A B (𝟙 Γ)).hom = 𝟙 _ := by
   rw [baseChange_eq]
   change (displaySubIso (pi A B) (𝟙 Γ)).hom ≫ (displaySubIso (pi A B) (𝟙 Γ)).inv ≫ 𝟙 _ = 𝟙 _
@@ -220,7 +220,7 @@ theorem baseChange_identity (A : Ty Γ) (B : Ty (Ext A)) :
 
 /-- Both canonical mates compose to the direct equality transport, after the
 existing ordinary pullback adapters. This is an equality of actual slice maps. -/
-theorem baseChange_composition (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) :
+theorem baseChange_composition (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) :
     (doubleSub (pi A B) σ τ).hom ≫ (Over.pullback τ).map (canonicalBaseChange A B σ).hom ≫
       (canonicalBaseChange (tySub A σ) (tySub B (lift A σ)) τ).hom =
     (displaySubIso (pi A B) (τ ≫ σ)).hom ≫ (canonicalBaseChange A B (τ ≫ σ)).hom := by

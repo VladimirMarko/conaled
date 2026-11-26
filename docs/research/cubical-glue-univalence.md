@@ -183,9 +183,9 @@ types is not substituted for this filling.
 
 `Examples/CubicalNativeUnivalence.lean` exercises the full theorem for Boolean
 and integer codes and after adjoining an interval parameter. Its
-`recoveredBooleanLoop_path` is a native path from the Glue loop recovered from
+`recoveredBooleanLoopPath` is a native path from the Glue loop recovered from
 the actual selected transport equivalence back to the original Boolean
-transposition loop. `booleanEquivalence_roundtrip` retains the whole chosen
+transposition loop. `booleanEquivalenceRoundtrip` retains the whole chosen
 internal equivalence witness.
 
 The equivalence-family substitution and reindex clients retain the selected

@@ -9,15 +9,15 @@ open CategoryTheory CategoryTheory.Limits Opposite SmoothAlgebra SmoothOpenSite
 
 variable (U : Domain)
 
-def left (f g : Free U.dimension) : subdomain U (f * g) ⟶ subdomain U f :=
+def left (f g : freeAlgebra U.dimension) : subdomain U (f * g) ⟶ subdomain U f :=
   domainInclusion _ _ (fun _ h => mul_ne_zero (left_ne_zero_of_mul h)
     (left_ne_zero_of_mul (right_ne_zero_of_mul h)))
 
-def right (f g : Free U.dimension) : subdomain U (f * g) ⟶ subdomain U g :=
+def right (f g : freeAlgebra U.dimension) : subdomain U (f * g) ⟶ subdomain U g :=
   domainInclusion _ _ (fun _ h => mul_ne_zero (left_ne_zero_of_mul h)
     (right_ne_zero_of_mul (right_ne_zero_of_mul h)))
 
-theorem square (f g : Free U.dimension) :
+theorem square (f g : freeAlgebra U.dimension) :
     IsPullback (embedding.map (left U f g)) (embedding.map (right U f g))
       (embedding.map (subInclusion U f)) (embedding.map (subInclusion U g)) := by
   let e : overlap U f g ≅ subdomain U (f * g) :=
@@ -36,7 +36,7 @@ theorem square (f g : Free U.dimension) :
   · simp
   · simp
 
-theorem covering {I : Type} (f : I → Free U.dimension) (hf : Covers U f)
+theorem covering {I : Type} (f : I → freeAlgebra U.dimension) (hf : Covers U f)
     (V : SmoothPresentationSite.Site) (x : (embedding.obj U).obj.obj (op V)) :
     SheafCoproductLocal.liftSieve (fun i => embedding.obj (subdomain U (f i)))
       (fun i => embedding.map (subInclusion U (f i))) x ∈ topology V := by
@@ -47,7 +47,7 @@ theorem covering {I : Type} (f : I → Free U.dimension) (hf : Covers U f)
 
 /-- The atlas is constructed from functions and ordinary pointwise coverage;
 neither intersections nor sheaf covering witnesses are caller inputs. -/
-def atlas {I : Type} (f : I → Free U.dimension) (hf : Covers U f) :
+def atlas {I : Type} (f : I → freeAlgebra U.dimension) (hf : Covers U f) :
     SmoothRepresentedCover.Atlas (embedding.obj U) I where
   domain i := subdomain U (f i)
   chart i := embedding.map (subInclusion U (f i))
@@ -65,17 +65,17 @@ def atlas {I : Type} (f : I → Free U.dimension) (hf : Covers U f) :
     rw [← Functor.map_comp, h]
     exact square U (f i * f j) (f k)
 
-def commonFunctions {I J : Type} (f : I → Free U.dimension) (g : J → Free U.dimension)
-    (ij : I × J) : Free U.dimension := f ij.1 * g ij.2
+def commonFunctions {I J : Type} (f : I → freeAlgebra U.dimension) (g : J → freeAlgebra U.dimension)
+    (ij : I × J) : freeAlgebra U.dimension := f ij.1 * g ij.2
 
-theorem common_covers {I J : Type} (f : I → Free U.dimension) (g : J → Free U.dimension)
+theorem common_covers {I J : Type} (f : I → freeAlgebra U.dimension) (g : J → freeAlgebra U.dimension)
     (hf : Covers U f) (hg : Covers U g) : Covers U (commonFunctions U f g) := by
   intro x
   obtain ⟨i, hi⟩ := hf x
   obtain ⟨j, hj⟩ := hg x
   exact ⟨(i,j), mul_ne_zero hi hj⟩
 
-def commonLeft {I J : Type} (f : I → Free U.dimension) (g : J → Free U.dimension)
+def commonLeft {I J : Type} (f : I → freeAlgebra U.dimension) (g : J → freeAlgebra U.dimension)
     (hf : Covers U f) (hg : Covers U g) :
     SmoothRepresentedCover.AtlasMap (atlas U f hf)
       (atlas U (commonFunctions U f g) (common_covers U f g hf hg)) (𝟙 _) where
@@ -87,7 +87,7 @@ def commonLeft {I J : Type} (f : I → Free U.dimension) (g : J → Free U.dimen
     rw [← Functor.map_comp]
     exact congrArg embedding.map (OpenFunctions.Map.ext (fun _ => rfl))
 
-def commonRight {I J : Type} (f : I → Free U.dimension) (g : J → Free U.dimension)
+def commonRight {I J : Type} (f : I → freeAlgebra U.dimension) (g : J → freeAlgebra U.dimension)
     (hf : Covers U f) (hg : Covers U g) :
     SmoothRepresentedCover.AtlasMap (atlas U g hg)
       (atlas U (commonFunctions U f g) (common_covers U f g hf hg)) (𝟙 _) where

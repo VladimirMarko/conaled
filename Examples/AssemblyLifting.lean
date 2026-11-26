@@ -24,7 +24,7 @@ theorem flatten_loses_outer_definedness :
 
 /-- This realizer terminates twice, returning the selected natural number. -/
 theorem nested_program_realizes :
-    (programLift (programLift N)).realizes
+    (programLift (programLift N)).Realizes
       (encode (Code.const (encode (Code.const (17 : Nat))))) (some (some (17 : Nat))) := by
   refine ⟨encode (Code.const (17 : Nat)), ?_, (17 : Nat), ?_, rfl⟩ <;> simp [Code.eval_const]
 
@@ -33,7 +33,7 @@ constructed nested program; its output realizes exactly 17. -/
 theorem multiplication_tracks_selected :
     ∃ φ, Nat.Partrec φ ∧ ∃ n,
       n ∈ φ (encode (Code.const (encode (Code.const (17 : Nat))))) ∧
-        (programLift N).realizes n (some (17 : Nat)) := by
+        (programLift N).Realizes n (some (17 : Nat)) := by
   obtain ⟨φ, hp, ht⟩ := (programLiftMul N).tracked
   exact ⟨φ, hp, ht _ _ nested_program_realizes⟩
 

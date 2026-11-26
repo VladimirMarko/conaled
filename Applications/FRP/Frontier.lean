@@ -56,18 +56,18 @@ def State.Completes (s : State T α) (truth : T → List α) : Prop :=
 /-- Absence before the initial frontier is part of the initialization contract. -/
 def initial (w : T) : State T α := ⟨w, []⟩
 
-def windowValid (s : State T α) (w : T) (xs : Log T α) : Prop :=
+def WindowValid (s : State T α) (w : T) (xs : Log T α) : Prop :=
   s.frontier ≤ w ∧ ∀ x ∈ xs, s.frontier ≤ x.1 ∧ x.1 < w
 
 instance (s : State T α) (w : T) (xs : Log T α) :
-    Decidable (windowValid s w xs) := by
-  unfold windowValid
+    Decidable (WindowValid s w xs) := by
+  unfold WindowValid
   infer_instance
 
 /-- Omitted timestamps in the closed window assert an empty batch.
 Fragments at the same timestamp are concatenated in packet order. -/
 def advance (s : State T α) (w : T) (xs : Log T α) : Option (State T α) :=
-  if windowValid s w xs then some ⟨w, s.log ++ xs⟩ else none
+  if WindowValid s w xs then some ⟨w, s.log ++ xs⟩ else none
 
 theorem advance_valid {s q : State T α} {w : T} {xs : Log T α}
     (hs : s.Valid) (h : advance s w xs = some q) : q.Valid := by

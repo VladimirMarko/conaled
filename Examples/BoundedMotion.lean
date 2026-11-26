@@ -98,9 +98,9 @@ theorem origin_motion : Approx originMoved.rational (move.decode.finish originPo
   Bounded.checkedStep_correct (by rw [Bounded.checkedStep, import_move]; decide : Bounded.checkedStep move origin = .ok originMoved) origin_exact
 
 example : Bounded.checkedStep ⟨.hold, 1/512, by norm_num⟩ origin = .error .precision := by
-  norm_num [Bounded.checkedStep, Bounded.importInput, Bounded.encode, Bounded.inputWithinRange, Input.velocity, Input.angular]
+  norm_num [Bounded.checkedStep, Bounded.importInput, Bounded.encode, Bounded.InputWithinRange, Input.velocity, Input.angular]
 example : Bounded.checkedStep ⟨.turn 257, 0, by norm_num⟩ origin = .error .range := by
-  norm_num [Bounded.checkedStep, Bounded.importInput, Bounded.encode, Bounded.inputWithinRange, Input.velocity, Input.angular]
+  norm_num [Bounded.checkedStep, Bounded.importInput, Bounded.encode, Bounded.InputWithinRange, Input.velocity, Input.angular]
 example : Bounded.importPacket ⟨⟨(1/512,0),(1/2,0)⟩,0⟩ = none := by norm_num [Bounded.importPacket, Bounded.encode]
 example : Bounded.importPacket ⟨⟨(257,0),(1/2,0)⟩,0⟩ = none := by norm_num [Bounded.importPacket, Bounded.encode]
 

@@ -25,18 +25,18 @@ theorem assigned_h : HEq (reindexedH cocycleModel cocycleBase cocycleRootedFamil
   apply HEq.trans _ (heq_of_eq selectedNormalizedHomotopy_eq.symm)
   apply (cast_down (reindexedHType_eq cocycleModel cocycleBase cocycleRootedFamily ⟨assignInput⟩) _).trans
   have h₁ := cast_section_reindex
-    ((parallelPoints.addH.reindex (CM.weaken afterHomotopy.context (qFamily CM cocycleBase cocycleRootedFamily))).toParallel.identity_reindex
-      (CM.weaken afterQ.context (uFamily CM cocycleBase cocycleRootedFamily)))
-    (CM.subTm (parallelPoints.addH.reindex (CM.weaken afterHomotopy.context (qFamily CM cocycleBase cocycleRootedFamily))).h
-      (CM.weaken afterQ.context (uFamily CM cocycleBase cocycleRootedFamily))) assignInput
+    ((parallelPoints.addH.reindex (cocycleStructuralModel.weaken afterHomotopy.context (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily))).toParallel.identity_reindex
+      (cocycleStructuralModel.weaken afterQ.context (uFamily cocycleStructuralModel cocycleBase cocycleRootedFamily)))
+    (cocycleStructuralModel.subTm (parallelPoints.addH.reindex (cocycleStructuralModel.weaken afterHomotopy.context (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily))).h
+      (cocycleStructuralModel.weaken afterQ.context (uFamily cocycleStructuralModel cocycleBase cocycleRootedFamily))) assignInput
   apply h₁.trans
   have h₂ := cast_section_reindex
-    (parallelPoints.addH.toParallel.identity_reindex (CM.weaken afterHomotopy.context (qFamily CM cocycleBase cocycleRootedFamily)))
-    (CM.subTm parallelPoints.addH.h (CM.weaken afterHomotopy.context (qFamily CM cocycleBase cocycleRootedFamily))) assignQ
+    (parallelPoints.addH.toParallel.identity_reindex (cocycleStructuralModel.weaken afterHomotopy.context (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily)))
+    (cocycleStructuralModel.subTm parallelPoints.addH.h (cocycleStructuralModel.weaken afterHomotopy.context (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily))) assignQ
   apply h₂.trans
   have h₃ := cast_section_reindex
-    (parallelPoints.identity_reindex (CM.weaken parallelPoints.context parallelPoints.identity))
-    (CM.genericVariable parallelPoints.context parallelPoints.identity) assignHomotopy
+    (parallelPoints.identity_reindex (cocycleStructuralModel.weaken parallelPoints.context parallelPoints.identity))
+    (cocycleStructuralModel.genericVariable parallelPoints.context parallelPoints.identity) assignHomotopy
   exact h₃.trans (Term.convert_heq homotopy_at_assignment.symm (secondIdentity terminal))
 
 end Examples.CubicalFrozenActionInputs

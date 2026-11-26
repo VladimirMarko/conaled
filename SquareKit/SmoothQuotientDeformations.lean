@@ -14,8 +14,8 @@ local notation "D" => SmoothOpenSite.infinitesimal
 /-- An equivariant arc over the entire torsor, with its prescribed zero value.
 The underlying map is a sheaf morphism, so naturality in stages is retained. -/
 structure Deformation (P : Object a X) where
-  map : product D (SplitSheaf.Ext P.torsor.family) ⟶ M
-  zero : parameterZero (SplitSheaf.Ext P.torsor.family) ≫ map = P.totalMap
+  map : product D (SplitSheaf.extension P.torsor.family) ⟶ M
+  zero : parameterZero (SplitSheaf.extension P.torsor.family) ≫ map = P.totalMap
   equivariant (U : SmoothPresentationSite.Siteᵒᵖ) (d : (D).obj.obj U) (x : X.obj.obj U)
     (g : (locallyConstantGroup H).obj.obj U)
     (p : P.torsor.family.family.obj (X.obj.elementsMk U x)) :
@@ -31,13 +31,13 @@ structure Deformation (P : Object a X) where
 /-- Every quotient object has its constant deformation, without a section of
 its torsor. This also witnesses nonemptiness in nontrivial-torsor examples. -/
 def constant (P : Object a X) : Deformation P where
-  map := snd D (SplitSheaf.Ext P.torsor.family) ≫ P.totalMap
+  map := snd D (SplitSheaf.extension P.torsor.family) ≫ P.totalMap
   zero := rfl
   equivariant U _ x g p := P.equivariant (X.obj.elementsMk U x) g p
 
 /-- The total-space map of a quotient arrow preserves its actual torsor data. -/
 def totalArrow {P Q : Object a X} (c : P ⟶ Q) :
-    SplitSheaf.Ext P.torsor.family ⟶ SplitSheaf.Ext Q.torsor.family :=
+    SplitSheaf.extension P.torsor.family ⟶ SplitSheaf.extension Q.torsor.family :=
   ⟨ElementFamilies.totalNat X.obj c.torsorArrow.iso.hom⟩
 
 def transport {P Q : Object a X} (c : P ⟶ Q) (h : Deformation P) : Deformation Q where
@@ -46,7 +46,7 @@ def transport {P Q : Object a X} (c : P ⟶ Q) (h : Deformation P) : Deformation
     ext U q
     have hz := congrArg (fun k => k.hom.app U
       (⟨q.1, (Arrow.inverse c).torsorArrow.iso.hom.app (X.obj.elementsMk U q.1) q.2⟩ :
-        (SplitSheaf.Ext P.torsor.family).obj.obj U)) h.zero
+        (SplitSheaf.extension P.torsor.family).obj.obj U)) h.zero
     exact hz.trans ((Arrow.inverse c).preserves (X.obj.elementsMk U q.1) q.2)
   equivariant U d x g q := by
     change h.map.hom.app U (d, ⟨x, (Arrow.inverse c).torsorArrow.iso.hom.app
@@ -81,7 +81,7 @@ def restrict (f : Y ⟶ X) {P : Object a X} (h : Deformation P) : Deformation (r
   zero := by
     ext U y
     exact congrArg (fun k => k.hom.app U
-      (⟨f.hom.app U y.1,y.2⟩ : (SplitSheaf.Ext P.torsor.family).obj.obj U)) h.zero
+      (⟨f.hom.app U y.1,y.2⟩ : (SplitSheaf.extension P.torsor.family).obj.obj U)) h.zero
   equivariant U d y g p := h.equivariant U d (f.hom.app U y) g p
 
 theorem restrict_id {P : Object a X} (h : Deformation P) : restrict (𝟙 X) h = h := by

@@ -13,8 +13,8 @@ variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
 omit [IsLocallyGroupoid Γ]
-    [∀ (γ : Γ), IsGroupoid (F.obj γ).carrier]
-    [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).carrier] in
+    [∀ (γ : Γ), IsGroupoid (F.obj γ).Carrier]
+    [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).Carrier] in
 theorem rootedEndpoint_obj_injective : Function.Injective (rootedEndpoint F x).obj := by
   intro a b h
   have h' := congrArg (endpointProjection F false).obj h

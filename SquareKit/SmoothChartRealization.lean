@@ -79,7 +79,7 @@ structure Atlas (M : Type) [TopologicalSpace M] extends Charts M where
   openEmbedding : ∀ i, Topology.IsOpenEmbedding (coordinate i)
   covers : ∀ x, ∃ i y, coordinate i y = x
   transition : ∀ i j x y, coordinate i x = coordinate j y →
-    ∃ q : SmoothAlgebra.Free (domain i).dimension, q.val x.val ≠ 0 ∧
+    ∃ q : SmoothAlgebra.freeAlgebra (domain i).dimension, q.val x.val ≠ 0 ∧
       ∃ t : subdomain (domain i) q ⟶ domain j,
         ∀ z, coordinate i ((show Map _ _ from subInclusion (domain i) q) z) =
           coordinate j ((show Map _ _ from t) z)

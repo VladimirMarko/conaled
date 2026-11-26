@@ -73,30 +73,30 @@ namespace Fill
 variable {Γ : Context.{u}} {φ : Subcontext Γ} {r : Term (interval Γ)}
   (fallback : G) (b : OpenBox (family G (total (interval Γ))) φ r)
 
-abbrev line (x : Γ.Elements) (v : Vertex x.obj.unop.dimension) (hv : φ.holds (vertexPoint x v)) :=
+abbrev line (x : Γ.Elements) (v : Vertex x.obj.unop.dimension) (hv : φ.Holds (vertexPoint x v)) :=
   (b.tube.val (freshExtension (vertexPoint x v)) (φ.natural (freshBaseHom _) hv)).reindex
     (fun z : Bool => (fun _ : Fin 1 => z))
 
-def closedLine (γ : Γ.obj (.op ⟨0⟩)) (h : φ.holds (Γ.elementsMk (.op ⟨0⟩) γ)) :
+def closedLine (γ : Γ.obj (.op ⟨0⟩)) (h : φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)) :
     GroupSystem G Bool :=
   (b.tube.val (freshExtension (Γ.elementsMk (.op ⟨0⟩) γ))
     (φ.natural (freshBaseHom _) h)).reindex (fun z : Bool => (fun _ : Fin 1 => z))
 
 theorem line_natural {x y : Γ.Elements} (f : x ⟶ y)
-    (v : Vertex y.obj.unop.dimension) (hy : φ.holds (vertexPoint y v))
-    (hx : φ.holds (vertexPoint x (Cube.vertices f.hom.unop v))) :
+    (v : Vertex y.obj.unop.dimension) (hy : φ.Holds (vertexPoint y v))
+    (hx : φ.Holds (vertexPoint x (Cube.vertices f.hom.unop v))) :
     line b y v hy = line b x (Cube.vertices f.hom.unop v) hx := by
   have he := vertexValue_natural f v
   change closedLine b _ hy = closedLine b _ hx
   have hh : (⟨Γ.map (Quiver.Hom.op (Cube.vertex v)) y.val, hy⟩ :
-      {γ : Γ.obj (.op ⟨0⟩) // φ.holds (Γ.elementsMk (.op ⟨0⟩) γ)}) =
+      {γ : Γ.obj (.op ⟨0⟩) // φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)}) =
       ⟨Γ.map (Quiver.Hom.op (Cube.vertex (Cube.vertices f.hom.unop v))) x.val, hx⟩ := Subtype.ext he
-  exact congrArg (fun z : {γ : Γ.obj (.op ⟨0⟩) // φ.holds (Γ.elementsMk (.op ⟨0⟩) γ)} =>
+  exact congrArg (fun z : {γ : Γ.obj (.op ⟨0⟩) // φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)} =>
     closedLine b z.val z.property) hh
 
 noncomputable def vertical (x : Γ.Elements) (vz : Vertex x.obj.unop.dimension × Bool) : G := by
   classical
-  exact if hv : φ.holds (vertexPoint x vz.1) then
+  exact if hv : φ.Holds (vertexPoint x vz.1) then
     (line b x vz.1 hv).arrow (((r.val x).down 0).eval vz.1) vz.2 else if ((r.val x).down 0).eval vz.1 = vz.2 then 1 else fallback
 
 noncomputable def system (x : Γ.Elements) : GroupSystem G (Vertex x.obj.unop.dimension × Bool) :=
@@ -127,10 +127,10 @@ theorem vertical_natural {x y : Γ.Elements} (f : x ⟶ y)
   classical
   have hp := vertexPoint_natural f vz.1
   unfold vertical
-  by_cases hy : φ.holds (vertexPoint y vz.1)
-  · have hx : φ.holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := hp ▸ hy
+  by_cases hy : φ.Holds (vertexPoint y vz.1)
+  · have hx : φ.Holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := hp ▸ hy
     rw [dite_eq_left hy, dite_eq_left hx, line_natural b f vz.1 hy hx, dimension_natural f vz.1]
-  · have hx : ¬φ.holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := fun h => hy (hp.symm ▸ h)
+  · have hx : ¬φ.Holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := fun h => hy (hp.symm ▸ h)
     rw [dite_eq_right hy, dite_eq_right hx, dimension_natural f vz.1]
 
 theorem system_natural {x y : Γ.Elements} (f : x ⟶ y) :
@@ -171,11 +171,11 @@ noncomputable def fillSection : Term (family G (total (interval Γ))) where
 
 def vertexPair {n : Nat} (vz : Vertex n × Bool) : Vertex (n+1) := Fin.cases vz.2 vz.1
 
-def genericSystem (x : Γ.Elements) (hx : φ.holds x) :
+def genericSystem (x : Γ.Elements) (hx : φ.Holds x) :
     GroupSystem G (Vertex x.obj.unop.dimension × Bool) :=
   (b.tube.val (freshExtension x) (φ.natural (freshBaseHom x) hx)).reindex vertexPair
 
-theorem genericSystem_source (x : Γ.Elements) (hx : φ.holds x) :
+theorem genericSystem_source (x : Γ.Elements) (hx : φ.Holds x) :
     (genericSystem b x hx).reindex (fun v => (v, ((r.val x).down 0).eval v)) = b.base.val x := by
   have ht := b.tube.natural (intervalArgument (𝟙 x) (r.val x))
     (φ.natural (freshBaseHom x) hx)
@@ -189,7 +189,7 @@ theorem genericSystem_source (x : Γ.Elements) (hx : φ.holds x) :
   rw [he] at ht
   exact ht.trans (b.boundary x hx)
 
-theorem genericSystem_line (x : Γ.Elements) (hx : φ.holds x)
+theorem genericSystem_line (x : Γ.Elements) (hx : φ.Holds x)
     (v : Vertex x.obj.unop.dimension) :
     (genericSystem b x hx).reindex (fun z => (v,z)) =
       line b x v (φ.natural (vertexHom x v) hx) := by
@@ -208,7 +208,7 @@ theorem genericSystem_line (x : Γ.Elements) (hx : φ.holds x)
   exact (congrArg (GroupSystem.reindex (b.tube.val (freshExtension x)
     (φ.natural (freshBaseHom x) hx))) he).symm.trans h
 
-theorem vertical_tube (x : Γ.Elements) (hx : φ.holds x)
+theorem vertical_tube (x : Γ.Elements) (hx : φ.Holds x)
     (vz : Vertex x.obj.unop.dimension × Bool) :
     vertical fallback b x vz = (genericSystem b x hx).arrow
       (vz.1, ((r.val x).down 0).eval vz.1) vz := by
@@ -218,7 +218,7 @@ theorem vertical_tube (x : Γ.Elements) (hx : φ.holds x)
   exact (congrArg (fun T => T.arrow (((r.val x).down 0).eval vz.1) vz.2)
     (genericSystem_line b x hx vz.1)).symm
 
-theorem system_tube (x : Γ.Elements) (hx : φ.holds x) :
+theorem system_tube (x : Γ.Elements) (hx : φ.Holds x) :
     system fallback b x = genericSystem b x hx := by
   have h := (genericSystem b x hx).conjugate_from_system
     (fun vz => (vz.1, ((r.val x).down 0).eval vz.1))
@@ -229,7 +229,7 @@ theorem system_tube (x : Γ.Elements) (hx : φ.holds x) :
   rfl
 
 theorem value_tube (x : (total (interval Γ)).Elements)
-    (hx : φ.holds ((projection (interval Γ)).mapElements.obj x)) :
+    (hx : φ.Holds ((projection (interval Γ)).mapElements.obj x)) :
     value fallback b x = b.tube.val x hx := by
   let a := (projection (interval Γ)).mapElements.obj x
   have ht := b.tube.natural (intervalArgument (𝟙 a) x.val.2)
@@ -265,16 +265,16 @@ theorem freshExtension_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) (x : Δ.Eleme
   · rfl
 
 private theorem tube_val_heq {x y : (total (interval Γ)).Elements} (h : x = y)
-    (hx : φ.holds ((projection (interval Γ)).mapElements.obj x))
-    (hy : φ.holds ((projection (interval Γ)).mapElements.obj y)) :
+    (hx : φ.Holds ((projection (interval Γ)).mapElements.obj x))
+    (hy : φ.Holds ((projection (interval Γ)).mapElements.obj y)) :
     HEq (b.tube.val x hx) (b.tube.val y hy) := by
   subst y
   rfl
 
 theorem line_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) (x : Δ.Elements)
     (v : Vertex x.obj.unop.dimension)
-    (hx : (φ.reindex σ).holds (vertexPoint x v))
-    (hy : φ.holds (vertexPoint (σ.mapElements.obj x) v)) :
+    (hx : (φ.reindex σ).Holds (vertexPoint x v))
+    (hy : φ.Holds (vertexPoint (σ.mapElements.obj x) v)) :
     line (b.reindex σ) x v hx = line b (σ.mapElements.obj x) v hy := by
   have hp := vertexPoint_reindex σ x v
   have hf := (freshExtension_reindex σ (vertexPoint x v)).trans
@@ -294,11 +294,11 @@ theorem vertical_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) (x : Δ.Elements)
   classical
   have hp := vertexPoint_reindex σ x vz.1
   unfold vertical
-  by_cases hx : (φ.reindex σ).holds (vertexPoint x vz.1)
-  · have hy : φ.holds (vertexPoint (σ.mapElements.obj x) vz.1) := hp ▸ hx
+  by_cases hx : (φ.reindex σ).Holds (vertexPoint x vz.1)
+  · have hy : φ.Holds (vertexPoint (σ.mapElements.obj x) vz.1) := hp ▸ hx
     rw [dite_eq_left hx, dite_eq_left hy, line_reindex b σ x vz.1 hx hy]
     rfl
-  · have hy : ¬φ.holds (vertexPoint (σ.mapElements.obj x) vz.1) := fun h => hx (show φ.holds (σ.mapElements.obj (vertexPoint x vz.1)) from hp.symm ▸ h)
+  · have hy : ¬φ.Holds (vertexPoint (σ.mapElements.obj x) vz.1) := fun h => hx (show φ.Holds (σ.mapElements.obj (vertexPoint x vz.1)) from hp.symm ▸ h)
     rw [dite_eq_right hx, dite_eq_right hy]
     rfl
 

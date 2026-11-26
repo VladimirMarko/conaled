@@ -20,7 +20,7 @@ theorem product (f g : scalar ⟶ scalar) :
   simpa only [SheafSem.map, productSlope, ite_eq_left (show (0 : Fin 2) = 0 from rfl),
     ite_eq_right (show (1 : Fin 2) ≠ 0 by decide), ite_true] using h
 
-theorem component (f g : scalar ⟶ scalar) (A : Stage) (x : Carrier A) :
+theorem component (f g : scalar ⟶ scalar) (A : Stage) (x : carrierAlgebra A) :
     (derivative (lift f g ≫ AlgebraicStage.mul)).hom.app (atStage A) x =
       (derivative f).hom.app (atStage A) x * g.hom.app (atStage A) x +
       f.hom.app (atStage A) x * (derivative g).hom.app (atStage A) x :=

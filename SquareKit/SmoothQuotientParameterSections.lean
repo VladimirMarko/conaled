@@ -34,12 +34,12 @@ def restrictSection {Y : Sheaf topology Type} (f : Y ⟶ X)
 matching over the base. The fibers here are discrete deformations; context
 sections retain all selected quotient arrows. No global section is supplied. -/
 structure LocalSection.ParameterFamily (A : SplitSheaf.Ty X) where
-  sections : ∀ {Y : Sheaf topology Type}, (Y ⟶ SplitSheaf.Ext A) →
+  sections : ∀ {Y : Sheaf topology Type}, (Y ⟶ SplitSheaf.extension A) →
     Section (setFamily (family a Y))
-  natural {Y Z : Sheaf topology Type} (g : Y ⟶ SplitSheaf.Ext A) (u : Z ⟶ Y)
+  natural {Y Z : Sheaf topology Type} (g : Y ⟶ SplitSheaf.extension A) (u : Z ⟶ Y)
     (P : Object a Y) :
     restrict u ((sections g).obj P).as = ((sections (u ≫ g)).obj (reindex P u)).as
-  matching {Y : Sheaf topology Type} (g h : Y ⟶ SplitSheaf.Ext A)
+  matching {Y : Sheaf topology Type} (g h : Y ⟶ SplitSheaf.extension A)
     (he : g ≫ SplitSheaf.p A = h ≫ SplitSheaf.p A) (P : Object a Y) :
     ((sections g).obj P).as = ((sections h).obj P).as
 
@@ -51,33 +51,33 @@ arrow. Parameter naturality and overlap matching produce this equation. -/
 theorem overlap (d : Descent.Datum (a := a) A) :
     transport d.overlapArrow
       (restrict (SplitSheaf.p (SplitSheaf.tySub A (SplitSheaf.p A)))
-        ((s.sections (𝟙 (SplitSheaf.Ext A))).obj d.localObject).as) =
+        ((s.sections (𝟙 (SplitSheaf.extension A))).obj d.localObject).as) =
     restrict (SplitSheaf.lift A (SplitSheaf.p A))
-      ((s.sections (𝟙 (SplitSheaf.Ext A))).obj d.localObject).as := by
+      ((s.sections (𝟙 (SplitSheaf.extension A))).obj d.localObject).as := by
   let q := SplitSheaf.p (SplitSheaf.tySub A (SplitSheaf.p A))
   let r := SplitSheaf.lift A (SplitSheaf.p A)
-  have hq := s.natural (𝟙 (SplitSheaf.Ext A)) q d.localObject
-  have hr := s.natural (𝟙 (SplitSheaf.Ext A)) r d.localObject
-  have hm := s.matching (q ≫ 𝟙 (SplitSheaf.Ext A))
-    (r ≫ 𝟙 (SplitSheaf.Ext A)) rfl (reindex d.localObject q)
+  have hq := s.natural (𝟙 (SplitSheaf.extension A)) q d.localObject
+  have hr := s.natural (𝟙 (SplitSheaf.extension A)) r d.localObject
+  have hm := s.matching (q ≫ 𝟙 (SplitSheaf.extension A))
+    (r ≫ 𝟙 (SplitSheaf.extension A)) rfl (reindex d.localObject q)
   have ha : transport d.overlapArrow
-      (((s.sections (r ≫ 𝟙 (SplitSheaf.Ext A))).obj (reindex d.localObject q)).as) =
-      (((s.sections (r ≫ 𝟙 (SplitSheaf.Ext A))).obj (reindex d.localObject r)).as) :=
-    Discrete.eq_of_hom ((s.sections (r ≫ 𝟙 (SplitSheaf.Ext A))).map d.overlapArrow)
+      (((s.sections (r ≫ 𝟙 (SplitSheaf.extension A))).obj (reindex d.localObject q)).as) =
+      (((s.sections (r ≫ 𝟙 (SplitSheaf.extension A))).obj (reindex d.localObject r)).as) :=
+    Discrete.eq_of_hom ((s.sections (r ≫ 𝟙 (SplitSheaf.extension A))).map d.overlapArrow)
   exact (congrArg (transport d.overlapArrow) (hq.trans hm)).trans (ha.trans hr.symm)
 
 /-- Parameter-compatible overlap matching implies the actual local cocycle
 matching equation needed by the section assembly theorem. -/
 theorem cocycleMatching :
-    LocalSection.Matching (s.sections (𝟙 (SplitSheaf.Ext A))) := by
+    LocalSection.Matching (s.sections (𝟙 (SplitSheaf.extension A))) := by
   intro d x b c t p
   have h := congrArg (fun k : Deformation
       (reindex d.localObject (SplitSheaf.lift A (SplitSheaf.p A))) =>
     k.map.hom.app x.obj (t, ⟨⟨⟨x.val,b⟩,c⟩,d.torsorDatum.transport x b c p⟩))
     (s.overlap d)
-  change ((s.sections (𝟙 (SplitSheaf.Ext A))).obj d.localObject).as.map.hom.app x.obj
+  change ((s.sections (𝟙 (SplitSheaf.extension A))).obj d.localObject).as.map.hom.app x.obj
     (t, ⟨⟨x.val,b⟩,d.torsorDatum.transport x c b (d.torsorDatum.transport x b c p)⟩) =
-    ((s.sections (𝟙 (SplitSheaf.Ext A))).obj d.localObject).as.map.hom.app x.obj
+    ((s.sections (𝟙 (SplitSheaf.extension A))).obj d.localObject).as.map.hom.app x.obj
       (t, ⟨⟨x.val,c⟩,d.torsorDatum.transport x b c p⟩) at h
   rw [d.torsorDatum.cocycle, d.torsorDatum.identity] at h
   exact h.symm
@@ -105,19 +105,19 @@ variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 /-- Assemble the global section from the supplied parameter-local sections;
 cocycle matching is proved from their local overlap contract. -/
 def glue : Section (setFamily (family a X)) :=
-  LocalSection.glue (s.sections (𝟙 (SplitSheaf.Ext A))) s.cocycleMatching
+  LocalSection.glue (s.sections (𝟙 (SplitSheaf.extension A))) s.cocycleMatching
 
 /-- The resulting section recovers the supplied local value at each cocycle. -/
 theorem recover (d : Descent.Datum (a := a) A) :
     transport d.comparison (restrict (SplitSheaf.p A) ((s.glue.obj d.object).as)) =
-      ((s.sections (𝟙 (SplitSheaf.Ext A))).obj d.localObject).as :=
+      ((s.sections (𝟙 (SplitSheaf.extension A))).obj d.localObject).as :=
   LocalSection.glue_recover _ _ d
 
 /-- Restriction of the glued value recovers the supplied covering section at
 all global quotient objects. -/
 theorem glue_restrict (P : Object a X) :
     restrict (SplitSheaf.p A) ((s.glue.obj P).as) =
-      ((s.sections (𝟙 (SplitSheaf.Ext A))).obj (reindex P (SplitSheaf.p A))).as :=
+      ((s.sections (𝟙 (SplitSheaf.extension A))).obj (reindex P (SplitSheaf.p A))).as :=
   LocalSection.glue_restrict _ _ P
 
 /-- Gluing is natural under arbitrary parameter change, on all quotient
@@ -133,9 +133,9 @@ theorem glue_natural {Y : Sheaf topology Type} (f : Y ⟶ X) (P : Object a X) :
       apply Deformation.ext
       rfl
     _ = restrict (SplitSheaf.lift A f)
-        (((s.sections (𝟙 (SplitSheaf.Ext A))).obj (reindex P (SplitSheaf.p A))).as) :=
+        (((s.sections (𝟙 (SplitSheaf.extension A))).obj (reindex P (SplitSheaf.p A))).as) :=
       congrArg (restrict (SplitSheaf.lift A f)) (s.glue_restrict P)
-    _ = (((s.sections (SplitSheaf.lift A f ≫ 𝟙 (SplitSheaf.Ext A))).obj
+    _ = (((s.sections (SplitSheaf.lift A f ≫ 𝟙 (SplitSheaf.extension A))).obj
         (reindex (reindex P (SplitSheaf.p A)) (SplitSheaf.lift A f))).as) :=
       s.natural _ _ _
     _ = restrict (SplitSheaf.p (SplitSheaf.tySub A f))
@@ -144,7 +144,7 @@ theorem glue_natural {Y : Sheaf topology Type} (f : Y ⟶ X) (P : Object a X) :
 
 /-- Every original local quotient object is recovered after gluing at its
 parameter, without requiring it to extend to the original base. -/
-theorem recover_local {Y : Sheaf topology Type} (g : Y ⟶ SplitSheaf.Ext A)
+theorem recover_local {Y : Sheaf topology Type} (g : Y ⟶ SplitSheaf.extension A)
     (P : Object a Y) :
     (((s.baseChange (g ≫ SplitSheaf.p A)).glue.obj P).as) =
       ((s.sections g).obj P).as := by
@@ -183,14 +183,14 @@ theorem glue_natural_section {Y : Sheaf topology Type} (f : Y ⟶ X) :
 
 /-- Recovery is equality of the complete local section, so its entire selected
 context-arrow action is retained. Discrete fibers justify this stronger form. -/
-theorem recover_local_section {Y : Sheaf topology Type} (g : Y ⟶ SplitSheaf.Ext A) :
+theorem recover_local_section {Y : Sheaf topology Type} (g : Y ⟶ SplitSheaf.extension A) :
     (s.baseChange (g ≫ SplitSheaf.p A)).glue = s.sections g :=
   setSection_ext _ (s.recover_local g)
 
 /-- The glued value is uniquely determined by the local covering values. -/
 theorem glue_unique (t : Section (setFamily (family a X)))
     (h : ∀ P, restrict (SplitSheaf.p A) ((t.obj P).as) =
-      (((s.sections (𝟙 (SplitSheaf.Ext A))).obj (reindex P (SplitSheaf.p A))).as)) :
+      (((s.sections (𝟙 (SplitSheaf.extension A))).obj (reindex P (SplitSheaf.p A))).as)) :
     t = s.glue := by
   apply setSection_ext
   intro P

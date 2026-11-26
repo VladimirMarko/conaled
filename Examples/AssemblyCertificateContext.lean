@@ -10,7 +10,7 @@ open Realizability Realizability.Assembly CategoryTheory
 produce both uniformly from its input realizer. -/
 def contextualStates {Γ : Assembly} (capacity : Hom Γ (encoded Nat)) : Assembly where
   Carrier := (γ : Γ.Carrier) × (stateAssembly (capacity.toFun γ)).Carrier
-  realizes e q := Γ.realizes e.unpair.1 q.1 ∧ StateRealizer e.unpair.2 q.2.val
+  Realizes e q := Γ.Realizes e.unpair.1 q.1 ∧ StateRealizer e.unpair.2 q.2.val
   inhabited q := by
     obtain ⟨r, hr⟩ := Γ.inhabited q.1
     obtain ⟨e, he⟩ := q.2.property

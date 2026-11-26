@@ -18,7 +18,7 @@ variable (a : Action G M) (A : SplitSheaf.Ty X)
 
 /-- The actual restriction diagram of quotient objects. -/
 def matchingDiagram : CechMatching.Diagram.{max u v, max (u+1) (v+1)} where
-  localCategory := Grpd.of (Object a (SplitSheaf.Ext A))
+  localCategory := Grpd.of (Object a (SplitSheaf.extension A))
   doubleCategory := Grpd.of (Object a (double A))
   tripleCategory := Grpd.of (Object a (triple A))
   first := restriction (first A)

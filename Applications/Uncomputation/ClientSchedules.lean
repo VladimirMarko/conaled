@@ -169,14 +169,14 @@ theorem run_correct (retain high : Bool) (k : Nat) (v : Fin 6 → Bool) :
   advance_value caller _ _ _ (correct retain high k v)
 
 theorem gates_valid (retain high : Bool) (k : Nat) :
-    ∀ g ∈ ((plan retain high k).flatMap Event.gates).flatten, g.valid := by
-  have hl : ∀ e ∈ plan retain high k, ∀ l ∈ e.gates, ∀ g ∈ l, g.valid := by
+    ∀ g ∈ ((plan retain high k).flatMap Event.gates).flatten, g.Valid := by
+  have hl : ∀ e ∈ plan retain high k, ∀ l ∈ e.gates, ∀ g ∈ l, g.Valid := by
     cases retain <;> cases high <;>
       intro e he <;>
       simp [plan, before, after, gap, List.mem_flatten, List.mem_replicate] at he <;>
       rcases he with h | h | h | h <;>
       simp_all [Event.gates, compute, firstUse, lastUse, lowUse, gapCompute, gapUse,
-        Gate.valid] <;> aesop
+        Gate.Valid] <;> aesop
   intro g hg
   obtain ⟨l, hl', hg⟩ := List.mem_flatten.mp hg
   obtain ⟨e, he, hl'⟩ := List.mem_flatMap.mp hl'

@@ -134,56 +134,56 @@ theorem eval_generic (m : Fin M.count)
 
 /-- No free ambient variables occur in these symbol images. Metavariables
 stand only for the symbol's declared arguments, including their binders. -/
-def Gtemplate : TemplateMap projectionSignature eliminationSignature
+def gTemplate : TemplateMap projectionSignature eliminationSignature
   | .P => S (unzero (generic 0)) (generic 1)
   | .pair => pack (unzero (generic 0)) (generic 1) (unzero (generic 2)) (unzero (generic 3))
   | .fst => first (unzero (generic 0)) (generic 1) (unzero (generic 2))
   | .snd => second (unzero (generic 0)) (generic 1) (unzero (generic 2))
   | .declaration decl => .app (.inl (.declaration decl)) (fun i => generic (M := symbolMetavariables projectionSignature (.declaration decl)) i)
 
-theorem Gtemplate_operation (s : ProjectionSymbol)
+theorem gTemplate_operation (s : ProjectionSymbol)
     (a : Assignment eliminationSignature (symbolMetavariables projectionSignature s) V) :
-    (TemplateMap.operations Gtemplate).operation s a = Goperation s a := by
-  change instantiate Empty.elim a (Gtemplate s) = _
+    (TemplateMap.operations gTemplate).operation s a = gOperation s a := by
+  change instantiate Empty.elim a (gTemplate s) = _
   cases s with
   | P =>
-    simp only [Gtemplate, Goperation, eval_S]
+    simp only [gTemplate, gOperation, eval_S]
     congr 1
     · exact eval_generic_free a 0 rfl
     · exact eval_generic_bound a 1
   | pair =>
-    simp only [Gtemplate, Goperation, eval_pack]
+    simp only [gTemplate, gOperation, eval_pack]
     congr 1
     · exact eval_generic_free a 0 rfl
     · exact eval_generic_bound a 1
     · exact eval_generic_free a 2 rfl
     · exact eval_generic_free a 3 rfl
   | fst =>
-    simp only [Gtemplate, Goperation, eval_first]
+    simp only [gTemplate, gOperation, eval_first]
     congr 1
     · exact eval_generic_free a 0 rfl
     · exact eval_generic_bound a 1
     · exact eval_generic_free a 2 rfl
   | snd =>
-    simp only [Gtemplate, Goperation, eval_second]
+    simp only [gTemplate, gOperation, eval_second]
     congr 1
     · exact eval_generic_free a 0 rfl
     · exact eval_generic_bound a 1
     · exact eval_generic_free a 2 rfl
   | declaration decl =>
-    simp only [Gtemplate, Goperation, instantiate]
+    simp only [gTemplate, gOperation, instantiate]
     congr 1
     funext i
     exact eval_generic_bound a i
 
-theorem Gtemplate_act (e : PExpr V) : (TemplateMap.toSyntax Gtemplate).act e = G.act e := by
+theorem gTemplate_act (e : PExpr V) : (TemplateMap.toSyntax gTemplate).act e = G.act e := by
   induction e with
   | var => rfl
   | app s es ih =>
-    change (TemplateMap.operations Gtemplate).operation s
-      (fun i => (TemplateMap.toSyntax Gtemplate).act (es i)) =
-      Goperation s (fun i => G.act (es i))
-    rw [Gtemplate_operation]
+    change (TemplateMap.operations gTemplate).operation s
+      (fun i => (TemplateMap.toSyntax gTemplate).act (es i)) =
+      gOperation s (fun i => G.act (es i))
+    rw [gTemplate_operation]
     congr 1
     funext i
     exact ih i

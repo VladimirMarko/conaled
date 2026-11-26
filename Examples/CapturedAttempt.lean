@@ -8,18 +8,18 @@ cannot repair execution against the wrong live pair.
 namespace CapturedAttemptExamples
 open Interaction Interaction.CapturedAttempt Interaction.Measurement
 
-def readsA (h : Bool × Bool) (a : Bool) : Prop := a = h.1
-def readsB (h : Bool × Bool) (b : Bool) : Prop := b = h.2
+def ReadsA (h : Bool × Bool) (a : Bool) : Prop := a = h.1
+def ReadsB (h : Bool × Bool) (b : Bool) : Prop := b = h.2
 
-theorem mixedChain : CaptureChain readsA readsB (false, false) (true, true)
+theorem mixedChain : CaptureChain ReadsA ReadsB (false, false) (true, true)
     (false, true) (false, true) (false, true) := ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
-theorem mixed_execution : CapturedExecution readsA readsB (false, false) (true, true)
+theorem mixed_execution : CapturedExecution ReadsA ReadsB (false, false) (true, true)
     (false, true) (false, true) := capture_chain mixedChain
 
 theorem mixed_not_revision : (false, true) ∉ Snapshot.history := Snapshot.never_coexisted
 
-theorem wrong_live_input : ¬ CapturedExecution readsA readsB (false, false) (true, true)
+theorem wrong_live_input : ¬ CapturedExecution ReadsA ReadsB (false, false) (true, true)
     (false, true) (true, true) := by
   intro h
   have bad := congrArg Prod.fst h.2.2
@@ -79,7 +79,7 @@ theorem good_evidence : Evidence finished good := by
   exact .response e3 (by simp [Extends, finished]) (.publication .confirmed)
     (by simp [Supports, finished])
 
-theorem both_consumers : CapturedExecution readsA readsB (false, false) (true, true)
+theorem both_consumers : CapturedExecution ReadsA ReadsB (false, false) (true, true)
     (false, true) (false, true) ∧ Completed finished :=
   accepted_capture mixedChain good_evidence (record issued.controller good) rfl rfl
 
@@ -140,21 +140,21 @@ def finalState (status : Status) (effect : Option String) : State :=
 prefix, including two live changes between the reads. -/
 theorem admitted (status : Status) (effect : Option String)
     (ack : status = .confirmed → effect = some payload) :
-    Admissible readsA readsB encode ⟨(false,false), .empty⟩
+    Admissible ReadsA ReadsB encode ⟨(false,false), .empty⟩
       (events status effect) (finalState status effect) := by
   unfold events finalState
   repeat' first
-    | apply Admissible.cons rfl (by simp_all [Primitive, readsA, readsB, exitSupported,
+    | apply Admissible.cons rfl (by simp_all [Primitive, ReadsA, ReadsB, ExitSupported,
         payload, ready, execution, capture])
     | exact Admissible.nil _
 
 /-- The positive/interference case consumes the joint theorem, not two unrelated
 capture and process witnesses. -/
 theorem mixed_joint_success :
-    ∃ source, AllowedPrefix readsA readsB encode ⟨⟨(false,false), .empty⟩⟩
+    ∃ source, AllowedPrefix ReadsA ReadsB encode ⟨⟨(false,false), .empty⟩⟩
       (events .confirmed (some payload)) source ∧
       Related source (finalState .confirmed (some payload)) ∧
-      JointSuccess readsA readsB encode source.state.phase :=
+      JointSuccess ReadsA ReadsB encode source.state.phase :=
   joint_success (admitted .confirmed (some payload) (fun _ => rfl)) rfl
 
 theorem mixed_joint_measurement :
@@ -166,19 +166,19 @@ theorem mixed_joint_measurement :
   simpa [Related] using related ▸ h
 
 theorem mixed_joint_capture :
-    CapturedExecution readsA readsB (false,false) (true,true) (false,true) (false,true) ∧
+    CapturedExecution ReadsA ReadsB (false,false) (true,true) (false,true) (false,true) ∧
     (false,true) ∉ Snapshot.history := by
   obtain ⟨source, allowed, related, _⟩ := mixed_joint_success
   have valid := prefix_valid allowed trivial
-  have finalValid : Valid readsA readsB encode (finalState .confirmed (some payload)).phase :=
+  have finalValid : Valid ReadsA ReadsB encode (finalState .confirmed (some payload)).phase :=
     related ▸ valid
-  have ev : executionValid readsA readsB execution := finalValid.1.1
+  have ev : ExecutionValid ReadsA ReadsB execution := finalValid.1.1
   exact ⟨capture_chain ⟨ev.1.1, ev.1.2.1, ev.1.2.2.1, ev.1.2.2.2,
     ev.2.2.1, ev.2.2.2⟩, mixed_not_revision⟩
 
 /-- The exact publication payload is not replaced by a success flag. -/
 theorem wrong_publication_payload :
-    ¬ Primitive readsA readsB encode (.requested ready payload)
+    ¬ Primitive ReadsA ReadsB encode (.requested ready payload)
       (.publish .confirmed (some (payload ++ "wrong"))) := by
   intro h
   have eq : payload ++ "wrong" = payload := Option.some.inj (h ready payload rfl rfl)
@@ -186,14 +186,14 @@ theorem wrong_publication_payload :
   simp at len
 
 theorem wrong_publication_prefix (tail : List Event) (target : State) :
-    ¬ Admissible readsA readsB encode ⟨(true,true), .requested ready payload⟩
+    ¬ Admissible ReadsA ReadsB encode ⟨(true,true), .requested ready payload⟩
       (.publish .confirmed (some (payload ++ "wrong")) :: tail) target := by
   intro h
   cases h with
   | cons _ primitive _ => exact wrong_publication_payload primitive
 
 theorem wrong_request_payload :
-    ¬ Primitive readsA readsB encode ready (.request (payload ++ "wrong")) := by
+    ¬ Primitive ReadsA ReadsB encode ready (.request (payload ++ "wrong")) := by
   intro h
   have len := congrArg String.length h
   simp [payload] at len
@@ -208,7 +208,7 @@ theorem no_seal_no_authorization :
     nextPhase (.empty : Phase) (.authorize 7) = none := rfl
 
 theorem no_seal_prefix_rejected (tail : List Event) (target : State) :
-    ¬ Admissible readsA readsB encode ⟨(false,false), .empty⟩ (.authorize 7 :: tail) target := by
+    ¬ Admissible ReadsA ReadsB encode ⟨(false,false), .empty⟩ (.authorize 7 :: tail) target := by
   intro h
   cases h with
   | cons step _ _ => cases step
@@ -223,22 +223,22 @@ theorem timeout_reap_remains_timeout :
   cleanup_keeps_choice _ _ _ _ _ _
 
 theorem wrong_child_identity :
-    ¬ Primitive readsA readsB encode (.authorized capture 7) (.spawn 8 (false,true)) := by
+    ¬ Primitive ReadsA ReadsB encode (.authorized capture 7) (.spawn 8 (false,true)) := by
   intro h
   have bad := (h capture 7 rfl).1
   cases bad
 
 theorem wrong_live_consumption :
-    ¬ Primitive readsA readsB encode (.authorized capture 7) (.spawn 7 (true,true)) := by
+    ¬ Primitive ReadsA ReadsB encode (.authorized capture 7) (.spawn 7 (true,true)) := by
   intro h
   have bad := (h capture 7 rfl).2.1
   cases bad
 
 /-- Identical unknown publication observations admit either external effect. -/
 theorem unknown_effect_worlds :
-    Admissible readsA readsB encode ⟨(false,false), .empty⟩
+    Admissible ReadsA ReadsB encode ⟨(false,false), .empty⟩
       (events .unknown none) (finalState .unknown none) ∧
-    Admissible readsA readsB encode ⟨(false,false), .empty⟩
+    Admissible ReadsA ReadsB encode ⟨(false,false), .empty⟩
       (events .unknown (some payload)) (finalState .unknown (some payload)) :=
   ⟨admitted _ _ (by simp), admitted _ _ (by simp)⟩
 
@@ -259,15 +259,15 @@ theorem final_one_spawn : spawnCount (events .confirmed (some payload)) ≤ 1 :=
   exact prefix_one_spawn allowed
 
 theorem lost_ack_payload_retained :
-    Valid readsA readsB encode (finalState .unknown (some payload)).phase ∧
+    Valid ReadsA ReadsB encode (finalState .unknown (some payload)).phase ∧
     payload = encode ready := by
   obtain ⟨source, allowed, related⟩ := prefix_refines unknown_effect_worlds.2
-  have valid : Valid readsA readsB encode (finalState .unknown (some payload)).phase :=
+  have valid : Valid ReadsA ReadsB encode (finalState .unknown (some payload)).phase :=
     related ▸ prefix_valid allowed trivial
   exact ⟨valid, (selected_payload valid).1⟩
 
 theorem joint_infinite_pending :
-    Interaction.Run (fun a b => SourceStep readsA readsB encode a .pending b)
+    Interaction.Run (fun a b => SourceStep ReadsA ReadsB encode a .pending b)
       (fun _ => (⟨finalState .unknown (some payload)⟩ : Source Bool Bool (Bool × Bool) String)) :=
   pending_source _
 

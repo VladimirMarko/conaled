@@ -6,7 +6,7 @@ open CategoryTheory SquareKit.SmoothAlgebra
 namespace SquareKit.EuclideanOpen
 
 /-- The smooth coordinate identity for an inclusion of ordinary open domains. -/
-def domainInclusion {n : ℕ} (f g : Free n) (h : Localization.locus f ⊆ Localization.locus g) :
+def domainInclusion {n : ℕ} (f g : freeAlgebra n) (h : Localization.locus f ⊆ Localization.locus g) :
     (⟨n,f⟩ : Domain) ⟶ (⟨n,g⟩ : Domain) where
   toFun x := ⟨x.val,h x.property⟩
   smooth i := (OpenFunctions.representative_iff _ (fun x => x i) (fun _ => rfl)).mpr
@@ -14,7 +14,7 @@ def domainInclusion {n : ℕ} (f g : Free n) (h : Localization.locus f ⊆ Local
 
 namespace Atlas
 variable {M : Type} [TopologicalSpace M] (A : Atlas M)
-    (K : A.Index → Type) (g : ∀ i, K i → Free (A.domain i).dimension)
+    (K : A.Index → Type) (g : ∀ i, K i → freeAlgebra (A.domain i).dimension)
     (hc : ∀ i, Covers (A.domain i) (g i))
 
 def subdivision : Atlas M where

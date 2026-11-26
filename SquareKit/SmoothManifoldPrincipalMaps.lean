@@ -12,7 +12,7 @@ open EuclideanOpen SmoothAlgebra
 Mathlib manifold structures. Its ambient representative need only be smooth
 on the source open. -/
 theorem openMap_contMDiff {U V : Domain} (f : U ⟶ V) :
-    ContMDiff (Model U.dimension) (Model V.dimension) ∞
+    ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞
       (show ordinaryOpen U → ordinaryOpen V from fun x => (show EuclideanOpen.Map U V from f) x) := by
   apply (ContMDiff.subtypeVal_comp_iff (ordinaryOpen V) _).mp
   intro x
@@ -82,14 +82,14 @@ theorem principalIso_naturality {U V : Domain} (f : U ⟶ V) :
 /-- A Mathlib smooth map of these open submanifolds supplies the existing
 ordinary smooth-map structure, with no ambient extension assumption. -/
 def openMapOfContMDiff {U V : Domain} (f : ordinaryOpen U → ordinaryOpen V)
-    (hf : ContMDiff (Model U.dimension) (Model V.dimension) ∞ f) : U ⟶ V where
+    (hf : ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞ f) : U ⟶ V where
   toFun := f
   smooth i := by
     intro x hx
     let q := OpenFunctions.extendZero (Points U) (fun y => (f y).val i)
     have hs := ((contDiff_apply ℝ (fun _ : Fin V.dimension => ℝ) i).contMDiff.comp
       (contMDiff_subtype_val (U := ordinaryOpen V))).comp hf
-    have hq : ContMDiffAt (Model U.dimension) 𝓘(ℝ, ℝ) ∞
+    have hq : ContMDiffAt (modelWithCorners U.dimension) 𝓘(ℝ, ℝ) ∞
         (fun y : ordinaryOpen U => q y.val) ⟨x, hx⟩ :=
       (hs ⟨x, hx⟩).congr_of_eventuallyEq (Filter.Eventually.of_forall
         (fun y => OpenFunctions.extendZero_mem _ y))
@@ -97,7 +97,7 @@ def openMapOfContMDiff {U V : Domain} (f : ordinaryOpen U → ordinaryOpen V)
 
 def openSmoothEquiv (U V : Domain) :
     (U ⟶ V) ≃ {f : ordinaryOpen U → ordinaryOpen V //
-      ContMDiff (Model U.dimension) (Model V.dimension) ∞ f} where
+      ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞ f} where
   toFun f := ⟨(show EuclideanOpen.Map U V from f).toFun, openMap_contMDiff f⟩
   invFun f := openMapOfContMDiff f.val f.property
   left_inv _ := OpenFunctions.Map.ext (fun _ => rfl)
@@ -115,14 +115,14 @@ private def principalArrowEquiv (U V : Domain) :
 objects, transported from the existing ordinary-open embedding. -/
 def principalHomEquiv (U V : Domain) :
     {f : ordinaryOpen U → ordinaryOpen V //
-      ContMDiff (Model U.dimension) (Model V.dimension) ∞ f} ≃
+      ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞ f} ≃
         (object U.dimension (ordinaryOpen U) ⟶ object V.dimension (ordinaryOpen V)) :=
   (openSmoothEquiv U V).symm.trans
     ((EuclideanOpen.homEquiv U V).trans (principalArrowEquiv U V))
 
 theorem principalHomEquiv_apply (U V : Domain)
     (f : {f : ordinaryOpen U → ordinaryOpen V //
-      ContMDiff (Model U.dimension) (Model V.dimension) ∞ f}) :
+      ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞ f}) :
     principalHomEquiv U V f = map f.val f.property := by
   apply (cancel_mono (principalIso V).hom).mp
   change ((principalIso U).hom ≫ embedding.map (openMapOfContMDiff f.val f.property) ≫
@@ -132,7 +132,7 @@ theorem principalHomEquiv_apply (U V : Domain)
 
 theorem principal_inverse_forward (U V : Domain)
     (f : ordinaryOpen U → ordinaryOpen V)
-    (hf : ContMDiff (Model U.dimension) (Model V.dimension) ∞ f) :
+    (hf : ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞ f) :
     (principalHomEquiv U V).symm (map f hf) = ⟨f, hf⟩ := by
   rw [← principalHomEquiv_apply U V ⟨f, hf⟩]
   exact (principalHomEquiv U V).symm_apply_apply _

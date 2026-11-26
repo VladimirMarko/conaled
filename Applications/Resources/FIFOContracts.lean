@@ -153,13 +153,13 @@ theorem valid_correct : Simulation (validOps : Ops α (ValidQueue α)) (lists α
 private def stored (q : ValidQueue α) : Nat := 2 * SymmetricCosts.potential q.val
 
 /-- Public initialization evidence; callers need not unfold its implementation. -/
-def symmetricInitialized (q : ValidQueue α) (credit : Nat) : Prop := stored q ≤ credit
+def SymmetricInitialized (q : ValidQueue α) (credit : Nat) : Prop := stored q ≤ credit
 
 theorem symmetric_empty_initialized :
-    symmetricInitialized (validOps : Ops α (ValidQueue α)).empty 0 := by exact Nat.le_refl 0
+    SymmetricInitialized (validOps : Ops α (ValidQueue α)).empty 0 := by exact Nat.le_refl 0
 
 theorem symmetric_accounting : Accounting (validOps : Ops α (ValidQueue α)) symmetricMeasure
-    (fun q => fromSL q.val) (fun _ _ => 8) symmetricInitialized where
+    (fun q => fromSL q.val) (fun _ _ => 8) SymmetricInitialized where
   behavior := valid_correct
   certificate := ⟨stored, fun _ _ h => h, by
     intro c q

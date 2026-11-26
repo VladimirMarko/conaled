@@ -15,53 +15,53 @@ namespace SquareKit.SmoothTransversePullback
 open ManifoldRealization SmoothTransversality SmoothRegularLevel Set Function
 open scoped Manifold ContDiff Topology
 variable {m n p : ℕ} {M N P : Type}
-  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (Model m) ∞ M]
-  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (Model n) ∞ N]
-  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (Model p) ∞ P]
+  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (modelWithCorners m) ∞ M]
+  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (modelWithCorners n) ∞ N]
+  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (modelWithCorners p) ∞ P]
   {f : M → P} {g : N → P}
 
 namespace LocalModel
 variable {q : Pullback f g} (A : LocalModel (m := m) (n := n) (p := p) q)
 
-omit [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N]
-  [IsManifold (Model p) ∞ P] in
+omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N]
+  [IsManifold (modelWithCorners p) ∞ P] in
 theorem smooth_parameterize {v : Space (m + n - p)} (hv : v ∈ A.target) :
     ContDiffAt ℝ ∞ A.parameterize v :=
   (A.normal.smooth_parameterize.contDiffAt
     (A.normal.isOpen_levelDomain.mem_nhds hv)).comp v A.coordinates.symm.contDiff.contDiffAt
 
-omit [IsManifold (Model n) ∞ N] [IsManifold (Model p) ∞ P] in
+omit [IsManifold (modelWithCorners n) ∞ N] [IsManifold (modelWithCorners p) ∞ P] in
 theorem smooth_inverse_fst {v : Space (m + n - p)} (hv : v ∈ A.target) :
-    ContMDiffAt (Model (m+n-p)) (Model m) ∞ (fst ∘ A.inverse) v := by
+    ContMDiffAt (modelWithCorners (m+n-p)) (modelWithCorners m) ∞ (fst ∘ A.inverse) v := by
   have ht := A.normal_source_subset (A.parameterize_source hv)
-  have hs := (contMDiffOn_chart_symm (I := Model m) (n := ∞) (x := q.val.1)).contMDiffAt
+  have hs := (contMDiffOn_chart_symm (I := modelWithCorners m) (n := ∞) (x := q.val.1)).contMDiffAt
     ((chartAt (Space m) q.val.1).open_target.mem_nhds ht.1)
   have hp := (A.smooth_parameterize hv).fst.contMDiffAt
   apply (hs.comp v hp).congr_of_eventuallyEq
   filter_upwards [A.isOpen_target.mem_nhds hv] with w hw
   exact congrArg Prod.fst (A.inverse_val hw)
 
-omit [IsManifold (Model m) ∞ M] [IsManifold (Model p) ∞ P] in
+omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners p) ∞ P] in
 theorem smooth_inverse_snd {v : Space (m + n - p)} (hv : v ∈ A.target) :
-    ContMDiffAt (Model (m+n-p)) (Model n) ∞ (snd ∘ A.inverse) v := by
+    ContMDiffAt (modelWithCorners (m+n-p)) (modelWithCorners n) ∞ (snd ∘ A.inverse) v := by
   have ht := A.normal_source_subset (A.parameterize_source hv)
-  have hs := (contMDiffOn_chart_symm (I := Model n) (n := ∞) (x := q.val.2)).contMDiffAt
+  have hs := (contMDiffOn_chart_symm (I := modelWithCorners n) (n := ∞) (x := q.val.2)).contMDiffAt
     ((chartAt (Space n) q.val.2).open_target.mem_nhds ht.2)
   have hp := (A.smooth_parameterize hv).snd.contMDiffAt
   apply (hs.comp v hp).congr_of_eventuallyEq
   filter_upwards [A.isOpen_target.mem_nhds hv] with w hw
   exact congrArg Prod.snd (A.inverse_val hw)
 
-omit [IsManifold (Model p) ∞ P] in
+omit [IsManifold (modelWithCorners p) ∞ P] in
 theorem smooth_forward_comp {k : ℕ} {X : Type} [TopologicalSpace X]
     [ChartedSpace (Space k) X] (h : X → Pullback f g) (x : X)
-    (hfst : ContMDiffAt (Model k) (Model m) ∞ (fst ∘ h) x)
-    (hsnd : ContMDiffAt (Model k) (Model n) ∞ (snd ∘ h) x)
+    (hfst : ContMDiffAt (modelWithCorners k) (modelWithCorners m) ∞ (fst ∘ h) x)
+    (hsnd : ContMDiffAt (modelWithCorners k) (modelWithCorners n) ∞ (snd ∘ h) x)
     (hx : h x ∈ A.source) :
-    ContMDiffAt (Model k) (Model (m+n-p)) ∞ (A.forward ∘ h) x := by
-  have hs := ((contMDiffOn_chart (I := Model m) (n := ∞) (x := q.val.1)).contMDiffAt
+    ContMDiffAt (modelWithCorners k) (modelWithCorners (m+n-p)) ∞ (A.forward ∘ h) x := by
+  have hs := ((contMDiffOn_chart (I := modelWithCorners m) (n := ∞) (x := q.val.1)).contMDiffAt
     ((chartAt (Space m) q.val.1).open_source.mem_nhds hx.1.1)).comp x hfst
-  have ht := ((contMDiffOn_chart (I := Model n) (n := ∞) (x := q.val.2)).contMDiffAt
+  have ht := ((contMDiffOn_chart (I := modelWithCorners n) (n := ∞) (x := q.val.2)).contMDiffAt
     ((chartAt (Space n) q.val.2).open_source.mem_nhds hx.1.2)).comp x hsnd
   have hp := (hs.prodMk_space ht).sub
     (contMDiffAt_const (c := coordinateCenter (m := m) (n := n) q.val.1 q.val.2))
@@ -69,8 +69,8 @@ theorem smooth_forward_comp {k : ℕ} {X : Type} [TopologicalSpace X]
     (A.normal.projection.contDiff.contMDiff.contMDiffAt.comp x hp)
 
 end LocalModel
-variable (hf : ContMDiff (Model m) (Model p) ∞ f)
-  (hg : ContMDiff (Model n) (Model p) ∞ g)
+variable (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)
+  (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
   (ht : Transverse (m := m) (n := n) (p := p) f g)
 
 /-- The point-indexed normal forms cover the equality subtype, including the empty case. -/
@@ -83,11 +83,11 @@ def chartedSpace : ChartedSpace (Space (m+n-p)) (Pullback f g) where
 
 theorem isManifold :
     letI := chartedSpace hf hg ht
-    IsManifold (Model (m+n-p)) ∞ (Pullback f g) := by
+    IsManifold (modelWithCorners (m+n-p)) ∞ (Pullback f g) := by
   let := chartedSpace hf hg ht
-  apply isManifold_of_contDiffOn (Model (m+n-p)) ∞ (Pullback f g)
+  apply isManifold_of_contDiffOn (modelWithCorners (m+n-p)) ∞ (Pullback f g)
   rintro e e' ⟨q, rfl⟩ ⟨r, rfl⟩
-  simp only [Model, modelWithCornersSelf_coe, modelWithCornersSelf_coe_symm,
+  simp only [modelWithCorners, modelWithCornersSelf_coe, modelWithCornersSelf_coe_symm,
     Function.comp_id, Function.id_comp, Set.preimage_id, Set.range_id, Set.inter_univ]
   intro v hv
   exact ((localModel hf hg ht r).smooth_forward_comp
@@ -97,7 +97,7 @@ theorem isManifold :
 
 theorem smooth_fst :
     letI := chartedSpace hf hg ht
-    ContMDiff (Model (m+n-p)) (Model m) ∞ (fst : Pullback f g → M) := by
+    ContMDiff (modelWithCorners (m+n-p)) (modelWithCorners m) ∞ (fst : Pullback f g → M) := by
   let := chartedSpace hf hg ht
   intro q
   apply contMDiffAt_iff_source.mpr
@@ -106,7 +106,7 @@ theorem smooth_fst :
 
 theorem smooth_snd :
     letI := chartedSpace hf hg ht
-    ContMDiff (Model (m+n-p)) (Model n) ∞ (snd : Pullback f g → N) := by
+    ContMDiff (modelWithCorners (m+n-p)) (modelWithCorners n) ∞ (snd : Pullback f g → N) := by
   let := chartedSpace hf hg ht
   intro q
   apply contMDiffAt_iff_source.mpr
@@ -115,10 +115,10 @@ theorem smooth_snd :
 
 theorem smooth_of_components_at {k : ℕ} {X : Type} [TopologicalSpace X]
     [ChartedSpace (Space k) X] (h : X → Pullback f g) (x : X)
-    (hfst : ContMDiffAt (Model k) (Model m) ∞ (fst ∘ h) x)
-    (hsnd : ContMDiffAt (Model k) (Model n) ∞ (snd ∘ h) x) :
+    (hfst : ContMDiffAt (modelWithCorners k) (modelWithCorners m) ∞ (fst ∘ h) x)
+    (hsnd : ContMDiffAt (modelWithCorners k) (modelWithCorners n) ∞ (snd ∘ h) x) :
     letI := chartedSpace hf hg ht
-    ContMDiffAt (Model k) (Model (m+n-p)) ∞ h x := by
+    ContMDiffAt (modelWithCorners k) (modelWithCorners (m+n-p)) ∞ h x := by
   let := chartedSpace hf hg ht
   apply contMDiffAt_iff_target.mpr
   refine ⟨?_, ?_⟩
@@ -129,9 +129,9 @@ theorem smooth_of_components_at {k : ℕ} {X : Type} [TopologicalSpace X]
 theorem smooth_iff_components {k : ℕ} {X : Type} [TopologicalSpace X]
     [ChartedSpace (Space k) X] (h : X → Pullback f g) :
     letI := chartedSpace hf hg ht
-    ContMDiff (Model k) (Model (m+n-p)) ∞ h ↔
-      ContMDiff (Model k) (Model m) ∞ (fst ∘ h) ∧
-      ContMDiff (Model k) (Model n) ∞ (snd ∘ h) := by
+    ContMDiff (modelWithCorners k) (modelWithCorners (m+n-p)) ∞ h ↔
+      ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ (fst ∘ h) ∧
+      ContMDiff (modelWithCorners k) (modelWithCorners n) ∞ (snd ∘ h) := by
   let := chartedSpace hf hg ht
   exact ⟨fun hh => ⟨(smooth_fst hf hg ht).comp hh, (smooth_snd hf hg ht).comp hh⟩,
     fun hh x => smooth_of_components_at hf hg ht h x (hh.1 x) (hh.2 x)⟩
@@ -158,10 +158,10 @@ theorem lift_unique {X : Type} (u : X → M) (v : X → N)
 theorem smooth_lift {k : ℕ} {X : Type} [TopologicalSpace X]
     [ChartedSpace (Space k) X] (u : X → M) (v : X → N)
     (h : ∀ x, f (u x) = g (v x))
-    (hu : ContMDiff (Model k) (Model m) ∞ u)
-    (hv : ContMDiff (Model k) (Model n) ∞ v) :
+    (hu : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ u)
+    (hv : ContMDiff (modelWithCorners k) (modelWithCorners n) ∞ v) :
     letI := chartedSpace hf hg ht
-    ContMDiff (Model k) (Model (m+n-p)) ∞ (lift u v h) :=
+    ContMDiff (modelWithCorners k) (modelWithCorners (m+n-p)) ∞ (lift u v h) :=
   (smooth_iff_components hf hg ht _).mpr ⟨hu, hv⟩
 
 omit [TopologicalSpace P] in

@@ -21,15 +21,15 @@ open Order SquareKit PartialSpine Progress Progress.SpineObservations PartialSpi
 
 /-- The existing first consumer succeeds on both actual realizations while left fold waits for an end. -/
 theorem counting_first_and_foldl (p : Nat → Prop) (f : Prop → Nat → Prop) (e : Prop) (s : Nat) :
-    first p (observations (guarded PartialSpineProgress.count) s) = p s ∧
-      first p (observations (paused PartialSpineProgress.count) (false, s)) = p s ∧
+    First p (observations (guarded PartialSpineProgress.count) s) = p s ∧
+      First p (observations (paused PartialSpineProgress.count) (false, s)) = p s ∧
       Observations.foldl f e (observations (guarded PartialSpineProgress.count) s) = False ∧
       Observations.foldl f e (observations (paused PartialSpineProgress.count) (false, s)) = False :=
   ⟨first_guarded p _ s, first_paused p _ s,
     foldl_observations _ f e s, foldl_observations _ f e (false, s)⟩
 
 theorem once_first_and_foldl (p : Nat → Prop) (f : Prop → Nat → Prop) (e : Prop) (a : Nat) :
-    first p (observations PartialSpineProgress.once (some a)) = p a ∧
+    First p (observations PartialSpineProgress.once (some a)) = p a ∧
       Observations.foldl f e (observations PartialSpineProgress.once (some a)) = False :=
   ⟨first_once p a, foldl_observations _ f e (some a)⟩
 

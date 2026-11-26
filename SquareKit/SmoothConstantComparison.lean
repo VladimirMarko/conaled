@@ -19,7 +19,7 @@ theorem empty_domain_hom_ext (U : Domain) (hU : IsEmpty (Points U))
   exact fun i => Fin.elim0 i
 
 /-- The intersection with an ambient principal open maps into that open. -/
-def principalRight (U : Domain) (q : Free U.dimension) :
+def principalRight (U : Domain) (q : freeAlgebra U.dimension) :
     subdomain U q ⟶ (⟨U.dimension, q⟩ : Domain) where
   toFun x := ⟨x.val, right_ne_zero_of_mul x.property⟩
   smooth i := (OpenFunctions.representative_iff _ (fun x => x i) (fun _ => rfl)).mpr
@@ -86,7 +86,7 @@ theorem ordinaryLabel_injective (U : Domain) : Function.Injective (ordinaryLabel
 /-- Principal descriptions supplied for the fibers of an independent point label.
 Coverage and compatible constant labels are derived from this local contract. -/
 structure PrincipalLabelData (U : Domain) (l : LocallyConstant (Points U) G) where
-  defining : G → Free U.dimension
+  defining : G → freeAlgebra U.dimension
   fiber_iff : ∀ k (x : Points U), (defining k).val x.val ≠ 0 ↔ l x = k
 
 namespace PrincipalLabelData
@@ -149,7 +149,7 @@ end PrincipalLabelData
 
 /-- A label fiber is an ordinary principal open. -/
 def labelDefining (U : Domain) (l : LocallyConstant (Points U) G) (k : G) :
-    Free U.dimension :=
+    freeAlgebra U.dimension :=
   openDefining (Subtype.val '' {x : Points U | l x = k})
     ((domain_open U).isOpenMap_subtype_val _ (l.isLocallyConstant.isOpen_fiber k))
 

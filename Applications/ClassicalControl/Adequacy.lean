@@ -11,7 +11,7 @@ inductive Formula where
   | imp : Formula → Formula → Formula
 
 abbrev Orthogonal (P : Pole) (X : Set Stack) (t : Term 0) : Prop :=
-  ∀ π, π ∈ X → P.holds (.run t π)
+  ∀ π, π ∈ X → P.Holds (.run t π)
 
 def Falsity (P : Pole) (atoms : Nat → Set Stack) : Formula → Set Stack
   | .atom a => atoms a
@@ -78,7 +78,7 @@ theorem empty_subst (t : Term 0) (σ : Fin 0 → Term 0) : t.subst σ = t := by
 theorem no_closed_bottom (t : Term 0) (Γ : Fin 0 → Formula) :
     ¬ HasType Γ t .bottom := by
   intro ht
-  have hr := adequacy Pgood (fun _ => Set.univ) ht Term.var (fun i => Fin.elim0 i)
+  have hr := adequacy goodPole (fun _ => Set.univ) ht Term.var (fun i => Fin.elim0 i)
   rw [Term.subst_id] at hr
   exact restricted_coherence t (typed_pure ht) (hr .halt (Set.mem_univ _))
 

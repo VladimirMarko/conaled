@@ -261,9 +261,9 @@ theorem elements_complete_inverse (k : Key) (value : V) (t : Tree V)
   simp only [absent, Bool.false_eq_true] at present
 
 theorem sorted_app (left right : List Nat) (pivot : Nat)
-    (hl : InsertionSorting.sorted left) (hr : InsertionSorting.sorted right)
+    (hl : InsertionSorting.Sorted left) (hr : InsertionSorting.Sorted right)
     (lesser : ∀ n ∈ left, n < pivot) (greater : ∀ n ∈ right, pivot < n) :
-    InsertionSorting.sorted (left ++ pivot :: right) := by
+    InsertionSorting.Sorted (left ++ pivot :: right) := by
   apply List.isChain_iff_pairwise.mpr
   refine List.pairwise_append.mpr ⟨List.isChain_iff_pairwise.mp hl,
     List.pairwise_cons.mpr ⟨fun n member => Nat.le_of_lt (greater n member),
@@ -276,7 +276,7 @@ theorem sorted_app (left right : List Nat) (pivot : Nat)
 def listKeys (bindings : List (Key × V)) : List Key := bindings.map Prod.fst
 
 theorem sorted_elements (t : Tree V) (valid : BST t) :
-    InsertionSorting.sorted (listKeys (elements t)) :=
+    InsertionSorting.Sorted (listKeys (elements t)) :=
   List.isChain_iff_pairwise.mpr
     ((OrderedMap.ordered_entries_keys_pairwise valid).imp fun h => Nat.le_of_lt h)
 
@@ -313,7 +313,7 @@ theorem fastElements_correct (k : Key) (value default : V) (t : Tree V)
   exact elements_correct V k value default t valid member
 
 theorem fastElements_sorted (t : Tree V) (valid : BST t) :
-    InsertionSorting.sorted (listKeys (fastElements t)) := by
+    InsertionSorting.Sorted (listKeys (fastElements t)) := by
   rw [fastElements_eq_elements]
   exact sorted_elements t valid
 

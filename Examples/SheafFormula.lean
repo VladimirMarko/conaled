@@ -65,7 +65,7 @@ theorem presheaf_existsE_false : ¬ (relModel.formula existsE).obj (op X) (empty
   rintro ⟨ρ, _, _⟩
   exact no_pointwise_witness ⟨ρ .zero, trivial, rfl⟩
 
-theorem evaluated_existsE_false : ¬ existsE.eval (relModel.fiber (op X)) (empty (op X)) := by
+theorem evaluated_existsE_false : ¬ existsE.Eval (relModel.fiber (op X)) (empty (op X)) := by
   intro h
   exact presheaf_existsE_false ((relModel.evaluation _ _ _).mpr h)
 

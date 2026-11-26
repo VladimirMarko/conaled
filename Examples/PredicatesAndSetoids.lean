@@ -9,7 +9,7 @@ def emptyPredicate : PredicateCategory.Obj := ⟨Bool,fun _ => Empty⟩
 def falseMap : PredicateCategory.Hom emptyPredicate emptyPredicate := ⟨fun _ => false,fun _ h => h.elim⟩
 def trueMap : PredicateCategory.Hom emptyPredicate emptyPredicate := ⟨fun _ => true,fun _ h => h.elim⟩
 
-theorem no_admissible_inputs (x : Bool) : ¬ Nonempty (emptyPredicate.pred x) := fun ⟨h⟩ => h.elim
+theorem no_admissible_inputs (x : Bool) : ¬ Nonempty (emptyPredicate.Family x) := fun ⟨h⟩ => h.elim
 /-- Total-function equality still observes inputs whose predicates are empty. -/
 theorem empty_predicate_arrows_differ : ¬ PredicateCategory.equiv.Rel falseMap trueMap := by
   intro h

@@ -19,9 +19,9 @@ def run (n : Nat) : Part Nat := (ofNat Code n).eval 0
 undefinedness is realized by a divergent program. -/
 def programLift (A : Assembly) : Assembly where
   Carrier := Option A.Carrier
-  realizes n x := match x with
+  Realizes n x := match x with
     | none => ¬ (run n).Dom
-    | some x => ∃ m, m ∈ run n ∧ A.realizes m x
+    | some x => ∃ m, m ∈ run n ∧ A.Realizes m x
   inhabited x := by
     cases x with
     | none =>
@@ -53,9 +53,9 @@ def programLiftMap {A B : Assembly} (f : Hom A B) : Hom (programLift A) (program
     | some x =>
       obtain ⟨m, hm, hx⟩ := hn
       obtain ⟨r, hr, hy⟩ := hc x m hx
-      change ∃ r, r ∈ run (t n) ∧ B.realizes r (f.toFun x)
+      change ∃ r, r ∈ run (t n) ∧ B.Realizes r (f.toFun x)
       simp only [t, run_encode, Code.eval]
-      change ∃ r, r ∈ (run n).bind c.eval ∧ B.realizes r (f.toFun x)
+      change ∃ r, r ∈ (run n).bind c.eval ∧ B.Realizes r (f.toFun x)
       exact ⟨r, Part.mem_bind_iff.mpr ⟨m, hm, hr⟩, hy⟩
 
 theorem programLiftMap_id (A : Assembly) :

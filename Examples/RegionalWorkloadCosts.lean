@@ -87,7 +87,7 @@ example : 0 < Selection.bill (Selection.installation {capacity := 0}
 
 example : (Selection.preparedScores
     (some (Selection.synthetic roomy "other-workload" checked))
-    (Optimization.Choice.admittedContext Selection.catalog (Selection.eligible roomy) Selection.Sites.name
+    (Optimization.Choice.admittedContext Selection.catalog (Selection.Eligible roomy) Selection.Sites.name
       (Selection.context roomy "cost-comparison"))).1 split =
     (split.plan.work,[Selection.Event.rank (Selection.planNodes split.plan)]) := by rfl
 

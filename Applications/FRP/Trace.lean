@@ -48,7 +48,7 @@ theorem Refines.completion {s q : State T α} (h : Refines s q)
 
 /-- Honesty is required only for accepted windows, and includes omitted times. -/
 def Honest (s : State T α) (m : Message T α) (truth : T → List α) : Prop :=
-  windowValid s m.frontier m.packet →
+  WindowValid s m.frontier m.packet →
     ∀ t, s.frontier ≤ t → t < m.frontier → batch m.packet t = truth t
 
 theorem process_sound {s : State T α} {truth : T → List α} (m : Message T α)

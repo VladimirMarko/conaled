@@ -22,7 +22,7 @@ relative-model, validator and execution connections remain separate tasks.
 ## The exact local gap
 
 The [typed graph target](../../SquareKit/Internal/GraphTarget.lean) already has
-inspectable `Code`, native `Formula.eval`, substitution lemmas and `sound`.
+inspectable `Code`, native `Formula.Eval`, substitution lemmas and `sound`.
 The [source comparison](../../SquareKit/Internal/GraphTargetComparison.lean)
 connects source derivations and target code. These are mathematical theorems
 about the represented language.
@@ -39,7 +39,7 @@ There are several distinct obligations:
 
 | Connection | What remains to prove |
 |---|---|
-| Target formulas to core types | Translation respects variables, binders, universes, substitution and the chosen primitive signatures; interpretation of the actual translated type agrees with `Formula.eval`. |
+| Target formulas to core types | Translation respects variables, binders, universes, substitution and the chosen primitive signatures; interpretation of the actual translated type agrees with `Formula.Eval`. |
 | Target code to core bodies | Every constructor emits a derivation of the translated conclusion from the translated premise. Include both existential eliminators and simultaneous substitution. |
 | Executable emission to the proved translation | Either prove successful `MetaM` execution returns that translation, replace its semantic construction with a pure proved function, or validate each returned artifact with a proved checker. |
 | Core declarations to the installed environment | Match exact declarations, helper bodies, constructor/recursor metadata and projection tables; retain declaration names, ordering and universe parameters. |

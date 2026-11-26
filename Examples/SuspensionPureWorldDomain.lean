@@ -20,7 +20,7 @@ open Suspensions.Pure.Domain Suspensions.Pure.WorldDomain
 namespace Literal
 open Compatibility
 
-private def selected : BasicOperation → Prop := fun _ => True
+private def Selected : BasicOperation → Prop := fun _ => True
 private def parameters : Machine.Parameters BasicOperation := basicPureParameters 10 11
 private def rawParameters : Core.Machine.Parameters BasicOperation := basicRawParameters 10 11
 
@@ -32,11 +32,11 @@ def delayed : Core.Machine.Memory BasicOperation :=
 def cached : Core.Machine.Memory BasicOperation :=
   Suspensions.memoize delayed 0 (.atom (.integer 41))
 
-private theorem code : CodeAllowed selected body := CodeAllowed.atom (.integer 41)
+private theorem code : CodeAllowed Selected body := CodeAllowed.atom (.integer 41)
 
 private theorem delay_properties :
-    Memory.StateRep parameters world delayed ∧ WorldAllowed selected world := by
-  have allocated := (WorldAllowed.empty (operations := selected)).delay
+    Memory.StateRep parameters world delayed ∧ WorldAllowed Selected world := by
+  have allocated := (WorldAllowed.empty (operations := Selected)).delay
     (Memory.StateRep.empty parameters) EnvRep.nil EnvAllowed.nil code
   exact ⟨allocated.2.1, allocated.2.2.1⟩
 
@@ -47,7 +47,7 @@ theorem actual_delay_allowed :
         (Core.Machine.start Suspensions.empty [] (.delay body)) =
       Core.Machine.proceed delayed (.value (.address 0)) [] (.allocate 0) ∧
     delayed.next = 1 ∧ delayed.memory 0 = some (.thunk body []) ∧
-    Memory.StateRep parameters world delayed ∧ WorldAllowed selected world :=
+    Memory.StateRep parameters world delayed ∧ WorldAllowed Selected world :=
   ⟨rfl, rfl, rfl, delay_properties⟩
 
 private theorem body_evaluation :
@@ -66,13 +66,13 @@ theorem actual_cache_allowed :
     Core.Machine.transition rawParameters
         ⟨delayed, .value (.atom (.integer 41)), [.memoize 0 [] .wildcard]⟩ =
       Core.Machine.proceed cached (.pattern [] .wildcard (.atom (.integer 41))) [] (.cacheWrite 0) ∧
-    Memory.StateRep parameters world cached ∧ WorldAllowed selected world ∧
+    Memory.StateRep parameters world cached ∧ WorldAllowed Selected world ∧
     (∃ view steps, ValueRep world (.atom (.integer 41)) view ∧
       Progress.Evaluates (Machine.step parameters)
         (Machine.start meaning.environment meaning.body) (.value view) steps ∧
-      ValueAllowed selected view ∧ view = .atom (.integer 41) ∧ steps = 2) := by
+      ValueAllowed Selected view ∧ view = .atom (.integer 41) ∧ steps = 2) := by
   obtain ⟨view, steps, represented, evaluation, allowed⟩ :=
-    cached_lookup_allowed (basic_parameters_preserve selected 10 11)
+    cached_lookup_allowed (basic_parameters_preserve Selected 10 11)
       delay_properties.2 cached_state (address := 0) (meaning := meaning) rfl rfl
   have same := evaluation.unique body_evaluation
   exact ⟨rfl, cached_state, delay_properties.2, view, steps, represented, evaluation, allowed,
@@ -83,7 +83,7 @@ end Literal
 namespace Mutual
 open Examples.SuspensionPureValues
 
-private def noOperations : Unit → Prop := fun _ => False
+private def NoOperations : Unit → Prop := fun _ => False
 private def emptyWorld : World Unit := fun _ => none
 def rawOuter : Core.Env Unit := [(1, .atom (.integer 99)), (9, .atom (.boolean true))]
 def preclose : Core.Machine.Memory Unit :=
@@ -97,7 +97,7 @@ def meaning : Meaning Unit := ⟨mutualSuspensionBody, mutualOuter, some mutualG
 private theorem outer_represented : EnvRep emptyWorld rawOuter mutualOuter :=
   .cons (.atom (.integer 99)) (.cons (.atom (.boolean true)) .nil)
 
-private theorem group_allowed : GroupAllowed noOperations mutualGroup :=
+private theorem group_allowed : GroupAllowed NoOperations mutualGroup :=
   Examples.SuspensionPureDomain.mutual_group_allowed
 
 private theorem receipt :
@@ -111,17 +111,17 @@ theorem actual_recursive_world_allowed (parameters : Machine.Parameters Unit)
     (raw : Core.Machine.Parameters Unit) :
     ∃ world,
       Creation.PendingGroup emptyWorld world Suspensions.empty preclose rawOuter mutualGroup created ∧
-      WorldAllowed noOperations world ∧ Memory.StateRep parameters world closed ∧
+      WorldAllowed NoOperations world ∧ Memory.StateRep parameters world closed ∧
       EnvRep world closedEnvironment mutualEnvironment ∧
-      world 0 = some meaning ∧ CodeAllowed noOperations meaning.body ∧
-      EnvAllowed noOperations meaning.environment ∧
+      world 0 = some meaning ∧ CodeAllowed NoOperations meaning.body ∧
+      EnvAllowed NoOperations meaning.environment ∧
       Core.Prefix.observe raw 8
         (Core.Machine.start Suspensions.empty rawOuter
           (.recursive (Rhs.toBindings mutualBindings) (Core.force (.variable 2)))) =
         .inr (Core.Machine.start closed closedEnvironment (Core.force (.variable 2))) := by
   have initial := Memory.StateRep.empty parameters
   obtain ⟨reached, collected, world, made, pending, valid, allowed, environment⟩ :=
-    create_closed_allowed initial (WorldAllowed.empty (operations := noOperations))
+    create_closed_allowed initial (WorldAllowed.empty (operations := NoOperations))
       outer_represented group_allowed
   have equal : (preclose, created) = (reached, collected) :=
     Except.ok.inj (receipt.symm.trans made)
@@ -143,7 +143,7 @@ end Mutual
 
 namespace Overwrite
 
-private def noOperations : Unit → Prop := fun _ => False
+private def NoOperations : Unit → Prop := fun _ => False
 private def first : Meaning Unit := ⟨.atom (.integer 7), [], none⟩
 private def second : Meaning Unit := ⟨.atom (.integer 8), [], none⟩
 private def before : World Unit := Durability.put (fun _ => none) 0 first
@@ -152,12 +152,12 @@ private def after : World Unit := Durability.put before 0 second
 /-- Code admissibility survives this overwrite, while immutable extension
 does not. Freshness must still be supplied by the separate storage theorem. -/
 theorem allowed_put_is_not_extension :
-    WorldAllowed noOperations before ∧ WorldAllowed noOperations after ∧
+    WorldAllowed NoOperations before ∧ WorldAllowed NoOperations after ∧
       ¬Durability.Extends before after := by
-  have old : WorldAllowed noOperations before :=
-    (WorldAllowed.empty (operations := noOperations)).put 0 first
+  have old : WorldAllowed NoOperations before :=
+    (WorldAllowed.empty (operations := NoOperations)).put 0 first
       (.suspension (CodeAllowed.atom (.integer 7)) .nil .none)
-  have new : WorldAllowed noOperations after :=
+  have new : WorldAllowed NoOperations after :=
     old.put 0 second (.suspension (CodeAllowed.atom (.integer 8)) .nil .none)
   refine ⟨old, new, ?_⟩
   intro extension

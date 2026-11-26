@@ -167,7 +167,7 @@ private def environment : Fin 6 → Value native.toStructuralModel :=
 
 /-- All hypotheses have actual native values, including the three dependent
 tail binders. None is a requested equality or a selected-output assumption. -/
-theorem assumptions_valid : ∀ j ∈ assumptions, j.eval (Contextual.algebra native) environment := by
+theorem assumptions_valid : ∀ j ∈ assumptions, j.Eval (Contextual.algebra native) environment := by
   intro j hj
   rcases List.mem_ofFn.mp hj with ⟨i, rfl⟩
   fin_cases i
@@ -193,14 +193,14 @@ private abbrev certificateJudgment := term finalContext
 
 /-- The actual reference certificate judgment is valid after both dependent
 weakenings, under satisfied concrete assumptions. -/
-theorem certificate_valid : certificateJudgment.eval (Contextual.algebra native) environment :=
+theorem certificate_valid : certificateJudgment.Eval (Contextual.algebra native) environment :=
   DependentAuthorReference.Candidate.certificateValidity point tail value first second
     native environment assumptions_valid
 
 /-- Constructor admission preserves this full typing judgment in the native
 stable Sigma model, beyond equality of an erased old expression. -/
 theorem extended_certificate_valid :
-    (certificateJudgment.inl Sigma.extraSignature).eval
+    (certificateJudgment.inl Sigma.extraSignature).Eval
       (Sigma.algebra native stable.toCapability) environment :=
   DependentAuthorReference.Candidate.extendedValidity point tail value first second
     native stable environment assumptions_valid
@@ -209,7 +209,7 @@ theorem extended_certificate_valid :
 three-binder inputs and the certificate-dependent weakening arrows. -/
 theorem comparison_valid :
     (Atom.eq (subTm (subTm certificateExpression firstArrow) secondArrow)
-      (subTm certificateExpression (Contextual.comp firstArrow secondArrow))).eval
+      (subTm certificateExpression (Contextual.comp firstArrow secondArrow))).Eval
         (Contextual.algebra native) environment :=
   Contextual.interpret (DependentAuthorReference.Candidate.dependentWeakeningComparison
     point tail value) native environment assumptions_valid
@@ -273,14 +273,14 @@ theorem author_recipe : DependentAuthorTrial.Candidate.selected point tail value
     certificateExpression := rfl
 
 /-- Actual author validity under the inhabited three-binder environment. -/
-theorem author_certificate_valid : certificateJudgment.eval (Contextual.algebra native) environment :=
+theorem author_certificate_valid : certificateJudgment.Eval (Contextual.algebra native) environment :=
   DependentAuthorTrial.Candidate.certificateValidity point tail value
     (DependentAuthorTrial.Candidate.firstWeakening value)
     (DependentAuthorTrial.Candidate.secondWeakening value) native environment assumptions_valid
 
 /-- This invokes the author's retained derivation and assumption transport. -/
 theorem author_extended_certificate_valid :
-    (certificateJudgment.inl Sigma.extraSignature).eval
+    (certificateJudgment.inl Sigma.extraSignature).Eval
       (Sigma.algebra native stable.toCapability) environment :=
   DependentAuthorTrial.Candidate.extendedTwiceValidity point tail value
     (DependentAuthorTrial.Candidate.firstWeakening value)
@@ -290,7 +290,7 @@ theorem author_extended_certificate_valid :
 /-- Source comparison is used at the constructed dependent substitutions. -/
 theorem author_comparison_valid :
     (Atom.eq (subTm (subTm certificateExpression firstArrow) secondArrow)
-      (subTm certificateExpression (Contextual.comp firstArrow secondArrow))).eval
+      (subTm certificateExpression (Contextual.comp firstArrow secondArrow))).Eval
         (Contextual.algebra native) environment :=
   Contextual.interpret (DependentAuthorTrial.Candidate.dependentWeakeningComparison
     point tail value) native environment assumptions_valid

@@ -105,7 +105,7 @@ theorem peer_replacement_allowed (b : PeerBanks) (target : PeerSnapshot) :
 /-- The serialized driver's mutation view permits the inactive overwrite. This
 is an ownership obligation, not permission derived from payload validity. -/
 theorem inactive_overwrite (selected : Bool) :
-    (SnapshotBanks.Access.mutation selected).safeOverwrite (!selected) ∧ selected ≠ !selected :=
+    (SnapshotBanks.Access.mutation selected).SafeOverwrite (!selected) ∧ selected ≠ !selected :=
   SnapshotBanks.mutation_safe selected
 
 

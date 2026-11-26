@@ -11,7 +11,7 @@ open scoped Manifold ContDiff
 variable {n d : ℕ} {G B M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G] [TopologicalSpace B] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model d) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners d) ∞ M]
 
 /-- A smooth equivariant target on an independently supplied ordinary bundle. -/
 structure WithTarget (n d : ℕ) (G B M : Type) [Group G] [MulAction G M]
@@ -19,7 +19,7 @@ structure WithTarget (n d : ℕ) (G B M : Type) [Group G] [MulAction G M]
     [ChartedSpace (Space n) B] [ChartedSpace (Space d) M] where
   ordinary : Ordinary n G B
   target : ordinary.Total → M
-  smooth : ContMDiff (Model n) (Model d) ∞ target
+  smooth : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ target
   equivariant : ∀ (g : G) x, target (g • x) = g • target x
 
 namespace WithTarget
@@ -40,7 +40,7 @@ def forget : WithTarget n d G B M ⥤ Ordinary n G B where
   obj P := P.ordinary
   map f := f.toMap
 
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 abbrev Quotients := SheafActionQuotient.Object (representation smoothAction).action (object n B)
 
 def realization : WithTarget n d G B M ⥤ Quotients (n := n) (B := B) smoothAction where
@@ -165,11 +165,11 @@ theorem unit_target (P : WithTarget n d G B M) (x : P.ordinary.Total) :
   (unitComponent smoothAction P).hom.target x
 
 variable {m k : ℕ} {B' B'' : Type}
-  [TopologicalSpace B'] [ChartedSpace (Space m) B'] [IsManifold (Model m) ∞ B']
-  [TopologicalSpace B''] [ChartedSpace (Space k) B''] [IsManifold (Model k) ∞ B'']
+  [TopologicalSpace B'] [ChartedSpace (Space m) B'] [IsManifold (modelWithCorners m) ∞ B']
+  [TopologicalSpace B''] [ChartedSpace (Space k) B''] [IsManifold (modelWithCorners k) ∞ B'']
 
 /-- The target on the actual fiber product is composition with its second projection. -/
-def pulledBack (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+def pulledBack (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (P : WithTarget n d G B M) : WithTarget m d G B' M where
   ordinary := Ordinary.pulledBack f hf P.ordinary
   target := P.target ∘ Pullback.snd P.ordinary.bundle f
@@ -177,7 +177,7 @@ def pulledBack (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
   equivariant g z := P.equivariant g (Pullback.snd P.ordinary.bundle f z)
 
 set_option backward.isDefEq.respectTransparency false in
-def pullbackFunctor (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
+def pullbackFunctor (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) :
     WithTarget n d G B M ⥤ WithTarget m d G B' M where
   obj := pulledBack f hf
   map {P _Q} a := Pullback.targetMap P.ordinary.bundle f hf a
@@ -191,7 +191,7 @@ def pullbackFunctor (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
     exact TargetMap.ext _ _ (Pullback.map_comp _ f hf.continuous a.toMap b.toMap)
 
 set_option backward.isDefEq.respectTransparency false in
-def pullbackRealization (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
+def pullbackRealization (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) :
     pullbackFunctor (G := G) (M := M) f hf ⋙ realization smoothAction ≅
       realization smoothAction ⋙ SheafActionQuotient.restriction (ManifoldRealization.map f hf) :=
   NatIso.ofComponents (fun P =>
@@ -211,8 +211,8 @@ def pullbackIdentityComponent (P : WithTarget n d G B M) :
   inv_hom_id := TargetMap.ext _ _ (Ordinary.pullbackIdentityComponent P.ordinary).inv_hom_id
 
 set_option backward.isDefEq.respectTransparency false in
-def pullbackCompositionComponent (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-    (g : B'' → B') (hg : ContMDiff (Model k) (Model m) ∞ g) (P : WithTarget n d G B M) :
+def pullbackCompositionComponent (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+    (g : B'' → B') (hg : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ g) (P : WithTarget n d G B M) :
     pulledBack g hg (pulledBack f hf P) ≅ pulledBack (f ∘ g) (hf.comp hg) P where
   hom := Pullback.compositionTargetMap P.ordinary.bundle f hf.continuous g hg.continuous P.target
   inv := { (Ordinary.pullbackCompositionComponent f hf g hg P.ordinary).inv with target := fun _ => rfl }
@@ -231,8 +231,8 @@ theorem pullbackRealization_id (P : WithTarget n d G B M) :
   Pullback.quotientComparison_id P.ordinary.bundle smoothAction P.target P.smooth P.equivariant
 
 set_option backward.isDefEq.respectTransparency false in
-theorem pullbackRealization_comp (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-    (g : B'' → B') (hg : ContMDiff (Model k) (Model m) ∞ g) (P : WithTarget n d G B M) :
+theorem pullbackRealization_comp (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+    (g : B'' → B') (hg : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ g) (P : WithTarget n d G B M) :
     (pullbackRealization smoothAction g hg).hom.app (pulledBack f hf P) ≫
       (SheafActionQuotient.restriction (ManifoldRealization.map g hg)).map
         ((pullbackRealization smoothAction f hf).hom.app P) ≫
@@ -246,7 +246,7 @@ theorem pullbackRealization_comp (f : B' → B) (hf : ContMDiff (Model m) (Model
   exact Pullback.quotientComparison_comp P.ordinary.bundle f hf g hg smoothAction
     P.target P.smooth P.equivariant
 
-def pulledBackRecovery (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+def pulledBackRecovery (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (R : Quotients (n := n) (B := B) smoothAction) :
     (realization smoothAction).obj (pulledBack f hf (reconstructed smoothAction R)) ≅
       (SheafActionQuotient.restriction (ManifoldRealization.map f hf)).obj R :=
@@ -254,7 +254,7 @@ def pulledBackRecovery (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
     (SheafActionQuotient.restriction (ManifoldRealization.map f hf)).mapIso (recovery smoothAction R)
 
 /-- Target reconstruction and actual base change agree by an ordinary target-preserving isomorphism. -/
-def reconstructionPullbackComponent (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+def reconstructionPullbackComponent (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (R : Quotients (n := n) (B := B) smoothAction) :
     reconstructed smoothAction ((SheafActionQuotient.restriction (ManifoldRealization.map f hf)).obj R) ≅
       pulledBack f hf (reconstructed smoothAction R) :=
@@ -262,14 +262,14 @@ def reconstructionPullbackComponent (f : B' → B) (hf : ContMDiff (Model m) (Mo
     (recovery smoothAction _ ≪≫ (pulledBackRecovery smoothAction f hf R).symm)
 
 @[simp] theorem realization_reconstructionPullbackComponent (f : B' → B)
-    (hf : ContMDiff (Model m) (Model n) ∞ f)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (R : Quotients (n := n) (B := B) smoothAction) :
     (realization smoothAction).map (reconstructionPullbackComponent smoothAction f hf R).hom =
       (recovery smoothAction ((SheafActionQuotient.restriction (ManifoldRealization.map f hf)).obj R)).hom ≫
         (pulledBackRecovery smoothAction f hf R).inv := Functor.map_preimage _ _
 
 set_option backward.isDefEq.respectTransparency false in
-theorem pulledBackRecovery_natural (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+theorem pulledBackRecovery_natural (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     {P Q : Quotients (n := n) (B := B) smoothAction} (a : P ⟶ Q) :
     (realization smoothAction).map ((pullbackFunctor f hf).map ((reconstruction smoothAction).map a)) ≫
       (pulledBackRecovery smoothAction f hf Q).hom =
@@ -292,7 +292,7 @@ theorem pulledBackRecovery_natural (f : B' → B) (hf : ContMDiff (Model m) (Mod
   simp [Category.assoc]
 
 set_option backward.isDefEq.respectTransparency false in
-def reconstructionPullback (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
+def reconstructionPullback (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) :
     SheafActionQuotient.restriction (a := (representation smoothAction).action)
       (ManifoldRealization.map f hf) ⋙ reconstruction smoothAction ≅
         reconstruction smoothAction ⋙ pullbackFunctor f hf :=

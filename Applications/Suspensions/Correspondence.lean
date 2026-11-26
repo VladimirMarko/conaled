@@ -322,7 +322,7 @@ theorem clauseResult_injective : Function.Injective (@clauseResult Primitive) :=
       | error packet => cases result <;> cases same
       | ok other => cases result <;> cases other <;> cases same <;> rfl
 
-def clauses (parameters : Parameters Primitive) (s : Memory Primitive) (env : Env Primitive)
+def Clauses (parameters : Parameters Primitive) (s : Memory Primitive) (env : Env Primitive)
     (value : Value Primitive) (alternatives : List (Pattern × Expr Primitive))
     (answer : Except (Value Primitive) (Option (Value Primitive))) (t : Memory Primitive) : Prop :=
   ∃ steps, Progress.Evaluates (step parameters) ⟨s, .clauses env alternatives value, []⟩
@@ -393,7 +393,7 @@ theorem alternatives_sound {parameters : Parameters Primitive}
     (source : Source.Alternatives
       (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
       s env value alternatives answer t) :
-    clauses parameters s env value alternatives answer t := by
+    Clauses parameters s env value alternatives answer t := by
   induction source with
   | empty => exact ⟨2, .next rfl (.done rfl)⟩
   | success clause => exact clause_resumes clause (.done rfl)
@@ -409,7 +409,7 @@ theorem alternatives_complete {parameters : Parameters Primitive}
     {s : Memory Primitive} {env : Env Primitive} {value : Value Primitive}
     {alternatives : List (Pattern × Expr Primitive)}
     {answer : Except (Value Primitive) (Option (Value Primitive))} {t : Memory Primitive}
-    (run : clauses parameters s env value alternatives answer t) :
+    (run : Clauses parameters s env value alternatives answer t) :
     Source.Alternatives
       (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
       s env value alternatives answer t := by
@@ -495,7 +495,7 @@ theorem alternatives_iff {parameters : Parameters Primitive}
     Source.Alternatives
         (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
         s env value alternatives answer t ↔
-      clauses parameters s env value alternatives answer t :=
+      Clauses parameters s env value alternatives answer t :=
   ⟨alternatives_sound, alternatives_complete⟩
 
 end Suspensions.Core.Correspondence

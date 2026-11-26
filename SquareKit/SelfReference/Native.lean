@@ -91,25 +91,25 @@ theorem no_contextual_reflection {T : Theory} (h : Consistent T)
 /-- Kripke interpretation with ordinary pointwise implication. -/
 structure Model where
   World : Type
-  access : World → World → Prop
-  transitive : ∀ {u v w}, access u v → access v w → access u w
-  atom : Nat → World → Prop
+  Access : World → World → Prop
+  transitive : ∀ {u v w}, Access u v → Access v w → Access u w
+  Atom : Nat → World → Prop
 
-def Model.holds (M : Model) : Formula → M.World → Prop
-  | .atom n, w => M.atom n w
+def Model.Holds (M : Model) : Formula → M.World → Prop
+  | .atom n, w => M.Atom n w
   | .bot, _ => False
-  | .imp P Q, w => M.holds P w → M.holds Q w
-  | .box P, w => ∀ v, M.access w v → M.holds P v
+  | .imp P Q, w => M.Holds P w → M.Holds Q w
+  | .box P, w => ∀ v, M.Access w v → M.Holds P v
 
 def Model.Satisfies (M : Model) (Γ : Context) (w : M.World) : Prop :=
-  ∀ i : Fin Γ.length, M.holds (Γ.get i) w
+  ∀ i : Fin Γ.length, M.Holds (Γ.get i) w
 
-def Model.Valid (M : Model) (P : Formula) : Prop := ∀ w, M.holds P w
+def Model.Valid (M : Model) (P : Formula) : Prop := ∀ w, M.Holds P w
 
 /-- Soundness is proved from the actual constructors, including discharge and
 closed necessitation; no semantic-validity rule is present in the syntax. -/
 theorem Derives.sound {T : Theory} (M : Model) (axioms : ∀ P, T P → M.Valid P)
-    {Γ P} (d : Derives T Γ P) : ∀ w, M.Satisfies Γ w → M.holds P w := by
+    {Γ P} (d : Derives T Γ P) : ∀ w, M.Satisfies Γ w → M.Holds P w := by
   induction d with
   | hyp i => intro w h; exact h i
   | ax a => intro w _; exact axioms _ a w

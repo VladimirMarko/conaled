@@ -8,7 +8,7 @@ open scoped ContDiff
 namespace SquareKit.SmoothAlgebra
 
 /-- Joint coefficient as a finite-coordinate operation on the concatenated tuples. -/
-def differenceCoefficient {n : ℕ} (f : Operation n) (i : Fin n) : Free (n+n) :=
+def differenceCoefficient {n : ℕ} (f : Operation n) (i : Fin n) : freeAlgebra (n+n) :=
   ⟨fun z => SmoothHadamard.coefficient f.val i
     (fun j => z (Fin.castAdd n j), fun j => z (Fin.natAdd n j)),
    (SmoothHadamard.coefficient_smooth f.property i).comp
@@ -21,8 +21,8 @@ variable {A B : Type*} [CommRing A] [Algebra ℝ A] [Structure A]
 /-- The analytic identity transported by the free-algebra universal evaluation. -/
 theorem act_difference {n : ℕ} (f : Operation n) (x y : Fin n → A) :
     act f x - act f y = ∑ i, (x i - y i) * evaluate (Fin.append x y) (differenceCoefficient f i) := by
-  have h : (pullback (fun i => projection (Fin.castAdd n i)) (show Free n from f) -
-      pullback (fun i => projection (Fin.natAdd n i)) (show Free n from f) : Free (n+n)) =
+  have h : (pullback (fun i => projection (Fin.castAdd n i)) (show freeAlgebra n from f) -
+      pullback (fun i => projection (Fin.natAdd n i)) (show freeAlgebra n from f) : freeAlgebra (n+n)) =
       ∑ i, (generator (Fin.castAdd n i) - generator (Fin.natAdd n i)) * differenceCoefficient f i := by
     apply Subtype.ext
     funext z
@@ -130,8 +130,8 @@ def homEquiv : Hom (A ⧸ I) B ≃ {h : Hom A B // ∀ a ∈ I, h a = 0} where
   right_inv h := Subtype.ext (lift_projection I _ _)
 
 /-- Presentations by ordinary ideals: generator tuples satisfying all relations. -/
-def presentationEquiv {n : ℕ} (J : Ideal (Free n)) :
-    Hom (Free n ⧸ J) B ≃ {a : Fin n → B // ∀ f ∈ J, evaluate a f = 0} :=
+def presentationEquiv {n : ℕ} (J : Ideal (freeAlgebra n)) :
+    Hom (freeAlgebra n ⧸ J) B ≃ {a : Fin n → B // ∀ f ∈ J, evaluate a f = 0} :=
   (homEquiv J).trans {
     toFun := fun h => ⟨freeEquiv n h.val, by
       change ∀ f ∈ J, evaluate (fun i => h.val (generator i)) f = 0

@@ -18,7 +18,7 @@ example : (preparedTarget (propose (initial .split) {} "pending-measured" (some 
 Here transfer scratch is smaller than the producer arena; old checked storage
 is the discriminating term, rather than an invented migration-space penalty. -/
 example : serviceCapacity .fused = 441 ∧ serviceCapacity .checked = 445 := by decide
-example : (⟨Cut.fused,FRPSpec.Migration.Kind.delay⟩ : Candidate).eligible ⟨441,2,true,true⟩ := by decide
+example : (⟨Cut.fused,FRPSpec.Migration.Kind.delay⟩ : Candidate).Eligible ⟨441,2,true,true⟩ := by decide
 example : (propose (initial .checked) ⟨441,2,true,true⟩ "capacity-separator" none
     [⟨.fused,.delay⟩]).status = .capacity := by decide
 

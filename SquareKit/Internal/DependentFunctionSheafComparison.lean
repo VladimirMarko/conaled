@@ -12,7 +12,7 @@ universe u v
 variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable (M : Model J) {n m} {Γ : Ctx n} {Δ : Ctx m}
 
-def depValue (E : Env M Γ) (t : Dep Γ) : E.carrier ⟶ Ext M.A :=
+def depValue (E : Env M Γ) (t : Dep Γ) : E.carrier ⟶ extension M.A :=
   pair M.A (evalBase M E.base t.type) (evalDep M E t)
 
 private theorem value_heq {X : Sh J} (ρ : Fin n → (X ⟶ M.B)) {b c : Base n} (h : b = c)

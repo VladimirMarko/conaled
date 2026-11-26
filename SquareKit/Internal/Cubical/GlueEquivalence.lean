@@ -52,12 +52,12 @@ variable {Γ Δ : Context.{u}} (φ : Cofibration Γ) (A : Family Γ)
 
 abbrev C := family φ A T e
 abbrev f := unglue φ A T e
-abbrev Fiber := homotopyFiber (Functor.whiskerLeft (projection A).mapElements (f φ A T e))
+abbrev fiber := homotopyFiber (Functor.whiskerLeft (projection A).mapElements (f φ A T e))
   (generic A)
 abbrev face := φ.reindex (σ ≫ projection A)
 abbrev target := (generic A).reindex σ
 
-variable {ψ : Cofibration Δ} (s : PartialSection (reindex (Fiber φ A T e) σ) ψ)
+variable {ψ : Cofibration Δ} (s : PartialSection (reindex (fiber φ A T e) σ) ψ)
 
 def partialDomain := genericFiberFst (f φ A T e) (restrictInclusion ψ ≫ σ) s.toRestricted
 
@@ -184,7 +184,7 @@ noncomputable def filled := G.fill (projection (interval Δ) ≫ σ ≫ projecti
 noncomputable def ambient := (filled φ A T e σ s E F hF G hG).reindex (endpointSub Δ true)
 
 theorem filled_face (x : (total (interval Δ)).Elements)
-    (hx : ((face φ A σ).reindex (projection (interval Δ))).full x) :
+    (hx : ((face φ A σ).reindex (projection (interval Δ))).Full x) :
     (filled φ A T e σ s E F hF G hG).val x =
     (faceTube φ A T e σ s E F hF G hG).val x hx := by
   have hu := (Cofibration.full_join (face φ A σ) ψ
@@ -193,7 +193,7 @@ theorem filled_face (x : (total (interval Δ)).Elements)
     (glueValue_left _ _ x hu hx)
 
 theorem filled_partial (x : (total (interval Δ)).Elements)
-    (hx : (ψ.reindex (projection (interval Δ))).full x) :
+    (hx : (ψ.reindex (projection (interval Δ))).Full x) :
     (filled φ A T e σ s E F hF G hG).val x =
     (partialTube φ A T e σ s).val x hx := by
   have hu := (Cofibration.full_join (face φ A σ) ψ
@@ -246,7 +246,7 @@ noncomputable def extension := genericFiberIntro (f φ A T e) σ
   (domain φ A T e σ s E F hF G hG) (resultPath φ A T e σ s E F hF G hG)
 
 theorem faceDomain_boundary (x : (restrictContext (face φ A σ)).Elements)
-    (hx : (ψ.reindex (restrictInclusion (face φ A σ))).full x) :
+    (hx : (ψ.reindex (restrictInclusion (face φ A σ))).Full x) :
     (faceDomain φ A T e σ s E F hF G hG).val x =
     ((familyIso φ A T e).hom.app ((σ ≫ projection A).mapElements.obj
       ((restrictInclusion (face φ A σ)).mapElements.obj x))
@@ -254,7 +254,7 @@ theorem faceDomain_boundary (x : (restrictContext (face φ A σ)).Elements)
   exact congrArg Sigma.fst (E.extendAlong_boundary F hF
     (G.reindex (restrictInclusion φ)) (hG.reindex _) _ (facePartial φ A T e σ s) x hx)
 
-theorem domainCompatible_boundary (x : Δ.Elements) (hx : ψ.full x) :
+theorem domainCompatible_boundary (x : Δ.Elements) (hx : ψ.Full x) :
     (domainCompatible φ A T e σ s E F hF G hG).val x =
     (compatibleReindexMap φ A T e (σ ≫ projection A)).app x
       ((familyIso φ A T e).hom.app ((σ ≫ projection A).mapElements.obj x) (s.val x hx).1) := by
@@ -320,7 +320,7 @@ theorem extension_restricted :
     (resultPath φ A T e σ s E F hF G hG) (restrictInclusion ψ) s.toRestricted
     (domain_boundary φ A T e σ s E F hF G hG) (resultPath_boundary φ A T e σ s E F hF G hG)
 
-theorem extension_boundary (x : Δ.Elements) (hx : ψ.full x) :
+theorem extension_boundary (x : Δ.Elements) (hx : ψ.Full x) :
     (extension φ A T e σ s E F hF G hG).val x = s.val x hx :=
   congrArg (fun t => t.val ((restrictContext ψ).elementsMk x.obj ⟨x.val,hx⟩))
     (extension_restricted φ A T e σ s E F hF G hG)

@@ -12,12 +12,12 @@ universe u v w
 variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {Γ : Sheaf J (Type (max u v))}
 
-abbrev sumFamily (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :=
+abbrev sumFamily (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :=
   total A.family (totalDiagram A.family (𝟭 Γ.obj.Elements) ⋙ B.family)
 
 /-- Flattening the two actual dependent pairs preserves their restrictions. -/
-def flatten (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :
-    SplitPresheaf.Ext (sumFamily A B) ≅ (SplitSheaf.Ext B).obj where
+def flatten (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :
+    SplitPresheaf.extension (sumFamily A B) ≅ (SplitSheaf.extension B).obj where
   hom.app U := ↾fun x => ⟨⟨x.1,x.2.1⟩,x.2.2⟩
   hom.naturality {U V} f := by
     apply ConcreteCategory.hom_ext
@@ -31,15 +31,15 @@ def flatten (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :
   hom_inv_id := rfl
   inv_hom_id := rfl
 
-def sumType (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) : SplitSheaf.Ty Γ where
+def sumType (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) : SplitSheaf.Ty Γ where
   family := sumFamily A B
-  isSheaf := (Presheaf.isSheaf_of_iso_iff (flatten A B)).2 (SplitSheaf.Ext B).property
+  isSheaf := (Presheaf.isSheaf_of_iso_iff (flatten A B)).2 (SplitSheaf.extension B).property
 
 abbrev argument (A : SplitSheaf.Ty Γ) := SplitSheaf.elementSheaf A
-abbrev result (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :=
+abbrev result (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :=
   SplitSheaf.elementSheaf (sumType A B)
 
-def projection (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) : result A B ⟶ argument A :=
+def projection (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) : result A B ⟶ argument A :=
   ⟨Functor.whiskerLeft (opOpEquivalence Γ.obj.Elements).functor
     (display A.family (totalDiagram A.family (𝟭 Γ.obj.Elements) ⋙ B.family))⟩
 
@@ -63,29 +63,29 @@ theorem equalizer_isSheaf {D : Type*} [Category D] {K : GrothendieckTopology D}
   change f.hom.app _ (X.obj.map k.op x) = g.hom.app _ (X.obj.map k.op x) at hk
   simpa only [NatTrans.naturality_apply] using hk
 
-abbrev functions (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :=
+abbrev functions (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :=
   SheafFunction.exponential (argument A) (result A B)
 abbrev endomorphisms (A : SplitSheaf.Ty Γ) := SheafFunction.exponential (argument A) (argument A)
 
-def post (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :
+def post (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :
     functions A B ⟶ endomorphisms A := (ihom (argument A)).map (projection A B)
 
-def identity (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :
+def identity (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :
     functions A B ⟶ endomorphisms A :=
   ⟨{ app _ := ↾fun _ => Functor.HomObj.id _ }⟩
 
 /-- Natural functions whose projection is the actual input are dependent sections. -/
-abbrev sectionData (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :=
+abbrev sectionData (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :=
   equalizerData (post A B) (identity A B)
 
-abbrev sections (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :
+abbrev sections (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :
     SheafSlice.ElementSheaves Γ :=
   ⟨(sectionData A B).toFunctor,
     (isSheaf_iff_isSheaf_of_type _ _).2 (equalizer_isSheaf (post A B) (identity A B))⟩
 
 
 /-- A dependent function gives a function into the dependent total with fixed input. -/
-def functionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+def functionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (t : Value A.family B.family x) :
     (functions A B).obj.obj (op (op x)) where
   app y f := ↾fun a => ⟨a, evaluate A.family B.family y.unop.unop
@@ -101,14 +101,14 @@ def functionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
     rw [restrict_comp] at hn
     exact hn.symm
 
-def sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+def sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (t : Value A.family B.family x) :
     (sections A B).obj.obj (op (op x)) := ⟨functionValue A B x t, by
   apply Functor.HomObj.ext
   funext y f
   rfl⟩
 
-theorem sectionValue_natural (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+theorem sectionValue_natural (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     {x y : Γ.obj.Elements} (f : x ⟶ y) (t : Value A.family B.family x) :
     (sections A B).obj.map f.op.op (sectionValue A B x t) =
       sectionValue A B y (restrict A.family B.family f t) := by
@@ -125,7 +125,7 @@ theorem sectionValue_natural (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitShe
     (restrict_comp A.family B.family f g.unop.unop t).symm
 
 def rawRead {D : Type*} [Category D] {F : D ⥤ Type w} (B : SplitPresheaf.Ty F)
-    {σ : F ⟶ F} (k : F ⟶ SplitPresheaf.Ext B) (h : k ≫ SplitPresheaf.p B = σ) :
+    {σ : F ⟶ F} (k : F ⟶ SplitPresheaf.extension B) (h : k ≫ SplitPresheaf.p B = σ) :
     SplitPresheaf.Tm (SplitPresheaf.tySub B σ) :=
   SplitPresheaf.transport (congrArg (SplitPresheaf.tySub B) h)
     (SplitPresheaf.tmSub (SplitPresheaf.q B) k)
@@ -134,10 +134,10 @@ theorem rawRead_pair {D : Type*} [Category D] {F : D ⥤ Type w} (B : SplitPresh
     (t : SplitPresheaf.Tm B) : rawRead B (SplitPresheaf.pair B (𝟙 F) t) rfl = t := rfl
 
 /-- A section of the exponential equalizer supplies values on the restriction diagram. -/
-def valueMap (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+def valueMap (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (h : (sections A B).obj.obj (op (op x))) :
     restrictions Γ.obj x ⋙ A.family ⟶
-      SplitPresheaf.Ext (diagram A.family B.family (restrictions Γ.obj x)).2 where
+      SplitPresheaf.extension (diagram A.family B.family (restrictions Γ.obj x)).2 where
   app k := h.val.app (op (op ((restrictions Γ.obj x).obj k))) (along Γ.obj k.hom x.val).op.op
   naturality {k l} f := by
     have hn := h.val.naturality ((restrictions Γ.obj x).map f).op.op (along Γ.obj k.hom x.val).op.op
@@ -151,7 +151,7 @@ def valueMap (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
     rw [he] at hn
     exact hn
 
-theorem valueMap_display (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+theorem valueMap_display (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (h : (sections A B).obj.obj (op (op x))) :
     valueMap A B x h ≫ SplitPresheaf.p (diagram A.family B.family (restrictions Γ.obj x)).2 = 𝟙 _ := by
   apply NatTrans.ext
@@ -159,16 +159,16 @@ theorem valueMap_display (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.E
   exact congrArg (fun t => t.app (op (op ((restrictions Γ.obj x).obj k)))
     (along Γ.obj k.hom x.val).op.op) h.property
 
-def diagramValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+def diagramValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (h : (sections A B).obj.obj (op (op x))) : Value A.family B.family x :=
   rawRead _ (valueMap A B x h) (valueMap_display A B x h)
 
 
 theorem pair_rawRead {D : Type*} [Category D] {F : D ⥤ Type w} (B : SplitPresheaf.Ty F)
-    {σ : F ⟶ F} (k : F ⟶ SplitPresheaf.Ext B) (h : k ≫ SplitPresheaf.p B = σ) :
+    {σ : F ⟶ F} (k : F ⟶ SplitPresheaf.extension B) (h : k ≫ SplitPresheaf.p B = σ) :
     SplitPresheaf.pair B σ (rawRead B k h) = k := by cases h; rfl
 
-theorem valueMap_sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+theorem valueMap_sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (t : Value A.family B.family x) :
     valueMap A B x (sectionValue A B x t) =
       SplitPresheaf.pair (diagram A.family B.family (restrictions Γ.obj x)).2 (𝟙 _) t := by
@@ -181,20 +181,20 @@ theorem valueMap_sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSh
   apply heq_of_eq
   exact congrFun (eq_of_heq (evaluate_restrict_heq A.family B.family (along Γ.obj k.hom x.val) t)) a
 
-@[simp] theorem diagramValue_sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+@[simp] theorem diagramValue_sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (t : Value A.family B.family x) :
     diagramValue A B x (sectionValue A B x t) = t := by
   unfold diagramValue
   simp only [valueMap_sectionValue]
   rfl
 
-theorem homApp_heq (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+theorem homApp_heq (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     {x y y' : Γ.obj.Elements} (h : (functions A B).obj.obj (op (op x)))
     (hy : y = y') {f : x ⟶ y} {g : x ⟶ y'} (hf : HEq f g) :
     HEq (h.app (op (op y)) f.op.op) (h.app (op (op y')) g.op.op) := by
   cases hy; cases hf; rfl
 
-theorem valueMap_injective (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+theorem valueMap_injective (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) : Function.Injective (valueMap A B x) := by
   intro h k hk
   apply Subtype.ext
@@ -208,7 +208,7 @@ theorem valueMap_injective (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf
   exact eq_of_heq ((homApp_heq A B h.val hy hf).symm.trans
     ((heq_of_eq hh).trans (homApp_heq A B k.val hy hf)))
 
-@[simp] theorem sectionValue_diagramValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A))
+@[simp] theorem sectionValue_diagramValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (h : (sections A B).obj.obj (op (op x))) :
     sectionValue A B x (diagramValue A B x h) = h := by
   apply valueMap_injective A B x
@@ -216,7 +216,7 @@ theorem valueMap_injective (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf
   exact pair_rawRead _ _ _
 
 /-- The compatible-function formula is isomorphic to a proved sheaf equalizer. -/
-def diagramIso (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :
+def diagramIso (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) :
     ElementSheaf.presheaf Γ.obj (pi A.family B.family) ≅ (sections A B).obj :=
   NatIso.ofComponents (fun x => {
     hom := ↾sectionValue A B x.unop.unop
@@ -226,7 +226,7 @@ def diagramIso (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) :
     (fun f => by apply ConcreteCategory.hom_ext; intro t; exact (sectionValue_natural A B f.unop.unop t).symm)
 
 /-- The total dependent-function presheaf is a sheaf, by the element-site equivalence. -/
-def piType (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.Ext A)) : SplitSheaf.Ty Γ where
+def piType (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A)) : SplitSheaf.Ty Γ where
   family := pi A.family B.family
   isSheaf := (SheafSlice.totalSheaf Γ
     ⟨ElementSheaf.presheaf Γ.obj (pi A.family B.family),

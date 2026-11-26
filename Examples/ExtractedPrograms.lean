@@ -43,34 +43,34 @@ theorem sort_correct (xs : List Nat) :
   Examples.InsertionSorting.insertion_sort_correct xs
 
 /-- All later interfaces call the same Boolean-only insertion adapter. -/
-abbrev ins_int {W : Type u} (leb : W → W → Bool) : W → List W → List W :=
+abbrev decodedInsert {W : Type u} (leb : W → W → Bool) : W → List W → List W :=
   DecodedInsertion.insert leb
 
-abbrev sort_int {W : Type u} (leb : W → W → Bool) : List W → List W :=
+abbrev decodedSort {W : Type u} (leb : W → W → Bool) : List W → List W :=
   DecodedInsertion.sort leb
 
-abbrev sorted {W : Type u} (decode : W → Int) : List W → Prop :=
+abbrev Sorted {W : Type u} (decode : W → Int) : List W → Prop :=
   DecodedInsertion.Sorted decode
 
-theorem sort_int_correct {W : Type u} (decode : W → Int) (leb : W → W → Bool)
+theorem decodedSort_correct {W : Type u} (decode : W → Int) (leb : W → W → Bool)
     (hle : ∀ a b, leb a b = true ↔ decode a ≤ decode b) (xs : List W) :
-    xs.Perm (sort_int leb xs) ∧ sorted decode (sort_int leb xs) :=
+    xs.Perm (decodedSort leb xs) ∧ Sorted decode (decodedSort leb xs) :=
   DecodedInsertion.sort_correct decode leb hle xs
 
-theorem sort_int_stable {W : Type u} (decode : W → Int) (leb : W → W → Bool)
+theorem decodedSort_stable {W : Type u} (decode : W → Int) (leb : W → W → Bool)
     (hle : ∀ a b, leb a b = true ↔ decode a ≤ decode b) (xs : List W) :
-    StableSort decode xs (sort_int leb xs) :=
+    StableSort decode xs (decodedSort leb xs) :=
   DecodedInsertion.sort_spec decode leb hle xs
 
 theorem nat_sort_adapter (xs : List Nat) :
-    sort_int (fun a b : Nat => decide (a ≤ b)) xs = sort xs := by
+    decodedSort (fun a b : Nat => decide (a ≤ b)) xs = sort xs := by
   change DecodedInsertion.sort (fun a b : Nat => decide (a ≤ b)) xs = sort xs
   rw [DecodedInsertion.sort_eq_insertionOn (fun n : Nat => (n : Int)) _
     (by intro a b; simp)]
   simp only [insertionOn, Int.ofNat_le, sort, Examples.InsertionSorting.sort]
 
-abbrev insZ : Int → List Int → List Int := ins_int intLeb
-abbrev sortZ : List Int → List Int := sort_int intLeb
+abbrev insZ : Int → List Int → List Int := decodedInsert intLeb
+abbrev sortZ : List Int → List Int := decodedSort intLeb
 
 theorem insZ_cons (a b : Int) (xs : List Int) :
     insZ a (b :: xs) = if intLeb a b then a :: b :: xs else b :: insZ a xs :=
@@ -80,15 +80,15 @@ theorem sortZ_cons (a : Int) (xs : List Int) : sortZ (a :: xs) = insZ a (sortZ x
   DecodedInsertion.sort_cons intLeb a xs
 
 /-- The chapter's prose requires this unbounded-Int correctness result too. -/
-theorem sortZ_correct (xs : List Int) : xs.Perm (sortZ xs) ∧ sorted id (sortZ xs) :=
-  sort_int_correct id intLeb intLeb_true_iff xs
+theorem sortZ_correct (xs : List Int) : xs.Perm (sortZ xs) ∧ Sorted id (sortZ xs) :=
+  decodedSort_correct id intLeb intLeb_true_iff xs
 
 theorem sortZ_stable (xs : List Int) : StableSort id xs (sortZ xs) :=
-  sort_int_stable id intLeb intLeb_true_iff xs
+  decodedSort_stable id intLeb intLeb_true_iff xs
 
 theorem sort_decode {W : Type u} (decode : W → Int) (leb : W → W → Bool)
     (hle : ∀ a b, leb a b = true ↔ decode a ≤ decode b) (xs : List W) :
-    (sort_int leb xs).map decode = sortZ (xs.map decode) :=
+    (decodedSort leb xs).map decode = sortZ (xs.map decode) :=
   DecodedInsertion.map_decode_sort decode leb hle xs
 
 theorem sortZ_empty : sortZ [] = [] := DecodedInsertion.sort_nil intLeb
@@ -101,7 +101,7 @@ theorem sortZ_signed_repeats : sortZ [-3, 2, -3, 0, 1] = [-3, -3, 0, 1, 2] := rf
 
 theorem sortZ_signed_repeats_contract :
     ([-3, 2, -3, 0, 1] : List Int).Perm [-3, -3, 0, 1, 2] ∧
-      sorted id [-3, -3, 0, 1, 2] := by
+      Sorted id [-3, -3, 0, 1, 2] := by
   simpa only [sortZ_signed_repeats] using sortZ_correct [-3, 2, -3, 0, 1]
 
 /-- Distinct originals can share a decoded key without breaking sorting. -/
@@ -112,39 +112,39 @@ theorem constant_decoder_not_injective :
   cases impossible
 
 theorem constant_decoder_preserves_originals :
-    sort_int (fun _ _ : Bool => true) [false, true, false] = [false, true, false] ∧
+    decodedSort (fun _ _ : Bool => true) [false, true, false] = [false, true, false] ∧
       StableSort (fun _ : Bool => (0 : Int)) [false, true, false]
-        (sort_int (fun _ _ : Bool => true) [false, true, false]) :=
+        (decodedSort (fun _ _ : Bool => true) [false, true, false]) :=
   DecodedInsertion.sort_constant 0 [false, true, false]
 
 theorem constant_decoder_source_contract (xs : List Bool) :
-    xs.Perm (sort_int (fun _ _ : Bool => true) xs) ∧
-      sorted (fun _ : Bool => (0 : Int)) (sort_int (fun _ _ : Bool => true) xs) :=
-  sort_int_correct (fun _ => 0) (fun _ _ => true) (by intros; simp) xs
+    xs.Perm (decodedSort (fun _ _ : Bool => true) xs) ∧
+      Sorted (fun _ : Bool => (0 : Int)) (decodedSort (fun _ _ : Bool => true) xs) :=
+  decodedSort_correct (fun _ => 0) (fun _ _ => true) (by intros; simp) xs
 
 /-- Three arbitrary payloads distinguish the earlier and later equal-key records. -/
 theorem labelled_payloads {V : Type v} (first middle last : V) :
-    sort_int (fun a b : Int × V => intLeb a.1 b.1)
+    decodedSort (fun a b : Int × V => intLeb a.1 b.1)
       [(2, first), (1, middle), (2, last)] = [(1, middle), (2, first), (2, last)] ∧
       StableSort Prod.fst [(2, first), (1, middle), (2, last)]
-        (sort_int (fun a b : Int × V => intLeb a.1 b.1)
+        (decodedSort (fun a b : Int × V => intLeb a.1 b.1)
           [(2, first), (1, middle), (2, last)]) := by
   constructor
-  · simp [sort_int, DecodedInsertion.sort_cons, DecodedInsertion.sort_nil,
+  · simp [decodedSort, DecodedInsertion.sort_cons, DecodedInsertion.sort_nil,
       DecodedInsertion.insert_cons, DecodedInsertion.insert_nil, intLeb]
-  · exact sort_int_stable Prod.fst _ (fun a b => intLeb_true_iff a.1 b.1) _
+  · exact decodedSort_stable Prod.fst _ (fun a b => intLeb_true_iff a.1 b.1) _
 
 theorem word_sort_correct {w : Nat} (xs : List (BitVec w)) :
-    xs.Perm (sort_int wordLeb xs) ∧ sorted BitVec.toInt (sort_int wordLeb xs) :=
-  sort_int_correct BitVec.toInt wordLeb wordLeb_true_iff xs
+    xs.Perm (decodedSort wordLeb xs) ∧ Sorted BitVec.toInt (decodedSort wordLeb xs) :=
+  decodedSort_correct BitVec.toInt wordLeb wordLeb_true_iff xs
 
 theorem word_sort_decode {w : Nat} (xs : List (BitVec w)) :
-    (sort_int wordLeb xs).map BitVec.toInt = sortZ (xs.map BitVec.toInt) :=
+    (decodedSort wordLeb xs).map BitVec.toInt = sortZ (xs.map BitVec.toInt) :=
   DecodedInsertion.word_decode_sort xs
 
 /-- This observation uses signed minimum, maximum, negative repeats and zero. -/
 theorem four_bit_signed_sort :
-    (sort_int wordLeb [BitVec.ofInt 4 (-1), BitVec.ofInt 4 7, BitVec.ofInt 4 (-8),
+    (decodedSort wordLeb [BitVec.ofInt 4 (-1), BitVec.ofInt 4 7, BitVec.ofInt 4 (-8),
       BitVec.ofInt 4 0, BitVec.ofInt 4 (-1)]).map BitVec.toInt = [-8, -1, -1, 0, 7] := by
   rw [word_sort_decode]
   decide
@@ -152,11 +152,11 @@ theorem four_bit_signed_sort :
 theorem four_bit_original_permutation :
     ([BitVec.ofInt 4 (-1), BitVec.ofInt 4 7, BitVec.ofInt 4 (-8),
       BitVec.ofInt 4 0, BitVec.ofInt 4 (-1)]).Perm
-      (sort_int wordLeb [BitVec.ofInt 4 (-1), BitVec.ofInt 4 7, BitVec.ofInt 4 (-8),
+      (decodedSort wordLeb [BitVec.ofInt 4 (-1), BitVec.ofInt 4 7, BitVec.ofInt 4 (-8),
         BitVec.ofInt 4 0, BitVec.ofInt 4 (-1)]) :=
   (word_sort_correct _).1
 
-theorem zero_width_sort (xs : List (BitVec 0)) : sort_int wordLeb xs = xs := by
+theorem zero_width_sort (xs : List (BitVec 0)) : decodedSort wordLeb xs = xs := by
   apply DecodedInsertion.sort_eq_self_of_sorted BitVec.toInt wordLeb wordLeb_true_iff
   apply (DecodedInsertion.sorted_iff_keySorted BitVec.toInt xs).mpr
   apply List.pairwise_of_forall_mem_list
@@ -176,15 +176,15 @@ theorem word_decoder_not_surjective (w : Nat) :
   fun h => word_upper_bound_unrepresentable w (h _)
 
 theorem int64_sort_correct (xs : List Int64) :
-    xs.Perm (sort_int int64Leb xs) ∧ sorted Int64.toInt (sort_int int64Leb xs) :=
-  sort_int_correct Int64.toInt int64Leb int64Leb_true_iff xs
+    xs.Perm (decodedSort int64Leb xs) ∧ Sorted Int64.toInt (decodedSort int64Leb xs) :=
+  decodedSort_correct Int64.toInt int64Leb int64Leb_true_iff xs
 
 theorem int64_sort_decode (xs : List Int64) :
-    (sort_int int64Leb xs).map Int64.toInt = sortZ (xs.map Int64.toInt) :=
+    (decodedSort int64Leb xs).map Int64.toInt = sortZ (xs.map Int64.toInt) :=
   DecodedInsertion.int64_decode_sort xs
 
 theorem int64_signed_endpoints_sort :
-    (sort_int int64Leb [Int64.ofInt ((2 : Int) ^ 63 - 1), Int64.ofInt 0,
+    (decodedSort int64Leb [Int64.ofInt ((2 : Int) ^ 63 - 1), Int64.ofInt 0,
       Int64.ofInt (-(2 : Int) ^ 63), Int64.ofInt (-1)]).map Int64.toInt =
       [-(2 : Int) ^ 63, -1, 0, (2 : Int) ^ 63 - 1] := by
   rw [int64_sort_decode]

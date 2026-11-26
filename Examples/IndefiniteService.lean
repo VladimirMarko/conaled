@@ -71,16 +71,16 @@ example (input : Stream Bool) (deadline : Nat) :
 
 /-- Another finite representation retains a redundant complement bit. -/
 abbrev redundant := FRPSpec.MigrationPair.redundant
-abbrev related := FRPSpec.MigrationPair.related
+abbrev Related := FRPSpec.MigrationPair.Related
 
-theorem related_step (x u : Bool) (v : Bool × Bool) (h : related u v) :
+theorem related_step (x u : Bool) (v : Bool × Bool) (h : Related u v) :
     (delay.machine.step (x,u)).1 = (redundant.machine.step (x,v)).1 ∧
-      related (delay.machine.step (x,u)).2 (redundant.machine.step (x,v)).2 :=
+      Related (delay.machine.step (x,u)).2 (redundant.machine.step (x,v)).2 :=
   FRPSpec.MigrationPair.related_step x u v h
 
 theorem redundant_output (input : Stream Bool) :
     ∀ n, output delay.machine input n = output redundant.machine input n :=
-  (delay.transport redundant.machine Eq related Eq rfl
+  (delay.transport redundant.machine Eq Related Eq rfl
     (by intro x y u v h; subst y; exact related_step x u v)
     input input (fun _ => rfl)).2
 
@@ -88,7 +88,7 @@ theorem redundant_output (input : Stream Bool) :
 Operational work/temporary storage are separately provided by redundant.service. -/
 example (input : Stream Bool) :
     ∀ n, Program.retained (state redundant.machine input n) ≤ 2 := by
-  exact delay.transport_bound redundant.machine related rfl related_step
+  exact delay.transport_bound redundant.machine Related rfl related_step
     Program.retained (fun n => 2*n) (fun _ _ h => Nat.mul_le_mul_left 2 h)
     (fun _ _ _ => Nat.le_refl _) input
 

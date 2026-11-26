@@ -57,7 +57,7 @@ theorem density_process (D q : Nat) (s : Frontier.State Nat α) (m : Message Nat
     (hv : s.Valid) (hs : Density D s.log) (hm : Density D m.packet) :
     Density D (crop q (process s m)).log := by
   apply density_crop
-  by_cases hw : windowValid s m.frontier m.packet
+  by_cases hw : WindowValid s m.frontier m.packet
   · intro t
     simp only [process,advance,ite_eq_left hw,Option.getD_some]
     have split : atTime t (s.log ++ m.packet) = atTime t s.log + atTime t m.packet := by

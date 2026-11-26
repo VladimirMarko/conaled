@@ -141,7 +141,7 @@ literal local term value over any supplied matching context.
 
 `sectionTotalMatchingEvaluation` compares actual evaluation with this descended
 section as a whole functor. It applies the existing typed section substitution
-and whole-functor substitution theorem. `familyEvaluation_termComparison`
+and whole-functor substitution theorem. `familyEvaluationTermComparison`
 packages the natural comparison and exact fiber endpoint equality through a
 generic record. A direct concrete endpoint proof exceeded the default kernel
 budget; the packaged proof checks without increasing limits. The consumer

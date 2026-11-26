@@ -58,8 +58,8 @@ noncomputable def algebra : Algebra signature where
   operation
     | .inl op => Source.operation op
     | .inr op => extraOperation op
-  predicate
-    | .inl p => Source.predicate p
+  Predicate
+    | .inl p => Source.Predicate p
     | .inr p => nomatch p
 
 @[simp] theorem lift_eval (Γ Δ : Context.{u}) (A : Family Γ) (σ : Δ ⟶ Γ) :

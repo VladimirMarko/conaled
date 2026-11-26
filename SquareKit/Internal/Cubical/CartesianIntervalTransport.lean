@@ -83,7 +83,7 @@ variable {Γ Δ : Context.{u}} {A B : Family Γ} {f : A ⟶ B} (L : MapLifting f
 
 theorem liftPath_boundary (σ : Δ ⟶ Γ) (a : Term (reindex A σ)) (b : Term (reindex B σ))
     (p : Term (homogeneousPath (reindex B σ) (Term.map (Functor.whiskerLeft σ.mapElements f) a) b))
-    (x : (total (interval Δ)).Elements) (hx : (intervalFace Δ false).holds x) :
+    (x : (total (interval Δ)).Elements) (hx : (intervalFace Δ false).Holds x) :
     f.app ((projection (interval Δ) ≫ σ).mapElements.obj x)
       ((endpointSection (intervalCoefficient (reindex A σ)) false a).val x hx) = (pathApp p).val x := by
   rcases x with @⟨I,γ,r⟩
@@ -146,7 +146,7 @@ noncomputable def targetFull : Term (Homotopy.fiber (𝟙 B) b) :=
 noncomputable abbrev fullA := Homotopy.fiberFstOver (𝟙 B) b (𝟙 Γ) (targetFull F hF b z)
 noncomputable abbrev fullP := Homotopy.fiberPath (𝟙 B) b (targetFull F hF b z)
 
-theorem targetFull_boundary (x : Γ.Elements) (hx : φ.holds x) :
+theorem targetFull_boundary (x : Γ.Elements) (hx : φ.Holds x) :
     (targetFull F hF b z).val x = (targetPartial b z).val x hx :=
   (identityFiberContractible F hF b).extend_boundary
     (Homotopy.fiberFilling F hF F hF (𝟙 B) b)
@@ -171,7 +171,7 @@ noncomputable def partialLift : PartialSection (intervalCoefficient A) (φ.reind
 
 
 theorem partialLift_map (x : (total (interval Γ)).Elements)
-    (hx : (φ.reindex (projection (interval Γ))).holds x) :
+    (hx : (φ.reindex (projection (interval Γ))).Holds x) :
     f.app ((projection (interval Γ)).mapElements.obj x) ((partialLift L b z).val x hx) =
       (pathApp (fullP F hF b z)).val x := by
   let y := (restrictContext (φ.reindex (projection (interval Γ)))).elementsMk x.obj ⟨x.val,hx⟩
@@ -215,7 +215,7 @@ theorem extend_restricted : Term.reindex (extend L F hF b z) (restrictInclusion 
     (homogeneousReindex (finalP L F hF b z) (restrictInclusion φ)) (localP b z) (finalA_boundary L F hF b z) (heq_of_eq (fullP_boundary F hF b z))).trans ?_
   exact Homotopy.fiberIntroOver_eta f b (restrictInclusion φ) z.toRestricted
 
-theorem extend_boundary (x : Γ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Γ.Elements) (hx : φ.Holds x) :
     (extend L F hF b z).val x = z.val x hx :=
   congrArg (fun t => t.val ((restrictContext φ).elementsMk x.obj ⟨x.val,hx⟩)) (extend_restricted L F hF b z)
 
@@ -288,7 +288,7 @@ noncomputable def partialPath : PartialSection (homogeneousPath A (Term.map j (n
     (Term.map j (newB (f := f) j F a z)) a (restrictInclusion φ)).inv (localAdjusted j hj F hF a z))
 
 theorem partialPath_body (x : (total (interval Γ)).Elements)
-    (hx : (φ.reindex (projection (interval Γ))).holds x) :
+    (hx : (φ.reindex (projection (interval Γ))).Holds x) :
     (partialPath j hj F hF a z).pathApp.val x hx =
     (pathApp (localP j a z)).val ((restrictedInterval φ).mapElements.obj
       ((restrictContext (φ.reindex (projection (interval Γ)))).elementsMk x.obj ⟨x.val,hx⟩)) := by
@@ -297,7 +297,7 @@ theorem partialPath_body (x : (total (interval Γ)).Elements)
     (𝟙 _) x.val.2
 
 include hj hF in
-theorem boundary_map (x : (total (interval Γ)).Elements) (hx : (pathBoundaryFace φ).holds x) :
+theorem boundary_map (x : (total (interval Γ)).Elements) (hx : (pathBoundaryFace φ).Holds x) :
     f.app ((projection (interval Γ)).mapElements.obj x) ((partialPath j hj F hF a z).pathBoundary.val x hx) =
       (targetLine (f := f) j F a z).val x := by
   rcases hx with hφ | h₀ | h₁
@@ -360,7 +360,7 @@ theorem extend_restricted : Term.reindex (extend L j hj F hF a z) (restrictInclu
   exact hb.trans (((partialPath j hj F hF a z).pathBoundary_old ((liftSub (interval Γ) (restrictInclusion φ)).mapElements.obj x) _ x.val.1.property).trans
       (partialPath_body j hj F hF a z ((liftSub (interval Γ) (restrictInclusion φ)).mapElements.obj x) x.val.1.property))
 
-theorem extend_boundary (x : Γ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Γ.Elements) (hx : φ.Holds x) :
     (extend L j hj F hF a z).val x = z.val x hx :=
   congrArg (fun t => t.val ((restrictContext φ).elementsMk x.obj ⟨x.val,hx⟩)) (extend_restricted L j hj F hF a z)
 
@@ -419,7 +419,7 @@ theorem evaluationLift_boundary (F : Filling A) (hF : F.Lawful) (r : Term (inter
     (a : PartialSection (reindex (pi (interval Γ) A) σ) φ)
     (b : Term (reindex (reindex A (graph r)) σ))
     (h : ∀ x hx, (evaluate r).app (σ.mapElements.obj x) (a.val x hx) = b.val x)
-    (x : Δ.Elements) (hx : φ.holds x) : (evaluationLift F r σ φ a b h).val x = a.val x hx := by
+    (x : Δ.Elements) (hx : φ.Holds x) : (evaluationLift F r σ φ a b h).val x = a.val x hx := by
   let e := piReindexIso (interval Γ) A σ
   have hp : e.hom.app x ((evaluationLift F r σ φ a b h).val x) = e.hom.app x (a.val x hx) := by
     refine (e.inv_hom_id_app_apply x _).trans ?_
@@ -466,7 +466,7 @@ variable {Γ Δ : Context.{u}} {B : Family (total (interval Γ))}
 open FunctionFilling
 def argument (p : total (interval Δ) ⟶ Γ) :
     Term (reindex (interval Γ) (argumentPath (A := interval Γ) p)) :=
-  Term.reindex (generic (reindex (interval Γ) p)) (projection (interval (Args (interval Γ) p)))
+  Term.reindex (generic (reindex (interval Γ) p)) (projection (interval (argumentContext (interval Γ) p)))
 
 theorem argument_target (p : total (interval Δ) ⟶ Γ) :
     Term.reindex (argument p) (graph (target (A := interval Γ) p)) = generic (reindex (interval Γ) p) := rfl
@@ -489,8 +489,8 @@ theorem fill_normalize (G : Filling B)
 
 theorem body_tube (G : Filling B) (hG : G.Lawful)
     (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ))
-    (b : OpenBox (reindex (pi (interval Γ) B) p) φ r) (z : (Args (interval Γ) p).Elements)
-    (hz : φ.holds ((argumentProjection p).mapElements.obj z)) :
+    (b : OpenBox (reindex (pi (interval Γ) B) p) φ r) (z : (argumentContext (interval Γ) p).Elements)
+    (hz : φ.Holds ((argumentProjection p).mapElements.obj z)) :
     (body G p φ r b).val z =
       (b.tube.val ((projection (reindex (interval Γ) p)).mapElements.obj z) hz).val (𝟙 _) z.val.2 := by
   have hc := Filling.comp_tube hG (pair (argumentPath p) (argument p))
@@ -514,7 +514,7 @@ set_option backward.isDefEq.respectTransparency false in
 theorem fill_tube (G : Filling B) (hG : G.Lawful)
     (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ))
     (b : OpenBox (reindex (pi (interval Γ) B) p) φ r) (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (fill G p φ r b).val x = b.tube.val x hx := by
   apply ((piReindexIso (interval Γ) B p).app x).toEquiv.injective
   change (Term.map (piReindex (interval Γ) B p) (fill G p φ r b)).val x = _

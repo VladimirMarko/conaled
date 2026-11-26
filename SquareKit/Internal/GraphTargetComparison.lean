@@ -69,10 +69,10 @@ theorem term_comparison (M : Interpretation Graph.Arrow) (ρ : Internal.Env M Γ
   | app f t ih => simp only [translateTerm, Term.eval, Internal.Term.eval, ih]
 
 theorem formula_comparison (M : Interpretation Graph.Arrow) (ρ : Internal.Env M Γ)
-    (p : SourceFormula Γ) : (translateFormula p).eval M ρ ↔ p.eval M ρ := by
+    (p : SourceFormula Γ) : (translateFormula p).Eval M ρ ↔ p.Eval M ρ := by
   induction p with
   | atom r => exact nomatch r
-  | eq a b => simp only [translateFormula, Formula.eval, Internal.FormulaCore.eval,
+  | eq a b => simp only [translateFormula, Formula.Eval, Internal.FormulaCore.Eval,
       term_comparison]
   | conj p q hp hq => exact and_congr (hp ρ) (hq ρ)
   | ex p ih => exact exists_congr (fun x => ih (ρ.extend x))
@@ -112,7 +112,7 @@ theorem translate_derivation (d : Internal.Derives p q) :
 /-- Equality is of proofs of the same native proposition, not witness data. -/
 theorem proof_comparison (M : Interpretation Graph.Arrow) (ρ : Internal.Env M Γ)
     {p q : SourceFormula Γ} (d : Internal.Derives p q)
-    (k : Code (translateFormula p) (translateFormula q)) (h : p.eval M ρ) :
+    (k : Code (translateFormula p) (translateFormula q)) (h : p.Eval M ρ) :
     (formula_comparison M ρ q).mp
       (sound M k ρ ((formula_comparison M ρ p).mpr h)) = Internal.sound M d ρ h :=
   Subsingleton.elim _ _

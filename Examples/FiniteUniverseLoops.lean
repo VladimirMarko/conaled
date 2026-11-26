@@ -71,7 +71,7 @@ theorem twoPath_permutation {S : Type} {p q : Term (loops S)}
   exact congrArg (fun t => t.val DiscreteEquivalences.point)
     (observe_path (transportTwoPath (code S) (code S) h (nativeInput s)))
 
-noncomputable def samePermutation_path {S : Type} (p q : Term (loops S))
+noncomputable def samePermutationPath {S : Type} (p q : Term (loops S))
     (h : loopPermutation p = loopPermutation q) : Term (homogeneousPath (loops S) p q) := by
   have hq : Term (homogeneousPath (loops S) (equivalencePath (loopPermutation p)) q) :=
     h.symm ▸ classifyLoop q
@@ -82,7 +82,7 @@ noncomputable def samePermutation_path {S : Type} (p q : Term (loops S))
 without introducing a quotient or claiming a native-family isomorphism. -/
 theorem twoPath_iff_permutation {S : Type} (p q : Term (loops S)) :
     Nonempty (Term (homogeneousPath (loops S) p q)) ↔ loopPermutation p = loopPermutation q :=
-  ⟨fun ⟨h⟩ => twoPath_permutation h, fun h => ⟨samePermutation_path p q h⟩⟩
+  ⟨fun ⟨h⟩ => twoPath_permutation h, fun h => ⟨samePermutationPath p q h⟩⟩
 
 /-- Native family classification still retains the entire equivalence witness. -/
 noncomputable def booleanLoopFamilyEquivalence := univalence (code Bool) (code Bool)
@@ -134,8 +134,8 @@ theorem booleanLoop_cases (p : Term (loops Bool)) :
     Nonempty (Term (homogeneousPath (loops Bool) p booleanIdentityLoop)) ∨
     Nonempty (Term (homogeneousPath (loops Bool) p booleanNegationLoop)) := by
   rcases booleanPermutation_cases (loopPermutation p) with h | h
-  · exact Or.inl ⟨samePermutation_path p booleanIdentityLoop (h.trans (loopPermutation_refl Bool).symm)⟩
-  · exact Or.inr ⟨samePermutation_path p booleanNegationLoop (h.trans (loopPermutation_ua booleanTransposition).symm)⟩
+  · exact Or.inl ⟨samePermutationPath p booleanIdentityLoop (h.trans (loopPermutation_refl Bool).symm)⟩
+  · exact Or.inr ⟨samePermutationPath p booleanNegationLoop (h.trans (loopPermutation_ua booleanTransposition).symm)⟩
 
 /-- A native two-path would identify the transported values of true. -/
 theorem booleanLoops_no_twoPath :
@@ -202,10 +202,10 @@ theorem swapComposition_reindex {Δ : Context.{1}} (σ : Δ ⟶ raisedContext te
     (nativeMap swap01) (nativeEquivalence swap01) (nativeMap swap12) (nativeEquivalence swap12) σ
 
 /-- Arbitrary closed loops recover through the full chosen native equivalence. -/
-noncomputable def originalLoopRecovery {S : Type} (p : Term (loops S)) := recoverLoop_path (code S) p
+noncomputable def originalLoopRecovery {S : Type} (p : Term (loops S)) := recoverLoopPath (code S) p
 
 noncomputable def intervalLoopRecovery {S : Type} (p : Term (loops S)) :=
-  recoverLoop_path_reindex (code S) p (projection (interval (raisedContext terminal)))
+  recoverLoopPathReindex (code S) p (projection (interval (raisedContext terminal)))
 
 theorem intervalRecovery_endpoint {S : Type} (p : Term (loops S)) :
     reindexPath (recoverLoop (code S) p) (projection (interval (raisedContext terminal))) =
@@ -214,7 +214,7 @@ theorem intervalRecovery_endpoint {S : Type} (p : Term (loops S)) :
   recoverLoop_reindex (code S) p (projection (interval (raisedContext terminal)))
 
 /-- Retain the preexisting recovered-loop and full-witness clients. -/
-noncomputable def acceptedBooleanRecovery := Examples.CubicalNativeUnivalence.recoveredBooleanLoop_path
-noncomputable def acceptedBooleanWitness := Examples.CubicalNativeUnivalence.booleanEquivalence_roundtrip
+noncomputable def acceptedBooleanRecovery := Examples.CubicalNativeUnivalence.recoveredBooleanLoopPath
+noncomputable def acceptedBooleanWitness := Examples.CubicalNativeUnivalence.booleanEquivalenceRoundtrip
 
 end Examples.FiniteUniverseLoops

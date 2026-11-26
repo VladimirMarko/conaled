@@ -31,7 +31,7 @@ def identityAtlas (U : Domain) : Atlas (embedding.obj U) Unit where
 
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 
 def identityDatum (U : Domain) (m : External.SmoothMap U d M) :
     Datum (d := d) (G := G) (M := M) (identityAtlas U) where
@@ -41,7 +41,7 @@ def identityDatum (U : Domain) (m : External.SmoothMap U d M) :
   cocycle _ _ _ _ := (one_mul 1).symm
 
 example (U : Domain) (m : External.SmoothMap U d M)
-    (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)) :
+    (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x)) :
     SheafActionQuotient.Object (representation smoothAction).action (embedding.obj U) :=
   (identityDatum (G := G) U m).interpreted smoothAction
 
@@ -52,7 +52,7 @@ example (U : Domain) (m : External.SmoothMap U d M) :
 
 namespace OneChart
 variable (U : Domain) (m : External.SmoothMap U d M)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 def admitted : TrivializedOn (identityAtlas U) smoothAction
     (SheafActionQuotient.chart (representation smoothAction).action (hat m.val m.property)) where
@@ -78,7 +78,7 @@ omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localMap_eq : (admitted U m smoothAction).localMap () = m :=
   smoothMap_of_hat_eq U _ _ (localMap_hat U m smoothAction)
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (modelWithCorners d) ∞ M] in
 theorem datum_unique (p : Datum (d := d) (G := G) (M := M) (identityAtlas U)) :
     p = identityDatum U (p.localMap ()) := by
   refine Datum.ext _ _ ?_ ?_
@@ -182,7 +182,7 @@ theorem split_regularization_identity (V : SmoothPresentationSite.Siteᵒᵖ)
     let z := (SplitSheaf.displayIso (identityAtlas U).cover).inv.hom.app V
       (((identityAtlas U).inclusion ()).hom.app V x)
     (admitted U m smoothAction).splitRegularization.torsorArrow.iso.hom.app
-      ((SplitSheaf.Ext (SplitSheaf.ofDisplay (identityAtlas U).cover)).obj.elementsMk V z) g = g := by
+      ((SplitSheaf.extension (SplitSheaf.ofDisplay (identityAtlas U).cover)).obj.elementsMk V z) g = g := by
   dsimp only
   let A := identityAtlas U
   let t := admitted U m smoothAction
@@ -193,7 +193,7 @@ theorem split_regularization_identity (V : SmoothPresentationSite.Siteᵒᵖ)
   change (SplitSheaf.displayIso A.cover).hom.hom.app V z = (A.inclusion ()).hom.app V x at hi
   rw [hi] at hs
   have hv := hs.trans (t.regularization_chart_apply () V x g)
-  exact congrArg (fun q : (SplitSheaf.Ext
+  exact congrArg (fun q : (SplitSheaf.extension
     (SheafActionQuotient.chart (representation smoothAction).action (hat m.val m.property)).torsor.family).obj.obj V =>
       (show (locallyConstantGroup G).obj.obj V from q.2)) hv
 
@@ -211,7 +211,7 @@ theorem recovered_label (n : External.SmoothMap U d M)
     (1 : (locallyConstantGroup G).obj.obj V)
   have ht := split_regularization_identity U n smoothAction V x
     ((f.localArrow smoothAction).torsorArrow.iso.hom.app
-      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk V z)
+      ((SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.elementsMk V z)
       (1 : (locallyConstantGroup G).obj.obj V))
   have hinput := congrArg
     (((admitted U m smoothAction).arrowEquiv (admitted U n smoothAction) f).torsorArrow.iso.hom.app
@@ -246,7 +246,7 @@ private def castHom {p q p' q' : Datum (d := d) (G := G) (M := M) (identityAtlas
   cases hq
   exact f
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (modelWithCorners d) ∞ M] in
 private theorem castHom_labels {p q p' q' : Datum (d := d) (G := G) (M := M) (identityAtlas U)}
     (hp : p = p') (hq : q = q') (f : Hom p q) :
     ((castHom U hp hq f).labels ()).val = (f.labels ()).val := by
@@ -320,7 +320,7 @@ local instance trivialAction (G : Type) [Group G] : MulAction G (Space 1) where
   one_smul _ := rfl
   mul_smul _ _ _ := rfl
 
-theorem smooth (G : Type) [Group G] (g : G) : ContMDiff (Model 1) (Model 1) ∞
+theorem smooth (G : Type) [Group G] (g : G) : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞
     (fun x : Space 1 => g • x) := contMDiff_id
 
 def zeroMap : base ⟶ object 1 (Space 1) :=
@@ -354,19 +354,19 @@ def admitted (G : Type) [Group G] [TopologicalSpace G] [DiscreteTopology G] (c :
 
 theorem split_trivialization_apply (G : Type) [Group G] [TopologicalSpace G]
     [DiscreteTopology G] (c : G) (i : Bool) (U : SmoothPresentationSite.Siteᵒᵖ)
-    (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay Represented.atlas.cover)).obj.obj U)
+    (z : (SplitSheaf.extension (SplitSheaf.ofDisplay Represented.atlas.cover)).obj.obj U)
     (x : lineSheaf.obj.obj U)
     (hx : (SplitSheaf.displayIso Represented.atlas.cover).hom.hom.app U z =
       (Represented.atlas.inclusion i).hom.app U x)
     (g : (locallyConstantGroup G).obj.obj U) :
     ((admitted G c).splitRegularization.torsorArrow.iso.hom.app
-      ((SplitSheaf.Ext (SplitSheaf.ofDisplay Represented.atlas.cover)).obj.elementsMk U z) g).val =
+      ((SplitSheaf.extension (SplitSheaf.ofDisplay Represented.atlas.cover)).obj.elementsMk U z) g).val =
       (if i then totalChartRight G c else totalChartLeft G c).hom.app U
         (pairSection _ _ U x g) := by
   have h := (admitted G c).splitRegularization_apply U z g
   rw [hx] at h
   have ht := h.trans ((admitted G c).regularization_chart_apply i U x g)
-  have hv := congrArg (fun z : (SplitSheaf.Ext (torsor G c).family).obj.obj U =>
+  have hv := congrArg (fun z : (SplitSheaf.extension (torsor G c).family).obj.obj U =>
     (show (total G c).obj.obj U from z.2.val)) ht
   cases i
   · exact hv.trans (Represented.localTrivialization_left_apply G c (lineSheaf.obj.elementsMk U x) g)
@@ -385,8 +385,8 @@ theorem extracted_overlap (G : Type) [Group G] [TopologicalSpace G]
     ((A.pairMap false true).hom.app U x)
   let a := (SplitSheaf.Cech.first (SplitSheaf.ofDisplay A.cover)).hom.app U z
   let b := (SplitSheaf.Cech.second (SplitSheaf.ofDisplay A.cover)).hom.app U z
-  let ea := (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U a
-  let eb := (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U b
+  let ea := (SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U a
+  let eb := (SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U b
   let label : (locallyConstantGroup G).obj.obj U :=
     t.splitRegularization.torsorArrow.iso.inv.app eb
       (t.splitRegularization.torsorArrow.iso.hom.app ea (1 : (locallyConstantGroup G).obj.obj U))

@@ -8,7 +8,7 @@ open scoped Manifold ContDiff
 namespace SquareKit.EuclideanOpen
 open SmoothAlgebra
 
-def restrictCodomain {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
+def restrictCodomain {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension)
     (h : ∀ x, q.val ((show Map _ _ from f) x).val ≠ 0) : U ⟶ subdomain V q where
   toFun x := ⟨((show Map _ _ from f) x).val,mul_ne_zero ((show Map _ _ from f) x).property (h x)⟩
   smooth := (show Map _ _ from f).smooth

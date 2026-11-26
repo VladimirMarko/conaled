@@ -85,7 +85,7 @@ def boundary (Γ : Context.{u}) : Subcontext (total (interval Γ)) :=
   (Subcontext.intervalFace Γ false).join (Subcontext.intervalFace Γ true)
 
 theorem boundary_endpoint (Γ : Context.{u}) (x : Γ.Elements) (b : Bool) :
-    (boundary Γ).holds (extendObj (interval Γ) x ⟨Cube.endpoint x.obj.unop b⟩) := by
+    (boundary Γ).Holds (extendObj (interval Γ) x ⟨Cube.endpoint x.obj.unop b⟩) := by
   cases b
   · exact Or.inl rfl
   · exact Or.inr rfl
@@ -103,7 +103,7 @@ theorem boundary_forall (Γ : Context.{u}) : (boundary Γ).forallInterval = Subc
 
 theorem boundary_quantified_all_refinements (Γ : Context.{u}) (x : Γ.Elements) :
     ¬ (∀ {y : Γ.Elements} (_f : x ⟶ y) (r : (interval Γ).obj y),
-      (boundary Γ).holds (extendObj (interval Γ) y r)) := by
+      (boundary Γ).Holds (extendObj (interval Γ) y r)) := by
   intro h
   have hh := (Subcontext.forallInterval_iff (boundary Γ) x).mpr h
   rw [boundary_forall] at hh

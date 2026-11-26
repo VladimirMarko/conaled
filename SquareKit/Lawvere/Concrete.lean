@@ -49,7 +49,7 @@ def unaryModel {S X : Type} (P : UnaryInteraction.Presentation S) (op : S → X 
     (h : UnaryInteraction.Valid P op) : GuardedTheory.Model (unaryPresentation P).guarded where
   Carrier := X
   operation s xs := op s (xs (0 : Fin 1))
-  predicate p := PEmpty.elim p
+  Predicate p := PEmpty.elim p
   rules e ρ _ := by
     change (UnaryInteraction.term (P.lhs e)).eval (UnaryInteraction.algebra op) ρ =
       (UnaryInteraction.term (P.rhs e)).eval (UnaryInteraction.algebra op) ρ

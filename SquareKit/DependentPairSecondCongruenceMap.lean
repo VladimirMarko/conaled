@@ -117,10 +117,10 @@ def secondMotiveCong {Γ : Context eliminationSignature V} {A A' : EExpr V} {B B
 end EFullCertificate
 
 /-- Second projection congruence uses exactly the ten translated source premises. -/
-def GSecondCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
+def gSecondCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
     (B B' : PExpr (Fin 1 ⊕ V)) (p p' : PExpr V) :
     GCongruenceCertificate (.second Γ A A' B B' p p') := by
-  let premise := GCongruencePremises (.second Γ A A' B B' p p')
+  let premise := gCongruencePremises (.second Γ A A' B B' p p')
   have hΓ : EFullCertificate.Cert (premise := premise) (ctx (Γ.map G)) := .hyp (0 : Fin 10)
   have hA : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A)) := .hyp (1 : Fin 10)
   have hA' : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A')) := .hyp (2 : Fin 10)

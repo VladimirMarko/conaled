@@ -87,7 +87,7 @@ abbrev naturalityClaim : Reference.Claim (Fin 4) :=
 noncomputable def naturality : Reference.Derives declarations naturalityClaim :=
   Reference.Derives.jNaturality hx hTail hD hBranch (.weaken hA)
 
-noncomputable def signature_valid : Reference.WellFormedSignature declarations := by
+noncomputable def signatureValidity : Reference.WellFormedSignature declarations := by
   have h0 : Reference.WellFormedSignature
       ([.family empty A] : List (Reference.Declaration (Fin 4))) :=
     .family 0 .nil .empty (by simp [Reference.Fresh])
@@ -122,12 +122,12 @@ noncomputable def environment : Fin 4 → Value M.toStructuralModel :=
 
 set_option backward.isDefEq.respectTransparency false in
  theorem declarations_valid : ∀ d ∈ declarations,
-    d.encode.eval (algebra M) environment := by
+    d.encode.Eval (algebra M) environment := by
   intro d hd
   simp [declarations] at hd
   rcases hd with rfl | rfl | rfl | rfl
   all_goals simp [Reference.Declaration.encode, A, x, B, C, P, ΓB, environment,
-    SquareKit.GuardedTheory.Atom.eval, SquareKit.GuardedTheory.Term.eval, Contextual.algebra, Contextual.operation,
+    SquareKit.GuardedTheory.Atom.Eval, SquareKit.GuardedTheory.Term.eval, Contextual.algebra, Contextual.operation,
     SquareKit.Internal.DependentJudgments.operation, SquareKit.Internal.DependentJudgments.PredicateHolds,
     Contextual.empty, Contextual.path, Contextual.extend, M]
 
@@ -147,7 +147,7 @@ end Native
 
 namespace Malformed
 abbrev raw : Expression (Fin 1) := .var 0
-noncomputable def raw_reflexive : Reference.Target (Ω := []) (.eq raw raw) := .reflexive raw
+noncomputable def rawReflexivity : Reference.Target (Ω := []) (.eq raw raw) := .reflexive raw
 
 theorem no_typed_reflexive : ¬ Nonempty (Reference.Derives []
     (.eq (.tm empty empty) raw raw)) := by
@@ -170,7 +170,7 @@ noncomputable def roundTrip : Reference.Arrow (Ξ := declarations) .empty .empty
 
 /-- A generated composite through a nonempty context is the unique empty
 substitution in typed source equality. -/
-noncomputable def empty_uniqueness : Reference.Derives declarations
+noncomputable def emptyUniqueness : Reference.Derives declarations
     (.eq (.sub empty empty) (comp (weaken empty A) (pair A (identitySub empty) x))
       (identitySub empty)) := roundTrip.emptyUnique
 end Generated

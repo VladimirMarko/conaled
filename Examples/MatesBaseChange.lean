@@ -77,7 +77,7 @@ theorem forget_context_paste {A X Y Z : Over Bool}
   SquareKit.MixedBaseChange.context_composition (Over.forget Bool) p σ τ
 
 /-- Pullback preservation makes the slice-forgetting comparison invertible. -/
-def forget_comparison_iso {X Y : Over Bool} (σ : X ⟶ Y) :=
+def forgetComparisonIso {X Y : Over Bool} (σ : X ⟶ Y) :=
   SquareKit.MixedBaseChange.iso (Over.forget Bool) σ
 
 /-- The new client cannot be packaged with this inverse image as a geometric
@@ -92,11 +92,11 @@ theorem forget_not_leftExact : ¬ PreservesFiniteLimits (Over.forget Bool) := by
 namespace FiniteProducts
 open SquareKit
 open CategoryTheory.CartesianMonoidalCategory
-abbrev values := Examples.TerminalProducts.Native.values
-abbrev point := TypeTerminalProduct.pointEquiv values Examples.TerminalProducts.Native.last
+abbrev Values := Examples.TerminalProducts.Native.Values
+abbrev point := TypeTerminalProduct.pointEquiv Values Examples.TerminalProducts.Native.last
 abbrev oldAdj := TerminalProduct.adjunction Nat
 abbrev oldInput := (toOverUnit (Type)).obj TypeTerminalProduct.unit
-abbrev oldOutput := TypeTerminalProduct.family values
+abbrev oldOutput := TypeTerminalProduct.family Values
 abbrev oldBody := (oldAdj.homEquiv oldInput oldOutput).symm point
 abbrev f : Nat ⟶ PUnit := toUnit Nat
 abbrev sigma : Nat ⟶ PUnit := toUnit Nat
@@ -114,11 +114,11 @@ abbrev secondMate := DependentBaseChange.WithAdjunction.mate secondSquare firstA
 
 /-- The starting product contains an actual choice in each different Fin(n+1). -/
 theorem selected_value (n : Nat) :
-    (TypeTerminalProduct.evaluate values Examples.TerminalProducts.Native.last n).val = n :=
+    (TypeTerminalProduct.evaluate Values Examples.TerminalProducts.Native.last n).val = n :=
   Examples.TerminalProducts.Native.last_component n
 
 /-- The value fibers really differ, independently of the categorical encoding. -/
-theorem different_fibers : ¬ Nonempty (values 0 ≃ values 1) := by
+theorem different_fibers : ¬ Nonempty (Values 0 ≃ Values 1) := by
   change ¬ Nonempty (Fin 1 ≃ Fin 2)
   rintro ⟨e⟩
   have h : (0 : Fin 2) = 1 := e.symm.injective (Subsingleton.elim _ _)

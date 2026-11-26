@@ -17,8 +17,8 @@ variable {Γ γ B b} (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ
 def localFamilyMap :
     (show (show Grpd.{1,1} from γ (model a A)) ⥤ Grpd.{1,1} from b (model a A)) ⟶
       localMap a A hΓ ⋙ (show (show Grpd.{1,1} from γ
-        (SmoothQuotientSource.model a (SplitSheaf.Ext A))) ⥤ Grpd.{1,1} from
-          b (SmoothQuotientSource.model a (SplitSheaf.Ext A))) :=
+        (SmoothQuotientSource.model a (SplitSheaf.extension A))) ⥤ Grpd.{1,1} from
+          b (SmoothQuotientSource.model a (SplitSheaf.extension A))) :=
   generatedFamilyMap (signature a A) hΓ hB
 
 theorem localMap_extend :

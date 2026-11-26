@@ -87,7 +87,7 @@ noncomputable def source (c : Contractible (sigma X A))
   (c.reindex (baseSub σ)).extend (F.reindex (baseSub σ)) (partialSource f σ s)
 
 theorem source_boundary (c : Contractible (sigma X A))
-    (F : Filling (sigma X A)) (hF : F.Lawful) (x : Δ.Elements) (hx : φ.holds x) :
+    (F : Filling (sigma X A)) (hF : F.Lawful) (x : Δ.Elements) (hx : φ.Holds x) :
     (source f σ s c F).val x = (partialSource f σ s).val x hx :=
   (c.reindex (baseSub σ)).extend_boundary (F.reindex (baseSub σ)) (hF.reindex _) _ x hx
 
@@ -143,7 +143,7 @@ noncomputable def totalPath (cA : Contractible (sigma X A))
 theorem totalPath_boundary (cA : Contractible (sigma X A))
     (FA : Filling (sigma X A)) (hFA : FA.Lawful)
     (cB : Contractible (sigma X B)) (FB : Filling (sigma X B))
-    (hFB : FB.Lawful) (x : Δ.Elements) (hx : φ.holds x) :
+    (hFB : FB.Lawful) (x : Δ.Elements) (hx : φ.Holds x) :
     (totalPath f σ s cA FA hFA cB FB hFB).val x =
       (partialPath f σ s cA FA hFA).val x hx :=
   EquivalenceFamilies.ContractiblePaths.extend_boundary (cB.reindex (baseSub σ))
@@ -151,7 +151,7 @@ theorem totalPath_boundary (cA : Contractible (sigma X A))
 
 theorem partialPath_body (cA : Contractible (sigma X A))
     (FA : Filling (sigma X A)) (hFA : FA.Lawful)
-    (x : (total (interval Δ)).Elements) (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (x : (total (interval Δ)).Elements) (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (partialPath f σ s cA FA hFA).pathApp.val x hx =
       (pathApp (verticalPath (restrictInclusion φ ≫ σ ≫ projection B)
         (genericFiberPath f (restrictInclusion φ ≫ σ) s.toRestricted))).val
@@ -169,7 +169,7 @@ theorem partialPath_body (cA : Contractible (sigma X A))
 
 theorem partialPath_base (cA : Contractible (sigma X A))
     (FA : Filling (sigma X A)) (hFA : FA.Lawful)
-    (x : (total (interval Δ)).Elements) (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (x : (total (interval Δ)).Elements) (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     ((partialPath f σ s cA FA hFA).pathApp.val x hx).1 =
       (basePoint σ).val ((projection (interval Δ)).mapElements.obj x) := by
   let i := pathReindexIso (reindex (sigma X B) (projection (interval Δ) ≫ baseSub σ))
@@ -268,7 +268,7 @@ noncomputable def rectangleOld : PartialSection (rectangleFamily (X := X) σ)
 
 include hFA in
 theorem rectangleOld_zero (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (rectangleOld f σ s K hK).val
       ((endpointSub (total (interval Δ)) false).mapElements.obj x) hx =
       (image f σ (source f σ s cA FA)).val ((projection (interval Δ)).mapElements.obj x) := by
@@ -283,7 +283,7 @@ theorem rectangleOld_zero (x : (total (interval Δ)).Elements)
 
 include hFA in
 theorem rectangleOld_left (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (rectangleOld f σ s K hK).val
       ((intervalSub (endpointSub Δ false)).mapElements.obj x) hx =
       (image f σ (source f σ s cA FA)).val ((projection (interval Δ)).mapElements.obj x) := by
@@ -297,7 +297,7 @@ theorem rectangleOld_left (x : (total (interval Δ)).Elements)
     (source_boundary f σ s cA FA hFA y hx)).symm
 
 theorem rectangleOld_right (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (rectangleOld f σ s K hK).val
       ((intervalSub (endpointSub Δ true)).mapElements.obj x) hx =
       (partialPath f σ s cA FA hFA).pathApp.val x hx := by
@@ -310,7 +310,7 @@ theorem rectangleOld_right (x : (total (interval Δ)).Elements)
   exact h.trans (partialPath_body f σ s cA FA hFA x hx).symm
 
 theorem rectangleOld_top (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (rectangleOld f σ s K hK).val
       ((endpointSub (total (interval Δ)) true).mapElements.obj x) hx =
       (partialPath f σ s cA FA hFA).pathApp.val x hx := by
@@ -323,12 +323,12 @@ theorem rectangleOld_top (x : (total (interval Δ)).Elements)
   exact h.trans (partialPath_body f σ s cA FA hFA x hx).symm
 
 theorem rectangleOld_base (x : (total (interval (total (interval Δ)))).Elements)
-    (hx : ((φ.reindex (projection (interval Δ))).reindex (projection (interval (total (interval Δ))))).holds x) :
+    (hx : ((φ.reindex (projection (interval Δ))).reindex (projection (interval (total (interval Δ))))).Holds x) :
     ((rectangleOld f σ s K hK).val x hx).1 =
       (basePoint σ).val ((NativeSquare.squareBase Δ).mapElements.obj x) := rfl
 
 theorem imageLine_boundary (hGA : GA.Lawful) (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (imageLine f σ s cA FA hFA cB FB hFB GA).val x =
       (image f σ (source f σ s cA FA)).val ((projection (interval Δ)).mapElements.obj x) := by
   have h := (sourceLine_fills f σ s cA FA hFA cB FB hFB GA hGA).2 x hx
@@ -338,7 +338,7 @@ theorem imageLine_boundary (hGA : GA.Lawful) (x : (total (interval Δ)).Elements
     ((projection (interval Δ)).mapElements.obj x))) (h.trans h'.symm)
 
 theorem totalPath_line_boundary (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (pathApp (totalPath f σ s cA FA hFA cB FB hFB)).val x =
       (partialPath f σ s cA FA hFA).pathApp.val x hx :=
   congrArg (fun p => p.val.val (𝟙 _) x.val.2)
@@ -346,13 +346,13 @@ theorem totalPath_line_boundary (x : (total (interval Δ)).Elements)
       ((projection (interval Δ)).mapElements.obj x) hx)
 
 theorem rectangleSides_left (x : (total (interval Δ)).Elements)
-    (hx : ((sideFace Δ).reindex (projection (interval (total (interval Δ))))).holds
+    (hx : ((sideFace Δ).reindex (projection (interval (total (interval Δ))))).Holds
       ((liftSub (interval (total (interval Δ))) (endpointSub Δ false)).mapElements.obj x)) :
     (rectangleSides f σ s cA FA hFA cB FB hFB GA).val
       ((liftSub (interval (total (interval Δ))) (endpointSub Δ false)).mapElements.obj x) hx =
       (imageLine f σ s cA FA hFA cB FB hFB GA).val x := by
   let z := (endpointSub (total (interval Δ)) false).mapElements.obj x
-  have hz : (intervalFace (total (interval Δ)) false).holds z :=
+  have hz : (intervalFace (total (interval Δ)) false).Holds z :=
     (intervalFace_iff false z).mpr rfl
   exact (endpointBoundary_zero (rectangleFamily (X := X) σ)
     (imageLine f σ s cA FA hFA cB FB hFB GA)
@@ -361,13 +361,13 @@ theorem rectangleSides_left (x : (total (interval Δ)).Elements)
       (imageLine f σ s cA FA hFA cB FB hFB GA) z hz))
 
 theorem rectangleSides_right (x : (total (interval Δ)).Elements)
-    (hx : ((sideFace Δ).reindex (projection (interval (total (interval Δ))))).holds
+    (hx : ((sideFace Δ).reindex (projection (interval (total (interval Δ))))).Holds
       ((liftSub (interval (total (interval Δ))) (endpointSub Δ true)).mapElements.obj x)) :
     (rectangleSides f σ s cA FA hFA cB FB hFB GA).val
       ((liftSub (interval (total (interval Δ))) (endpointSub Δ true)).mapElements.obj x) hx =
       (pathApp (totalPath f σ s cA FA hFA cB FB hFB)).val x := by
   let z := (endpointSub (total (interval Δ)) true).mapElements.obj x
-  have hz : (intervalFace (total (interval Δ)) true).holds z :=
+  have hz : (intervalFace (total (interval Δ)) true).Holds z :=
     (intervalFace_iff true z).mpr rfl
   exact (endpointBoundary_one (rectangleFamily (X := X) σ)
     (imageLine f σ s cA FA hFA cB FB hFB GA)
@@ -407,7 +407,7 @@ theorem imageLine_zero (hGA : GA.Lawful) :
     (sourceLine_fills f σ s cA FA hFA cB FB hFB GA hGA).1
 
 theorem rectangleSides_zero (hGA : GA.Lawful) (x : (total (interval Δ)).Elements)
-    (hx : (sideFace Δ).holds x) :
+    (hx : (sideFace Δ).Holds x) :
     (rectangleSides f σ s cA FA hFA cB FB hFB GA).val
       ((endpointSub (total (interval Δ)) false).mapElements.obj x) hx =
       (image f σ (source f σ s cA FA)).val ((projection (interval Δ)).mapElements.obj x) := by
@@ -463,7 +463,7 @@ noncomputable def rectangleBase : Term (reindex X
     (swapIntervals Δ ≫ projection (interval (total (interval Δ))))
 
 theorem rectangleSides_base (z : (total (interval (total (interval Δ)))).Elements)
-    (hz : ((sideFace Δ).reindex (projection (interval (total (interval Δ))))).holds z) :
+    (hz : ((sideFace Δ).reindex (projection (interval (total (interval Δ))))).Holds z) :
     ((rectangleSides f σ s cA FA hFA cB FB hFB GA).val z hz).1 =
       (rectangleBase f σ s cA FA hFA cB FB hFB).val z := by
   rcases z with @⟨I,⟨⟨γ,j⟩,i⟩⟩
@@ -540,7 +540,7 @@ theorem rectangle_left :
   apply Term.ext
   intro x
   let z := (liftSub (interval (total (interval Δ))) (endpointSub Δ false)).mapElements.obj x
-  have hz : (intervalFace Δ false).holds
+  have hz : (intervalFace Δ false).Holds
       ((projection (interval (total (interval Δ)))).mapElements.obj z) :=
     (intervalFace_iff false _).mpr rfl
   have hs := (Subcontext.full_join (intervalFace Δ false) (intervalFace Δ true) _).mpr (Or.inl hz)
@@ -559,7 +559,7 @@ theorem rectangle_right :
   apply Term.ext
   intro x
   let z := (liftSub (interval (total (interval Δ))) (endpointSub Δ true)).mapElements.obj x
-  have hz : (intervalFace Δ true).holds
+  have hz : (intervalFace Δ true).Holds
       ((projection (interval (total (interval Δ)))).mapElements.obj z) :=
     (intervalFace_iff true _).mpr rfl
   have hs := (Subcontext.full_join (intervalFace Δ false) (intervalFace Δ true) _).mpr (Or.inr hz)
@@ -573,7 +573,7 @@ theorem rectangle_right :
 include hGB in
 theorem rectangle_old (z : (total (interval (total (interval Δ)))).Elements)
     (hz : ((φ.reindex (projection (interval Δ))).reindex
-      (projection (interval (total (interval Δ))))).holds z) :
+      (projection (interval (total (interval Δ))))).Holds z) :
     (rectangle f σ s K hK cA FA hFA cB FB hFB GA hGA GB).val z =
       (rectangleOld f σ s K hK).val z hz := by
   have hf := (Subcontext.full_join (φ.reindex (projection (interval Δ))) (sideFace Δ)
@@ -700,7 +700,7 @@ theorem endpointA_on_face :
 
 include hGB in
 theorem endpointEdge_on_face (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (endpointEdge f σ s K hK cA FA hFA cB FB hFB GA hGA GB).val x =
       (partialPath f σ s cA FA hFA).pathApp.val x hx := by
   have h := rectangle_old f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB
@@ -715,7 +715,7 @@ theorem endpointPath_on_face :
   apply Term.ext
   intro x
   let y := (liftSub (interval Δ) (restrictInclusion φ)).mapElements.obj x
-  have hy : (φ.reindex (projection (interval Δ))).holds y := x.val.1.property
+  have hy : (φ.reindex (projection (interval Δ))).Holds y := x.val.1.property
   have he := endpointEdge_on_face f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB y hy
   have hp := partialPath_body f σ s cA FA hFA y hy
   have hb := Term.sigmaSndOver_val
@@ -735,7 +735,7 @@ theorem extend_on_face :
       (pathTerm_hext _ _ (endpointPath_on_face f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB))).trans
       (genericFiberIntro_eta f (restrictInclusion φ ≫ σ) s.toRestricted))
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Holds x) :
     (extend f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB).val x = s.val x hx :=
   congrArg (fun t => t.val ((restrictContext φ).elementsMk x.obj ⟨x.val,hx⟩))
     (extend_on_face f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB)

@@ -17,7 +17,7 @@ open Examples.SheafFamilies Examples.SheafFunctions Examples.SplitSheafFamilies
 abbrev varyingCode := (code D.obj.Elements (Type)).obj varying.family
 
 example : ClassifierDisplayComparison.extension D.obj varyingCode =
-    (SplitSheaf.Ext varying).obj := rfl
+    (SplitSheaf.extension varying).obj := rfl
 
 example (b : Bool) : IsEmpty (((decode _ _).obj varyingCode).obj
     (D.obj.elementsMk (op X) b)) := varying_empty b

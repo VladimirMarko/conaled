@@ -111,7 +111,7 @@ horizon is selected from that proposition here.
 
 The examples include successor as the shared program's argument, giving `x+2`,
 and doubling as a second argument, giving `x*4`. The relation
-`tagged x y := x = y.1` relates a natural number to either Boolean-tagged version.
+`Tagged x y := x = y.1` relates a natural number to either Boolean-tagged version.
 It is nonfunctional in that direction. The successor implementation flips tags;
 the doubling implementation retains them. Both satisfy their scalar obligations.
 

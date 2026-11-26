@@ -10,7 +10,7 @@ open Nat.Partrec (Code)
 chosen independently for each argument. -/
 def function (A B : Assembly.{u}) : Assembly.{u} where
   Carrier := Hom A B
-  realizes e f := Tracks A B (ofNat Code e).eval f.toFun
+  Realizes e f := Tracks A B (ofNat Code e).eval f.toFun
   inhabited f := by
     obtain ⟨c, hc⟩ := f.has_code
     exact ⟨encode c, by simpa using hc⟩

@@ -159,20 +159,20 @@ theorem positive_filter_needs_sorted_input :
   decide
 
 /-- Equality and the directed cycle 0→1→2→0 give a total but nontransitive relation. -/
-abbrev cycle (a b : Fin 3) : Prop :=
+abbrev Cycle (a b : Fin 3) : Prop :=
   a = b ∨ (a = 0 ∧ b = 1) ∨ (a = 1 ∧ b = 2) ∨ (a = 2 ∧ b = 0)
 
-theorem cycle_total : ∀ a b : Fin 3, cycle a b ∨ cycle b a := by decide
+theorem cycle_total : ∀ a b : Fin 3, Cycle a b ∨ Cycle b a := by decide
 
 theorem cycle_not_transitive :
-    ¬ (∀ a b c : Fin 3, cycle a b → cycle b c → cycle a c) := by decide
+    ¬ (∀ a b c : Fin 3, Cycle a b → Cycle b c → Cycle a c) := by decide
 
 /-- One finite fixture separates transitivity from totality for both positive laws. -/
 theorem transitivity_boundaries :
-    ([1, 2] : List (Fin 3)).Pairwise cycle ∧
-      ¬ (List.orderedInsert cycle 0 [1, 2]).Pairwise cycle ∧
-      (List.orderedInsert cycle 0 [1, 2]).filter (fun a => decide (a ≠ 1)) = [0, 2] ∧
-      List.orderedInsert cycle 0 ([1, 2].filter (fun a => decide (a ≠ 1))) = [2, 0] := by
+    ([1, 2] : List (Fin 3)).Pairwise Cycle ∧
+      ¬ (List.orderedInsert Cycle 0 [1, 2]).Pairwise Cycle ∧
+      (List.orderedInsert Cycle 0 [1, 2]).filter (fun a => decide (a ≠ 1)) = [0, 2] ∧
+      List.orderedInsert Cycle 0 ([1, 2].filter (fun a => decide (a ≠ 1))) = [2, 0] := by
   decide
 
 /-- Strict comparison is transitive but loses both a tie's order and pairwise preservation. -/

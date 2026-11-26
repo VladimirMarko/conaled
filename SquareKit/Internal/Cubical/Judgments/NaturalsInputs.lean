@@ -6,7 +6,7 @@ open GuardedTheory Presheaf CategoryTheory
 universe u
 
 theorem contextSchema_valid (out : Judgment (Fin 1))
-    (valid : ∀ (Γ : Context.{u}), out.eval algebra ![.context Γ]) :
+    (valid : ∀ (Γ : Context.{u}), out.Eval algebra ![.context Γ]) :
     Satisfies algebra.{u} (contextSchema out) := by
   intro ρ h
   rcases h 0 with ⟨Γ,hΓ⟩
@@ -16,13 +16,13 @@ theorem contextSchema_valid (out : Judgment (Fin 1))
 
 theorem successorSchema_valid (out : Judgment (Fin 2))
     (valid : ∀ (Γ : Context.{u}) (n : Presheaf.Term (natFamily Γ)),
-      out.eval algebra ![.context Γ,.term Γ (natFamily Γ) n]) :
+      out.Eval algebra ![.context Γ,.term Γ (natFamily Γ) n]) :
     Satisfies algebra.{u} (successorSchema out) := by
   intro ρ h
   rcases h 0 with ⟨Γ,hΓ⟩
   change ρ 0 = .context Γ at hΓ
   have hn := h 1
-  change Source.predicate .term ![ρ 0,extraOperation .nat ![ρ 0],ρ 1] at hn
+  change Source.Predicate .term ![ρ 0,extraOperation .nat ![ρ 0],ρ 1] at hn
   rw [hΓ,extra_nat] at hn
   obtain ⟨n,hn⟩ := Value.term_input Γ (natFamily Γ) _ hn
   have he : ρ = ![.context Γ,.term Γ (natFamily Γ) n] := by
@@ -32,7 +32,7 @@ theorem successorSchema_valid (out : Judgment (Fin 2))
   exact valid Γ n
 
 theorem eliminationSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.{u})
-    (h : ∀ i, ((eliminationSchema out).premise i).eval algebra ρ) :
+    (h : ∀ i, ((eliminationSchema out).premise i).Eval algebra ρ) :
     ∃ (Γ : Context.{u}) (B : Family (total (natFamily Γ)))
       (z : Presheaf.Term (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ)))) (s : NatStepTerm B),
       ρ = ![.context Γ,.family (total (natFamily Γ)) B,
@@ -51,12 +51,12 @@ theorem eliminationSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.
   have hzsub := zeroSub_eval (.var (0 : Fin 4)) ρ Γ hΓ
   have hssub := successorSub_eval (.var (0 : Fin 4)) ρ Γ hΓ
   have hz := h 2
-  change Source.predicate .term ![ρ 0,Source.operation .subTy ![ρ 1,(zeroSub (.var 0)).eval algebra ρ],ρ 2] at hz
+  change Source.Predicate .term ![ρ 0,Source.operation .subTy ![ρ 1,(zeroSub (.var 0)).eval algebra ρ],ρ 2] at hz
   rw [hΓ,hB,hzsub] at hz
   simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.familyAt_family] at hz
   obtain ⟨z,hz⟩ := Value.term_input Γ (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ))) _ hz
   have hs := h 3
-  change Source.predicate .term ![Source.operation .extend ![Source.operation .extend ![ρ 0,extraOperation .nat ![ρ 0]],ρ 1],
+  change Source.Predicate .term ![Source.operation .extend ![Source.operation .extend ![ρ 0,extraOperation .nat ![ρ 0]],ρ 1],
     Source.operation .subTy ![ρ 1,Source.operation .comp ![(successorSub (.var 0)).eval algebra ρ,
       Source.operation .weaken ![Source.operation .extend ![ρ 0,extraOperation .nat ![ρ 0]],ρ 1]]],ρ 3] at hs
   rw [hΓ,hB,hssub,extra_nat] at hs
@@ -73,7 +73,7 @@ theorem eliminationSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.
 theorem eliminationSchema_valid (out : Judgment (Fin 4))
     (valid : ∀ (Γ : Context.{u}) (B : Family (total (natFamily Γ)))
       (z : Presheaf.Term (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ)))) (s : NatStepTerm B),
-      out.eval algebra ![.context Γ,.family (total (natFamily Γ)) B,
+      out.Eval algebra ![.context Γ,.family (total (natFamily Γ)) B,
         .term Γ (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ))) z,
         .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s]) :
     Satisfies algebra.{u} (eliminationSchema out) := by
@@ -83,7 +83,7 @@ theorem eliminationSchema_valid (out : Judgment (Fin 4))
 
 theorem substitutionSchema_valid (out : Judgment (Fin 3))
     (valid : ∀ (Γ Δ : Context.{u}) (σ : Δ ⟶ Γ),
-      out.eval algebra ![.context Γ,.context Δ,.substitution Δ Γ σ]) :
+      out.Eval algebra ![.context Γ,.context Δ,.substitution Δ Γ σ]) :
     Satisfies algebra.{u} (substitutionSchema out) := by
   intro ρ h
   rcases h 0 with ⟨Δ,Γ,σ,hΔ,hΓ,hσ⟩
@@ -95,7 +95,7 @@ theorem substitutionSchema_valid (out : Judgment (Fin 3))
 
 theorem successorSubstitutionSchema_valid (out : Judgment (Fin 4))
     (valid : ∀ (Γ Δ : Context.{u}) (σ : Δ ⟶ Γ) (n : Presheaf.Term (natFamily Γ)),
-      out.eval algebra ![.context Γ,.context Δ,.substitution Δ Γ σ,.term Γ (natFamily Γ) n]) :
+      out.Eval algebra ![.context Γ,.context Δ,.substitution Δ Γ σ,.term Γ (natFamily Γ) n]) :
     Satisfies algebra.{u} (successorSubstitutionSchema out) := by
   intro ρ h
   rcases h 0 with ⟨Δ,Γ,σ,hΔ,hΓ,hσ⟩
@@ -103,7 +103,7 @@ theorem successorSubstitutionSchema_valid (out : Judgment (Fin 4))
   change ρ 1 = .context Δ at hΔ
   change ρ 2 = .substitution Δ Γ σ at hσ
   have hn := h 1
-  change Source.predicate .term ![ρ 0,extraOperation .nat ![ρ 0],ρ 3] at hn
+  change Source.Predicate .term ![ρ 0,extraOperation .nat ![ρ 0],ρ 3] at hn
   rw [hΓ,extra_nat] at hn
   obtain ⟨n,hn⟩ := Value.term_input Γ (natFamily Γ) _ hn
   have he : ρ = ![.context Γ,.context Δ,.substitution Δ Γ σ,.term Γ (natFamily Γ) n] := by
@@ -115,13 +115,13 @@ theorem successorSubstitutionSchema_valid (out : Judgment (Fin 4))
 theorem eliminationSubstitutionSchema_valid (out : Judgment (Fin 6))
     (valid : ∀ (Γ Δ : Context.{u}) (B : Family (total (natFamily Γ)))
       (z : Presheaf.Term (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ)))) (s : NatStepTerm B) (σ : Δ ⟶ Γ),
-      out.eval algebra ![.context Γ,.family (total (natFamily Γ)) B,
+      out.Eval algebra ![.context Γ,.family (total (natFamily Γ)) B,
         .term Γ (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ))) z,
         .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s,
         .context Δ,.substitution Δ Γ σ]) :
     Satisfies algebra.{u} (eliminationSubstitutionSchema out) := by
   intro ρ h
-  have hp : ∀ i, eliminationRule.premise i |>.eval algebra (fun j => ρ (j.castAdd 2)) := by
+  have hp : ∀ i, eliminationRule.premise i |>.Eval algebra (fun j => ρ (j.castAdd 2)) := by
     intro i
     have hi := h ⟨i.val, Nat.lt_trans i.isLt (by decide : 4 < 5)⟩
     simpa only [eliminationSubstitutionSchema, dite_eq_left i.isLt, Atom.eval_subst,
@@ -132,7 +132,7 @@ theorem eliminationSubstitutionSchema_valid (out : Judgment (Fin 6))
   have hz := congrFun e 2
   have hs := congrFun e 3
   have hσ := h 4
-  change Source.predicate .substitution ![ρ 4,ρ 0,ρ 5] at hσ
+  change Source.Predicate .substitution ![ρ 4,ρ 0,ρ 5] at hσ
   rcases hσ with ⟨Δ,Γ',σ,hΔ,hΓ',hσ⟩
   have he := Value.context.inj (hΓ'.symm.trans hΓ)
   subst Γ'

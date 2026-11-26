@@ -46,11 +46,11 @@ example : true ∈ Optimization.minimizers
 def Rep : Bool → Type | false => Input Nat | true => Table Nat
 def realization : (c : Bool) → Ops (Input Nat) Query Nat (Rep c)
   | false => direct | true => sparse
-def valid : (c : Bool) → Input Nat → Rep c → Prop
+def Valid : (c : Bool) → Input Nat → Rep c → Prop
   | false => fun s r => r = s
   | true => fun s r => r = build s
 
-theorem laws (c : Bool) : Laws Sequences.PreparedRMQ.spec (realization c) (valid c) := by
+theorem laws (c : Bool) : Laws Sequences.PreparedRMQ.spec (realization c) (Valid c) := by
   cases c
   · exact directLaws
   · exact sparseLaws
@@ -58,7 +58,7 @@ theorem laws (c : Bool) : Laws Sequences.PreparedRMQ.spec (realization c) (valid
 theorem selected_semantics (deadline capacity k : Nat) (c : Bool)
     (h : select catalog profile (req deadline capacity) data (objective k) = some c) (q : Query) :
     ((realization c).answer ((realization c).prepare data).1 q).1 = spec data q :=
-  selected_agreement realization valid (fun c _ => laws c) h q
+  selected_agreement realization Valid (fun c _ => laws c) h q
 
 example : (sparse.answer (sparse.prepare data).1 .q13).2 ≤ 3 :=
   response_deadline sparseBounds (by decide : Feasible (req 3 8) sparseProfile data)

@@ -244,7 +244,7 @@ def pathInductionGeneralizingZQB :=
 /-- This is an actual source Expr J derivation, not only an open semantic command. -/
 def reflexiveApplication := pathInductionGeneralizingZQB.reflexiveTerm
 
-def reflexiveApplication_beta := pathInductionGeneralizingZQB.reflexiveBeta
+def reflexiveApplicationBeta := pathInductionGeneralizingZQB.reflexiveBeta
 
 /-- The actual source J term computes to its branch through all-rule soundness. -/
 theorem interpreted_beta (M : Model) :
@@ -261,7 +261,7 @@ def weakenedCommand := pathInductionGeneralizingZQB.rebuild
 def substitutedOriginal := pathInductionGeneralizingZQB.substitutedTerm
   (SubDeriv.weaken earlier base)
 
-def source_rebuild_conversion := pathInductionGeneralizingZQB.rebuildConversion
+def sourceRebuildConversion := pathInductionGeneralizingZQB.rebuildConversion
   (SubDeriv.weaken earlier base)
 
 /-- The checked source conversion, rather than beta or post-substitution alone,

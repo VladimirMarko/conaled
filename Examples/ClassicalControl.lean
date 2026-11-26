@@ -71,15 +71,15 @@ theorem no_prefix_for_later_even (O : List Nat) : ¬ First L₀ (.found 2 4 2 O)
   have he := first_eq_direct h
   simp [direct, prependOdd] at he
 
-example : Pgood.holds (.run (search L₀) (.out L₀)) := search_good
-example : Pgood.holds (.run (.last L₀ 0 none []) (.out L₀)) := changed_policy_good
+example : goodPole.Holds (.run (search L₀) (.out L₀)) := search_good
+example : goodPole.Holds (.run (.last L₀ 0 none []) (.out L₀)) := changed_policy_good
 example : ¬ First L₀ (.found 2 4 2 []) := later_even_not_first
-example : ¬ Pgood.holds (.deliver L₀ (.found 0 1 0 [])) := invalid_terminal
-example : universalPole.holds (.deliver L₀ (.found 0 1 0 [])) := universal_accepts_invalid
+example : ¬ goodPole.Holds (.deliver L₀ (.found 0 1 0 [])) := invalid_terminal
+example : universalPole.Holds (.deliver L₀ (.found 0 1 0 [])) := universal_accepts_invalid
 
 /-- The same pole interprets Peirce independently of the search theorem. -/
 example (atoms : Nat → Set Stack) (A B : Formula) :
-    Realizes Pgood atoms (.imp (.imp (.imp A B) A) A) .cc := peirce Pgood atoms A B
+    Realizes goodPole atoms (.imp (.imp (.imp A B) A) A) .cc := peirce goodPole atoms A B
 
 example (P : Pole) (atoms : Nat → Set Stack) (A : Formula) :
     Realizes P atoms (.imp A A) (.lam (.var 0)) := by

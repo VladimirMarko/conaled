@@ -20,12 +20,12 @@ open Applications.Sorting Resources
 
 abbrev select := SourceSelection.select (α := Nat) (· ≤ ·)
 abbrev selsort := SourceSelection.sortFuel (α := Nat) (· ≤ ·)
-abbrev selection_sort := SourceSelection.sort (α := Nat) (· ≤ ·)
+abbrev selectionSort := SourceSelection.sort (α := Nat) (· ≤ ·)
 abbrev selsort' := SourceSelection.sortWF (α := Nat) (· ≤ ·)
 
 /-- Both source chapters use the same adjacent empty/singleton/cons relation. -/
-abbrev sorted := InsertionSorting.sorted
-abbrev isASortingAlgorithm := InsertionSorting.isASortingAlgorithm
+abbrev Sorted := InsertionSorting.Sorted
+abbrev IsSortingAlgorithm := InsertionSorting.IsSortingAlgorithm
 
 theorem select_nil (x : Nat) : select x [] = (x, []) := SourceSelection.select_nil _ x
 
@@ -42,12 +42,12 @@ theorem selsort_cons (x : Nat) (xs : List Nat) (n : Nat) :
     selsort (x :: xs) (n + 1) = (select x xs).1 :: selsort (select x xs).2 n :=
   SourceSelection.sortFuel_cons _ x xs n
 
-theorem selection_sort_eq (xs : List Nat) : selection_sort xs = selsort xs xs.length := rfl
+theorem selectionSort_eq (xs : List Nat) : selectionSort xs = selsort xs xs.length := rfl
 
-theorem sorted_nil : sorted [] := InsertionSorting.sorted_nil
-theorem sorted_1 (x : Nat) : sorted [x] := InsertionSorting.sorted_1 x
+theorem sorted_nil : Sorted [] := InsertionSorting.sorted_nil
+theorem sorted_1 (x : Nat) : Sorted [x] := InsertionSorting.sorted_1 x
 theorem sorted_cons (x y : Nat) (xs : List Nat) (hxy : x ≤ y)
-    (hs : sorted (y :: xs)) : sorted (x :: y :: xs) :=
+    (hs : Sorted (y :: xs)) : Sorted (x :: y :: xs) :=
   InsertionSorting.sorted_cons x y xs hxy hs
 
 /-- The source quantifies two unused pair components; they remain parameters. -/
@@ -68,7 +68,7 @@ theorem select_rest_length (x : Nat) (l : List Nat) (y : Nat) (rest : List Nat)
 theorem selsort_perm (n : Nat) (l : List Nat) (hn : l.length = n) :
     l.Perm (selsort l n) := (SourceSelection.sortFuel_perm (· ≤ ·) l n hn.le).symm
 
-theorem selection_sort_perm (l : List Nat) : l.Perm (selection_sort l) :=
+theorem selectionSort_perm (l : List Nat) : l.Perm (selectionSort l) :=
   (SourceSelection.sort_perm (· ≤ ·) l).symm
 
 theorem select_fst_leq (al bl : List Nat) (x y : Nat)
@@ -76,17 +76,17 @@ theorem select_fst_leq (al bl : List Nat) (x y : Nat)
   simpa only [h] using SourceSelection.select_le_seed (· ≤ ·) x al
 
 /-- The source's Forall lower bound, with the membership observation exposed. -/
-def le_all (x : Nat) (xs : List Nat) : Prop := List.Forall (fun y => x ≤ y) xs
+def IsLowerBound (x : Nat) (xs : List Nat) : Prop := List.Forall (fun y => x ≤ y) xs
 
-theorem le_all_iff (x : Nat) (xs : List Nat) : le_all x xs ↔ ∀ y ∈ xs, x ≤ y :=
+theorem isLowerBound_iff (x : Nat) (xs : List Nat) : IsLowerBound x xs ↔ ∀ y ∈ xs, x ≤ y :=
   List.forall_iff_forall_mem
 
-theorem le_all_le_one (lst : List Nat) (y n : Nat)
-    (h : le_all y lst) (hn : n ∈ lst) : y ≤ n := (le_all_iff y lst).mp h n hn
+theorem isLowerBound_le_one (lst : List Nat) (y n : Nat)
+    (h : IsLowerBound y lst) (hn : n ∈ lst) : y ≤ n := (isLowerBound_iff y lst).mp h n hn
 
 theorem select_smallest (al bl : List Nat) (x y : Nat)
-    (h : select x al = (y, bl)) : le_all y bl := by
-  apply (le_all_iff y bl).mpr
+    (h : select x al = (y, bl)) : IsLowerBound y bl := by
+  apply (isLowerBound_iff y bl).mpr
   simpa only [h] using SourceSelection.select_smallest (· ≤ ·) x al
 
 theorem select_in (al bl : List Nat) (x y : Nat)
@@ -94,21 +94,21 @@ theorem select_in (al bl : List Nat) (x y : Nat)
   simpa only [h] using SourceSelection.select_mem (· ≤ ·) x al
 
 theorem cons_of_small_maintains_sort (bl : List Nat) (y n : Nat)
-    (hn : n = bl.length) (hb : le_all y bl) (hs : sorted (selsort bl n)) :
-    sorted (y :: selsort bl n) := by
+    (hn : n = bl.length) (hb : IsLowerBound y bl) (hs : Sorted (selsort bl n)) :
+    Sorted (y :: selsort bl n) := by
   apply List.isChain_iff_pairwise.mpr
   refine List.pairwise_cons.mpr ⟨?_, List.isChain_iff_pairwise.mp hs⟩
   intro a ha
-  exact le_all_le_one bl y a hb ((selsort_perm n bl hn.symm).mem_iff.mpr ha)
+  exact isLowerBound_le_one bl y a hb ((selsort_perm n bl hn.symm).mem_iff.mpr ha)
 
 theorem selsort_sorted (n : Nat) (al : List Nat) (_hn : al.length = n) :
-    sorted (selsort al n) := List.isChain_iff_pairwise.mpr (SourceSelection.sortFuel_pairwise (· ≤ ·) al n)
+    Sorted (selsort al n) := List.isChain_iff_pairwise.mpr (SourceSelection.sortFuel_pairwise (· ≤ ·) al n)
 
-theorem selection_sort_sorted (al : List Nat) : sorted (selection_sort al) :=
+theorem selectionSort_sorted (al : List Nat) : Sorted (selectionSort al) :=
   List.isChain_iff_pairwise.mpr (SourceSelection.sort_pairwise (· ≤ ·) al)
 
-theorem selection_sort_is_correct : isASortingAlgorithm selection_sort :=
-  fun xs => ⟨selection_sort_perm xs, selection_sort_sorted xs⟩
+theorem selectionSort_is_correct : IsSortingAlgorithm selectionSort :=
+  fun xs => ⟨selectionSort_perm xs, selectionSort_sorted xs⟩
 
 theorem selsort'_nil : selsort' [] = [] := SourceSelection.sortWF_nil _
 theorem selsort'_cons (x : Nat) (xs : List Nat) :
@@ -119,16 +119,16 @@ theorem selsort'_perm (n : Nat) (l : List Nat) (_hn : l.length = n) :
     l.Perm (selsort' l) := (SourceSelection.sortWF_perm (· ≤ ·) l).symm
 
 theorem cons_of_small_maintains_sort' (bl : List Nat) (y : Nat)
-    (hb : le_all y bl) (hs : sorted (selsort' bl)) : sorted (y :: selsort' bl) := by
+    (hb : IsLowerBound y bl) (hs : Sorted (selsort' bl)) : Sorted (y :: selsort' bl) := by
   apply List.isChain_iff_pairwise.mpr
   refine List.pairwise_cons.mpr ⟨?_, List.isChain_iff_pairwise.mp hs⟩
   intro a ha
-  exact le_all_le_one bl y a hb ((SourceSelection.sortWF_perm (· ≤ ·) bl).mem_iff.mp ha)
+  exact isLowerBound_le_one bl y a hb ((SourceSelection.sortWF_perm (· ≤ ·) bl).mem_iff.mp ha)
 
 theorem selsort'_sorted (n : Nat) (al : List Nat) (_hn : al.length = n) :
-    sorted (selsort' al) := List.isChain_iff_pairwise.mpr (SourceSelection.sortWF_pairwise (· ≤ ·) al)
+    Sorted (selsort' al) := List.isChain_iff_pairwise.mpr (SourceSelection.sortWF_pairwise (· ≤ ·) al)
 
-theorem selsort'_is_correct : isASortingAlgorithm selsort' :=
+theorem selsort'_is_correct : IsSortingAlgorithm selsort' :=
   fun xs => ⟨selsort'_perm xs.length xs rfl, selsort'_sorted xs.length xs rfl⟩
 
 /-- This uses the direct contents recurrence, not the ordinary Perm theorem. -/
@@ -140,14 +140,14 @@ theorem select_contents (al bl : List Nat) (x y : Nat)
   simpa only [h, Sequences.Multiplicity.contents_cons_union] using hc
 
 /-- The source's redundant n refers to the input; the output is the full sort. -/
-theorem selection_sort_contents (n : Nat) (l : List Nat) (_hn : l.length = n) :
-    Sequences.Multiplicity.contents l = Sequences.Multiplicity.contents (selection_sort l) := (SourceSelection.sort_contents (· ≤ ·) l).symm
+theorem selectionSort_contents (n : Nat) (l : List Nat) (_hn : l.length = n) :
+    Sequences.Multiplicity.contents l = Sequences.Multiplicity.contents (selectionSort l) := (SourceSelection.sort_contents (· ≤ ·) l).symm
 
-theorem sorted_iff_sorted (l : List Nat) : sorted l ↔ InsertionSorting.sorted l := Iff.rfl
+theorem sorted_iff_sorted (l : List Nat) : Sorted l ↔ InsertionSorting.Sorted l := Iff.rfl
 
-theorem selection_sort_correct' : MultisetSorting.isASortingAlgorithm selection_sort :=
-  fun xs => ⟨selection_sort_contents xs.length xs rfl,
-    (sorted_iff_sorted _).mp (selection_sort_sorted xs)⟩
+theorem selection_sort_correct' : MultisetSorting.IsSortingAlgorithm selectionSort :=
+  fun xs => ⟨selectionSort_contents xs.length xs rfl,
+    (sorted_iff_sorted _).mp (selectionSort_sorted xs)⟩
 
 /-! Source calculations and connected fuel/termination clients. -/
 
@@ -174,13 +174,13 @@ theorem extra_fuel : selsort [3, 1, 4, 1, 5] 10 = [1, 1, 3, 4, 5] := by
   rw [SourceSelection.sortFuel_saturated (α := Nat) (· ≤ ·) [3, 1, 4, 1, 5] 10 (by decide)]
   rfl
 
-theorem sort_pi : selection_sort [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] =
+theorem sort_pi : selectionSort [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] =
     [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := rfl
 
 theorem pi_contract :
     ([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] : List Nat).Perm
-      [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] ∧ sorted [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
-  simpa only [sort_pi] using selection_sort_is_correct [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+      [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] ∧ Sorted [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
+  simpa only [sort_pi] using selectionSort_is_correct [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
 
 /-- The independent well-founded equations are exercised directly. -/
 theorem selsort'_example : selsort' [3, 1, 4, 1, 5, 9, 2, 6, 5] =
@@ -189,29 +189,29 @@ theorem selsort'_example : selsort' [3, 1, 4, 1, 5, 9, 2, 6, 5] =
 
 theorem wf_example_contract :
     ([3, 1, 4, 1, 5, 9, 2, 6, 5] : List Nat).Perm [1, 1, 2, 3, 4, 5, 5, 6, 9] ∧
-      sorted [1, 1, 2, 3, 4, 5, 5, 6, 9] := by
+      Sorted [1, 1, 2, 3, 4, 5, 5, 6, 9] := by
   simpa only [selsort'_example] using selsort'_is_correct [3, 1, 4, 1, 5, 9, 2, 6, 5]
 
-theorem boundary_values : selection_sort [] = [] ∧ selection_sort [7] = [7] ∧
+theorem boundary_values : selectionSort [] = [] ∧ selectionSort [7] = [7] ∧
     selsort [7] 0 = [] ∧ selsort [7] 1 = [7] ∧ selsort [] 5 = [] := by decide
 
 theorem partial_ordered_but_not_permutation :
-    sorted (selsort [3, 1, 4, 1, 5] 3) ∧
+    Sorted (selsort [3, 1, 4, 1, 5] 3) ∧
       ¬ (selsort [3, 1, 4, 1, 5] 3).Perm [3, 1, 4, 1, 5] := by
   refine ⟨List.isChain_iff_pairwise.mpr (SourceSelection.sortFuel_pairwise (· ≤ ·) _ 3), ?_⟩
   rw [SourceSelection.sortFuel_perm_iff]
   decide
 
-theorem sorted_fixed (xs : List Nat) (hs : sorted xs) : selection_sort xs = xs :=
+theorem sorted_fixed (xs : List Nat) (hs : Sorted xs) : selectionSort xs = xs :=
   SourceSelection.sort_of_pairwise (· ≤ ·) xs (List.isChain_iff_pairwise.mp hs)
 
-theorem sort_idempotent (xs : List Nat) : selection_sort (selection_sort xs) = selection_sort xs :=
+theorem sort_idempotent (xs : List Nat) : selectionSort (selectionSort xs) = selectionSort xs :=
   SourceSelection.sort_idempotent (· ≤ ·) xs
 
 /-! Reuse across ordinary sorting and minimum observations. -/
 
-theorem agrees_with_insertion (xs : List Nat) : selection_sort xs = InsertionSorting.sort xs :=
-  sorters_eq_at (· ≤ ·) selection_sort InsertionSorting.sort xs
+theorem agrees_with_insertion (xs : List Nat) : selectionSort xs = InsertionSorting.sort xs :=
+  sorters_eq_at (· ≤ ·) selectionSort InsertionSorting.sort xs
     (SourceSelection.sort_correct (· ≤ ·) xs)
     ⟨List.isChain_iff_pairwise.mp (InsertionSorting.sort_sorted xs),
       (InsertionSorting.sort_perm xs).symm⟩
@@ -234,28 +234,28 @@ theorem keyed_correct {α : Type u} {κ : Type v} [LE κ] [DecidableLE κ]
 
 abbrev Record := Nat × String
 def records : List Record := [(2, "a"), (2, "b"), (1, "c")]
-def recordOrder (a b : Record) : Prop := a.1 ≤ b.1
-instance : DecidableRel recordOrder := fun a b => inferInstanceAs (Decidable (a.1 ≤ b.1))
+def RecordOrder (a b : Record) : Prop := a.1 ≤ b.1
+instance : DecidableRel RecordOrder := fun a b => inferInstanceAs (Decidable (a.1 ≤ b.1))
 
 /-- Equal keys retain the seed in the selected position, including its payload. -/
-theorem tied_seed_retained : SourceSelection.select recordOrder (2, "a") [(2, "b")] =
+theorem tied_seed_retained : SourceSelection.select RecordOrder (2, "a") [(2, "b")] =
     ((2, "a"), [(2, "b")]) :=
-  SourceSelection.select_of_lower recordOrder (2, "a") [(2, "b")] (by simp [recordOrder])
+  SourceSelection.select_of_lower RecordOrder (2, "a") [(2, "b")] (by simp [RecordOrder])
 
-theorem record_output : SourceSelection.sort recordOrder records = [(1, "c"), (2, "b"), (2, "a")] := rfl
+theorem record_output : SourceSelection.sort RecordOrder records = [(1, "c"), (2, "b"), (2, "a")] := rfl
 
-theorem record_contract : KeySorted Prod.fst (SourceSelection.sort recordOrder records) ∧
-    (SourceSelection.sort recordOrder records).Perm records := keyed_correct Prod.fst records
+theorem record_contract : KeySorted Prod.fst (SourceSelection.sort RecordOrder records) ∧
+    (SourceSelection.sort RecordOrder records).Perm records := keyed_correct Prod.fst records
 
 /-- The two equal-key records are reversed by this actual source execution. -/
-theorem selection_not_stable : ¬ Stable Prod.fst records (SourceSelection.sort recordOrder records) := by
+theorem selection_not_stable : ¬ Stable Prod.fst records (SourceSelection.sort RecordOrder records) := by
   intro hs
   have h := hs 2
   rw [record_output] at h
   have bad : ([(2, "b"), (2, "a")] : List Record) = [(2, "a"), (2, "b")] := h
   contradiction
 
-theorem selection_records_ne_insertion : SourceSelection.sort recordOrder records ≠ insertionOn Prod.fst records := by
+theorem selection_records_ne_insertion : SourceSelection.sort RecordOrder records ≠ insertionOn Prod.fst records := by
   intro h
   apply selection_not_stable
   rw [h]
@@ -277,13 +277,13 @@ theorem equality_relation_boundary :
       ¬ (SourceSelection.sort (α := Nat) (· = ·) [1, 2]).Pairwise (· = ·) :=
   ⟨SourceSelection.sort_perm (· = ·) [1, 2], by decide⟩
 
-def cyclic (a b : Fin 3) : Prop := a = b ∨ (a.val + 1) % 3 = b.val
-instance : DecidableRel cyclic := fun a b => inferInstanceAs (Decidable (a = b ∨ (a.val + 1) % 3 = b.val))
+def Cyclic (a b : Fin 3) : Prop := a = b ∨ (a.val + 1) % 3 = b.val
+instance : DecidableRel Cyclic := fun a b => inferInstanceAs (Decidable (a = b ∨ (a.val + 1) % 3 = b.val))
 
 /-- Totality by itself does not make the source output pairwise ordered. -/
 theorem transitivity_boundary :
-    (∀ a b : Fin 3, cyclic a b ∨ cyclic b a) ∧
-      ¬ (SourceSelection.sort cyclic [0, 1, 2]).Pairwise cyclic := by decide
+    (∀ a b : Fin 3, Cyclic a b ∨ Cyclic b a) ∧
+      ¬ (SourceSelection.sort Cyclic [0, 1, 2]).Pairwise Cyclic := by decide
 
 /-! Executed comparison clients, under the same unit charge as CTB-80. -/
 

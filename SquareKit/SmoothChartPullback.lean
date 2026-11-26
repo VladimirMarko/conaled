@@ -93,7 +93,7 @@ end SquareKit.ManifoldRealization.ChartFamily
 
 namespace SquareKit.EuclideanOpen
 open SmoothAlgebra SmoothPresentationSite SmoothAlgebra.Localization Opposite
-theorem subInclusion_site_cancel (U : Domain) (q : Free U.dimension) (X : Site)
+theorem subInclusion_site_cancel (U : Domain) (q : freeAlgebra U.dimension) (X : Site)
     (u v : X ⟶ toSite.obj (subdomain U q))
     (h : u ≫ toSite.map (subInclusion U q) = v ≫ toSite.map (subInclusion U q)) : u = v := by
   apply Quiver.Hom.unop_inj

@@ -240,7 +240,7 @@ theorem native_tagged_recovery (δ : Δ) (s : Selected I P (σ δ)) :
 end NativeRecovery
 
 /-- The comparison control needs only pullbacks; finite-limit preservation is false. -/
-example {X Y : Over Bool} (σ : X ⟶ Y) := MatesBaseChange.forget_comparison_iso σ
+example {X Y : Over Bool} (σ : X ⟶ Y) := MatesBaseChange.forgetComparisonIso σ
 example : ¬ PreservesFiniteLimits (Over.forget Bool) := MatesBaseChange.forget_not_leftExact
 example := MatesBaseChange.noninvertible_inverse_mate
 end Examples.SpanAction

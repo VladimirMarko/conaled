@@ -13,7 +13,7 @@ abbrev identitySchema (out : Judgment (Fin 4)) : Rule signature where
   conclusion := out
 
 theorem identitySchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 4))
-    (valid : ∀ Γ A x y, out.eval (algebra M)
+    (valid : ∀ Γ A x y, out.Eval (algebra M)
       ![.context Γ, .family Γ A, .term Γ A x, .term Γ A y]) :
     Satisfies (algebra M) (identitySchema out) := by
   intro ρ h
@@ -48,7 +48,7 @@ abbrev identitySubSchema (out : Judgment (Fin 6)) : Rule signature where
   conclusion := out
 
 theorem identitySubSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 6))
-    (valid : ∀ Γ Δ A x y σ, out.eval (algebra M)
+    (valid : ∀ Γ Δ A x y σ, out.Eval (algebra M)
       ![.context Γ, .family Γ A, .term Γ A x, .term Γ A y, .context Δ, .substitution Δ Γ σ]) :
     Satisfies (algebra M) (identitySubSchema out) := by
   intro ρ h
@@ -90,7 +90,7 @@ abbrev telSchema (n : Nat) (out : Judgment (Fin 2)) : Rule signature where
   conclusion := out
 
 theorem telSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) (out : Judgment (Fin 2))
-    (valid : ∀ Γ T, out.eval (algebra M) ![.context Γ, .telescope Γ n T]) :
+    (valid : ∀ Γ T, out.Eval (algebra M) ![.context Γ, .telescope Γ n T]) :
     Satisfies (algebra M) (telSchema n out) := by
   intro ρ h
   rcases h 0 with ⟨Γ, T, hΓ, hT⟩
@@ -157,7 +157,7 @@ abbrev telSubSchema (n : Nat) (out : Judgment (Fin 4)) : Rule signature where
   conclusion := out
 
 theorem telSubSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) (out : Judgment (Fin 4))
-    (valid : ∀ Γ Δ T σ, out.eval (algebra M)
+    (valid : ∀ Γ Δ T σ, out.Eval (algebra M)
       ![.context Γ, .context Δ, .telescope Γ n T, .substitution Δ Γ σ]) :
     Satisfies (algebra M) (telSubSchema n out) := by
   intro ρ h
@@ -200,7 +200,7 @@ abbrev tailSchema (n : Nat) (out : Judgment (Fin 4)) : Rule signature where
   conclusion := out
 
 theorem tailSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) (out : Judgment (Fin 4))
-    (valid : ∀ Γ A x T, out.eval (algebra M)
+    (valid : ∀ Γ A x T, out.Eval (algebra M)
       ![.context Γ, .family Γ A, .term Γ A x, .telescope (M.toStructuralModel.pathContext A x) n T]) :
     Satisfies (algebra M) (tailSchema n out) := by
   intro ρ h
@@ -253,7 +253,7 @@ abbrev tailSubSchema (n : Nat) (out : Judgment (Fin 6)) : Rule signature where
   conclusion := out
 
 theorem tailSubSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) (out : Judgment (Fin 6))
-    (valid : ∀ Γ Δ A x T σ, out.eval (algebra M)
+    (valid : ∀ Γ Δ A x T σ, out.Eval (algebra M)
       ![.context Γ, .family Γ A, .term Γ A x, .telescope (M.toStructuralModel.pathContext A x) n T,
         .context Δ, .substitution Δ Γ σ]) :
     Satisfies (algebra M) (tailSubSchema n out) := by

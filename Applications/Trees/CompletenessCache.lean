@@ -20,13 +20,13 @@ def nodeCh (l : BinaryTree (α × (Bool × Nat))) (a : α)
     (r : BinaryTree (α × (Bool × Nat))) : BinaryTree (α × (Bool × Nat)) :=
   Cached.smartNode Completeness.empty Completeness.combine l a r
 
-def invarCh (t : BinaryTree (α × (Bool × Nat))) : Prop :=
+def Valid (t : BinaryTree (α × (Bool × Nat))) : Prop :=
   Cached.Valid Completeness.empty Completeness.combine t
 
 @[simp] theorem ch_nil : ch (.nil : BinaryTree (α × (Bool × Nat))) = Completeness.empty :=
   rfl
 
-@[simp] theorem invarCh_nil : invarCh (.nil : BinaryTree (α × (Bool × Nat))) :=
+@[simp] theorem valid_nil : Valid (.nil : BinaryTree (α × (Bool × Nat))) :=
   Cached.valid_nil Completeness.empty Completeness.combine
 
 theorem ch_nodeCh (l : BinaryTree (α × (Bool × Nat))) (a : α)
@@ -42,39 +42,39 @@ theorem erase_nodeCh (l : BinaryTree (α × (Bool × Nat))) (a : α)
 /-- Local reconstruction repairs the root only; both children must be valid. -/
 theorem nodeCh_valid_iff (l : BinaryTree (α × (Bool × Nat))) (a : α)
     (r : BinaryTree (α × (Bool × Nat))) :
-    invarCh (nodeCh l a r) ↔ invarCh l ∧ invarCh r :=
+    Valid (nodeCh l a r) ↔ Valid l ∧ Valid r :=
   Cached.smartNode_valid_iff Completeness.empty Completeness.combine l a r
 
 theorem nodeCh_valid (l : BinaryTree (α × (Bool × Nat))) (a : α)
-    (r : BinaryTree (α × (Bool × Nat))) (hl : invarCh l) (hr : invarCh r) :
-    invarCh (nodeCh l a r) := (nodeCh_valid_iff l a r).mpr ⟨hl, hr⟩
+    (r : BinaryTree (α × (Bool × Nat))) (hl : Valid l) (hr : Valid r) :
+    Valid (nodeCh l a r) := (nodeCh_valid_iff l a r).mpr ⟨hl, hr⟩
 
-theorem ch_eq_summary (t : BinaryTree (α × (Bool × Nat))) (ht : invarCh t) :
+theorem ch_eq_summary (t : BinaryTree (α × (Bool × Nat))) (ht : Valid t) :
     ch t = Completeness.summary (Cached.erase t) :=
   Cached.read_eq_fold Completeness.empty Completeness.combine t ht
 
-theorem ch_height (t : BinaryTree (α × (Bool × Nat))) (ht : invarCh t) :
+theorem ch_height (t : BinaryTree (α × (Bool × Nat))) (ht : Valid t) :
     (ch t).2 = (Cached.erase t).height :=
   (congrArg Prod.snd (ch_eq_summary t ht)).trans (Completeness.summary_height _)
 
-theorem ch_complete (t : BinaryTree (α × (Bool × Nat))) (ht : invarCh t) :
+theorem ch_complete (t : BinaryTree (α × (Bool × Nat))) (ht : Valid t) :
     (ch t).1 = true ↔ Trees.Complete (Cached.erase t) := by
   rw [ch_eq_summary t ht]
   exact Completeness.summary_complete _
 
 /-- Erasing annotations preserves structural height. -/
-theorem ch_height_tree (t : BinaryTree (α × (Bool × Nat))) (ht : invarCh t) :
+theorem ch_height_tree (t : BinaryTree (α × (Bool × Nat))) (ht : Valid t) :
     (ch t).2 = t.height := (ch_height t ht).trans (Cached.height_erase t)
 
 /-- Completeness depends on shape, so annotation erasure preserves it too. -/
-theorem ch_complete_tree (t : BinaryTree (α × (Bool × Nat))) (ht : invarCh t) :
+theorem ch_complete_tree (t : BinaryTree (α × (Bool × Nat))) (ht : Valid t) :
     (ch t).1 = true ↔ Trees.Complete t :=
   (ch_complete t ht).trans (Trees.complete_map Prod.fst t)
 
 def annotate (t : BinaryTree α) : BinaryTree (α × (Bool × Nat)) :=
   Cached.annotate Completeness.empty Completeness.combine t
 
-theorem annotate_valid (t : BinaryTree α) : invarCh (annotate t) :=
+theorem annotate_valid (t : BinaryTree α) : Valid (annotate t) :=
   Cached.annotate_valid Completeness.empty Completeness.combine t
 
 theorem erase_annotate (t : BinaryTree α) : Cached.erase (annotate t) = t :=

@@ -41,18 +41,18 @@ end HomVariance
 /-- A designated class of arrows. Membership does not assert injectivity,
 proof irrelevance, zero runtime cost, or uniqueness of parallel arrows. -/
 structure Designated {O : Type u} (C : CategoryOps.{u,v} O) where
-  admits : {a b : O} → C.Hom a b → Prop
+  Admits : {a b : O} → C.Hom a b → Prop
 
 structure DesignatedLaws {O : Type u} {C : CategoryOps.{u,v} O}
     (S : Designated C) : Prop where
-  ident : ∀ {a}, S.admits (C.ident (a := a))
+  ident : ∀ {a}, S.Admits (C.ident (a := a))
   comp : ∀ {a b c} {g : C.Hom b c} {f : C.Hom a b},
-    S.admits g → S.admits f → S.admits (C.comp g f)
+    S.Admits g → S.Admits f → S.Admits (C.comp g f)
 
 namespace Designated
 variable {O : Type u} {C : CategoryOps.{u,v} O} (S : Designated C)
 
-abbrev Evidence (a b : O) := {f : C.Hom a b // S.admits f}
+abbrev Evidence (a b : O) := {f : C.Hom a b // S.Admits f}
 
 def ops (L : DesignatedLaws S) : CategoryOps O where
   Hom := S.Evidence
@@ -82,14 +82,14 @@ theorem all_laws : DesignatedLaws (all C) := ⟨True.intro, fun _ _ => True.intr
 /-- Function-constructor closure is a separate optional obligation. -/
 def FunctionClosed (S : Designated FunctionCategory.ops.{u}) : Prop :=
   ∀ {A A' B B' : Type u} (i : A' → A) (j : B → B'),
-    S.admits i → S.admits j → S.admits (HomVariance.map (C := FunctionCategory.ops) i j)
+    S.Admits i → S.Admits j → S.Admits (HomVariance.map (C := FunctionCategory.ops) i j)
 
 theorem all_functionClosed : FunctionClosed (all FunctionCategory.ops.{u}) :=
   fun _ _ _ _ => True.intro
 /-- A semantic functor need not preserve a separately chosen designation. -/
 def PreservedBy {Q : Type u'} {D : CategoryOps.{u',v'} Q}
     (T : Designated D) (F : RawMap C D) : Prop :=
-  ∀ {a b} (f : C.Hom a b), S.admits f → T.admits (F.map f)
+  ∀ {a b} (f : C.Hom a b), S.Admits f → T.Admits (F.map f)
 
 theorem preserved_id : S.PreservedBy S (RawMap.id C) := fun _ h => h
 

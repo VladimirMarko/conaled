@@ -15,7 +15,7 @@ open SplitSheaf.Cech
 
 /-- Ordinary groupoid Čech data on a fixed split display. -/
 structure Datum (A : SplitSheaf.Ty X) where
-  localObject : Object a (SplitSheaf.Ext A)
+  localObject : Object a (SplitSheaf.extension A)
   overlap : reindex localObject (first A) ≅ reindex localObject (second A)
   diagonal : overlap.hom.reindex (SplitSheaf.Cech.diagonal A) = Arrow.ident localObject
   cocycle : (overlap.hom.reindex (firstSecond A)).comp
@@ -93,7 +93,7 @@ instance : Groupoid (Datum (a := a) A) where
     exact h.localArrow.toIso.hom_inv_id
 
 /-- The forgetful functor retains the entire local quotient arrow. -/
-def localFunctor : Datum (a := a) A ⥤ Object a (SplitSheaf.Ext A) where
+def localFunctor : Datum (a := a) A ⥤ Object a (SplitSheaf.extension A) where
   obj d := d.localObject
   map h := h.localArrow
   map_id _ := rfl

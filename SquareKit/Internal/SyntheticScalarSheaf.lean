@@ -17,15 +17,15 @@ def map {n} (ρ : Assignment n) : MapExpr n → (scalar ⟶ scalar)
   | .mul f g => lift (map ρ f) (map ρ g) ≫ AlgebraicStage.mul
   | .derivative f => derivative (map ρ f)
 
-def atom {n} (ρ : Assignment n) (A : Stage) (x : Carrier A)
-    (d : infinitesimal.obj.obj (atStage A)) : Atom n → Carrier A
+def atom {n} (ρ : Assignment n) (A : Stage) (x : carrierAlgebra A)
+    (d : infinitesimal.obj.obj (atStage A)) : Atom n → carrierAlgebra A
   | .base f => (map ρ f).hom.app (atStage A) x
   | .shifted f => (map ρ f).hom.app (atStage A) (x+d.val)
   | .epsilon => d.val
 
 /-- Soundness covers every source constructor, including polynomial certificates.
 No source product rule or desired equality is required from the assignment. -/
-theorem sound {n} (ρ : Assignment n) (A : Stage) (x : Carrier A)
+theorem sound {n} (ρ : Assignment n) (A : Stage) (x : carrierAlgebra A)
     (d : infinitesimal.obj.obj (atStage A)) {a b : Expr n} (h : Derives a b) :
     Expr.eval (atom ρ A x d) a = Expr.eval (atom ρ A x d) b := by
   exact sound_eval (atom ρ A x d) d.property

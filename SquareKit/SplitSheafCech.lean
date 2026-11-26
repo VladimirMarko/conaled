@@ -7,13 +7,13 @@ universe u v w
 variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {X : Sheaf J (Type w)} (A : Ty X)
 
-abbrev double := Ext (tySub A (p A))
-abbrev first : double A ⟶ Ext A := p (tySub A (p A))
-abbrev second : double A ⟶ Ext A := lift A (p A)
+abbrev double := extension (tySub A (p A))
+abbrev first : double A ⟶ extension A := p (tySub A (p A))
+abbrev second : double A ⟶ extension A := lift A (p A)
 
-def diagonal : Ext A ⟶ double A := pair (tySub A (p A)) (𝟙 _) (q A)
+def diagonal : extension A ⟶ double A := pair (tySub A (p A)) (𝟙 _) (q A)
 
-abbrev triple := Ext (tySub A (first A ≫ p A))
+abbrev triple := extension (tySub A (first A ≫ p A))
 abbrev firstSecond : triple A ⟶ double A := p (tySub A (first A ≫ p A))
 abbrev firstThird : triple A ⟶ double A := lift (tySub A (p A)) (first A)
 abbrev secondThird : triple A ⟶ double A := lift (tySub A (p A)) (second A)

@@ -17,19 +17,19 @@ set_option backward.defeqAttrib.useBackward true
 namespace SignatureFree
 open SquareKit.TypeFamilyRepresentation
 
-def family (n : Nat) := Fin (n + 1)
+def Family (n : Nat) := Fin (n + 1)
 def base : Nat ⟶ Nat := ↾fun n => 2 * n
-def term : families.Tm Nat (families.pullTy family base) :=
+def term : families.Tm Nat (families.pullTy Family base) :=
   ⟨fun n => ⟨n, by change n < 2 * n + 1; omega⟩⟩
 
 /-- A varying family and nonidentity base require no base/fiber signature,
 empty context, identity type or J assignment. -/
-def arrow := representation.sectionsOver family base term
+def arrow := representation.sectionsOver Family base term
 
 theorem arrow_apply (n : Nat) : arrow.val n = ⟨2 * n, ⟨n, by omega⟩⟩ := rfl
 
-theorem recover_term : (representation.sectionsOver family base).symm arrow = term :=
-  (representation.sectionsOver family base).symm_apply_apply term
+theorem recover_term : (representation.sectionsOver Family base).symm arrow = term :=
+  (representation.sectionsOver Family base).symm_apply_apply term
 
 /-- First increment the input, then double the base. At 3 the base is 8 and
 the retained fiber value is 4; reversing the base maps would give 7. -/
@@ -60,7 +60,7 @@ theorem same_consumer {Γ Δ : M.Context} (A : M.Family Γ) (σ : M.Substitution
   M.representedSectionsOver_eq A σ
 
 theorem chosen_pair (n : Nat) :
-    (M.representedSectionsOver SignatureFree.family ⟨fun n : Nat => 2 * n⟩
+    (M.representedSectionsOver SignatureFree.Family ⟨fun n : Nat => 2 * n⟩
       ⟨fun n => ⟨n, by change n < 2 * n + 1; omega⟩⟩).val.down n =
         ⟨2 * n, ⟨n, by omega⟩⟩ := by
   rw [same_consumer]

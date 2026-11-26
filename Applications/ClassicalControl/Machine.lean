@@ -77,10 +77,10 @@ theorem normalizes_of_delivery {s L v} (h : Runs s (.deliver L v)) :
 
 /-- Predecessor closure is the only logical requirement on a pole. -/
 structure Pole where
-  holds : State → Prop
-  backwards : ∀ {s t}, Step s t → holds t → holds s
+  Holds : State → Prop
+  backwards : ∀ {s t}, Step s t → Holds t → Holds s
 
-theorem Pole.backwards_runs (P : Pole) {s t} (h : Runs s t) : P.holds t → P.holds s := by
+theorem Pole.backwards_runs (P : Pole) {s t} (h : Runs s t) : P.Holds t → P.Holds s := by
   induction h with
   | refl => exact id
   | tail _ step ih => exact fun ht => ih (P.backwards step ht)
@@ -161,14 +161,14 @@ theorem clean_runs {s t} (h : Runs s t) (hs : Clean s) : Clean t := by
 
 abbrev L₀ : List Nat := [1,2,4]
 
-def Pgood : Pole where
-  holds s := ∃ z, Weak L₀ z ∧ Runs s (.deliver L₀ z)
+def goodPole : Pole where
+  Holds s := ∃ z, Weak L₀ z ∧ Runs s (.deliver L₀ z)
   backwards h hs := by
     obtain ⟨z, hz, path⟩ := hs
     exact ⟨z, hz, (Relation.ReflTransGen.single h).trans path⟩
 
 theorem terminal_pgood (L : List Nat) (z : Value) :
-    Pgood.holds (.deliver L z) ↔ L = L₀ ∧ Weak L₀ z := by
+    goodPole.Holds (.deliver L z) ↔ L = L₀ ∧ Weak L₀ z := by
   constructor
   · rintro ⟨w, hw, hr⟩
     have he : State.deliver L₀ w = .deliver L z := terminal_runs hr
@@ -176,22 +176,22 @@ theorem terminal_pgood (L : List Nat) (z : Value) :
     exact ⟨rfl, hw⟩
   · rintro ⟨rfl, hz⟩; exact ⟨z, hz, .refl⟩
 
-theorem good_nonempty : Pgood.holds (.run (.ret (.found 1 2 1 [0])) (.out L₀)) :=
+theorem good_nonempty : goodPole.Holds (.run (.ret (.found 1 2 1 [0])) (.out L₀)) :=
   ⟨.found 1 2 1 [0], by simp [Weak], Relation.ReflTransGen.single .output⟩
 
-theorem invalid_terminal : ¬ Pgood.holds (.deliver L₀ (.found 0 1 0 [])) := by
+theorem invalid_terminal : ¬ goodPole.Holds (.deliver L₀ (.found 0 1 0 [])) := by
   rw [terminal_pgood]; simp [Weak]
 
 theorem restricted_coherence (t : Term 0) (h : Pure t) :
-    ¬ Pgood.holds (.run t .halt) := by
+    ¬ goodPole.Holds (.run t .halt) := by
   rintro ⟨z, _, path⟩
   exact clean_runs path ⟨pure_clean h, .halt⟩
 
 def universalPole : Pole := ⟨fun _ => True, fun _ _ => trivial⟩
 
-theorem universal_accepts_invalid : universalPole.holds (.deliver L₀ (.found 0 1 0 [])) := trivial
+theorem universal_accepts_invalid : universalPole.Holds (.deliver L₀ (.found 0 1 0 [])) := trivial
 
-theorem later_even_in_pole : Pgood.holds (.deliver L₀ (.found 2 4 2 [])) :=
+theorem later_even_in_pole : goodPole.Holds (.deliver L₀ (.found 2 4 2 [])) :=
   ⟨_, by simp [Weak], .refl⟩
 
 theorem later_even_not_first : ¬ First L₀ (.found 2 4 2 []) := by

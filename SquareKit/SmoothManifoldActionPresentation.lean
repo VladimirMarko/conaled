@@ -14,17 +14,17 @@ open Orbifolds.FiniteActionPresentation
 
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 
 abbrev SmoothMap (U : Domain) (d : ℕ) (M : Type) [TopologicalSpace M]
     [ChartedSpace (Space d) M] :=
-  {m : ordinaryOpen U → M // ContMDiff (Model U.dimension) (Model d) ∞ m}
+  {m : ordinaryOpen U → M // ContMDiff (modelWithCorners U.dimension) (modelWithCorners d) ∞ m}
 
 /-- An external family specifies its map and both endpoints independently of
 any quotient comparison. The arrow model is the product with discrete labels. -/
 def Family (U : Domain) (m n : SmoothMap U d M) :=
   {a : ordinaryOpen U → Orbifolds.FiniteActionPresentation.Arrow G M //
-    ContMDiff (Model U.dimension) (arrowModel (Model d)) ∞ a ∧
+    ContMDiff (modelWithCorners U.dimension) (arrowModel (modelWithCorners d)) ∞ a ∧
     (∀ x, source (a x) = m.val x) ∧ (∀ x, target (a x) = n.val x)}
 
 /-- Locally constant labels are auxiliary coordinates on the independent family type. -/
@@ -36,7 +36,7 @@ variable {U : Domain} {m n p : SmoothMap U d M}
 omit [Group G] in
 /-- Smoothness of a locally constant map requires no connectedness of its domain. -/
 theorem label_smooth (g : LocallyConstant (Points U) G) :
-    ContMDiff (Model U.dimension) 𝓘(ℝ, Fin 0 → ℝ) ∞
+    ContMDiff (modelWithCorners U.dimension) 𝓘(ℝ, Fin 0 → ℝ) ∞
       (show ordinaryOpen U → G from g) := by
   intro x
   exact contMDiffAt_const.congr_of_eventuallyEq (g.isLocallyConstant.eventually_eq x)
@@ -53,7 +53,7 @@ def labelsEquiv (m n : SmoothMap U d M) : Labels (G := G) U m n ≃ Family (G :=
   left_inv _ := Subtype.ext rfl
   right_inv a := Subtype.ext (funext (fun x => Prod.ext rfl (a.property.2.1 x).symm))
 
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 abbrev ChartArrow (m n : SmoothMap U d M) :=
   SheafActionQuotient.Arrow (chart (representation smoothAction).action (hat m.val m.property))
@@ -95,7 +95,7 @@ namespace Family
 variable {smoothAction}
 
 def ident (m : SmoothMap U d M) : Family (G := G) U m m :=
-  ⟨fun x => unit (m.val x), unit_smooth (Model d) |>.comp m.property,
+  ⟨fun x => unit (m.val x), unit_smooth (modelWithCorners d) |>.comp m.property,
     fun _ => rfl, fun x => one_smul G (m.val x)⟩
 
 def comp (a : Family (G := G) U m n) (b : Family (G := G) U n p) : Family (G := G) U m p :=
@@ -110,18 +110,18 @@ def inverse (a : Family (G := G) U m n) : Family (G := G) U n m :=
   labelsEquiv n m ⟨((labelsEquiv m n).symm a).val⁻¹,
     fun x => inv_smul_eq_iff.mpr (((labelsEquiv m n).symm a).property x).symm⟩
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 @[ext] theorem ext {a b : Family (G := G) U m n}
     (h : ∀ x, (a.val x).1 = (b.val x).1) : a = b := by
   apply Subtype.ext
   funext x
   exact Prod.ext (h x) ((a.property.2.1 x).trans (b.property.2.1 x).symm)
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem comp_apply (a : Family (G := G) U m n) (b : Family (G := G) U n p) (x : Points U) :
     (a.comp b).val x = compose (a.val x).1 (b.val x).1 (m.val x) := rfl
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem inverse_apply (a : Family (G := G) U m n) (x : Points U) :
     a.inverse.val x = Orbifolds.FiniteActionPresentation.inverse (a.val x) :=
   Prod.ext rfl (a.property.2.2 x).symm

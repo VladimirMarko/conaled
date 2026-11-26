@@ -250,7 +250,7 @@ local notation "env" => Examples.FrozenMemoSignature.environment M A B
 /-- The two new declarations are discharged by the retained section's own
 native formation/typing derivations, never by the final action theorem. -/
 theorem declarations_valid : ∀ d ∈ compiledDeclarations,
-    d.encode.eval (Contextual.algebra M) env := by
+    d.encode.Eval (Contextual.algebra M) env := by
   intro d hd
   rw [compiled_declarations] at hd
   simp only [List.mem_cons, List.not_mem_nil, or_false] at hd
@@ -326,11 +326,11 @@ read from the translated expression, not from this argument. -/
 private def readLike {M : SquareKit.Internal.PathTransport.Typed.StructuralModel}
     {Γ : M.Context} {A : M.Family Γ} (_ : M.Section Γ A) (v : Value M) := v.termAt Γ A
 
-def recovered := readLike (selectedHomotopy CM cocycleBase cocycleRootedFamily)
+def recovered := readLike (selectedHomotopy cocycleStructuralModel cocycleBase cocycleRootedFamily)
   (((input.h.subst firstTemplate).subst secondTemplate).eval (Contextual.algebra cocycleModel)
     (Examples.FrozenMemoSignature.environment cocycleModel cocycleBase cocycleRootedFamily))
 
-theorem recovered_eq : recovered = some (selectedHomotopy CM cocycleBase cocycleRootedFamily) := by
+theorem recovered_eq : recovered = some (selectedHomotopy cocycleStructuralModel cocycleBase cocycleRootedFamily) := by
   unfold recovered
   rw [Interpretation.selected_source_witness]
   exact Value.termAt_term _ _ _
@@ -409,7 +409,7 @@ theorem interpreted_naturality : naturalityClaim.Valid Native.M Native.environme
   have hD : ∀ d ∈
       ((Examples.ReferenceDependentCalculus.declarations.map (Declaration.instantiate rename)).map
         (Declaration.instantiate rename)),
-      d.encode.eval (Contextual.algebra Native.M) Native.environment := by
+      d.encode.Eval (Contextual.algebra Native.M) Native.environment := by
     simpa [List.map_map, Function.comp_def, declaration_roundtrip] using
       Native.declarations_valid
   have h := Reference.sound Native.M Native.environment hD typedNaturality

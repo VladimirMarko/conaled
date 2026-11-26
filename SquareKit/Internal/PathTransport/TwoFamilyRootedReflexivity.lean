@@ -11,7 +11,7 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Strict Γ]
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
-omit [∀ (γ : Γ), IsGroupoid (F.obj γ).carrier] [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).carrier] in
+omit [∀ (γ : Γ), IsGroupoid (F.obj γ).Carrier] [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).Carrier] in
 theorem rootedEndpoint_reflexive :
     x.lift.comp (rootedEndpoint F x) = x.lift.comp (diagonalTotal F) := by
   apply endpoint_functor_ext F

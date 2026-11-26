@@ -73,7 +73,7 @@ tracking tool, not the selected-fixed-point theorem.
 The underlying finite recursion specifies the expected values independently
 of tracking. The proof establishes tracking without reading a cut's hidden
 length. [AssemblyCutInitial](../../SquareKit/AssemblyCutInitial.lean) then proves
-uniqueness and packages `cutAlgebra_initial` as Mathlib's `IsInitial` in the
+uniqueness and packages `cutAlgebraInitial` as Mathlib's `IsInitial` in the
 endofunctor algebra category. The initial mediator into the final object's
 roll algebra is exactly the constructed inclusion.
 
@@ -85,7 +85,7 @@ observations determine a finite length or infinity; the tracker does not
 decide which. [AssemblyCutFinalValues](../../SquareKit/AssemblyCutFinalValues.lean)
 proves the carrier equations and uniqueness, and
 [AssemblyCutFinal](../../SquareKit/AssemblyCutFinal.lean) combines them with the
-actual tracked mediator in `cutCoalgebra_final`, a Mathlib `IsTerminal` result.
+actual tracked mediator in `cutCoalgebraFinal`, a Mathlib `IsTerminal` result.
 
 [AssemblyCutStrict](../../SquareKit/AssemblyCutStrict.lean) derives the strict
 map `ρ = σ ∘ μ ∘ L(σ⁻¹)` from P2's monad. On carriers, `σ` sends bottom to zero

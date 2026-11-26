@@ -182,8 +182,8 @@ theorem LocalTrivialization.toLeft_sheet_recover {p : E → B}
 /-- Smoothness is unchanged by the inverse-action convention. This applies
 to the total space and, independently, to a smooth target action. -/
 theorem right_smooth_iff :
-    (∀ g : G, ContMDiff (Model n) (Model n) ∞ (fun x : E => op g⁻¹ • x)) ↔
-      ∀ g : G, ContMDiff (Model n) (Model n) ∞ (fun x : E => op g • x) := by
+    (∀ g : G, ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ (fun x : E => op g⁻¹ • x)) ↔
+      ∀ g : G, ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ (fun x : E => op g • x) := by
   constructor
   · intro h g
     simpa using h g⁻¹

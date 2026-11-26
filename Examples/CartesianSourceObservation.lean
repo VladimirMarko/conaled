@@ -11,11 +11,11 @@ open CategoryTheory SquareKit.Cubical SquareKit.Cubical.Presheaf
 open SmallUniverse SmallUniverse.NativeUnivalence
 open Examples.CompositionalUnivalence Examples.FiniteUniverseLoops Examples.CubicalGlue
 
-abbrev SquareContext := total (interval (total (interval (raisedContext terminal))))
+abbrev squareContext := total (interval (total (interval (raisedContext terminal))))
 def axis (i : Fin 2) : (⟨2⟩ : SquareKit.Cubical.Cube) ⟶ ⟨1⟩ :=
   SquareKit.Cubical.Cube.ofRaw (fun _ => .var i)
 
-def squareMap : raisedContext (Presheaf.representable.{0} ⟨2⟩) ⟶ SquareContext where
+def squareMap : raisedContext (Presheaf.representable.{0} ⟨2⟩) ⟶ squareContext where
   app J := TypeCat.ofHom (fun z => ⟨⟨⟨PUnit.unit⟩,⟨z.down.down ≫ axis 0⟩⟩,⟨z.down.down ≫ axis 1⟩⟩)
   naturality J K f := by
     apply ConcreteCategory.hom_ext
@@ -33,7 +33,7 @@ def squareCode : raisedContext (Presheaf.representable.{0} ⟨2⟩) ⟶ smallFam
   squareMap ≫ SmallUniverse.code (comparisonSquare H)
 def squareFamily := decodedLocalFamily (squareCode H)
 
-def vertexContext (v : Cartesian.Vertex 2) : raisedContext terminal.{0} ⟶ SquareContext :=
+def vertexContext (v : Cartesian.Vertex 2) : raisedContext terminal.{0} ⟶ squareContext :=
   raisedSub (Cartesian.SourceObservation.vertexMap v) ≫ squareMap
 
 
@@ -318,7 +318,7 @@ def finiteL : Cartesian.FiniteCode :=
 def onSections (e : Fin 3 ≃ Fin 3) : L ≃ L :=
   carrierEquiv.trans (e.trans carrierEquiv.symm)
 
-noncomputable def QL : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
+noncomputable def sectionSquare : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
   (Q H).conjugate (fun _ => finiteL) (vertexSection H)
 
 private theorem section_cast_heq {Γ : Context.{0}} {B C : Family Γ} (h : B = C) :
@@ -327,13 +327,13 @@ private theorem section_cast_heq {Γ : Context.{0}} {B C : Family Γ} (h : B = C
   rfl
 
 private theorem finiteCode_ext {A B : Cartesian.FiniteCode.{0}}
-    (h : A.carrier = B.carrier) : A = B := by
+    (h : A.Carrier = B.Carrier) : A = B := by
   cases A
   cases B
   cases h
   rfl
 
-theorem QL_eq_Q : QL H = Q H := by
+theorem sectionSquare_eq_Q : sectionSquare H = Q H := by
   apply Cartesian.VertexSystem.conjugate_eq
   · funext v
     apply finiteCode_ext
@@ -341,9 +341,9 @@ theorem QL_eq_Q : QL H = Q H := by
   · intro v
     exact section_cast_heq (vertex_family H v)
 
-theorem QL_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p = e.trans d) :
-    QL H = Cartesian.VertexSystem.compositionSquare finiteL (onSections e) (onSections d) := by
-  apply Cartesian.VertexSystem.ext (B := QL H)
+theorem sectionSquare_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p = e.trans d) :
+    sectionSquare H = Cartesian.VertexSystem.compositionSquare finiteL (onSections e) (onSections d) := by
+  apply Cartesian.VertexSystem.ext (B := sectionSquare H)
     (C := Cartesian.VertexSystem.compositionSquare finiteL (onSections e) (onSections d)) rfl
   apply heq_of_eq
   funext v w
@@ -352,7 +352,7 @@ theorem QL_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p = e.trans 
   change L at a
   apply carrierEquiv.injective
   have ha := arrow_label H v w ((vertexSection H v).symm a)
-  change carrierEquiv ((QL H).arrow v w a) = _ at ha
+  change carrierEquiv ((sectionSquare H).arrow v w a) = _ at ha
   rw [h] at ha
   rw [ha]
   have hh : label H v ((vertexSection H v).symm a) = carrierEquiv a :=
@@ -367,10 +367,10 @@ theorem QL_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p = e.trans 
 
 theorem Q_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p = e.trans d) :
     Q H = Cartesian.VertexSystem.compositionSquare finiteL (onSections e) (onSections d) :=
-  (QL_eq_Q H).symm.trans (QL_composition H e d h)
+  (sectionSquare_eq_Q H).symm.trans (sectionSquare_composition H e d h)
 
 
-def TL : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
+def sectionCompositionSquare : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
   Cartesian.VertexSystem.compositionSquare finiteL (onSections swap01) (onSections swap12)
 
 def T : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
@@ -378,7 +378,7 @@ def T : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
 
 noncomputable def exactQ : Cartesian.VertexSystem (Cartesian.Vertex 2) := Q swapComposition
 
-theorem exact_observation : exactQ = TL :=
+theorem exact_observation : exactQ = sectionCompositionSquare :=
   Q_composition swapComposition swap01 swap12
     ((twoPath_permutation swapComposition).trans (loopPermutation_concat swap01 swap12))
 
@@ -402,16 +402,16 @@ theorem exact_substitution {J : SquareKit.Cubical.Cube} (f : J ⟶ ⟨2⟩) :
     Cartesian.SourceObservation.system
       ((squareFamily swapComposition).reindex (representableMap f))
       ((vertices swapComposition).reindex (squareFamily swapComposition) f) =
-      TL.reindex (Cartesian.dmVertices f) :=
+      sectionCompositionSquare.reindex (Cartesian.dmVertices f) :=
   (Cartesian.SourceObservation.system_reindex _ _ f).trans
     (congrArg (fun B => B.reindex (Cartesian.dmVertices f)) exact_observation)
 
 theorem exact_successive_substitution {J K : SquareKit.Cubical.Cube}
     (f : J ⟶ ⟨2⟩) (g : K ⟶ J) :
     (exactQ.reindex (Cartesian.dmVertices f)).reindex (Cartesian.dmVertices g) =
-      TL.reindex (Cartesian.dmVertices (g ≫ f)) := by
+      sectionCompositionSquare.reindex (Cartesian.dmVertices (g ≫ f)) := by
   rw [exact_observation]
-  exact congrArg (TL.reindex) (funext (fun v => (Cartesian.dmVertices_comp g f v).symm))
+  exact congrArg (sectionCompositionSquare.reindex) (funext (fun v => (Cartesian.dmVertices_comp g f v).symm))
 
 
 abbrev LiftedL := Term (liftedDecode (code (Fin 3)))
@@ -428,7 +428,7 @@ theorem liftedCarrierEquiv_observe (s : LiftedL) :
     liftedCarrierEquiv s = (observe s).val DiscreteEquivalences.point := rfl
 
 theorem target_naturality (v w : Cartesian.Vertex 2) (a : L) :
-    carrierEquiv (TL.arrow v w a) = T.arrow v w (carrierEquiv a) := by
+    carrierEquiv (sectionCompositionSquare.arrow v w a) = T.arrow v w (carrierEquiv a) := by
   change carrierEquiv
     ((if w 1 then (onSections swap01).trans (onSections swap12) else Equiv.refl L)
       ((if v 1 then (onSections swap01).trans (onSections swap12) else Equiv.refl L).symm a)) =
@@ -437,25 +437,25 @@ theorem target_naturality (v w : Cartesian.Vertex 2) (a : L) :
   cases v 1 <;> cases w 1 <;> simp [onSections]
 
 theorem target_conjugation :
-    TL.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv) = T := by
+    sectionCompositionSquare.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv) = T := by
   apply Cartesian.VertexSystem.ext
-    (B := TL.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv)) (C := T) rfl
+    (B := sectionCompositionSquare.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv)) (C := T) rfl
   apply heq_of_eq
   funext v w
   apply Equiv.ext
   intro a
   change Fin 3 at a
-  change carrierEquiv (TL.arrow v w (carrierEquiv.symm a)) = T.arrow v w a
+  change carrierEquiv (sectionCompositionSquare.arrow v w (carrierEquiv.symm a)) = T.arrow v w a
   rw [target_naturality, Equiv.apply_symm_apply]
 
 theorem target_naturality_substitution {V : Type} (f : V → Cartesian.Vertex 2)
     (v w : V) (a : L) :
-    carrierEquiv ((TL.reindex f).arrow v w a) =
+    carrierEquiv ((sectionCompositionSquare.reindex f).arrow v w a) =
       (T.reindex f).arrow v w (carrierEquiv a) := target_naturality (f v) (f w) a
 
 theorem target_naturality_successive {V W : Type} (f : V → Cartesian.Vertex 2) (g : W → V)
     (v w : W) (a : L) :
-    carrierEquiv (((TL.reindex f).reindex g).arrow v w a) =
+    carrierEquiv (((sectionCompositionSquare.reindex f).reindex g).arrow v w a) =
       (T.reindex (f ∘ g)).arrow v w (carrierEquiv a) := target_naturality (f (g v)) (f (g w)) a
 
 theorem lower_arrow : HEq (exactQ.arrow (vertex false false) (vertex false true))

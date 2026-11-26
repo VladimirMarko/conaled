@@ -30,7 +30,7 @@ def parameterIsoEquivalence {Z : Sheaf J (Type (max u v))} (e : Y ≅ Z) :
 /-- Local quotient data on the original cover can be moved to its split
 presentation without choosing local or global torsor trivializations. -/
 def coverParameterEquivalence :
-    Object a Y ≌ Object a (SplitSheaf.Ext (SplitSheaf.ofDisplay f)) :=
+    Object a Y ≌ Object a (SplitSheaf.extension (SplitSheaf.ofDisplay f)) :=
   parameterIsoEquivalence a (SplitSheaf.displayIso f)
 
 end SquareKit.SheafActionQuotient.Descent

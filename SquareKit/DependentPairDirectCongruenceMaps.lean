@@ -7,11 +7,11 @@ import SquareKit.DependentPairStructuralMaps
 namespace SquareKit.DependentPairJudgments
 open DependentTheoryMaps DependentPairPresentations Judgment
 
-abbrev GCongruencePremises (r : ProjectionCongruence) :=
+abbrev gCongruencePremises (r : ProjectionCongruence) :=
   fun i : Fin (ProjectionCongruence.schema r).premises.length => map G ((ProjectionCongruence.schema r).premises.get i)
 
 abbrev GCongruenceCertificate (r : ProjectionCongruence) :=
-  MetavariableCertificate eliminationPresentation (GCongruencePremises r)
+  MetavariableCertificate eliminationPresentation (gCongruencePremises r)
     (map G (ProjectionCongruence.schema r).conclusion)
 
 private def direct (r : ProjectionCongruence) (s : EliminationCongruence)
@@ -22,14 +22,14 @@ private def direct (r : ProjectionCongruence) (s : EliminationCongruence)
   exact MetavariableCertificate.mapRules TypedSubstitution.fullEliminationCongruence
     ((MetavariableTheoryMap.ofTheoryMap plain).certificate ⟨()⟩)
 
-def GFormationCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
+def gFormationCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
     (B B' : PExpr (Fin 1 ⊕ V)) : GCongruenceCertificate (.formation Γ A A' B B') :=
   direct _ (.formation (Γ.map G) (G.act A) (G.act A') (G.act B) (G.act B')) (by
     simp [EliminationCongruence.schema, ProjectionCongruence.schema,
       EliminationCongruence.families, ProjectionCongruence.families,
       Schema.map, Context.map, map, mapForm, ctx, type, typeEq])
 
-def GPairCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
+def gPairCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
     (B B' : PExpr (Fin 1 ⊕ V)) (a a' b b' : PExpr V) :
     GCongruenceCertificate (.pair Γ A A' B B' a a' b b') :=
   direct _ (.pack (Γ.map G) (G.act A) (G.act A') (G.act B) (G.act B')

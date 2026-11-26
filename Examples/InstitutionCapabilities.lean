@@ -12,7 +12,7 @@ abbrev output : Linear.Formula Bool := .tensor (.atom true) (.atom false)
 
 def swap : Linear.Proof (.tensor (.atom false) (.atom true)) (.tensor (.atom true) (.atom false)) := .swap
 
-def tagged : Bool × Unit → Type := fun a => if a.1 then Fin 3 else Fin 2
+def Tagged : Bool × Unit → Type := fun a => if a.1 then Fin 3 else Fin 2
 
 def first : Compatible (modelConnection Bool) (modelProofs Bool) (cartesianProofs Bool)
     (modelProofs Bool).realization (cartesianProofs Bool).realization :=
@@ -23,21 +23,21 @@ def second : Compatible (renameConnection (fun b : Bool => (b, ())))
   ⟨renameProofMap _, (renameProofMap _).realization⟩
 
 theorem selected_swap :
-    ((second.comp first).realization.map tagged (input,output) swap).denote tagged ((1 : Fin 2),(2 : Fin 3)) = ((2 : Fin 3),(1 : Fin 2)) := by
-  have h := (second.comp first).realization.commutes tagged (input,output) swap
+    ((second.comp first).realization.map Tagged (input,output) swap).denote Tagged ((1 : Fin 2),(2 : Fin 3)) = ((2 : Fin 3),(1 : Fin 2)) := by
+  have h := (second.comp first).realization.commutes Tagged (input,output) swap
   exact congrFun h ((1 : Fin 2),(2 : Fin 3))
 
-example : ((second.comp first).proof.map (input,input) (.comp .swap swap)).denote tagged ((1 : Fin 2),(2 : Fin 3)) = ((1 : Fin 2),(2 : Fin 3)) := by
-  have h := (second.comp first).proof.commutes tagged (input,input) (.comp .swap swap)
+example : ((second.comp first).proof.map (input,input) (.comp .swap swap)).denote Tagged ((1 : Fin 2),(2 : Fin 3)) = ((1 : Fin 2),(2 : Fin 3)) := by
+  have h := (second.comp first).proof.commutes Tagged (input,input) (.comp .swap swap)
   exact congrFun h ((1 : Fin 2),(2 : Fin 3))
 
 /-- The closed lambda presentation is represented by currying the context arrow.
 The selected function still comes from the recursive source translator. -/
 def closedSwap : Linear.Proof .unit (.hom input output) := .curry (.comp swap .unit)
 
-example : ((second.comp first).proof.map (.unit,.hom input output) closedSwap).denote tagged ()
+example : ((second.comp first).proof.map (.unit,.hom input output) closedSwap).denote Tagged ()
     ((1 : Fin 2),(2 : Fin 3)) = ((2 : Fin 3),(1 : Fin 2)) := by
-  have h := (second.comp first).proof.commutes tagged (.unit,.hom input output) closedSwap
+  have h := (second.comp first).proof.commutes Tagged (.unit,.hom input output) closedSwap
   exact congrFun (congrFun h ()) ((1 : Fin 2),(2 : Fin 3))
 
 example : (modelConnection Bool).Reflects := modelConnection_reflects Bool
@@ -174,12 +174,12 @@ example : (Term.fold sourceAlgebra (fun _ p => p)
 namespace Dependent
 open Examples.CompositionalSpecifications
 
-def family : M.extend (M.extend Unit A) B → Type := fun p => Fin (p.1.2 + 1)
-def s : ∀ x, family x := fun x => branch.down x
+def Family : M.extend (M.extend Unit A) B → Type := fun p => Fin (p.1.2 + 1)
+def s : ∀ x, Family x := fun x => branch.down x
 
 theorem capability_twice :
-    ((reindexConnection (family ∘ selected.down) double.down).comp
-      (reindexConnection family selected.down)).section s 3 = (⟨6, by omega⟩ : Fin 8) := by
+    ((reindexConnection (Family ∘ selected.down) double.down).comp
+      (reindexConnection Family selected.down)).section s 3 = (⟨6, by omega⟩ : Fin 8) := by
   rw [section_reindex_twice]
   rfl
 
@@ -192,8 +192,8 @@ theorem decoded_capability :
       (SquareKit.Internal.DependentJudgments.Value.termAt Nat
         (M.subTy (M.subTy C (S.pack A B)) selected)
         (expression.eval staged.toAlgebra valuation)) =
-    some (((reindexConnection (family ∘ selected.down) double.down).comp
-      (reindexConnection family selected.down)).section s 3) := by
+    some (((reindexConnection (Family ∘ selected.down) double.down).comp
+      (reindexConnection Family selected.down)).section s 3) := by
   rw [capability_twice]
   exact decoded_twice
 end Dependent

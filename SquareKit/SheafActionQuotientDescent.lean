@@ -42,7 +42,7 @@ theorem descendMap_fac {B E N : Sheaf J (Type (max u v))} (f : B ⟶ E)
 /-- Descent data contains the accepted torsor cocycle and compatibility of
 its equivariant map. Effectiveness is a conclusion, not an input field. -/
 structure Datum (A : SplitSheaf.Ty X) where
-  localObject : Object a (SplitSheaf.Ext A)
+  localObject : Object a (SplitSheaf.extension A)
   torsorDatum : SheafTorsor.Descent.Datum A localObject.torsor
   value_compatible (x : X.obj.Elements) (p q : A.family.obj x)
     (t : localObject.torsor.family.family.obj (SheafTorsor.Descent.point A x p)) :
@@ -54,8 +54,8 @@ variable {A : SplitSheaf.Ty X} (d : Datum (a := a) A)
 variable [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom]
 
 abbrev descendedTorsor := SheafTorsor.Descent.torsor d.torsorDatum
-abbrev cover : SplitSheaf.Ext (SplitSheaf.tySub d.descendedTorsor.family (SplitSheaf.p A)) ⟶
-    SplitSheaf.Ext d.descendedTorsor.family := SplitSheaf.lift _ (SplitSheaf.p A)
+abbrev cover : SplitSheaf.extension (SplitSheaf.tySub d.descendedTorsor.family (SplitSheaf.p A)) ⟶
+    SplitSheaf.extension d.descendedTorsor.family := SplitSheaf.lift _ (SplitSheaf.p A)
 
 instance cover_locallySurjective : Presheaf.IsLocallySurjective J d.cover.hom where
   imageSieve_mem {U} t := by
@@ -68,11 +68,11 @@ instance cover_locallySurjective : Presheaf.IsLocallySurjective J d.cover.hom wh
     exact ⟨⟨⟨X.obj.map k.op t.1,b⟩,
       d.descendedTorsor.family.family.map (ElementFamilies.along X.obj k.op t.1) t.2⟩, rfl⟩
 
-def localObjectOver : Object a (SplitSheaf.Ext A) :=
+def localObjectOver : Object a (SplitSheaf.extension A) :=
   d.localObject.transfer (SheafTorsor.Descent.comparison d.torsorDatum)
 
 theorem localMap_fiber_constant (U : Cᵒᵖ)
-    (p q : (SplitSheaf.Ext (SplitSheaf.tySub d.descendedTorsor.family (SplitSheaf.p A))).obj.obj U)
+    (p q : (SplitSheaf.extension (SplitSheaf.tySub d.descendedTorsor.family (SplitSheaf.p A))).obj.obj U)
     (h : d.cover.hom.app U p = d.cover.hom.app U q) :
     d.localObjectOver.totalMap.hom.app U p = d.localObjectOver.totalMap.hom.app U q := by
   rcases p with ⟨⟨x,b⟩,t⟩
@@ -89,7 +89,7 @@ theorem localMap_fiber_constant (U : Cᵒᵖ)
   rw [← SheafTorsor.Descent.evaluation_transport d.torsorDatum z b c t]
   exact (d.value_compatible z b c _).symm
 
-def totalMap : SplitSheaf.Ext d.descendedTorsor.family ⟶ M :=
+def totalMap : SplitSheaf.extension d.descendedTorsor.family ⟶ M :=
   descendMap d.cover d.localObjectOver.totalMap d.localMap_fiber_constant
 
 theorem totalMap_fac : d.cover ≫ d.totalMap = d.localObjectOver.totalMap :=
@@ -102,7 +102,7 @@ theorem value_natural {x y : X.obj.Elements} (f : x ⟶ y)
     (t : d.descendedTorsor.family.family.obj x) :
     M.obj.map f.hom (d.value x t) = d.value y (d.descendedTorsor.family.family.map f t) := by
   have h := NatTrans.naturality_apply d.totalMap.hom f.hom ⟨x.val,t⟩
-  have he : (SplitSheaf.Ext d.descendedTorsor.family).obj.map f.hom ⟨x.val,t⟩ =
+  have he : (SplitSheaf.extension d.descendedTorsor.family).obj.map f.hom ⟨x.val,t⟩ =
       ⟨y.val,d.descendedTorsor.family.family.map f t⟩ := by
     apply ElementFamilies.total_ext X.obj f.map_val
     change d.descendedTorsor.family.family.map _
@@ -159,7 +159,7 @@ variable {A : SplitSheaf.Ty X} (d e : Datum (a := a) A)
 and the full equivariant map to the acted-on sheaf. -/
 structure Map where
   torsorMap : SheafTorsor.Descent.Map d.torsorDatum e.torsorDatum
-  preserves (x : (SplitSheaf.Ext A).obj.Elements)
+  preserves (x : (SplitSheaf.extension A).obj.Elements)
     (p : d.localObject.torsor.family.family.obj x) :
     e.localObject.value x (torsorMap.hom.app x p) = d.localObject.value x p
 

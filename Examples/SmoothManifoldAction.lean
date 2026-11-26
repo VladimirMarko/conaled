@@ -16,8 +16,8 @@ open SquareKit.SmoothOpenSite SquareKit.SmoothOrdinaryQuotient
 
 /-- The one-coordinate model is explicitly identified with the usual real line. -/
 def lineCoordinates : Space 1 ≃L[ℝ] ℝ := ContinuousLinearEquiv.piUnique ℝ (fun _ : Fin 1 => ℝ)
-example : ContMDiff (Model 1) 𝓘(ℝ, ℝ) ∞ lineCoordinates := lineCoordinates.contDiff.contMDiff
-example : ContMDiff 𝓘(ℝ, ℝ) (Model 1) ∞ lineCoordinates.symm := lineCoordinates.symm.contDiff.contMDiff
+example : ContMDiff (modelWithCorners 1) 𝓘(ℝ, ℝ) ∞ lineCoordinates := lineCoordinates.contDiff.contMDiff
+example : ContMDiff 𝓘(ℝ, ℝ) (modelWithCorners 1) ∞ lineCoordinates.symm := lineCoordinates.symm.contDiff.contMDiff
 example : NoncompactSpace (Space 1) := inferInstance
 
 local instance trivial (G : Type) [Group G] : MulAction G (Space 1) where
@@ -25,7 +25,7 @@ local instance trivial (G : Type) [Group G] : MulAction G (Space 1) where
   one_smul _ := rfl
   mul_smul _ _ _ := rfl
 
-theorem smooth (G : Type) [Group G] (g : G) : ContMDiff (Model 1) (Model 1) ∞
+theorem smooth (G : Type) [Group G] (g : G) : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞
     (fun x : Space 1 => g • x) := contMDiff_id
 
 def constant (U : Domain) (r : ℝ) : SmoothMap U 1 (Space 1) :=

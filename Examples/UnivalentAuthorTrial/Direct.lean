@@ -94,20 +94,20 @@ theorem reject : IsEmpty (NativePath E sourceLength badTarget) := by
   refine ⟨fun r => ?_⟩
   have h := ((uaStructureIdentity nativeMap E sourceLength badTarget) r).package_eq
   rw [carrier_eq E, length_conjugate] at h
-  have hi := congrArg (fun p : StatePackage Journals => p.invariant ([], [1])) h
+  have hi := congrArg (fun p : StatePackage Journals => p.Invariant ([], [1])) h
   simp [targetLength, badTarget] at hi
 
 example : (mainDecoded E).step ([2,3], [5]) = ([1,2,3], [1,5]) := by
   rw [mainDecoded_target]
   rfl
 
-example : (variationDecoded E).invariant ([2,3], [5]) ∧
-    ¬ (mainDecoded E).invariant ([2,3], [5]) := by
+example : (variationDecoded E).Invariant ([2,3], [5]) ∧
+    ¬ (mainDecoded E).Invariant ([2,3], [5]) := by
   rw [variationDecoded_target, mainDecoded_target]
   simp [targetLength, targetSum]
 
-example : (mainDecoded E).invariant ([2], [3]) ∧
-    ¬ (variationDecoded E).invariant ([2], [3]) := by
+example : (mainDecoded E).Invariant ([2], [3]) ∧
+    ¬ (variationDecoded E).Invariant ([2], [3]) := by
   rw [variationDecoded_target, mainDecoded_target]
   simp [targetLength, targetSum]
 

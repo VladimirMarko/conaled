@@ -69,13 +69,13 @@ def source : TelescopePresentation.Tm (Ω := inputs) (.var 0) (Contextual.identi
 /-- The generated judgment is interpreted by the existing guarded soundness
 proof for every model, before specializing any groupoid observations. -/
 theorem source_sound (M : PathTransport.Typed.Model) (ρ : Fin 7 → Value M.toStructuralModel)
-    (hρ : ∀ a ∈ inputs, a.eval (TelescopePresentation.model M).toAlgebra ρ) :
+    (hρ : ∀ a ∈ inputs, a.Eval (TelescopePresentation.model M).toAlgebra ρ) :
     (term (.var 0) (Contextual.identity (.var 1) (.var 2) (.var 4))
-      LeftSemantics.Groupoid.recipe).eval (TelescopePresentation.model M).toAlgebra ρ :=
+      LeftSemantics.Groupoid.recipe).Eval (TelescopePresentation.model M).toAlgebra ρ :=
   Derivation.sound (TelescopePresentation.model M) source ρ hρ
 
 theorem inputs_valid (B : C4 ⥤ Type) (m n : ZMod 4) :
-    ∀ a ∈ inputs, a.eval (TelescopePresentation.model (Instance.fullModel C4 B)).toAlgebra
+    ∀ a ∈ inputs, a.Eval (TelescopePresentation.model (Instance.fullModel C4 B)).toAlgebra
       (LeftSemantics.Groupoid.environment C4 B base base base (labeled m) (labeled n)) := by
   intro a ha
   simp only [inputs, List.mem_cons, List.not_mem_nil, or_false] at ha
@@ -94,7 +94,7 @@ theorem inputs_valid (B : C4 ⥤ Type) (m n : ZMod 4) :
 nonreflexive choices of both path labels. Soundness therefore applies to the actual recipe. -/
 theorem interpreted (B : C4 ⥤ Type) (m n : ZMod 4) :
     (term (.var 0) (Contextual.identity (.var 1) (.var 2) (.var 4))
-      LeftSemantics.Groupoid.recipe).eval
+      LeftSemantics.Groupoid.recipe).Eval
       (TelescopePresentation.model (Instance.fullModel C4 B)).toAlgebra
       (LeftSemantics.Groupoid.environment C4 B base base base (labeled m) (labeled n)) :=
   source_sound _ _ (inputs_valid B m n)

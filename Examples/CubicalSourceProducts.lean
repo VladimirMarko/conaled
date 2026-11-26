@@ -21,7 +21,7 @@ theorem source_beta (Γ : Presheaf.Context) (A : Presheaf.Family Γ)
     Presheaf.normalizedApp (Presheaf.normalizedLam b) = b := by
   let ρ : Fin 4 → Value := ![.context Γ,.family Γ A,.family (Presheaf.total A) B,
     .term (Presheaf.total A) B b]
-  have h : ∀ a ∈ List.ofFn betaRule.premise, a.eval Products.algebra ρ := by
+  have h : ∀ a ∈ List.ofFn betaRule.premise, a.Eval Products.algebra ρ := by
     intro a ha
     rcases List.mem_ofFn.mp ha with ⟨i,rfl⟩
     fin_cases i
@@ -54,7 +54,7 @@ theorem source_piSub (Γ Δ : Presheaf.Context) (A : Presheaf.Family Γ)
       Presheaf.normalizedPi (Presheaf.reindex A σ) (Presheaf.reindex B (Presheaf.liftSub A σ)) := by
   let ρ : Fin 5 → Value := ![.context Γ,.context Δ,.family Γ A,
     .family (Presheaf.total A) B,.substitution Δ Γ σ]
-  have h : ∀ a ∈ List.ofFn piSubRule.premise, a.eval Products.algebra ρ := by
+  have h : ∀ a ∈ List.ofFn piSubRule.premise, a.Eval Products.algebra ρ := by
     intro a ha
     rcases List.mem_ofFn.mp ha with ⟨i,rfl⟩
     fin_cases i
@@ -95,7 +95,7 @@ theorem reject_context_as_function_type :
       (family (.var 0) (pi (.var 0) (.var 0)) : Judgment (Fin 1))) := by
   rintro ⟨d⟩
   have h := interpret d (fun _ => Value.context naturals) (by simp)
-  change Source.predicate .family ![.context naturals,
+  change Source.Predicate .family ![.context naturals,
     extraOperation .pi ![.context naturals,.context naturals]] at h
   have hi : extraOperation .pi ![Value.context naturals,.context naturals] = .invalid := rfl
   rw [hi] at h

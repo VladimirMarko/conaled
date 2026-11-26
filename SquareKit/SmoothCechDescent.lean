@@ -11,8 +11,8 @@ open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafAction
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- Pointwise multiplication of sheaf labels preserves their naturality. -/
 def labelMul {Y : Sheaf topology Type}
@@ -138,7 +138,7 @@ theorem overlapLabel_cocycle :
     transitionArrow_label, p.cocycle, mul_inv_rev]
 
 /-- The selected split display merely re-expresses the actual cover. -/
-def splitLocalMap : SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover) ⟶ object d M :=
+def splitLocalMap : SplitSheaf.extension (SplitSheaf.ofDisplay A.cover) ⟶ object d M :=
   (SplitSheaf.displayIso A.cover).hom ≫ p.localMapSheaf
 
 def splitLabel : SplitSheaf.Cech.double (SplitSheaf.ofDisplay A.cover) ⟶
@@ -159,7 +159,7 @@ theorem splitLabel_relation :
 omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem splitLabel_diagonal :
     SplitSheaf.Cech.diagonal (SplitSheaf.ofDisplay A.cover) ≫ p.splitLabel smoothAction =
-      labelOne (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)) := by
+      labelOne (SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)) := by
   unfold splitLabel
   rw [← Category.assoc, SheafCoverCech.splitDouble_diagonal, Category.assoc,
     overlapLabel_diagonal, labelOne_precomp]

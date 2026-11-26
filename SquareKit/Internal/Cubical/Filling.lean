@@ -44,7 +44,7 @@ def Filling.comp {Γ Δ : Context.{u}} {A : Family Γ} (F : Filling A)
 
 theorem Filling.comp_boundary {Γ Δ : Context.{u}} {A : Family Γ} {F : Filling A}
     (h : F.Lawful) (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
-    (b : OpenBox (Presheaf.reindex A p) φ) (x : Δ.Elements) (hx : φ.full x) :
+    (b : OpenBox (Presheaf.reindex A p) φ) (x : Δ.Elements) (hx : φ.Full x) :
     (F.comp p φ b).val x = b.tube.val ((endpointSub Δ true).mapElements.obj x) hx :=
   (h.fills p φ b).2 ((endpointSub Δ true).mapElements.obj x) hx
 
@@ -62,7 +62,7 @@ def Filling.hcomp {Γ : Context.{u}} {A : Family Γ} (F : Filling A)
 
 theorem Filling.hcomp_boundary {Γ : Context.{u}} {A : Family Γ} {F : Filling A}
     (h : F.Lawful) (φ : Cofibration Γ)
-    (b : OpenBox (Presheaf.reindex A (projection (interval Γ))) φ) (x : Γ.Elements) (hx : φ.full x) :
+    (b : OpenBox (Presheaf.reindex A (projection (interval Γ))) φ) (x : Γ.Elements) (hx : φ.Full x) :
     (F.hcomp φ b).val x = b.tube.val ((endpointSub Γ true).mapElements.obj x) hx :=
   Filling.comp_boundary h (projection (interval Γ)) φ b x hx
 

@@ -62,7 +62,7 @@ theorem args_raw : argsSub (ConcatApplication.arguments x z q) Expr.var =
 end ConcatBeta
 
 /-- The first-path reflexive equation is generated contextual beta. -/
-def concat_beta (hΓ : CtxDeriv Γ γ) (x z : BasePoint Γ γ) (q : Path x z) :
+def concatBeta (hΓ : CtxDeriv Γ γ) (x z : BasePoint Γ γ) (q : Path x z) :
     TmEqDeriv Γ γ (.identity .base x.raw z.raw) (identityCode (baseCode γ) x.code z.code)
       (concat hΓ (Path.reflexivity hΓ x) q).raw (concat hΓ (Path.reflexivity hΓ x) q).code
       q.raw q.code := by

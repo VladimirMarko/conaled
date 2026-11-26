@@ -59,15 +59,15 @@ theorem cutFold_tracked {Γ A : Assembly.{u}} (a : Hom (prod Γ (programLift A))
   obtain ⟨q, hq⟩ := a.has_code
   obtain ⟨c, hc⟩ := exists_fold_program q
   refine ⟨c.eval, Code.exists_code.mpr ⟨c, rfl⟩, ?_⟩
-  suffices h : ∀ n γ r e, Γ.realizes r γ → Cut e n →
-      ∃ v, v ∈ c.eval (Nat.pair r e) ∧ A.realizes v (cutFoldValue a γ n) by
+  suffices h : ∀ n γ r e, Γ.Realizes r γ → Cut e n →
+      ∃ v, v ∈ c.eval (Nat.pair r e) ∧ A.Realizes v (cutFoldValue a γ n) by
     intro x z hz
     simpa using h x.2.down x.1 z.unpair.1 z.unpair.2 hz.1 hz.2
   intro n
   induction n with
   | zero =>
     intro γ r e hr he
-    have hd : (programLift A).realizes (encode (foldDelay c r e)) none := by
+    have hd : (programLift A).Realizes (encode (foldDelay c r e)) none := by
       change ¬ (run (encode (foldDelay c r e))).Dom
       rw [foldDelay_run]
       exact fun h => Nat.not_lt_zero 0 ((he 0).mp h.1)
@@ -77,7 +77,7 @@ theorem cutFold_tracked {Γ A : Assembly.{u}} (a : Hom (prod Γ (programLift A))
   | succ n ih =>
     intro γ r e hr he
     obtain ⟨v, hv, hx⟩ := ih γ r (encode (shiftCode e)) hr (Cut.shift he)
-    have hd : (programLift A).realizes (encode (foldDelay c r e))
+    have hd : (programLift A).Realizes (encode (foldDelay c r e))
         (some (cutFoldValue a γ n)) := by
       refine ⟨v, ?_, hx⟩
       rw [foldDelay_run]

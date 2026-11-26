@@ -81,7 +81,7 @@ theorem support_empty_at_identity : IsEmpty
   ⟨fun h => identity_not_in_cover h.down⟩
 
 /-- Every old represented local view of the counterexample is terminal. -/
-def support_local (x : boolContext.Elements) :
+def supportLocalIso (x : boolContext.Elements) :
     (Over.map (represented x)).op ⋙ support constantCover ≅ (Functor.const _).obj PUnit.{1} :=
   NatIso.ofComponents (fun U =>
     { hom := ↾fun _ => PUnit.unit
@@ -127,7 +127,7 @@ def localBotIso (x : boolContext.Elements) :
       supportedBotSheaf ≅
     ((⊥ : GrothendieckTopology Context).overMapPullback Type (represented x)).obj
       terminalBotSheaf :=
-  ObjectProperty.isoMk _ (support_local x)
+  ObjectProperty.isoMk _ (supportLocalIso x)
 
 theorem original_sheaves_not_iso : ¬ Nonempty (supportedBotSheaf ≅ terminalBotSheaf) := by
   rintro ⟨e⟩

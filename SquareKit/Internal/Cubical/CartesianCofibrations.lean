@@ -14,7 +14,7 @@ def intervalCoordinate (Γ : Context.{u}) : total (interval Γ) ⟶ representabl
 namespace Subcontext
 variable {Γ Δ Θ : Context.{u}}
 
-@[ext] theorem ext {φ ψ : Subcontext Γ} (h : ∀ x, φ.holds x ↔ ψ.holds x) : φ = ψ := by
+@[ext] theorem ext {φ ψ : Subcontext Γ} (h : ∀ x, φ.Holds x ↔ ψ.Holds x) : φ = ψ := by
   cases φ; cases ψ
   congr
   funext x
@@ -25,35 +25,35 @@ variable {Γ Δ Θ : Context.{u}}
     (φ.reindex σ).reindex τ = φ.reindex (τ ≫ σ) := rfl
 
 def bot : Subcontext Γ where
-  holds _ := False
+  Holds _ := False
   natural _ := False.elim
 
 def top : Subcontext Γ where
-  holds _ := True
+  Holds _ := True
   natural _ _ := trivial
 
 def meet (φ ψ : Subcontext Γ) : Subcontext Γ where
-  holds x := φ.holds x ∧ ψ.holds x
+  Holds x := φ.Holds x ∧ ψ.Holds x
   natural f h := ⟨φ.natural f h.1, ψ.natural f h.2⟩
 
 def join (φ ψ : Subcontext Γ) : Subcontext Γ where
-  holds x := φ.holds x ∨ ψ.holds x
+  Holds x := φ.Holds x ∨ ψ.Holds x
   natural f h := h.elim (fun h => Or.inl (φ.natural f h)) (fun h => Or.inr (ψ.natural f h))
 
 /-- This is equality of interval terms, including proper diagonals. -/
 def intervalEq (r s : Term (interval Γ)) : Subcontext Γ where
-  holds x := r.val x = s.val x
+  Holds x := r.val x = s.val x
   natural f h := (r.property f).symm.trans ((congrArg ((interval Γ).map f) h).trans (s.property f))
 
 /-- Endpoint faces are subobjects of the full interval context. -/
 def intervalFace (Γ : Context.{u}) (b : Bool) : Subcontext (total (interval Γ)) :=
   ((Face.eq (.var 0) (.endpoint b)).cofibration.reindex (intervalCoordinate Γ)).toSubcontext
 
-def le (φ ψ : Subcontext Γ) : Prop := ∀ x, φ.holds x → ψ.holds x
+def le (φ ψ : Subcontext Γ) : Prop := ∀ x, φ.Holds x → ψ.Holds x
 
 /-- The sieve obtained by pulling a subcontext back to a generalized point. -/
 def sieveAt (φ : Subcontext Γ) (x : Γ.Elements) : Sieve x.obj.unop where
-  arrows _ f := φ.holds (Γ.elementsMk _ (Γ.map (Quiver.Hom.op f) x.val))
+  arrows _ f := φ.Holds (Γ.elementsMk _ (Γ.map (Quiver.Hom.op f) x.val))
   downward_closed {Y Z f} h g := by
     let a := Γ.elementsMk (.op Y) (Γ.map (Quiver.Hom.op f) x.val)
     let b := Γ.elementsMk (.op Z) (Γ.map (Quiver.Hom.op (g ≫ f)) x.val)
@@ -64,10 +64,10 @@ def sieveAt (φ : Subcontext Γ) (x : Γ.Elements) : Sieve x.obj.unop where
 
 theorem localFormula (φ : Subcontext Γ) (x : Γ.Elements) :
     ∃ p : Face x.obj.unop.dimension, ∀ {y : Γ.Elements} (f : x ⟶ y),
-      φ.holds y ↔ (p.subst f.hom.unop).Holds := by
+      φ.Holds y ↔ (p.subst f.hom.unop).Holds := by
   refine ⟨Face.ofSieve (φ.sieveAt x), fun {y} f => ?_⟩
   rw [Face.ofSieve_holds]
-  change φ.holds y ↔ φ.holds (Γ.elementsMk _ (Γ.map f.hom x.val))
+  change φ.Holds y ↔ φ.Holds (Γ.elementsMk _ (Γ.map f.hom x.val))
   rw [f.map_val]
 
 /-- The certificate is a proposition, not a choice of raw formula exposed to fillers. -/
@@ -80,14 +80,14 @@ noncomputable def toCofibration (φ : Subcontext Γ) : Cofibration Γ where
 
 /-- Membership at the fresh variable represents quantification at all refinements. -/
 def forallInterval (φ : Subcontext (total (interval Γ))) : Subcontext Γ where
-  holds x := φ.holds (freshExtension x)
+  Holds x := φ.Holds (freshExtension x)
   natural {_x y} f h := φ.natural
     (intervalArgument (f ≫ freshBaseHom y) ⟨Cube.fresh y.obj.unop⟩) h
 
 theorem forallInterval_iff (φ : Subcontext (total (interval Γ))) (x : Γ.Elements) :
-    (φ.forallInterval).holds x ↔
+    (φ.forallInterval).Holds x ↔
       ∀ {y : Γ.Elements} (_f : x ⟶ y) (r : (interval Γ).obj y),
-        φ.holds (extendObj (interval Γ) y r) := by
+        φ.Holds (extendObj (interval Γ) y r) := by
   constructor
   · intro h y f r
     exact φ.natural (intervalArgument f r) h
@@ -98,8 +98,8 @@ theorem forallInterval_reindex (φ : Subcontext (total (interval Γ))) (σ : Δ 
     (φ.reindex (intervalSub σ)).forallInterval = φ.forallInterval.reindex σ := by
   apply ext
   intro x
-  change φ.holds ((intervalSub σ).mapElements.obj (freshExtension x)) ↔
-    φ.holds (freshExtension (σ.mapElements.obj x))
+  change φ.Holds ((intervalSub σ).mapElements.obj (freshExtension x)) ↔
+    φ.Holds (freshExtension (σ.mapElements.obj x))
   have he : (intervalSub σ).mapElements.obj (freshExtension x) =
       freshExtension (σ.mapElements.obj x) := by
     change (total (interval Γ)).elementsMk _ ⟨σ.app _ (Δ.map (dropOpp x.obj) x.val), _⟩ =
@@ -144,7 +144,7 @@ noncomputable def cofibrationEquiv (Γ : Context.{u}) : Cofibration Γ ≃ Subco
 
 namespace Cofibration
 variable {Γ Δ : Context.{u}}
-@[ext] theorem ext {φ ψ : Cofibration Γ} (h : ∀ x, φ.holds x ↔ ψ.holds x) : φ = ψ :=
+@[ext] theorem ext {φ ψ : Cofibration Γ} (h : ∀ x, φ.Holds x ↔ ψ.Holds x) : φ = ψ :=
   (cofibrationEquiv Γ).injective (Subcontext.ext h)
 
 noncomputable def forallInterval (φ : Cofibration (total (interval Γ))) : Cofibration Γ :=

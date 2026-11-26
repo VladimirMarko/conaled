@@ -11,7 +11,7 @@ open Examples.GuardedGroupoidMemo
 universe u
 variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u}) {V : Type}
 variable {Ω : List (Contextual.Judgment V)} (ρ : V → Value M.toStructuralModel)
-variable (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+variable (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
 variable (S : Frozen.Signature Ω)
 variable (deltaRealization : InputRealization M ρ S.deltaInput)
 variable (thetaRealization : InputRealization M ρ S.thetaInput)

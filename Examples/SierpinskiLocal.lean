@@ -22,9 +22,9 @@ def increment : Arrow (WalkingParallelPair ⥤ Type) := Arrow.mk
   (show (Functor.const WalkingParallelPair).obj Nat ⟶ (Functor.const WalkingParallelPair).obj Nat from
     { app _ := TypeCat.ofHom (fun (n : Nat) => n + 1) })
 
-theorem at_zero : ¬ ArrowPresheafPushout.inhabited P zero := fun ⟨x⟩ => PEmpty.elim x
+theorem at_zero : ¬ ArrowPresheafPushout.Inhabited P zero := fun ⟨x⟩ => PEmpty.elim x
 
-theorem at_one : ArrowPresheafPushout.inhabited P one := ⟨PUnit.unit⟩
+theorem at_one : ArrowPresheafPushout.Inhabited P one := ⟨PUnit.unit⟩
 
 /-- Crossing the local boundary sends the domain witness 3 to codomain witness 4. -/
 example : ((ArrowPresheafPushout.interpretation P).obj increment).map

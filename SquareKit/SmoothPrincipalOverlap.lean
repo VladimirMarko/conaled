@@ -6,28 +6,28 @@ noncomputable section
 namespace SquareKit.SmoothAlgebra.PresentedLocalization
 variable {n m : ℕ}
 
-private theorem product_units (r : Fin m → Free n) (p q : Free n) :
+private theorem product_units (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) :
     IsUnit (base r (p*q) (Presentation.projection r p)) ∧
       IsUnit (base r (p*q) (Presentation.projection r q)) := by
   have h := base_isUnit r (p*q)
   rw [(Presentation.projection r).map_mul,(base r (p*q)).map_mul,IsUnit.mul_iff] at h
   exact h
 
-def overlapLeft (r : Fin m → Free n) (p q : Free n) : Hom (Carrier r p) (Carrier r (p*q)) :=
+def overlapLeft (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) : Hom (Carrier r p) (Carrier r (p*q)) :=
   lift r p (base r (p*q)) (product_units r p q).1
 
-def overlapRight (r : Fin m → Free n) (p q : Free n) : Hom (Carrier r q) (Carrier r (p*q)) :=
+def overlapRight (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) : Hom (Carrier r q) (Carrier r (p*q)) :=
   lift r q (base r (p*q)) (product_units r p q).2
 
-theorem overlapLeft_base (r : Fin m → Free n) (p q : Free n) :
+theorem overlapLeft_base (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) :
     Hom.comp (overlapLeft r p q) (base r p) = base r (p*q) := lift_base _ _ _ _
-theorem overlapRight_base (r : Fin m → Free n) (p q : Free n) :
+theorem overlapRight_base (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) :
     Hom.comp (overlapRight r p q) (base r q) = base r (p*q) := lift_base _ _ _ _
 
 variable {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
 
 /-- All compatible maps into arbitrary smooth algebras factor uniquely through the overlap. -/
-theorem overlap_pushout (r : Fin m → Free n) (p q : Free n)
+theorem overlap_pushout (r : Fin m → freeAlgebra n) (p q : freeAlgebra n)
     (u : Hom (Carrier r p) B) (v : Hom (Carrier r q) B)
     (hc : Hom.comp u (base r p) = Hom.comp v (base r q)) :
     ∃! h : Hom (Carrier r (p*q)) B,

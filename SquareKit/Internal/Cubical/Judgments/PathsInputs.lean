@@ -6,7 +6,7 @@ open GuardedTheory Presheaf CategoryTheory
 universe u
 
 theorem formationSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.{u})
-    (h : ∀ i, ((formationSchema out).premise i).eval algebra ρ) :
+    (h : ∀ i, ((formationSchema out).premise i).Eval algebra ρ) :
     ∃ (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ)))
       (a₀ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false)))
       (a₁ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ true))),
@@ -26,12 +26,12 @@ theorem formationSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.{u
   have hep₀ := endpointSub_eval (.var (0 : Fin 4)) ρ Γ hΓ false
   have hep₁ := endpointSub_eval (.var (0 : Fin 4)) ρ Γ hΓ true
   have ha₀ := h 2
-  change Source.predicate .term ![ρ 0,Source.operation .subTy ![ρ 1,(endpointSub (.var 0) false).eval algebra ρ],ρ 2] at ha₀
+  change Source.Predicate .term ![ρ 0,Source.operation .subTy ![ρ 1,(endpointSub (.var 0) false).eval algebra ρ],ρ 2] at ha₀
   rw [hΓ,hB,hep₀] at ha₀
   simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.familyAt_family] at ha₀
   obtain ⟨a₀,ha₀⟩ := Value.term_input Γ (reindex B (Presheaf.endpointSub Γ false)) _ ha₀
   have ha₁ := h 3
-  change Source.predicate .term ![ρ 0,Source.operation .subTy ![ρ 1,(endpointSub (.var 0) true).eval algebra ρ],ρ 3] at ha₁
+  change Source.Predicate .term ![ρ 0,Source.operation .subTy ![ρ 1,(endpointSub (.var 0) true).eval algebra ρ],ρ 3] at ha₁
   rw [hΓ,hB,hep₁] at ha₁
   simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.familyAt_family] at ha₁
   obtain ⟨a₁,ha₁⟩ := Value.term_input Γ (reindex B (Presheaf.endpointSub Γ true)) _ ha₁
@@ -43,7 +43,7 @@ theorem formationSchema_valid (out : Judgment (Fin 4))
     (valid : ∀ (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ)))
       (a₀ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false)))
       (a₁ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ true))),
-      out.eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
+      out.Eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
         .term Γ (reindex B (Presheaf.endpointSub Γ false)) a₀,
         .term Γ (reindex B (Presheaf.endpointSub Γ true)) a₁]) :
     Satisfies algebra.{u} (formationSchema out) := by
@@ -52,7 +52,7 @@ theorem formationSchema_valid (out : Judgment (Fin 4))
   exact valid Γ B a₀ a₁
 
 theorem bodySchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u})
-    (h : ∀ i, ((bodySchema out).premise i).eval algebra ρ) :
+    (h : ∀ i, ((bodySchema out).premise i).Eval algebra ρ) :
     ∃ (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ)))
       (a₀ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false)))
       (a₁ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ true)))
@@ -61,7 +61,7 @@ theorem bodySchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u})
       ρ = ![.context Γ,.family (total (Presheaf.interval Γ)) B,
         .term Γ (reindex B (Presheaf.endpointSub Γ false)) a₀,
         .term Γ (reindex B (Presheaf.endpointSub Γ true)) a₁,.term (total (Presheaf.interval Γ)) B b] := by
-  have hp : ∀ i, formationRule.premise i |>.eval algebra (fun j => ρ (j.castAdd 1)) := by
+  have hp : ∀ i, formationRule.premise i |>.Eval algebra (fun j => ρ (j.castAdd 1)) := by
     intro i
     have hi := h ⟨i.val,Nat.lt_trans i.isLt (by decide : 4 < 7)⟩
     simpa only [bodySchema,dite_eq_left i.isLt,Atom.eval_subst,GuardedTheory.Term.eval,FinitaryTerm.fold] using hi
@@ -71,7 +71,7 @@ theorem bodySchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u})
   have ha₀ : ρ 2 = .term Γ (reindex B (Presheaf.endpointSub Γ false)) a₀ := congrFun e 2
   have ha₁ : ρ 3 = .term Γ (reindex B (Presheaf.endpointSub Γ true)) a₁ := congrFun e 3
   have hb := h 4
-  change Source.predicate .term ![Source.operation .extend ![ρ 0,Intervals.extraOperation .interval ![ρ 0]],ρ 1,ρ 4] at hb
+  change Source.Predicate .term ![Source.operation .extend ![ρ 0,Intervals.extraOperation .interval ![ρ 0]],ρ 1,ρ 4] at hb
   rw [hΓ,hB,Intervals.extra_interval] at hb
   simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.familyAt_family] at hb
   obtain ⟨b,hb⟩ := Value.term_input (total (Presheaf.interval Γ)) B _ hb
@@ -100,7 +100,7 @@ theorem bodySchema_valid (out : Judgment (Fin 5))
       (a₁ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ true))) (b : Presheaf.Term B),
       b.reindex (Presheaf.endpointSub Γ false) = a₀ →
       b.reindex (Presheaf.endpointSub Γ true) = a₁ →
-      out.eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
+      out.Eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
         .term Γ (reindex B (Presheaf.endpointSub Γ false)) a₀,
         .term Γ (reindex B (Presheaf.endpointSub Γ true)) a₁,.term (total (Presheaf.interval Γ)) B b]) :
     Satisfies algebra.{u} (bodySchema out) := by
@@ -109,7 +109,7 @@ theorem bodySchema_valid (out : Judgment (Fin 5))
   exact valid Γ B a₀ a₁ b h₀ h₁
 
 theorem functionSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u})
-    (h : ∀ i, ((functionSchema out).premise i).eval algebra ρ) :
+    (h : ∀ i, ((functionSchema out).premise i).Eval algebra ρ) :
     ∃ (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ)))
       (a₀ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false)))
       (a₁ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ true)))
@@ -117,7 +117,7 @@ theorem functionSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u}
       ρ = ![.context Γ,.family (total (Presheaf.interval Γ)) B,
         .term Γ (reindex B (Presheaf.endpointSub Γ false)) a₀,
         .term Γ (reindex B (Presheaf.endpointSub Γ true)) a₁,.term Γ (normalizedPath B a₀ a₁) p] := by
-  have hp : ∀ i, formationRule.premise i |>.eval algebra (fun j => ρ (j.castAdd 1)) := by
+  have hp : ∀ i, formationRule.premise i |>.Eval algebra (fun j => ρ (j.castAdd 1)) := by
     intro i
     have hi := h ⟨i.val,Nat.lt_trans i.isLt (by decide : 4 < 5)⟩
     simpa only [functionSchema,dite_eq_left i.isLt,Atom.eval_subst,GuardedTheory.Term.eval,FinitaryTerm.fold] using hi
@@ -127,7 +127,7 @@ theorem functionSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u}
   have ha₀ : ρ 2 = .term Γ (reindex B (Presheaf.endpointSub Γ false)) a₀ := congrFun e 2
   have ha₁ : ρ 3 = .term Γ (reindex B (Presheaf.endpointSub Γ true)) a₁ := congrFun e 3
   have hp := h 4
-  change Source.predicate .term ![ρ 0,extraOperation .path ![ρ 0,ρ 1,ρ 2,ρ 3],ρ 4] at hp
+  change Source.Predicate .term ![ρ 0,extraOperation .path ![ρ 0,ρ 1,ρ 2,ρ 3],ρ 4] at hp
   rw [hΓ,hB,ha₀,ha₁,extra_path] at hp
   obtain ⟨p,hp⟩ := Value.term_input Γ (normalizedPath B a₀ a₁) _ hp
   have he : ρ = ![.context Γ,.family (total (Presheaf.interval Γ)) B,
@@ -141,7 +141,7 @@ theorem functionSchema_valid (out : Judgment (Fin 5))
     (valid : ∀ (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ)))
       (a₀ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false)))
       (a₁ : Presheaf.Term (reindex B (Presheaf.endpointSub Γ true))) (p : Presheaf.Term (normalizedPath B a₀ a₁)),
-      out.eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
+      out.Eval algebra ![.context Γ,.family (total (Presheaf.interval Γ)) B,
         .term Γ (reindex B (Presheaf.endpointSub Γ false)) a₀,
         .term Γ (reindex B (Presheaf.endpointSub Γ true)) a₁,.term Γ (normalizedPath B a₀ a₁) p]) :
     Satisfies algebra.{u} (functionSchema out) := by

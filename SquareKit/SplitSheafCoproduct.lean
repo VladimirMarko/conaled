@@ -13,14 +13,14 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {I : Type (max u v)}
 variable {Y : I → Sheaf J (Type (max u v))} (P : ∀ i, SplitSheaf.Ty (Y i))
 
-abbrev total : Sheaf J (Type (max u v)) := ∐ (fun i => SplitSheaf.Ext (P i))
+abbrev total : Sheaf J (Type (max u v)) := ∐ (fun i => SplitSheaf.extension (P i))
 abbrev base : Sheaf J (Type (max u v)) := ∐ Y
 
 def projection : total P ⟶ base (Y := Y) :=
   Sigma.desc (fun i => SplitSheaf.p (P i) ≫ Sigma.ι Y i)
 
 @[simp, reassoc] lemma inclusion_projection (i : I) :
-    Sigma.ι (fun i => SplitSheaf.Ext (P i)) i ≫ projection P =
+    Sigma.ι (fun i => SplitSheaf.extension (P i)) i ≫ projection P =
       SplitSheaf.p (P i) ≫ Sigma.ι Y i := Sigma.ι_comp_desc _ _
 
 abbrev assembled : SplitSheaf.Ty (base (Y := Y)) := SplitSheaf.ofDisplay (projection P)
@@ -36,7 +36,7 @@ def componentEquiv (i : I) (x : (Y i).obj.Elements) :
 @[simp] lemma componentEquiv_val (i : I) (x : (Y i).obj.Elements)
     (p : (P i).family.obj x) :
     (componentEquiv P i x p).val =
-      (Sigma.ι (fun i => SplitSheaf.Ext (P i)) i).hom.app x.obj ⟨x.val,p⟩ := rfl
+      (Sigma.ι (fun i => SplitSheaf.extension (P i)) i).hom.app x.obj ⟨x.val,p⟩ := rfl
 
 
 /-- The original local displays are recovered on their actual fibers. -/
@@ -52,7 +52,7 @@ def component (i : I) : P i ≅ SplitSheaf.tySub (assembled P) (Sigma.ι Y i) :=
       change (Y i).obj.map k x.val = y at hk
       subst y
       exact NatTrans.naturality_apply
-        (Sigma.ι (fun i => SplitSheaf.Ext (P i)) i).hom k ⟨x.val,p⟩)
+        (Sigma.ι (fun i => SplitSheaf.extension (P i)) i).hom k ⟨x.val,p⟩)
     )
 
 variable {P}
@@ -60,12 +60,12 @@ variable (Q : SplitSheaf.Ty (base (Y := Y)))
 variable (h : ∀ i, P i ⟶ SplitSheaf.tySub Q (Sigma.ι Y i))
 
 /-- Maps out of the assembled display are induced by the coproduct. -/
-def descTotal : total P ⟶ SplitSheaf.Ext Q :=
+def descTotal : total P ⟶ SplitSheaf.extension Q :=
   Sigma.desc (fun i => SplitSheaf.totalMap (h i) ≫
     SplitSheaf.lift Q (Sigma.ι Y i))
 
 lemma inclusion_descTotal (i : I) :
-    Sigma.ι (fun i => SplitSheaf.Ext (P i)) i ≫ descTotal Q h =
+    Sigma.ι (fun i => SplitSheaf.extension (P i)) i ≫ descTotal Q h =
       SplitSheaf.totalMap (h i) ≫ SplitSheaf.lift Q (Sigma.ι Y i) :=
   Sigma.ι_comp_desc _ _
 
@@ -76,9 +76,9 @@ lemma descTotal_projection : descTotal Q h ≫ SplitSheaf.p Q = projection P := 
   rfl
 
 lemma descTotal_inclusion_apply (i : I) (U : Cᵒᵖ)
-    (p : (SplitSheaf.Ext (P i)).obj.obj U) :
+    (p : (SplitSheaf.extension (P i)).obj.obj U) :
     (descTotal Q h).hom.app U
-      ((Sigma.ι (fun i => SplitSheaf.Ext (P i)) i).hom.app U p) =
+      ((Sigma.ι (fun i => SplitSheaf.extension (P i)) i).hom.app U p) =
       ⟨(Sigma.ι Y i).hom.app U p.1, (h i).app _ p.2⟩ :=
   congrArg (fun f => f.hom.app U p) (inclusion_descTotal Q h i)
 
@@ -103,7 +103,7 @@ lemma descFamily_component (i : I) (x : (Y i).obj.Elements)
 
 lemma descFamily_total (x : (base (Y := Y)).obj.Elements)
     (p : (assembled P).family.obj x) :
-    (⟨x.val, (descFamily Q h).app x p⟩ : (SplitSheaf.Ext Q).obj.obj x.obj) =
+    (⟨x.val, (descFamily Q h).app x p⟩ : (SplitSheaf.extension Q).obj.obj x.obj) =
       (descTotal Q h).hom.app x.obj p.val := by
   exact congrArg Subtype.val ((ElementFamilies.fiberTotalEquiv
     (base (Y := Y)).obj Q.family x).symm_apply_apply
@@ -156,7 +156,7 @@ instance restrict_faithful : (restrict (Y := Y)).Faithful where
 
 /-- The restricted total spaces form an actual coproduct, by universality. -/
 def restrictedIsColimit (S : SplitSheaf.Ty (base (Y := Y))) :
-    IsColimit (Cofan.mk (SplitSheaf.Ext S)
+    IsColimit (Cofan.mk (SplitSheaf.extension S)
       (fun i => SplitSheaf.lift S (Sigma.ι Y i))) := by
   apply Nonempty.some
   apply (SheafCoproductGeometry.total_isVanKampen Y).isUniversal _
@@ -171,7 +171,7 @@ def restrictedIsColimit (S : SplitSheaf.Ty (base (Y := Y))) :
 instance descTotal_identity_isIso (S : SplitSheaf.Ty (base (Y := Y))) :
     IsIso (descTotal S (fun _ => 𝟙 _)) := by
   let e := (colimit.isColimit (Discrete.functor (fun i =>
-    SplitSheaf.Ext (SplitSheaf.tySub S (Sigma.ι Y i))))).coconePointUniqueUpToIso
+    SplitSheaf.extension (SplitSheaf.tySub S (Sigma.ι Y i))))).coconePointUniqueUpToIso
       (restrictedIsColimit S)
   have he : e.hom = descTotal S (fun _ => 𝟙 _) := by
     apply Sigma.hom_ext

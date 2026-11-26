@@ -105,11 +105,11 @@ end Table
 
 /-- The objects carry their finite coordinate system; arrows are stochastic tables. -/
 structure FiniteSpace where
-  carrier : Type
-  finite : Fintype carrier
-  decEq : DecidableEq carrier
+  Carrier : Type
+  finite : Fintype Carrier
+  decEq : DecidableEq Carrier
 
-instance : CoeSort FiniteSpace Type := ⟨FiniteSpace.carrier⟩
+instance : CoeSort FiniteSpace Type := ⟨FiniteSpace.Carrier⟩
 instance (X : FiniteSpace) : Fintype X := X.finite
 instance (X : FiniteSpace) : DecidableEq X := X.decEq
 instance (X : FiniteSpace) : MeasurableSpace X := ⊤

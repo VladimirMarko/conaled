@@ -16,7 +16,7 @@ set_option warningAsError true
 namespace Examples.HeuristicSearch
 open Search.Heuristic Search
 
-abbrev TreeQueue (V : Type) := PriorityInterface.leftist (π := Nat) (Path.vertex (V := V))
+abbrev treeQueueInterface (V : Type) := PriorityInterface.leftist (π := Nat) (Path.vertex (V := V))
 
 def g4 : Graph (Fin 5)
   | 1 => [(2,5),(3,2)]
@@ -99,19 +99,19 @@ def optimum4 : Path (Fin 5) := ⟨4,[2,3,1],9⟩
 def optimum6 : Path (Fin 7) := ⟨6,[5,4,3,2,1],17⟩
 
 theorem optimum4_global : Minimum g4 goal4 1 optimum4 :=
-  astar_correct (TreeQueue (Fin 5)) g4 h4 goal4 1 h4_optimistic 8 (out := some optimum4) (by decide +kernel)
+  astar_correct (treeQueueInterface (Fin 5)) g4 h4 goal4 1 h4_optimistic 8 (out := some optimum4) (by decide +kernel)
 
 theorem optimum6_global : Minimum g6 goal6 1 optimum6 :=
-  mstar_correct (TreeQueue (Fin 7)) g6 h6 goal6 1 h6_monotonic h6_goal_zero 12 (out := some optimum6) (by decide +kernel)
+  mstar_correct (treeQueueInterface (Fin 7)) g6 h6 goal6 1 h6_monotonic h6_goal_zero 12 (out := some optimum6) (by decide +kernel)
 
 theorem cyclic4_no_goal : NoGoal g4cycle goal4 1 :=
-  astar_correct (TreeQueue (Fin 5)) g4cycle (fun _ => 0) goal4 1
+  astar_correct (treeQueueInterface (Fin 5)) g4cycle (fun _ => 0) goal4 1
     (zero_optimistic g4cycle goal4) 10 (out := none) (by decide +kernel)
 
 /-- The illustrated queue order on p414 is allowed by abstract minimum priority;
 the literal leftist implementation inserts a newly tied path before an old one. -/
 theorem literal_leftist_tie :
-    let Q := TreeQueue (Fin 5)
+    let Q := treeQueueInterface (Fin 5)
     let old : Path (Fin 5) := ⟨3,[1],10⟩
     let new : Path (Fin 5) := ⟨4,[3,2,1],10⟩
     (Q.remove (Q.add [(new,15)] (Q.add [(old,15)] Q.empty))).map (fun z => z.1.1) = some new := by
@@ -140,7 +140,7 @@ def greedyRun {V : Type} (g : Graph V) (h : Heuristic V) (goal : V → Bool) :
 
 theorem heuristic_only_failure :
     (greedyRun greedyGraph greedyHeuristic (fun v => v == 2) 3
-      (start (TreeQueue (Fin 3)) greedyHeuristic 0)).map (Option.map extract) =
+      (start (treeQueueInterface (Fin 3)) greedyHeuristic 0)).map (Option.map extract) =
       some (some ([0,2],5)) ∧ Walk greedyGraph 0 2 4 := by
   refine ⟨by decide +kernel,?_⟩
   exact Walk.cons (v := 1) (d := 2) (by decide) (Walk.cons (v := 2) (d := 2) (by decide) (.nil 2))
@@ -179,16 +179,16 @@ theorem nat_goal_minimum_exists {V : Type} (g : Graph V) (goal : V → Bool) (s 
   obtain ⟨t,c,hw,hg⟩ := reachable
   exact least c ⟨t,hw,hg⟩
 
-theorem finite_completion4 : Nonempty (Completed (TreeQueue (Fin 5)) g4 h4 goal4 1) :=
+theorem finite_completion4 : Nonempty (Completed (treeQueueInterface (Fin 5)) g4 h4 goal4 1) :=
   completed_exists _ _ _ _ (List.finRange 5) 1 (List.mem_finRange _)
     (fun _ _ v _ _ => List.mem_finRange v)
 
-def completed4 : Completed (TreeQueue (Fin 5)) g4 h4 goal4 1 := ⟨8, by decide +kernel⟩
+def completed4 : Completed (treeQueueInterface (Fin 5)) g4 h4 goal4 1 := ⟨8, by decide +kernel⟩
 
 theorem interpreted_distance4 : DistanceResult g4 goal4 1 (some 9) := by
-  have he : (distanceSquare (TreeQueue (Fin 5)) g4 h4 goal4 1 h4_optimistic).impl completed4 = some 9 := by
-    change Option.map Path.cost ((run (TreeQueue (Fin 5)) .reopen g4 h4 goal4 8 []
-      (start (TreeQueue (Fin 5)) h4 1)).get completed4.property) = some 9
+  have he : (distanceSquare (treeQueueInterface (Fin 5)) g4 h4 goal4 1 h4_optimistic).impl completed4 = some 9 := by
+    change Option.map Path.cost ((run (treeQueueInterface (Fin 5)) .reopen g4 h4 goal4 8 []
+      (start (treeQueueInterface (Fin 5)) h4 1)).get completed4.property) = some 9
     decide +kernel
   rw [← he]
   exact distanceSquare_correct _ _ _ _ _ _ _

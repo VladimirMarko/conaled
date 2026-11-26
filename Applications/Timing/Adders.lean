@@ -15,26 +15,26 @@ namespace Applications.Timing.Adders
 open FirstOrderCompiler Applications.Circuits
 open scoped Matrix
 
-abbrev Bits : Ty := .prod .base .base
-abbrev Triple : Ty := .prod Bits .base
+abbrev bitPairType : Ty := .prod .base .base
+abbrev bitTripleType : Ty := .prod bitPairType .base
 
-def halfAdder : Circuit Bits Bits := .pair Circuit.xor Circuit.and
+def halfAdder : Circuit bitPairType bitPairType := .pair Circuit.xor Circuit.and
 
 /-- First combine `b,c`, then combine `a` with their sum, then merge carries. -/
-def fullAdder : Circuit Triple Bits :=
-  let firstHA : Circuit Triple Bits :=
+def fullAdder : Circuit bitTripleType bitPairType :=
+  let firstHA : Circuit bitTripleType bitPairType :=
     .compose halfAdder (.pair (.compose .second .first) .second)
-  let secondHA : Circuit Triple Bits :=
+  let secondHA : Circuit bitTripleType bitPairType :=
     .compose halfAdder (.pair (.compose .first .first) (.compose .first firstHA))
   .pair (.compose .first secondHA)
     (.compose Circuit.or (.pair (.compose .second secondHA) (.compose .second firstHA)))
 
-def halfAdderTerm (input : Term Gate Γ Bits) : Term Gate Γ Bits :=
+def halfAdderTerm (input : Term Gate Γ bitPairType) : Term Gate Γ bitPairType :=
   .pair (.prim (.xor (1 / 4) (1 / 4)) input)
     (.prim (.not (1 / 10)) (.prim (.nand (1 / 5) (1 / 5)) input))
 
 /-- A genuine first-order source program, preserving two let-bound results. -/
-def fullAdderTerm : Term Gate [Triple] Bits :=
+def fullAdderTerm : Term Gate [bitTripleType] bitPairType :=
   .letE (halfAdderTerm (.pair (.snd (.fst (.var .here))) (.snd (.var .here))))
     (.letE (halfAdderTerm (.pair (.fst (.fst (.var (.there .here)))) (.fst (.var .here))))
       (.pair (.fst (.var .here))
@@ -42,7 +42,7 @@ def fullAdderTerm : Term Gate [Triple] Bits :=
           (.prim (.nor (1 / 5) (1 / 5))
             (.pair (.snd (.var .here)) (.snd (.var (.there .here))))))))
 
-def compiledFullAdder : Circuit Triple Bits :=
+def compiledFullAdder : Circuit bitTripleType bitPairType :=
   .compose (compile Circuit.target fullAdderTerm) (.pair .terminate .identity)
 
 /-- The source compiler agrees on all three interpretations, including timing. -/
@@ -68,22 +68,22 @@ theorem source_addition (a b c : Bool) :
     r.1.toNat + 2 * r.2.toNat = a.toNat + b.toNat + c.toNat := by
   cases a <;> cases b <;> cases c <;> rfl
 
-def sumPort : Port Bits := .inl 0
-def carryPort : Port Bits := .inr 0
-def inputA : Port Triple := .inl (.inl 0)
-def inputB : Port Triple := .inl (.inr 0)
-def inputC : Port Triple := .inr 0
+def sumPort : Port bitPairType := .inl 0
+def carryPort : Port bitPairType := .inr 0
+def inputA : Port bitTripleType := .inl (.inl 0)
+def inputB : Port bitTripleType := .inl (.inr 0)
+def inputC : Port bitTripleType := .inr 0
 
 /-- The locally calculated timing expression, before collecting path delays. -/
-def halfAdderTiming (τ : Times Bits) : Times Bits :=
+def halfAdderTiming (τ : Times bitPairType) : Times bitPairType :=
   Sum.elim
     (fun _ => Interval.point (1 / 4) * τ (.inl 0) + Interval.point (1 / 4) * τ (.inr 0))
     (fun _ => Interval.point (1 / 10) *
       (Interval.point (1 / 5) * τ (.inl 0) + Interval.point (1 / 5) * τ (.inr 0)))
 
-theorem halfAdder_timing (τ : Times Bits) : halfAdder.digital.timing τ = halfAdderTiming τ := rfl
+theorem halfAdder_timing (τ : Times bitPairType) : halfAdder.digital.timing τ = halfAdderTiming τ := rfl
 
-def fullAdderTiming (τ : Times Triple) : Times Bits :=
+def fullAdderTiming (τ : Times bitTripleType) : Times bitPairType :=
   let firstSum := Interval.point (1 / 4) * τ inputB + Interval.point (1 / 4) * τ inputC
   let firstCarry := Interval.point (1 / 10) *
     (Interval.point (1 / 5) * τ inputB + Interval.point (1 / 5) * τ inputC)
@@ -94,14 +94,14 @@ def fullAdderTiming (τ : Times Triple) : Times Bits :=
     (fun _ => Interval.point (1 / 10) *
       (Interval.point (1 / 5) * secondCarry + Interval.point (1 / 5) * firstCarry))
 
-theorem fullAdder_timing (τ : Times Triple) : fullAdder.digital.timing τ = fullAdderTiming τ := rfl
+theorem fullAdder_timing (τ : Times bitTripleType) : fullAdder.digital.timing τ = fullAdderTiming τ := rfl
 
 /-- Row order is sum, carry; both input columns are equal. -/
-def halfAdderMatrix : Matrix (Port Bits) (Port Bits) Interval :=
+def halfAdderMatrix : Matrix (Port bitPairType) (Port bitPairType) Interval :=
   Sum.elim (fun _ _ => Interval.point (1 / 4)) (fun _ _ => Interval.point (3 / 10))
 
 /-- The carry entries for `b,c` retain the negative width `3/5 - 17/20`. -/
-def fullAdderMatrix : Matrix (Port Bits) (Port Triple) Interval :=
+def fullAdderMatrix : Matrix (Port bitPairType) (Port bitTripleType) Interval :=
   Sum.elim
     (fun _ => Sum.elim
       (Sum.elim (fun _ => Interval.point (1 / 4)) (fun _ => Interval.point (1 / 2)))
@@ -136,14 +136,14 @@ theorem compiledFullAdder_matrix : compiledFullAdder.digital.matrix = fullAdderM
   rw [compiled_fullAdder, fullAdder_matrix]
 
 /-- Matrix-calculated output intervals carry a proof valid at every enclosed time. -/
-theorem fullAdder_stable {s τ v} (h : Stable Triple s τ v) :
-    Stable Bits (fullAdder.digital.analog s) (fullAdderMatrix *ᵥ τ)
+theorem fullAdder_stable {s τ v} (h : Stable bitTripleType s τ v) :
+    Stable bitPairType (fullAdder.digital.analog s) (fullAdderMatrix *ᵥ τ)
       (fullAdder.digital.value v) := by
   rw [← fullAdder_matrix]
   exact fullAdder.digital.matrix_stable h
 
 /-- A falling input with both other inputs true has logically constant carry. -/
-def hazardInput : Val Signal Triple := ((fun _ => true, fun t => decide (t < 0)), fun _ => true)
+def hazardInput : Val Signal bitTripleType := ((fun _ => true, fun t => decide (t < 0)), fun _ => true)
 
 theorem hazard_expected_carry (b : Bool) :
     (fullAdder.digital.value ((true, b), true)).2 = true := by

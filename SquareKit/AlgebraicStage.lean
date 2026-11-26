@@ -23,26 +23,26 @@ def algebra : Stage → CommRingCat
   | .polynomial A => CommRingCat.of (Polynomial (algebra A))
   | .dual A => CommRingCat.of (DualNumber (algebra A))
 
-abbrev Carrier (A : Stage) := algebra A
+abbrev carrierAlgebra (A : Stage) := algebra A
 
 instance : Category Stage where
-  Hom A B := Carrier A →+* Carrier B
-  id A := RingHom.id (Carrier A)
+  Hom A B := carrierAlgebra A →+* carrierAlgebra B
+  id A := RingHom.id (carrierAlgebra A)
   comp f g := g.comp f
 
-abbrev ringMap {A B : Stage} (f : A ⟶ B) : Carrier A →+* Carrier B := f
+abbrev ringMap {A B : Stage} (f : A ⟶ B) : carrierAlgebra A →+* carrierAlgebra B := f
 
 abbrev Site := Stageᵒᵖ
 abbrev topology : GrothendieckTopology Site := ⊥
 
 abbrev scalarData : Siteᵒᵖ ⥤ Type where
-  obj A := Carrier A.unop.unop
+  obj A := carrierAlgebra A.unop.unop
   map f := ↾(ringMap f.unop.unop)
 
 abbrev scalar : Sheaf topology Type := ⟨scalarData, Presheaf.isSheaf_bot _⟩
 
 abbrev infinitesimalData : Siteᵒᵖ ⥤ Type where
-  obj A := {d : Carrier A.unop.unop // d * d = 0}
+  obj A := {d : carrierAlgebra A.unop.unop // d * d = 0}
   map f := ↾fun d => ⟨(ringMap f.unop.unop) d, by rw [← map_mul, d.property, map_zero]⟩
 
 abbrev infinitesimal : Sheaf topology Type :=
@@ -74,8 +74,8 @@ def affineBody : product infinitesimal (product scalar scalar) ⟶ scalar :=
 /-- The candidate KL map targets the actual categorical exponential. -/
 def affine : product scalar scalar ⟶ exponential infinitesimal scalar := curry affineBody
 
-theorem affine_evaluation (A : Stage) (d : Carrier A) (hd : d * d = 0)
-    (a b : Carrier A) :
+theorem affine_evaluation (A : Stage) (d : carrierAlgebra A) (hd : d * d = 0)
+    (a b : carrierAlgebra A) :
     (evaluation infinitesimal scalar).hom.app (op (op A))
       (⟨d, hd⟩, affine.hom.app (op (op A)) (a, b)) = a + b * d :=
   evaluation_curry_apply affineBody (op (op A)) ⟨d, hd⟩ (a, b)
@@ -97,7 +97,7 @@ theorem inclusion_injective (A : Siteᵒᵖ) : Function.Injective (inclusion.hom
   Subtype.val_injective
 
 /-- All stage ring maps preserve the scalar ring structure. -/
-theorem scalar_ringMap (A B : Stage) (f : A ⟶ B) (a b : Carrier A) :
+theorem scalar_ringMap (A B : Stage) (f : A ⟶ B) (a b : carrierAlgebra A) :
     ringMap f (a + b) = ringMap f a + ringMap f b ∧
     ringMap f (a * b) = ringMap f a * ringMap f b ∧
     ringMap f (-a) = -ringMap f a ∧ ringMap f 1 = 1 ∧ ringMap f 0 = 0 :=
@@ -106,33 +106,33 @@ theorem scalar_ringMap (A B : Stage) (f : A ⟶ B) (a b : Carrier A) :
 /-- The stage extension needed for representable-parameter KL: ring maps
 from A[epsilon] correspond to a map from A and a square-zero element. -/
 def dualLift (A B : Stage) :
-    ((Carrier A →+* Carrier B) × {d : Carrier B // d * d = 0}) ≃
-      (Carrier (.dual A) →+* Carrier B) where
+    ((carrierAlgebra A →+* carrierAlgebra B) × {d : carrierAlgebra B // d * d = 0}) ≃
+      (carrierAlgebra (.dual A) →+* carrierAlgebra B) where
   toFun p := (DualNumber.lift (R := ℤ)
     ⟨(p.1.toIntAlgHom, p.2.val), p.2.property, fun _ => Commute.all _ _⟩).toRingHom
-  invFun f := (f.comp (algebraMap (Carrier A) (DualNumber (Carrier A))),
+  invFun f := (f.comp (algebraMap (carrierAlgebra A) (DualNumber (carrierAlgebra A))),
     ⟨f DualNumber.eps, by erw [← map_mul, DualNumber.eps_mul_eps, map_zero]⟩)
   left_inv p := by
     apply Prod.ext
     · ext a
-      exact congrArg (fun f : Carrier A →ₐ[ℤ] Carrier B => f a)
+      exact congrArg (fun f : carrierAlgebra A →ₐ[ℤ] carrierAlgebra B => f a)
         (DualNumber.lift_comp_inlHom _)
     · apply Subtype.ext
       exact DualNumber.lift_apply_eps _
   right_inv f := by
     apply DualNumber.ringHom_ext
     · ext a
-      exact congrArg (fun g : Carrier A →ₐ[ℤ] Carrier B => g a)
+      exact congrArg (fun g : carrierAlgebra A →ₐ[ℤ] carrierAlgebra B => g a)
         (DualNumber.lift_comp_inlHom _)
     · exact DualNumber.lift_apply_eps _
 
-theorem dualLift_apply (A B : Stage) (f : Carrier A →+* Carrier B)
-    (d : {d : Carrier B // d * d = 0}) (z : DualNumber (Carrier A)) :
+theorem dualLift_apply (A B : Stage) (f : carrierAlgebra A →+* carrierAlgebra B)
+    (d : {d : carrierAlgebra B // d * d = 0}) (z : DualNumber (carrierAlgebra A)) :
     dualLift A B (f, d) z = f z.fst + f z.snd * d.val := rfl
 
 /-- The universal property respects every target-stage restriction. -/
-theorem dualLift_natural (A B C : Stage) (f : Carrier A →+* Carrier B)
-    (d : {d : Carrier B // d * d = 0}) (g : Carrier B →+* Carrier C) :
+theorem dualLift_natural (A B C : Stage) (f : carrierAlgebra A →+* carrierAlgebra B)
+    (d : {d : carrierAlgebra B // d * d = 0}) (g : carrierAlgebra B →+* carrierAlgebra C) :
     g.comp (dualLift A B (f, d)) =
       dualLift A C (g.comp f, ⟨g d.val, by rw [← map_mul, d.property, map_zero]⟩) := by
   ext z

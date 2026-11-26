@@ -89,14 +89,14 @@ theorem flagged_eta_after_forgetting (γ : Γ) (p : (flagged A B).Pair γ) :
   | mk p flag => cases p; rfl
 
 /-- A motive with no inhabitants at the true flag rejects arbitrary dependent elimination. -/
-def flagMotive {γ : Γ} (p : (flagged A B).Pair γ) : Type :=
+def FlagMotive {γ : Γ} (p : (flagged A B).Pair γ) : Type :=
   if p.2 then Empty else PUnit
 
 theorem flagged_no_split (γ : Γ) (a : A γ) (b : B γ a) :
     ¬ Nonempty ((D : (flagged A B).Pair γ → Type) →
       (∀ a b, D ((flagged A B).pair γ a b)) → ∀ p, D p) := by
   rintro ⟨split⟩
-  have impossible : Empty := split (flagMotive A B) (fun _ _ => PUnit.unit) (⟨a,b⟩,true)
+  have impossible : Empty := split (FlagMotive A B) (fun _ _ => PUnit.unit) (⟨a,b⟩,true)
   exact impossible.elim
 
 /-- Families and sections fixed by the report before choosing syntax or interpretation. -/

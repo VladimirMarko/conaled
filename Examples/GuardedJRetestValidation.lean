@@ -134,7 +134,7 @@ universe u
 variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
   (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
   (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
-  (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ)
+  (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ)
 include hσ hΩ in
 theorem comparisonSound :
     (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).eval (algebra M) ρ =
@@ -143,7 +143,7 @@ theorem comparisonSound :
 
 include hΩ in
 theorem extendedAssumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
-    a.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
+    a.Eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
   intro a ha
   obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
   simpa only [SquareKit.Internal.DependentJudgments.Sigma.eval_old_judgment] using hΩ b hb
@@ -152,7 +152,7 @@ include hσ hΩ in
 theorem extensionSelected :
     ((term Δ (subTy (subTy (outer hx hT hp).motive (rootTail A x T)) σ)
       (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ)).inl
-      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).inl
       SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
@@ -305,7 +305,7 @@ private def environment : Fin 6 → Value native.toStructuralModel :=
 
 /-- All hypotheses have actual native values, including the three dependent
 tail binders. None is a requested equality or a selected-output assumption. -/
-theorem assumptions_valid : ∀ j ∈ assumptions, j.eval (Contextual.algebra native) environment := by
+theorem assumptions_valid : ∀ j ∈ assumptions, j.Eval (Contextual.algebra native) environment := by
   intro j hj
   rcases List.mem_ofFn.mp hj with ⟨i, rfl⟩
   fin_cases i

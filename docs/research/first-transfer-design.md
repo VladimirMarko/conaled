@@ -13,7 +13,7 @@ dependent tail and returning `q` in the branch. Their named beta conversions use
 the generated contextual beta rule and typed argument substitutions.
 `Authoring.trConcatReflexiveEquality` checks the nested branch conversion:
 transport along `refl · q` reduces to transport along `q`, and the inner
-transport along `refl` reduces to its supplied element. `transport_congr`
+transport along `refl` reduces to its supplied element. `transportCongr`
 uses generated dependent-pair and J congruence. Reflexivity is then converted
 to the required identity type by generated type conversion.
 
@@ -166,7 +166,7 @@ reflection of semantic equality.
 
 `TransferFrame.concat_root_endpoint` discharges the endpoint factorization for
 the actual outer root using `moving_root_code` and `first_root_eval`.
-`TransferFrame.concat_root_normalized` is the checked specialization: its left
+`TransferFrame.concatRootNormalized` is the checked specialization: its left
 side is the actual reindexed `concat first second`; its right side is the actual
 reindexed second path with the moving endpoint normalized to the fixed endpoint.
 Only native annotation equality is used to put these generated source judgments
@@ -209,8 +209,8 @@ the short final caller does not measure the work needed to produce it.
 
 Debugging exposed dependent rewriting and elaboration costs. Expanding the
 whole concrete three-entry tail while specializing nested transport hit the
-normal heartbeat limit. Factoring `transport_reindex_beta` and
-`transport_nested_reindex_beta` at generic context parameters made the
+normal heartbeat limit. Factoring `transportReindexBeta` and
+`transportNestedReindexBeta` at generic context parameters made the
 specialized branch check at the normal limit without changing its statement.
 Explicit HEq composition was more reliable than dependent `rw` for code casts.
 The nil telescope-square equation needed its generated recursion equation

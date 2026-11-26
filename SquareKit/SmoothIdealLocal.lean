@@ -11,22 +11,22 @@ variable {n m : ℕ}
 abbrev Space (n : ℕ) := Fin n → ℝ
 
 /-- A smooth coefficient equation on a neighborhood of the specified point. -/
-def Mem (r : Fin m → Free n) (f : Space n → ℝ) (x : Space n) : Prop :=
+def Mem (r : Fin m → freeAlgebra n) (f : Space n → ℝ) (x : Space n) : Prop :=
   ∃ U ∈ 𝓝 x, ∃ c : Space n → (Fin m → ℝ), ContDiffOn ℝ ∞ c U ∧
     ∀ y ∈ U, f y = ∑ j, (r j).val y * c y j
 
-theorem zero (r : Fin m → Free n) (x : Space n) : Mem r (fun _ => 0) x := by
+theorem zero (r : Fin m → freeAlgebra n) (x : Space n) : Mem r (fun _ => 0) x := by
   refine ⟨univ,univ_mem,fun _ _ => 0,contDiffOn_const,?_⟩
   simp
 
-theorem congr {r : Fin m → Free n} {f g : Space n → ℝ} {x : Space n}
+theorem congr {r : Fin m → freeAlgebra n} {f g : Space n → ℝ} {x : Space n}
     (h : Mem r f x) (he : f =ᶠ[𝓝 x] g) : Mem r g x := by
   obtain ⟨U,hU,c,hc,hf⟩ := h
   obtain ⟨V,hV,hg⟩ := eventually_iff_exists_mem.mp he
   exact ⟨U ∩ V,inter_mem hU hV,c,hc.mono inter_subset_left,
     fun y hy => (hg y hy.2).symm.trans (hf y hy.1)⟩
 
-theorem add {r : Fin m → Free n} {f g : Space n → ℝ} {x : Space n}
+theorem add {r : Fin m → freeAlgebra n} {f g : Space n → ℝ} {x : Space n}
     (hf : Mem r f x) (hg : Mem r g x) : Mem r (fun y => f y+g y) x := by
   obtain ⟨U,hU,c,hc,hf⟩ := hf
   obtain ⟨V,hV,d,hd,hg⟩ := hg
@@ -39,7 +39,7 @@ theorem add {r : Fin m → Free n} {f g : Space n → ℝ} {x : Space n}
   intro j _
   exact (mul_add _ _ _).symm
 
-theorem mul {r : Fin m → Free n} {f g : Space n → ℝ} {x : Space n}
+theorem mul {r : Fin m → freeAlgebra n} {f g : Space n → ℝ} {x : Space n}
     (hf : Mem r f x) {V : Set (Space n)} (hV : V ∈ 𝓝 x) (hg : ContDiffOn ℝ ∞ g V) :
     Mem r (fun y => g y*f y) x := by
   obtain ⟨U,hU,c,hc,hf⟩ := hf
@@ -53,7 +53,7 @@ theorem mul {r : Fin m → Free n} {f g : Space n → ℝ} {x : Space n}
   change g y*((r j).val y*c y j) = (r j).val y*(g y*c y j)
   ring
 
-theorem sum {r : Fin m → Free n} {k : ℕ} (f : Fin k → Space n → ℝ) (x : Space n)
+theorem sum {r : Fin m → freeAlgebra n} {k : ℕ} (f : Fin k → Space n → ℝ) (x : Space n)
     (h : ∀ i, Mem r (f i) x) : Mem r (fun y => ∑ i, f i y) x := by
   have hf : ∀ S : Finset (Fin k), Mem r (fun y => ∑ i ∈ S, f i y) x := by
     intro S
@@ -63,7 +63,7 @@ theorem sum {r : Fin m → Free n} {k : ℕ} (f : Fin k → Space n → ℝ) (x 
   exact hf Finset.univ
 
 /-- A nonzero ideal generator is locally invertible, including for local smooth functions. -/
-theorem of_generator_ne_zero (r : Fin m → Free n) (j : Fin m) {f : Space n → ℝ}
+theorem of_generator_ne_zero (r : Fin m → freeAlgebra n) (j : Fin m) {f : Space n → ℝ}
     {x : Space n} (hj : (r j).val x ≠ 0) {U : Set (Space n)}
     (hU : U ∈ 𝓝 x) (hf : ContDiffOn ℝ ∞ f U) : Mem r f x := by
   let V := {y | (r j).val y ≠ 0}
@@ -81,7 +81,7 @@ theorem of_generator_ne_zero (r : Fin m → Free n) (j : Fin m) {f : Space n →
     simp only [mul_ite, mul_zero, Finset.sum_ite_eq',Finset.mem_univ,ite_true]
     exact (mul_div_cancel₀ (f y) hy.2).symm
 
-theorem global_iff (r : Fin m → Free n) (f : Free n) :
+theorem global_iff (r : Fin m → freeAlgebra n) (f : freeAlgebra n) :
     f ∈ Presentation.ideal r ↔ ∀ x, Mem r f.val x := by
   rw [Presentation.ideal, Ideal.mem_span_range_iff_exists_fun]
   constructor
@@ -89,8 +89,8 @@ theorem global_iff (r : Fin m → Free n) (f : Free n) :
     refine ⟨univ,univ_mem,fun y j => (c j).val y,?_,?_⟩
     · exact (contDiff_pi.mpr (fun j => show ContDiff ℝ ∞ (c j).val from (c j).property)).contDiffOn
     · intro y _
-      have he := congrArg (fun p : Free n => p.val y) hc
-      simpa only [show ∀ (v : Fin m → Free n), (∑ j, v j).val = ∑ j, (v j).val from fun v => map_sum (Free n).val v Finset.univ, Subalgebra.coe_mul, Finset.sum_apply, Pi.mul_apply, mul_comm] using he.symm
+      have he := congrArg (fun p : freeAlgebra n => p.val y) hc
+      simpa only [show ∀ (v : Fin m → freeAlgebra n), (∑ j, v j).val = ∑ j, (v j).val from fun v => map_sum (freeAlgebra n).val v Finset.univ, Subalgebra.coe_mul, Finset.sum_apply, Pi.mul_apply, mul_comm] using he.symm
   · intro hl
     let t : Space n → Set (Fin m → ℝ) := fun x => {v | f.val x = ∑ j, (r j).val x * v j}
     have ht : ∀ x, Convex ℝ (t x) := by
@@ -107,6 +107,6 @@ theorem global_iff (r : Fin m → Free n) (f : Free n) :
     refine ⟨fun j => ⟨fun x => c x j,(contDiff_apply ℝ (fun _ : Fin m => ℝ) j).comp c.contMDiff.contDiff⟩,?_⟩
     apply Subtype.ext
     funext x
-    simpa only [show ∀ (v : Fin m → Free n), (∑ j, v j).val = ∑ j, (v j).val from fun v => map_sum (Free n).val v Finset.univ, Subalgebra.coe_mul, Finset.sum_apply, Pi.mul_apply, mul_comm] using (hc x).symm
+    simpa only [show ∀ (v : Fin m → freeAlgebra n), (∑ j, v j).val = ∑ j, (v j).val from fun v => map_sum (freeAlgebra n).val v Finset.univ, Subalgebra.coe_mul, Finset.sum_apply, Pi.mul_apply, mul_comm] using (hc x).symm
 
 end SquareKit.SmoothAlgebra.LocalIdeal

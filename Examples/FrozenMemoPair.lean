@@ -16,7 +16,7 @@ variable {F : Frozen.Input Ω}
 namespace InputRealization
 variable (R : InputRealization M ρ F)
 variable (S : Sigma.Capability M.toStructuralModel)
-variable (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+variable (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
 
 abbrev resultFamily := M.subTy R.fiber (M.toStructuralModel.sectionSub R.family R.z)
 
@@ -74,7 +74,7 @@ namespace FrozenSignature
 variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
   (S : Sigma.Capability M.toStructuralModel) {V : Type}
   {Ω : List (Contextual.Judgment V)} (ρ : V → Value M.toStructuralModel)
-  (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+  (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
   (F : Frozen.Signature Ω) (R : InputRealization M ρ F.input)
 
 include hΩ in

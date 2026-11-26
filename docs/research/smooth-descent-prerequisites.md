@@ -231,7 +231,7 @@ generated-context or higher-family descent.
 ## Independent primitive Čech data
 
 `SheafActionQuotientCech` defines the input independently of the cocycle
-interpretation. It consists of a quotient object on `Ext A`, an actual overlap
+interpretation. It consists of a quotient object on `extension A`, an actual overlap
 isomorphism on the split double intersection, and diagonal and triple-overlap
 equations. Its maps are local quotient arrows with commuting overlap squares.
 Their inverses satisfy those squares, giving a groupoid without a cover or

@@ -28,7 +28,7 @@ theorem gauge_injective : Function.Injective gauge := by
   intro g h he
   have hl := congrArg Gauge.label he
   let x := (SquareKit.SmoothManifoldAction.pointEquiv (d := 1) (M := Space 1)).symm 0
-  have hx := congrArg (fun k : SplitSheaf.Ext cover ⟶ locallyConstantGroupSheaf S3 =>
+  have hx := congrArg (fun k : SplitSheaf.extension cover ⟶ locallyConstantGroupSheaf S3 =>
     k.hom.app (op (op (SmoothPresentationSite.free 0))) ⟨x, (1 : group.obj.obj (op (op (SmoothPresentationSite.free 0))))⟩) hl
   exact constantLabel_injective S3 (SmoothPresentationSite.free 0) (𝟙 _) hx
 
@@ -52,7 +52,7 @@ theorem noncommuting :
   norm_num [SmoothManifoldAction.g, SmoothManifoldAction.h,
     Equiv.Perm.mul_apply, Equiv.swap_apply_def] at hp
 
-def coboundaryTrivialization (g : SplitSheaf.Ext cover ⟶ SheafTorsor.groupSheaf group) :
+def coboundaryTrivialization (g : SplitSheaf.extension cover ⟶ SheafTorsor.groupSheaf group) :
     SheafTorsor.Arrow (coboundary g).glue.obj (SheafTorsor.trivial group base) :=
   coboundaryRecovery g
 

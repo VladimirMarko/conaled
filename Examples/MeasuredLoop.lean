@@ -8,8 +8,8 @@ open Resources Resources.MeasuredLoop FirstOrderCompiler Iteration
 open scoped BigOperators
 
 abbrev State := Nat × (Nat × Nat)
-private abbrev ST : Ty := .prod .base (.prod .base .base)
-private abbrev IN : Ty := .prod .base .base
+private abbrev stateType : Ty := .prod .base (.prod .base .base)
+private abbrev inputType : Ty := .prod .base .base
 
 /-- An independent prefix sum, selecting exactly counters above the threshold. -/
 def visited (w : Nat → Nat) (t : Nat) : Nat → Nat
@@ -84,24 +84,24 @@ def meaning : {a b : Ty} → Prim a b → Val Nat a → Val Nat b
   | _, _, .pred, x => x-1
 
 def charge : {a b : Ty} → Prim a b → Nat := fun _ => 1
-private def state : Term Prim [ST] ST := .var .here
-private def counter : Term Prim [ST] .base := .fst state
-private def accum : Term Prim [ST] .base := .fst (.snd state)
-private def threshold : Term Prim [ST] .base := .snd (.snd state)
-private def squareTerm : Term Prim [ST] .base := .prim .mul (.pair counter counter)
-private def doubleTerm : Term Prim [ST] .base := .prim .add (.pair counter counter)
-private def body (weight : Term Prim [ST] .base) : Term Prim [ST] ST :=
+private def state : Term Prim [stateType] stateType := .var .here
+private def counter : Term Prim [stateType] .base := .fst state
+private def accum : Term Prim [stateType] .base := .fst (.snd state)
+private def threshold : Term Prim [stateType] .base := .snd (.snd state)
+private def squareTerm : Term Prim [stateType] .base := .prim .mul (.pair counter counter)
+private def doubleTerm : Term Prim [stateType] .base := .prim .add (.pair counter counter)
+private def body (weight : Term Prim [stateType] .base) : Term Prim [stateType] stateType :=
   .pair (.prim .pred counter) (.pair (.prim .add (.pair accum weight)) threshold)
-private def test : Test Prim [ST] := ⟨counter,threshold⟩
-private def post : Term Prim [ST] ST := .pair counter (.pair accum threshold)
+private def test : Test Prim [stateType] := ⟨counter,threshold⟩
+private def post : Term Prim [stateType] stateType := .pair counter (.pair accum threshold)
 
-def squares : Program Prim IN ST ST where
+def squares : Program Prim inputType stateType stateType where
   seed := .pair (.fst (.var .here)) (.pair (.snd (.var .here)) (.prim (.literal 0) .unit))
   test := test
   body := body squareTerm
   post := post
 
-def thresholded : Program Prim ST ST ST where
+def thresholded : Program Prim stateType stateType stateType where
   seed := .var .here
   test := test
   body := body doubleTerm

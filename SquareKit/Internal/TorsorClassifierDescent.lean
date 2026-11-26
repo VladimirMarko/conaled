@@ -85,7 +85,7 @@ theorem decodedMap_comparison {P Q : Torsor G X} (h : Arrow P Q) :
   simp only [Category.assoc, Iso.inv_hom_id, Category.comp_id]
   rfl
 
-variable {A : SplitSheaf.Ty X} {P Q : Torsor G (SplitSheaf.Ext A)}
+variable {A : SplitSheaf.Ty X} {P Q : Torsor G (SplitSheaf.extension A)}
 variable [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom]
 
 /-- Construct descent first, then classify and decode the resulting family. -/

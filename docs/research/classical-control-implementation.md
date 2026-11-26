@@ -13,7 +13,7 @@ to this comparison, and no existing consumer or compiler is migrated.
 |---|---|
 | Independent raw certificate meaning and decoder | `First`; `first_indices`, `none_indices`, `decode_correct`, `first_unique` in [Certificate.lean](../../Applications/ClassicalControl/Certificate.lean) |
 | Pure logical interpretation for any predecessor-closed pole | `Source.adequacy`, `Source.continuation`, `Source.peirce` in [Adequacy.lean](../../Applications/ClassicalControl/Adequacy.lean) |
-| Constructed weak delivery pole, properness and restricted coherence | `Source.Pgood`, `good_nonempty`, `invalid_terminal`, `restricted_coherence` in [Machine.lean](../../Applications/ClassicalControl/Machine.lean) |
+| Constructed weak delivery pole, properness and restricted coherence | `Source.goodPole`, `good_nonempty`, `invalid_terminal`, `restricted_coherence` in [Machine.lean](../../Applications/ClassicalControl/Machine.lean) |
 | Finite search, full ordered-prefix invariant and direct-recursion equality | `certified_boundary`, `search_runs_direct`, `search_delivery_eq`, `search_normalizes` in [Search.lean](../../Applications/ClassicalControl/Search.lean) |
 | Open mixed substitution and both directions of step simulation | `Representation.subst`, `forward`, `backward`, `observations` in [Frames.lean](../../Applications/ClassicalControl/Frames.lean) |
 | Changed last-result policy | `last_terminates`, `changed_policy_runs`, `changed_policy_good` in [LastPolicy.lean](../../Applications/ClassicalControl/LastPolicy.lean) |
@@ -26,7 +26,7 @@ equation. Its index consequences recover every condition in the report; the
 machine execution or the direct search function. `first_eq_direct` proves that
 a valid record determines the direct result, and `first_unique` derives uniqueness.
 
-`Pgood` uses the weaker `Weak` predicate on terminal deliveries for `[1,2,4]`.
+`goodPole` uses the weaker `Weak` predicate on terminal deliveries for `[1,2,4]`.
 Its definition makes no search-program assumption. `search_good` proves actual
 membership from a finite execution. The accepted later-even record still fails
 `First`; the last-policy program reaches that record and also belongs to the pole.

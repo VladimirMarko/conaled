@@ -22,7 +22,7 @@ theorem twoPoints_no_global_chart (e : OpenPartialHomeomorph TwoPoints (Space 0)
 
 def tag : TwoPoints → Space 1 := Sum.elim (fun _ => 0) (fun _ => 1)
 
-theorem tag_smooth : ContMDiff (Model 0) (Model 1) ∞ tag :=
+theorem tag_smooth : ContMDiff (modelWithCorners 0) (modelWithCorners 1) ∞ tag :=
   contMDiff_const.sumElim contMDiff_const
 
 theorem recover_tag : reconstruct (map tag tag_smooth) = tag :=
@@ -31,7 +31,7 @@ theorem recover_tag : reconstruct (map tag tag_smooth) = tag :=
 /-- All arrows are quantified, with a non-global-chart source and different
 source and target dimensions. -/
 theorem arbitrary_arrow (h : object 0 TwoPoints ⟶ object 1 (Space 1)) :
-    ContMDiff (Model 0) (Model 1) ∞ (reconstruct h) ∧
+    ContMDiff (modelWithCorners 0) (modelWithCorners 1) ∞ (reconstruct h) ∧
       map (reconstruct h) (reconstruct_smooth h) = h :=
   ⟨reconstruct_smooth h, map_reconstruct h⟩
 

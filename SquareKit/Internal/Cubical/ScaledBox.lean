@@ -26,8 +26,8 @@ abbrev scaledFace {Γ : Context.{u}} (φ : Cofibration Γ) : Cofibration (total 
 
 theorem scaleInterval_outer_zero {Γ : Context.{u}}
     (x : (total (interval (total (interval Γ)))).Elements)
-    (h : ((intervalFace Γ false).reindex (projection (interval (total (interval Γ))))).full x) :
-    ((intervalFace Γ false).reindex (scaleInterval Γ)).full x := by
+    (h : ((intervalFace Γ false).reindex (projection (interval (total (interval Γ))))).Full x) :
+    ((intervalFace Γ false).reindex (scaleInterval Γ)).Full x := by
   apply (Cofibration.full_endpoint (generic (interval Γ)) false
     ((scaleInterval Γ).mapElements.obj x)).mpr
   have hr := (Cofibration.full_endpoint (generic (interval Γ)) false
@@ -38,7 +38,7 @@ theorem scaleInterval_outer_zero {Γ : Context.{u}}
   exact congrArg ULift.up (Cube.zero_meet _)
 
 theorem scaleInterval_cap_zero {Γ : Context.{u}} (x : (total (interval Γ)).Elements) :
-    ((intervalFace Γ false).reindex (endpointSub (total (interval Γ)) false ≫ scaleInterval Γ)).full x := by
+    ((intervalFace Γ false).reindex (endpointSub (total (interval Γ)) false ≫ scaleInterval Γ)).Full x := by
   apply (Cofibration.full_endpoint (generic (interval Γ)) false
     ((endpointSub (total (interval Γ)) false ≫ scaleInterval Γ).mapElements.obj x)).mpr
   exact congrArg ULift.up (Cube.meet_zero _)

@@ -15,7 +15,7 @@ variable {M : SquareKit.Internal.PathTransport.Typed.Model.{u}} {V : Type}
 variable {Ω : List (Contextual.Judgment V)} {ρ : V → Value M.toStructuralModel}
 namespace InputRealization
 variable {F : Frozen.Input Ω} (R : InputRealization M ρ F)
-variable (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+variable (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
 
 def varying : InputRealization M ρ
     (F.reindex F.parameters.pathTypeFormation.weaken) := by

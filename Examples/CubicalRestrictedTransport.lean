@@ -31,7 +31,7 @@ abbrev line := total (interval terminal)
 abbrev zeroFace := Cofibration.endpoint (generic (interval terminal)) false
 
 def zeroFiber : Family line where
-  obj x := PLift (zeroFace.full x)
+  obj x := PLift (zeroFace.Full x)
   map f := TypeCat.ofHom (fun h => ⟨zeroFace.full_natural f h.down⟩)
   map_id _ := rfl
   map_comp _ _ := rfl

@@ -34,12 +34,12 @@ instance : topology.Subcanonical :=
       exact Presieve.isSheafFor_top _)
 
 /-- Two independent Boolean sections; restrictions to U and V are projections. -/
-def values : Diamond → Type
+def Values : Diamond → Type
   | W => Unit
   | U | V => Bool
   | X => Bool × Bool
 
-def restrict {a b : Diamond} : Arrow a b → values b → values a
+def restrict {a b : Diamond} : Arrow a b → Values b → Values a
   | .id _, x => x
   | .wu, _ => ()
   | .wv, _ => ()
@@ -47,12 +47,12 @@ def restrict {a b : Diamond} : Arrow a b → values b → values a
   | .vx, x => x.2
   | .wx, _ => ()
 
-theorem restrict_comp {a b c : Diamond} (f : Arrow a b) (g : Arrow b c) (x : values c) :
+theorem restrict_comp {a b c : Diamond} (f : Arrow a b) (g : Arrow b c) (x : Values c) :
     restrict (compose f g) x = restrict f (restrict g x) := by
   cases f <;> cases g <;> rfl
 
 def pairs : Diamondᵒᵖ ⥤ Type where
-  obj a := values a.unop
+  obj a := Values a.unop
   map f := ↾restrict f.unop
   map_id _ := rfl
   map_comp f g := by

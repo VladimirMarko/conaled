@@ -56,10 +56,10 @@ end Intertwining
 
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 namespace Atlas
 variable (A : ChartFamily d M)
-    (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+    (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 def representation : SmoothConstantAction.Representation G A.realization where
   map g := A.interpret A (fun x => g • x) (smoothAction g)
@@ -128,11 +128,11 @@ def Family.restrict {m n : SmoothMap U d M} (a : Family (G := G) U m n) (r : V �
     a.property.1.comp (openMap_contMDiff r),
     fun _ => a.property.2.1 _, fun _ => a.property.2.2 _⟩
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem Family.restrict_id {m n : SmoothMap U d M} (a : Family (G := G) U m n) :
     a.restrict (𝟙 U) = a := rfl
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem Family.restrict_comp {m n : SmoothMap U d M} (a : Family (G := G) U m n)
     (r : V ⟶ U) (s : W ⟶ V) : (a.restrict r).restrict s = a.restrict (s ≫ r) := rfl
 
@@ -161,7 +161,7 @@ theorem transport_label {Y : Sheaf topology Type} {a : Action (locallyConstantGr
   cases hn
   rfl
 
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable {m n : SmoothMap U d M}
 
 def restrictArrow (f : ChartArrow smoothAction m n) (r : V ⟶ U) :
@@ -207,7 +207,7 @@ theorem canonicalRecovery_comparison
 
 end External
 namespace SelectedBaseChange
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable {X Y : Sheaf topology Type} (A : SplitSheaf.Ty X)
     [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 variable {q r : Descent.Datum (a := (representation smoothAction).action) A}
@@ -227,7 +227,7 @@ end SelectedBaseChange
 namespace Cover
 open SmoothQuotientCoverMatching
 open Internal.PathTransport
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable {X Y X' Y' : Sheaf topology Type}
 variable {Γ γ B b} (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
 variable (f : Y ⟶ X) [Presheaf.IsLocallySurjective topology f.hom]
@@ -255,7 +255,7 @@ theorem familyNaturality :
   relativeMatchingEquivalence_square (representation smoothAction).action hΓ hB u v square
 
 def familyRecovery (q : Datum (representation smoothAction).action hΓ f) :=
-  familySquare_recovery (representation smoothAction).action hΓ hB u v square q
+  familySquareRecoveryIso (representation smoothAction).action hΓ hB u v square q
 
 /-- Complete matching-section gluing, with the supplied local comparison. -/
 def sectionNaturality
@@ -266,7 +266,7 @@ def sectionNaturality
           squareFunctor (representation smoothAction).action (.ext hΓ hB) u v square ≅
         squareFunctor (representation smoothAction).action hΓ u v square ⋙ t.lift ⋙
           (dependentComprehensionEquivalence (representation smoothAction).action hΓ hB k).functor) :=
-  gluedSectionLift_natural (representation smoothAction).action hΓ hB f k u v square s t localComparison
+  gluedSectionLiftNaturalityIso (representation smoothAction).action hΓ hB f k u v square s t localComparison
 
 end Cover
 
@@ -287,7 +287,7 @@ local instance coordinateAction : MulAction C4 (ordinaryOpen diskDomain) where
 
 local instance : MulAction C4 (Points diskDomain) := coordinateAction
 
-theorem smooth (g : C4) : ContMDiff (Model diskDomain.dimension) (Model diskDomain.dimension) ∞
+theorem smooth (g : C4) : ContMDiff (modelWithCorners diskDomain.dimension) (modelWithCorners diskDomain.dimension) ∞
     (fun x : ordinaryOpen diskDomain => g • x) := openMap_contMDiff (diskMap g)
 
 abbrev endpoint {U : Domain} (m : U ⟶ diskDomain) : External.SmoothMap U diskDomain.dimension (ordinaryOpen diskDomain) :=
@@ -313,7 +313,7 @@ def quotientEquiv {U : Domain} (m n : U ⟶ diskDomain) :
     (External.transportEquiv (endpoint_comparison m) (endpoint_comparison n))
 
 /-- Coordinate conversion uses the explicit real-linear complexCoordinates map. -/
-theorem diskPoints_smooth : ContMDiff (Model diskDomain.dimension) 𝓘(ℝ, ℂ) ∞
+theorem diskPoints_smooth : ContMDiff (modelWithCorners diskDomain.dimension) 𝓘(ℝ, ℂ) ∞
     (show ordinaryOpen diskDomain → Disk from diskPoints) := by
   apply (ContMDiff.subtypeVal_comp_iff disk _).mp
   exact complexCoordinates.contDiff.contMDiff.comp contMDiff_subtype_val
@@ -365,7 +365,7 @@ theorem inverse_agreement {U : Domain} (m n : U ⟶ diskDomain)
   apply (SmoothDiskPresentation.smoothChartEquiv U m n).injective
   rw [← forward_agreement, Equiv.apply_symm_apply, Equiv.apply_symm_apply, Equiv.apply_symm_apply]
 
-theorem diskPoints_symm_smooth : ContMDiff 𝓘(ℝ, ℂ) (Model diskDomain.dimension) ∞
+theorem diskPoints_symm_smooth : ContMDiff 𝓘(ℝ, ℂ) (modelWithCorners diskDomain.dimension) ∞
     (show Disk → ordinaryOpen diskDomain from diskPoints.symm) := by
   apply (ContMDiff.subtypeVal_comp_iff (ordinaryOpen diskDomain) _).mp
   exact complexCoordinates.symm.contDiff.contMDiff.comp contMDiff_subtype_val

@@ -657,14 +657,14 @@ theorem external_projected_valid (s : Session) (c : PendingMigration.Command)
     all_goals dsimp only [external]
     all_goals split <;> exact hs.protocol
 
-private def livePhase (p : PendingMigration.Phase) : Prop :=
+private def LivePhase (p : PendingMigration.Phase) : Prop :=
   p = .accepted ∨ p = .computed ∨ p = .confirmed
 
-private def deliveryPhase (p : PendingMigration.Phase) : Prop := p = .accepted ∨ p = .cancelled
+private def DeliveryPhase (p : PendingMigration.Phase) : Prop := p = .accepted ∨ p = .cancelled
 
 private def Aligned (r q : PendingMigration.Request) : Prop :=
-  r.input = q.input ∧ (livePhase q.phase → livePhase r.phase) ∧
-    (deliveryPhase r.phase → deliveryPhase q.phase) ∧ (r.phase = .cancelled ↔ q.phase = .cancelled)
+  r.input = q.input ∧ (LivePhase q.phase → LivePhase r.phase) ∧
+    (DeliveryPhase r.phase → DeliveryPhase q.phase) ∧ (r.phase = .cancelled ↔ q.phase = .cancelled)
 
 private theorem aligned_refl (r : PendingMigration.Request) : Aligned r r :=
   ⟨rfl,id,id,Iff.rfl⟩
@@ -678,7 +678,7 @@ private theorem metadata_current (s t : Active) (hs : Invariant s)
     (backward : ∀ slot q, t.protocol.requests.get slot = some q →
       ∃ r, s.protocol.requests.get slot = some r ∧ Aligned r q)
     (current : ∀ slot q localState, t.protocol.requests.get slot = some q →
-      t.residuals.get slot = some localState → livePhase q.phase →
+      t.residuals.get slot = some localState → LivePhase q.phase →
       localState.cached.isSome = true → localState.oldState = t.protocol.active.logical) : Invariant t := by
   constructor
   · exact valid
@@ -770,7 +770,7 @@ private theorem commit_metadata (s : Active) (slot : Bool) (r : PendingMigration
     Invariant {s with protocol := PendingMigration.logicalCommit s.protocol slot r} := by
   obtain ⟨ho,hr⟩ := PendingMigration.head_fields s.protocol slot r hh
   have aligned : Aligned r {r with phase := .committed} := by
-    simp [Aligned,livePhase,deliveryPhase,phase]
+    simp [Aligned,LivePhase,DeliveryPhase,phase]
   apply metadata_current s {s with protocol := PendingMigration.logicalCommit s.protocol slot r}
     hs valid rfl rfl rfl
   · intro a old hold
@@ -795,7 +795,7 @@ private theorem commit_metadata (s : Active) (slot : Bool) (r : PendingMigration
     simp only [PendingMigration.logicalCommit,PendingMigration.update,
       PendingMigration.slots_get_put_same,Option.some.injEq] at hnew
     subst new
-    simp [livePhase] at live
+    simp [LivePhase] at live
 
 private theorem cancel_metadata (s : Active) (slot : Bool) (r : PendingMigration.Request)
     (localState : Residual) (hs : Invariant s)
@@ -949,7 +949,7 @@ private theorem dispatch_metadata (s : Active) (deliver : Bool) (hs : Invariant 
           have both : answer = .published ∧ r.phase = .computed := by simpa using condition
           have phase := both.2
           apply request_metadata_queued s q slot r {r with phase := .confirmed} hs hr _ valid
-          simp [Aligned,livePhase,deliveryPhase,phase]
+          simp [Aligned,LivePhase,DeliveryPhase,phase]
         · exact protocol_metadata_preserved s _ hs valid rfl rfl rfl
 
 private theorem dispatch_control (s : PendingMigration.Session) (deliver : Bool) :
@@ -1005,7 +1005,7 @@ theorem external_invariant (s : Session) (c : PendingMigration.Command)
         | rename_i frozen hh phase
           apply request_metadata_preserved s.active _ _ _ hs
             (PendingMigration.head_fields _ _ _ hh).2 _ valid
-          simp [Aligned,livePhase,deliveryPhase]
+          simp [Aligned,LivePhase,DeliveryPhase]
         | rename_i frozen empty hh phase
           simpa only [PendingMigration.retirement,hp,Active.residuals] using
             retirement_metadata s.active _ _ hs hh empty

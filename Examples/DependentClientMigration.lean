@@ -22,27 +22,27 @@ abbrev doublePair (Γ A t : Expression V) :=
   pair (secondFamily Γ A) (firstPair Γ A t)
     (subTm (secondTerm Γ A) (firstPair Γ A t))
 
-def computed_typed (hx : Tm (Ω := Ω) Γ A x) : Tm (Ω := Ω) Γ A (computed Γ A x) :=
+def computedTyping (hx : Tm (Ω := Ω) Γ A x) : Tm (Ω := Ω) Γ A (computed Γ A x) :=
   (hx.transport (hx.family.substitute hx.family.weaken) hx hx.reflexivity
     (hx.convert (hx.family.weakenSection hx).symmetric)).convert (hx.family.weakenSection hx)
 
-def computed_beta (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (computed Γ A x) x :=
+def computedBeta (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (computed Γ A x) x :=
   hx.transportRefl (hx.family.substitute hx.family.weaken)
     (hx.convert (hx.family.weakenSection hx).symmetric)
 
-def firstPair_typed (ht : Tm (Ω := Ω) Γ A t) :
+def firstPairTyping (ht : Tm (Ω := Ω) Γ A t) :
     Sub (Ω := Ω) Γ (extend Γ A) (firstPair Γ A t) :=
   ht.section
 
-def doublePair_typed (ht : Tm (Ω := Ω) Γ A t) :
+def doublePairTyping (ht : Tm (Ω := Ω) Γ A t) :
     Sub (Ω := Ω) Γ (extend (extend Γ A) (secondFamily Γ A)) (doublePair Γ A t) :=
-  Sub.pair (ht.family.generic.identity ht.family.generic) (firstPair_typed ht)
-    (ht.family.generic.reflexivity.substitute (firstPair_typed ht))
+  Sub.pair (ht.family.generic.identity ht.family.generic) (firstPairTyping ht)
+    (ht.family.generic.reflexivity.substitute (firstPairTyping ht))
 
 /-- Both the first component and the dependent second component change. -/
 def replacement (hx : Tm (Ω := Ω) Γ A x) :
     Equal (Ω := Ω) (doublePair Γ A (computed Γ A x)) (doublePair Γ A x) := by
-  have h := Equal.pair (.reflexive A) (.reflexive (identitySub Γ)) (computed_beta hx)
+  have h := Equal.pair (.reflexive A) (.reflexive (identitySub Γ)) (computedBeta hx)
   exact Equal.pair (.reflexive (secondFamily Γ A)) h
     (Equal.subTm (.reflexive (secondTerm Γ A)) h)
 
@@ -54,8 +54,8 @@ def assumptions : List (Judgment (Fin 3)) := [term g a pointExpr]
 def point : Tm (Ω := assumptions) g a pointExpr := .hypothesis (by simp [assumptions])
 def left : Expression (Fin 3) := doublePair g a (computed g a pointExpr)
 def right : Expression (Fin 3) := doublePair g a pointExpr
-def left_typed := doublePair_typed (computed_typed point)
-def right_typed := doublePair_typed point
+def leftTyping := doublePairTyping (computedTyping point)
+def rightTyping := doublePairTyping point
 def equality : Equal (Ω := assumptions) left right := replacement point
 
 theorem first_recipes_distinct : computed g a pointExpr ≠ pointExpr := by
@@ -162,7 +162,7 @@ def environment (G : M.Context) (F : M.Family G) (v : M.Section G F) :
     Fin 3 → Value M.toStructuralModel := ![.context G, .family G F, .term G F v]
 
 theorem environment_satisfied (G : M.Context) (F : M.Family G) (v : M.Section G F) :
-    ∀ p ∈ Source.assumptions, p.eval (algebra M) (environment M G F v) := by
+    ∀ p ∈ Source.assumptions, p.Eval (algebra M) (environment M G F v) := by
   intro p hp
   have h := List.mem_singleton.mp hp
   subst p

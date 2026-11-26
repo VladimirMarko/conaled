@@ -68,13 +68,13 @@ private theorem localMax_highTree (iv : κ → IntervalKey α)
       max3, combine, maxHi, Trees.Cached.read, max_assoc]
 
 /-- Only a representation compatibility induction; greatest-element semantics is reused. -/
-theorem cacheValid_iff_invarMx (iv : κ → IntervalKey α) (t : BinaryTree (κ × α)) :
-    CacheValid iv t ↔ Trees.MaximumCache.invarMx (highTree iv t) := by
+theorem cacheValid_iff_valid_highTree (iv : κ → IntervalKey α) (t : BinaryTree (κ × α)) :
+    CacheValid iv t ↔ Trees.MaximumCache.Valid (highTree iv t) := by
   induction t with
   | nil => rfl
   | node binding l r ihl ihr =>
       rcases binding with ⟨a, m⟩
-      simp only [cacheValid_node, highTree_node, Trees.MaximumCache.invarMx_node,
+      simp only [cacheValid_node, highTree_node, Trees.MaximumCache.valid_node,
         ihl, ihr, localMax_highTree]
 
 /-- A nonempty valid tree has an attained greatest high, without any BST premise. -/
@@ -83,7 +83,7 @@ theorem maxHi_spec (iv : κ → IntervalKey α) {t : BinaryTree (κ × α)}
     (∃ a ∈ Trees.setTree (Trees.Cached.erase t), (iv a).high = maxHi t) ∧
       ∀ a ∈ Trees.setTree (Trees.Cached.erase t), (iv a).high ≤ maxHi t := by
   have greatest := (Trees.MaximumCache.mx_eq_some_iff (highTree iv t)
-    ((cacheValid_iff_invarMx iv t).mp valid) (maxHi t)).mp
+    ((cacheValid_iff_valid_highTree iv t).mp valid) (maxHi t)).mp
       (mx_highTree_of_ne_nil iv nonempty)
   rw [setTree_erase_highTree] at greatest
   rcases greatest.1 with ⟨a, member, attained⟩

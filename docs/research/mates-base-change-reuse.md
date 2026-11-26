@@ -80,7 +80,7 @@ compares a composite functor with the pasted comparison maps in the original ord
 `forget_context_paste` specializes this law to `Over.forget Bool : Over Bool ⥤ Type`.
 It changes the setting from displayed types over Bool to their underlying types.
 It retains the underlying maps of arbitrary displayed values and substitutions.
-`forget_comparison_iso` also constructs its invertible comparison.
+`forgetComparisonIso` also constructs its invertible comparison.
 `forget_not_leftExact` proves that this functor cannot be the inverse image of a
 geometric morphism: the terminal display over Bool forgets to Bool, which is
 not terminal in Type. Thus this client is outside the original finite-limit

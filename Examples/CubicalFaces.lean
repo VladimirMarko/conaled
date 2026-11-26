@@ -14,17 +14,17 @@ def left : Cofibration line := Cofibration.endpoint coordinate false
 def right : Cofibration line := Cofibration.endpoint coordinate true
 
 theorem generic_not_boundary :
-    ¬ (left.join right).full (line.elementsMk (Opposite.op ⟨1⟩) ⟨PUnit.unit,⟨Cube.identity ⟨1⟩⟩⟩) := by
+    ¬ (left.join right).Full (line.elementsMk (Opposite.op ⟨1⟩) ⟨PUnit.unit,⟨Cube.identity ⟨1⟩⟩⟩) := by
   change ¬ Face.Full (Face.join (Face.endpoint (Cube.identity ⟨1⟩) false)
     (Face.endpoint (Cube.identity ⟨1⟩) true))
   intro h
   exact Face.boundary_not_top ((Face.full_iff_top _).mp h)
 
-theorem zero_on_left : left.full
+theorem zero_on_left : left.Full
     (line.elementsMk (Opposite.op ⟨0⟩) ⟨PUnit.unit,⟨Cube.endpoint ⟨0⟩ false⟩⟩) :=
   (Cofibration.full_endpoint coordinate false _).mpr rfl
 
-theorem one_on_right : right.full
+theorem one_on_right : right.Full
     (line.elementsMk (Opposite.op ⟨0⟩) ⟨PUnit.unit,⟨Cube.endpoint ⟨0⟩ true⟩⟩) :=
   (Cofibration.full_endpoint coordinate true _).mpr rfl
 
@@ -40,7 +40,7 @@ theorem endpoints_compatible : leftSection.Compatible rightSection := by
 noncomputable def boundarySection : PartialSection (interval line) (left.join right) :=
   leftSection.glue rightSection endpoints_compatible
 
-theorem boundary_is_coordinate (x : line.Elements) (p : (left.join right).full x) :
+theorem boundary_is_coordinate (x : line.Elements) (p : (left.join right).Full x) :
     boundarySection.val x p = coordinate.val x := by
   rcases (Cofibration.full_join left right x).mp p with h | h
   · exact (glueValue_left leftSection rightSection x p h).trans

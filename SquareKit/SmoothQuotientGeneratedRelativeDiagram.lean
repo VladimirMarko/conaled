@@ -24,7 +24,7 @@ def familyRestriction (f : Y ⟶ X) :
 
 def relativeFamilyData (A : SplitSheaf.Ty X) :
     CechMatching.Comprehension.FamilyData (strictDiagram a hΓ A) where
-  localFamily := interpretedFamily a hΓ hB (SplitSheaf.Ext A)
+  localFamily := interpretedFamily a hΓ hB (SplitSheaf.extension A)
   doubleFamily := interpretedFamily a hΓ hB (SplitSheaf.Cech.double A)
   tripleFamily := interpretedFamily a hΓ hB (SplitSheaf.Cech.triple A)
   first := familyRestriction a hΓ hB (SplitSheaf.Cech.first A)

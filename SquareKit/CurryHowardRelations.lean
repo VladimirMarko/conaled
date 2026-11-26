@@ -5,12 +5,12 @@ import SquareKit.STLCRelations
 namespace SquareKit.CurryHoward
 open CategoricalCompiler
 
-abbrev Endo : Formula := .implies .atom .atom
+abbrev endomorphismFormula : Formula := .implies .atom .atom
 
-def twiceProof : Proof [] (.implies Endo Endo) :=
+def twiceProof : Proof [] (.implies endomorphismFormula endomorphismFormula) :=
   Proof.impliesIntro (Proof.impliesIntro
-    ((Proof.hyp (Γ := [.atom, Endo]) (a := Endo) (.there .here)).impliesElim
-      ((Proof.hyp (Γ := [.atom, Endo]) (a := Endo) (.there .here)).impliesElim (Proof.hyp (Γ := [.atom, Endo]) (a := .atom) .here))))
+    ((Proof.hyp (Γ := [.atom, endomorphismFormula]) (a := endomorphismFormula) (.there .here)).impliesElim
+      ((Proof.hyp (Γ := [.atom, endomorphismFormula]) (a := endomorphismFormula) (.there .here)).impliesElim (Proof.hyp (Γ := [.atom, endomorphismFormula]) (a := .atom) .here))))
 
 def twice (f : X → X) (x : X) : X := f (f x)
 

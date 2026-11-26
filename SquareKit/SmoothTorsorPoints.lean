@@ -26,7 +26,7 @@ namespace SquareKit.SmoothTorsorReconstruction
 open CategoryTheory Opposite ManifoldRealization SmoothManifoldAction SmoothOpenSite
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 def baseElement (b : B) : (object n B).obj.Elements :=
   (object n B).obj.elementsMk _ (pointEquiv.symm b)
@@ -53,7 +53,7 @@ instance : MulAction G (Total P) where
     rw [mul_smul]
 
 /-- The underlying total set is exactly the real sections of the sheaf total space. -/
-def totalPointEquiv : Total P ≃ realSections.obj (SplitSheaf.Ext P.family) :=
+def totalPointEquiv : Total P ≃ realSections.obj (SplitSheaf.extension P.family) :=
   (Equiv.mk (fun z => ⟨z.proj, z.snd⟩) (fun z => ⟨z.1,z.2⟩)
     (fun _ => rfl) (fun _ => rfl)).trans (Equiv.sigmaCongrLeft pointEquiv.symm)
 
@@ -86,7 +86,7 @@ namespace SquareKit.SmoothTorsorReconstruction
 open CategoryTheory Opposite ManifoldRealization SmoothManifoldAction SmoothOpenSite EuclideanOpen
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 abbrev sectionCharts := ChartFamily.TorsorAtlas.charts (ChartFamily.preferred (n := n) (M := B)) P
 abbrev sectionAtlas := ChartFamily.TorsorAtlas.atlas (ChartFamily.preferred (n := n) (M := B)) P
@@ -140,7 +140,7 @@ theorem sectionDifference_totalAct {Y : Sheaf SmoothOpenSite.topology Type} (f :
 
 theorem sectionDifference_point_action {Y : Sheaf SmoothOpenSite.topology Type}
     (f : Y ⟶ object n B) (s t : SplitSheaf.Tm (SheafTorsor.reindex P f).family)
-    (l r : Y ⟶ SplitSheaf.Ext P.family)
+    (l r : Y ⟶ SplitSheaf.extension P.family)
     (hl : SplitSheaf.pair P.family f s = l) (hr : SplitSheaf.pair P.family f t = r)
     (x : realSections.obj Y) (g : G)
     (hg : constantLabelRealEquiv G g =
@@ -153,7 +153,7 @@ theorem sectionDifference_point_action {Y : Sheaf SmoothOpenSite.topology Type}
   rw [hl, hr] at h
   exact h
 
-theorem pointLift_comp {U V : Domain} (f : U ⟶ V) (l : embedding.obj V ⟶ SplitSheaf.Ext P.family)
+theorem pointLift_comp {U V : Domain} (f : U ⟶ V) (l : embedding.obj V ⟶ SplitSheaf.extension P.family)
     (x : Points U) :
     (totalPointEquiv P).symm (realSections.map l (ordinaryPoint V ((show EuclideanOpen.Map U V from f) x))) =
       (totalPointEquiv P).symm (realSections.map (embedding.map f ≫ l) (ordinaryPoint U x)) :=
@@ -199,7 +199,7 @@ theorem pair_hom_ext {U : Domain} (b : embedding.obj U ⟶ object n B)
     (SmoothOrdinaryQuotient.homLabel_point U _ x)).trans
       (congrArg (totalPointEquiv P).symm (h x).symm)
 
-theorem total_hom_ext {U : Domain} (f g : embedding.obj U ⟶ SplitSheaf.Ext P.family)
+theorem total_hom_ext {U : Domain} (f g : embedding.obj U ⟶ SplitSheaf.extension P.family)
     (h : ∀ x : Points U, realSections.map f (ordinaryPoint U x) =
       realSections.map g (ordinaryPoint U x)) : f = g := by
   have hb : f ≫ SplitSheaf.p P.family = g ≫ SplitSheaf.p P.family :=
@@ -213,26 +213,26 @@ theorem total_hom_ext {U : Domain} (f g : embedding.obj U ⟶ SplitSheaf.Ext P.f
       SplitSheaf.pair P.family (f ≫ SplitSheaf.p P.family) t := by
     apply pair_hom_ext P _ s t
     intro x
-    exact (congrArg (fun k : embedding.obj U ⟶ SplitSheaf.Ext P.family => realSections.map k (ordinaryPoint U x)) hs).trans
-      ((h x).trans (congrArg (fun k : embedding.obj U ⟶ SplitSheaf.Ext P.family => realSections.map k (ordinaryPoint U x)) ht).symm)
+    exact (congrArg (fun k : embedding.obj U ⟶ SplitSheaf.extension P.family => realSections.map k (ordinaryPoint U x)) hs).trans
+      ((h x).trans (congrArg (fun k : embedding.obj U ⟶ SplitSheaf.extension P.family => realSections.map k (ordinaryPoint U x)) ht).symm)
   exact hs.symm.trans (he.trans ht)
-def totalShift (g : G) : SplitSheaf.Ext P.family ⟶ SplitSheaf.Ext P.family := ⟨{
+def totalShift (g : G) : SplitSheaf.extension P.family ⟶ SplitSheaf.extension P.family := ⟨{
   app U := ↾fun z => P.toAction.totalAct U ((constantLabel G).app U g) z
   naturality {U V} f := by
     apply ConcreteCategory.hom_ext
     intro z
     change P.toAction.totalAct V ((constantLabel G).app V g)
-      ((SplitSheaf.Ext P.family).obj.map f z) =
-      (SplitSheaf.Ext P.family).obj.map f (P.toAction.totalAct U ((constantLabel G).app U g) z)
+      ((SplitSheaf.extension P.family).obj.map f z) =
+      (SplitSheaf.extension P.family).obj.map f (P.toAction.totalAct U ((constantLabel G).app U g) z)
     rw [P.toAction.totalAct_natural]
     have h := NatTrans.naturality_apply (constantLabel G) f g
-    exact congrArg (fun a => P.toAction.totalAct V a ((SplitSheaf.Ext P.family).obj.map f z)) h }⟩
+    exact congrArg (fun a => P.toAction.totalAct V a ((SplitSheaf.extension P.family).obj.map f z)) h }⟩
 theorem totalShift_point (g : G) (z : Total P) :
     realSections.map (totalShift P g) (totalPointEquiv P z) = totalPointEquiv P (g • z) := rfl
 theorem totalShift_projection (g : G) :
     totalShift P g ≫ SplitSheaf.p P.family = SplitSheaf.p P.family := rfl
 theorem pointLift_shift_comp {U V : Domain} (f : U ⟶ V)
-    (l : embedding.obj V ⟶ SplitSheaf.Ext P.family) (g : G) (x : Points U) :
+    (l : embedding.obj V ⟶ SplitSheaf.extension P.family) (g : G) (x : Points U) :
     realSections.map (embedding.map f ≫ l ≫ totalShift P g) (ordinaryPoint U x) =
       totalPointEquiv P (g • (totalPointEquiv P).symm
         (realSections.map l (ordinaryPoint V ((show EuclideanOpen.Map U V from f) x)))) := by
@@ -246,11 +246,11 @@ namespace SquareKit.SmoothTorsorReconstruction
 open CategoryTheory ManifoldRealization SmoothOpenSite SmoothManifoldAction EuclideanOpen
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 theorem chart_lifts_compatible {M : Type} (A : Charts M)
-    (v : M → realSections.obj (SplitSheaf.Ext P.family))
-    (k : ∀ i, embedding.obj (A.domain i) ⟶ SplitSheaf.Ext P.family)
+    (v : M → realSections.obj (SplitSheaf.extension P.family))
+    (k : ∀ i, embedding.obj (A.domain i) ⟶ SplitSheaf.extension P.family)
     (h : ∀ i x, realSections.map (k i) (ordinaryPoint _ x) = v (A.coordinate i x)) :
     A.Compatible k := by
   intro r
@@ -266,7 +266,7 @@ namespace SquareKit.SmoothTorsorReconstruction
 open CategoryTheory ManifoldRealization SmoothOpenSite SmoothManifoldAction EuclideanOpen
 open scoped Manifold ContDiff
 variable {m : ℕ} {M : Type} [TopologicalSpace M]
-  [ChartedSpace (Space m) M] [IsManifold (Model m) ∞ M]
+  [ChartedSpace (Space m) M] [IsManifold (modelWithCorners m) ∞ M]
 theorem chart_recovery_point {F : Sheaf topology Type} (A : ChartFamily m M)
     (k : object m M ⟶ F) (v : M → realSections.obj F)
     (h : ∀ i (x : Points (A.charts.domain i)),
@@ -288,10 +288,10 @@ open scoped Manifold ContDiff
 variable {n m : ℕ} {G B M : Type} [Group G]
   [TopologicalSpace B] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space m) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model m) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners m) ∞ M]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 
-theorem manifold_total_hom_ext (f g : object m M ⟶ SplitSheaf.Ext P.family)
+theorem manifold_total_hom_ext (f g : object m M ⟶ SplitSheaf.extension P.family)
     (h : ∀ z : realSections.obj (object m M), realSections.map f z = realSections.map g z) :
     f = g := by
   apply (ChartFamily.preferred (n := m) (M := M)).charts.hom_ext
@@ -301,8 +301,8 @@ theorem manifold_total_hom_ext (f g : object m M ⟶ SplitSheaf.Ext P.family)
   exact h (realSections.map ((ChartFamily.preferred (n := m) (M := M)).charts.chart i)
     (ordinaryPoint _ x))
 
-theorem projection_eq_of_points (k : object m M ⟶ SplitSheaf.Ext P.family)
-    (q : M → B) (hq : ContMDiff (Model m) (Model n) ∞ q)
+theorem projection_eq_of_points (k : object m M ⟶ SplitSheaf.extension P.family)
+    (q : M → B) (hq : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ q)
     (hpoint : ∀ z : M,
       pointEquiv (realSections.map (k ≫ SplitSheaf.p P.family) (pointEquiv.symm z)) = q z) :
     k ≫ SplitSheaf.p P.family = ManifoldRealization.map q hq := by

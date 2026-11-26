@@ -18,7 +18,7 @@ def fullPoints (n : ℕ) : Points (full n) ≃ (Fin n → ℝ) where
   right_inv _ := rfl
 
 def fullHomEquiv (n : ℕ) (A : Code) : (code (full n) ⟶ A) ≃ (Fin n → Carrier A) :=
-  (pointEquiv (1 : Free n)).trans {
+  (pointEquiv (1 : freeAlgebra n)).trans {
     toFun := Subtype.val
     invFun x := ⟨x,by change IsUnit ((evaluate x).toAlgHom 1); rw [map_one]; exact isUnit_one⟩
     left_inv _ := rfl
@@ -54,7 +54,7 @@ def inclusion (U : Domain) : U ⟶ full U.dimension :=
    smooth i := (OpenFunctions.representative_iff _ (fun x => x i) (fun _ => rfl)).mpr
      (contDiff_apply ℝ (fun _ : Fin U.dimension => ℝ) i).contDiffOn}
 
-theorem inclusion_base (U : Domain) (a : Free U.dimension) :
+theorem inclusion_base (U : Domain) (a : freeAlgebra U.dimension) :
     Localization.pullback (inclusion U) (principalBase 1 a) = principalBase U.defining a := by
   apply (toOpen_bijective U.defining).injective
   apply OpenFunctions.ext

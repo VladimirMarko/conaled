@@ -13,11 +13,11 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {G : Sheaf J GrpCat.{max u v}} {X : Sheaf J (Type (max u v))}
 
 abbrev point (A : SplitSheaf.Ty X) (x : X.obj.Elements) (a : A.family.obj x) :=
-  (SplitSheaf.Ext A).obj.elementsMk x.obj ⟨x.val, a⟩
+  (SplitSheaf.extension A).obj.elementsMk x.obj ⟨x.val, a⟩
 
 /-- Cech transport between two lifts of the same base section. Naturality
 retains all restriction stages; the cocycle supplies the inverse. -/
-structure Datum (A : SplitSheaf.Ty X) (P : Torsor G (SplitSheaf.Ext A)) where
+structure Datum (A : SplitSheaf.Ty X) (P : Torsor G (SplitSheaf.extension A)) where
   transport (x : X.obj.Elements) (a b : A.family.obj x) :
     P.family.family.obj (point A x a) → P.family.family.obj (point A x b)
   identity (x : X.obj.Elements) (a : A.family.obj x) (p : P.family.family.obj (point A x a)) :
@@ -35,7 +35,7 @@ structure Datum (A : SplitSheaf.Ty X) (P : Torsor G (SplitSheaf.Ext A)) where
     transport x a b (P.act (point A x a) g p) =
       P.act (point A x b) g (transport x a b p)
 
-variable {A : SplitSheaf.Ty X} {P : Torsor G (SplitSheaf.Ext A)}
+variable {A : SplitSheaf.Ty X} {P : Torsor G (SplitSheaf.extension A)}
 
 /-- The underlying display datum forgets only the action compatibility law. -/
 def Datum.toDisplayDatum (d : Datum A P) : SplitSheafDescent.Datum A P.family where
@@ -241,7 +241,7 @@ def evaluationIso (d : Datum A P) :
   SplitSheafDescent.evaluationIso d.toDisplayDatum
 
 /-- The comparison preserves the full sheaf-of-groups action. -/
-theorem evaluation_equivariant (d : Datum A P) (x : (SplitSheaf.Ext A).obj.Elements)
+theorem evaluation_equivariant (d : Datum A P) (x : (SplitSheaf.extension A).obj.Elements)
     (g : G.obj.obj x.obj)
     (t : (SplitSheaf.tySub (family d) (SplitSheaf.p A)).family.obj x) :
     (evaluationIso d).hom.app x ((action d).reindex (SplitSheaf.p A) |>.act x g t) =
@@ -251,7 +251,7 @@ theorem evaluation_equivariant (d : Datum A P) (x : (SplitSheaf.Ext A).obj.Eleme
   erw [restrict_id, restrict_id, G.obj.map_id] at h
   exact h
 
-theorem reindex_principal (d : Datum A P) (x : (SplitSheaf.Ext A).obj.Elements)
+theorem reindex_principal (d : Datum A P) (x : (SplitSheaf.extension A).obj.Elements)
     (s t : ((action d).reindex (SplitSheaf.p A)).family.family.obj x) :
     ∃! g : G.obj.obj x.obj, ((action d).reindex (SplitSheaf.p A)).act x g s = t := by
   let e := evaluationEquiv d (X.obj.elementsMk x.obj x.val.1) x.val.2
@@ -272,9 +272,9 @@ theorem reindex_locallySurjective (d : Datum A P) :
     apply J.superset_covering _ h
     intro V k hk
     obtain ⟨⟨y, p⟩, hp⟩ := hk
-    change y = (SplitSheaf.Ext A).obj.map k.op x at hp
+    change y = (SplitSheaf.extension A).obj.map k.op x at hp
     subst y
-    let z := (SplitSheaf.Ext A).obj.elementsMk (op V) ((SplitSheaf.Ext A).obj.map k.op x)
+    let z := (SplitSheaf.extension A).obj.elementsMk (op V) ((SplitSheaf.extension A).obj.map k.op x)
     exact ⟨⟨z.val, (evaluationEquiv d (X.obj.elementsMk z.obj z.val.1) z.val.2).symm p⟩, rfl⟩
 
 /-- Every locally surjective cover makes the constructed action a torsor.
@@ -292,7 +292,7 @@ def comparison (d : Datum A P)
   iso := evaluationIso d
   equivariant := evaluation_equivariant d
 
-variable {Q : Torsor G (SplitSheaf.Ext A)}
+variable {Q : Torsor G (SplitSheaf.extension A)}
 
 /-- Morphisms of Cech data are all equivariant maps commuting with transport. -/
 structure Map (d : Datum A P) (e : Datum A Q) extends EquivariantMap P Q where
@@ -589,7 +589,7 @@ def Map.ident (d : Datum A P) : Map d d where
   equivariant _ _ _ := rfl
   transport _ _ _ _ := rfl
 
-def Map.comp {R : Torsor G (SplitSheaf.Ext A)}
+def Map.comp {R : Torsor G (SplitSheaf.extension A)}
     {d : Datum A P} {e : Datum A Q} {r : Datum A R}
     (h : Map d e) (k : Map e r) : Map d r where
   hom := h.hom ≫ k.hom
@@ -611,7 +611,7 @@ theorem Map.arrow_ident (d : Datum A P)
   apply SplitPresheaf.Tm.ext
   rfl
 
-theorem Map.arrow_comp {R : Torsor G (SplitSheaf.Ext A)}
+theorem Map.arrow_comp {R : Torsor G (SplitSheaf.extension A)}
     {d : Datum A P} {e : Datum A Q} {r : Datum A R}
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom]
     (h : Map d e) (k : Map e r) :

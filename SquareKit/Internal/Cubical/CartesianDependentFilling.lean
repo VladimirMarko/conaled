@@ -53,7 +53,7 @@ def PartialSection.sigmaSnd {Γ : Context.{u}} {A : Family Γ} {B : Family (tota
 
 theorem PartialSection.sigmaSnd_val {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     {φ : Subcontext Γ} (s : PartialSection (sigma A B) φ) (a : Term A)
-    (h : ∀ x p, a.val x = (s.val x p).1) (x : Γ.Elements) (p : φ.holds x) :
+    (h : ∀ x p, a.val x = (s.val x p).1) (x : Γ.Elements) (p : φ.Holds x) :
     HEq ((s.sigmaSnd a h).val x p) (s.val x p).2 := by
   dsimp only [PartialSection.sigmaSnd, PartialSection.ofRestricted]
   exact Term.sigmaSndOver_val (B := Cartesian.reindex B (liftSub A (restrictInclusion φ))) s.toRestricted (Term.reindex a (restrictInclusion φ)) _
@@ -197,20 +197,20 @@ def PartialSection.Compatible {Γ : Context.{u}} {A : Family Γ} {φ ψ : Subcon
   ∀ x p q, a.val x p = b.val x q
 
 noncomputable def glueValue {Γ : Context.{u}} {A : Family Γ} {φ ψ : Subcontext Γ}
-    (a : PartialSection A φ) (b : PartialSection A ψ) (x : Γ.Elements) (p : (φ.join ψ).holds x) : A.obj x := by
+    (a : PartialSection A φ) (b : PartialSection A ψ) (x : Γ.Elements) (p : (φ.join ψ).Holds x) : A.obj x := by
   classical
-  exact if h : φ.holds x then a.val x h else b.val x (p |>.resolve_left h)
+  exact if h : φ.Holds x then a.val x h else b.val x (p |>.resolve_left h)
 
 theorem glueValue_left {Γ : Context.{u}} {A : Family Γ} {φ ψ : Subcontext Γ}
     (a : PartialSection A φ) (b : PartialSection A ψ) (x : Γ.Elements)
-    (p : (φ.join ψ).holds x) (h : φ.holds x) : glueValue a b x p = a.val x h := by
+    (p : (φ.join ψ).Holds x) (h : φ.Holds x) : glueValue a b x p = a.val x h := by
   simp only [glueValue,dite_eq_left h]
 
 theorem glueValue_right {Γ : Context.{u}} {A : Family Γ} {φ ψ : Subcontext Γ}
     (a : PartialSection A φ) (b : PartialSection A ψ) (c : a.Compatible b) (x : Γ.Elements)
-    (p : (φ.join ψ).holds x) (h : ψ.holds x) : glueValue a b x p = b.val x h := by
+    (p : (φ.join ψ).Holds x) (h : ψ.Holds x) : glueValue a b x p = b.val x h := by
   classical
-  by_cases q : φ.holds x
+  by_cases q : φ.Holds x
   · exact (glueValue_left a b x p q).trans (c x q h)
   · simp only [glueValue,dite_eq_right q]
 
@@ -218,7 +218,7 @@ noncomputable def PartialSection.glue {Γ : Context.{u}} {A : Family Γ} {φ ψ 
     (a : PartialSection A φ) (b : PartialSection A ψ) (c : a.Compatible b) : PartialSection A (φ.join ψ) where
   val := glueValue a b
   natural {x y} f p := by
-    rcases (show φ.holds x ∨ ψ.holds x from p) with h | h
+    rcases (show φ.Holds x ∨ ψ.Holds x from p) with h | h
     · rw [glueValue_left a b x p h,glueValue_left a b y _ (φ.natural f h)]
       exact a.natural f h
     · rw [glueValue_right a b c x p h,glueValue_right a b c y _ (ψ.natural f h)]
@@ -283,7 +283,7 @@ def extend (F : Filling A) {φ : Subcontext Γ} (a : PartialSection A φ) : Term
     (c.extensionBox a)
 
 theorem extend_boundary (F : Filling A) (hF : F.Lawful)
-    {φ : Subcontext Γ} (a : PartialSection A φ) (x : Γ.Elements) (hx : φ.holds x) :
+    {φ : Subcontext Γ} (a : PartialSection A φ) (x : Γ.Elements) (hx : φ.Holds x) :
     (c.extend F a).val x = a.val x hx :=
   (Filling.comp_tube hF (projection (interval Γ)) φ (endpoint Γ false)
     (endpoint Γ true) (c.extensionBox a) x hx).trans

@@ -11,15 +11,15 @@ namespace SquareKit.SmoothTransverseStageCover
 open CategoryTheory Opposite SmoothAlgebra SmoothPresentationSite
 open SmoothAlgebra.Localization EuclideanOpen
 
-variable {n : ℕ} (A : Code) (u : Hom (Free n) (Carrier A))
+variable {n : ℕ} (A : Code) (u : Hom (freeAlgebra n) (Carrier A))
 
 /-- Evaluate a smooth operation after a real reduction of an arbitrary stage. -/
-theorem real_coordinate (h : Hom (Carrier A) ℝ) (q : Free n) :
+theorem real_coordinate (h : Hom (Carrier A) ℝ) (q : freeAlgebra n) :
     h (u q) = q.val (fun i => h (u (generator i))) := by
-  exact (congrArg (fun k : Hom (Free n) ℝ => k q) (evaluate_unique (h.comp u))).symm
+  exact (congrArg (fun k : Hom (freeAlgebra n) ℝ => k q) (evaluate_unique (h.comp u))).symm
 
 /-- Supports need cover only the locus known to contain the stage's real reductions. -/
-theorem covers_of_locus {I : Type} (S : Set (Fin n → ℝ)) (q : I → Free n)
+theorem covers_of_locus {I : Type} (S : Set (Fin n → ℝ)) (q : I → freeAlgebra n)
     (hu : ∀ h : Hom (Carrier A) ℝ, (fun i => h (u (generator i))) ∈ S)
     (hq : ∀ x ∈ S, ∃ i, (q i).val x ≠ 0) :
     OpenCover.Covers (fun i => u (q i)) := by
@@ -27,27 +27,27 @@ theorem covers_of_locus {I : Type} (S : Set (Fin n → ℝ)) (q : I → Free n)
   obtain ⟨i, hi⟩ := hq _ (hu h)
   exact ⟨i, by rwa [real_coordinate]⟩
 
-theorem locus_covering {I : Type} (S : Set (Fin n → ℝ)) (q : I → Free n)
+theorem locus_covering {I : Type} (S : Set (Fin n → ℝ)) (q : I → freeAlgebra n)
     (hu : ∀ h : Hom (Carrier A) ℝ, (fun i => h (u (generator i))) ∈ S)
     (hq : ∀ x ∈ S, ∃ i, (q i).val x ≠ 0) :
     principalSieve A (fun i => u (q i)) ∈ SmoothOpenSite.topology (op A) :=
   SmoothOpenSite.principal_covering A _ (covers_of_locus A u S q hu hq)
 
 /-- The full coordinate map factors into the principal support after localization. -/
-def localCoordinates (q : Free n) :
+def localCoordinates (q : freeAlgebra n) :
     Hom (Principal q) (Carrier (localization A (u q))) :=
   principalLift q ((localizationBase A (u q)).comp u)
     (PresentedLocalization.atBase_isUnit A.equations (u q))
 
-theorem localCoordinates_base (q : Free n) :
+theorem localCoordinates_base (q : freeAlgebra n) :
     (localCoordinates A u q).comp (principalBase q) =
       (localizationBase A (u q)).comp u :=
   lift_base _ _ (fun _ => PresentedLocalization.atBase_isUnit A.equations (u q))
 
-theorem localCoordinates_generator (q : Free n) (i : Fin n) :
+theorem localCoordinates_generator (q : freeAlgebra n) (i : Fin n) :
     localCoordinates A u q (principalBase q (generator i)) =
       smoothMap (localizationBase A (u q)) (u (generator i)) :=
-  congrArg (fun k : Hom (Free n) (Carrier (localization A (u q))) => k (generator i))
+  congrArg (fun k : Hom (freeAlgebra n) (Carrier (localization A (u q))) => k (generator i))
     (localCoordinates_base A u q)
 
 section Compatible
@@ -55,7 +55,7 @@ variable {U V W : Domain} (f : U ⟶ W) (g : V ⟶ W) (B : Code)
   (a : Hom (Principal U.defining) (Carrier B))
   (b : Hom (Principal V.defining) (Carrier B))
 
-def coordinatePair : Hom (Free (U.dimension + V.dimension)) (Carrier B) :=
+def coordinatePair : Hom (freeAlgebra (U.dimension + V.dimension)) (Carrier B) :=
   SmoothAlgebra.Coordinates.pair (a.comp (principalBase U.defining))
     (b.comp (principalBase V.defining))
 
@@ -82,7 +82,7 @@ theorem real_compatible
   simpa only [Hom.comp_assoc] using congrArg (Hom.comp h) hc
 
 /-- The family covers the equal-image locus, not necessarily the ambient product. -/
-theorem compatible_cover {I : Type} (q : I → Free (U.dimension + V.dimension))
+theorem compatible_cover {I : Type} (q : I → freeAlgebra (U.dimension + V.dimension))
     (hc : a.comp (Localization.pullback f) = b.comp (Localization.pullback g))
     (hq : ∀ x : Points U, ∀ y : Points V,
       (show Map U W from f) x = (show Map V W from g) y →
@@ -131,7 +131,7 @@ theorem realReduction_chart (i : A.Index) (V : Code)
 
 set_option backward.isDefEq.respectTransparency false in
 theorem realReduction_interpret (f : M → N)
-    (hf : ContMDiff (Model m) (Model n) ∞ f) (V : Code)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) (V : Code)
     (x : A.realization.obj.obj (op (op V))) (h : Hom (Carrier V) ℝ) :
     B.realReduction V ((A.interpret B f hf).hom.app (op (op V)) x) h =
       f (A.realReduction V x h) := by

@@ -9,15 +9,15 @@ universe u
 variable {A B C D A' B' C' D' : Type u}
 
 /-- Compose predicates through an existential middle value. -/
-def compRel (R : A → B → Prop) (S : B → C → Prop) : A → C → Prop :=
+def CompRel (R : A → B → Prop) (S : B → C → Prop) : A → C → Prop :=
   fun a c => ∃ b, R a b ∧ S b c
 
 abbrev existential (R : A → B → Prop) (S : B → C → Prop) : RelRep.{u} :=
-  ⟨A, C, compRel R S⟩
+  ⟨A, C, CompRel R S⟩
 
 /-- The ordinary associativity law is the interpreted internal proof. -/
 theorem compRel_assoc (R : A → B → Prop) (S : B → C → Prop) (T : C → D → Prop)
-    (a : A) (d : D) : compRel (compRel R S) T a d ↔ compRel R (compRel S T) a d :=
+    (a : A) (d : D) : CompRel (CompRel R S) T a d ↔ CompRel R (CompRel S T) a d :=
   SquareKit.Internal.Associativity.inSet R S T a d
 
 /-- Map the middle witness; agreement need only be pointwise. -/
@@ -54,7 +54,7 @@ theorem existential_reassociate
     (h : RelSquare ⟨C, D, T⟩ ⟨C', D', T'⟩)
     (fg : ∀ b, f.spec b = g.impl b) (gh : ∀ c, g.spec c = h.impl c) :
     transportRelations (existentialSquare (existentialSquare f g fg) h gh)
-      (compRel R (compRel S T)) (compRel R' (compRel S' T'))
+      (CompRel R (CompRel S T)) (CompRel R' (CompRel S' T'))
       (compRel_assoc R S T) (compRel_assoc R' S' T') =
       existentialSquare f (existentialSquare g h gh) fg :=
   RelSquare.ext (fun _ => rfl) (fun _ => rfl)

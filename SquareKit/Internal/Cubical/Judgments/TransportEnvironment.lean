@@ -14,7 +14,7 @@ abbrev transportEnvironment (Γ : Context.{u}) (B : Family (total (Presheaf.inte
 theorem transportEnvironment_valid (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ)))
     (F : Filling B) (φ : Cofibration Γ) (a : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false)))
     (hF : F.Lawful) (hc : RestrictedConstancy B φ) (i : Fin 4) :
-    (transpRule.premise i).eval algebra (transportEnvironment Γ B F φ a) := by
+    (transpRule.premise i).Eval algebra (transportEnvironment Γ B F φ a) := by
   let ρ := transportEnvironment Γ B F φ a
   have hI := intervalContext_eval (.var (0 : Fin 5)) ρ Γ rfl
   have hep := endpointSub_eval (.var (0 : Fin 5)) ρ Γ rfl false

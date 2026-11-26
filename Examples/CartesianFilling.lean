@@ -140,11 +140,11 @@ theorem frozenStart_permutation : loopPermutation frozenStart = swap01.trans swa
       (nativeInput_action swap12 (swap01 s)))
 
 @[irreducible] noncomputable def startAlignment : Term (homogeneousPath (loops (Fin 3)) frozenStart recomputedLoop) :=
-  samePermutation_path frozenStart recomputedLoop
+  samePermutationPath frozenStart recomputedLoop
     (frozenStart_permutation.trans recomputedLoop_permutation.symm)
 
 @[irreducible] noncomputable def finishAlignment : Term (homogeneousPath (loops (Fin 3)) frozenFinish recomputedLoop) :=
-  samePermutation_path frozenFinish recomputedLoop
+  samePermutationPath frozenFinish recomputedLoop
     ((loopPermutation_concat swap01 swap12).trans recomputedLoop_permutation.symm)
 
 @[irreducible] noncomputable def recomputedSquare : Term (homogeneousPath (loops (Fin 3)) frozenStart frozenFinish) :=

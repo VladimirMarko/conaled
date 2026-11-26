@@ -49,7 +49,7 @@ open CategoryTheory
 noncomputable def cutCoalgebra : Endofunctor.Coalgebra programLiftFunctor.{u} :=
   ⟨finalCuts, finalUnroll⟩
 
-noncomputable def cutCoalgebra_final : Limits.IsTerminal cutCoalgebra.{u} :=
+noncomputable def cutCoalgebraFinal : Limits.IsTerminal cutCoalgebra.{u} :=
   Limits.IsTerminal.ofUniqueHom
     (fun X => ⟨cutUnfold X.str, (cutUnfold_square X.str).symm⟩)
     (fun X h => Endofunctor.Coalgebra.Hom.ext (cutUnfold_unique X.str h.f h.h.symm))

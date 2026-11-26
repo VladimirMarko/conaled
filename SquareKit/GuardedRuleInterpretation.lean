@@ -83,7 +83,7 @@ theorem reduct_identity (M : Model T) : (identity T).reduct M = M := by
 /-- This satisfaction square is exact because the syntax and algebra agree. -/
 theorem satisfaction (F : RuleInterpretation T U) (M : Model U) {V : Type}
     (a : Atom S V) (ρ : V → M.Carrier) :
-    a.eval (F.reduct M).toAlgebra ρ ↔ a.eval M.toAlgebra ρ := Iff.rfl
+    a.Eval (F.reduct M).toAlgebra ρ ↔ a.Eval M.toAlgebra ρ := Iff.rfl
 
 /-- Reducing models along the composed route retains the exact algebra and
 its selected operation values, not merely existence of a satisfying model. -/

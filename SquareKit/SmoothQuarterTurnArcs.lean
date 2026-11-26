@@ -112,7 +112,7 @@ theorem diskLinear_coordinates (g : C4) (v : Fin 2 → ℝ) :
     Complex.mul_re, Complex.mul_im, sub_eq_add_neg]
   ring
 
-def coordinatePolynomial (g : C4) (i : Fin 2) : Free 2 :=
+def coordinatePolynomial (g : C4) (i : Fin 2) : freeAlgebra 2 :=
   coefficientAction g (fun j => generator j) i
 
 theorem diskMap_coordinate (g : C4) (i : Fin 2) :
@@ -131,7 +131,7 @@ theorem coordinatePolynomial_eval {B : Type} [CommRing B] [Algebra ℝ B] [Struc
     h (Localization.principalBase diskDomain.defining (coordinatePolynomial g i)) =
       coefficientAction g (fun j => h (Localization.principalBase diskDomain.defining (generator j))) i := by
   change (Hom.comp h (Localization.principalBase diskDomain.defining)) (coordinatePolynomial g i) = _
-  let k : Hom (Free 2) B := Hom.comp h (Localization.principalBase diskDomain.defining)
+  let k : Hom (freeAlgebra 2) B := Hom.comp h (Localization.principalBase diskDomain.defining)
   fin_cases i
   · change k (_ * _ + _ * _) = _
     rw [k.map_add, k.map_mul, k.map_mul, k.map_scalar, k.map_scalar]

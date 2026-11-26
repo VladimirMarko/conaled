@@ -121,18 +121,18 @@ universe u
 variable (V : SquareKit.Cubical.Cube ⥤ Type) (zero : ∀ I, V.obj I)
 
 /-- Every represented chart has small tuple fibers, without lifting its base. -/
-def fiber {I : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.obj I))
+def Fiber {I : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.obj I))
     (x : (Presheaf.representable.{u} I).Elements) : Type u :=
   (T.reindex (V.map x.val.down)).Tuple
 
 def presentationEquiv {I : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.obj I))
     (x : (Presheaf.representable.{u} I).Elements) :
-    fiber V T x ≃ (T.obj (zero I)).carrier :=
+    Fiber V T x ≃ (T.obj (zero I)).Carrier :=
   T.tupleGlobalEquiv (V.map x.val.down) (zero x.obj.unop) (zero I)
 
 def family {I : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.obj I)) :
     Presheaf.Family (Presheaf.representable.{u} I) :=
-  familyFromPresentation (fiber V T) (presentationEquiv V zero T)
+  familyFromPresentation (Fiber V T) (presentationEquiv V zero T)
 
 /-- Conjugation is exactly tuple restriction, not a different decoding action. -/
 theorem family_map_coordinate {I : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.obj I))
@@ -196,8 +196,8 @@ theorem family_reindex {I J : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.o
 
 def presentation {I : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.obj I)) :
     family V zero T ≅ Presheaf.constantFamily (Presheaf.representable.{u} I)
-      (T.obj (zero I)).carrier :=
-  familyPresentation (fiber V T) (presentationEquiv V zero T)
+      (T.obj (zero I)).Carrier :=
+  familyPresentation (Fiber V T) (presentationEquiv V zero T)
 
 def filling {I : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.obj I)) :
     Presheaf.Filling (family V zero T) := presentationFilling (presentation V zero T)
@@ -288,7 +288,7 @@ theorem realizedDecode_map_coordinate {x y : dmFiniteNerve.{u}.Elements}
     HEq (((Presheaf.SmallUniverse.decode realizeDM).map f a).val w)
       (a.val (dmVertices f.hom.unop w)) := by
   have hc := cast_heq
-    (congrArg (fun A : Presheaf.SmallFamilyCode.{u} y.obj.unop => Presheaf.codeFiber A)
+    (congrArg (fun A : Presheaf.SmallFamilyCode.{u} y.obj.unop => Presheaf.CodeFiber A)
       ((realizeDM.mapElements.map f).map_val))
     ((VertexChart.localFamily dmVertexFunctor (fun _ _ => false) x.val).family.map
       (Presheaf.representableGenericHom f.hom.unop) a)

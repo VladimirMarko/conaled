@@ -188,7 +188,7 @@ theorem indexed_member_semantics (n : Nat) (key : IndexedKey) :
 
 theorem indexed_overlap_semantics (n : Nat) (query : NKey) :
     Balanced.search indexedInterval (indexedPrefix n) query = true ↔
-      IntervalSet.hasOverlap (indexedInterval ''
+      IntervalSet.HasOverlap (indexedInterval ''
         ((IntervalTreeSearch.indexedWord.take n).foldl AbstractSet.meaningStep (fun _ => False))) query :=
   indexed_contract.search_execute (IntervalTreeSearch.indexedWord.take n) indexed_contract.empty_valid query
 
@@ -250,7 +250,7 @@ theorem malformed_boundary : ¬Balanced.Valid id malformed ∧
   decide
 
 theorem malformed_search_sound :
-    ∃ a ∈ setTree (Cached.erase malformed), IntervalKey.overlap a eightPoint :=
+    ∃ a ∈ setTree (Cached.erase malformed), IntervalKey.Overlap a eightPoint :=
   Balanced.search_sound id malformed_boundary.2.1
 
 def staleLeft : NTree := .node (rrA, (1, 100)) .nil .nil
@@ -265,7 +265,7 @@ theorem stale_cache_boundary : HeightBalance.BalancedD 1 (Cached.erase staleRota
     ¬IntervalTree.CacheValid id (Balanced.maximumTree staleRotated) := by decide
 
 theorem stale_false_negative : Balanced.search id staleRotated (point 3) = false ∧
-    ∃ a ∈ setTree (Cached.erase staleRotated), IntervalKey.overlap a (point 3) :=
+    ∃ a ∈ setTree (Cached.erase staleRotated), IntervalKey.Overlap a (point 3) :=
   ⟨rfl, rrC, by simp [staleRotated, leaf], by decide⟩
 
 theorem bottom_is_not_empty :
@@ -304,11 +304,11 @@ theorem weak_examples_not_full_valid :
 
 theorem weak_query_contracts (query : NKey) :
     (Balanced.search id wrongHeight query = true ↔
-      ∃ a ∈ setTree (Cached.erase wrongHeight), IntervalKey.overlap a query) ∧
+      ∃ a ∈ setTree (Cached.erase wrongHeight), IntervalKey.Overlap a query) ∧
     (Balanced.search id unbalanced query = true ↔
-      ∃ a ∈ setTree (Cached.erase unbalanced), IntervalKey.overlap a query) ∧
+      ∃ a ∈ setTree (Cached.erase unbalanced), IntervalKey.Overlap a query) ∧
     (Balanced.search id repeatedKey query = true ↔
-      ∃ a ∈ setTree (Cached.erase repeatedKey), IntervalKey.overlap a query) :=
+      ∃ a ∈ setTree (Cached.erase repeatedKey), IntervalKey.Overlap a query) :=
   ⟨Balanced.search_correct id weak_maximum_validity.1 weak_low_order.1 query,
     Balanced.search_correct id weak_maximum_validity.2.1 weak_low_order.2.1 query,
     Balanced.search_correct id weak_maximum_validity.2.2 weak_low_order.2.2 query⟩
@@ -330,7 +330,7 @@ theorem reverse_projection :
 
 theorem reverse_false_negative :
     Balanced.search IntervalTreeSearch.reversedInterval reverseProduct (point 0) = false ∧
-      IntervalSet.hasOverlap (IntervalTreeSearch.reversedInterval ''
+      IntervalSet.HasOverlap (IntervalTreeSearch.reversedInterval ''
         setTree (Cached.erase reverseProduct)) (point 0) := by
   constructor
   · rw [Balanced.search_eq, reverse_projection]
@@ -346,7 +346,7 @@ theorem underestimated_false_negative :
     LowOrdered underestimated ∧ HeightBalance.BalancedD 1 (Cached.erase underestimated) ∧
       ¬IntervalTree.CacheValid id (Balanced.maximumTree underestimated) ∧
       Balanced.search id underestimated (point 3) = false ∧
-      ∃ a ∈ setTree (Cached.erase underestimated), IntervalKey.overlap a (point 3) := by
+      ∃ a ∈ setTree (Cached.erase underestimated), IntervalKey.Overlap a (point 3) := by
   refine ⟨by decide, by decide, by decide, rfl, underestimatedKey, ?_, by decide⟩
   simp [underestimated]
 
@@ -389,7 +389,7 @@ theorem balanced_x_gap :
   intro h
   have hit := (Rectangle.hasIntersection_pair_iff _ _).mp
     ((RectangleSweep.balancedSweep_eq_true_iff_hasIntersection _).mp h)
-  exact (by unfold Rectangle.Overlap IntervalKey.overlap; decide :
+  exact (by unfold Rectangle.Overlap IntervalKey.Overlap; decide :
       ¬Rectangle.Overlap Examples.RectangleSweep.natSquare xGap)
     ((Rectangle.overlap_iff_intersects _ _).mpr hit)
 
@@ -399,7 +399,7 @@ theorem balanced_y_gap :
   intro h
   have hit := (Rectangle.hasIntersection_pair_iff _ _).mp
     ((RectangleSweep.balancedSweep_eq_true_iff_hasIntersection _).mp h)
-  exact (by unfold Rectangle.Overlap IntervalKey.overlap; decide :
+  exact (by unfold Rectangle.Overlap IntervalKey.Overlap; decide :
       ¬Rectangle.Overlap Examples.RectangleSweep.natSquare yGap)
     ((Rectangle.overlap_iff_intersects _ _).mpr hit)
 

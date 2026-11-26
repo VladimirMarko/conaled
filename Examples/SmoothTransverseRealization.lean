@@ -11,16 +11,16 @@ open CategoryTheory Opposite SquareKit SquareKit.SmoothAlgebra
 open SmoothPresentationSite SmoothGeometricKL
 
 /-- Pullback of functions along the nonlinear graph t ↦ (t,t²). -/
-def graph : Hom (Free 2) (Free 1) := evaluate ![generator 0, generator 0 * generator 0]
+def graph : Hom (freeAlgebra 2) (freeAlgebra 1) := evaluate ![generator 0, generator 0 * generator 0]
 
 /-- Pullback of functions along the regular equation y-x². -/
-def equation : Hom (Free 1) (Free 2) := evaluate ![generator 1 - generator 0 * generator 0]
+def equation : Hom (freeAlgebra 1) (freeAlgebra 2) := evaluate ![generator 1 - generator 0 * generator 0]
 
 variable {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
 
-theorem graph_universal (w : Hom (Free 2) B)
+theorem graph_universal (w : Hom (freeAlgebra 2) B)
     (hw : w (generator 1) = w (generator 0) * w (generator 0)) :
-    ∃! v : Hom (Free 1) B, v.comp graph = w := by
+    ∃! v : Hom (freeAlgebra 1) B, v.comp graph = w := by
   refine ⟨evaluate ![w (generator 0)], ?_, ?_⟩
   · apply hom_ext_generators
     intro i
@@ -31,14 +31,14 @@ theorem graph_universal (w : Hom (Free 2) B)
     apply hom_ext_generators
     intro i
     fin_cases i
-    have h := congrArg (fun k : Hom (Free 2) B => k (generator 0)) hv
+    have h := congrArg (fun k : Hom (freeAlgebra 2) B => k (generator 0)) hv
     simpa [graph, Hom.comp, Function.comp_apply, evaluate_generator] using h
 
 abbrev stage := SmoothCoordinatePullbacks.stage
 abbrev d : Carrier stage := SmoothCoordinatePullbacks.d
 
-def graphPoint : Hom (Free 2) (Carrier stage) := evaluate ![d, 0]
-def graphParameter : Hom (Free 1) (Carrier stage) := evaluate ![d]
+def graphPoint : Hom (freeAlgebra 2) (Carrier stage) := evaluate ![d, 0]
+def graphParameter : Hom (freeAlgebra 1) (Carrier stage) := evaluate ![d]
 
 theorem graphPoint_on_level : graphPoint.comp equation = evaluate (fun _ : Fin 1 => 0) := by
   apply hom_ext_generators
@@ -58,7 +58,7 @@ theorem graphParameter_recovers : graphParameter.comp graph = graphPoint := by
     simp [graphParameter, graphPoint, graph, Hom.comp, Function.comp_apply, evaluate_generator,
       Hom.map_mul, SmoothCoordinatePullbacks.d_square]
 
-theorem graphParameter_unique (v : Hom (Free 1) (Carrier stage))
+theorem graphParameter_unique (v : Hom (freeAlgebra 1) (Carrier stage))
     (hv : v.comp graph = graphPoint) : v = graphParameter := by
   have h := graph_universal graphPoint (by
     simp [graphPoint, evaluate_generator, SmoothCoordinatePullbacks.d_square])
@@ -128,7 +128,7 @@ theorem squareMap_not_transverse : ¬ TransverseAt (m := 1) (n := 0) (p := 1)
   simp only [tangentDifference, sub_apply, ContinuousLinearMap.comp_apply,
     mfderiv_const, zero_apply, ContinuousLinearEquiv.coe_coe,
     tangentTransport_apply] at hv
-  rw [show Model 1 = 𝓘(ℝ, Space 1) from rfl, mfderiv_eq_fderiv,
+  rw [show modelWithCorners 1 = 𝓘(ℝ, Space 1) from rfl, mfderiv_eq_fderiv,
     squareMap_derivative_zero.fderiv] at hv
   have h := congrFun hv 0
   simp only [ContinuousLinearMap.comp_apply, zero_apply, map_zero, sub_self] at h
@@ -146,11 +146,11 @@ theorem equation_real (x : Space 2) :
 /-- The nilpotent solution of x²=0 does not factor through its ordinary singleton
 zero locus. This is the obstruction excluded by transversality. -/
 theorem square_zero_no_point_factor :
-    ¬ ∃ v : Hom (Free 0) (Carrier stage),
-      v.comp (evaluate (fun _ : Fin 1 => (0 : Free 0))) = graphParameter := by
+    ¬ ∃ v : Hom (freeAlgebra 0) (Carrier stage),
+      v.comp (evaluate (fun _ : Fin 1 => (0 : freeAlgebra 0))) = graphParameter := by
   rintro ⟨v, hv⟩
-  have h := congrArg (fun k : Hom (Free 1) (Carrier stage) => k (generator 0)) hv
-  change v (evaluate (fun _ : Fin 1 => (0 : Free 0)) (generator 0)) =
+  have h := congrArg (fun k : Hom (freeAlgebra 1) (Carrier stage) => k (generator 0)) hv
+  change v (evaluate (fun _ : Fin 1 => (0 : freeAlgebra 0)) (generator 0)) =
     graphParameter (generator 0) at h
   rw [evaluate_generator] at h
   have hz : v 0 = 0 := v.toAlgHom.map_zero
@@ -161,7 +161,7 @@ open EuclideanOpen
 
 def toFull (n : ℕ) (x : Space n) : ordinaryOpen (full n) := ⟨x, one_ne_zero⟩
 
-theorem toFull_smooth (n : ℕ) : ContMDiff (Model n) (Model n) ∞ (toFull n) := by
+theorem toFull_smooth (n : ℕ) : ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ (toFull n) := by
   apply (ContMDiff.subtypeVal_comp_iff (ordinaryOpen (full n)) _).mp
   exact contMDiff_id
 
@@ -186,7 +186,7 @@ def fullSpaceIso (n : ℕ) : object n (Space n) ≅ SmoothOpenSite.scalarPower n
   fullSpacePrincipalIso n ≪≫ fullPowerIso n
 
 theorem fullSpacePrincipal_naturality {n m : ℕ} (f : Space n → Space m)
-    (hf : ContMDiff (Model n) (Model m) ∞ f) (g : full n ⟶ full m)
+    (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) (g : full n ⟶ full m)
     (h : ∀ x, ((show EuclideanOpen.Map _ _ from g) (toFull n x)).val = f x) :
     ManifoldRealization.map f hf ≫ (fullSpacePrincipalIso m).hom =
       (fullSpacePrincipalIso n).hom ≫ embedding.map g := by
@@ -204,9 +204,9 @@ theorem fullSpacePrincipal_naturality {n m : ℕ} (f : Space n → Space m)
   rw [Category.assoc, principalIso_naturality, Category.assoc]
 
 /-- A translated infinitesimal exhibits the nonconstant square coordinate. -/
-def shiftedGraphParameter : Hom (Free 1) (Carrier stage) := evaluate ![1+d]
+def shiftedGraphParameter : Hom (freeAlgebra 1) (Carrier stage) := evaluate ![1+d]
 
-def shiftedGraphPoint : Hom (Free 2) (Carrier stage) := evaluate ![1+d, 1+(d+d)]
+def shiftedGraphPoint : Hom (freeAlgebra 2) (Carrier stage) := evaluate ![1+d, 1+(d+d)]
 
 theorem shiftedGraph_recovers : shiftedGraphParameter.comp graph = shiftedGraphPoint := by
   apply hom_ext_generators
@@ -230,7 +230,7 @@ local instance parabolaCharted : ChartedSpace (Space 1) SmoothTransversePullback
   SquareKit.SmoothTransversePullback.chartedSpace SmoothTransversePullback.parabola_smooth
     contMDiff_const SmoothTransversePullback.parabola_transverse_all
 
-local instance parabolaManifold : IsManifold (Model 1) ∞ SmoothTransversePullback.ParabolaFiber :=
+local instance parabolaManifold : IsManifold (modelWithCorners 1) ∞ SmoothTransversePullback.ParabolaFiber :=
   SquareKit.SmoothTransversePullback.isManifold SmoothTransversePullback.parabola_smooth
     contMDiff_const SmoothTransversePullback.parabola_transverse_all
 
@@ -239,7 +239,7 @@ def firstCoordinate : Space 2 →L[ℝ] Space 1 :=
 
 def fiberCoordinate (q : SmoothTransversePullback.ParabolaFiber) : Space 1 := firstCoordinate q.val.1
 
-theorem fiberCoordinate_smooth : ContMDiff (Model 1) (Model 1) ∞ fiberCoordinate :=
+theorem fiberCoordinate_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ fiberCoordinate :=
   firstCoordinate.contDiff.contMDiff.comp
     (SquareKit.SmoothTransversePullback.smooth_fst SmoothTransversePullback.parabola_smooth
       contMDiff_const SmoothTransversePullback.parabola_transverse_all)
@@ -293,7 +293,7 @@ def squareOp : Operation 1 := substitute multiplication (fun _ : Fin 2 => projec
 def squareSheaf : SmoothOpenSite.scalarPower 1 ⟶ SmoothOpenSite.scalarPower 1 :=
   SmoothOpenSite.tuple (fun _ => SmoothOpenSite.operation squareOp)
 
-theorem squareMap_smooth : ContMDiff (Model 1) (Model 1) ∞ squareMap := by
+theorem squareMap_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ squareMap := by
   apply ContDiff.contMDiff
   unfold squareMap
   fun_prop
@@ -317,7 +317,7 @@ def secondCoordinate : Space 2 →L[ℝ] Space 1 :=
 
 def fiberSecond (q : SmoothTransversePullback.ParabolaFiber) : Space 1 := secondCoordinate q.val.1
 
-theorem fiberSecond_smooth : ContMDiff (Model 1) (Model 1) ∞ fiberSecond :=
+theorem fiberSecond_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ fiberSecond :=
   secondCoordinate.contDiff.contMDiff.comp
     (SquareKit.SmoothTransversePullback.smooth_fst SmoothTransversePullback.parabola_smooth
       contMDiff_const SmoothTransversePullback.parabola_transverse_all)
@@ -424,8 +424,8 @@ theorem empty_preserved : CategoryTheory.IsPullback
     (ManifoldRealization.map (n := 1) (m := 2) SmoothTransversePullback.emptyRight contMDiff_const) :=
   Realization.isPullback contMDiff_const contMDiff_const SmoothTransversePullback.empty_transverse_all
 
-abbrev parabolaPairs (V : Site) :=
-  Realization.stagePairs (m := 2) (n := 0) (p := 1) SmoothTransversePullback.parabola_smooth
+abbrev ParabolaPairs (V : Site) :=
+  Realization.StagePairs (m := 2) (n := 0) (p := 1) SmoothTransversePullback.parabola_smooth
     (g := fun _ : Space 0 => (0 : Space 1)) contMDiff_const V
 
 abbrev parabolaLift (V : Site) :=
@@ -433,7 +433,7 @@ abbrev parabolaLift (V : Site) :=
     SmoothTransversePullback.parabola_transverse_all V
 
 /-- The compatible target pair is specified by the actual ordinary projections. -/
-def nilpotentPair : parabolaPairs (op stage) :=
+def nilpotentPair : ParabolaPairs (op stage) :=
   ⟨((Realization.first SmoothTransversePullback.parabola_smooth contMDiff_const
       SmoothTransversePullback.parabola_transverse_all).hom.app (atStage stage) realizedNilpotent,
     (Realization.second SmoothTransversePullback.parabola_smooth contMDiff_const
@@ -452,7 +452,7 @@ theorem recovered_nilpotent_second :
 
 theorem recovered_nilpotent_restrict (r : stage ⟶ stage) :
     parabolaLift (op stage)
-      (Realization.stagePairs_restrict SmoothTransversePullback.parabola_smooth contMDiff_const r.op nilpotentPair) =
+      (Realization.stagePairsRestrict SmoothTransversePullback.parabola_smooth contMDiff_const r.op nilpotentPair) =
     (object 1 SmoothTransversePullback.ParabolaFiber).obj.map (stageMap r) realizedNilpotent := by
   have h := Realization.stageLift_restrict SmoothTransversePullback.parabola_smooth contMDiff_const
     SmoothTransversePullback.parabola_transverse_all r.op nilpotentPair
@@ -464,7 +464,7 @@ theorem recovered_nilpotent_restrict (r : stage ⟶ stage) :
 theorem recovered_nilpotent_composite :
     readParameter.hom.app (atStage stage)
       (parabolaLift (op stage)
-        (Realization.stagePairs_restrict SmoothTransversePullback.parabola_smooth contMDiff_const
+        (Realization.stagePairsRestrict SmoothTransversePullback.parabola_smooth contMDiff_const
           (SmoothCoordinatePullbacks.doubleInfinitesimal ≫ SmoothCoordinatePullbacks.kill).op
           nilpotentPair)) 0 = 1 := by
   rw [recovered_nilpotent_restrict, realizedNilpotent_composite]

@@ -14,7 +14,7 @@ The recommended ordinary class is every independently locally trivial smooth pri
 
 ## Ordinary input, independent of the sheaf comparison
 
-Fix `G B E : Type`, a finite group `G` with discrete topology, and a natural number `n`. Equip `B` and `E` with topologies, `ChartedSpace (Fin n → ℝ)`, and `IsManifold (ManifoldRealization.Model n) ∞`. Supply a smooth projection `p : E → B`, a left action `G` on `E`, smoothness of each map `e ↦ g • e`, and `p (g • e) = p e`.
+Fix `G B E : Type`, a finite group `G` with discrete topology, and a natural number `n`. Equip `B` and `E` with topologies, `ChartedSpace (Fin n → ℝ)`, and `IsManifold (ManifoldRealization.modelWithCorners n) ∞`. Supply a smooth projection `p : E → B`, a left action `G` on `E`, smoothness of each map `e ↦ g • e`, and `p (g • e) = p e`.
 
 For every `b : B`, require an ordinary open neighborhood `U` containing `b` and a diffeomorphism
 

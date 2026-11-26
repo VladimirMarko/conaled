@@ -30,7 +30,7 @@ def beta (n : Nat) : Equal (Ω := assumptions n)
 
 theorem inputs (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
     (p : Problem M.toStructuralModel) :
-    ∀ a ∈ assumptions p.length, a.eval (Contextual.algebra M) (problemEnvironment M.toStructuralModel p) := by
+    ∀ a ∈ assumptions p.length, a.Eval (Contextual.algebra M) (problemEnvironment M.toStructuralModel p) := by
   intro a ha
   rcases List.mem_ofFn.mp ha with ⟨i, rfl⟩
   rcases p with ⟨⟨⟨Γ, A, x⟩, n, T⟩, D, d⟩
@@ -57,7 +57,7 @@ theorem interpreted_beta (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
       (M.subTy p.motive (M.toStructuralModel.rootTail p.family p.term p.telescope)) p.branch := by
   have h := Contextual.interpret (beta p.length) M (problemEnvironment M.toStructuralModel p) (inputs M p)
   rcases p with ⟨⟨⟨Γ, A, x⟩, n, T⟩, D, d⟩
-  simpa [Atom.eval, Term.eval, Command.expression, command, Contextual.algebra,
+  simpa [Atom.Eval, Term.eval, Command.expression, command, Contextual.algebra,
     Contextual.operation, SquareKit.Internal.DependentJudgments.operation, problemEnvironment] using h
 
 end Examples.GuardedContextualJudgments

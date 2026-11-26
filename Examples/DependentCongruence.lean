@@ -12,8 +12,8 @@ set_option backward.defeqAttrib.useBackward true
 
 def assocReflexiveEquality (hΓ : CtxDeriv Γ γ) {x z w : BasePoint Γ γ}
     (q : Path x z) (r : Path z w) :=
-  (concat_congr_first hΓ (concat hΓ (Path.reflexivity hΓ x) q) q r
-    (concat_beta hΓ x z q)).trans (concat_beta hΓ x w (concat hΓ q r)).symm
+  (concatCongrFirst hΓ (concat hΓ (Path.reflexivity hΓ x) q) q r
+    (concatBeta hΓ x z q)).trans (concatBeta hΓ x w (concat hΓ q r)).symm
 
 def assocReflexive (hΓ : CtxDeriv Γ γ) {x z w : BasePoint Γ γ}
     (q : Path x z) (r : Path z w) :=

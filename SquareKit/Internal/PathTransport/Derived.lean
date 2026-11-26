@@ -83,7 +83,7 @@ def transport (hΓ : CtxDeriv Γ γ) {x y : BasePoint Γ γ}
   exact ⟨_, _, (t.rawType hraw).annotateType (transportMotive_at hΓ x y p)⟩
 
 /-- Judgmental computation is inherited from the generated contextual beta rule. -/
-def transport_beta (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) (b : FiberElement x) :
+def transportBeta (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) (b : FiberElement x) :
     TmEqDeriv Γ γ (.fiber x.raw) (fiberCode x.code)
       (transport hΓ (Path.reflexivity hΓ x) b).raw
       (transport hΓ (Path.reflexivity hΓ x) b).code b.raw b.code := by

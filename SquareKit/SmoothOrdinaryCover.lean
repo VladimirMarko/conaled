@@ -7,7 +7,7 @@ site's covering assertion uses Type indices. -/
 noncomputable section
 namespace SquareKit.EuclideanOpen
 open CategoryTheory Opposite SmoothAlgebra SmoothPresentationSite Localization
-variable (U : Domain) {ι : Type*} (g : ι → Free U.dimension)
+variable (U : Domain) {ι : Type*} (g : ι → freeAlgebra U.dimension)
 
 def Covers : Prop := ∀ x : Points U, ∃ i, (g i).val x.val ≠ 0
 
@@ -21,7 +21,7 @@ theorem covers_iff_union : Covers U g ↔
     obtain ⟨i,hi⟩ := h x.val x.property
     exact ⟨i,right_ne_zero_of_mul hi⟩
 
-theorem point_base (h : Hom (Principal U.defining) ℝ) (a : Free U.dimension) :
+theorem point_base (h : Hom (Principal U.defining) ℝ) (a : freeAlgebra U.dimension) :
     h (principalBase U.defining a) = a.val (realPoints U.defining h).val := by
   exact (congrArg (fun e : Hom (Principal U.defining) ℝ => e (principalBase U.defining a))
     ((realPoints U.defining).symm_apply_apply h)).symm.trans
@@ -40,7 +40,7 @@ theorem covers_iff_algebra : Covers U g ↔ OpenCover.Covers (fun i => element U
       ((realPoints U.defining).apply_symm_apply x)
     exact ⟨i,fun hz => hi (he.trans (he'.trans hz))⟩
 
-theorem empty_cover_iff (g : Fin 0 → Free U.dimension) : Covers U g ↔ IsEmpty (Points U) := by
+theorem empty_cover_iff (g : Fin 0 → freeAlgebra U.dimension) : Covers U g ↔ IsEmpty (Points U) := by
   constructor
   · intro h
     exact ⟨fun x => (h x).elim (fun i _ => Fin.elim0 i)⟩
@@ -62,7 +62,7 @@ theorem coverSieve_eq : coverSieve U g = principalSieve (code U) (fun i => eleme
     refine ⟨_,(fromSubdomain U (g i)).op,_,⟨i⟩,?_⟩
     exact congrArg Quiver.Hom.op (fromSubdomain_base U (g i))
 
-theorem covering {ι : Type} (g : ι → Free U.dimension) (hc : Covers U g) :
+theorem covering {ι : Type} (g : ι → freeAlgebra U.dimension) (hc : Covers U g) :
     coverSieve U g ∈ SmoothOpenSite.topology (toSite.obj U) := by
   rw [coverSieve_eq]
   exact SmoothOpenSite.principal_covering _ _ ((covers_iff_algebra U g).mp hc)

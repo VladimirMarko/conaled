@@ -25,7 +25,7 @@ theorem attempted_forgery : ¬ Accepted 7 (⟨some 7, some 7, 1, 0, false⟩ : S
 
 theorem collision_rejected : tryAccept 8 accepted = none := rfl
 
-theorem initial_script_runs : Events.interpret handler [.accept 7, .lease] empty leased :=
+theorem initial_script_runs : Events.Interpret Handler [.accept 7, .lease] empty leased :=
   ⟨accepted, rfl, leased, rfl, rfl⟩
 
 /-- Same independent contract as the direct relation, through interpreter lifting. -/
@@ -33,8 +33,8 @@ theorem initial_script_contract : Leased 7 leased :=
   event_contract 7 ready_empty initial_script_runs
 
 theorem lost_reply_run :
-    Events.interpret handler [.accept 7, .lease, .effect, .observation false] empty unknown := by
-  change Events.interpret handler
+    Events.Interpret Handler [.accept 7, .lease, .effect, .observation false] empty unknown := by
+  change Events.Interpret Handler
     ([.accept 7, .lease] ++ [.effect, .observation false]) empty unknown
   rw [Events.interpret_append]
   exact ⟨leased, initial_script_runs, execute leased, rfl, unknown, rfl, rfl⟩
@@ -42,8 +42,8 @@ theorem lost_reply_run :
 /-- Generic primitive simulation transfers this concrete history to the
 independent event contracts, including the retained unknown effect. -/
 theorem lost_reply_meaning :
-    Events.interpret meaning [.accept 7, .lease, .effect, .observation false] empty unknown := by
-  obtain ⟨t, ht, eq⟩ := Events.interpret_simulation handler meaning Eq
+    Events.Interpret Meaning [.accept 7, .lease, .effect, .observation false] empty unknown := by
+  obtain ⟨t, ht, eq⟩ := Events.interpret_simulation Handler Meaning Eq
     (fun e s t a h step => by subst a; exact ⟨t, handler_sound e s t step, rfl⟩)
     [.accept 7, .lease, .effect, .observation false] rfl lost_reply_run
   subst t
@@ -69,7 +69,7 @@ theorem delayed_old_attempt :
 /-- Negative design result: event syntax does not enforce authority ordering.
 The unrestricted handler can execute without a receipt, intent or lease. -/
 theorem script_is_not_authority :
-    Events.interpret handler [.effect] (empty : State Nat) (execute empty) ∧
+    Events.Interpret Handler [.effect] (empty : State Nat) (execute empty) ∧
     (execute (empty : State Nat)).intent = none ∧
     (execute (empty : State Nat)).attempts = 0 ∧
     (execute (empty : State Nat)).effects = 1 :=
@@ -83,16 +83,16 @@ inductive Event where
   | capture
   | compile
 
-def meaning {I : Type} (inputs : I) : Event → State I → State I → Prop
+def Meaning {I : Type} (inputs : I) : Event → State I → State I → Prop
   | .capture => Seal inputs
   | .compile => CompileCaptured
 
-def handler {I : Type} (inputs : I) : Event → State I → State I → Prop
+def Handler {I : Type} (inputs : I) : Event → State I → State I → Prop
   | .capture, s, t => t = ⟨s.live, inputs, none⟩
   | .compile, s, t => t = ⟨s.live, s.captured, some s.captured⟩
 
 theorem handler_sound {I : Type} (inputs : I) (e : Event) (s t : State I)
-    (h : handler inputs e s t) : meaning inputs e s t := by
+    (h : Handler inputs e s t) : Meaning inputs e s t := by
   cases e with
   | capture => subst t; exact ⟨rfl, rfl, rfl⟩
   | compile => subst t; exact ⟨rfl, rfl⟩
@@ -100,7 +100,7 @@ theorem handler_sound {I : Type} (inputs : I) (e : Event) (s t : State I)
 /-- A second domain consumes the same interpretation theorem and its existing
 independent compilation contract; no receipt/lease fields are imposed on it. -/
 theorem event_contract {I : Type} (inputs : I) :
-    Safe (fun _ => True) (Events.interpret (handler inputs) [.capture, .compile])
+    Safe (fun _ => True) (Events.Interpret (Handler inputs) [.capture, .compile])
       (fun t => t.compiled = some inputs) := by
   refine Events.interpret_safe (handler_sound inputs) ?_
   rintro s t _ ⟨a, sealed, b, compile, eq⟩

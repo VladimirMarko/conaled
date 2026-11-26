@@ -74,12 +74,12 @@ theorem varying_no_term : ¬ Nonempty (SplitSheaf.Tm varying) := by
   rintro ⟨t⟩
   exact (varying_empty false).false (t.val (D.obj.elementsMk (op X) false))
 
-theorem varying_reconstruction (M : Diamondᵒᵖ) (a : (SplitSheaf.Ext varying).obj.obj M) :
+theorem varying_reconstruction (M : Diamondᵒᵖ) (a : (SplitSheaf.extension varying).obj.obj M) :
     (SplitSheaf.displayIso SheafSlices.varyingDisplay).hom.hom.app M a = a.2.val := rfl
 
-theorem varying_reconstruction_wu (a : (SplitSheaf.Ext varying).obj.obj (op U)) :
+theorem varying_reconstruction_wu (a : (SplitSheaf.extension varying).obj.obj (op U)) :
     ((SplitSheaf.displayIso SheafSlices.varyingDisplay).hom.hom.app (op W)
-      ((SplitSheaf.Ext varying).obj.map (show W ⟶ U from Arrow.wu).op a)).1 = false := rfl
+      ((SplitSheaf.extension varying).obj.map (show W ⟶ U from Arrow.wu).op a)).1 = false := rfl
 
 /-- Local inhabitants survive, but the actual sheaf condition still forbids
 an incompatible family from supplying a section at X. -/

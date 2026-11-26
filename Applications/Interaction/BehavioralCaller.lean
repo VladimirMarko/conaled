@@ -44,24 +44,24 @@ def nativeOutputs (q : Schedule) : Set Output := {o | o = native q}
 def relayOutputs (q : Schedule) : Set Relay := {r | r = caller forwarding q}
 def wireOutputs (q : Schedule) : Set Wire := {w | w = network negate negate q}
 
-def firstComparison (o : Output) (r : Relay) : Prop := observeRelay r = o
-def secondComparison (r : Relay) (w : Wire) : Prop := hide w = r
+def FirstComparison (o : Output) (r : Relay) : Prop := observeRelay r = o
+def SecondComparison (r : Relay) (w : Wire) : Prop := hide w = r
 
-theorem first_correct (q : Schedule) : Refines firstComparison (nativeOutputs q) (relayOutputs q) := by
+theorem first_correct (q : Schedule) : Refines FirstComparison (nativeOutputs q) (relayOutputs q) := by
   rintro r rfl
   exact ⟨native q, rfl, forwarding_observation q⟩
 
-theorem second_correct (q : Schedule) : Refines secondComparison (relayOutputs q) (wireOutputs q) := by
+theorem second_correct (q : Schedule) : Refines SecondComparison (relayOutputs q) (wireOutputs q) := by
   rintro w rfl
   exact ⟨caller forwarding q, rfl, implementation_hides q⟩
 
 /-- Coverage composes through the very same relay value, at unchanged q. -/
 theorem vertical_coverage (q : Schedule) :
-    Refines (Relation.Comp firstComparison secondComparison) (nativeOutputs q) (wireOutputs q) :=
+    Refines (Relation.Comp FirstComparison SecondComparison) (nativeOutputs q) (wireOutputs q) :=
   (first_correct q).trans (second_correct q)
 
 /-- Coverage alone does not establish this observation equation. -/
-theorem vertical_observation (h : Relation.Comp firstComparison secondComparison o w) :
+theorem vertical_observation (h : Relation.Comp FirstComparison SecondComparison o w) :
     observeWire w = o := by
   obtain ⟨r, first, second⟩ := h
   change observeRelay (hide w) = o
@@ -105,7 +105,7 @@ theorem pasted_recovers (q : Schedule) : observeWire (network negate negate q) =
 behavior. No scheduler fairness or future response assumption is needed. -/
 theorem accepted_coverage (h : native q = some out) :
     ∃ r w, forwarding.Play r ∧ InteractionPlay negate negate w ∧
-      firstComparison (some out) r ∧ secondComparison r w ∧
+      FirstComparison (some out) r ∧ SecondComparison r w ∧
       observeWire w = some out := by
   refine ⟨caller forwarding q, network negate negate q,
     relay_legal _ (native_legal h), network_legal _ _ h, ?_, implementation_hides q, ?_⟩
@@ -128,7 +128,7 @@ theorem implementation_covers : CoversAccepted wireOutputs := by
 /-- Safety coverage in the implementation-to-specification direction alone
 admits an empty implementation. The separate coverage requirement rules it out. -/
 theorem empty_safe (q : Schedule) :
-    Refines (Relation.Comp firstComparison secondComparison) (nativeOutputs q) (∅ : Set Wire) := by
+    Refines (Relation.Comp FirstComparison SecondComparison) (nativeOutputs q) (∅ : Set Wire) := by
   intro w hw
   exact False.elim hw
 

@@ -6,7 +6,7 @@ itself need not extend smoothly to the ambient space. -/
 noncomputable section
 namespace SquareKit.EuclideanOpen
 open CategoryTheory SmoothAlgebra SmoothPresentationSite Localization PresentedLocalization
-variable {U V : Domain} (a : U ⟶ V) (p : Free U.dimension) (q : Free V.dimension)
+variable {U V : Domain} (a : U ⟶ V) (p : freeAlgebra U.dimension) (q : freeAlgebra V.dimension)
 
 /-- Actual localization base change exists for every ordinary map. -/
 def baseChangeMap : code (subdomain V q) ⟶ localization (code U) (Localization.pullback a (element V q)) :=

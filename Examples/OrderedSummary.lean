@@ -7,17 +7,17 @@ open Sequences.OrderedSummary
 def left : List (Nat × Bool) := [(3,true), (3,true)]
 def right : List (Nat × Bool) := [(5,false)]
 
-example : listValid diagnosticMeasure (appendCache List.append
+example : ListValid diagnosticMeasure (appendCache List.append
     (cache id diagnosticMeasure left) (cache id diagnosticMeasure right)) :=
   list_append _ (cache_valid _ _ _ trivial) (cache_valid _ _ _ trivial)
 
-example : dlistValid diagnosticMeasure (appendCache (· ++ ·)
+example : DlistValid diagnosticMeasure (appendCache (· ++ ·)
     (cache Batteries.DList.toList diagnosticMeasure (Batteries.DList.ofList left))
     (cache Batteries.DList.toList diagnosticMeasure (Batteries.DList.ofList right))) :=
   dlist_append _ (cache_valid _ _ _ trivial) (cache_valid _ _ _ trivial)
 
-example : listValid diagnosticMeasure ([], 1) := list_empty _
-example : dlistValid diagnosticMeasure (Batteries.DList.empty, 1) := dlist_empty _
+example : ListValid diagnosticMeasure ([], 1) := list_empty _
+example : DlistValid diagnosticMeasure (Batteries.DList.empty, 1) := dlist_empty _
 
 /-- The cache observer uses its relational square after actual append preservation. -/
 example : (summarySquare (fun (_ : List (Nat × Bool)) => True) id diagnosticMeasure).impl
@@ -43,7 +43,7 @@ example : summary diagnosticMeasure
 
 example : summary lengthMeasure [false,true,true] = Multiplicative.ofAdd 3 := summary_length _
 
-example : ¬ listValid diagnosticMeasure
+example : ¬ ListValid diagnosticMeasure
     ([(3,true)], (Multiplicative.ofAdd 1, FreeMonoid.ofList [false])) := by
   intro h
   have bad := h.2

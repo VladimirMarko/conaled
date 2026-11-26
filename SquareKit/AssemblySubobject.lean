@@ -10,7 +10,7 @@ namespace Realizability.Assembly
 /-- Restrict the carrier, retaining every original realizer. -/
 def restrict (A : Assembly.{u}) (P : A.Carrier → Prop) : Assembly.{u} where
   Carrier := {x : A.Carrier // P x}
-  realizes n x := A.realizes n x.val
+  Realizes n x := A.Realizes n x.val
   inhabited x := A.inhabited x.val
 
 def inclusion (A : Assembly.{u}) (P : A.Carrier → Prop) : Hom (restrict A P) A :=

@@ -16,7 +16,7 @@ structure Model (J : GrothendieckTopology C) where
   A : SplitSheaf.Ty B
   zero : ⊤_ (Sh.{u,v,w} J) ⟶ B
   neg : B ⟶ B
-  point : ⊤_ (Sh.{u,v,w} J) ⟶ SplitSheaf.Ext A
+  point : ⊤_ (Sh.{u,v,w} J) ⟶ SplitSheaf.extension A
   point_type : point ≫ SplitSheaf.p A = zero
 
 variable (M : Model.{u,v,w} J)
@@ -43,11 +43,11 @@ theorem eval_precomp {X Y : Sh.{u,v,w} J} {n} (ρ : Fin n → (X ⟶ M.B)) (σ :
 structure Env {n} (Γ : Ctx n) where
   carrier : Sh.{u,v,w} J
   base : Fin n → (carrier ⟶ M.B)
-  dep : DVar Γ → (carrier ⟶ SplitSheaf.Ext M.A)
+  dep : DVar Γ → (carrier ⟶ SplitSheaf.extension M.A)
   typed : ∀ v, dep v ≫ SplitSheaf.p M.A = evalBase M base v.type
 
 abbrev baseType := SplitSheaf.ofDisplay (terminal.from M.B)
-abbrev baseExtension (X : Sh.{u,v,w} J) := SplitSheaf.Ext (SplitSheaf.tySub (baseType M) (terminal.from X))
+abbrev baseExtension (X : Sh.{u,v,w} J) := SplitSheaf.extension (SplitSheaf.tySub (baseType M) (terminal.from X))
 abbrev baseProjection (X : Sh.{u,v,w} J) : (baseExtension M) X ⟶ X := SplitSheaf.p _
 def baseValue (X : Sh.{u,v,w} J) : (baseExtension M) X ⟶ M.B :=
   SplitSheaf.lift (baseType M) (terminal.from X) ≫ (SplitSheaf.displayIso (terminal.from M.B)).hom
@@ -95,7 +95,7 @@ def baseEnv {n} {Γ : Ctx n} (E : Env M Γ) : Env M (.base Γ) where
       exact eval_precomp M E.base ((baseProjection M) E.carrier) v.type
 
 def familyEnv {n} {Γ : Ctx n} (E : Env M Γ) (b : Base n) : Env M (.family Γ b) where
-  carrier := SplitSheaf.Ext (SplitSheaf.tySub M.A (evalBase M E.base b))
+  carrier := SplitSheaf.extension (SplitSheaf.tySub M.A (evalBase M E.base b))
   base i := SplitSheaf.p _ ≫ E.base i
   dep
     | .top => SplitSheaf.lift M.A (evalBase M E.base b)
@@ -112,7 +112,7 @@ def context : {n : Nat} → (Γ : Ctx n) → Env M Γ
   | _, .base Γ => baseEnv M (context Γ)
   | _, .family Γ b => familyEnv M (context Γ) b
 
-def evalDep {n} {Γ : Ctx n} (E : Env M Γ) : Dep Γ → (E.carrier ⟶ SplitSheaf.Ext M.A)
+def evalDep {n} {Γ : Ctx n} (E : Env M Γ) : Dep Γ → (E.carrier ⟶ SplitSheaf.extension M.A)
   | .var v => E.dep v
   | .point => terminal.from E.carrier ≫ M.point
 

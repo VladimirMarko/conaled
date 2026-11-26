@@ -15,7 +15,7 @@ variable (A : M.Family M.empty) (B : M.Family (M.extend M.empty A))
 def environment : Fin 2 → Value M.toStructuralModel :=
   ![.family M.empty A, .family (M.extend M.empty A) B]
 
-theorem inputs : ∀ j ∈ premises, j.eval (Contextual.algebra M) (environment M A B) := by
+theorem inputs : ∀ j ∈ premises, j.Eval (Contextual.algebra M) (environment M A B) := by
   intro j hj
   simp only [premises, List.mem_cons, List.not_mem_nil, or_false] at hj
   rcases hj with rfl | rfl

@@ -89,7 +89,7 @@ theorem no_closed_true : ¬ Nonempty (Tm Ctx.nil (.family (.neg .zero))) := by
   have hh := congrArg (fun f => f.hom.app (op X) x) h
   change ((SplitSheaf.p (SplitSheaf.ofDisplay falsePoint)).hom.app (op X)
     ((evalDep falseModel (context falseModel Ctx.nil) t.val).hom.app (op X) x)) = true at hh
-  have hf (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay falsePoint)).obj.obj (op X)) :
+  have hf (z : (SplitSheaf.extension (SplitSheaf.ofDisplay falsePoint)).obj.obj (op X)) :
       (SplitSheaf.p (SplitSheaf.ofDisplay falsePoint)).hom.app (op X) z = false := z.2.property.symm
   exact Bool.noConfusion ((hf _).symm.trans hh)
 

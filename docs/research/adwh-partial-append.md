@@ -120,7 +120,7 @@ describe the input producers. No transition count is assigned to the
 noncomputable semantic append operation.
 
 `first_append` consumes the public fold/append theorem with the continuous
-tail-ignoring step `fun a _ => p a`. Its new seed is `first p ys`. A retained nil
+tail-ignoring step `fun a _ => p a`. Its new seed is `First p ys`. A retained nil
 case followed by paused counting from 4 consequently returns `p 4` through that
 law. `counting_first` also shows directly that an infinite counting left input
 returns its own first label after any suffix is appended.

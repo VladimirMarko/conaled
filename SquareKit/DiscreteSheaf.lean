@@ -22,9 +22,9 @@ instance : inclusion (J := J) |>.Faithful := inferInstanceAs
 instance : inclusion (J := J) |>.Full := inferInstanceAs
   (yoneda ⋙ (CategoryTheory.Functor.whiskeringRight _ _ _).obj typeToCat).Full
 
-abbrev sections (F X : (Sheaf J (Type (max u v)))) := Discrete (X ⟶ F)
+abbrev Sections (F X : (Sheaf J (Type (max u v)))) := Discrete (X ⟶ F)
 
-def restriction (F : (Sheaf J (Type (max u v)))) {X Y : (Sheaf J (Type (max u v)))} (f : Y ⟶ X) : sections F X ⥤ sections F Y :=
+def restriction (F : (Sheaf J (Type (max u v)))) {X Y : (Sheaf J (Type (max u v)))} (f : Y ⟶ X) : Sections F X ⥤ Sections F Y :=
   Discrete.functor (fun m => Discrete.mk (f ≫ m))
 
 /-- The particular mapping object used here retains all sheaf parameters. -/
@@ -40,7 +40,7 @@ def mapping (A B : (Sheaf J (Type (max u v)))) : (Sheaf J (Type (max u v)))ᵒ�
 /-- Currying is the comparison of actual sheaf morphisms, not sectionwise
 functions on points. -/
 def mappingEquiv (A B X : (Sheaf J (Type (max u v)))) :
-    sections (exponential A B) X ≌ sections B (product A X) :=
+    Sections (exponential A B) X ≌ Sections B (product A X) :=
   Discrete.equivalence {
     toFun := uncurry
     invFun := curry
@@ -85,7 +85,7 @@ theorem mapping_evaluation (A B : (Sheaf J (Type (max u v)))) :
 
 /-- The discrete inclusion preserves the specified binary products, including
 both projections. -/
-def productEquiv (A B X : (Sheaf J (Type (max u v)))) : sections (product A B) X ≌ sections A X × sections B X :=
+def productEquiv (A B X : (Sheaf J (Type (max u v)))) : Sections (product A B) X ≌ Sections A X × Sections B X :=
   (Discrete.equivalence {
     toFun := fun f => (f ≫ fst A B, f ≫ snd A B)
     invFun := fun f => lift f.1 f.2

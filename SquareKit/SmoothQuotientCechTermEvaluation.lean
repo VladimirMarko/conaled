@@ -20,8 +20,8 @@ theorem termDiagram_asSubstitution :
     (termDiagram a hΓ hB hx A).comp (relativeToGenerated a hΓ hB A) =
       substitutionDiagram a (.ext hΓ hB) hΓ (Typed.SubDeriv.section hΓ hB hx) A := by
   apply CechMatching.StrictMap.ext
-  · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.Ext A))
-      (SmoothQuotientDeformations.family a (SplitSheaf.Ext A)) b ξ).symm
+  · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.extension A))
+      (SmoothQuotientDeformations.family a (SplitSheaf.extension A)) b ξ).symm
   · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.Cech.double A))
       (SmoothQuotientDeformations.family a (SplitSheaf.Cech.double A)) b ξ).symm
   · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.Cech.triple A))
@@ -57,7 +57,7 @@ theorem sectionTotalMatchingEvaluation :
 
 /-- Whole term comparison and exact endpoint recovery, packaged before
 specializing the dependent equality to concrete model expressions. -/
-def familyEvaluation_termComparison :=
+def familyEvaluationTermComparison :=
   CechMatching.Comprehension.termEvaluationComparison
     (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
     (b (model a A)) (totalMatchingEvaluation a A hΓ hB) (matchingEvaluation a A hΓ)

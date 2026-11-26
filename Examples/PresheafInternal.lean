@@ -27,26 +27,26 @@ instance : SmallCategory Stage where
   comp_id := by intros; cases ‹Step _ _› <;> rfl
   assoc := by intros a b c d f g h; cases f <;> cases g <;> cases h <;> rfl
 
-abbrev sections : Stage → Type
+abbrev Sections : Stage → Type
   | .coarse => Nat
   | .fine => Nat × Nat
 
-def restrictStep : Step a b → sections b → sections a
+def restrictStep : Step a b → Sections b → Sections a
   | .ident _, x => x
   | .refine, x => x.1
 
 abbrev data : Stageᵒᵖ ⥤ Type where
-  obj j := sections j.unop
+  obj j := Sections j.unop
   map f := ↾restrictStep f.unop
   map_id _ := rfl
   map_comp f g := by
     apply ConcreteCategory.hom_ext
     intro x
-    exact (show ∀ {a b c} (f : Step a b) (g : Step b c) (x : sections c),
+    exact (show ∀ {a b c} (f : Step a b) (g : Step b c) (x : Sections c),
       restrictStep (f.comp g) x = restrictStep f (restrictStep g x) from
       by intros a b c f g x; cases f <;> cases g <;> rfl) g.unop f.unop x
 
-def actSection (h : Nat → Nat) : (i : Stage) → sections i → sections i
+def actSection (h : Nat → Nat) : (i : Stage) → Sections i → Sections i
   | .coarse, x => h x
   | .fine, x => (h x.1, h x.2)
 
@@ -55,7 +55,7 @@ def act (h : Nat → Nat) : data ⟶ data where
   naturality j k f := by
     apply ConcreteCategory.hom_ext
     intro x
-    exact (show ∀ {a b} (f : Step a b) (x : sections b),
+    exact (show ∀ {a b} (f : Step a b) (x : Sections b),
       actSection h a (restrictStep f x) = restrictStep f (actSection h b x) from
       by intros a b f x; cases f <;> rfl) f.unop x
 
@@ -113,7 +113,7 @@ def secondSquare : NaturalSquare double double where
 example := vertical_evaluation firstSquare secondSquare (fun _ _ => rfl) (op .fine)
 example := vertical_evaluation firstSquare secondSquare (fun _ _ => rfl) (op .coarse)
 
-def visibleSection : (i : Stage) → sections i → Nat
+def visibleSection : (i : Stage) → Sections i → Nat
   | .coarse, x => x
   | .fine, x => x.1
 
@@ -123,7 +123,7 @@ def visibleOrder : Subfunctor (Presheaf.product data data) where
   obj j xy := visible j xy.1 ≤ visible j xy.2
   map f := by
     intro xy h
-    have stable : ∀ {a b} (f : Step a b) (x : sections b),
+    have stable : ∀ {a b} (f : Step a b) (x : Sections b),
         visibleSection a (restrictStep f x) = visibleSection b x := by
       intros a b f x; cases f <;> rfl
     change visibleSection _ (restrictStep f.unop xy.1) ≤

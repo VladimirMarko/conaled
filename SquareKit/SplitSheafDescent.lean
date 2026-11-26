@@ -15,11 +15,11 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {X : Sheaf J (Type (max u v))}
 
 abbrev point (A : SplitSheaf.Ty X) (x : X.obj.Elements) (a : A.family.obj x) :=
-  (SplitSheaf.Ext A).obj.elementsMk x.obj ⟨x.val, a⟩
+  (SplitSheaf.extension A).obj.elementsMk x.obj ⟨x.val, a⟩
 
 /-- Cech transport between two lifts of the same base section. Naturality
 retains all restriction stages; the cocycle supplies the inverse. -/
-structure Datum (A : SplitSheaf.Ty X) (P : SplitSheaf.Ty (SplitSheaf.Ext A)) where
+structure Datum (A : SplitSheaf.Ty X) (P : SplitSheaf.Ty (SplitSheaf.extension A)) where
   transport (x : X.obj.Elements) (a b : A.family.obj x) :
     P.family.obj (point A x a) → P.family.obj (point A x b)
   identity (x : X.obj.Elements) (a : A.family.obj x) (p : P.family.obj (point A x a)) :
@@ -33,7 +33,7 @@ structure Datum (A : SplitSheaf.Ty X) (P : SplitSheaf.Ty (SplitSheaf.Ext A)) whe
       transport y (A.family.map f a) (A.family.map f b)
         (P.family.map (pairArrow A.family f a) p)
 
-variable {A : SplitSheaf.Ty X} {P : SplitSheaf.Ty (SplitSheaf.Ext A)}
+variable {A : SplitSheaf.Ty X} {P : SplitSheaf.Ty (SplitSheaf.extension A)}
 
 /-- The cocycle, rather than an input inverse, makes transport an equivalence. -/
 def Datum.transportEquiv (d : Datum A P) (x : X.obj.Elements) (a b : A.family.obj x) :
@@ -79,7 +79,7 @@ theorem fiber_ext (B : SplitSheaf.Ty X) (x : X.obj.Elements)
     (h : ∀ (V : C) (k : V ⟶ x.obj.unop), R k →
       B.family.map (along X.obj k.op x.val) p =
         B.family.map (along X.obj k.op x.val) q) : p = q := by
-  have he : (⟨x.val, p⟩ : (SplitSheaf.Ext B).obj.obj x.obj) = ⟨x.val, q⟩ := by
+  have he : (⟨x.val, p⟩ : (SplitSheaf.extension B).obj.obj x.obj) = ⟨x.val, q⟩ := by
     apply (((isSheaf_iff_isSheaf_of_type _ _).1 B.isSheaf) R hR).isSeparatedFor.ext
     intro V k hk
     exact congrArg (fun p => Sigma.mk _ p) (h V k hk)
@@ -100,7 +100,7 @@ theorem compatible_isSheaf (d : Datum A P) :
   obtain ⟨z, hz, hk⟩ := hk
   subst z
   let l : y ⟶ X.obj.elementsMk (op V) (X.obj.map k.op y.val) := along X.obj k.op y.val
-  have he : along (SplitSheaf.Ext A).obj k.op (point A y b).val =
+  have he : along (SplitSheaf.extension A).obj k.op (point A y b).val =
       pairArrow A.family l b := by
     apply Functor.Elements.hom_ext
     rfl
@@ -300,7 +300,7 @@ def evaluationIso (d : Datum A P) :
       exact (evaluate_natural A.family P.family (along X.obj k xb) t.val a).symm)
 
 
-variable {Q : SplitSheaf.Ty (SplitSheaf.Ext A)}
+variable {Q : SplitSheaf.Ty (SplitSheaf.extension A)}
 
 /-- Morphisms of Cech data are all natural maps commuting with transport. -/
 structure Map (d : Datum A P) (e : Datum A Q) where

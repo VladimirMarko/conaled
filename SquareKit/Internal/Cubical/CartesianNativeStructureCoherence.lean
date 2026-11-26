@@ -362,7 +362,7 @@ noncomputable def reverseTransportComparison {a b : Γ ⟶ smallFamilyCodes.{u}}
   have ht : SmallUniverse.CodeTransportSquare.top S =
       SmallUniverse.codeOfPath (homogeneousRefl (SmallUniverse.term b)) :=
     congrArg SmallUniverse.code (NativeSquare.fill_source F hF true l (pathApp p) l rfl (pathApp_one p).symm)
-  let H := SmallUniverse.CodeTransportSquare.comparison_paths S r p
+  let H := SmallUniverse.CodeTransportSquare.comparisonPaths S r p
     (homogeneousRefl (SmallUniverse.term b)) hb hl hr ht x
   let G := NativeDecode.filling b
   let hG := NativeDecode.filling_lawful b
@@ -636,7 +636,7 @@ theorem carrier_reindex
   rfl
 /-- The selected complete witness is substituted, and the selected whole path
 commutes with substitution up to a native two-path. -/
-noncomputable def path_reindex (e : Equivalence s t)
+noncomputable def pathReindex (e : Equivalence s t)
     (sB : Term (HomotopyLevels.isSet (liftedDecode b))) (σ : Δ ⟶ Γ) :
     Term (homogeneousPath
       (homogeneousPath (objects description Δ)
@@ -654,7 +654,7 @@ noncomputable def path_reindex (e : Equivalence s t)
     (Term.convert (congrArg (homogeneousPath _ (Term.map P (path (e.reindex σ)))) h)
       (homogeneousRefl (Term.map P (path (e.reindex σ)))))
 
-noncomputable def path_reindexWith (e : Equivalence s t)
+noncomputable def pathReindexWith (e : Equivalence s t)
     (sB : Term (HomotopyLevels.isSet (liftedDecode b))) (σ : Δ ⟶ Γ)
     (d : Equivalence (s.reindex σ) (t.reindex σ))
     (h : (⟨d.map, d.witness⟩ : Σ f : liftedDecode (σ ≫ a) ⟶ liftedDecode (σ ≫ b), HomotopyEquivalence f) =
@@ -680,7 +680,7 @@ noncomputable def path_reindexWith (e : Equivalence s t)
 
 /-- Fresh composition after substitution agrees with substituting the original
 whole selected path; the complete supplied composite witness is reindexed. -/
-noncomputable def composition_reindex {c : Γ ⟶ smallFamilyCodes.{u}}
+noncomputable def compositionReindex {c : Γ ⟶ smallFamilyCodes.{u}}
     {v : PointedEndomorphism (liftedDecode c)}
     (e : Equivalence s t) (d : Equivalence t v)
     (w : HomotopyEquivalence (e.map ≫ d.map))
@@ -689,21 +689,21 @@ noncomputable def composition_reindex {c : Γ ⟶ smallFamilyCodes.{u}}
     (FC : Filling (liftedDecode c)) (hFC : FC.Lawful)
     (GA : Filling (liftedDecode (σ ≫ a))) (hGA : GA.Lawful)
     (GC : Filling (liftedDecode (σ ≫ c))) (hGC : GC.Lawful) :=
-  path_reindexWith (a := a) (b := c) (s := s) (t := v)
+  pathReindexWith (a := a) (b := c) (s := s) (t := v)
     (e.compWith d w FA hFA
       FC hFC) sC σ
     ((e.reindex σ).compWith (d.reindex σ) (w.reindex σ)
       GA hGA
       GC hGC) rfl
 
-noncomputable def inversion_reindex (e : Equivalence s t)
+noncomputable def inversionReindex (e : Equivalence s t)
     (w : HomotopyEquivalence e.witness.selectedInverse)
     (sA : Term (HomotopyLevels.isSet (liftedDecode a))) (σ : Δ ⟶ Γ)
     (FA : Filling (liftedDecode a)) (hFA : FA.Lawful)
     (FB : Filling (liftedDecode b)) (hFB : FB.Lawful)
     (GA : Filling (liftedDecode (σ ≫ a))) (hGA : GA.Lawful)
     (GB : Filling (liftedDecode (σ ≫ b))) (hGB : GB.Lawful) :=
-  path_reindexWith (a := b) (b := a) (s := t) (t := s)
+  pathReindexWith (a := b) (b := a) (s := t) (t := s)
     (e.inverseWith w FA hFA
       FB hFB) sA σ
     ((e.reindex σ).inverseWith (w.reindex σ)

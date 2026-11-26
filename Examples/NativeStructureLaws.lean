@@ -171,7 +171,7 @@ noncomputable def pointedModelPath (a : Γ ⟶ smallFamilyCodes.{0})
     (pointedRawPath a x y p)
 
 /-- Forgetting the reconstructed law recovers the whole raw structure path. -/
-noncomputable def pointedModelPath_projection (a : Γ ⟶ smallFamilyCodes.{0})
+noncomputable def pointedModelPathProjection (a : Γ ⟶ smallFamilyCodes.{0})
     (sA : Term (HomotopyLevels.isSet (SmallUniverse.liftedDecode a)))
     (x y : Term (SmallUniverse.liftedDecode a))
     (p : Term (homogeneousPath (SmallUniverse.liftedDecode a) x y)) :
@@ -181,11 +181,11 @@ noncomputable def pointedModelPath_projection (a : Γ ⟶ smallFamilyCodes.{0})
         (genericPointedModel a sA x) (genericPointedModel a sA y))
         (pointedModelPath a sA x y p))
       (pointedRawPath a x y p)) :=
-  StructuredIdentity.UaComparison.modelPathInverse_projection fixedPointSpecification
+  StructuredIdentity.UaComparison.modelPathInverseProjection fixedPointSpecification
     (genericPointedModel a sA x) (genericPointedModel a sA y) (pointedRawPath a x y p)
 
 /-- The final model SIP recovers this law-bearing path through independent preservation. -/
-noncomputable def pointedModelPath_roundtrip (a : Γ ⟶ smallFamilyCodes.{0})
+noncomputable def pointedModelPathRoundtrip (a : Γ ⟶ smallFamilyCodes.{0})
     (sA : Term (HomotopyLevels.isSet (SmallUniverse.liftedDecode a)))
     (x y : Term (SmallUniverse.liftedDecode a))
     (p : Term (homogeneousPath (SmallUniverse.liftedDecode a) x y)) :
@@ -309,7 +309,7 @@ noncomputable def pointedModelPath (a : Γ ⟶ smallFamilyCodes.{0})
     (pointedRawPath a x y p)
 
 /-- Forgetting the reconstructed law recovers the whole raw structure path. -/
-noncomputable def pointedModelPath_projection (a : Γ ⟶ smallFamilyCodes.{0})
+noncomputable def pointedModelPathProjection (a : Γ ⟶ smallFamilyCodes.{0})
     (sA : Term (HomotopyLevels.isSet (SmallUniverse.liftedDecode a)))
     (x y : Term (SmallUniverse.liftedDecode a))
     (p : Term (homogeneousPath (SmallUniverse.liftedDecode a) x y)) :
@@ -319,11 +319,11 @@ noncomputable def pointedModelPath_projection (a : Γ ⟶ smallFamilyCodes.{0})
         (genericPointedModel a sA x) (genericPointedModel a sA y))
         (pointedModelPath a sA x y p))
       (pointedRawPath a x y p)) :=
-  StructuredIdentity.UaComparison.modelPathInverse_projection fixedPointSpecification
+  StructuredIdentity.UaComparison.modelPathInverseProjection fixedPointSpecification
     (genericPointedModel a sA x) (genericPointedModel a sA y) (pointedRawPath a x y p)
 
 /-- The final model SIP recovers this law-bearing path through independent preservation. -/
-noncomputable def pointedModelPath_roundtrip (a : Γ ⟶ smallFamilyCodes.{0})
+noncomputable def pointedModelPathRoundtrip (a : Γ ⟶ smallFamilyCodes.{0})
     (sA : Term (HomotopyLevels.isSet (SmallUniverse.liftedDecode a)))
     (x y : Term (SmallUniverse.liftedDecode a))
     (p : Term (homogeneousPath (SmallUniverse.liftedDecode a) x y)) :

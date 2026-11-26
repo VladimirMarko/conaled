@@ -20,22 +20,22 @@ abbrev table : Label → LabelledRule Atom
   | bprime => ⟨[p, r], by decide, q⟩
   | e => ⟨[p], by simp, r⟩
 
-def L1 : Finset Label := {a, b}
-def L2 : Finset Label := {a, b, c}
-def L3 : Finset Label := {a, b, c, d}
-def Lminus : Finset Label := {a, bprime}
-def Lrepair : Finset Label := {a, bprime, e}
+def initialLabels : Finset Label := {a, b}
+def extendedLabels : Finset Label := {a, b, c}
+def shortcutLabels : Finset Label := {a, b, c, d}
+def replacedLabels : Finset Label := {a, bprime}
+def repairedLabels : Finset Label := {a, bprime, e}
 
-theorem inclusion12 : L1 ⊆ L2 := by decide
-theorem inclusion23 : L2 ⊆ L3 := by decide
+theorem inclusion12 : initialLabels ⊆ extendedLabels := by decide
+theorem inclusion23 : extendedLabels ⊆ shortcutLabels := by decide
 
-theorem L1_erasure : base table L1 = B1 := by decide
-theorem L2_erasure : base table L2 = B2 := by decide
+theorem initialLabels_erasure : base table initialLabels = factBase := by decide
+theorem extendedLabels_erasure : base table extendedLabels = chainBase := by decide
 
-def tp : Tree table L1 p := .rule (R := rules table L1) ⟨a, by decide⟩ (fun i => Fin.elim0 i)
-def tq : Tree table L1 q := .rule (R := rules table L1) ⟨b, by decide⟩ (Fin.cases tp (fun i => Fin.elim0 i))
-def tr : Tree table L2 r := .rule (R := rules table L2) ⟨c, by decide⟩ (Fin.cases (map inclusion12 tq) (fun i => Fin.elim0 i))
-def shortQ : Tree table L3 q := .rule (R := rules table L3) ⟨d, by decide⟩ (fun i => Fin.elim0 i)
+def tp : Tree table initialLabels p := .rule (R := rules table initialLabels) ⟨a, by decide⟩ (fun i => Fin.elim0 i)
+def tq : Tree table initialLabels q := .rule (R := rules table initialLabels) ⟨b, by decide⟩ (Fin.cases tp (fun i => Fin.elim0 i))
+def tr : Tree table extendedLabels r := .rule (R := rules table extendedLabels) ⟨c, by decide⟩ (Fin.cases (map inclusion12 tq) (fun i => Fin.elim0 i))
+def shortQ : Tree table shortcutLabels q := .rule (R := rules table shortcutLabels) ⟨d, by decide⟩ (fun i => Fin.elim0 i)
 
 theorem tq_trace : trace tq = [a, b] := rfl
 theorem tr_trace : trace tr = [a, b, c] := rfl
@@ -51,12 +51,12 @@ theorem short_minimum : Shortest shortQ := by
 
 /-- Before the shortcut is added, every q tree must end in the unary b rule. -/
 theorem old_minimum : Shortest (map inclusion12 tq) := by
-  have lower {x : Atom} (s : Tree table L2 x) (hx : x = q) : 2 ≤ size s := by
+  have lower {x : Atom} (s : Tree table extendedLabels x) (hx : x = q) : 2 ≤ size s := by
     cases s with
     | hyp h => exact nomatch h
     | rule l ds =>
       rcases l with ⟨l, hl⟩
-      have hm : l = a ∨ l = b ∨ l = c := by simpa [L2] using hl
+      have hm : l = a ∨ l = b ∨ l = c := by simpa [extendedLabels] using hl
       rcases hm with rfl | rfl | rfl
       · cases hx
       · simpa [size, trace, rules, table, List.ofFn_succ] using
@@ -71,15 +71,15 @@ theorem reselection_changes :
   rw [copied_trace, short_trace]
   decide
 
-/-- Ties cannot repair the trace mismatch: every minimum at L3 uses d. -/
-theorem minimum_trace (s : Tree table L3 q) (h : Shortest s) : trace s = [d] := by
-  have small {x : Atom} (t : Tree table L3 x) (hx : x = q)
+/-- Ties cannot repair the trace mismatch: every minimum at shortcutLabels uses d. -/
+theorem minimum_trace (s : Tree table shortcutLabels q) (h : Shortest s) : trace s = [d] := by
+  have small {x : Atom} (t : Tree table shortcutLabels x) (hx : x = q)
       (bound : size t ≤ 1) : trace t = [d] := by
     cases t with
     | hyp h => exact nomatch h
     | rule l ds =>
       rcases l with ⟨l, hl⟩
-      have hm : l = a ∨ l = b ∨ l = c ∨ l = d := by simpa [L3] using hl
+      have hm : l = a ∨ l = b ∨ l = c ∨ l = d := by simpa [shortcutLabels] using hl
       rcases hm with rfl | rfl | rfl | rfl
       · cases hx
       · have positive := size_pos (ds 0)
@@ -92,57 +92,57 @@ theorem minimum_trace (s : Tree table L3 q) (h : Shortest s) : trace s = [d] := 
       · rfl
   exact small s rfl (h shortQ)
 
-theorem every_shortest_changes (s : Tree table L3 q) (h : Shortest s) :
+theorem every_shortest_changes (s : Tree table shortcutLabels q) (h : Shortest s) :
     trace (map inclusion23 (map inclusion12 tq)) ≠ trace s := by
   rw [minimum_trace s h]
   exact reselection_changes
 
 theorem fixed_base_no_recovery :
-    ¬ ∃ recover : Derivable (base table L3) q → List Label,
-      ∀ t : Tree table L3 q, recover (eraseTree t) = trace t :=
+    ¬ ∃ recover : Derivable (base table shortcutLabels) q → List Label,
+      ∀ t : Tree table shortcutLabels q, recover (eraseTree t) = trace t :=
   no_trace_recovery _ _ reselection_changes
 
-theorem minus_p : Derivable (base table Lminus) p :=
+theorem minus_p : Derivable (base table replacedLabels) p :=
   .rule (table a).erase (by decide) (by simp [erase])
 
-theorem minus_only_p {x : Atom} (h : Derivable (base table Lminus) x) : x = p := by
+theorem minus_only_p {x : Atom} (h : Derivable (base table replacedLabels) x) : x = p := by
   apply h.invariant (fun x => x = p)
   intro rule hr children
   have hm : rule = (table a).erase ∨ rule = (table bprime).erase := by
-    simpa [base, Lminus] using hr
+    simpa [base, replacedLabels] using hr
   rcases hm with rfl | rfl
   · rfl
   · have impossible := children r (by simp [erase])
     cases impossible
 
-theorem minus_not_q : ¬ Derivable (base table Lminus) q := by
+theorem minus_not_q : ¬ Derivable (base table replacedLabels) q := by
   intro h
   cases minus_only_p h
 
 theorem minus_not_pq :
-    ¬ Support allBases (base table Lminus) (.imp (.atom p) (.atom q)) :=
+    ¬ Support allBases (base table replacedLabels) (.imp (.atom p) (.atom q)) :=
   fun h => minus_not_q (application (Set.mem_univ _) h minus_p)
 
 /-- Each old b use gets an additional r proof built from the same translated p
 child. The recursion translates all old trees, not only the displayed q tree. -/
 def repairMap : SquareKit.DependentTheoryMaps.TheoryMap
-    (rules table L1) (rules table Lrepair) id where
+    (rules table initialLabels) (rules table repairedLabels) id where
   certificate l := by
     rcases l with ⟨l, hl⟩
     cases l
-    · exact .rule (R := rules table Lrepair) ⟨a, by decide⟩ (fun i => Fin.elim0 i)
+    · exact .rule (R := rules table repairedLabels) ⟨a, by decide⟩ (fun i => Fin.elim0 i)
     · apply SquareKit.DependentTheoryMaps.Derivation.rule
-        (R := rules table Lrepair) ⟨bprime, by decide⟩
+        (R := rules table repairedLabels) ⟨bprime, by decide⟩
       intro i
       refine Fin.cases ?_ ?_ i
       · exact .hyp ⟨0, rfl⟩
       · intro j
         refine Fin.cases ?_ (fun k => Fin.elim0 k) j
-        exact .rule (R := rules table Lrepair) ⟨e, by decide⟩
+        exact .rule (R := rules table repairedLabels) ⟨e, by decide⟩
           (Fin.cases (.hyp ⟨0, rfl⟩) (fun k => Fin.elim0 k))
-    all_goals exact False.elim (by simp [L1] at hl)
+    all_goals exact False.elim (by simp [initialLabels] at hl)
 
-def repair {x : Atom} (t : Tree table L1 x) : Tree table Lrepair x :=
+def repair {x : Atom} (t : Tree table initialLabels x) : Tree table repairedLabels x :=
   repairMap.transport (fun _ h => nomatch h) t
 
 theorem repair_trace : trace (repair tq) = [a, a, e, bprime] := rfl
@@ -152,7 +152,7 @@ theorem repair_changes_trace : trace (repair tq) ≠ trace tq := by
   decide
 
 theorem repair_support :
-    Support allBases (base table Lrepair) (.imp (.atom p) (.atom q)) := by
+    Support allBases (base table repairedLabels) (.imp (.atom p) (.atom q)) := by
   intro D _ hD hp
   have hr : Derivable D r := .rule (table e).erase (hD (by decide)) (by
     simpa [table, erase, Support] using hp)

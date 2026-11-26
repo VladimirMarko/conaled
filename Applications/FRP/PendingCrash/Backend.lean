@@ -667,7 +667,7 @@ theorem applyJournal_backend (s : System) (a : Durability.Abstract Frame) (stabl
       have validated : (validateMeasured (initialFrame s.adapter.initialKind)
           (history.map Durability.Record.payload)).1 = some stable := by
         rw [validateMeasured_eq]
-        simpa only [event,recoveredFrame] using recovery
+        simpa only [event,RecoveredFrame] using recovery
       exact applyJournal_recover_backend s result history stable agreement event validated
         (fun before current => congrArg Frame.logical (inv.current before current).symm)
     all_goals apply agreement.congr s _
@@ -841,9 +841,9 @@ theorem execute_retained_native_output (kind : Migration.Kind) (commands : List 
   have requestValid := (valid.2.2.2.1 slot request (by simp [present])).2.1
   have selected : request.output = some frame.logical := by
     rcases pending with computed | confirmed
-    · simp only [FRPSpec.PendingCrash.requestValid,computed] at requestValid
+    · simp only [FRPSpec.PendingCrash.RequestValid,computed] at requestValid
       exact requestValid.2.1
-    · simp only [FRPSpec.PendingCrash.requestValid,confirmed] at requestValid
+    · simp only [FRPSpec.PendingCrash.RequestValid,confirmed] at requestValid
       exact requestValid.2.1
   have agreement := (initial_execute_backend kind commands).active_eq _ frame backend current active
   rw [(Migration.evaluate backend request.input).output_eq,agreement.2]

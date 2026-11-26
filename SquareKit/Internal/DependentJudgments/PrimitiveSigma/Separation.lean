@@ -25,7 +25,7 @@ def valuation : Fin 5 → Value M.toStructuralModel :=
   ![.context PUnit, .family PUnit PUnit, .family (M.extend PUnit PUnit) PUnit,
     .family SumContext Bool, .term SumContext Bool observeFlag]
 
-theorem premises : ∀ i, (splitEtaRule.premise i).eval (algebra M S) valuation := by
+theorem premises : ∀ i, (splitEtaRule.premise i).Eval (algebra M S) valuation := by
   intro i
   fin_cases i
   · exact ⟨PUnit, PUnit, rfl, rfl⟩
@@ -36,7 +36,7 @@ theorem premises : ∀ i, (splitEtaRule.premise i).eval (algebra M S) valuation 
   · refine ⟨SumContext, Bool, observeFlag, ?_, rfl, rfl⟩
     simp [Term.eval, algebra, operation, Contextual.algebra, DependentJudgments.operation, valuation]
 
-theorem conclusion_false : ¬ splitEtaRule.conclusion.eval (algebra M S) valuation := by
+theorem conclusion_false : ¬ splitEtaRule.conclusion.Eval (algebra M S) valuation := by
   intro h
   change (split (.var 1) (.var 2) (.var 3)
     (subTm (.var 4) (pack (.var 1) (.var 2)))).eval (algebra M S) valuation = valuation 4 at h

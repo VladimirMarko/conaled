@@ -15,7 +15,7 @@ namespace SquareKit.GroupoidTransport
 namespace Authoring
 export Internal.PathTransport.Typed (CtxDeriv TyDeriv TmDeriv SubDeriv TyEqDeriv TmEqDeriv)
 export Internal.PathTransport.Typed.Authoring
-  (BasePoint Path FiberElement transport transport_beta concat concat_beta trConcat)
+  (BasePoint Path FiberElement transport transportBeta concat concatBeta trConcat)
 end Authoring
 
 export Internal.PathTransport.GroupoidModel.TransferSoundness

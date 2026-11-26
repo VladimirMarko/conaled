@@ -11,7 +11,7 @@ def amplifiedA (k : ℝ) : System ℝ Two One where
   field x i := -x+i 0+k*i 1
   readout x _ := x
 
-def amplified (k : ℝ) := ((amplifiedA k).parallel BC).wire close.toRouting
+def amplified (k : ℝ) := ((amplifiedA k).parallel wiredBC).wire close.toRouting
 
 def unstableStep (s : State) : State := (euler (1/4) (amplified 24)).field s (fun _ => 0)
 

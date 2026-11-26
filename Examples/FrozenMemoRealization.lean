@@ -43,7 +43,7 @@ structure InputRealization (F : Frozen.Input Ω) where
 
 namespace InputRealization
 variable {M ρ} {F : Frozen.Input Ω} (R : InputRealization M ρ F)
-variable (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+variable (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
 
 def selectedValue := transportValue M R.family R.fiber R.y R.z R.q
   (transportValue M R.family R.fiber R.x R.y R.p R.element)

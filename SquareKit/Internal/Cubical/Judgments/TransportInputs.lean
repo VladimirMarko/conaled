@@ -6,7 +6,7 @@ open GuardedTheory Presheaf CategoryTheory
 universe u
 
 theorem transpSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u})
-    (h : ∀ i, ((transpSchema out).premise i).eval algebra ρ) :
+    (h : ∀ i, ((transpSchema out).premise i).Eval algebra ρ) :
     ∃ (Γ : Context.{u}) (B : Family (total (Presheaf.interval Γ))) (F : Filling B)
       (φ : Cofibration Γ) (a : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false))),
       F.Lawful ∧ RestrictedConstancy B φ ∧
@@ -26,7 +26,7 @@ theorem transpSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u})
   have hep := endpointSub_eval (.var (0 : Fin 5)) ρ Γ hΓ false
   have hB0 := subTy_eval (.var 1) (endpointSub (.var 0) false) ρ _ _ B _ hB hep
   have ha := h 2
-  change Source.predicate .term ![ρ 0,(subTy (.var 1) (endpointSub (.var 0) false)).eval algebra ρ,ρ 4] at ha
+  change Source.Predicate .term ![ρ 0,(subTy (.var 1) (endpointSub (.var 0) false)).eval algebra ρ,ρ 4] at ha
   rw [hΓ,hB0] at ha
   obtain ⟨a,ha⟩ := Value.term_input _ _ _ ha
   have hp := projection_eval (.var (0 : Fin 5)) ρ Γ hΓ

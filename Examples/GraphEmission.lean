@@ -127,14 +127,14 @@ def underBinderDeclaration : GraphTarget.Declaration :=
 
 example : GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit withDeclaration) := GraphEmissionPure.emit_typed _
 example : GraphEmissionPure.ArtifactDenotes.{1} (GraphEmissionPure.emit substitutionDeclaration)
-    substitutionDeclaration.denote.{1} := GraphEmissionPure.emit_denotes _
+    substitutionDeclaration.Denote.{1} := GraphEmissionPure.emit_denotes _
 example : GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit underBinderDeclaration) := GraphEmissionPure.emit_typed _
 
 def sourceForward : GraphEmissionPure.SourceProgram :=
   ⟨[.input, .output], Graph.composite .first .second, Graph.result .first .second, forward⟩
 
 example : GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit sourceForward.target) ∧
-    GraphEmissionPure.ArtifactDenotes.{0} (GraphEmissionPure.emit sourceForward.target) sourceForward.denote.{0} :=
+    GraphEmissionPure.ArtifactDenotes.{0} (GraphEmissionPure.emit sourceForward.target) sourceForward.Denote.{0} :=
   GraphEmissionPure.source_emission sourceForward
 
 /-- Independently written raw predicate: at the existential binder the stack is

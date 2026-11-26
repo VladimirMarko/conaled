@@ -15,7 +15,7 @@ structure Ordinary (n : ℕ) (G B : Type) [Group G] [TopologicalSpace B]
   Total : Type
   [topology : TopologicalSpace Total]
   [charts : ChartedSpace (Space n) Total]
-  [manifold : IsManifold (Model n) ∞ Total]
+  [manifold : IsManifold (modelWithCorners n) ∞ Total]
   [action : MulAction G Total]
   bundle : Bundle (n := n) (G := G) (B := B) (E := Total)
 
@@ -27,7 +27,7 @@ variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
 
 /-- Existing independently supplied bundles enter without changing their total space. -/
 def ofBundle {E : Type} [TopologicalSpace E] [ChartedSpace (Space n) E]
-    [IsManifold (Model n) ∞ E] [MulAction G E]
+    [IsManifold (modelWithCorners n) ∞ E] [MulAction G E]
     (P : Bundle (n := n) (G := G) (B := B) (E := E)) : Ordinary n G B where
   Total := E
   bundle := P
@@ -49,7 +49,7 @@ instance : Category.{0} (Ordinary n G B) where
 @[simp] theorem comp_apply {P Q R : Ordinary n G B} (f : P ⟶ Q) (g : Q ⟶ R)
     (x : P.Total) : (f ≫ g).toFun x = g.toFun (f.toFun x) := rfl
 
-variable [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model n) ∞ B]
+variable [TopologicalSpace G] [DiscreteTopology G] [IsManifold (modelWithCorners n) ∞ B]
 
 /-- Invertibility follows from principality and full faithfulness. -/
 instance : Groupoid (Ordinary n G B) where

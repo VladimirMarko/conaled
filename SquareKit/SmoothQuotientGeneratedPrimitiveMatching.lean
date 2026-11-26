@@ -26,7 +26,7 @@ def primitiveValueRestriction (f : Y ⟶ X) :
 
 def primitiveSetData (A : SplitSheaf.Ty X) :
     CechMatching.Comprehension.SetData (strictDiagram a hΓ A) where
-  localFamily := primitiveValues a hΓ hx (SplitSheaf.Ext A)
+  localFamily := primitiveValues a hΓ hx (SplitSheaf.extension A)
   doubleFamily := primitiveValues a hΓ hx (SplitSheaf.Cech.double A)
   tripleFamily := primitiveValues a hΓ hx (SplitSheaf.Cech.triple A)
   first := primitiveValueRestriction a hΓ hx (SplitSheaf.Cech.first A)

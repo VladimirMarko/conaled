@@ -168,7 +168,7 @@ def sort : List Nat → List Nat
   | [] => []
   | h :: t => insert h (sort t)
 
-abbrev Sorted (xs : List Nat) : Prop := InsertionSorting.sorted xs
+abbrev Sorted (xs : List Nat) : Prop := InsertionSorting.Sorted xs
 
 theorem insert_nil (a : Nat) : insert a [] = [a] := rfl
 

@@ -117,7 +117,7 @@ Local namespace: `SquareKit.PredicateCategory`.
 | [`PRED`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L24) | `Obj` |
 | [`constructor mkᵒ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L25) | `Obj.mk` |
 | [`{ty}`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L27) | `Obj.Carrier` |
-| [`pred`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L28) | `Obj.pred` |
+| [`pred`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L28) | `Obj.Family` |
 | [`products`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L32) | `terminal/products` |
 | [`coproducts`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L35) | `initial/coproducts` |
 | [`_⇒_`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Pred.agda#L42) | `Hom` |
@@ -177,13 +177,13 @@ instances. The source's identity-comparison TODOs use the existing
 explicit maps, each with `MapLaws`:
 
 - `toRelation` sends a predicate to the relation between its carrier and `PUnit`
-  defined by `Nonempty (pred x)`. It erases computational witness distinctions.
+  defined by `Nonempty (Family x)`. It erases computational witness distinctions.
   The function and constant semantic projection form a `RelSquare`.
 - `ofRelation` sends a binary relation to a predicate on the **pair** of its
   implementation and semantic carriers. Its witness is `PLift (Rel r s)` and
   its underlying function retains both horizontal maps. It is not an inverse
   to `toRelation`.
-- `ofAssembly` sends an assembly element to the predicate `PLift (∃ n, realizes n x)`.
+- `ofAssembly` sends an assembly element to the predicate `PLift (∃ n, Realizes n x)`.
   For an assembly morphism, its existential tracking proof establishes that an
   input's realizer existence implies output realizer existence. It does not
   select or retain a tracker. `assembly_lift_requires_computable` records the

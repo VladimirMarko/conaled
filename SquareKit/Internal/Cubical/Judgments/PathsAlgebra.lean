@@ -61,8 +61,8 @@ noncomputable def algebra : Algebra signature where
   operation
     | .inl op => Intervals.algebra.operation op
     | .inr op => extraOperation op
-  predicate
-    | .inl p => Intervals.algebra.predicate p
+  Predicate
+    | .inl p => Intervals.algebra.Predicate p
     | .inr p => nomatch p
 
 theorem endpoint_eval {V : Type} (γ : Expression V) (ρ : V → Value.{u})

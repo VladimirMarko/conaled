@@ -113,7 +113,7 @@ variable [LE α] [Bot α] [DecidableLE α]
 def search (iv : κ → IntervalKey α) : BinaryTree (κ × (Nat × α)) → IntervalKey α → Bool
   | .nil, _ => false
   | .node (a, _) l r, query =>
-      if IntervalKey.overlap query (iv a) then true
+      if IntervalKey.Overlap query (iv a) then true
       else match l with
         | .nil => search iv r query
         | .node _ _ _ =>
@@ -132,16 +132,16 @@ theorem search_eq (iv : κ → IntervalKey α) (t : BinaryTree (κ × (Nat × α
       rcases binding with ⟨a, h, m⟩
       cases l with
       | nil =>
-          change (if IntervalKey.overlap query (iv a) then true else search iv r query) =
-            (if IntervalKey.overlap query (iv a) then true
+          change (if IntervalKey.Overlap query (iv a) then true else search iv r query) =
+            (if IntervalKey.Overlap query (iv a) then true
               else IntervalTree.search iv (maximumTree r) query)
           rw [ihr]
       | node binding ll lr =>
           rcases binding with ⟨b, hl, ml⟩
-          change (if IntervalKey.overlap query (iv a) then true
+          change (if IntervalKey.Overlap query (iv a) then true
             else if query.low ≤ ml then search iv (.node (b, (hl, ml)) ll lr) query
               else search iv r query) =
-            (if IntervalKey.overlap query (iv a) then true
+            (if IntervalKey.Overlap query (iv a) then true
               else if query.low ≤ ml then
                 IntervalTree.search iv (maximumTree (.node (b, (hl, ml)) ll lr)) query
                 else IntervalTree.search iv (maximumTree r) query)
@@ -150,7 +150,7 @@ theorem search_eq (iv : κ → IntervalKey α) (t : BinaryTree (κ × (Nat × α
 /-- A returned hit supplies an original key, with no invariant hypotheses. -/
 theorem search_sound (iv : κ → IntervalKey α) {t : BinaryTree (κ × (Nat × α))}
     {query : IntervalKey α} (found : search iv t query = true) :
-    ∃ a ∈ Trees.setTree (Trees.Cached.erase t), IntervalKey.overlap (iv a) query := by
+    ∃ a ∈ Trees.setTree (Trees.Cached.erase t), IntervalKey.Overlap (iv a) query := by
   rw [search_eq] at found
   simpa only [erase_maximumTree] using IntervalTree.search_sound iv found
 
@@ -173,7 +173,7 @@ theorem search_correct (iv : κ → IntervalKey α) {t : BinaryTree (κ × (Nat 
     (ordered : (Trees.inorder (Trees.Cached.erase t)).Pairwise
       (fun a b => (iv a).low ≤ (iv b).low)) (query : IntervalKey α) :
     search iv t query = true ↔
-      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), IntervalKey.overlap (iv a) query := by
+      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), IntervalKey.Overlap (iv a) query := by
   rw [search_eq]
   have ordered' : IntervalTree.LowOrdered iv (maximumTree t) := by
     simpa only [IntervalTree.LowOrdered, erase_maximumTree] using ordered
@@ -186,7 +186,7 @@ theorem search_correct_of_strict [LT κ] (iv : κ → IntervalKey α)
     (strict : (Trees.inorder (Trees.Cached.erase t)).Pairwise (· < ·))
     (query : IntervalKey α) :
     search iv t query = true ↔
-      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), IntervalKey.overlap (iv a) query :=
+      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), IntervalKey.Overlap (iv a) query :=
   search_correct iv valid (strict.imp (fun h => compatible _ _ h)) query
 
 /-- Complete balanced set semantics, including overlap of noninjective images. -/

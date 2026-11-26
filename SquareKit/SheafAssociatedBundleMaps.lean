@@ -75,7 +75,7 @@ theorem map_comp (f : SheafTorsor.SemilinearMap φ P Q) (g : ActionMap φ a b)
 
 /-- Equivariant maps from the torsor total, with no associated display supplied. -/
 def EquivariantTarget (P : SheafTorsor.Torsor G X) (a : SheafActionQuotient.Action G M) :=
-  { F : SplitSheaf.Ext P.family ⟶ M // ∀ x g p,
+  { F : SplitSheaf.extension P.family ⟶ M // ∀ x g p,
     F.hom.app x.obj ⟨x.val,P.act x g p⟩ = a.act x.obj g (F.hom.app x.obj ⟨x.val,p⟩) }
 
 open SplitFunctionDiagram SplitSheafDescent in

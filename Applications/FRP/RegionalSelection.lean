@@ -48,10 +48,10 @@ structure Requirements where
   finiteWaits : Bool := true
   deriving DecidableEq, Repr
 
-def eligible (r : Requirements) (c : Sites) : Prop :=
+def Eligible (r : Requirements) (c : Sites) : Prop :=
   r.protocol = 1 ∧ r.ordered = true ∧ r.finiteWaits = true ∧
   c.plan.analyzed = true ∧ c.plan.storage ≤ r.capacity
-instance (r : Requirements) : DecidablePred (eligible r) := fun _ => inferInstanceAs (Decidable (_ ∧ _))
+instance (r : Requirements) : DecidablePred (Eligible r) := fun _ => inferInstanceAs (Decidable (_ ∧ _))
 
 def cutName : Cut → String
   | .fused => "fused"
@@ -65,7 +65,7 @@ def context (r : Requirements) (workload : String) : Optimization.Choice.Context
 
 def select (r : Requirements) (workload : String) (e : Option Optimization.Choice.Epoch)
     (cs : List Sites := catalog) : Option Sites :=
-  Optimization.Choice.choose cs (eligible r) Sites.name (context r workload) 1
+  Optimization.Choice.choose cs (Eligible r) Sites.name (context r workload) 1
     (fun c => c.plan.work) e
 
 /-- State remains indexed by the chosen whole executor. Updating evidence cannot
@@ -83,7 +83,7 @@ theorem selected_execution {r : Requirements} {w : String} {e} {cs} {c : Sites}
     (h : select r w e cs = some c) (x : Input × Input) (s : c.plan.State) :
     ∃ trace, Plan.SpaceRuns c.plan x s (c.plan.machine.step (x,s)) trace ∧
       ∀ live ∈ trace, c.plan.retained + live ≤ r.capacity := by
-  have hc : eligible r c := Optimization.Choice.choose_contract (eligible r)
+  have hc : Eligible r c := Optimization.Choice.choose_contract (Eligible r)
     (fun _ _ hc => hc) h
   exact c.plan.sufficient_storage hc.2.2.2.1 r.capacity hc.2.2.2.2 x s
 
@@ -104,7 +104,7 @@ theorem selected_service {r : Requirements} {w} {e} {cs} {c : Sites}
       Plan.Round c.plan env k (input k) (state c.plan.machine input k)
         (c.plan.starts env k) (output c.plan.machine input k,state c.plan.machine input (k+1))
         (c.plan.starts env (k+1)) := by
-  have hc : eligible r c := Optimization.Choice.choose_contract (eligible r)
+  have hc : Eligible r c := Optimization.Choice.choose_contract (Eligible r)
     (fun _ _ hc => hc) h
   exact ⟨deadline,lt_of_lt_of_le (Nat.lt_succ_self deadline) (c.plan.starts_grow env _),
     c.plan.scheduled hc.2.2.2.1 env input deadline⟩

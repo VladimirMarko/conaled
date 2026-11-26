@@ -20,7 +20,7 @@ open Examples.ScanSearch
 
 def catalog := [coarseA,coarseB]
 def scope := PolicyChoice.scope appendLeaf 9 none context
-def ctx := admittedContext catalog (PolicyChoice.admitted appendLeaf 9 none) PolicyChoice.identify scope
+def ctx := admittedContext catalog (PolicyChoice.Admitted appendLeaf 9 none) PolicyChoice.identify scope
 def evidence := training ctx (PolicyChoice.identify coarseA) (PolicyChoice.identify coarseB)
 
 example : PolicyChoice.choose catalog appendLeaf 9 none context 1 (fun _ => 0) none = some coarseA := by decide

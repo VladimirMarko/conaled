@@ -182,7 +182,7 @@ function after two substitutions, without any PF or exceptional-operation law. -
 abbrev native_evaluation := Examples.MatesBaseChange.FiniteProducts.twice_evaluation
 
 theorem native_selected_value (n : Nat) :
-    (SquareKit.TypeTerminalProduct.evaluate Examples.MatesBaseChange.FiniteProducts.values
+    (SquareKit.TypeTerminalProduct.evaluate Examples.MatesBaseChange.FiniteProducts.Values
       Examples.TerminalProducts.Native.last n).val = n :=
   Examples.MatesBaseChange.FiniteProducts.selected_value n
 

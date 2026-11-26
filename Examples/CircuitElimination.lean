@@ -105,13 +105,13 @@ example : ((singleCircuit ({2, 5} : Set ℕ) {2} (by simp) (by simp) (by simp)).
   rfl
 
 /-- The family {0,1}, {0,2} is an antichain of nonempty sets but cannot eliminate 0. -/
-def badCircuit (C : Set (Fin 3)) : Prop := C = {0, 1} ∨ C = {0, 2}
+def BadCircuit (C : Set (Fin 3)) : Prop := C = {0, 1} ∨ C = {0, 2}
 
-theorem badCircuit_nonempty {C : Set (Fin 3)} (h : badCircuit C) : C.Nonempty := by
+theorem badCircuit_nonempty {C : Set (Fin 3)} (h : BadCircuit C) : C.Nonempty := by
   rcases h with rfl | rfl <;> simp
 
-theorem badCircuit_antichain {C D : Set (Fin 3)} (hC : badCircuit C)
-    (hD : badCircuit D) (hsub : C ⊆ D) : C = D := by
+theorem badCircuit_antichain {C D : Set (Fin 3)} (hC : BadCircuit C)
+    (hD : BadCircuit D) (hsub : C ⊆ D) : C = D := by
   rcases hC with rfl | rfl <;> rcases hD with rfl | rfl
   · rfl
   · have h := hsub (show (1 : Fin 3) ∈ ({0, 1} : Set (Fin 3)) by simp)
@@ -121,8 +121,8 @@ theorem badCircuit_antichain {C D : Set (Fin 3)} (hC : badCircuit C)
   · rfl
 
 theorem badCircuit_not_eliminate :
-    ¬ ∀ (C D : Set (Fin 3)) (e : Fin 3), badCircuit C → badCircuit D → C ≠ D →
-      e ∈ C ∩ D → ∃ K, badCircuit K ∧ K ⊆ (C ∪ D) \ {e} := by
+    ¬ ∀ (C D : Set (Fin 3)) (e : Fin 3), BadCircuit C → BadCircuit D → C ≠ D →
+      e ∈ C ∩ D → ∃ K, BadCircuit K ∧ K ⊆ (C ∪ D) \ {e} := by
   intro h
   have hne : ({0, 1} : Set (Fin 3)) ≠ {0, 2} := by
     intro heq

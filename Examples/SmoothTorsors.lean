@@ -152,7 +152,7 @@ example : Nonempty (Unique ((locallyConstantGroupSheaf C4).obj.obj (atStage empt
 This supplies a checked input to effective descent without choosing a global
 section of the original torsor. -/
 example {X : Sheaf SquareKit.SmoothOpenSite.topology Type} (P : Torsor group X) :
-    Arrow (trivial group (SplitSheaf.Ext P.family))
+    Arrow (trivial group (SplitSheaf.extension P.family))
       (reindex P (SplitSheaf.p P.family)) :=
   ofSection _ (SplitSheaf.q P.family)
 
@@ -175,7 +175,7 @@ theorem nontrivialTorsor_not_trivializable :
 /-- The generic effective-descent construction recovers this nontrivial object
 from a cover on which its torsor is explicitly trivial. -/
 def nontrivialCoverTrivialization :
-    Arrow (trivial group (SplitSheaf.Ext nontrivialTorsor.family))
+    Arrow (trivial group (SplitSheaf.extension nontrivialTorsor.family))
       (reindex nontrivialTorsor (SplitSheaf.p nontrivialTorsor.family)) :=
   ofSection _ (SplitSheaf.q nontrivialTorsor.family)
 

@@ -127,8 +127,8 @@ theorem query_restricted {P} {m} (t : Tree P m) (depth) (h : depth ≤ m)
 
 abbrev Request := Nat × List Bool
 
-def admissible (m : Nat) (q : Request) : Prop := q.1 ≤ m ∧ q.2.length ≤ q.1
-instance (m : Nat) (q : Request) : Decidable (admissible m q) := inferInstanceAs (Decidable (_ ∧ _))
+def Admissible (m : Nat) (q : Request) : Prop := q.1 ≤ m ∧ q.2.length ≤ q.1
+instance (m : Nat) (q : Request) : Decidable (Admissible m q) := inferInstanceAs (Decidable (_ ∧ _))
 
 structure Counts where
   hits : Nat := 0
@@ -167,10 +167,10 @@ theorem parseCounted_correct {P : Language Bool} (p : Parser P) (w) :
   | cons b w ih => simp [parseCounted, Parser.parse, ih]
 
 def baselineDerivatives (m : Nat) (qs : List Request) : Nat :=
-  (qs.map (fun q => if admissible m q then q.2.length else 0)).sum
+  (qs.map (fun q => if Admissible m q then q.2.length else 0)).sum
 
 theorem baseline_instrumented {P : Language Bool} (p : Parser P) (m) (qs) :
-    (qs.map (fun q => if admissible m q then (parseCounted p q.2).2 else 0)).sum =
+    (qs.map (fun q => if Admissible m q then (parseCounted p q.2).2 else 0)).sum =
       baselineDerivatives m qs := by
   simp [parseCounted_correct, baselineDerivatives]
 
@@ -180,7 +180,7 @@ theorem batch_edges {P} {m} (t : Tree P m) (qs) :
   | nil => rfl
   | cons q qs ih =>
     by_cases h : q.1 ≤ m ∧ q.2.length ≤ q.1 <;>
-      simp [batch, baselineDerivatives, query_hit, admissible, h] at * <;> omega
+      simp [batch, baselineDerivatives, query_hit, Admissible, h] at * <;> omega
 
 theorem batch_checks {P} {m} (t : Tree P m) (qs) :
     (batch t qs).2.checks = 2 * qs.length := by
@@ -190,7 +190,7 @@ theorem batch_checks {P} {m} (t : Tree P m) (qs) :
 
 theorem batch_results {P} {m} (p : Parser P) (qs) :
     (batch (build p m).1 qs).1 = qs.map (fun q =>
-      ⟨q, if admissible m q then some (p.parse q.2) else none⟩) := by
+      ⟨q, if Admissible m q then some (p.parse q.2) else none⟩) := by
   induction qs with
   | nil => rfl
   | cons q qs ih =>
@@ -212,12 +212,12 @@ theorem batch_output_size {P} {m} (t : Tree P m) (qs) :
   | cons q qs ih => simp [batch, ih]
 
 /-- Repeated requests share the precomputed prefix tree. -/
-theorem repeated_baseline (m : Nat) (q : Request) (k : Nat) (h : admissible m q) :
+theorem repeated_baseline (m : Nat) (q : Request) (k : Nat) (h : Admissible m q) :
     baselineDerivatives m (List.replicate k q) = k * q.2.length := by
   simp [baselineDerivatives, h]
 
 theorem repeated_saves {P : Language Bool} (p : Parser P) (m k : Nat)
-    (q : Request) (h : admissible m q) (enough : cells m ≤ k * q.2.length) :
+    (q : Request) (h : Admissible m q) (enough : cells m ≤ k * q.2.length) :
     (build p m).2 < baselineDerivatives m (List.replicate k q) := by
   rw [repeated_baseline m q k h]
   have := build_work p m

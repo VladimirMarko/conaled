@@ -62,7 +62,7 @@ def parameters (_ : Bool) : Bool → Bool := Bool.not
 /-- Both ambient paths select the varying component, after the parameter
 substitution has exchanged its fibres. The other component has no left fibre. -/
 theorem swapped_generic_graph :
-    formula (reindex (swap (pairedPulled presentations parameters)) (fun _ : Unit => true))
+    FormulaHolds (reindex (swap (pairedPulled presentations parameters)) (fun _ : Unit => true))
       (composite Arrow.first Arrow.second) ()
       (environment (pullbackEquiv varying Bool.not).symm
         (fun p => p.original.2.isLeft) leftPoint true) := by
@@ -70,7 +70,7 @@ theorem swapped_generic_graph :
 
 /-- Reuse the binder-sensitive syntax substitution on the constructed family. -/
 theorem substituted_graph :
-    formula (reindex (swap (pairedPulled presentations parameters)) (fun _ : Unit => true))
+    FormulaHolds (reindex (swap (pairedPulled presentations parameters)) (fun _ : Unit => true))
       ((composite Arrow.first Arrow.second).subst BranchingGraphTransport.duplicate) ()
       (fun {s} i => match s, i with
         | _, .zero => leftPoint

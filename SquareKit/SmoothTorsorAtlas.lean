@@ -14,7 +14,7 @@ open CategoryTheory Opposite SmoothAlgebra SmoothOpenSite
 theorem locallySurjective_principal {E X : Sheaf topology Type} (p : E ⟶ X)
     [Presheaf.IsLocallySurjective topology p.hom] (U : Domain)
     (k : embedding.obj U ⟶ X) (x : Points U) :
-    ∃ q : Free U.dimension, q.val x.val ≠ 0 ∧
+    ∃ q : freeAlgebra U.dimension, q.val x.val ≠ 0 ∧
       ∃ l : embedding.obj (subdomain U q) ⟶ E,
         l ≫ p = embedding.map (subInclusion U q) ≫ k := by
   let a := topology.yonedaEquiv k
@@ -41,7 +41,7 @@ theorem locallySurjective_principal {E X : Sheaf topology Type} (p : E ⟶ X)
 /-- An actual local lift, chosen from the proved local-surjectivity argument. -/
 structure PrincipalLift {E X : Sheaf topology Type} (p : E ⟶ X)
     (U : Domain) (k : embedding.obj U ⟶ X) (x : Points U) where
-  defining : Free U.dimension
+  defining : freeAlgebra U.dimension
   atPoint : defining.val x.val ≠ 0
   lift : embedding.obj (subdomain U defining) ⟶ E
   equation : lift ≫ p = embedding.map (subInclusion U defining) ≫ k
@@ -63,7 +63,7 @@ namespace SquareKit.EuclideanOpen.TorsorAtlas
 open CategoryTheory SmoothOpenSite
 variable (U : Domain) {G : Sheaf topology GrpCat} (P : SheafTorsor.Torsor G (embedding.obj U))
 
-def defining (x : Points U) : SmoothAlgebra.Free U.dimension :=
+def defining (x : Points U) : SmoothAlgebra.freeAlgebra U.dimension :=
   (principalLift (SplitSheaf.p P.family) U (𝟙 _) x).defining
 theorem covers : Covers U (defining U P) :=
   principalLift_covers (SplitSheaf.p P.family) U (𝟙 _)
@@ -86,8 +86,8 @@ namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRealization
 open scoped Manifold ContDiff
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- Every quotient object over a represented open receives derived local data. -/
 def trivializedOnOpen (U : Domain)
@@ -103,7 +103,7 @@ open scoped Manifold ContDiff
 variable {n : ℕ} {M : Type} [TopologicalSpace M] [ChartedSpace (Space n) M]
 variable (A : ChartFamily n M) {G : Sheaf topology GrpCat} (P : SheafTorsor.Torsor G A.realization)
 
-def defining (i : A.Index) (x : Points (A.charts.domain i)) : SmoothAlgebra.Free n :=
+def defining (i : A.Index) (x : Points (A.charts.domain i)) : SmoothAlgebra.freeAlgebra n :=
   (principalLift (SplitSheaf.p P.family) (A.charts.domain i) (A.charts.chart i) x).defining
 theorem covers (i : A.Index) : Covers (A.charts.domain i) (defining A P i) :=
   principalLift_covers (SplitSheaf.p P.family) (A.charts.domain i) (A.charts.chart i)
@@ -115,7 +115,7 @@ def atlas : SmoothRepresentedCover.Atlas A.realization (charts A P).Index :=
   (charts A P).representedAtlas.transport ((charts A P).comparison A)
 
 def localLift (p : (charts A P).Index) :
-    embedding.obj ((atlas A P).domain p) ⟶ SplitSheaf.Ext P.family :=
+    embedding.obj ((atlas A P).domain p) ⟶ SplitSheaf.extension P.family :=
   embedding.map (restrictChartDomainIso (A.chart p.1) (defining A P p.1 p.2)).hom ≫
     (principalLift (SplitSheaf.p P.family) (A.charts.domain p.1) (A.charts.chart p.1) p.2).lift
 
@@ -142,9 +142,9 @@ namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRealization
 open scoped Manifold ContDiff
 variable {d n : ℕ} {G M N : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- All quotient objects over an actual manifold chart realization are admitted;
 the target action need not be effective and no global section is chosen. -/
@@ -159,9 +159,9 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction SmoothRepr
 open ManifoldRealization
 open scoped Manifold ContDiff
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
-variable {smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)}
+variable {smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x)}
 variable {P : SheafActionQuotient.Object (representation smoothAction).action X}
 
 /-- Restriction retains the explicit endpoint equality supplied by the atlas map. -/
@@ -182,7 +182,7 @@ variable {n : ℕ} {M J : Type} [TopologicalSpace M] [ChartedSpace (Space n) M] 
 variable (A : ChartFamily n M) {G : Sheaf topology GrpCat}
   (P : J → SheafTorsor.Torsor G A.realization)
 
-def defining (i : A.Index) (z : J → Points (A.charts.domain i)) : Free n :=
+def defining (i : A.Index) (z : J → Points (A.charts.domain i)) : freeAlgebra n :=
   ∏ j, TorsorAtlas.defining A (P j) i (z j)
 
 theorem covers (i : A.Index) : Covers (A.charts.domain i) (defining A P i) := by
@@ -208,7 +208,7 @@ def restriction (i : A.Index) (z : J → Points (A.charts.domain i)) (j : J) :
     exact Finset.prod_ne_zero_iff.mp h j (Finset.mem_univ j))
 
 def localLift (j : J) (p : Σ i, J → Points (A.charts.domain i)) :
-    embedding.obj ((atlas A P).domain p) ⟶ SplitSheaf.Ext (P j).family :=
+    embedding.obj ((atlas A P).domain p) ⟶ SplitSheaf.extension (P j).family :=
   embedding.map ((restrictChartDomainIso (A.chart p.1) (defining A P p.1 p.2)).hom ≫
     restriction A P p.1 p.2 j) ≫
       (principalLift (SplitSheaf.p (P j).family) (A.charts.domain p.1)

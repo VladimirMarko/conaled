@@ -113,14 +113,14 @@ theorem bank_live_bound {c : Config} {disk : Banks} (h : disk.Fits c) :
   have := (h true).1
   omega
 
-def durableAddress (c : Config) := Bool × Fin c.window
+def DurableAddress (c : Config) := Bool × Fin c.window
 
-def boundedPosition (c : Config) := Fin (c.limit + 1)
+def BoundedPosition (c : Config) := Fin (c.limit + 1)
 
 theorem fits_position_encoding {c : Config} {s : Snapshot} (h : s.Fits c) :
-    ∃ n : boundedPosition c, n.val = s.position := ⟨⟨s.position, by have := h.2; omega⟩, rfl⟩
+    ∃ n : BoundedPosition c, n.val = s.position := ⟨⟨s.position, by have := h.2; omega⟩, rfl⟩
 
-def outputBound (c : Config) (ctl : Control) : Prop := ctl.output.length ≤ c.window
+def OutputBound (c : Config) (ctl : Control) : Prop := ctl.output.length ≤ c.window
 
 theorem read_output_bound {c : Config} {s : Snapshot} {a z : Nat} {xs : List Bool}
     (h : s.Fits c) (eq : read s a z = .records xs) : xs.length ≤ c.window := by
@@ -132,8 +132,8 @@ theorem read_output_bound {c : Config} {s : Snapshot} {a z : Nat} {xs : List Boo
   omega
 
 theorem command_output_bound {c : Config} {s : Service Banks}
-    (hs : s.store.root.Fits c) (hc : outputBound c s.control) (cmd : Command) :
-    outputBound c (command c (bankOps c) s cmd).2.control := by
+    (hs : s.store.root.Fits c) (hc : OutputBound c s.control) (cmd : Command) :
+    OutputBound c (command c (bankOps c) s cmd).2.control := by
   cases cmd
   case release b =>
     cases b <;> simp only [command]
@@ -223,7 +223,7 @@ def volatileRecords : Machine → Nat
       target.items.length + cells.buffer.items.length + ctl.output.length + ctl.pending.toList.length
 
 def ResourceInv (c : Config) (m : Machine) : Prop :=
-  m.disk.Fits c ∧ outputBound c m.control ∧
+  m.disk.Fits c ∧ OutputBound c m.control ∧
   match m with
   | .idle _ => True
   | .copying cells target _ pc => cells.buffer.Fits c ∧ target.Fits c ∧
@@ -238,17 +238,17 @@ theorem resource_bound {c : Config} {m : Machine} (h : ResourceInv c m) :
   cases m with
   | idle s =>
     have out := h.2.1
-    dsimp [outputBound, Machine.control] at out
+    dsimp [OutputBound, Machine.control] at out
     cases hp : s.control.pending <;> simp [volatileRecords, hp] <;> omega
   | copying cells target ctl pc =>
     have hb := h.2.2.1.1
     have ht := h.2.2.2.1.1
     have out := h.2.1
-    dsimp [outputBound, Machine.control] at out
+    dsimp [OutputBound, Machine.control] at out
     cases hp : ctl.pending <;> simp [volatileRecords, hp] <;> omega
 
 theorem copyingAt_resources {c : Config} {s : Service Banks} {h : List Bool}
-    (disk : s.store.Fits c) (out : outputBound c s.control)
+    (disk : s.store.Fits c) (out : OutputBound c s.control)
     (r : Represents c s.store.root h) (p : Bool) (room : s.store.root.position < c.limit)
     (count : Nat) : ResourceInv c (copyingAt c s p count) := by
   have ht := (append_represents r room p).fits

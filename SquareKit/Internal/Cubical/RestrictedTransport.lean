@@ -29,7 +29,7 @@ def RestrictedConstancy.tube {Γ : Context.{u}} {A : Family (total (interval Γ)
 theorem RestrictedConstancy.tube_val {Γ : Context.{u}} {A : Family (total (interval Γ))}
     {φ : Cofibration Γ} (h : RestrictedConstancy A φ)
     (a : Term (Presheaf.reindex A (endpointSub Γ false)))
-    (x : (total (interval Γ)).Elements) (p : (φ.reindex (projection (interval Γ))).full x) :
+    (x : (total (interval Γ)).Elements) (p : (φ.reindex (projection (interval Γ))).Full x) :
     HEq ((h.tube a).val x p) (a.val ((projection (interval Γ)).mapElements.obj x)) :=
   Term.convert_val_heq h.symm _ ((restrictContext (φ.reindex (projection (interval Γ)))).elementsMk
     x.obj ⟨x.val,p⟩)
@@ -48,7 +48,7 @@ def Filling.transp {Γ : Context.{u}} {A : Family (total (interval Γ))} (F : Fi
 
 theorem Filling.transp_on_face {Γ : Context.{u}} {A : Family (total (interval Γ))}
     {F : Filling A} (hF : F.Lawful) (φ : Cofibration Γ) (h : RestrictedConstancy A φ)
-    (a : Term (Presheaf.reindex A (endpointSub Γ false))) (x : Γ.Elements) (hx : φ.full x) :
+    (a : Term (Presheaf.reindex A (endpointSub Γ false))) (x : Γ.Elements) (hx : φ.Full x) :
     HEq ((F.transp φ h a).val x) (a.val x) :=
   (heq_of_eq (Filling.comp_boundary hF (𝟙 _) φ (h.box a) x hx)).trans
     (h.tube_val a ((endpointSub Γ true).mapElements.obj x) hx)
@@ -75,7 +75,7 @@ theorem Filling.transp_reindex {Γ Δ : Context.{u}} {A : Family (total (interva
   exact Filling.comp_reindex hF (𝟙 _) φ (h.box a) σ
 
 theorem RestrictedConstancy.endpoint_type {Γ : Context.{u}} {A : Family (total (interval Γ))}
-    {φ : Cofibration Γ} (h : RestrictedConstancy A φ) (x : Γ.Elements) (hx : φ.full x) :
+    {φ : Cofibration Γ} (h : RestrictedConstancy A φ) (x : Γ.Elements) (hx : φ.Full x) :
     A.obj ((endpointSub Γ true).mapElements.obj x) = A.obj ((endpointSub Γ false).mapElements.obj x) :=
   congrArg (fun C => C.obj ((restrictContext (φ.reindex (projection (interval Γ)))).elementsMk x.obj
     ⟨((endpointSub Γ true).app x.obj x.val),hx⟩)) h
@@ -84,7 +84,7 @@ theorem RestrictedConstancy.endpoint_type {Γ : Context.{u}} {A : Family (total 
 endpoint identification justified by restricted constancy. -/
 theorem Filling.transp_computation {Γ : Context.{u}} {A : Family (total (interval Γ))}
     {F : Filling A} (hF : F.Lawful) (φ : Cofibration Γ) (h : RestrictedConstancy A φ)
-    (a : Term (Presheaf.reindex A (endpointSub Γ false))) (x : Γ.Elements) (hx : φ.full x) :
+    (a : Term (Presheaf.reindex A (endpointSub Γ false))) (x : Γ.Elements) (hx : φ.Full x) :
     (F.transp φ h a).val x = cast (h.endpoint_type x hx).symm (a.val x) :=
   eq_of_heq ((Filling.transp_on_face hF φ h a x hx).trans (cast_heq _ _).symm)
 

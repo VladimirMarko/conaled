@@ -64,14 +64,14 @@ theorem diamond_optimistic : Optimistic diamond estimate goal3 := by
 abbrev queue (V : Type) [DecidableEq V] :=
   Search.PriorityInterface.leftist (π := Nat) (Search.Heuristic.Path.vertex (V := V))
 
-def diamond_budget : Search.Heuristic.Completed (queue (Fin 4)) (adjacency scale6 diamond)
+def diamondCompletion : Search.Heuristic.Completed (queue (Fin 4)) (adjacency scale6 diamond)
     (scale6.encode ∘ estimate) goal3 0 := ⟨8, by decide +kernel⟩
 
 theorem diamond_distance : DistanceResult diamond goal3 0 (some 1) := by
   have h := distanceSquare_correct (queue (Fin 4)) diamond_compatible goal3 0
-    diamond_optimistic diamond_budget
+    diamond_optimistic diamondCompletion
   have he : (distanceSquare (queue (Fin 4)) diamond_compatible goal3 0
-      diamond_optimistic).impl diamond_budget = some 1 := by
+      diamond_optimistic).impl diamondCompletion = some 1 := by
     rw [distanceSquare_apply]
     change @Eq (Option ℚ) _ _
     decide +kernel
@@ -128,15 +128,15 @@ by
 def goal1 (v : Fin 3) : Bool := v == 1
 def goal2 (v : Fin 3) : Bool := v == 2
 
-def cycle_budget (goal : Fin 3 → Bool) (hgoal : goal = goal1 ∨ goal = goal2) :
+def cycleCompletion (goal : Fin 3 → Bool) (hgoal : goal = goal1 ∨ goal = goal2) :
     Search.Heuristic.Completed (queue (Fin 3)) (adjacency scale4 cycle) (scale4.encode ∘ (fun _ => 0)) goal 0 :=
   ⟨8, by rcases hgoal with rfl | rfl <;> decide +kernel⟩
 
 theorem cycle_distance : DistanceResult cycle goal1 0 (some (3/4)) := by
   have h := distanceSquare_correct (queue (Fin 3)) cycle_compatible goal1 0
-    (cycle_zero_optimistic goal1) (cycle_budget goal1 (Or.inl rfl))
+    (cycle_zero_optimistic goal1) (cycleCompletion goal1 (Or.inl rfl))
   have he : (distanceSquare (queue (Fin 3)) cycle_compatible goal1 0
-      (cycle_zero_optimistic goal1)).impl (cycle_budget goal1 (Or.inl rfl)) = some (3/4) := by
+      (cycle_zero_optimistic goal1)).impl (cycleCompletion goal1 (Or.inl rfl)) = some (3/4) := by
     rw [distanceSquare_apply]
     change @Eq (Option ℚ) _ _
     decide +kernel
@@ -144,9 +144,9 @@ theorem cycle_distance : DistanceResult cycle goal1 0 (some (3/4)) := by
 
 theorem cycle_unreachable : DistanceResult cycle goal2 0 none := by
   have h := distanceSquare_correct (queue (Fin 3)) cycle_compatible goal2 0
-    (cycle_zero_optimistic goal2) (cycle_budget goal2 (Or.inr rfl))
+    (cycle_zero_optimistic goal2) (cycleCompletion goal2 (Or.inr rfl))
   have he : (distanceSquare (queue (Fin 3)) cycle_compatible goal2 0
-      (cycle_zero_optimistic goal2)).impl (cycle_budget goal2 (Or.inr rfl)) = none := by
+      (cycle_zero_optimistic goal2)).impl (cycleCompletion goal2 (Or.inr rfl)) = none := by
     rw [distanceSquare_apply]
     change @Eq (Option ℚ) _ _
     decide +kernel

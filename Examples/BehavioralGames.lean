@@ -89,8 +89,8 @@ example : InteractionPlay forwarding forwarding (mapWire keep flip keep administ
 
 /-- Original consumer recovery and explicit accepted-environment coverage. -/
 example : ∃ r w, forwarding.Play r ∧ InteractionPlay negate negate w ∧
-    firstComparison (some ⟨none, .pending, .pending, OverlappingQueries.requests⟩) r ∧
-    secondComparison r w ∧ observeWire w =
+    FirstComparison (some ⟨none, .pending, .pending, OverlappingQueries.requests⟩) r ∧
+    SecondComparison r w ∧ observeWire w =
       some ⟨none, .pending, .pending, OverlappingQueries.requests⟩ :=
   accepted_coverage OverlappingQueries.both_pending
 

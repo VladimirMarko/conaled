@@ -13,7 +13,7 @@ structure Refinement (B A : Charts M) where
   map : Map B A
   point_identity : map.point = id
   Cover : A.Index → Type
-  defining : ∀ i, Cover i → Free (A.domain i).dimension
+  defining : ∀ i, Cover i → freeAlgebra (A.domain i).dimension
   covers : ∀ i, Covers (A.domain i) (defining i)
   index : ∀ i, Cover i → B.Index
   lift : ∀ i k, subdomain (A.domain i) (defining i k) ⟶ B.domain (index i k)

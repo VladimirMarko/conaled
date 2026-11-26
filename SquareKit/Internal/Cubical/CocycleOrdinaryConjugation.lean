@@ -8,11 +8,11 @@ open CategoryTheory Presheaf Contextual
 set_option backward.isDefEq.respectTransparency false
 set_option maxHeartbeats 800000
 variable (Base : LawfulFamily terminal.{0}) (Fiber : LawfulFamily (total Base.family))
-variable (F : Filling (FirstIdentityFamily terminal.{0})) (hF : F.Lawful)
-variable (t : Term (reindex (FirstIdentityFamily terminal.{0}) (projection (FirstIdentityFamily terminal))))
-variable (β : Term (normalizedIdentity (reindex (FirstIdentityFamily terminal.{0}) (projection (FirstIdentityFamily terminal)))
-  t (generic (FirstIdentityFamily terminal))))
-variable (h : Term (SecondIdentityFamily terminal.{0}))
+variable (F : Filling (firstIdentityFamily terminal.{0})) (hF : F.Lawful)
+variable (t : Term (reindex (firstIdentityFamily terminal.{0}) (projection (firstIdentityFamily terminal))))
+variable (β : Term (normalizedIdentity (reindex (firstIdentityFamily terminal.{0}) (projection (firstIdentityFamily terminal)))
+  t (generic (firstIdentityFamily terminal))))
+variable (h : Term (secondIdentityFamily terminal.{0}))
 
 def ordinaryConjugationCube := sourceConjugationCube β h
   (cocycleOrdinaryAction Base Fiber F hF t h) (cocycleOrdinaryBridge Base Fiber F hF t h)

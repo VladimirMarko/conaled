@@ -28,7 +28,7 @@ theorem emptyIdentity_classify (A : Assembly) (x : A.Carrier) :
 
 /-- The halting input index, not merely a truth bit, is the selected result. -/
 def haltingIdentity : PartialMap (encoded Nat) (encoded Nat) where
-  domain n := (run n).Dom
+  Domain n := (run n).Dom
   admissible := ⟨run, run_partrec, fun x n hn => by cases hn; rfl⟩
   map := inclusion _ _
 
@@ -73,7 +73,7 @@ theorem halting_reindex (f : Nat → Nat) (hf : Computable f) (n m : Nat) :
 /-- Sharing every realizer makes a proper Boolean subset non-admissible. -/
 def indiscreteBool : Assembly where
   Carrier := Bool
-  realizes _ _ := True
+  Realizes _ _ := True
   inhabited _ := ⟨0, trivial⟩
 
 theorem not_every_subset_admissible :
@@ -89,7 +89,7 @@ def properInclusion := inclusion indiscreteBool (fun b => b = true)
 
 theorem no_classifier_for_properInclusion
     (g : Hom indiscreteBool (programLift (encoded Nat))) :
-    ¬ (∀ b, definedDomain g b ↔ b = true) := by
+    ¬ (∀ b, DefinedDomain g b ↔ b = true) := by
   intro h
   apply not_every_subset_admissible
   obtain ⟨φ, hp, hs⟩ := definedDomain_admissible g

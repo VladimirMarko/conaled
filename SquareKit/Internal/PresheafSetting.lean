@@ -47,7 +47,7 @@ def sourceFormula (T P Q : Subfunctor X) : FiniteSetting.Formula → Subfunctor 
 
 theorem source_evaluation (T P Q : Subfunctor X) (a : FiniteSetting.Formula)
     (j : Jᵒᵖ) (x : X.obj j) :
-    (sourceFormula T P Q a).obj j x ↔ a.eval (T.obj j) (P.obj j) (Q.obj j) x := by
+    (sourceFormula T P Q a).obj j x ↔ a.Eval (T.obj j) (P.obj j) (Q.obj j) x := by
   induction a with
   | p | q | parameter | top | bottom => rfl
   | and a b ha hb => exact and_congr ha hb

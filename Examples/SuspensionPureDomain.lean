@@ -17,30 +17,30 @@ namespace Examples.SuspensionPureDomain
 open Suspensions Suspensions.Pure Suspensions.Pure.Domain
 open Examples.SuspensionPureValues
 
-private def noOperations : Unit → Prop := fun _ => False
+private def NoOperations : Unit → Prop := fun _ => False
 
-private theorem mutual_clauses_code : ClausesCodeAllowed noOperations mutualClauses := by
+private theorem mutual_clauses_code : ClausesCodeAllowed NoOperations mutualClauses := by
   apply (ClausesCodeAllowed.cons_iff _ _ []).mpr
   exact ⟨.record .nil, (CodeAllowed.variable 2).force, ClausesCodeAllowed.nil⟩
 
-private theorem mutual_body_code : CodeAllowed noOperations mutualSuspensionBody :=
+private theorem mutual_body_code : CodeAllowed NoOperations mutualSuspensionBody :=
   (CodeAllowed.apply_iff _ _).mpr
     ⟨CodeAllowed.variable 1, (CodeAllowed.record_iff []).mpr NamedCodeAllowed.nil⟩
 
 private theorem mutual_definitions_code :
-    NamedCodeAllowed noOperations (Rhs.toBindings mutualBindings) := by
+    NamedCodeAllowed NoOperations (Rhs.toBindings mutualBindings) := by
   apply (NamedCodeAllowed.cons_iff _ _ _).mpr
   refine ⟨(CodeAllowed.function_iff _).mpr mutual_clauses_code, ?_⟩
   apply (NamedCodeAllowed.cons_iff _ _ []).mpr
   exact ⟨(CodeAllowed.delay_iff _).mpr mutual_body_code, NamedCodeAllowed.nil⟩
 
-theorem mutual_source_code : CodeAllowed noOperations
+theorem mutual_source_code : CodeAllowed NoOperations
     (.recursive (Rhs.toBindings mutualBindings) (Core.force (.variable 2))) :=
   (CodeAllowed.recursive_iff _ _).mpr
     ⟨mutual_definitions_code, (CodeAllowed.variable 2).force,
       Rhs.toBindings_permitted mutualBindings, mutual_source_distinct⟩
 
-private theorem mutual_outer_allowed : EnvAllowed noOperations mutualOuter :=
+private theorem mutual_outer_allowed : EnvAllowed NoOperations mutualOuter :=
   .cons (.atom (.integer 99)) (.cons (.atom (.boolean true)) .nil)
 
 /-- Permitted source syntax produces the exact expected descriptor without
@@ -52,20 +52,20 @@ theorem mutual_source_decoded :
   exact ⟨decoded, found, source,
     Except.ok.inj (found.symm.trans (Rhs.ofBindings_toBindings mutualBindings))⟩
 
-theorem mutual_group_allowed : GroupAllowed noOperations mutualGroup := by
+theorem mutual_group_allowed : GroupAllowed NoOperations mutualGroup := by
   obtain ⟨decoded, found, _, same⟩ := mutual_source_decoded
   subst decoded
   exact GroupAllowed.of_decoded mutual_definitions_code mutual_source_distinct
     found mutual_outer_allowed
 
-theorem mutual_environment_allowed : EnvAllowed noOperations mutualEnvironment :=
+theorem mutual_environment_allowed : EnvAllowed NoOperations mutualEnvironment :=
   bodyEnvironment_allowed mutual_outer_allowed (.some mutual_group_allowed)
 
 /-- The original cyclic source dependency is admitted. Both actual member
 lookups pass through the generic environment-preservation and lookup laws. -/
 theorem mutual_cycle_allowed :
-    ValueAllowed noOperations (.suspension mutualSuspensionBody mutualOuter (some mutualGroup)) ∧
-    ValueAllowed noOperations (.closure mutualClauses mutualOuter (some mutualGroup)) ∧
+    ValueAllowed NoOperations (.suspension mutualSuspensionBody mutualOuter (some mutualGroup)) ∧
+    ValueAllowed NoOperations (.closure mutualClauses mutualOuter (some mutualGroup)) ∧
     (∃ captured recursive,
       Env.lookup mutualEnvironment 2 =
         some (.suspension mutualSuspensionBody captured recursive) ∧
@@ -75,7 +75,7 @@ theorem mutual_cycle_allowed :
   ⟨mutual_environment_allowed.lookup mutual_suspension_lookup,
     mutual_environment_allowed.lookup mutual_function_lookup, mutual_round_trip⟩
 
-private theorem cached_clauses_code : ClausesCodeAllowed noOperations cachedClauses := by
+private theorem cached_clauses_code : ClausesCodeAllowed NoOperations cachedClauses := by
   apply (ClausesCodeAllowed.cons_iff _ _ []).mpr
   refine ⟨.variable 2, ?_, ClausesCodeAllowed.nil⟩
   apply (CodeAllowed.branch_iff _ _ _).mpr
@@ -84,25 +84,25 @@ private theorem cached_clauses_code : ClausesCodeAllowed noOperations cachedClau
       ⟨(CodeAllowed.variable 1).force, CodeAllowed.atom (.boolean true)⟩⟩
 
 private theorem cached_definitions_code :
-    NamedCodeAllowed noOperations [(1, .delay cachedCode)] := by
+    NamedCodeAllowed NoOperations [(1, .delay cachedCode)] := by
   apply (NamedCodeAllowed.cons_iff _ _ []).mpr
   exact ⟨(CodeAllowed.delay_iff _).mpr ((CodeAllowed.function_iff _).mpr cached_clauses_code),
     NamedCodeAllowed.nil⟩
 
-private theorem cached_outer_allowed : EnvAllowed noOperations cachedOuter :=
+private theorem cached_outer_allowed : EnvAllowed NoOperations cachedOuter :=
   .cons (.atom (.integer 41)) .nil
 
-theorem cached_group_allowed : GroupAllowed noOperations cachedGroup :=
+theorem cached_group_allowed : GroupAllowed NoOperations cachedGroup :=
   GroupAllowed.of_decoded cached_definitions_code (by decide) rfl cached_outer_allowed
 
-theorem returned_closure_allowed : ValueAllowed noOperations cachedClosure :=
+theorem returned_closure_allowed : ValueAllowed NoOperations cachedClosure :=
   .closure cached_clauses_code
     (bodyEnvironment_allowed cached_outer_allowed (.some cached_group_allowed)) .none
 
 /-- Formation really returns the admitted closure, whose capture still finds
 the same recursive suspension. No body of that suspension is evaluated here. -/
 theorem returned_closure_connected (parameters : Machine.Parameters Unit) :
-    ValueAllowed noOperations cachedClosure ∧
+    ValueAllowed NoOperations cachedClosure ∧
     Progress.Evaluates (Machine.step parameters) (Machine.start cachedBodyEnvironment cachedCode)
       (.value cachedClosure) 2 ∧
     Env.lookup cachedBodyEnvironment 1 = some (.suspension cachedCode cachedOuter (some cachedGroup)) :=
@@ -115,7 +115,7 @@ private def badApplication : Core.Expr Unit :=
 retains the independently expected function fault in both actual machines. -/
 theorem admitted_application_faults (raw : Core.Machine.Parameters Unit)
     (pure : Machine.Parameters Unit) :
-    CodeAllowed noOperations badApplication ∧
+    CodeAllowed NoOperations badApplication ∧
     Progress.Evaluates (Core.Machine.step raw)
       (Core.Machine.start Suspensions.empty [] badApplication)
       ⟨Suspensions.empty, .stuck .expectedFunction⟩ 5 ∧
@@ -130,7 +130,7 @@ theorem admitted_application_faults (raw : Core.Machine.Parameters Unit)
 
 /-- A forbidden nested RHS is rejected even when delayed by an outer body. -/
 theorem nested_invalid_recursive_rhs_rejected :
-    ¬ CodeAllowed noOperations
+    ¬ CodeAllowed NoOperations
       (.delay (.recursive [(3, .atom (.integer 0))] (.variable 3))) := by
   intro allowed
   have declaration := (CodeAllowed.delay_iff _).mp allowed
@@ -139,7 +139,7 @@ theorem nested_invalid_recursive_rhs_rejected :
   cases shape.1
 
 theorem duplicate_descriptor_rejected :
-    ¬ GroupAllowed noOperations
+    ¬ GroupAllowed NoOperations
       (.mk [(5, .delay (.atom (.integer 7))), (5, .function [])] []) := by
   intro allowed
   have different := allowed.distinct
@@ -148,7 +148,7 @@ theorem duplicate_descriptor_rejected :
 
 /-- Token selection is hereditary through data, not just closure bodies. -/
 theorem nested_unselected_token_rejected :
-    ¬ ValueAllowed noOperations (.record [(0, .primitive ())]) := by
+    ¬ ValueAllowed NoOperations (.record [(0, .primitive ())]) := by
   intro allowed
   have environment := (ValueAllowed.record_iff _).mp allowed
   have token := environment.lookup (name := 0) (by rfl)
@@ -166,7 +166,7 @@ theorem successor_domain_connected :
 
 namespace Diagnostic
 
-private def allOperations : Unit → Prop := fun _ => True
+private def AllOperations : Unit → Prop := fun _ => True
 
 private def badClauses : List (Core.Pattern × Core.Expr Unit) :=
   [(.wildcard, .reference (.atom (.integer 0)))]
@@ -180,13 +180,13 @@ def badPure (_ : Value Unit) : Machine.PrimitiveResult Unit :=
 theorem bad_output_compatible : Compatibility.OperationCompatible badRaw badPure :=
   fun _ _ _ _ => .value (.closure .nil)
 
-theorem bad_output_rejected : ¬ ValueAllowed allOperations (.closure badClauses [] none) := by
+theorem bad_output_rejected : ¬ ValueAllowed AllOperations (.closure badClauses [] none) := by
   intro allowed
   have clauses := ((ValueAllowed.closure_iff _ _ _).mp allowed).1
   have body := ((ClausesCodeAllowed.cons_iff _ _ []).mp clauses).2.1
-  exact reference_excluded allOperations _ body.effects
+  exact reference_excluded AllOperations _ body.effects
 
-theorem bad_operation_not_preserving : ¬ OperationPreserves allOperations badPure := by
+theorem bad_operation_not_preserving : ¬ OperationPreserves AllOperations badPure := by
   intro preserves
   have result := preserves (.atom (.integer 0)) (.atom (.integer 0))
   exact bad_output_rejected ((PrimitiveResultAllowed.value_iff _).mp result)
@@ -194,7 +194,7 @@ theorem bad_operation_not_preserving : ¬ OperationPreserves allOperations badPu
 /-- The two laws discharge different obligations: a related output may still
 contain effect-bearing source code. -/
 theorem compatibility_does_not_supply_domain :
-    Compatibility.OperationCompatible badRaw badPure ∧ ¬ OperationPreserves allOperations badPure :=
+    Compatibility.OperationCompatible badRaw badPure ∧ ¬ OperationPreserves AllOperations badPure :=
   ⟨bad_output_compatible, bad_operation_not_preserving⟩
 
 end Diagnostic

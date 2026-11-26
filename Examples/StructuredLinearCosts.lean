@@ -33,14 +33,14 @@ def plan : Candidate → Plan
       (diagonalMeasured coefficients input).2, diagonalStorage coefficients, 3 * diagonalStorage coefficients + 2 + 2⟩
 
 def target : Target := ⟨(fun f => f ≠ .diagonal), True, 100⟩
-@[reducible] def admitted : Set Candidate := fun c => eligible target (plan c)
+@[reducible] def admitted : Set Candidate := fun c => Eligible target (plan c)
 def cost (prices : Work) (n : Nat) (c : Candidate) := objective prices n (plan c)
 
 theorem diagonal_unavailable : ¬ admitted .diagonal := by
-  unfold admitted eligible target plan
+  unfold admitted Eligible target plan
   decide
 theorem accepted : admitted .dense ∧ admitted .sparse := by
-  unfold admitted eligible target plan
+  unfold admitted Eligible target plan
   decide
 
 /-- The sparse result retains only two coefficients, but includes their indices. -/

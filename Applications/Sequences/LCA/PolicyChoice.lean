@@ -58,7 +58,7 @@ def treeOps (n : Nat) (c : Strategy) :=
 
 theorem tree_laws (n : Nat) (c : Strategy) :
     Laws sourceLCA (treeOps n c)
-      ((reduction n).Valid (StrategySelection.valid (tourSize n) c)) :=
+      ((reduction n).Valid (StrategySelection.Valid (tourSize n) c)) :=
   TreeReduction.laws Backend.spec (Backend.spec_correct _) _ _ (StrategySelection.laws _ c)
 
 def treeService {n : Nat} (c : Strategy) (source : Source n) (qs : List (Query n)) :=

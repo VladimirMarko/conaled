@@ -14,18 +14,18 @@ def Above (m k : Mode) : Prop := m = .unrestricted ∨ k = .linear
 inductive Permission where | weaken | contract
   deriving DecidableEq
 
-def permits (m : Mode) (_ : Permission) : Prop := m = .unrestricted
+def Permits (m : Mode) (_ : Permission) : Prop := m = .unrestricted
 
 theorem above_refl (m : Mode) : Above m m := by cases m <;> simp [Above]
 theorem above_trans {m k j} (h : Above m k) (h' : Above k j) : Above m j := by
   cases m <;> cases k <;> cases j <;> simp_all [Above]
 theorem permissions_monotone {m k} (h : Above m k) (p : Permission) :
-    permits k p → permits m p := by cases m <;> cases k <;> simp_all [Above, permits]
+    Permits k p → Permits m p := by cases m <;> cases k <;> simp_all [Above, Permits]
 
 def PolicyValid (order : Mode → Mode → Prop) (permission : Mode → Permission → Prop) : Prop :=
   ∀ m k, order m k → ∀ p, permission k p → permission m p
 
-theorem reverse_order_invalid : ¬PolicyValid (fun _ _ => True) permits := by
+theorem reverse_order_invalid : ¬PolicyValid (fun _ _ => True) Permits := by
   intro h
   have := h .linear .unrestricted trivial .contract rfl
   cases this

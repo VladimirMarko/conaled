@@ -14,12 +14,12 @@ theorem admissible : Admissible (representation Nat).Rel size := by
   rw [← h.2]
   simp [size, fromSL]
 
-abbrev runtime := Cursor (SymList Nat) size
-abbrev semantic := Cursor (List Nat) List.length
+abbrev Runtime := Cursor (SymList Nat) size
+abbrev Semantic := Cursor (List Nat) List.length
 
-def left : runtime := ⟨AbstractFIFO.leftLayout, ⟨2, by decide⟩⟩
-def right : runtime := ⟨AbstractFIFO.rightLayout, ⟨2, by decide⟩⟩
-def chosen : semantic := ⟨[1,2,3], ⟨2, by decide⟩⟩
+def left : Runtime := ⟨AbstractFIFO.leftLayout, ⟨2, by decide⟩⟩
+def right : Runtime := ⟨AbstractFIFO.rightLayout, ⟨2, by decide⟩⟩
+def chosen : Semantic := ⟨[1,2,3], ⟨2, by decide⟩⟩
 
 theorem left_related : Related (representation Nat).Rel left chosen :=
   ⟨AbstractFIFO.left_related, rfl⟩
@@ -40,12 +40,12 @@ theorem retained_head :
 /-- The new semantic computation is independently a list update with clipping. -/
 theorem expected_semantics :
     run (ops (lists Nat) List.length) [.delete,.enqueue 4] chosen =
-      (⟨[2,3,4], ⟨2, by decide⟩⟩ : semantic) := rfl
+      (⟨[2,3,4], ⟨2, by decide⟩⟩ : Semantic) := rfl
 
 theorem retained_cursor :
     Related (representation Nat).Rel
       (run (ops (symmetric Nat) size) [.delete,.enqueue 4] left)
-      (⟨[2,3,4], ⟨2, by decide⟩⟩ : semantic) := by
+      (⟨[2,3,4], ⟨2, by decide⟩⟩ : Semantic) := by
   have h := run_retains _ (symmetric_correct Nat) admissible [.delete,.enqueue 4] left_related
   rw [expected_semantics] at h
   exact h
@@ -61,7 +61,7 @@ theorem retained_selected :
 theorem direct_cursor :
     Related (representation Nat).Rel
       (run (ops (symmetric Nat) size) [.delete,.enqueue 4] left)
-      (⟨[2,3,4], ⟨2, by decide⟩⟩ : semantic) := by
+      (⟨[2,3,4], ⟨2, by decide⟩⟩ : Semantic) := by
   have h := direct_run _ (symmetric_correct Nat) admissible [.delete,.enqueue 4] left_related
   rw [expected_semantics] at h
   exact h
@@ -74,13 +74,13 @@ theorem direct_head :
 /-- Deleting all three elements clips the selected end position down to zero. -/
 example : Related (representation Nat).Rel
     (run (ops (symmetric Nat) size) [.delete,.delete,.delete] right)
-    (⟨[], ⟨0, by decide⟩⟩ : semantic) :=
+    (⟨[], ⟨0, by decide⟩⟩ : Semantic) :=
   run_retains _ (symmetric_correct Nat) admissible [.delete,.delete,.delete] right_related
 
 /-- A constructor selects the end position and transports it across distinct
 physical layouts. The witness is not chosen anew by the interpretation. -/
 example : Related (representation Nat).Rel
-    (⟨AbstractFIFO.rightLayout, ⟨3, by decide⟩⟩ : runtime)
+    (⟨AbstractFIFO.rightLayout, ⟨3, by decide⟩⟩ : Runtime)
     ⟨[1,2,3], Fin.cast (congrArg (fun n => n+1)
       (admissible _ _ AbstractFIFO.right_related)) ⟨3, by decide⟩⟩ :=
   select_related admissible AbstractFIFO.right_related _
@@ -88,16 +88,16 @@ example : Related (representation Nat).Rel
 /-- Empty and excessive deletions preserve a real inhabitant, index zero. -/
 example : Related (representation Nat).Rel
     (run (ops (symmetric Nat) size) [.delete,.delete] (ops (symmetric Nat) size).empty)
-    (⟨[], ⟨0, by decide⟩⟩ : semantic) :=
+    (⟨[], ⟨0, by decide⟩⟩ : Semantic) :=
   run_retains _ (symmetric_correct Nat) admissible [.delete,.delete]
     (c := (ops (symmetric Nat) size).empty)
     (d := (ops (lists Nat) List.length).empty) ⟨⟨inv_nilSL,rfl⟩,rfl⟩
 
 /-- This observation detects information absent from the old queue type. -/
-def position (c : semantic) : Nat := c.position.val
+def position (c : Semantic) : Nat := c.position.val
 
 theorem same_queue_distinct_position :
-    (⟨[1,2,3], ⟨0, by decide⟩⟩ : semantic).value = chosen.value ∧
+    (⟨[1,2,3], ⟨0, by decide⟩⟩ : Semantic).value = chosen.value ∧
     position ⟨[1,2,3], ⟨0, by decide⟩⟩ ≠ position chosen := by decide
 
 /-- Counting only one segment fails the new semantic type's admission law.
@@ -110,9 +110,9 @@ theorem front_size_inadmissible :
 
 /-- Resetting every selected index would satisfy the erased queue observation
 but cannot be admitted as the identity operation on the richer semantic type. -/
-def reset (c : runtime) : runtime := ⟨c.value, ⟨0, Nat.zero_lt_succ _⟩⟩
+def reset (c : Runtime) : Runtime := ⟨c.value, ⟨0, Nat.zero_lt_succ _⟩⟩
 
-theorem reset_old_view (c : runtime) : (reset c).value = c.value := rfl
+theorem reset_old_view (c : Runtime) : (reset c).value = c.value := rfl
 
 theorem reset_not_identity :
     ¬ (∀ c d, Related (representation Nat).Rel c d →

@@ -29,7 +29,7 @@ def overGlobal : Deformation (reindex d.quotient.object (SplitSheaf.p A)) :=
   transport (Arrow.inverse d.quotient.comparison) d.localDeformation
 
 theorem matching (U : SmoothPresentationSite.Siteᵒᵖ)
-    (p q : (product D (SplitSheaf.Ext
+    (p q : (product D (SplitSheaf.extension
       (reindex d.quotient.object (SplitSheaf.p A)).torsor.family)).obj.obj U)
     (h : (cover d.quotient.object (SplitSheaf.p A)).hom.app U p =
       (cover d.quotient.object (SplitSheaf.p A)).hom.app U q) :

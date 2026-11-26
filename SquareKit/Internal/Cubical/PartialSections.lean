@@ -6,8 +6,8 @@ open CategoryTheory
 universe u
 
 structure PartialSection {Γ : Context.{u}} (A : Family Γ) (φ : Cofibration Γ) where
-  val : ∀ x : Γ.Elements, φ.full x → A.obj x
-  property : ∀ {x y : Γ.Elements} (f : x ⟶ y) (h : φ.full x),
+  val : ∀ x : Γ.Elements, φ.Full x → A.obj x
+  property : ∀ {x y : Γ.Elements} (f : x ⟶ y) (h : φ.Full x),
     A.map f (val x h) = val y (φ.full_natural f h)
 
 @[ext] theorem PartialSection.ext {Γ : Context.{u}} {A : Family Γ} {φ : Cofibration Γ}
@@ -53,19 +53,19 @@ def PartialSection.Compatible {Γ : Context.{u}} {A : Family Γ} {φ ψ : Cofibr
   ∀ x p q, a.val x p = b.val x q
 
 noncomputable def glueValue {Γ : Context.{u}} {A : Family Γ} {φ ψ : Cofibration Γ}
-    (a : PartialSection A φ) (b : PartialSection A ψ) (x : Γ.Elements) (p : (φ.join ψ).full x) : A.obj x :=
-  if h : φ.full x then a.val x h else b.val x ((Cofibration.full_join φ ψ x).mp p |>.resolve_left h)
+    (a : PartialSection A φ) (b : PartialSection A ψ) (x : Γ.Elements) (p : (φ.join ψ).Full x) : A.obj x :=
+  if h : φ.Full x then a.val x h else b.val x ((Cofibration.full_join φ ψ x).mp p |>.resolve_left h)
 
 theorem glueValue_left {Γ : Context.{u}} {A : Family Γ} {φ ψ : Cofibration Γ}
     (a : PartialSection A φ) (b : PartialSection A ψ) (x : Γ.Elements)
-    (p : (φ.join ψ).full x) (h : φ.full x) : glueValue a b x p = a.val x h := by
+    (p : (φ.join ψ).Full x) (h : φ.Full x) : glueValue a b x p = a.val x h := by
   simp only [glueValue,dite_eq_left h]
 
 theorem glueValue_right {Γ : Context.{u}} {A : Family Γ} {φ ψ : Cofibration Γ}
     (a : PartialSection A φ) (b : PartialSection A ψ) (c : a.Compatible b) (x : Γ.Elements)
-    (p : (φ.join ψ).full x) (h : ψ.full x) : glueValue a b x p = b.val x h := by
+    (p : (φ.join ψ).Full x) (h : ψ.Full x) : glueValue a b x p = b.val x h := by
   classical
-  by_cases q : φ.full x
+  by_cases q : φ.Full x
   · exact (glueValue_left a b x p q).trans (c x q h)
   · simp only [glueValue,dite_eq_right q]
 

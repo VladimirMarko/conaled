@@ -17,7 +17,7 @@ def committedRecords : List (Event P) → List (Record P)
   | _ :: es => committedRecords es
 
 theorem source_history {events : List (Event P)} {a b : Abstract P}
-    (run : Interaction.Events.interpret SpecStep events a b) :
+    (run : Interaction.Events.Interpret SpecStep events a b) :
     b.history = a.history ++ committedRecords events := by
   induction events generalizing a with
   | nil => cases run; simp [committedRecords]
@@ -120,7 +120,7 @@ theorem synchronous_correct {observe : List (Record P) → D} {s : Machine P} {a
 
 theorem synchronous_ack_fresh {observe : List (Record P) → D} {s mid t : Machine P}
     {a e events h} (rel : Related s a) (ack : Step (.acknowledge e) s mid)
-    (later : Interaction.Events.interpret Step events mid t) (ready : t.cache = some h) :
+    (later : Interaction.Events.Interpret Step events mid t) (ready : t.cache = some h) :
     ∃ v, synchronous observe t = some v ∧ a.history.length ≤ v.position ∧ e ∈ h := by
   obtain ⟨b,sourceAck,midRel⟩ := ack.simulation rel
   obtain ⟨c,sourceLater,lastRel⟩ := script_simulation _ midRel later

@@ -132,26 +132,26 @@ universe u
 variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
   (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
   (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
-  (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ)
+  (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ)
 
 include hp hΩ in
-theorem originalValueValidity : (term (total T) Q p).eval (algebra M) ρ :=
+theorem originalValueValidity : (term (total T) Q p).Eval (algebra M) ρ :=
   interpret hp M ρ hΩ
 
 include hΩ in
 theorem originalCertificateValidity :
-    (term (total T) (identity Q p p) (selected hx hT hp)).eval (algebra M) ρ :=
+    (term (total T) (identity Q p p) (selected hx hT hp)).Eval (algebra M) ρ :=
   interpret (certificate hx hT hp) M ρ hΩ
 
 include hp hσ hτ hΩ in
 theorem valueValidity :
-    (term Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ)).eval (algebra M) ρ :=
+    (term Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ)).Eval (algebra M) ρ :=
   interpret (valueTwice hp hσ hτ) M ρ hΩ
 
 include hσ hτ hΩ in
 theorem certificateValidity :
     (term Θ (subTy (subTy (identity Q p p) σ) τ)
-      (subTm (subTm (selected hx hT hp) σ) τ)).eval (algebra M) ρ :=
+      (subTm (subTm (selected hx hT hp) σ) τ)).Eval (algebra M) ρ :=
   interpret (certificateTwice hx hT hp hσ hτ) M ρ hΩ
 
 include hp hσ hτ hΩ in
@@ -180,14 +180,14 @@ noncomputable def extendedType := SquareKit.Internal.DependentJudgments.Sigma.re
 
 include hΩ in
 theorem extendedAssumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
-    a.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
+    a.Eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
   intro a ha
   obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
   simpa only [SquareKit.Internal.DependentJudgments.Sigma.eval_old_judgment] using hΩ b hb
 
 include hΩ in
 theorem extendedValidity :
-    ((term (total T) (identity Q p p) (selected hx hT hp)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+    ((term (total T) (identity Q p p) (selected hx hT hp)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ :=
   SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedCertificate hx hT hp) M S.toCapability ρ
     (extendedAssumptions M S ρ hΩ)
@@ -195,7 +195,7 @@ theorem extendedValidity :
 include hσ hτ hΩ in
 theorem extendedTwiceValidity :
     ((term Θ (subTy (subTy (identity Q p p) σ) τ)
-      (subTm (subTm (selected hx hT hp) σ) τ)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      (subTm (subTm (selected hx hT hp) σ) τ)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ :=
   SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedCertificateTwice hx hT hp hσ hτ) M S.toCapability ρ
     (extendedAssumptions M S ρ hΩ)
@@ -203,7 +203,7 @@ theorem extendedTwiceValidity :
 -- Recovery includes validity, so malformed expressions cannot discharge it.
 include hΩ in
 theorem extensionSelected :
-    ((term (total T) (identity Q p p) (selected hx hT hp)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+    ((term (total T) (identity Q p p) (selected hx hT hp)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((selected hx hT hp).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       (selected hx hT hp).eval (algebra M) ρ :=
@@ -211,7 +211,7 @@ theorem extensionSelected :
 
 include hp hΩ in
 theorem extensionValue :
-    ((term (total T) Q p).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
+    ((term (total T) Q p).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     (p.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       p.eval (algebra M) ρ :=
   ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedValue hp) M S.toCapability ρ (extendedAssumptions M S ρ hΩ),
@@ -232,7 +232,7 @@ theorem extensionType :
 include hσ hτ hΩ in
 theorem extensionSelectedTwice :
     ((term Θ (subTy (subTy (identity Q p p) σ) τ)
-      (subTm (subTm (selected hx hT hp) σ) τ)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      (subTm (subTm (selected hx hT hp) σ) τ)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((subTm (subTm (selected hx hT hp) σ) τ).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
@@ -244,7 +244,7 @@ theorem extensionSelectedTwice :
 include hp hσ hτ hΩ in
 theorem extensionValueTwice :
     ((term Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ)).inl
-      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((subTm (subTm p σ) τ).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
@@ -258,7 +258,7 @@ include hσ hτ hΩ in
 theorem extensionAlignedValidity :
     ((term Θ (subTy (identity Q p p) (comp σ τ))
       (subTm (subTm (selected hx hT hp) σ) τ)).inl
-      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ :=
   SquareKit.Internal.DependentJudgments.Sigma.interpret
     (extendedCertificateAligned hx hT hp hσ hτ) M S.toCapability ρ

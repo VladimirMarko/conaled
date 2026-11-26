@@ -25,9 +25,9 @@ abbrev pseudofunctor := (functor G).toPseudofunctor'
 
 variable {G} {X : Sheaf J (Type (max u v))}
 variable (A : SplitSheaf.Ty X)
-abbrev overlap := SplitSheaf.Ext (SplitSheaf.tySub A (SplitSheaf.p A))
-abbrev first : overlap A ⟶ SplitSheaf.Ext A := SplitSheaf.p (SplitSheaf.tySub A (SplitSheaf.p A))
-abbrev second : overlap A ⟶ SplitSheaf.Ext A := SplitSheaf.lift A (SplitSheaf.p A)
+abbrev overlap := SplitSheaf.extension (SplitSheaf.tySub A (SplitSheaf.p A))
+abbrev first : overlap A ⟶ SplitSheaf.extension A := SplitSheaf.p (SplitSheaf.tySub A (SplitSheaf.p A))
+abbrev second : overlap A ⟶ SplitSheaf.extension A := SplitSheaf.lift A (SplitSheaf.p A)
 abbrev base : overlap A ⟶ X := first A ≫ SplitSheaf.p A
 abbrev singleton := fun _ : Unit => SplitSheaf.p A
 abbrev Data := (pseudofunctor G).DescentData (singleton A)
@@ -53,7 +53,7 @@ theorem transition_reindex (D : Data (G := G) A) {Y : Sheaf J (Type (max u v))}
   exact D.pullHom_hom k (base A) (k ≫ base A) rfl
     (first A) (second A) rfl rfl (k ≫ first A) (k ≫ second A) rfl rfl
 
-abbrev diagonal (A : SplitSheaf.Ty X) : SplitSheaf.Ext A ⟶ overlap A :=
+abbrev diagonal (A : SplitSheaf.Ty X) : SplitSheaf.extension A ⟶ overlap A :=
   SplitSheaf.pair (SplitSheaf.tySub A (SplitSheaf.p A)) (𝟙 _) (SplitSheaf.q A)
 
 theorem transport_identity (D : Data (G := G) A) (x : X.obj.Elements) (a : A.family.obj x)
@@ -81,7 +81,7 @@ theorem transport_equivariant (D : Data (G := G) A) (x : X.obj.Elements)
       (D.obj ()).act (Descent.point A x b) g (transport D x a b p) :=
   (transition D).equivariant ((overlap A).obj.elementsMk x.obj ⟨⟨x.val,a⟩,b⟩) g p
 
-abbrev triple (A : SplitSheaf.Ty X) := SplitSheaf.Ext (SplitSheaf.tySub A (base A))
+abbrev triple (A : SplitSheaf.Ty X) := SplitSheaf.extension (SplitSheaf.tySub A (base A))
 abbrev pair12 (A : SplitSheaf.Ty X) : triple A ⟶ overlap A :=
   SplitSheaf.p (SplitSheaf.tySub A (base A))
 abbrev pair13 (A : SplitSheaf.Ty X) : triple A ⟶ overlap A :=
@@ -126,7 +126,7 @@ theorem datum_toDescentData (T : Torsor G X) :
 theorem comm_of_overlap {D E : Data (G := G) A} (h : D.obj () ⟶ E.obj ())
     (hh : SheafTorsor.Arrow.comp (h.reindex (first A)) (transition E) =
       SheafTorsor.Arrow.comp (transition D) (h.reindex (second A)))
-    {Y : Sheaf J (Type (max u v))} (q : Y ⟶ X) (f₁ f₂ : Y ⟶ SplitSheaf.Ext A)
+    {Y : Sheaf J (Type (max u v))} (q : Y ⟶ X) (f₁ f₂ : Y ⟶ SplitSheaf.extension A)
     (hf₁ : f₁ ≫ SplitSheaf.p A = q) (hf₂ : f₂ ≫ SplitSheaf.p A = q) :
     ((pseudofunctor G).map f₁.op.toLoc).toFunctor.map h ≫ E.hom q f₁ f₂ hf₁ hf₂ =
       D.hom q f₁ f₂ hf₁ hf₂ ≫ ((pseudofunctor G).map f₂.op.toLoc).toFunctor.map h := by
@@ -191,7 +191,7 @@ theorem canonicalComparison_eq (T : Torsor G X)
     Descent.canonicalComparison A T = (Descent.canonicalRecovery A T).reindex (SplitSheaf.p A) := by
   let r := Descent.canonicalRecovery A T
   have h := Descent.canonicalEmbedding_evaluation A T
-  apply (cancel_epi (C := Torsor G (SplitSheaf.Ext A)) (r.inverse.reindex (SplitSheaf.p A))).mp
+  apply (cancel_epi (C := Torsor G (SplitSheaf.extension A)) (r.inverse.reindex (SplitSheaf.p A))).mp
   change SheafTorsor.Arrow.comp ((Descent.canonicalEmbedding A T).toArrow.reindex (SplitSheaf.p A))
     (Descent.canonicalComparison A T) = _
   rw [h]
@@ -255,31 +255,31 @@ instance isEquivalence_split [Presheaf.IsLocallySurjective J (SplitSheaf.p A).ho
   exact {}
 
 /-- Translate a constructive datum back through its actual glued torsor. -/
-def ofDatum {P : Torsor G (SplitSheaf.Ext A)} (d : Descent.Datum A P)
+def ofDatum {P : Torsor G (SplitSheaf.extension A)} (d : Descent.Datum A P)
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] : Data (G := G) A :=
   ((pseudofunctor G).toDescentData (singleton A)).obj (Descent.torsor d)
 
 /-- The translated datum recovers the original local object and transport. -/
-def ofDatumRecovery {P : Torsor G (SplitSheaf.Ext A)} (d : Descent.Datum A P)
+def ofDatumRecovery {P : Torsor G (SplitSheaf.extension A)} (d : Descent.Datum A P)
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] :
     Descent.Map (datum (ofDatum d)) d where
   toEquivariantMap := equivariantArrowEquiv.symm (Descent.comparison d)
   transport x a b p := (Descent.evaluation_transport d x a b p).symm
 
 /-- Recovery has an inverse compatible with the original transport. -/
-def ofDatumRecoveryInv {P : Torsor G (SplitSheaf.Ext A)} (d : Descent.Datum A P)
+def ofDatumRecoveryInv {P : Torsor G (SplitSheaf.extension A)} (d : Descent.Datum A P)
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] :
     Descent.Map d (datum (ofDatum d)) where
   toEquivariantMap := equivariantArrowEquiv.symm (Descent.comparison d).inverse
   transport x a b p := Descent.evaluation_inverse_transport d x a b p
 
-theorem ofDatumRecovery_inv {P : Torsor G (SplitSheaf.Ext A)} (d : Descent.Datum A P)
+theorem ofDatumRecovery_inv {P : Torsor G (SplitSheaf.extension A)} (d : Descent.Datum A P)
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] :
     (ofDatumRecovery d).comp (ofDatumRecoveryInv d) = Descent.Map.ident _ := by
   apply Descent.Map.ext
   exact (Descent.comparison d).iso.hom_inv_id
 
-theorem ofDatumRecoveryInv_inv {P : Torsor G (SplitSheaf.Ext A)} (d : Descent.Datum A P)
+theorem ofDatumRecoveryInv_inv {P : Torsor G (SplitSheaf.extension A)} (d : Descent.Datum A P)
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] :
     (ofDatumRecoveryInv d).comp (ofDatumRecovery d) = Descent.Map.ident d := by
   apply Descent.Map.ext

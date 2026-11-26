@@ -26,8 +26,8 @@ theorem backward : Derives (.ex (.conj h.shift p)) (.conj h (.ex p)) :=
 
 /-- The equivalence is obtained solely from the two source derivations. -/
 theorem inSet (M : Interpretation F P) (ρ : Env M Γ) :
-    (h.eval M ρ ∧ ∃ x, p.eval M (ρ.extend x)) ↔
-      ∃ x, h.shift.eval M (ρ.extend x) ∧ p.eval M (ρ.extend x) :=
+    (h.Eval M ρ ∧ ∃ x, p.Eval M (ρ.extend x)) ↔
+      ∃ x, h.shift.Eval M (ρ.extend x) ∧ p.Eval M (ρ.extend x) :=
   ⟨sound M (forward h p) ρ, sound M (backward h p) ρ⟩
 end Frobenius
 end SquareKit.Internal

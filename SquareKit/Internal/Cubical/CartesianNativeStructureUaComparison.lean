@@ -421,14 +421,14 @@ noncomputable def modelPathInverseEquivalence : HomotopyEquivalence (modelPathIn
   let C := objectConditionsFilling T Γ
   PropositionExtension.pathInverseEquivalence (objectConditions T Γ) z w (objectConditionsIsProp T Γ)
     O.1 O.2 C.1 C.2
-noncomputable def modelPathInverse_projection
+noncomputable def modelPathInverseProjection
     (p : Term (homogeneousPath (objects T.description Γ) (sigmaFst z) (sigmaFst w))) :
     Term (homogeneousPath (homogeneousPath (objects T.description Γ) (sigmaFst z) (sigmaFst w))
       (Term.map (HomotopyLevels.pathMap (PropositionExtension.first (objectConditions T Γ)) z w)
         (Term.map (modelPathInverse T z w) p)) p) :=
   let O := objectsFilling T.description Γ
   let C := objectConditionsFilling T Γ
-  PropositionExtension.pathInverse_projection (objectConditions T Γ) z w (objectConditionsIsProp T Γ)
+  PropositionExtension.pathInverseProjection (objectConditions T Γ) z w (objectConditionsIsProp T Γ)
     O.1 O.2 C.1 C.2 p
 
 end Models
@@ -734,18 +734,18 @@ noncomputable def modelLeftInverseAt (q : Term (modelEquivalences T z w)) :
       (Term.map (modelInverse T z w) (Term.map (modelMap T z w) q)) q) :=
   let R := rawEquivalencesFilling T.description (sigmaFst z) (sigmaFst w)
   recoveryLeftAt (modelMap T z w) (modelEquivalence T z w) R.1 R.2 q
-private noncomputable def modelComposite_projection {R : Family Γ}
+private noncomputable def modelCompositeProjection {R : Family Γ}
     (f : R ⟶ homogeneousPath (objects T.description Γ) (sigmaFst z) (sigmaFst w)) (q : Term R) :
     Term (homogeneousPath (homogeneousPath (objects T.description Γ) (sigmaFst z) (sigmaFst w))
       (Term.map (HomotopyLevels.pathMap (PropositionExtension.first (objectConditions T Γ)) z w)
         (Term.map (f ≫ modelPathInverse T z w) q)) (Term.map f q)) :=
-  modelPathInverse_projection T z w (Term.map f q)
-noncomputable def modelMap_projection (q : Term (modelEquivalences T z w)) :
+  modelPathInverseProjection T z w (Term.map f q)
+noncomputable def modelMapProjection (q : Term (modelEquivalences T z w)) :
     Term (homogeneousPath (homogeneousPath (objects T.description Γ) (sigmaFst z) (sigmaFst w))
       (Term.map (HomotopyLevels.pathMap (PropositionExtension.first (objectConditions T Γ)) z w)
         (Term.map (modelMap T z w) q))
       (Term.map (rawMap T.description (sigmaFst z) (sigmaFst w)) q)) :=
-  modelComposite_projection T z w (rawMap T.description (sigmaFst z) (sigmaFst w)) q
+  modelCompositeProjection T z w (rawMap T.description (sigmaFst z) (sigmaFst w)) q
 end FinalModels
 
 

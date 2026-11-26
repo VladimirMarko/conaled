@@ -12,10 +12,10 @@ open scoped Classical
 
 private theorem flag_value {I J : Cube} (f : I ⟶ J) (g : J ⟶ (⟨2⟩ : Cube)) :
     squareCocycle.eval f g (𝟙 _) =
-      (if h : squareBoundarySieve.contains (Over.mk g) then
+      (if h : squareBoundarySieve.Contains (Over.mk g) then
         squareEdgeValue (squareLabel (Over.mk (f ≫ g)) (squareBoundarySieve.downward (Over.homMk f rfl : Over.mk (f ≫ g) ⟶ Over.mk g) h))
           (squareLabel (Over.mk g) h) else 0) := by
-  have outside : ¬ squareBoundarySieve.contains (Over.mk (𝟙 (⟨2⟩ : Cube))) := by
+  have outside : ¬ squareBoundarySieve.Contains (Over.mk (𝟙 (⟨2⟩ : Cube))) := by
     change ¬ (none ≠ (none : Option Bool) ∨ none ≠ (none : Option Bool))
     simp
   simp only [CubeCocycle.eval,squareCocycle,coboundary,δ1,extendZero]

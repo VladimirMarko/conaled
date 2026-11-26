@@ -15,7 +15,7 @@ must rebuild. The syntax has no excluded-middle connective or axiom and no
 requirement that r be decidable. This bounded scheme is separate from the
 existing regular-fragment syntax, which does not provide these connectives.
 
-`Formula.eval` interprets syntax in predicates. `Satisfies` interprets all
+`Formula.Eval` interprets syntax in predicates. `Satisfies` interprets all
 three source sequents at every parameter. `satisfies_iff` identifies exactly
 coverage, disjointness and containment in r. `Model` stores P, Q and this
 satisfaction evidence. It does not store an externally chosen category.

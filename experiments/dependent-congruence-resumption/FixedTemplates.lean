@@ -46,7 +46,7 @@ def concatApplicationCongr (p' : Path x y)
     (ep : TmEqDeriv Γ γ (.identity .base x.raw y.raw)
       (identityCode (baseCode γ) x.code y.code) p.raw p.code p'.raw p'.code) :=
   TmEqDeriv.substitutionCongr (concatOpen hΓ (x := x))
-    (concat_endpoints_congr hΓ p p' q ep)
+    (concatEndpointsCongr hΓ p p' q ep)
 
 /-- Beta for the same nonempty dependent template: the original reflexive
 branch and its arguments are constructed by the existing command builder. -/

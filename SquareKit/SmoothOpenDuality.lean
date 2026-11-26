@@ -7,11 +7,11 @@ noncomputable section
 open scoped ContDiff
 namespace SquareKit.SmoothAlgebra.Localization
 open OpenFunctions
-variable {n m k : ℕ} {f : Free n} {g : Free m} {q : Free k}
+variable {n m k : ℕ} {f : freeAlgebra n} {g : freeAlgebra m} {q : freeAlgebra k}
 
-abbrev OpenMap (f : Free n) (g : Free m) := Map (locus f) (locus g)
+abbrev OpenMap (f : freeAlgebra n) (g : freeAlgebra m) := Map (locus f) (locus g)
 
-def evaluation (f : Free n) (x : locus f) : Hom (Functions f) ℝ where
+def evaluation (f : freeAlgebra n) (x : locus f) : Hom (functionAlgebra f) ℝ where
   toFun a := a.val x
   map_act _ _ := rfl
 
@@ -20,7 +20,7 @@ def pullback (h : OpenMap f g) : Hom (Principal g) (Principal f) :=
 
 @[simp] theorem pullback_apply (h : OpenMap f g) (a : Principal g) (x : locus f) :
     (toOpen f (pullback h a)).val x = (toOpen g a).val (h x) := by
-  exact congrArg (fun b : Functions f => b.val x) ((openEquiv f).apply_symm_apply _)
+  exact congrArg (fun b : functionAlgebra f => b.val x) ((openEquiv f).apply_symm_apply _)
 
 /-- Every algebra map determines a target point from its coordinate images. -/
 def reconstruct (h : Hom (Principal g) (Principal f)) : OpenMap f g where
@@ -56,7 +56,7 @@ theorem pullback_reconstruct (h : Hom (Principal g) (Principal f)) : pullback (r
   rw [pullback_apply,reconstruct_value]
 
 /-- All algebra morphisms, not just those induced by globally smooth ambient maps. -/
-def mapEquiv (f : Free n) (g : Free m) : OpenMap f g ≃ Hom (Principal g) (Principal f) where
+def mapEquiv (f : freeAlgebra n) (g : freeAlgebra m) : OpenMap f g ≃ Hom (Principal g) (Principal f) where
   toFun := pullback
   invFun := reconstruct
   left_inv := reconstruct_pullback
@@ -69,7 +69,7 @@ theorem unique_pullback (h : Hom (Principal g) (Principal f)) :
   intro a ha
   exact (mapEquiv f g).injective (ha.trans (pullback_reconstruct h).symm)
 
-theorem pullback_ident (f : Free n) : pullback (Map.ident (locus f)) = Hom.ident := by
+theorem pullback_ident (f : freeAlgebra n) : pullback (Map.ident (locus f)) = Hom.ident := by
   apply Hom.ext
   intro a
   exact (openEquiv f).symm_apply_apply a

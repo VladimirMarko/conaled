@@ -475,8 +475,8 @@ theorem packSystem_injective (cfg : Config) : Function.Injective (packSystem cfg
   simp [worker,identity,number_success]
 
 private theorem valid_receipt_identity (state : Bool) (r : PendingCrash.Request)
-    (h : requestValid state r) : ∀ t ∈ r.receipt,t.identity = r.identity := by
-  cases hp : r.phase <;> simp [requestValid,hp] at h <;> aesop
+    (h : RequestValid state r) : ∀ t ∈ r.receipt,t.identity = r.identity := by
+  cases hp : r.phase <;> simp [RequestValid,hp] at h <;> aesop
 
 theorem frame_success_of_valid (limit : Nat) (f : Frame) (h : f.Valid)
     (hn : f.nextIdentity ≤ limit) : (frame limit).encode f ≠ none := by

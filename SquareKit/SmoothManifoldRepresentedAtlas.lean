@@ -53,20 +53,20 @@ namespace SquareKit.ManifoldRealization
 open CategoryTheory EuclideanOpen SmoothAlgebra
 open scoped Manifold ContDiff
 variable {n : ℕ} {M : Type} [TopologicalSpace M] [ChartedSpace (Space n) M]
-def restrictChart (e : OpenPartialHomeomorph M (Space n)) (q : Free n) :
+def restrictChart (e : OpenPartialHomeomorph M (Space n)) (q : freeAlgebra n) :
     OpenPartialHomeomorph M (Space n) :=
   e.trans (OpenPartialHomeomorph.ofSet (Localization.locus q) (Localization.locus_open q))
-theorem restrictChart_smooth (e : OpenPartialHomeomorph M (Space n)) (q : Free n)
-    (he : e ∈ IsManifold.maximalAtlas (Model n) ∞ M) :
-    restrictChart e q ∈ IsManifold.maximalAtlas (Model n) ∞ M := by
+theorem restrictChart_smooth (e : OpenPartialHomeomorph M (Space n)) (q : freeAlgebra n)
+    (he : e ∈ IsManifold.maximalAtlas (modelWithCorners n) ∞ M) :
+    restrictChart e q ∈ IsManifold.maximalAtlas (modelWithCorners n) ∞ M := by
   have hs : IsOpen (Localization.locus q : Set (Space n)) := Localization.locus_open q
   have h := restr_mem_maximalAtlas _ he (e.isOpen_inter_preimage hs)
-  exact Eq.mp (congrArg (fun c => c ∈ IsManifold.maximalAtlas (Model n) ∞ M)
+  exact Eq.mp (congrArg (fun c => c ∈ IsManifold.maximalAtlas (modelWithCorners n) ∞ M)
     (e.trans_of_set' hs).symm) h
 omit [ChartedSpace (Space n) M] in
-theorem restrictChart_target (e : OpenPartialHomeomorph M (Space n)) (q : Free n) :
+theorem restrictChart_target (e : OpenPartialHomeomorph M (Space n)) (q : freeAlgebra n) :
     (restrictChart e q).target = Localization.locus q ∩ e.target := rfl
-def restrictChartDomainIso (e : OpenPartialHomeomorph M (Space n)) (q : Free n) :
+def restrictChartDomainIso (e : OpenPartialHomeomorph M (Space n)) (q : freeAlgebra n) :
     chartDomain (restrictChart e q) ≅ subdomain (chartDomain e) q where
   hom := domainInclusion _ _ (by
     intro x hx
@@ -82,7 +82,7 @@ def restrictChartDomainIso (e : OpenPartialHomeomorph M (Space n)) (q : Free n) 
   hom_inv_id := OpenFunctions.Map.ext (fun _ => rfl)
   inv_hom_id := OpenFunctions.Map.ext (fun _ => rfl)
 namespace ChartFamily
-variable (A : ChartFamily n M) (K : A.Index → Type) (q : ∀ i, K i → Free n)
+variable (A : ChartFamily n M) (K : A.Index → Type) (q : ∀ i, K i → freeAlgebra n)
     (hq : ∀ i, Covers (A.charts.domain i) (q i))
 def subdivision : ChartFamily n M where
   Index := Σ i, K i
@@ -148,7 +148,7 @@ open scoped Manifold ContDiff
 variable {n m : ℕ} {M N : Type} [TopologicalSpace M] [TopologicalSpace N]
   [ChartedSpace (Space n) M] [ChartedSpace (Space m) N]
 variable (A : ChartFamily n M)
-  (K : A.Index → Type) (q : ∀ i, K i → Free n) (hq : ∀ i, Covers (A.charts.domain i) (q i))
+  (K : A.Index → Type) (q : ∀ i, K i → freeAlgebra n) (hq : ∀ i, Covers (A.charts.domain i) (q i))
 
 /-- A subdivision is retained over the original realized manifold. -/
 def subdivisionAtlas : Atlas A.realization (Σ i, K i) :=
@@ -162,7 +162,7 @@ def subdivisionRefinement : AtlasMap A.representedAtlas (A.subdivisionAtlas K q 
     rw [Category.comp_id]
     exact (A.subdivision_chart K q hq p).symm
 
-variable (B : ChartFamily m N) (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f)
+variable (B : ChartFamily m N) (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f)
 
 /-- Actual inverse images of target charts cover the source manifold. -/
 def inverseCharts : ChartFamily n M :=
@@ -251,8 +251,8 @@ open scoped Manifold ContDiff
 variable {n m k : ℕ} {M N L : Type} [TopologicalSpace M] [TopologicalSpace N] [TopologicalSpace L]
   [ChartedSpace (Space n) M] [ChartedSpace (Space m) N] [ChartedSpace (Space k) L]
 variable (A : ChartFamily n M) (B : ChartFamily m N) (C : ChartFamily k L)
-  (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f)
-  (g : L → M) (hg : ContMDiff (Model k) (Model n) ∞ g)
+  (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f)
+  (g : L → M) (hg : ContMDiff (modelWithCorners k) (modelWithCorners n) ∞ g)
 
 /-- The second base change maps into the already constructed inverse-image atlas. -/
 def inverseSecond : AtlasMap (A.inverseAtlas B f hf)

@@ -101,7 +101,7 @@ The existing consumers make the difference observable:
 
 | Consumer | Right-fold concat | Function-accumulating concat |
 |---|---|---|
-| `first p`, starting at `s` | `p s` | `False` |
+| `First p`, starting at `s` | `p s` | `False` |
 | `allCuts`, at budget `n` | Open prefix `unfold count s n` | Bottom |
 | `allCuts`, start 4, budget 3 | Open `[4,5,6]` | Bottom |
 

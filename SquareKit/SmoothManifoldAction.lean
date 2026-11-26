@@ -10,10 +10,10 @@ open scoped Manifold ContDiff
 namespace SquareKit.SmoothManifoldAction
 open ManifoldRealization EuclideanOpen SmoothOpenSite SmoothOrdinaryQuotient
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 
 /-- Interpret the supplied action maps; the group laws follow by functoriality. -/
-def representation (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)) :
+def representation (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x)) :
     SmoothConstantAction.Representation G (object d M) where
   map g := ManifoldRealization.map (fun x => g • x) (smoothAction g)
   one := by
@@ -26,7 +26,7 @@ def representation (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ 
 
 /-- The literal interpretation of a smooth map from an admitted test domain. -/
 def hat {U : Domain} (m : ordinaryOpen U → M)
-    (hm : ContMDiff (Model U.dimension) (Model d) ∞ m) : embedding.obj U ⟶ object d M :=
+    (hm : ContMDiff (modelWithCorners U.dimension) (modelWithCorners d) ∞ m) : embedding.obj U ⟶ object d M :=
   (principalIso U).inv ≫ ManifoldRealization.map m hm
 
 /-- Point detection for manifold-valued maps uses full faithfulness, not a
@@ -55,8 +55,8 @@ abbrev pointEquiv :=
     (ChartFamily.preferred (n := d) (M := M)).atlas.covers
 
 theorem map_eval {e : ℕ} {N : Type} [TopologicalSpace N]
-    [ChartedSpace (Space e) N] [IsManifold (Model e) ∞ N]
-    (f : M → N) (hf : ContMDiff (Model d) (Model e) ∞ f)
+    [ChartedSpace (Space e) N] [IsManifold (modelWithCorners e) ∞ N]
+    (f : M → N) (hf : ContMDiff (modelWithCorners d) (modelWithCorners e) ∞ f)
     (a : SmoothOpenSite.realSections.obj (object d M)) :
     pointEquiv (d := e) (M := N) ((ManifoldRealization.map f hf).hom.app _ a) =
       f (pointEquiv (d := d) (M := M) a) := by
@@ -75,7 +75,7 @@ theorem principal_eval (U : Domain) (x : Points U) :
   exact h.symm.trans k
 
 theorem hat_eval {U : Domain} (m : ordinaryOpen U → M)
-    (hm : ContMDiff (Model U.dimension) (Model d) ∞ m) (x : Points U) :
+    (hm : ContMDiff (modelWithCorners U.dimension) (modelWithCorners d) ∞ m) (x : Points U) :
     pointEquiv (d := d) (M := M) ((hat m hm).hom.app _ (ordinaryPoint U x)) = m x := by
   change pointEquiv ((ManifoldRealization.map m hm).hom.app _
     ((principalIso U).inv.hom.app _ (ordinaryPoint U x))) = _
@@ -83,11 +83,11 @@ theorem hat_eval {U : Domain} (m : ordinaryOpen U → M)
 
 /-- Reflection of the actual sheaf action equation, including locally varying labels. -/
 theorem onMap_iff
-    (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+    (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
     (U : Domain) (k : embedding.obj U ⟶ locallyConstantGroupSheaf G)
     (m n : ordinaryOpen U → M)
-    (hm : ContMDiff (Model U.dimension) (Model d) ∞ m)
-    (hn : ContMDiff (Model U.dimension) (Model d) ∞ n) :
+    (hm : ContMDiff (modelWithCorners U.dimension) (modelWithCorners d) ∞ m)
+    (hn : ContMDiff (modelWithCorners U.dimension) (modelWithCorners d) ∞ n) :
     (representation smoothAction).action.onMap k (hat n hn) = hat m hm ↔
       ∀ x, ordinaryHomLabelEquiv G U k x • n x = m x := by
   have eval (x : Points U) : pointEquiv (d := d) (M := M)

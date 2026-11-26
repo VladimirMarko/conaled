@@ -170,7 +170,7 @@ completions, where those restrictions are already present.
 every completion of the new state is a completion of the old state. Neither
 claim says the source reports the external world honestly. `batch_append` and
 `batch_empty` are list calculations used by these proofs; they preserve packet
-order and account for silence. `initial`, `windowValid`, and `advance` make the
+order and account for silence. `initial`, `WindowValid`, and `advance` make the
 half-open interval convention explicit.
 
 The relation on partial observations permits any semantic batch for `none`.

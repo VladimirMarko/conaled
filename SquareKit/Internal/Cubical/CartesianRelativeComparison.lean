@@ -64,7 +64,7 @@ noncomputable def line : Term (reindex (P (a := a) (b := b)) (π (Γ := Γ))) :=
         (EquivalenceFamilies.homogeneousReindexIso A a b (π (Γ := Γ))).hom))
 
 theorem line_boundary (x : (total (interval Γ)).Elements)
-    (hx : ((intervalFace Γ false).join (intervalFace Γ true)).full x) :
+    (hx : ((intervalFace Γ false).join (intervalFace Γ true)).Full x) :
     (line c F hF H K).val x = (boundary H K).val x hx := by
   let e := EquivalenceFamilies.homogeneousReindexIso A a b (π (Γ := Γ))
   have h := EquivalenceFamilies.ContractiblePaths.extend_boundary
@@ -77,9 +77,9 @@ theorem line_zero : (line c F hF H K).reindex (endpointSub Γ false) = H := by
   apply Term.ext
   intro x
   let y := (endpointSub Γ false).mapElements.obj x
-  have hy : (intervalFace Γ false).full y :=
+  have hy : (intervalFace Γ false).Full y :=
     (Cofibration.full_endpoint (generic (interval Γ)) false y).mpr rfl
-  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).full y :=
+  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).Full y :=
     (Cofibration.full_join _ _ y).mpr (Or.inl hy)
   exact (line_boundary c F hF H K y hj).trans
     ((endpointBoundary_zero (reindex (homogeneousPath A a b) (projection (interval Γ))) H K y hj hy).trans
@@ -89,9 +89,9 @@ theorem line_one : (line c F hF H K).reindex (endpointSub Γ true) = K := by
   apply Term.ext
   intro x
   let y := (endpointSub Γ true).mapElements.obj x
-  have hy : (intervalFace Γ true).full y :=
+  have hy : (intervalFace Γ true).Full y :=
     (Cofibration.full_endpoint (generic (interval Γ)) true y).mpr rfl
-  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).full y :=
+  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).Full y :=
     (Cofibration.full_join _ _ y).mpr (Or.inr hy)
   exact (line_boundary c F hF H K y hj).trans
     ((endpointBoundary_one (reindex (homogeneousPath A a b) (projection (interval Γ))) H K y hj hy).trans

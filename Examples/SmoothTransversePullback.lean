@@ -9,7 +9,7 @@ namespace Examples.SmoothTransversePullback
 
 def parabola (z : Space 2) : Space 1 := fun _ => z 1 - z 0 ^ 2
 
-theorem parabola_smooth : ContMDiff (Model 2) (Model 1) ∞ parabola := by
+theorem parabola_smooth : ContMDiff (modelWithCorners 2) (modelWithCorners 1) ∞ parabola := by
   apply ContDiff.contMDiff
   unfold parabola
   fun_prop
@@ -34,7 +34,7 @@ theorem parabola_transverse (z : Space 2) (w : Space 0)
   simp only [tangentDifference, sub_apply, ContinuousLinearMap.comp_apply,
     mfderiv_const, zero_apply, ContinuousLinearEquiv.coe_coe,
     tangentTransport_apply]
-  rw [show Model 2 = 𝓘(ℝ, Space 2) from rfl, show Model 1 = 𝓘(ℝ, Space 1) from rfl,
+  rw [show modelWithCorners 2 = 𝓘(ℝ, Space 2) from rfl, show modelWithCorners 1 = 𝓘(ℝ, Space 1) from rfl,
     mfderiv_eq_fderiv]
   simp only [ContinuousLinearMap.comp_apply, ContinuousLinearEquiv.coe_coe]
   change (fderiv ℝ parabola z) (fun i => if i = 1 then v 0 else 0) - 0 = v
@@ -49,10 +49,10 @@ def axisX : Space 1 →L[ℝ] Space 2 := ContinuousLinearMap.pi fun i =>
 def axisY : Space 1 →L[ℝ] Space 2 := ContinuousLinearMap.pi fun i =>
   if i = 1 then ContinuousLinearMap.proj 0 else 0
 
-theorem axisX_smooth : ContMDiff (Model 1) (Model 2) ∞ axisX :=
+theorem axisX_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 2) ∞ axisX :=
   axisX.contDiff.contMDiff
 
-theorem axisY_smooth : ContMDiff (Model 1) (Model 2) ∞ axisY :=
+theorem axisY_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 2) ∞ axisY :=
   axisY.contDiff.contMDiff
 
 theorem axes_transverse (x y : Space 1) (h : axisX x = axisY y) :
@@ -61,7 +61,7 @@ theorem axes_transverse (x y : Space 1) (h : axisX x = axisY y) :
   refine ⟨(fun _ => v 0, fun _ => -v 1), ?_⟩
   simp only [tangentDifference, sub_apply, ContinuousLinearMap.comp_apply,
     ContinuousLinearEquiv.coe_coe, tangentTransport_apply]
-  rw [show Model 1 = 𝓘(ℝ, Space 1) from rfl, show Model 2 = 𝓘(ℝ, Space 2) from rfl,
+  rw [show modelWithCorners 1 = 𝓘(ℝ, Space 1) from rfl, show modelWithCorners 2 = 𝓘(ℝ, Space 2) from rfl,
     mfderiv_eq_fderiv, mfderiv_eq_fderiv]
   simp only [ContinuousLinearMap.comp_apply, ContinuousLinearEquiv.coe_coe]
   change (fderiv ℝ axisX x) (fun _ => v 0) -
@@ -85,7 +85,7 @@ theorem empty_transverse (x : Space 0) (y : Space 1) (h : emptyLeft x = emptyRig
 
 def parabolaCurve (t : Space 1) : Space 2 := fun i => if i = 0 then t 0 else t 0 ^ 2
 
-theorem parabolaCurve_smooth : ContMDiff (Model 1) (Model 2) ∞ parabolaCurve := by
+theorem parabolaCurve_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 2) ∞ parabolaCurve := by
   apply ContDiff.contMDiff
   apply contDiff_pi.mpr
   intro i
@@ -157,14 +157,14 @@ example : ¬ (2 ≤ 0 + 1) := by omega
 local instance parabolaCharted : ChartedSpace (Space 1) ParabolaFiber :=
   chartedSpace parabola_smooth contMDiff_const parabola_transverse_all
 
-local instance parabolaManifold : IsManifold (Model 1) ∞ ParabolaFiber :=
+local instance parabolaManifold : IsManifold (modelWithCorners 1) ∞ ParabolaFiber :=
   isManifold parabola_smooth contMDiff_const parabola_transverse_all
 
 example : T2Space ParabolaFiber := t2Space
 
 example : SecondCountableTopology ParabolaFiber := secondCountableTopology
 
-theorem parabolaPoint_smooth : ContMDiff (Model 1) (Model 1) ∞ parabolaPoint :=
+theorem parabolaPoint_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ parabolaPoint :=
   smooth_lift parabola_smooth contMDiff_const parabola_transverse_all
     parabolaCurve (fun _ => 0) parabolaCurve_level parabolaCurve_smooth contMDiff_const
 
@@ -172,42 +172,42 @@ example (t : Space 1) : fst (parabolaPoint t) 0 = t 0 := by
   simp [fst, parabolaPoint, parabolaCurve]
 
 example {k : ℕ} (h : Space k → ParabolaFiber) :
-    ContMDiff (Model k) (Model 1) ∞ h ↔
-      ContMDiff (Model k) (Model 2) ∞ (fst ∘ h) ∧
-      ContMDiff (Model k) (Model 0) ∞ (snd ∘ h) :=
+    ContMDiff (modelWithCorners k) (modelWithCorners 1) ∞ h ↔
+      ContMDiff (modelWithCorners k) (modelWithCorners 2) ∞ (fst ∘ h) ∧
+      ContMDiff (modelWithCorners k) (modelWithCorners 0) ∞ (snd ∘ h) :=
   smooth_iff_components parabola_smooth contMDiff_const parabola_transverse_all h
 
 local instance axesCharted : ChartedSpace (Space 0) AxesFiber :=
   chartedSpace axisX_smooth axisY_smooth axes_transverse_all
 
-local instance axesManifold : IsManifold (Model 0) ∞ AxesFiber :=
+local instance axesManifold : IsManifold (modelWithCorners 0) ∞ AxesFiber :=
   isManifold axisX_smooth axisY_smooth axes_transverse_all
 
-example : ContMDiff (Model 0) (Model 1) ∞ (fst : AxesFiber → Space 1) :=
+example : ContMDiff (modelWithCorners 0) (modelWithCorners 1) ∞ (fst : AxesFiber → Space 1) :=
   smooth_fst axisX_smooth axisY_smooth axes_transverse_all
 
-example : ContMDiff (Model 0) (Model 1) ∞ (snd : AxesFiber → Space 1) :=
+example : ContMDiff (modelWithCorners 0) (modelWithCorners 1) ∞ (snd : AxesFiber → Space 1) :=
   smooth_snd axisX_smooth axisY_smooth axes_transverse_all
 
 local instance emptyCharted : ChartedSpace (Space 0) EmptyFiber :=
   chartedSpace contMDiff_const contMDiff_const empty_transverse_all
 
-local instance emptyManifold : IsManifold (Model 0) ∞ EmptyFiber :=
+local instance emptyManifold : IsManifold (modelWithCorners 0) ∞ EmptyFiber :=
   isManifold contMDiff_const contMDiff_const empty_transverse_all
 
-example : ContMDiff (Model 0) (Model 0) ∞ (fst : EmptyFiber → Space 0) :=
+example : ContMDiff (modelWithCorners 0) (modelWithCorners 0) ∞ (fst : EmptyFiber → Space 0) :=
   smooth_fst contMDiff_const contMDiff_const empty_transverse_all
 
-example : ContMDiff (Model 0) (Model 1) ∞ (snd : EmptyFiber → Space 1) :=
+example : ContMDiff (modelWithCorners 0) (modelWithCorners 1) ∞ (snd : EmptyFiber → Space 1) :=
   smooth_snd contMDiff_const contMDiff_const empty_transverse_all
 
 /-- Base change of the identity on a line along the nonlinear plane map uses
 both atlas constructions with their different source/target dimensions. -/
 example {k : ℕ} (h : Space k → Pullback (id : Space 1 → Space 1) parabola) :
     (letI := chartedSpace contMDiff_id parabola_smooth (identity_transverse parabola);
-      ContMDiff (Model k) (Model 2) ∞ h) ↔
+      ContMDiff (modelWithCorners k) (modelWithCorners 2) ∞ h) ↔
     (letI := (identitySheets parabola parabola_smooth.continuous).chartedSpace (n := 2);
-      ContMDiff (Model k) (Model 2) ∞ h) :=
+      ContMDiff (modelWithCorners k) (modelWithCorners 2) ∞ h) :=
   identity_atlas_comparison parabola parabola_smooth h
 
 end Examples.SmoothTransversePullback

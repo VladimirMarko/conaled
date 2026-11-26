@@ -18,20 +18,20 @@ theorem complete_packages : (FacadeAuthor.mainDecoded E) = targetLength ∧ (Fac
 theorem all_observations (a b : List Nat) :
     (FacadeAuthor.mainDecoded E).initial = ([], []) ∧
     (FacadeAuthor.mainDecoded E).step (a,b) = (1::a,1::b) ∧
-    ((FacadeAuthor.mainDecoded E).invariant (a,b) ↔ a.length = b.length) ∧
+    ((FacadeAuthor.mainDecoded E).Invariant (a,b) ↔ a.length = b.length) ∧
     (FacadeAuthor.variationDecoded E).initial = ([], []) ∧
     (FacadeAuthor.variationDecoded E).step (a,b) = (1::a,1::b) ∧
-    ((FacadeAuthor.variationDecoded E).invariant (a,b) ↔ a.sum = b.sum) := by
+    ((FacadeAuthor.variationDecoded E).Invariant (a,b) ↔ a.sum = b.sum) := by
   rw [(FacadeAuthor.mainDecoded_target E), (FacadeAuthor.variationDecoded_target E)]
   exact ⟨rfl, rfl, Iff.rfl, rfl, rfl, Iff.rfl⟩
 
 /-- The step check distinguishes prepend from append away from the initial orbit. -/
 theorem separating_observations :
     (FacadeAuthor.mainDecoded E).step ([2,3],[5]) = ([1,2,3],[1,5]) ∧
-    ¬ (FacadeAuthor.mainDecoded E).invariant ([2,3],[5]) ∧
-    (FacadeAuthor.variationDecoded E).invariant ([2,3],[5]) ∧
-    (FacadeAuthor.mainDecoded E).invariant ([2],[3]) ∧
-    ¬ (FacadeAuthor.variationDecoded E).invariant ([2],[3]) := by
+    ¬ (FacadeAuthor.mainDecoded E).Invariant ([2,3],[5]) ∧
+    (FacadeAuthor.variationDecoded E).Invariant ([2,3],[5]) ∧
+    (FacadeAuthor.mainDecoded E).Invariant ([2],[3]) ∧
+    ¬ (FacadeAuthor.variationDecoded E).Invariant ([2],[3]) := by
   rw [(FacadeAuthor.mainDecoded_target E), (FacadeAuthor.variationDecoded_target E)]
   simp [targetLength, targetSum]
 

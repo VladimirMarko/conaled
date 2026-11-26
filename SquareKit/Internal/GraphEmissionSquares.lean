@@ -12,7 +12,7 @@ universe v
 def declarationRep : Relational.RelRep where
   R := GraphTarget.Declaration
   S := Prop
-  Rel d P := Declaration.denote.{v} d = P
+  Rel d P := Declaration.Denote.{v} d = P
 
 def artifactRep : Relational.RelRep where
   R := Lean.Expr × Lean.Expr
@@ -38,12 +38,12 @@ structure SourceProgram where
 def SourceProgram.target (s : SourceProgram) : GraphTarget.Declaration :=
   ⟨s.context, translateFormula s.premise, translateFormula s.conclusion, s.code⟩
 
-def SourceProgram.denote (s : SourceProgram) : Prop :=
+def SourceProgram.Denote (s : SourceProgram) : Prop :=
   ∀ (M : Interpretation.{0,v} Graph.Arrow) (ρ : Env M s.context),
-    s.premise.eval M ρ → s.conclusion.eval M ρ
+    s.premise.Eval M ρ → s.conclusion.Eval M ρ
 
 theorem SourceProgram.target_denote (s : SourceProgram) :
-    Declaration.denote.{v} s.target ↔ s.denote.{v} := by
+    Declaration.Denote.{v} s.target ↔ s.Denote.{v} := by
   constructor
   · intro h M ρ hp
     exact (formula_comparison M ρ s.conclusion).mp
@@ -55,7 +55,7 @@ theorem SourceProgram.target_denote (s : SourceProgram) :
 def sourceRep : Relational.RelRep where
   R := SourceProgram
   S := Prop
-  Rel s P := s.denote.{v} = P
+  Rel s P := s.Denote.{v} = P
 
 def sourceSquare : Relational.RelSquare sourceRep.{v} declarationRep.{v} where
   impl := SourceProgram.target
@@ -69,7 +69,7 @@ def sourceEmissionSquare : Relational.RelSquare sourceRep.{v} artifactRep.{v} :=
   Relational.compose producerSquare sourceSquare
 
 theorem source_emission (s : SourceProgram) :
-    ArtifactTyped (emit s.target) ∧ ArtifactDenotes.{v} (emit s.target) s.denote.{v} :=
+    ArtifactTyped (emit s.target) ∧ ArtifactDenotes.{v} (emit s.target) s.Denote.{v} :=
   sourceEmissionSquare.preserves (r := s) rfl
 
 end SquareKit.Internal.GraphEmissionPure

@@ -123,7 +123,7 @@ def environment : Fin 11 → Value native.toStructuralModel :=
 /-- Discharge the generated source guards for arbitrary internal P, Q and
 selected sections. No interpretation law is requested from the author. -/
 theorem environment_valid : ∀ p ∈ Source.premises,
-    p.eval (Contextual.algebra native) (environment P Q s A t σ τ) := by
+    p.Eval (Contextual.algebra native) (environment P Q s A t σ τ) := by
   intro p hp
   simp only [Source.premises, List.mem_cons, List.not_mem_nil, or_false] at hp
   rcases hp with rfl | rfl | rfl | rfl | rfl | rfl | rfl
@@ -146,7 +146,7 @@ theorem environment_valid : ∀ p ∈ Source.premises,
 /-- The interpreted generated derivation establishes the nested classifying
 map, with both actual dependent selections retained. -/
 theorem generated_pair_typed :
-    (Contextual.substitution Source.gamma Source.nestedContext Source.nestedPair).eval
+    (Contextual.substitution Source.gamma Source.nestedContext Source.nestedPair).Eval
       (Contextual.algebra native) (environment P Q s A t σ τ) :=
   Contextual.interpret Source.pairTyping native _ (environment_valid P Q s A t σ τ)
 
@@ -262,16 +262,16 @@ theorem selected_tags (n : Nat) :
 with the actual two-substitution order in its family index. -/
 theorem generated_payload :
     Source.payloadTwice.eval (Contextual.algebra native)
-      (environment first second selected payload payloadChoice shift double) =
-      .term Nat (fun n => payload (classify selected (2 * n + 1)))
+      (environment first second selected Payload payloadChoice shift double) =
+      .term Nat (fun n => Payload (classify selected (2 * n + 1)))
         ⟨fun n => payloadChoice (classify selected (2 * n + 1))⟩ :=
-  generated_payload_comparison first second selected payload payloadChoice shift double
+  generated_payload_comparison first second selected Payload payloadChoice shift double
 
 /-- The same source recipes are interpreted after the two actual base changes. -/
 def freshEnvironment : Fin 11 → Value native.toStructuralModel :=
   environment ((first.subst shift).subst double)
     (reindex (first.subst shift) (reindex first second shift) double) substituted
-    (typeSub (typeSub payload shift) double)
+    (typeSub (typeSub Payload shift) double)
     (termSub (termSub payloadChoice shift) double) id id
 
 /-- Decode both generated projections, including the second one's type over
@@ -285,7 +285,7 @@ theorem generated_selected_components (n : Nat) :
       ((Source.secondProjection.eval (Contextual.algebra native) freshEnvironment).termAt Nat
         (fun n => Fiber (reindex (first.subst shift) (reindex first second shift) double)
           (substituted.1.graph n))) = some true := by
-  have h := fresh_projection_values first second selected payload payloadChoice shift double
+  have h := fresh_projection_values first second selected Payload payloadChoice shift double
   change Source.firstProjection.eval (Contextual.algebra native) freshEnvironment = _ ∧
     Source.secondProjection.eval (Contextual.algebra native) freshEnvironment = _ at h
   rw [h.1, h.2]
@@ -296,8 +296,8 @@ theorem generated_selected_components (n : Nat) :
 theorem generated_payload_at_two :
     Option.map (fun t => (t.down 2).val)
       ((Source.payloadTwice.eval (Contextual.algebra native)
-        (environment first second selected payload payloadChoice shift double)).termAt Nat
-        (fun n => payload (classify selected (2 * n + 1)))) = some 6 := by
+        (environment first second selected Payload payloadChoice shift double)).termAt Nat
+        (fun n => Payload (classify selected (2 * n + 1)))) = some 6 := by
   rw [generated_payload]
   simp only [Value.termAt_term, Option.map_some]
   rfl
@@ -306,12 +306,12 @@ theorem generated_payload_at_two :
 theorem generated_order_detected :
     Option.map (fun t => (t.down 0).val)
       ((Source.payloadTwice.eval (Contextual.algebra native)
-        (environment first second selected payload payloadChoice shift double)).termAt Nat
-        (fun n => payload (classify selected (shift (double n))))) = some 2 ∧
+        (environment first second selected Payload payloadChoice shift double)).termAt Nat
+        (fun n => Payload (classify selected (shift (double n))))) = some 2 ∧
     Option.map (fun t => (t.down 0).val)
       ((Source.payloadTwice.eval (Contextual.algebra native)
-        (environment first second selected payload payloadChoice double shift)).termAt Nat
-        (fun n => payload (classify selected (double (shift n))))) = some 3 := by
+        (environment first second selected Payload payloadChoice double shift)).termAt Nat
+        (fun n => Payload (classify selected (double (shift n))))) = some 3 := by
   rw [payloadTwice_value, payloadTwice_value]
   simp only [Value.termAt_term, Option.map_some]
   exact ⟨rfl, rfl⟩

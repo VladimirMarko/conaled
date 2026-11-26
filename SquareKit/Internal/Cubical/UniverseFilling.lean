@@ -262,7 +262,7 @@ section RelativeBackward
 variable (F : Filling A) (hF : F.Lawful) (φ : Cofibration Γ)
   (t : PartialSection A (φ.reindex (projection (interval Γ))))
   (b : Term (reindex A (endpointSub Γ true)))
-  (hb : ∀ (x : Γ.Elements) (hx : φ.full x),
+  (hb : ∀ (x : Γ.Elements) (hx : φ.Full x),
     t.val ((endpointSub Γ true).mapElements.obj x) hx = b.val x)
 
 def backwardBox : OpenBox (reindex A (reverseInterval Γ)) φ where
@@ -299,7 +299,7 @@ theorem backwardRelative_one : (backwardRelative F φ t b hb).reindex (endpointS
 
 include hF in
 theorem backwardRelative_boundary (x : (total (interval Γ)).Elements)
-    (hx : (φ.reindex (projection (interval Γ))).full x) :
+    (hx : (φ.reindex (projection (interval Γ))).Full x) :
     (backwardRelative F φ t b hb).val x = t.val x hx := by
   have he := congrArg (fun σ : total (interval Γ) ⟶ total (interval Γ) => σ.mapElements.obj x)
     (reverseInterval_twice Γ)
@@ -340,7 +340,7 @@ theorem backwardRelative_reindex {Θ : Context.{u}} (σ : Θ ⟶ Γ) :
 
 theorem backwardRelative_congr
     (t' : PartialSection A (φ.reindex (projection (interval Γ))))
-    (hb' : ∀ (x : Γ.Elements) (hx : φ.full x),
+    (hb' : ∀ (x : Γ.Elements) (hx : φ.Full x),
       t'.val ((endpointSub Γ true).mapElements.obj x) hx = b.val x) (ht : t = t') :
     backwardRelative F φ t b hb = backwardRelative F φ t' b hb' := by
   cases ht
@@ -399,11 +399,11 @@ theorem localAdjusted_one :
   adjustedPath_one (F.reindex (liftSub (interval Γ) (localBase (φ := φ) ρ))) (hF.reindex _)
     (localSource f ρ z) (localTarget (φ := φ) ρ) (localPath F hF f hf ρ z)
 
-theorem partialAdjusted_zero (x : Δ.Elements) (hx : φ.full x) :
+theorem partialAdjusted_zero (x : Δ.Elements) (hx : φ.Full x) :
     (partialAdjusted F hF f hf ρ z).val ((endpointSub Δ false).mapElements.obj x) hx = (z.val x hx).1 :=
   congrArg (fun t => t.val (Glue.faceObj φ x hx)) (localAdjusted_zero F hF f hf ρ z)
 
-theorem partialAdjusted_one (x : Δ.Elements) (hx : φ.full x) :
+theorem partialAdjusted_one (x : Δ.Elements) (hx : φ.Full x) :
     (partialAdjusted F hF f hf ρ z).val ((endpointSub Δ true).mapElements.obj x) hx =
       ((generic (reindex A (endpointSub Γ true))).reindex ρ).val x :=
   congrArg (fun t => t.val (Glue.faceObj φ x hx)) (localAdjusted_one F hF f hf ρ z)
@@ -420,7 +420,7 @@ theorem fullPath_one : (fullPath F hF f hf ρ z).reindex (endpointSub Δ true) =
 
 noncomputable def fullSource := (fullPath F hF f hf ρ z).reindex (endpointSub Δ false)
 
-theorem fullSource_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem fullSource_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (fullSource F hF f hf ρ z).val x = (z.val x hx).1 :=
   (backwardRelative_boundary (F.reindex (liftSub (interval Γ) (base ρ))) (hF.reindex _) φ
     (partialAdjusted F hF f hf ρ z) ((generic (reindex A (endpointSub Γ true))).reindex ρ)
@@ -566,7 +566,7 @@ theorem extend_on_face : (extend F hF f hf ρ z).reindex (restrictInclusion φ) 
       _ _ (pathTerm_hext _ _ (finalPathApp_on_face F hF f hf ρ z))).trans
         (genericFiberIntro_eta f (restrictInclusion φ ≫ ρ) z.toRestricted))
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (extend F hF f hf ρ z).val x = z.val x hx :=
   congrArg (fun t => t.val (Glue.faceObj φ x hx)) (extend_on_face F hF f hf ρ z)
 
@@ -630,7 +630,7 @@ theorem fullForward_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
 
 
 theorem partialComparison_body (x : (total (interval (total (interval Δ)))).Elements)
-    (hx : (φ.reindex (projection (interval (total (interval Δ))) ≫ projection (interval Δ))).full x) :
+    (hx : (φ.reindex (projection (interval (total (interval Δ))) ≫ projection (interval Δ))).Full x) :
     (partialComparison F hF f hf ρ z).pathApp.val x hx =
       (localSquare F hF f hf ρ z).val
         ((total (interval (total (interval (restrictContext φ))))).elementsMk x.obj

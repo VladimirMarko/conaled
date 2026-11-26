@@ -44,7 +44,7 @@ theorem overlap_selected_branches :
     overlapRun_of_first_true unitLE (point 2) (point 1) rfl⟩
 
 theorem overlap_value_and_bound (query stored : NKey) :
-    (overlapRun unitLE query stored).1 = decide (IntervalKey.overlap query stored) ∧
+    (overlapRun unitLE query stored).1 = decide (IntervalKey.Overlap query stored) ∧
       (overlapRun unitLE query stored).2 ≤ 2 :=
   ⟨overlapRun_value unitLE query stored (fun _ _ => rfl),
     overlapRun_cost_le unitLE query stored 1 (fun _ _ => Nat.le_refl 1)⟩
@@ -190,17 +190,17 @@ theorem wrong_stored_height_bound (query : NKey) : (unitQuery wrongHeight query)
 
 /-! Meaningful public soundness and the strictly weaker query completeness contract. -/
 theorem malformed_success_has_original_witness :
-    ∃ a ∈ setTree (Cached.erase malformed), IntervalKey.overlap a eightPoint :=
+    ∃ a ∈ setTree (Cached.erase malformed), IntervalKey.Overlap a eightPoint :=
   searchRun_sound id (projectAt id 0) unitLE malformed eightPoint
     (fun _ => rfl) (fun _ _ => rfl) rfl
 
 theorem weak_query_contracts (query : NKey) :
     ((unitQuery wrongHeight query).1 = true ↔
-      ∃ a ∈ setTree (Cached.erase wrongHeight), IntervalKey.overlap a query) ∧
+      ∃ a ∈ setTree (Cached.erase wrongHeight), IntervalKey.Overlap a query) ∧
     ((unitQuery unbalanced query).1 = true ↔
-      ∃ a ∈ setTree (Cached.erase unbalanced), IntervalKey.overlap a query) ∧
+      ∃ a ∈ setTree (Cached.erase unbalanced), IntervalKey.Overlap a query) ∧
     ((unitQuery repeatedKey query).1 = true ↔
-      ∃ a ∈ setTree (Cached.erase repeatedKey), IntervalKey.overlap a query) :=
+      ∃ a ∈ setTree (Cached.erase repeatedKey), IntervalKey.Overlap a query) :=
   ⟨searchRun_correct id (projectAt id 0) unitLE wrongHeight query
       (fun _ => rfl) (fun _ _ => rfl) weak_maximum_validity.1 weak_low_order.1,
     searchRun_correct id (projectAt id 0) unitLE unbalanced query
@@ -215,12 +215,12 @@ theorem weak_inputs_exclude_full_validity :
 /-- The stale selected child is exhausted; the overlapping sibling is not tried. -/
 theorem stale_query_misses_existing_overlap :
     unitQuery staleRotated (point 3) = (false, 9) ∧
-      ∃ a ∈ setTree (Cached.erase staleRotated), IntervalKey.overlap a (point 3) :=
+      ∃ a ∈ setTree (Cached.erase staleRotated), IntervalKey.Overlap a (point 3) :=
   ⟨rfl, stale_false_negative.2⟩
 
 theorem underestimated_query_misses_existing_overlap :
     unitQuery underestimated (point 3) = (false, 5) ∧
-      ∃ a ∈ setTree (Cached.erase underestimated), IntervalKey.overlap a (point 3) :=
+      ∃ a ∈ setTree (Cached.erase underestimated), IntervalKey.Overlap a (point 3) :=
   ⟨rfl, underestimated_false_negative.2.2.2.2⟩
 
 /-- Full AVL set validity does not supply a missing low-projection compatibility law. -/
@@ -228,7 +228,7 @@ theorem reversed_projection_needs_compatibility :
     Balanced.Valid Examples.IntervalTreeSearch.reversedInterval reverseProduct ∧
       searchRun (projectAt Examples.IntervalTreeSearch.reversedInterval 0) unitLE
         reverseProduct (point 0) = (false, 7) ∧
-      IntervalSet.hasOverlap (Examples.IntervalTreeSearch.reversedInterval ''
+      IntervalSet.HasOverlap (Examples.IntervalTreeSearch.reversedInterval ''
         setTree (Cached.erase reverseProduct)) (point 0) :=
   ⟨reverse_product_valid, rfl, reverse_false_negative.2⟩
 
@@ -240,7 +240,7 @@ theorem indexed_exact_queries :
 
 theorem indexed_strict_query_contract (query : NKey) :
     (searchRun (projectAt indexedInterval 0) unitLE indexedBoth query).1 = true ↔
-      ∃ a ∈ setTree (Cached.erase indexedBoth), IntervalKey.overlap (indexedInterval a) query := by
+      ∃ a ∈ setTree (Cached.erase indexedBoth), IntervalKey.Overlap (indexedInterval a) query := by
   have valid : Balanced.Valid indexedInterval indexedBoth := indexed_prefix_valid 2
   exact searchRun_correct_of_strict indexedInterval (projectAt indexedInterval 0) unitLE
     indexedBoth query (fun _ => rfl) (fun _ _ => rfl)

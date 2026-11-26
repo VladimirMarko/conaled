@@ -136,8 +136,8 @@ inductive Format where | dense | coordinate | diagonal
   deriving DecidableEq
 
 structure Target where
-  supports : Format → Prop
-  randomAccess : Prop
+  Supports : Format → Prop
+  RandomAccess : Prop
   capacity : Nat
 
 /-- Candidate storage format, workload observations, and a declared workspace
@@ -149,8 +149,8 @@ structure Plan where
   retained : Nat
   workspace : Nat
 
-def eligible (target : Target) (p : Plan) : Prop :=
-  target.supports p.storageFormat ∧ target.randomAccess ∧ p.retained + p.workspace ≤ target.capacity
+def Eligible (target : Target) (p : Plan) : Prop :=
+  target.Supports p.storageFormat ∧ target.RandomAccess ∧ p.retained + p.workspace ≤ target.capacity
 
 def objective (prices : Work) (repetitions : Nat) (p : Plan) : Nat :=
   tariff prices (p.preparation + fun e => repetitions * p.application e)

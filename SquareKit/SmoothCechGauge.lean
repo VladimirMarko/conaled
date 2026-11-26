@@ -8,7 +8,7 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover SmoothMa
 open ManifoldRealization
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 
 /-- Restriction uses the actual smooth map of represented domains. -/
 def restrictLabel {U V : Domain} (a : LocallyConstant (Points U) G) (r : V ⟶ U) :
@@ -104,7 +104,7 @@ def gaugeHom : Hom p (p.gauge n a) where
     change ((a j).val _ * (p.transition i j).val x * ((a i).val _)⁻¹) * (a i).val _ = _
     exact inv_mul_cancel_right _ _
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem gauge_transition (i j : I) (x : Points (A.pair i j)) :
     ((p.gauge n a).transition i j).val x =
       (a j).val ((show EuclideanOpen.Map _ _ from A.right i j) x) *
@@ -112,12 +112,12 @@ theorem gauge_transition (i j : I) (x : Points (A.pair i j)) :
       ((a i).val ((show EuclideanOpen.Map _ _ from A.left i j) x))⁻¹ := rfl
 
 def gaugeComparison
-    (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)) :
+    (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x)) :
     SheafActionQuotient.Arrow ((p.gauge n a).interpreted smoothAction)
       (p.interpreted smoothAction) :=
   (interpretedHomEquiv smoothAction _ _ (p.gaugeHom n a)).inverse
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem gauge_of_hom {q : Datum (d := d) (G := G) (M := M) A} (h : Hom p q) :
     p.gauge q.localMap h.labels = q := by
   refine Datum.ext _ _ ?_ ?_
@@ -138,7 +138,7 @@ def composeGauge (m : ∀ i, External.SmoothMap (A.domain i) d M)
     change ((b i).val x * (a i).val x) • _ = _
     rw [mul_smul, (a i).property, (b i).property]⟩
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem gauge_twice (m : ∀ i, External.SmoothMap (A.domain i) d M)
     (b : ∀ i, External.Labels (G := G) (A.domain i) (n i) (m i)) :
     (p.gauge n a).gauge m b = p.gauge m (p.composeGauge n a m b) := by
@@ -153,13 +153,13 @@ theorem gauge_twice (m : ∀ i, External.SmoothMap (A.domain i) d M)
     ((b j).val _ * (a j).val _) * (p.transition i j).val x * ((b i).val _ * (a i).val _)⁻¹
   simp only [mul_inv_rev, mul_assoc]
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem gauge_identity : p.gauge p.localMap (Hom.ident p).labels = p := p.gauge_of_hom (Hom.ident p)
 
 end Datum
 
 namespace TrivializedOn
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable {P : SheafActionQuotient.Object (representation smoothAction).action X}
 variable (t u : TrivializedOn A smoothAction P)
 
@@ -208,7 +208,7 @@ variable (b : ∀ i, External.Labels (G := G) (A.domain i) (q.localMap i) (m i))
 def gauge : Hom (p.gauge n a) (q.gauge m b) :=
   (p.gaugeHom n a).inverse.comp (f.comp (q.gaugeHom m b))
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem gauge_labels (i : I) (x : Points (A.domain i)) :
     ((f.gauge n m a b).labels i).val x =
       (b i).val x * (f.labels i).val x * ((a i).val x)⁻¹ := rfl

@@ -6,17 +6,17 @@ namespace SquareKit.SmoothTorsorReconstruction
 open Topology CategoryTheory ManifoldRealization SmoothOpenSite SmoothManifoldAction EuclideanOpen IsManifold
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 variable [TopologicalSpace G] [DiscreteTopology G]
 local instance : ChartedSpace (Space n) (Total P) := chartedSpace P
-local instance : IsManifold (Model n) ∞ (Total P) := isManifold P
+local instance : IsManifold (modelWithCorners n) ∞ (Total P) := isManifold P
 def reconstructionChart (i : (sectionCharts P).Index) (g : G) :
     OpenPartialHomeomorph (Total P) (Space n) :=
   (localSheet P i g).trans ((sectionCharts P).chart i)
 theorem reconstructionChart_smooth (i : (sectionCharts P).Index) (g : G) :
-    reconstructionChart P i g ∈ maximalAtlas (Model n) ∞ (Total P) := by
-  have hs : ContMDiffOn (Model n) (Model n) ∞ (localSheet P i g) (localSheet P i g).source :=
+    reconstructionChart P i g ∈ maximalAtlas (modelWithCorners n) ∞ (Total P) := by
+  have hs : ContMDiffOn (modelWithCorners n) (modelWithCorners n) ∞ (localSheet P i g) (localSheet P i g).source :=
     (bundle P).smooth_projection.contMDiffOn
   apply OpenPartialHomeomorph.mem_maximalAtlas_of_contMDiffOn
   · exact (contMDiffOn_of_mem_maximalAtlas ((sectionCharts P).smooth i)).comp
@@ -64,7 +64,7 @@ theorem reconstructionChart_point (i : (sectionCharts P).Index) (g : G)
   exact congrArg (fun z : Total P => g • z) hs
 
 def reconstructionChartLift (i : (sectionCharts P).Index) (g : G) :
-    embedding.obj (chartDomain (reconstructionChart P i g)) ⟶ SplitSheaf.Ext P.family :=
+    embedding.obj (chartDomain (reconstructionChart P i g)) ⟶ SplitSheaf.extension P.family :=
   embedding.map (reconstructionDomainMap P i g) ≫
     ChartFamily.TorsorAtlas.localLift .preferred P i ≫ totalShift P g
 
@@ -81,7 +81,7 @@ theorem reconstructionChartLift_compatible :
   exact chart_lifts_compatible P (reconstructionCharts P).charts (totalPointEquiv P)
     _ (fun i x => reconstructionChartLift_point P i.1 i.2 x)
 
-def recoveryMap : object n (Total P) ⟶ SplitSheaf.Ext P.family :=
+def recoveryMap : object n (Total P) ⟶ SplitSheaf.extension P.family :=
   (atlasIso (reconstructionCharts P)).hom ≫
     (reconstructionCharts P).charts.descend _ (reconstructionChartLift_compatible P)
 
@@ -95,7 +95,7 @@ theorem recoveryMap_point (z : Total P) :
   apply chart_recovery_point (reconstructionCharts P) (recoveryMap P) (totalPointEquiv P)
   intro i x
   exact (congrArg
-    (fun k : embedding.obj ((reconstructionCharts P).charts.domain i) ⟶ SplitSheaf.Ext P.family =>
+    (fun k : embedding.obj ((reconstructionCharts P).charts.domain i) ⟶ SplitSheaf.extension P.family =>
       realSections.map k (ordinaryPoint _ x)) (recoveryMap_chart P i)).trans
     (reconstructionChartLift_point P i.1 i.2 x)
 
@@ -107,7 +107,7 @@ open scoped Manifold ContDiff
 variable {G : Type} [Group G]
 variable {M X : Sheaf topology Type}
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) X)
-variable (r : SmoothConstantAction.Representation G M) (k : M ⟶ SplitSheaf.Ext P.family)
+variable (r : SmoothConstantAction.Representation G M) (k : M ⟶ SplitSheaf.extension P.family)
 
 theorem total_intertwines
     (hc : ∀ (c : G) (U : SmoothPresentationSite.Siteᵒᵖ) (m : M.obj.obj U),
@@ -116,7 +116,7 @@ theorem total_intertwines
     (U : SmoothPresentationSite.Siteᵒᵖ) (g : (locallyConstantGroup G).obj.obj U)
     (m : M.obj.obj U) :
     k.hom.app U (r.act U g m) = P.toAction.totalAct U g (k.hom.app U m) := by
-  apply (((isSheaf_iff_isSheaf_of_type _ _).mp (SplitSheaf.Ext P.family).property)
+  apply (((isSheaf_iff_isSheaf_of_type _ _).mp (SplitSheaf.extension P.family).property)
     (Presheaf.imageSieve (constantLabel G) g)
     (Presheaf.imageSieve_mem topology (constantLabel G) g)).isSeparatedFor.ext
   intro V f hf
@@ -133,10 +133,10 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 variable (Q : SmoothPrincipalBundle.Bundle (n := n) (G := G) (B := B) (E := E))
-variable (k : object n E ⟶ SplitSheaf.Ext P.family)
+variable (k : object n E ⟶ SplitSheaf.extension P.family)
 variable (hk : k ≫ SplitSheaf.p P.family = ManifoldRealization.map Q.projection Q.smooth_projection)
 variable (hc : ∀ g, ManifoldRealization.map (fun e : E => g • e) (Q.smooth_action g) ≫ k =
   k ≫ totalShift P g)
@@ -150,7 +150,7 @@ theorem recoveryFiberMap_total : SplitSheaf.totalMap (recoveryFiberMap P Q k hk)
 
 theorem recoveryFiberMap_value (x : (object n B).obj.Elements)
     (p : Q.realizedTorsor.family.family.obj x) :
-    (⟨x.val, (recoveryFiberMap P Q k hk).app x p⟩ : (SplitSheaf.Ext P.family).obj.obj x.obj) =
+    (⟨x.val, (recoveryFiberMap P Q k hk).app x p⟩ : (SplitSheaf.extension P.family).obj.obj x.obj) =
       k.hom.app x.obj (Q.realizedTotalIso.hom.hom.app x.obj ⟨x.val,p⟩) :=
   congrArg (fun f => f.hom.app x.obj ⟨x.val,p⟩) (recoveryFiberMap_total P Q k hk)
 
@@ -160,7 +160,7 @@ theorem recoveryFiberMap_equivariant (x : (object n B).obj.Elements)
     (recoveryFiberMap P Q k hk).app x (Q.realizedTorsor.act x g p) =
       P.act x g ((recoveryFiberMap P Q k hk).app x p) := by
   have h : (⟨x.val, (recoveryFiberMap P Q k hk).app x (Q.realizedTorsor.act x g p)⟩ :
-      (SplitSheaf.Ext P.family).obj.obj x.obj) =
+      (SplitSheaf.extension P.family).obj.obj x.obj) =
       ⟨x.val, P.act x g ((recoveryFiberMap P Q k hk).app x p)⟩ := by
     rw [recoveryFiberMap_value, Q.realizedTotalIso_equivariant]
     have hh := total_intertwines P (representation Q.smooth_action) k
@@ -185,11 +185,11 @@ namespace SquareKit.SmoothTorsorReconstruction
 open CategoryTheory ManifoldRealization SmoothOpenSite SmoothManifoldAction EuclideanOpen
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 variable [TopologicalSpace G] [DiscreteTopology G]
 local instance : ChartedSpace (Space n) (Total P) := chartedSpace P
-local instance : IsManifold (Model n) ∞ (Total P) := isManifold P
+local instance : IsManifold (modelWithCorners n) ∞ (Total P) := isManifold P
 
 theorem recoveryMap_projection : recoveryMap P ≫ SplitSheaf.p P.family =
     ManifoldRealization.map (bundle P).projection (bundle P).smooth_projection := by
@@ -224,14 +224,14 @@ namespace SquareKit.SmoothTorsorReconstruction
 open CategoryTheory ManifoldRealization SmoothOpenSite SmoothManifoldAction EuclideanOpen
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 variable [TopologicalSpace G] [DiscreteTopology G]
 local instance : ChartedSpace (Space n) (Total P) := chartedSpace P
-local instance : IsManifold (Model n) ∞ (Total P) := isManifold P
+local instance : IsManifold (modelWithCorners n) ∞ (Total P) := isManifold P
 
 /-- Recovery retains the entire total sheaf, including every test stage. -/
-def reconstructedTotalIso : object n (Total P) ≅ SplitSheaf.Ext P.family :=
+def reconstructedTotalIso : object n (Total P) ≅ SplitSheaf.extension P.family :=
   (bundle P).realizedTotalIso.symm ≪≫
     SplitSheaf.totalIso (reconstructedArrow P).iso
 
@@ -252,11 +252,11 @@ namespace SquareKit.SmoothTorsorReconstruction
 open CategoryTheory Opposite ManifoldRealization SmoothOpenSite SmoothManifoldAction EuclideanOpen
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 variable [TopologicalSpace G] [DiscreteTopology G]
 local instance : ChartedSpace (Space n) (Total P) := chartedSpace P
-local instance : IsManifold (Model n) ∞ (Total P) := isManifold P
+local instance : IsManifold (modelWithCorners n) ∞ (Total P) := isManifold P
 
 theorem reconstructedTotalIso_equivariant (U : SmoothPresentationSite.Siteᵒᵖ)
     (g : (locallyConstantGroup G).obj.obj U) (z : (object n (Total P)).obj.obj U) :

@@ -38,7 +38,7 @@ theorem intercept (f : scalar ⟶ scalar) : coefficients (increment f) ≫ fst _
 
 /-- First-order Taylor at every algebra stage and every infinitesimal. -/
 theorem taylor (f : scalar ⟶ scalar) (A : Stage)
-    (x : Carrier A) (d : infinitesimal.obj.obj (atStage A)) :
+    (x : carrierAlgebra A) (d : infinitesimal.obj.obj (atStage A)) :
     f.hom.app (atStage A) (x + d.val) = f.hom.app (atStage A) x +
       (derivative f).hom.app (atStage A) x * d.val := by
   have h := universal_reconstruction (increment f) A d x
@@ -52,7 +52,7 @@ theorem taylor (f : scalar ⟶ scalar) (A : Stage)
 
 /-- All-stage slope uniqueness, through KL coefficient uniqueness. -/
 theorem derivative_unique (f g : scalar ⟶ scalar)
-    (hg : ∀ (A : Stage) (x : Carrier A) (d : infinitesimal.obj.obj (atStage A)),
+    (hg : ∀ (A : Stage) (x : carrierAlgebra A) (d : infinitesimal.obj.obj (atStage A)),
       f.hom.app (atStage A) (x+d.val) =
         f.hom.app (atStage A) x + g.hom.app (atStage A) x * d.val) : derivative f = g := by
   have he : AffineEquation (increment f) f g := fun A d x => hg A x d

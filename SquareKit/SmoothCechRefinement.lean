@@ -148,7 +148,7 @@ open ManifoldRealization
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {f : Y ⟶ X} (r : AtlasMap A B f)
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 
 private theorem map_apply_eq {U V W : Domain} {a : U ⟶ V} {b : V ⟶ W}
     {c : U ⟶ W} (h : a ≫ b = c) (x : Points U) :
@@ -205,7 +205,7 @@ def restrict (h : Hom p q) : Hom (p.restrict r) (q.restrict r) where
     erw [hl, hr] at he
     exact he
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     (Hom.ident p).restrict r = Hom.ident (p.restrict r) := by
   apply Hom.ext
@@ -215,7 +215,7 @@ theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
   intro x
   rfl
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem restrict_comp {s : Datum (d := d) (G := G) (M := M) A}
     (h : Hom p q) (k : Hom q s) : (h.comp k).restrict r = (h.restrict r).comp (k.restrict r) := by
   apply Hom.ext
@@ -225,7 +225,7 @@ theorem restrict_comp {s : Datum (d := d) (G := G) (M := M) A}
   intro x
   rfl
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem restrict_inverse (h : Hom p q) : h.inverse.restrict r = (h.restrict r).inverse := by
   apply Hom.ext
   funext j
@@ -301,9 +301,9 @@ open ManifoldRealization
 variable {X Y Z : Sheaf topology Type} {I J K : Type}
   {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     p.restrict (AtlasMap.ident A) = p := by
   apply Datum.ext
@@ -320,7 +320,7 @@ theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     rw [AtlasMap.ident_pair]
     rfl
 
-omit [IsManifold (Model d) ∞ M] in
+omit [IsManifold (modelWithCorners d) ∞ M] in
 theorem restrict_comp (p : Datum (d := d) (G := G) (M := M) A)
     {f : Y ⟶ X} {g : Z ⟶ Y} (r : AtlasMap A B f) (s : AtlasMap B C g) :
     (p.restrict r).restrict s = p.restrict (r.comp s) := by
@@ -369,7 +369,7 @@ open CategoryTheory CategoryTheory.Limits EuclideanOpen SmoothOpenSite SmoothRep
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
 
@@ -380,7 +380,7 @@ theorem restrict_localMapSheaf : (p.restrict r).localMapSheaf = r.total ≫ p.lo
   rw [localMapSheaf_fac, ← Category.assoc, r.inclusion_total, Category.assoc, localMapSheaf_fac]
   exact (External.hat_restrict (p.localMap (r.index j)) (r.chart j)).symm
 
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 theorem restrict_overlapLabel : (p.restrict r).overlapLabel smoothAction =
     SheafCoverCech.mapDouble f r.total r.total_cover ≫ p.overlapLabel smoothAction := by
@@ -401,8 +401,8 @@ variable {X Y : Sheaf topology Type} {I J : Type}
   {A : Atlas X I} {B : Atlas Y J} {f : Y ⟶ X} (r : AtlasMap A B f)
 
 /-- The map of actual covers, expressed in the selected split displays. -/
-def splitTotal : SplitSheaf.Ext (SplitSheaf.ofDisplay B.cover) ⟶
-    SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover) :=
+def splitTotal : SplitSheaf.extension (SplitSheaf.ofDisplay B.cover) ⟶
+    SplitSheaf.extension (SplitSheaf.ofDisplay A.cover) :=
   (SplitSheaf.displayIso B.cover).hom ≫ r.total ≫ (SplitSheaf.displayIso A.cover).inv
 
 theorem splitTotal_cover : r.splitTotal ≫ SplitSheaf.p (SplitSheaf.ofDisplay A.cover) =
@@ -419,7 +419,7 @@ open CategoryTheory CategoryTheory.Limits EuclideanOpen SmoothOpenSite SmoothRep
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
 
@@ -427,7 +427,7 @@ theorem restrict_splitLocalMap : (p.restrict r).splitLocalMap = r.splitTotal ≫
   simp only [splitLocalMap, AtlasMap.splitTotal, Category.assoc, Iso.inv_hom_id_assoc]
   rw [restrict_localMapSheaf]
 
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 theorem restrict_localObject : ((p.restrict r).cech smoothAction).localObject =
     reindex (p.cech smoothAction).localObject r.splitTotal := by
@@ -481,10 +481,10 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 theorem restrict_splitLabel : (p.restrict r).splitLabel smoothAction =
     r.splitDouble ≫ p.splitLabel smoothAction := by
@@ -521,19 +521,19 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 theorem restrictLocalComparison_heq :
     HEq (p.restrictLocalComparison r smoothAction)
       ((p.cech smoothAction).toDescent.comparison.reindex r.splitTotal) := by
   unfold restrictLocalComparison
   exact (eqToHom_comp_heq (C := Object (representation smoothAction).action
-    (SplitSheaf.Ext (SplitSheaf.ofDisplay B.cover))) _ _).trans
+    (SplitSheaf.extension (SplitSheaf.ofDisplay B.cover))) _ _).trans
       (comp_eqToHom_heq (C := Object (representation smoothAction).action
-        (SplitSheaf.Ext (SplitSheaf.ofDisplay B.cover))) _ _)
+        (SplitSheaf.extension (SplitSheaf.ofDisplay B.cover))) _ _)
 
 theorem restrict_overlap_heq :
     HEq ((p.restrict r).cech smoothAction).overlap.hom
@@ -585,7 +585,7 @@ theorem restrictLocalComparison_overlap :
       (a : Arrow P Q) (k : W ⟶ V) (l : Z ⟶ W) :
       HEq ((a.reindex k).reindex l) (a.reindex (l ≫ k)) := by rfl
   have changeMap (k l : SplitSheaf.Cech.double (SplitSheaf.ofDisplay B.cover) ⟶
-      SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)) (h : k = l) :
+      SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)) (h : k = l) :
       HEq (c.reindex k) (c.reindex l) := by
     cases h
     rfl
@@ -681,10 +681,10 @@ open CategoryTheory CategoryTheory.Limits EuclideanOpen SmoothOpenSite SmoothRep
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable {p q : Datum (d := d) (G := G) (M := M) A}
   (h : Hom p q) {f : Y ⟶ X} (r : AtlasMap A B f)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 theorem restrict_localLabel : (h.restrict r).localLabel smoothAction =
     r.total ≫ h.localLabel smoothAction := by
@@ -748,10 +748,10 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable {p q : Datum (d := d) (G := G) (M := M) A}
   (h : Hom p q) {f : Y ⟶ X} (r : AtlasMap A B f)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 theorem restrictLocalComparison_naturality :
     (((h.interpreted smoothAction).reindex f).reindex
@@ -789,7 +789,7 @@ theorem restrictComparison_naturality :
     (p.restrictComparison r smoothAction).comp ((h.restrict r).interpreted smoothAction) := by
   apply Descent.restriction_injective (A := SplitSheaf.ofDisplay B.cover)
   apply (cancel_mono (C := Object (representation smoothAction).action
-    (SplitSheaf.Ext (SplitSheaf.ofDisplay B.cover)))
+    (SplitSheaf.extension (SplitSheaf.ofDisplay B.cover)))
     ((q.restrict r).cech smoothAction).toDescent.comparison).mp
   change ((((h.interpreted smoothAction).reindex f).comp
     (q.restrictComparison r smoothAction)).reindex
@@ -836,10 +836,10 @@ open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y Z : Sheaf topology Type} {I J K : Type}
   {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- The selected local recovery equation determines the global comparison. -/
 theorem restrictComparison_unique
@@ -851,7 +851,7 @@ theorem restrictComparison_unique
     h = p.restrictComparison r smoothAction := by
   apply Descent.restriction_injective (A := SplitSheaf.ofDisplay B.cover)
   apply (cancel_mono (C := Object (representation smoothAction).action
-    (SplitSheaf.Ext (SplitSheaf.ofDisplay B.cover)))
+    (SplitSheaf.extension (SplitSheaf.ofDisplay B.cover)))
     ((p.restrict r).cech smoothAction).toDescent.comparison).mp
   exact he.trans (p.restrictComparison_recover r smoothAction).symm
 
@@ -880,7 +880,7 @@ theorem restrictComparison_ident : p.restrictComparison (AtlasMap.ident A) smoot
     rw [AtlasMap.ident_splitTotal] at h
     exact h
   exact eq_of_heq ((eqToHom_comp_heq (C := Object (representation smoothAction).action
-    (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover))) _ _).trans ((hc hd).trans he.symm))
+    (SplitSheaf.extension (SplitSheaf.ofDisplay A.cover))) _ _).trans ((hc hd).trans he.symm))
 
 end SquareKit.SmoothCech.Datum
 namespace SquareKit.SmoothCech.Datum
@@ -889,10 +889,10 @@ open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y Z : Sheaf topology Type} {I J K : Type}
   {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} {g : Z ⟶ Y} (r : AtlasMap A B f) (s : AtlasMap B C g)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- Composition retains the selected comparison and the proved equality of
 complete restricted data. -/
@@ -985,10 +985,10 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r s t : AtlasMap A B f)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- Two actual atlas maps to a common refinement compare through the same
 restricted global object. Composed atlas maps are allowed, with no equality
@@ -1017,10 +1017,10 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable {p q : Datum (d := d) (G := G) (M := M) A}
   (h : Hom p q) {f : Y ⟶ X} (r s : AtlasMap A B f)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- Common-refinement comparison is natural in complete external arrow families. -/
 theorem commonComparison_naturality :

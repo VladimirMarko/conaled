@@ -216,7 +216,7 @@ private theorem conjugate_composition {C : Type*} [Category C]
   simp only [Category.assoc, Iso.hom_inv_id_assoc]
 
 /-- Projection of the reconstruction recovers the complete supplied path natively. -/
-noncomputable def pathInverse_projection (z w : Term (sigma A B))
+noncomputable def pathInverseProjection (z w : Term (sigma A B))
     (pB : Term (HomotopyLevels.isProp B))
     (FA : Filling A) (hFA : FA.Lawful) (FB : Filling B) (hFB : FB.Lawful)
     (p : Term (homogeneousPath A (sigmaFst z) (sigmaFst w))) :

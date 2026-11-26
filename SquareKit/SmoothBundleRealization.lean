@@ -12,23 +12,23 @@ open scoped Manifold ContDiff
 variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
 def localAt (b : B) : LocalTrivialization (n := n) (G := G) P.projection :=
   (P.triviality b).choose
-omit [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] in
 theorem localAt_mem (b : B) : b ∈ (P.localAt b).base := (P.triviality b).choose_spec
 
-def chartDefining (b : B) : Free n :=
+def chartDefining (b : B) : freeAlgebra n :=
   openDefining ((chartAt (Space n) b).target ∩ (chartAt (Space n) b).symm ⁻¹' (P.localAt b).base)
     ((chartAt (Space n) b).isOpen_inter_preimage_symm (P.localAt b).isOpen_base)
 def baseChart (b : B) : OpenPartialHomeomorph B (Space n) :=
   restrictChart (chartAt (Space n) b) (P.chartDefining b)
-omit [IsManifold (Model n) ∞ E] in
-theorem baseChart_smooth (b : B) : P.baseChart b ∈ maximalAtlas (Model n) ∞ B :=
+omit [IsManifold (modelWithCorners n) ∞ E] in
+theorem baseChart_smooth (b : B) : P.baseChart b ∈ maximalAtlas (modelWithCorners n) ∞ B :=
   restrictChart_smooth _ _ (chart_mem_maximalAtlas b)
-omit [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] in
 theorem baseChart_source (b x : B) (hx : x ∈ (P.baseChart b).source) : x ∈ (P.localAt b).base := by
   change x ∈ (chartAt (Space n) b).source ∧ _ at hx
   have hq : (chartAt (Space n) b) x ∈ Localization.locus (P.chartDefining b) := hx.2
@@ -37,7 +37,7 @@ theorem baseChart_source (b x : B) (hx : x ∈ (P.baseChart b).source) : x ∈ (
   change (chartAt (Space n) b).symm ((chartAt (Space n) b) x) ∈ (P.localAt b).base at hs
   rw [(chartAt (Space n) b).left_inv hx.1] at hs
   exact hs
-omit [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] in
 theorem baseChart_mem (b : B) : b ∈ (P.baseChart b).source := by
   refine ⟨mem_chart_source _ b, ?_⟩
   change (chartAt (Space n) b) b ∈ Localization.locus (P.chartDefining b)
@@ -56,8 +56,8 @@ def baseCharts : ChartFamily n B where
 def totalChart (b : B) (g : G) : OpenPartialHomeomorph E (Space n) :=
   ((P.localAt b).sheet g).trans (P.baseChart b)
 
-theorem totalChart_smooth (b : B) (g : G) : P.totalChart b g ∈ maximalAtlas (Model n) ∞ E := by
-  have hs : ContMDiffOn (Model n) (Model n) ∞ ((P.localAt b).sheet g)
+theorem totalChart_smooth (b : B) (g : G) : P.totalChart b g ∈ maximalAtlas (modelWithCorners n) ∞ E := by
+  have hs : ContMDiffOn (modelWithCorners n) (modelWithCorners n) ∞ ((P.localAt b).sheet g)
       ((P.localAt b).sheet g).source :=
     P.smooth_projection.contMDiffOn.congr (fun x hx => (P.localAt b).projection g x hx)
   apply OpenPartialHomeomorph.mem_maximalAtlas_of_contMDiffOn
@@ -86,10 +86,10 @@ open scoped Manifold ContDiff
 variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
-omit [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] in
 theorem totalChart_target (b : B) (g : G) : (P.totalChart b g).target = (P.baseChart b).target := by
   ext x
   constructor
@@ -118,7 +118,7 @@ def sheetDomainIso (b : B) (g : G) : chartDomain (P.totalChart b g) ≅ chartDom
   hom_inv_id := OpenFunctions.Map.ext (fun _ => rfl)
   inv_hom_id := OpenFunctions.Map.ext (fun _ => rfl)
 
-omit [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] in
 theorem chart_projection (b : B) (g : G) (x : Points (chartDomain (P.totalChart b g))) :
     P.projection (chartPoint (P.totalChart b g) x) =
       chartPoint (P.baseChart b) ((show Map _ _ from (P.sheetDomainIso b g).hom) x) := by
@@ -158,8 +158,8 @@ open EuclideanOpen IsManifold
 open scoped Manifold ContDiff
 variable {n : ℕ} {M : Type} [TopologicalSpace M] [ChartedSpace (Space n) M]
 theorem chartPoint_contMDiff (e : OpenPartialHomeomorph M (Space n))
-    (he : e ∈ maximalAtlas (Model n) ∞ M) :
-    ContMDiff (Model n) (Model n) ∞ (fun x : ordinaryOpen (chartDomain e) => chartPoint e x) := by
+    (he : e ∈ maximalAtlas (modelWithCorners n) ∞ M) :
+    ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ (fun x : ordinaryOpen (chartDomain e) => chartPoint e x) := by
   intro x
   have hx : x.val ∈ e.target := (congrArg (fun s : Set (Space n) => x.val ∈ s)
     (chartDomain_locus e)).mp x.property
@@ -171,18 +171,18 @@ open scoped Manifold ContDiff
 variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 def ordinarySheet (b : B) (g : G) (x : ordinaryOpen (chartDomain (P.baseChart b))) : E :=
   ((P.localAt b).sheet g).symm (chartPoint (P.baseChart b) x)
-omit [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ E] in
 theorem ordinarySheet_smooth (b : B) (g : G) :
-    ContMDiff (Model n) (Model n) ∞ (P.ordinarySheet b g) := by
+    ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ (P.ordinarySheet b g) := by
   intro x
   have hx := P.baseChart_source b _ (chartPoint_source (P.baseChart b) x)
   exact (((P.localAt b).smooth_inverse g).contMDiffAt ((P.localAt b).isOpen_base.mem_nhds hx)).comp x
     (chartPoint_contMDiff (P.baseChart b) (P.baseChart_smooth b) x)
-omit [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] in
 theorem ordinarySheet_projection (b : B) (g : G) (x : ordinaryOpen (chartDomain (P.baseChart b))) :
     P.projection (P.ordinarySheet b g x) = chartPoint (P.baseChart b) x :=
   (P.localAt b).projection_inverse g _
@@ -196,10 +196,10 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model n) ∞ E] in
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (modelWithCorners n) ∞ E] in
 theorem overlap_base (i j : B) (x : Points (P.baseCharts.pair i j)) :
     P.projection (P.ordinarySheet j 1 ((show Map _ _ from P.baseCharts.right i j) x)) ∈
       (P.localAt i).base := by
@@ -215,7 +215,7 @@ def transitionLabel (i j : B) : LocallyConstant (Points (P.baseCharts.pair i j))
    (IsLocallyConstant.iff_continuous _).mpr ((P.localAt i).continuous_label.comp
      (((P.ordinarySheet_smooth j 1).comp (openMap_contMDiff (P.baseCharts.right i j))).continuous.subtype_mk (P.overlap_base i j)))⟩
 
-omit [IsManifold (Model n) ∞ E] in
+omit [IsManifold (modelWithCorners n) ∞ E] in
 theorem transitionLabel_action (i j : B) (x : Points (P.baseCharts.pair i j)) :
     P.transitionLabel i j x • P.ordinarySheet i 1 ((show Map _ _ from P.baseCharts.left i j) x) =
       P.ordinarySheet j 1 ((show Map _ _ from P.baseCharts.right i j) x) := by
@@ -234,7 +234,7 @@ namespace SquareKit.ManifoldRealization.ChartFamily
 open CategoryTheory EuclideanOpen SmoothManifoldAction
 open scoped Manifold ContDiff
 variable {n : ℕ} {M : Type} [TopologicalSpace M] [ChartedSpace (Space n) M]
-  [IsManifold (Model n) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ M]
 variable (A : ChartFamily n M)
 
 /-- The ordinary chart parameterization is the actual chart arrow after the

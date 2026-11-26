@@ -229,7 +229,7 @@ theorem pathApp_injective {Γ : Context.{u}} {B : Family (total (interval Γ))}
 
 
 def restrictContext {Γ : Context.{u}} (φ : Subcontext Γ) : Context.{u} where
-  obj I := {x : Γ.obj I // φ.holds (Γ.elementsMk I x)}
+  obj I := {x : Γ.obj I // φ.Holds (Γ.elementsMk I x)}
   map f := TypeCat.ofHom (fun x => ⟨Γ.map f x.val,φ.natural (Functor.Elements.homMk f rfl) x.property⟩)
   map_id I := by
     apply ConcreteCategory.hom_ext

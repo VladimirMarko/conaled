@@ -27,8 +27,8 @@ source links and dependency inspection. No upstream Agda build is claimed.
 | --- | --- |
 | `Level`, `UU` | External base/family signature; no internal universes. |
 | `Id`, `refl`, `ind-Id` in [identity types][identity] | Generated identity/reflexivity and finite dependent-tail contextual J in `Typed`. |
-| `tr refl b = b` | `Authoring.transport` is J with empty tail; `transport_beta` is generated judgmental conversion. |
-| `concat refl q = q` | `Authoring.concat` eliminates the first path with `z,q` generalized; `concat_beta` is generated conversion. |
+| `tr refl b = b` | `Authoring.transport` is J with empty tail; `transportBeta` is generated judgmental conversion. |
+| `concat refl q = q` | `Authoring.concat` eliminates the first path with `z,q` generalized; `concatBeta` is generated conversion. |
 | `tr-concat refl q b = refl` | `Authoring.trConcat` eliminates the first path with `z,q,b` generalized. Source beta and congruence convert reflexivity to the required branch type. |
 
 This is the selected declarations' proof closure, not the upstream modules'

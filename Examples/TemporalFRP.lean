@@ -48,11 +48,11 @@ def earlyTerm : Term Γ 1 (.until (.atom false) (.atom true)) :=
     (.untilWait (.var (.there (.there .here)))
       (.untilWait (.var (.there (.there (.there .here))))
         (.untilNow (.var (.there (.there (.there (.there .here)))))))))
-def valuation : Bool → Nat → Type
+def Valuation : Bool → Nat → Type
   | false => Pending start packets early 2
   | true => Delivered start packets early 2
 
-def environment : Env valuation Γ := by
+def environment : Env Valuation Γ := by
   intro n a v
   cases v with
   | here => exact ⟨by decide⟩

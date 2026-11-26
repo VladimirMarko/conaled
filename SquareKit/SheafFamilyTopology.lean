@@ -38,7 +38,7 @@ def topology : GrothendieckTopology (Sheaf J (Type (max u v))) where
     (singleton_iff _).mpr inferInstance, fun _ => trivial⟩
   pullback_stable' {_ _ R} g := by
     rintro ⟨I,Y,f,hf,hR⟩
-    refine ⟨I, fun i => SplitSheaf.Ext (pullbackFamily f g i), pullbackMaps f g,
+    refine ⟨I, fun i => SplitSheaf.extension (pullbackFamily f g i), pullbackMaps f g,
       baseChange f hf g, ?_⟩
     intro i
     change R (pullbackMaps f g i ≫ g)

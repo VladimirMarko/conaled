@@ -24,8 +24,8 @@ theorem machine_observation :
   rw [machine_transport]
   exact direct_observation
 
-theorem machine_invariant : (machineChange.transport machine).invariant Phase.ready ∧
-    ¬ (machineChange.transport machine).invariant Phase.failed := by
+theorem machine_invariant : (machineChange.transport machine).Invariant Phase.ready ∧
+    ¬ (machineChange.transport machine).Invariant Phase.failed := by
   rw [machine_transport]
   change (1 : Fin 3) ≠ 2 ∧ ¬ ((2 : Fin 3) ≠ 2)
   decide
@@ -61,8 +61,8 @@ theorem twice_step : (twice.transport evenPackage).step 4 = 6 := by
   rw [twice_package]
   rfl
 
-theorem twice_invariant : (twice.transport evenPackage).invariant 2 ∧
-    ¬ (twice.transport evenPackage).invariant 3 := by
+theorem twice_invariant : (twice.transport evenPackage).Invariant 2 ∧
+    ¬ (twice.transport evenPackage).Invariant 3 := by
   rw [twice_package]
   change (0 : Int) % 2 = 0 ∧ ¬ (1 : Int) % 2 = 0
   decide

@@ -103,7 +103,7 @@ noncomputable def readOut (A : LocalFamily Γ) (x : Γ.Elements)
     (z : (package A).family.obj x) : StatePackage (A.family.obj x) where
   initial := z.1.1
   step a := z.1.2.1.val (𝟙 _) a
-  invariant a := z.1.2.2.val (𝟙 _) a
+  Invariant a := z.1.2.2.val (𝟙 _) a
   initial_valid := z.2.1.down
   preserves a h := (z.2.2.val (𝟙 _) a).down h
 
@@ -136,7 +136,7 @@ theorem readOut_step {A : LocalFamily Γ} (s : Term (package A).family) (x : Γ.
 
 theorem readOut_invariant {A : LocalFamily Γ} (s : Term (package A).family) (x : Γ.Elements)
     (a : A.family.obj x) :
-    (readOut A x (s.val x)).invariant a = ((invariantSection s).val x).val (𝟙 _) a := rfl
+    (readOut A x (s.val x)).Invariant a = ((invariantSection s).val x).val (𝟙 _) a := rfl
 
 end Examples.CubicalStatePackageFamily
 
@@ -178,10 +178,10 @@ noncomputable def pullData (A : LocalFamily Γ) (e : A.family ≅ constantFamily
           e.inv.app z (s.step (e.hom.app z (A.family.map g a)))
         rw [← e.inv.naturality_apply, e.hom.naturality_apply]
         rfl },
-    { val := fun {y} _ a => s.invariant (e.hom.app y a)
+    { val := fun {y} _ a => s.Invariant (e.hom.app y a)
       naturality := by
         intro y z f g a
-        change s.invariant (e.hom.app y a) = s.invariant (e.hom.app z (A.family.map g a))
+        change s.Invariant (e.hom.app y a) = s.Invariant (e.hom.app z (A.family.map g a))
         rw [e.hom.naturality_apply]
         rfl }⟩⟩
   property := by
@@ -194,7 +194,7 @@ noncomputable def pullInitialProof (A : LocalFamily Γ) (e : A.family ≅ consta
     (s : StatePackage S) :
     Term (reindex (initialValid A).family (pair (𝟙 Γ) (pullData A e s))) where
   val x := ⟨by
-    change s.invariant (e.hom.app x (e.inv.app x s.initial))
+    change s.Invariant (e.hom.app x (e.inv.app x s.initial))
     rw [iso_hom_inv]
     exact s.initial_valid⟩
   property := by intro _x _y _f; apply PLift.ext; apply Subsingleton.elim
@@ -204,8 +204,8 @@ noncomputable def pullPreservesBody (A : LocalFamily Γ) (e : A.family ≅ const
     Term (reindex (proofFamily (implies (premise A) (conclusion A))).family
       (liftSub (carrier A).family (pair (𝟙 Γ) (pullData A e s)))) where
   val x := ⟨by
-    change s.invariant (e.hom.app _ x.val.2) →
-      s.invariant (e.hom.app _ (e.inv.app _ (s.step (e.hom.app _ x.val.2))))
+    change s.Invariant (e.hom.app _ x.val.2) →
+      s.Invariant (e.hom.app _ (e.inv.app _ (s.step (e.hom.app _ x.val.2))))
     rw [iso_hom_inv]
     exact s.preserves _⟩
   property := by intro _x _y _f; apply PLift.ext; apply Subsingleton.elim
@@ -235,7 +235,7 @@ open Examples.CubicalStateTransport
 variable {Γ : Context.{0}}
 
 theorem statePackage_ext {S : Type} (p q : StatePackage S)
-    (ha : p.initial = q.initial) (hs : p.step = q.step) (hi : p.invariant = q.invariant) : p = q := by
+    (ha : p.initial = q.initial) (hs : p.step = q.step) (hi : p.Invariant = q.Invariant) : p = q := by
   cases p
   cases q
   cases ha
@@ -255,8 +255,8 @@ theorem step_natural {A : LocalFamily Γ} (s : Term (package A).family)
 
 theorem invariant_natural {A : LocalFamily Γ} (s : Term (package A).family)
     {x y : Γ.Elements} (f : x ⟶ y) (a : A.family.obj x) :
-    (readOut A y (s.val y)).invariant (A.family.map f a) =
-      (readOut A x (s.val x)).invariant a := by
+    (readOut A y (s.val y)).Invariant (A.family.map f a) =
+      (readOut A x (s.val x)).Invariant a := by
   have ht := congrArg (fun p => p.val (𝟙 y) (A.family.map f a)) ((invariantSection s).property f)
   have hn := ((invariantSection s).val x).naturality (𝟙 x) f a
   change ((invariantSection s).val x).val (f ≫ 𝟙 y) (A.family.map f a) = _ at ht
@@ -280,8 +280,8 @@ noncomputable def observe {S : Type} (A : LocalFamily Γ)
       rw [hb, step_natural s f, e.hom.naturality_apply]
       rfl
     · funext b
-      change (readOut A x (s.val x)).invariant (e.inv.app x b) =
-        (readOut A y (s.val y)).invariant (e.inv.app y b)
+      change (readOut A x (s.val x)).Invariant (e.inv.app x b) =
+        (readOut A y (s.val y)).Invariant (e.inv.app y b)
       have hb : e.inv.app y b = A.family.map f (e.inv.app x b) := e.inv.naturality_apply f b
       rw [hb, invariant_natural s f]
 
@@ -304,7 +304,7 @@ theorem observe_pull (A : LocalFamily Γ) (e : A.family ≅ constantFamily Γ S)
     change e.hom.app x (e.inv.app x (s.step (e.hom.app x (e.inv.app x b)))) = s.step b
     rw [iso_hom_inv, iso_hom_inv]
   · funext b
-    change s.invariant (e.hom.app x (e.inv.app x b)) = s.invariant b
+    change s.Invariant (e.hom.app x (e.inv.app x b)) = s.Invariant b
     rw [iso_hom_inv]
 
 noncomputable def filledPackage (A : LocalFamily (total (interval Γ)))
@@ -357,7 +357,7 @@ theorem conjugate_symm (s : StatePackage S) (e : S ≃ T) :
     change e.symm (e (s.step (e.symm (e a)))) = s.step a
     rw [e.symm_apply_apply, e.symm_apply_apply]
   · funext a
-    change s.invariant (e.symm (e a)) = s.invariant a
+    change s.Invariant (e.symm (e a)) = s.Invariant a
     rw [e.symm_apply_apply]
 
 end Examples.CubicalStatePackageFamily

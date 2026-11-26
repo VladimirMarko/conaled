@@ -274,7 +274,7 @@ theorem strong_elements_client {V : Type v} {T : Type w}
     (law : OrderedMap.EnumeratedTable.StrongElements obs Valid)
     (key : Nat) (value : V) (t : T) (valid : Valid t) :
     (obs.bound key t = false → (key, value) ∉ obs.elements t) ∧
-      InsertionSorting.sorted ((obs.elements t).map Prod.fst) ∧
+      InsertionSorting.Sorted ((obs.elements t).map Prod.fst) ∧
       ((obs.elements t).map Prod.fst).Nodup :=
   ⟨fun absent => law.absent_no_entry key t valid absent value,
     List.isChain_iff_pairwise.mpr ((law.keys_sorted t valid).imp fun h => Nat.le_of_lt h),
@@ -289,7 +289,7 @@ theorem strong_elements_inverse_raw {V : Type v} {T : Type w}
 theorem elements_spec {V : Type v} (key : Nat) (value : V) (t : SearchTrees.Tree V)
     (valid : SearchTrees.BST t) :
     (SearchTrees.bound key t = false → (key, value) ∉ SearchTrees.elements t) ∧
-      InsertionSorting.sorted ((SearchTrees.elements t).map Prod.fst) ∧
+      InsertionSorting.Sorted ((SearchTrees.elements t).map Prod.fst) ∧
       ((SearchTrees.elements t).map Prod.fst).Nodup :=
   strong_elements_client (RawTreeTable.observations V) RawTreeTable.Valid
     RawTreeTable.strong key value t valid

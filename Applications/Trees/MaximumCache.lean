@@ -98,16 +98,16 @@ theorem erase_nodeMx (l : BinaryTree (α × α)) (a : α)
     Cached.erase (nodeMx l a r) = .node a (Cached.erase l) (Cached.erase r) := rfl
 
 /-- Every stored maximum must satisfy the local equation, including descendants. -/
-def invarMx : BinaryTree (α × α) → Prop
+def Valid : BinaryTree (α × α) → Prop
   | .nil => True
   | .node (a, b) l r =>
-      invarMx l ∧ invarMx r ∧ b = localMax (mx l) a (mx r)
+      Valid l ∧ Valid r ∧ b = localMax (mx l) a (mx r)
 
-@[simp] theorem invarMx_nil : invarMx (.nil : BinaryTree (α × α)) := trivial
+@[simp] theorem valid_nil : Valid (.nil : BinaryTree (α × α)) := trivial
 
-@[simp] theorem invarMx_node (a b : α) (l r : BinaryTree (α × α)) :
-    invarMx (.node (a, b) l r) ↔
-      invarMx l ∧ invarMx r ∧ b = localMax (mx l) a (mx r) := Iff.rfl
+@[simp] theorem valid_node (a b : α) (l r : BinaryTree (α × α)) :
+    Valid (.node (a, b) l r) ↔
+      Valid l ∧ Valid r ∧ b = localMax (mx l) a (mx r) := Iff.rfl
 
 theorem lift_nodeMx (l : BinaryTree (α × α)) (a : α)
     (r : BinaryTree (α × α)) :
@@ -115,32 +115,32 @@ theorem lift_nodeMx (l : BinaryTree (α × α)) (a : α)
   simp only [nodeMx, lift_node, Cached.smartNode, read_lift, combine]
 
 /-- Representation transport, independent of any greatest-element law. -/
-theorem invarMx_iff_valid_lift (t : BinaryTree (α × α)) :
-    invarMx t ↔ Cached.Valid none combine (lift t) := by
+theorem valid_iff_valid_lift (t : BinaryTree (α × α)) :
+    Valid t ↔ Cached.Valid none combine (lift t) := by
   induction t with
   | nil => rfl
   | node ab l r ihl ihr =>
       rcases ab with ⟨a, b⟩
-      simp only [invarMx_node, lift_node, Cached.valid_node, read_lift, combine,
+      simp only [valid_node, lift_node, Cached.valid_node, read_lift, combine,
         Option.some.injEq, ihl, ihr]
 
 /-- Generic constructor validity transports back to the raw representation. -/
 theorem nodeMx_valid_iff (l : BinaryTree (α × α)) (a : α)
-    (r : BinaryTree (α × α)) : invarMx (nodeMx l a r) ↔ invarMx l ∧ invarMx r := by
-  rw [invarMx_iff_valid_lift, lift_nodeMx, Cached.smartNode_valid_iff,
-    ← invarMx_iff_valid_lift, ← invarMx_iff_valid_lift]
+    (r : BinaryTree (α × α)) : Valid (nodeMx l a r) ↔ Valid l ∧ Valid r := by
+  rw [valid_iff_valid_lift, lift_nodeMx, Cached.smartNode_valid_iff,
+    ← valid_iff_valid_lift, ← valid_iff_valid_lift]
 
 theorem nodeMx_valid (l : BinaryTree (α × α)) (a : α)
-    (r : BinaryTree (α × α)) (hl : invarMx l) (hr : invarMx r) :
-    invarMx (nodeMx l a r) := (nodeMx_valid_iff l a r).mpr ⟨hl, hr⟩
+    (r : BinaryTree (α × α)) (hl : Valid l) (hr : Valid r) :
+    Valid (nodeMx l a r) := (nodeMx_valid_iff l a r).mpr ⟨hl, hr⟩
 
 /-- Use the generic cached-fold theorem instead of another correctness induction. -/
-theorem mx_eq_summary (t : BinaryTree (α × α)) (ht : invarMx t) :
+theorem mx_eq_summary (t : BinaryTree (α × α)) (ht : Valid t) :
     mx t = summary (Cached.erase t) := by
   calc
     mx t = Cached.read none (lift t) := (read_lift t).symm
     _ = Trees.fold none combine (Cached.erase (lift t)) :=
-      Cached.read_eq_fold none combine _ ((invarMx_iff_valid_lift t).mp ht)
+      Cached.read_eq_fold none combine _ ((valid_iff_valid_lift t).mp ht)
     _ = summary (Cached.erase t) := by rw [erase_lift]; rfl
 
 /-- Generic validity is sufficient for this inverse law, not necessary. -/
@@ -159,8 +159,8 @@ theorem lift_project (t : BinaryTree (α × Option α))
       rw [hb_some, ihl hl, ihr hr]
 
 theorem project_valid (t : BinaryTree (α × Option α))
-    (ht : Cached.Valid none combine t) : invarMx (project t) := by
-  apply (invarMx_iff_valid_lift _).mpr
+    (ht : Cached.Valid none combine t) : Valid (project t) := by
+  apply (valid_iff_valid_lift _).mpr
   rw [lift_project t ht]
   exact ht
 
@@ -173,7 +173,7 @@ This client makes no one-pass or local-work claim. -/
 def annotate (t : BinaryTree α) : BinaryTree (α × α) :=
   project (Cached.annotate none combine t)
 
-theorem annotate_valid (t : BinaryTree α) : invarMx (annotate t) :=
+theorem annotate_valid (t : BinaryTree α) : Valid (annotate t) :=
   project_valid _ (Cached.annotate_valid none combine t)
 
 theorem erase_annotate (t : BinaryTree α) : Cached.erase (annotate t) = t :=

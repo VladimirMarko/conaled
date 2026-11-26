@@ -25,33 +25,33 @@ private def rawParameters : Core.Machine.Parameters Empty where
   matchException := 0
   bindException := 1
 
-private def operations : Empty → Prop := fun _ => False
+private def Operations : Empty → Prop := fun _ => False
 
-private theorem compatible : ParametersCompatible operations rawParameters parameters where
+private theorem compatible : ParametersCompatible Operations rawParameters parameters where
   primitive impossible := nomatch impossible
   matchException := rfl
   bindException := rfl
 
-private theorem preserve : ParametersPreserve operations parameters := by
+private theorem preserve : ParametersPreserve Operations parameters := by
   intro impossible
   cases impossible
 
-private theorem cycle_clauses_allowed : ClausesCodeAllowed operations cycleClauses :=
+private theorem cycle_clauses_allowed : ClausesCodeAllowed Operations cycleClauses :=
   (ClausesCodeAllowed.cons_iff _ _ []).mpr
     ⟨.record .nil, (CodeAllowed.variable 2).force, ClausesCodeAllowed.nil⟩
 
-private theorem cycle_body_allowed : CodeAllowed operations cycleBody :=
+private theorem cycle_body_allowed : CodeAllowed Operations cycleBody :=
   (CodeAllowed.apply_iff _ _).mpr
     ⟨CodeAllowed.variable 1, (CodeAllowed.record_iff []).mpr NamedCodeAllowed.nil⟩
 
 private theorem cycle_definitions_allowed :
-    NamedCodeAllowed operations (Rhs.toBindings cycleDefinitions) := by
+    NamedCodeAllowed Operations (Rhs.toBindings cycleDefinitions) := by
   apply (NamedCodeAllowed.cons_iff _ _ _).mpr
   refine ⟨(CodeAllowed.function_iff _).mpr cycle_clauses_allowed, ?_⟩
   apply (NamedCodeAllowed.cons_iff _ _ []).mpr
   exact ⟨(CodeAllowed.delay_iff _).mpr cycle_body_allowed, NamedCodeAllowed.nil⟩
 
-private theorem cycle_code_allowed : CodeAllowed operations cycleTerm :=
+private theorem cycle_code_allowed : CodeAllowed Operations cycleTerm :=
   (CodeAllowed.recursive_iff _ _).mpr
     ⟨cycle_definitions_allowed, (CodeAllowed.variable 2).force,
       Rhs.toBindings_permitted cycleDefinitions, by decide⟩

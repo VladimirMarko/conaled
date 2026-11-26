@@ -58,7 +58,7 @@ theorem invalid_discard : ¬ Finished initial := by
 
 /-- Two independent ownership assertions cannot claim the same slot. -/
 theorem duplicate_permission_rejected (heap : Heap) :
-    ¬ Sep (pointsTo false 0 37) (pointsTo false 0 37) heap :=
+    ¬ Sep (PointsTo false 0 37) (PointsTo false 0 37) heap :=
   no_separating_alias false 0 0 37 37 heap
 
 /-- The other slot's selected contents survive transfer of the first. -/
@@ -101,7 +101,7 @@ theorem command_roundtrip :
   commandShift_roundtrip _
 
 /-- The concrete initial heap admits two disjoint ownership assertions. -/
-theorem initial_separated : Sep (pointsTo false 0 37) (pointsTo true 2 99) (liveHeap initial) := by
+theorem initial_separated : Sep (PointsTo false 0 37) (PointsTo true 2 99) (liveHeap initial) := by
   refine ⟨singleton false 0 37, singleton true 2 99, ?_, ?_, rfl, rfl⟩
   · intro h; cases h <;> simp [SquareKit.OwnedHandle.singleton]
   · funext h; cases h <;> rfl

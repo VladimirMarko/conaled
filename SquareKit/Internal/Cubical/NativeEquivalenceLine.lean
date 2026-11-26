@@ -25,7 +25,7 @@ def unglue : line f ⟶ ambient (B := B) :=
   Glue.unglue face (ambient (B := B)) (boundary (A := A)) (boundaryMap f)
 
 private theorem absent {x y : (total (interval Γ)).Elements}
-    (hx : (intervalFace Γ true).full x) (k : x ⟶ y) (hy : (face (Γ := Γ)).full y) : False :=
+    (hx : (intervalFace Γ true).Full x) (k : x ⟶ y) (hy : (face (Γ := Γ)).Full y) : False :=
   intervalFace_disjoint y hy ((intervalFace Γ true).full_natural k hx)
 
 private def finishCompatibleInv : B ⟶

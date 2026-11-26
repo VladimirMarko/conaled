@@ -37,7 +37,7 @@ theorem smooth_iff (hU : IsOpen U) (f : U → V) :
   exact ⟨fun h x hx => h.contDiffAt (hU.mem_nhds hx), fun h x hx => (h x hx).contDiffWithinAt⟩
 
 /-- Pullback acts on all smooth functions, including those without ambient extensions. -/
-def pullback (f : Map U V) : Hom (Carrier V) (Carrier U) where
+def pullback (f : Map U V) : Hom (carrierAlgebra V) (carrierAlgebra U) where
   toFun g := ⟨fun x => g.val (f x), by
     apply (representative_iff _ (fun x => extendZero V g.val (f.representative x))
       (fun x => by rw [representative_mem, extendZero_mem])).mpr

@@ -29,7 +29,7 @@ def identityValueRestriction (f : Y ⟶ X) :
 
 def identitySetData (A : SplitSheaf.Ty X) :
     CechMatching.Comprehension.SetData (strictDiagram a hΓ A) where
-  localFamily := identityValues a hΓ hB hx hy (SplitSheaf.Ext A)
+  localFamily := identityValues a hΓ hB hx hy (SplitSheaf.extension A)
   doubleFamily := identityValues a hΓ hB hx hy (SplitSheaf.Cech.double A)
   tripleFamily := identityValues a hΓ hB hx hy (SplitSheaf.Cech.triple A)
   first := identityValueRestriction a hΓ hB hx hy (SplitSheaf.Cech.first A)

@@ -163,7 +163,7 @@ def PredicateHolds (M : StructuralModel.{u}) (p : Predicate) (args : Fin p.arity
 noncomputable def algebra (M : StructuralModel.{u}) : Algebra signature where
   Carrier := Value M
   operation := operation M
-  predicate := PredicateHolds M
+  Predicate := PredicateHolds M
 
 abbrev Expression (V : Type) := Term signature V
 abbrev Judgment (V : Type) := Atom signature V
@@ -214,7 +214,7 @@ def pairingEnvironment (M : StructuralModel.{u}) (Γ Δ : M.Context)
 /-- Inverting the source guards recovers actual dependent input data. -/
 theorem pairing_inputs (M : StructuralModel.{u}) :
     ∀ ρ : Fin 5 → Value M,
-    (∀ i, (variablePairRule.premise i).eval (algebra M) ρ) →
+    (∀ i, (variablePairRule.premise i).Eval (algebra M) ρ) →
     ∃ (Γ Δ : M.Context) (A : M.Family Γ) (σ : M.Substitution Δ Γ)
       (t : M.Section Δ (M.subTy A σ)), ρ = pairingEnvironment M Γ Δ A σ t := by
   intro ρ h
@@ -303,7 +303,7 @@ abbrev familySchema (conclusion : Judgment (Fin 2)) : Rule signature where
 
 theorem familySchema_valid (M : StructuralModel.{u}) (out : Judgment (Fin 2))
     (h : ∀ (Γ : M.Context) (A : M.Family Γ),
-      out.eval (algebra M) ![.context Γ, .family Γ A]) :
+      out.Eval (algebra M) ![.context Γ, .family Γ A]) :
     Satisfies (algebra M) (familySchema out) := by
   intro ρ hp
   have h0 := hp 0
@@ -408,7 +408,7 @@ def variablePairDerivation : Derivation comprehensionTheory
 and its five schematic arguments. No old all-model annotation is reconstructed. -/
 theorem interpret_variablePair (M : StructuralModel.{u}) (Γ Δ : M.Context)
     (A : M.Family Γ) (σ : M.Substitution Δ Γ) (t : M.Section Δ (M.subTy A σ)) :
-    variablePairRule.conclusion.eval (algebra M)
+    variablePairRule.conclusion.Eval (algebra M)
       ![.context Γ, .context Δ, .family Γ A, .substitution Δ Γ σ,
         .term Δ (M.subTy A σ) t] := by
   apply variablePairDerivation.sound (comprehensionModel M)

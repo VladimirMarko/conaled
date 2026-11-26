@@ -44,7 +44,7 @@ theorem log_rep (n : Nat) : Represents (logDisk n) ⟨none,logTip n⟩ (logHisto
     simpa [logTip] using rep
 
 theorem log_append_execution (n : Nat) :
-    interpret Step (DiagnosticProjection.appendEvents (record n)) (logMachine n) (logMachine (n+1)) := by
+    Interpret Step (DiagnosticProjection.appendEvents (record n)) (logMachine n) (logMachine (n+1)) := by
   have unused : n ∉ (logMachine n).used := by simp [logMachine]
   have fresh : Fresh (logHistory n) (record n) := by
     intro e mem eq
@@ -61,7 +61,7 @@ theorem log_append_execution (n : Nat) :
     by_cases eq : i = n
     · simp [eq]
     · simp [eq]; omega
-  change interpret Step (DiagnosticProjection.appendEvents (record n)) (logMachine n)
+  change Interpret Step (DiagnosticProjection.appendEvents (record n)) (logMachine n)
     ⟨put (logDisk n) n (Cell.node (logTip n) (record n)),⟨none,some n⟩,
       some (logHistory n ++ [record n]),none,none,fun _ => none,none,
       {i | i < n} ∪ {i | ∃ c, put (fun _ => none) n (Cell.node (logTip n) (record n)) i = some c}⟩ at run
@@ -73,7 +73,7 @@ theorem log_initial : logMachine 0 = (initial : Machine (Edge 2)) := by
   simp [logMachine,logHistory,logTip,initial,emptyRoot]
   rfl
 
-theorem log_construction (n : Nat) : interpret Step (logWords n) initial (logMachine n) := by
+theorem log_construction (n : Nat) : Interpret Step (logWords n) initial (logMachine n) := by
   induction n with
   | zero => exact log_initial.symm
   | succ n ih =>
@@ -81,7 +81,7 @@ theorem log_construction (n : Nat) : interpret Step (logWords n) initial (logMac
     rw [interpret_append]
     exact ⟨logMachine n,ih,log_append_execution n⟩
 
-theorem actual_ten_appends : interpret Step (logWords 10) initial oldMachine := log_construction 10
+theorem actual_ten_appends : Interpret Step (logWords 10) initial oldMachine := log_construction 10
 
 def logAppendPlan (n : Nat) := appendPlan (logMachine n).disk (logMachine n).root
   (logHistory n) (log_rep n) n (record n) (by simp [logMachine,logDisk])
@@ -155,7 +155,7 @@ theorem cell_range {x : Nat × Cell (Edge 2)} (mem : x ∈ cells) : 20 ≤ x.1 �
   rcases mem with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> decide
 
 theorem copy_execution :
-    interpret Step (.internal :: List.replicate 22 .internal ++ [.internal]) oldMachine published := by
+    Interpret Step (.internal :: List.replicate 22 .internal ++ [.internal]) oldMachine published := by
   apply replacement_execution oldMachine history plan rfl rfl rfl rfl rfl rfl cells writes_enumerates
   · intro x mem
     have bound := cell_range mem
@@ -291,7 +291,7 @@ theorem actual_copy_space : (List.range 10).toFinset.card = 10 ∧
 has not happened and the original root still represents all ten records. -/
 abbrev partialCopy := persistCells prepared (cells.take 2)
 theorem interrupted_copy :
-    interpret Step (List.replicate 4 .internal) prepared partialCopy ∧
+    Interpret Step (List.replicate 4 .internal) prepared partialCopy ∧
     Represents (crashState partialCopy).disk (crashState partialCopy).root history := by
   constructor
   · apply persist_cells_execution prepared plan rfl (cells.take 2)

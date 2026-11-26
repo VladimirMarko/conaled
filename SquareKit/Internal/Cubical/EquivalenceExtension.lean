@@ -30,13 +30,13 @@ def extensionTube {φ : Cofibration Γ} (a : PartialSection A φ) :
     exact (pathApp c.contraction).property k
 
 theorem extensionTube_zero {φ : Cofibration Γ} (a : PartialSection A φ)
-    (x : Γ.Elements) (h : φ.full x) :
+    (x : Γ.Elements) (h : φ.Full x) :
     (c.extensionTube a).val ((endpointSub Γ false).mapElements.obj x) h = c.center.val x := by
   exact congrArg (fun t => t.val (extendObj A x (a.val x h)))
     (pathApp_zero c.contraction)
 
 theorem extensionTube_one {φ : Cofibration Γ} (a : PartialSection A φ)
-    (x : Γ.Elements) (h : φ.full x) :
+    (x : Γ.Elements) (h : φ.Full x) :
     (c.extensionTube a).val ((endpointSub Γ true).mapElements.obj x) h = a.val x h := by
   exact congrArg (fun t => t.val (extendObj A x (a.val x h)))
     (pathApp_one c.contraction)
@@ -51,7 +51,7 @@ def extend (F : Filling A) {φ : Cofibration Γ} (a : PartialSection A φ) : Ter
   F.comp (projection (interval Γ)) φ (c.extensionBox a)
 
 theorem extend_boundary (F : Filling A) (hF : F.Lawful)
-    {φ : Cofibration Γ} (a : PartialSection A φ) (x : Γ.Elements) (h : φ.full x) :
+    {φ : Cofibration Γ} (a : PartialSection A φ) (x : Γ.Elements) (h : φ.Full x) :
     (c.extend F a).val x = a.val x h :=
   (Filling.comp_boundary hF (projection (interval Γ)) φ (c.extensionBox a) x h).trans
     (c.extensionTube_one a x h)
@@ -211,7 +211,7 @@ theorem HomotopyEquivalence.extend_boundary {Γ : Context.{u}} {A B : Family Γ}
     {φ : Cofibration (total B)}
     (a : PartialSection
       (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) φ)
-    (x : (total B).Elements) (h : φ.full x) :
+    (x : (total B).Elements) (h : φ.Full x) :
     (e.extend F hF G hG a).val x = a.val x h :=
   e.fibers.extend_boundary _ (homotopyFiberFilling_lawful _ _ _ (hF.reindex _) _ (hG.reindex _)) a x h
 
@@ -252,7 +252,7 @@ theorem HomotopyEquivalence.extendAlong_boundary {Γ Δ : Context.{u}} {A B : Fa
     (σ : Δ ⟶ total B) {φ : Cofibration Δ}
     (a : PartialSection (Presheaf.reindex
       (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) σ) φ)
-    (x : Δ.Elements) (hx : φ.full x) :
+    (x : Δ.Elements) (hx : φ.Full x) :
     (e.extendAlong F hF G hG σ a).val x = a.val x hx :=
   (e.fibers.reindex σ).extend_boundary _
     ((homotopyFiberFilling_lawful _ _ _ (hF.reindex _) _ (hG.reindex _)).reindex σ) a x hx
@@ -307,7 +307,7 @@ theorem genericFiberPartialIntro_fst {Γ Δ : Context.{u}} {A B : Family Γ} (f 
     (σ : Δ ⟶ total B) {φ : Cofibration Δ}
     (a : PartialSection (Presheaf.reindex A (σ ≫ projection B)) φ)
     (h : a.map (Functor.whiskerLeft (σ ≫ projection B).mapElements f) =
-      PartialSection.ofTerm φ ((generic B).reindex σ)) (x : Δ.Elements) (hx : φ.full x) :
+      PartialSection.ofTerm φ ((generic B).reindex σ)) (x : Δ.Elements) (hx : φ.Full x) :
     ((genericFiberPartialIntro f σ a h).val x hx).1 = a.val x hx := rfl
 
 /-- Reflexive partial fiber data is constant along every generalized path coordinate. -/
@@ -315,7 +315,7 @@ theorem genericFiberPartialIntro_path {Γ Δ : Context.{u}} {A B : Family Γ} (f
     (σ : Δ ⟶ total B) {φ : Cofibration Δ}
     (a : PartialSection (Presheaf.reindex A (σ ≫ projection B)) φ)
     (h : a.map (Functor.whiskerLeft (σ ≫ projection B).mapElements f) =
-      PartialSection.ofTerm φ ((generic B).reindex σ)) (x : Δ.Elements) (hx : φ.full x)
+      PartialSection.ofTerm φ ((generic B).reindex σ)) (x : Δ.Elements) (hx : φ.Full x)
     {y : (total (Presheaf.reindex A (projection B))).Elements}
     (g : extendObj (Presheaf.reindex A (projection B)) (σ.mapElements.obj x) (a.val x hx) ⟶ y)
     (r : (interval (total (Presheaf.reindex A (projection B)))).obj y) :
@@ -363,7 +363,7 @@ theorem HomotopyEquivalence.extendAlong_path_boundary {Γ Δ : Context.{u}} {A B
     (σ : Δ ⟶ total B) {φ : Cofibration Δ}
     (a : PartialSection (Presheaf.reindex A (σ ≫ projection B)) φ)
     (h : a.map (Functor.whiskerLeft (σ ≫ projection B).mapElements f) =
-      PartialSection.ofTerm φ ((generic B).reindex σ)) (x : Δ.Elements) (hx : φ.full x)
+      PartialSection.ofTerm φ ((generic B).reindex σ)) (x : Δ.Elements) (hx : φ.Full x)
     (r : (interval Δ).obj x) :
     (pathApp (homogeneousReverse (genericFiberPath f σ
       (E.extendAlong F hF G hG σ (genericFiberPartialIntro f σ a h))))).val
@@ -408,7 +408,7 @@ noncomputable def HomotopyContractible.ofExtensions {Γ : Context.{u}} {A : Fami
     (extend : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Cofibration Δ),
       PartialSection (Presheaf.reindex A σ) φ → Term (Presheaf.reindex A σ))
     (boundary : ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) (φ : Cofibration Δ)
-      (a : PartialSection (Presheaf.reindex A σ) φ) (x : Δ.Elements) (hx : φ.full x),
+      (a : PartialSection (Presheaf.reindex A σ) φ) (x : Δ.Elements) (hx : φ.Full x),
       (extend σ φ a).val x = a.val x hx) : HomotopyContractible A := by
   let empty : PartialSection (Presheaf.reindex A (𝟙 Γ)) (Cofibration.bot Γ) :=
     ⟨fun _ h => (Bool.false_ne_true h).elim, fun _ h => (Bool.false_ne_true h).elim⟩
@@ -422,9 +422,9 @@ noncomputable def HomotopyContractible.ofExtensions {Γ : Context.{u}} {A : Fami
     apply Term.ext
     intro x
     let y := (endpointSub (total A) false).mapElements.obj x
-    have hy : (intervalFace (total A) false).full y :=
+    have hy : (intervalFace (total A) false).Full y :=
       (Cofibration.full_endpoint (generic (interval (total A))) false y).mpr rfl
-    have hu : φ.full y := (Cofibration.full_join _ _ y).mpr (Or.inl hy)
+    have hu : φ.Full y := (Cofibration.full_join _ _ y).mpr (Or.inl hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_zero _ _ _ y hu hy)).trans
         (endpointSection_val (Presheaf.reindex A p) false (c.reindex π) y hy)))
@@ -432,9 +432,9 @@ noncomputable def HomotopyContractible.ofExtensions {Γ : Context.{u}} {A : Fami
     apply Term.ext
     intro x
     let y := (endpointSub (total A) true).mapElements.obj x
-    have hy : (intervalFace (total A) true).full y :=
+    have hy : (intervalFace (total A) true).Full y :=
       (Cofibration.full_endpoint (generic (interval (total A))) true y).mpr rfl
-    have hu : φ.full y := (Cofibration.full_join _ _ y).mpr (Or.inr hy)
+    have hu : φ.Full y := (Cofibration.full_join _ _ y).mpr (Or.inr hy)
     exact (boundary p φ b y hu).trans (eq_of_heq
       ((heq_of_eq (endpointBoundary_one _ _ _ y hu hy)).trans
         (endpointSection_val (Presheaf.reindex A p) true (generic A) y hy)))
@@ -454,7 +454,7 @@ theorem HomotopyContractible.ofExtensions_reindex {Γ Ξ : Context.{u}} {A : Fam
     (extend : ∀ {Δ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ),
       PartialSection (Presheaf.reindex A ρ) φ → Term (Presheaf.reindex A ρ))
     (boundary : ∀ {Δ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ)
-      (a : PartialSection (Presheaf.reindex A ρ) φ) (x : Δ.Elements) (hx : φ.full x),
+      (a : PartialSection (Presheaf.reindex A ρ) φ) (x : Δ.Elements) (hx : φ.Full x),
       (extend ρ φ a).val x = a.val x hx)
     (uniform : ∀ {Δ Θ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ)
       (a : PartialSection (Presheaf.reindex A ρ) φ) (τ : Θ ⟶ Δ),
@@ -510,7 +510,7 @@ theorem HomotopyContractible.ofExtensions_iso {Γ : Context.{u}} {A B : Family �
     (extendA : ∀ {Δ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ),
       PartialSection (Presheaf.reindex A ρ) φ → Term (Presheaf.reindex A ρ))
     (boundaryA : ∀ {Δ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ)
-      (a : PartialSection (Presheaf.reindex A ρ) φ) (x : Δ.Elements) (hx : φ.full x),
+      (a : PartialSection (Presheaf.reindex A ρ) φ) (x : Δ.Elements) (hx : φ.Full x),
       (extendA ρ φ a).val x = a.val x hx)
     (uniformA : ∀ {Δ Θ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ)
       (a : PartialSection (Presheaf.reindex A ρ) φ) (τ : Θ ⟶ Δ),
@@ -518,7 +518,7 @@ theorem HomotopyContractible.ofExtensions_iso {Γ : Context.{u}} {A B : Family �
     (extendB : ∀ {Δ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ),
       PartialSection (Presheaf.reindex B ρ) φ → Term (Presheaf.reindex B ρ))
     (boundaryB : ∀ {Δ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ)
-      (a : PartialSection (Presheaf.reindex B ρ) φ) (x : Δ.Elements) (hx : φ.full x),
+      (a : PartialSection (Presheaf.reindex B ρ) φ) (x : Δ.Elements) (hx : φ.Full x),
       (extendB ρ φ a).val x = a.val x hx)
     (e : A ≅ B)
     (compat : ∀ {Δ : Context.{u}} (ρ : Δ ⟶ Γ) (φ : Cofibration Δ)

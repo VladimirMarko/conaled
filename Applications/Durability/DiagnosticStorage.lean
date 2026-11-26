@@ -28,9 +28,9 @@ theorem ReadTrace.sound {disk : Heap (Cell P)} {c d events}
 
 theorem read_machine {s : Machine P} {c d} (offline : s.cache = none)
     (cursor : s.cursor = some c) (run : Relation.ReflTransGen (Read s.disk) c d) :
-    ∃ events, interpret Step events s {s with cursor := some d} := by
+    ∃ events, Interpret Step events s {s with cursor := some d} := by
   have aux : ∀ {c d}, Relation.ReflTransGen (Read s.disk) c d →
-      ∃ events, interpret Step events {s with cursor := some c} {s with cursor := some d} := by
+      ∃ events, Interpret Step events {s with cursor := some c} {s with cursor := some d} := by
     intro c d run
     induction run using Relation.ReflTransGen.head_induction_on with
     | refl => exact ⟨[],rfl⟩
@@ -86,7 +86,7 @@ theorem persist_cells_execution (s : Machine P) (p : Plan P)
     (pending : s.pending = some p) (cells : List (Nat × Cell P))
     (planned : ∀ x ∈ cells, p.writes x.1 = some x.2)
     (compatible : ∀ x ∈ cells, s.disk x.1 = none ∨ s.disk x.1 = some x.2) :
-    interpret Step (List.replicate (2*cells.length) .internal) s (persistCells s cells) := by
+    Interpret Step (List.replicate (2*cells.length) .internal) s (persistCells s cells) := by
   induction cells generalizing s with
   | nil => rfl
   | cons x xs ih =>
@@ -100,7 +100,7 @@ theorem persist_cells_execution (s : Machine P) (p : Plan P)
         simp [writePersist,put,eq,same]
       · simpa [writePersist,put,eq] using compatible y (by simp [hy])
     have rest := ih (writePersist s x) pending (fun y hy => planned y (by simp [hy])) compat
-    have run : interpret Step (.internal :: .internal :: List.replicate (2*xs.length) .internal)
+    have run : Interpret Step (.internal :: .internal :: List.replicate (2*xs.length) .internal)
         s (persistCells s (x::xs)) :=
       ⟨writeState s x.1 x.2, .write pending plan, writePersist s x,
         .persist pending plan (by simp [put]) (compatible x (by simp)), rest⟩
@@ -147,7 +147,7 @@ theorem replacement_execution (s : Machine P) (h : List (Record P)) (p : Plan P)
     (fresh : ∀ x ∈ cells, s.disk x.1 = none) :
     let prepared := prepareState s p
     let persisted := persistCells prepared cells
-    interpret Step (.internal :: List.replicate (2*cells.length) .internal ++ [.internal])
+    Interpret Step (.internal :: List.replicate (2*cells.length) .internal ++ [.internal])
       s (publishState persisted p) := by
   dsimp only
   have planned : ∀ x ∈ cells, p.writes x.1 = some x.2 :=
@@ -167,7 +167,7 @@ theorem replacement_execution (s : Machine P) (h : List (Record P)) (p : Plan P)
     simpa [noappend] using Step.publish
       (persist_cells_pending (prepareState s p) cells) per
   refine ⟨prepareState s p, prep, ?_⟩
-  change interpret Step ((List.replicate (2*cells.length) .internal) ++ [.internal]) _ _
+  change Interpret Step ((List.replicate (2*cells.length) .internal) ++ [.internal]) _ _
   rw [interpret_append]
   exact ⟨persistCells (prepareState s p) cells,run,_,pub,rfl⟩
 
@@ -202,7 +202,7 @@ theorem persist_cells_annotated (s : Machine P) (p : Plan P)
     · simpa [writePersist,put,eq] using compatible y (by simp [hy])
 
 theorem PersistenceTrace.sound {cells} {s t : Machine P} (run : PersistenceTrace cells s t) :
-    ∃ events, interpret Step events s t := by
+    ∃ events, Interpret Step events s t := by
   induction run with
   | nil => exact ⟨[],rfl⟩
   | cons write persist run ih =>
@@ -282,7 +282,7 @@ theorem reclaim_cells (s : Machine P) (ids : List Nat) (h : List (Record P))
       exact unreachable j (by simp [mem]) (root_needs_back (erase_subset s i) need)
 
 theorem ReclaimTrace.sound {n} {s t : Machine P} (run : ReclaimTrace n s t) :
-    ∃ events, interpret Step events s t := by
+    ∃ events, Interpret Step events s t := by
   induction run with
   | nil => exact ⟨[],rfl⟩
   | cons step run ih =>

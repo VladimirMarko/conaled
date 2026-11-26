@@ -126,7 +126,7 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
 example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
     (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (A : SplitSheaf.Ty X)
     (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A))) :=
-  (SmoothQuotientCechLocal.familyEvaluation_termComparison a A hΓ hB hx).endpoint c
+  (SmoothQuotientCechLocal.familyEvaluationTermComparison a A hΓ hB hx).endpoint c
 
 /-- An independently supplied compatible identity arrow becomes precisely its
 included local arrow in matching; it need not be reflexivity. -/

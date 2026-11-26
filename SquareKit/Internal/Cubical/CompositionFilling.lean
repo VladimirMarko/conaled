@@ -26,9 +26,9 @@ theorem Composition.fill_fills {Γ Δ : Context.{u}} {A : Family Γ} {C : Compos
   · apply Term.ext
     intro x
     let y := (endpointSub Δ false).mapElements.obj x
-    have hz : (intervalFace Δ false).full y :=
+    have hz : (intervalFace Δ false).Full y :=
       (Cofibration.full_endpoint (generic (interval Δ)) false y).mpr rfl
-    have hf : (scaledFace φ).full y := (Cofibration.full_join _ _ y).mpr (Or.inr hz)
+    have hf : (scaledFace φ).Full y := (Cofibration.full_join _ _ y).mpr (Or.inr hz)
     have hc := h.boundary (scaleInterval Δ ≫ p) (scaledFace φ) (scaledBox b) y hf
     have hv := glueValue_right (b.tube.reindex (scaleInterval Δ)) (scaledZeroSection b.base)
       (fun z hp hk => b.endpoint_compatible ((scaleInterval Δ).mapElements.obj z) hp
@@ -38,7 +38,7 @@ theorem Composition.fill_fills {Γ Δ : Context.{u}} {A : Family Γ} {C : Compos
     exact (C.fill_val_heq p φ b y).trans ((heq_of_eq (hc.trans hv)).trans
       (endpointSection_val (Presheaf.reindex A p) false b.base _ _))
   · intro x hx
-    have hf : (scaledFace φ).full x := (Cofibration.full_join _ _ x).mpr (Or.inl hx)
+    have hf : (scaledFace φ).Full x := (Cofibration.full_join _ _ x).mpr (Or.inl hx)
     have hc := h.boundary (scaleInterval Δ ≫ p) (scaledFace φ) (scaledBox b) x hf
     have hv := glueValue_left (b.tube.reindex (scaleInterval Δ)) (scaledZeroSection b.base)
       ((endpointSub (total (interval Δ)) true).mapElements.obj x) hf hx

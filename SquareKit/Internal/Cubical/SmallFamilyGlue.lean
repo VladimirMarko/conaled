@@ -163,50 +163,50 @@ theorem Datum.local_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) : (D.reindex σ).local x = D.local (σ.mapElements.obj x) :=
   congrArg D.reindex (represented_naturality σ x).symm
 
-def Datum.localCarrier {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
+def Datum.LocalCarrier {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
   (D.local x).compatible.obj (representableGeneric.{u} x.obj.unop)
 
 theorem Datum.localCarrier_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) :
-    (D.reindex σ).localCarrier x = D.localCarrier (σ.mapElements.obj x) :=
+    (D.reindex σ).LocalCarrier x = D.LocalCarrier (σ.mapElements.obj x) :=
   congrArg (fun L => L.compatible.obj (representableGeneric.{u} x.obj.unop))
     (D.local_substitution σ x)
 
 def Datum.localCarrierEquiv {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) :
-    D.localCarrier x ≃ D.compatible.obj x :=
+    D.LocalCarrier x ≃ D.compatible.obj x :=
   (((compatibleReindexIso D.face D.ambient D.faceFamily D.map (represented x)).app
     (representableGeneric.{u} x.obj.unop)).symm.toEquiv).trans
       (D.compatible.mapIso (eqToIso (represented_generic_source x))).toEquiv
 
 /-- Full faces retain the given carrier; other cubes use a local presentation. -/
-def Datum.smallFiber {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
-  if h : D.face.full x then D.faceFamily.obj (faceObj D.face x h) else D.localCarrier x
+def Datum.SmallFiber {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
+  if h : D.face.Full x then D.faceFamily.obj (faceObj D.face x h) else D.LocalCarrier x
 
 def Datum.smallFiberEquiv {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) :
-    D.smallFiber x ≃ D.compatible.obj x :=
-  if h : D.face.full x then
-    (Equiv.cast (show D.smallFiber x = D.faceFamily.obj (faceObj D.face x h) from dite_eq_left h)).trans
+    D.SmallFiber x ≃ D.compatible.obj x :=
+  if h : D.face.Full x then
+    (Equiv.cast (show D.SmallFiber x = D.faceFamily.obj (faceObj D.face x h) from dite_eq_left h)).trans
       (fullFaceEquiv D.face D.ambient D.faceFamily D.map h)
   else
-    (Equiv.cast (show D.smallFiber x = D.localCarrier x from dite_eq_right h)).trans
+    (Equiv.cast (show D.SmallFiber x = D.LocalCarrier x from dite_eq_right h)).trans
       (D.localCarrierEquiv x)
 
 theorem Datum.smallFiber_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) :
-    (D.reindex σ).smallFiber x = D.smallFiber (σ.mapElements.obj x) := by
-  unfold smallFiber
-  change (if h : D.face.full (σ.mapElements.obj x) then
-    D.faceFamily.obj (faceObj D.face (σ.mapElements.obj x) h) else (D.reindex σ).localCarrier x) = _
-  by_cases h : D.face.full (σ.mapElements.obj x)
+    (D.reindex σ).SmallFiber x = D.SmallFiber (σ.mapElements.obj x) := by
+  unfold SmallFiber
+  change (if h : D.face.Full (σ.mapElements.obj x) then
+    D.faceFamily.obj (faceObj D.face (σ.mapElements.obj x) h) else (D.reindex σ).LocalCarrier x) = _
+  by_cases h : D.face.Full (σ.mapElements.obj x)
   · rw [dite_eq_left h, dite_eq_left h]
   · rw [dite_eq_right h, dite_eq_right h]
     exact D.localCarrier_substitution σ x
 
 def Datum.smallFamily {Γ : Context.{u}} (D : Datum Γ) : Family Γ :=
-  D.compatible.copyObj D.smallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)
+  D.compatible.copyObj D.SmallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)
 
 def Datum.smallFamilyIso {Γ : Context.{u}} (D : Datum Γ) : D.smallFamily ≅ D.compatible :=
-  (D.compatible.isoCopyObj D.smallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)).symm
+  (D.compatible.isoCopyObj D.SmallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)).symm
 
 def Datum.chartMap {Γ : Context.{u}} (D : Datum Γ) {I : Cube}
     (q : representable.{u} I ⟶ Γ) (x : Γ.Elements)
@@ -254,11 +254,11 @@ theorem Datum.smallToLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     HEq ((D.smallFiberEquiv (σ.mapElements.obj x)).symm s)
       (((D.reindex σ).smallFiberEquiv x).symm
         ((compatibleReindexMap D.face D.ambient D.faceFamily D.map σ).app x s)) := by
-  by_cases h : D.face.full (σ.mapElements.obj x)
-  · have h' : (D.reindex σ).face.full x := h
+  by_cases h : D.face.Full (σ.mapElements.obj x)
+  · have h' : (D.reindex σ).face.Full x := h
     simp only [smallFiberEquiv, dite_eq_left h, dite_eq_left h']
     exact (cast_heq _ _).trans (cast_heq _ _).symm
-  · have h' : ¬(D.reindex σ).face.full x := h
+  · have h' : ¬(D.reindex σ).face.Full x := h
     simp only [smallFiberEquiv, dite_eq_right h, dite_eq_right h']
     exact (cast_heq _ _).trans ((D.toLocal_substitution σ x s).trans (cast_heq _ _).symm)
 
@@ -293,14 +293,14 @@ theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ 
               (D.smallFiberEquiv (σ.mapElements.obj x) s)))).symm)
 
 theorem Datum.smallFiberEquiv_full {Γ : Context.{u}} (D : Datum Γ) {x : Γ.Elements}
-    (h : D.face.full x) (a : D.smallFiber x) (t : D.faceFamily.obj (faceObj D.face x h))
+    (h : D.face.Full x) (a : D.SmallFiber x) (t : D.faceFamily.obj (faceObj D.face x h))
     (ha : HEq a t) : D.smallFiberEquiv x a = fromFace D.face D.ambient D.faceFamily D.map h t := by
   simp only [smallFiberEquiv, dite_eq_left h]
   apply congrArg (fromFace D.face D.ambient D.faceFamily D.map h)
   exact eq_of_heq ((cast_heq _ a).trans ha)
 
 theorem Datum.smallFiberEquiv_symm_full {Γ : Context.{u}} (D : Datum Γ) {x : Γ.Elements}
-    (h : D.face.full x) (s : D.compatible.obj x) :
+    (h : D.face.Full x) (s : D.compatible.obj x) :
     HEq ((D.smallFiberEquiv x).symm s) (s.face (𝟙 x) h) := by
   simp only [smallFiberEquiv, dite_eq_left h]
   exact cast_heq _ _
@@ -529,29 +529,29 @@ namespace CodeSystem
 def Compatible {Γ : Context.{u}} {φ ψ : Cofibration Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) : Prop :=
-  ∀ (x : Γ.Elements) (h : φ.full x) (k : ψ.full x),
+  ∀ (x : Γ.Elements) (h : φ.Full x) (k : ψ.Full x),
     a.app x.obj ⟨⟨x.val,h⟩⟩ = b.app x.obj ⟨⟨x.val,k⟩⟩
 
 def value {Γ : Context.{u}} {φ ψ : Cofibration Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u})
-    (x : Γ.Elements) (p : (φ.join ψ).full x) : SmallFamilyCode.{u} x.obj.unop :=
-  if h : φ.full x then a.app x.obj ⟨⟨x.val,h⟩⟩
+    (x : Γ.Elements) (p : (φ.join ψ).Full x) : SmallFamilyCode.{u} x.obj.unop :=
+  if h : φ.Full x then a.app x.obj ⟨⟨x.val,h⟩⟩
   else b.app x.obj ⟨⟨x.val,((Cofibration.full_join φ ψ x).mp p).resolve_left h⟩⟩
 
 theorem value_left {Γ : Context.{u}} {φ ψ : Cofibration Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u})
-    (x : Γ.Elements) (p : (φ.join ψ).full x) (h : φ.full x) :
+    (x : Γ.Elements) (p : (φ.join ψ).Full x) (h : φ.Full x) :
     value a b x p = a.app x.obj ⟨⟨x.val,h⟩⟩ := by
   exact dite_eq_left h
 
 theorem value_right {Γ : Context.{u}} {φ ψ : Cofibration Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b)
-    (x : Γ.Elements) (p : (φ.join ψ).full x) (h : ψ.full x) :
+    (x : Γ.Elements) (p : (φ.join ψ).Full x) (h : ψ.Full x) :
     value a b x p = b.app x.obj ⟨⟨x.val,h⟩⟩ := by
-  by_cases k : φ.full x
+  by_cases k : φ.Full x
   · exact (value_left a b x p k).trans (c x k h)
   · exact dite_eq_right k
 
@@ -695,11 +695,11 @@ variable {Γ : Context.{u}} {φ ψ : Cofibration Γ}
 abbrev original (x : (restrictContext (φ.join ψ)).Elements) : Γ.Elements :=
   (restrictInclusion (φ.join ψ)).mapElements.obj x
 
-def left (x : (restrictContext (φ.join ψ)).Elements) (h : φ.full (original x)) :
+def left (x : (restrictContext (φ.join ψ)).Elements) (h : φ.Full (original x)) :
     (restrictContext φ).Elements :=
   (restrictContext φ).elementsMk x.obj ⟨x.val.val,h⟩
 
-def right (x : (restrictContext (φ.join ψ)).Elements) (h : ψ.full (original x)) :
+def right (x : (restrictContext (φ.join ψ)).Elements) (h : ψ.Full (original x)) :
     (restrictContext ψ).Elements :=
   (restrictContext ψ).elementsMk x.obj ⟨x.val.val,h⟩
 
@@ -709,20 +709,20 @@ variable (a : reindex A (includeLeft φ ψ) ⟶ reindex B (includeLeft φ ψ))
 /-- Equality on the overlap is required for maps, independently of code compatibility. -/
 def Compatible : Prop :=
   ∀ (x : (restrictContext (φ.join ψ)).Elements)
-    (h : φ.full (original x)) (k : ψ.full (original x)) (z : A.obj x),
+    (h : φ.Full (original x)) (k : ψ.Full (original x)) (z : A.obj x),
     a.app (left x h) z = b.app (right x k) z
 
 def value (x : (restrictContext (φ.join ψ)).Elements) (z : A.obj x) : B.obj x :=
-  if h : φ.full (original x) then a.app (left x h) z
+  if h : φ.Full (original x) then a.app (left x h) z
   else b.app (right x (((Cofibration.full_join φ ψ _).mp x.val.property).resolve_left h)) z
 
 theorem value_left (x : (restrictContext (φ.join ψ)).Elements)
-    (h : φ.full (original x)) (z : A.obj x) : value a b x z = a.app (left x h) z := by
+    (h : φ.Full (original x)) (z : A.obj x) : value a b x z = a.app (left x h) z := by
   exact dite_eq_left h
 
 theorem value_right (c : Compatible a b) (x : (restrictContext (φ.join ψ)).Elements)
-    (h : ψ.full (original x)) (z : A.obj x) : value a b x z = b.app (right x h) z := by
-  by_cases k : φ.full (original x)
+    (h : ψ.Full (original x)) (z : A.obj x) : value a b x z = b.app (right x h) z := by
+  by_cases k : φ.Full (original x)
   · exact (value_left a b x k z).trans (c x k h z)
   · exact dite_eq_right k
 
@@ -820,7 +820,7 @@ theorem constant_partial (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
       raisedSub (restrictInclusion (face (φ := φ)) ≫ projection (interval Γ)) ≫ a := by
   ext I x
   let y := (total (interval Γ)).elementsMk I x.down.val
-  by_cases h : (intervalFace Γ false).full y
+  by_cases h : (intervalFace Γ false).Full y
   · exact value_left (endpointCode a false) (constant φ a).tube y x.down.property h
   · exact value_right (endpointCode a false) (constant φ a).tube (constant φ a).compatible
       y x.down.property (((Cofibration.full_join _ _ y).mp x.down.property).resolve_left h)

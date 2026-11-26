@@ -46,7 +46,7 @@ theorem scaledBox_map {Γ : Context.{u}} {A B : Family (total (interval Γ))}
     intro x hx
     classical
     by_cases h : ((φ.reindex (projection (interval Γ))).reindex
-        (scaleInterval Γ)).full x
+        (scaleInterval Γ)).Full x
     · simp only [scaledBox,scaledTube,OpenBox.map,PartialSection.glue,PartialSection.map,
         glueValue,dite_eq_left h]
       rfl

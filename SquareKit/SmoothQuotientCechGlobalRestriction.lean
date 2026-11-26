@@ -16,7 +16,7 @@ variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 def restrictedSignature := alignedUniverseSignature
   ((baseEquivalence a A).functor ⋙ restriction (SplitSheaf.p A))
   (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
-  (family a (SplitSheaf.Ext A)) (restrictedFiber a A)
+  (family a (SplitSheaf.extension A)) (restrictedFiber a A)
 
 theorem context_restriction (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (contextEquivalence a A hΓ).functor ⋙
@@ -54,11 +54,11 @@ theorem localComparison_overlap :
   exact SheafTorsor.Descent.evaluation_transport d.toDescent.torsorDatum
     (X.obj.elementsMk x.obj x.val.1.1) x.val.1.2 x.val.2 p
 
-def parameterRestrictedFiber {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.Ext A) :=
+def parameterRestrictedFiber {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.extension A) :=
   restrictedFiber a A ≫ whiskerLeft
     ((baseEquivalence a A).functor ⋙ restriction (SplitSheaf.p A)) (restrictionFamily f)
 
-theorem localComparison_restrict_square {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.Ext A) :
+theorem localComparison_restrict_square {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.extension A) :
     parameterRestrictedFiber a A f ≫
       whiskerRight (isoWhiskerRight (localComparison a A) (restriction f)).hom (family a Y) =
         SmoothQuotientCechLocal.parameterFiber a A f := by
@@ -74,7 +74,7 @@ theorem localComparison_restrict_square {Y : Sheaf topology Type} (f : Y ⟶ Spl
 
 
 def parameterRecovery (hΓ : Typed.CtxDeriv.{2} Γ γ)
-    {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.Ext A) :=
+    {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.extension A) :=
   alignedContextComparison (isoWhiskerRight (localComparison a A) (restriction f))
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A)) (family a Y)
     (parameterRestrictedFiber a A f) (SmoothQuotientCechLocal.parameterFiber a A f)

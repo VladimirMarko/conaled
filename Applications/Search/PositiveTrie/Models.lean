@@ -64,12 +64,12 @@ theorem empty_relate (default : ν) : Abs (empty default) (fun _ => default) :=
   abstract_empty default
 
 theorem lookup_relate (key : PosNum) (table : Table ν) (meaning : Nat → ν)
-    (_valid : isTrie table) (related : Abs table meaning) :
+    (_valid : IsTrie table) (related : Abs table meaning) :
     lookup key table = meaning (Numerals.PositiveKeys.decode key) := by
   rw [lookup_decode, related]
 
 theorem insert_relate (key : PosNum) (value : ν) (table : Table ν) (meaning : Nat → ν)
-    (_valid : isTrie table) (related : Abs table meaning) :
+    (_valid : IsTrie table) (related : Abs table meaning) :
     Abs (insert key value table)
       (Function.update meaning (Numerals.PositiveKeys.decode key) value) := by
   change abstract (insert key value table) = _

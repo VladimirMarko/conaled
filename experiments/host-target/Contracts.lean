@@ -123,7 +123,7 @@ theorem graph_contract (d : GraphTarget.Declaration) :
     CoreSyntax.HasType [] (erase (annotate (emitCore d).2))
       (erase (annotate (emitCore d).1)) ∧
     ClosedDenotes.{0} (erase (annotate (emitCore d).1))
-      (erase (annotate (emitCore d).2)) (GraphTarget.Declaration.denote.{0} d) := by
+      (erase (annotate (emitCore d).2)) (GraphTarget.Declaration.Denote.{0} d) := by
   simp only [erase_annotate]
   exact ⟨emitCore_typed d, emitCore_denotes.{0} d⟩
 
@@ -133,7 +133,7 @@ example : CoreSyntax.HasType []
     (erase (annotate (emitCore GraphTarget.forwardDeclaration).1)) :=
   (graph_contract GraphTarget.forwardDeclaration).1
 
-example : GraphTarget.Declaration.denote.{0} GraphTarget.forwardDeclaration :=
+example : GraphTarget.Declaration.Denote.{0} GraphTarget.forwardDeclaration :=
   (graph_contract GraphTarget.forwardDeclaration).2.sound
 
 end HostTarget

@@ -10,7 +10,7 @@ theorem SpecStep.prefix {P : Type} {ev} {a b : Abstract P}
   | _ => exact ⟨[], by simp⟩
 
 theorem spec_script_prefix {P : Type} {events : List (Event P)} {a b : Abstract P}
-    (run : Interaction.Events.interpret SpecStep events a b) :
+    (run : Interaction.Events.Interpret SpecStep events a b) :
     ∃ suffix, b.history = a.history ++ suffix := by
   induction events generalizing a with
   | nil => cases run; exact ⟨[], by simp⟩
@@ -41,7 +41,7 @@ theorem SpecStep.keys_unique {P : Type} {a b : Abstract P} {ev}
   | _ => exact unique
 
 theorem spec_script_unique {P : Type} {events : List (Event P)} {a b : Abstract P}
-    (run : Interaction.Events.interpret SpecStep events a b)
+    (run : Interaction.Events.Interpret SpecStep events a b)
     (unique : (a.history.map Record.key).Nodup) : (b.history.map Record.key).Nodup := by
   induction events generalizing a with
   | nil => cases run; exact unique
@@ -53,7 +53,7 @@ theorem spec_script_unique {P : Type} {events : List (Event P)} {a b : Abstract 
 arbitrary repeated crashes. It retains position because the entire prefix does. -/
 theorem acknowledged_survives {P : Type} {a b c : Abstract P} {e events}
     (ack : SpecStep (.acknowledge e) a b)
-    (later : Interaction.Events.interpret SpecStep events b c) :
+    (later : Interaction.Events.Interpret SpecStep events b c) :
     e ∈ c.history ∧ ∃ suffix, c.history = a.history ++ suffix := by
   cases ack with
   | acknowledge online active mem =>
@@ -67,10 +67,10 @@ theorem Related.fold {P M : Type} {s : Machine P} {a : Abstract P}
   rw [(rel.ready ready).2]
 
 def sourceBehaviors {P : Type} (events : List (Event P)) : Set (Abstract P) :=
-  {a | Interaction.Events.interpret SpecStep events initialAbstract a}
+  {a | Interaction.Events.Interpret SpecStep events initialAbstract a}
 
 def targetBehaviors {P : Type} (events : List (Event P)) : Set (Machine P) :=
-  {s | Interaction.Events.interpret Step events initial s}
+  {s | Interaction.Events.Interpret Step events initial s}
 
 /-- Reuse the repository's observation-refinement interface, not an equality of
 storage representations. -/
@@ -108,7 +108,7 @@ theorem acknowledged_client {P : Type} (before after : List (Event P)) (e : Reco
       ∀ h, s.cache = some h → e ∈ h := by
   apply history_client _ (fun h => e ∈ h)
   intro a run
-  change Interaction.Events.interpret SpecStep (before ++ .acknowledge e :: after) initialAbstract a at run
+  change Interaction.Events.Interpret SpecStep (before ++ .acknowledge e :: after) initialAbstract a at run
   rw [Interaction.Events.interpret_append] at run
   obtain ⟨mid, first, next, ack, rest⟩ := run
   exact (acknowledged_survives ack rest).1

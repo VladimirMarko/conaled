@@ -17,7 +17,7 @@ def labels (n : Count Ξ) : Family Ξ :=
   discreteFamily n (fun k => ULift.{u+1} (Fin k.down))
 
 def labelPresentation (n : Count Ξ) : SmallPresentation.Data (labels n) where
-  fiber x := ULift.{u} (Fin (n.val x).down)
+  Fiber x := ULift.{u} (Fin (n.val x).down)
   equiv _ := Equiv.ulift.trans Equiv.ulift.symm
 
 def labelFilling (n : Count Ξ) : Filling (labels n) :=
@@ -29,12 +29,12 @@ theorem labelFilling_lawful (n : Count Ξ) : (labelFilling n).Lawful :=
 noncomputable def labelCode (n : Count Ξ) : LargeConstructors.Result (labels n) :=
   LargeConstructors.construct (labelPresentation n) (labelFilling n) (labelFilling_lawful n)
 
-abbrev LabelContext (n : Count Ξ) := total (labels n)
+abbrev labelContext (n : Count Ξ) := total (labels n)
 
-def labelProjection (n : Count Ξ) : LabelContext n ⟶ Ξ := projection (labels n)
+def labelProjection (n : Count Ξ) : labelContext n ⟶ Ξ := projection (labels n)
 
 noncomputable def labelContextIso (n : Count Ξ) :
-    total (liftedDecode (labelCode n).code) ≅ LabelContext n :=
+    total (liftedDecode (labelCode n).code) ≅ labelContext n :=
   totalIso (labelCode n).decoding
 
 theorem label_selected (n : Count Ξ) :
@@ -45,13 +45,13 @@ theorem label_selected (n : Count Ξ) :
 structure Inputs (Ξ : Context.{u+1}) where
   count : Count Ξ
   Y : Ξ ⟶ smallFamilyCodes.{u}
-  D : LabelContext count ⟶ smallFamilyCodes.{u}
+  D : labelContext count ⟶ smallFamilyCodes.{u}
   target : Term (liftedDecode (projection (liftedDecode D) ≫ labelProjection count ≫ Y))
   endpoint : Term (liftedDecode Y)
 
 /-- Extend by Y and use its actual generic variable as endpoint. -/
 def genericEndpoint (n : Count Ξ) (Y : Ξ ⟶ smallFamilyCodes.{u})
-    (D : LabelContext n ⟶ smallFamilyCodes.{u})
+    (D : labelContext n ⟶ smallFamilyCodes.{u})
     (s : Term (liftedDecode (projection (liftedDecode D) ≫ labelProjection n ≫ Y))) :
     Inputs (total (liftedDecode Y)) where
   count := n.reindex (projection (liftedDecode Y))

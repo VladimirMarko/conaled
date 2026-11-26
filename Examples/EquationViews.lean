@@ -89,7 +89,7 @@ example : (transpose withSize).construct meaning (.inl (.cons 1))
 
 /-- Extension and transposition cannot supply a lookup argument at index zero. -/
 theorem empty_lookup_impossible
-    (i : ((signature.addObservers (fun _ => Unit) (fun _ => Unit) (fun _ => Nat)).arguments
+    (i : ((signature.addObservers (fun _ => Unit) (fun _ => Unit) (fun _ => Nat)).Arguments
       (Sum.inl (Observer.at (n := 0))))) : False := Fin.elim0 i
 
 end Examples.EquationViews

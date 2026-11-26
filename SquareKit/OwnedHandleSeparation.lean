@@ -4,18 +4,18 @@ import SquareKit.OwnedHandle
 namespace SquareKit.OwnedHandle
 
 abbrev Heap := Bool → Option (Nat × Nat)
-def disjoint (h k : Heap) : Prop := ∀ a, h a = none ∨ k a = none
+def Disjoint (h k : Heap) : Prop := ∀ a, h a = none ∨ k a = none
 def union (h k : Heap) : Heap := fun a => (h a).or (k a)
 def Sep (P Q : Heap → Prop) (h : Heap) : Prop :=
-  ∃ left right, disjoint left right ∧ h = union left right ∧ P left ∧ Q right
+  ∃ left right, Disjoint left right ∧ h = union left right ∧ P left ∧ Q right
 
 def singleton (h : Bool) (owner value : Nat) : Heap :=
   Function.update (fun _ => none) h (some (owner,value))
-def pointsTo (h : Bool) (owner value : Nat) : Heap → Prop :=
+def PointsTo (h : Bool) (owner value : Nat) : Heap → Prop :=
   fun heap => heap = singleton h owner value
 
 theorem no_separating_alias (h : Bool) (a b v w : Nat) (heap : Heap) :
-    ¬ Sep (pointsTo h a v) (pointsTo h b w) heap := by
+    ¬ Sep (PointsTo h a v) (PointsTo h b w) heap := by
   rintro ⟨left, right, hd, _, rfl, rfl⟩
   have := hd h
   simp [singleton] at this

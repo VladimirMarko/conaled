@@ -90,8 +90,8 @@ local instance : TopologicalSpace C4 := ⊥
 local instance : DiscreteTopology C4 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) C4 := ChartedSpace.ofDiscreteTopology
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ C4 := IsManifold.of_discreteTopology _
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ C4 := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 
 def sheet (g : C4) : OpenPartialHomeomorph C4 PUnit where
   toFun _ := PUnit.unit
@@ -158,7 +158,7 @@ local instance : MulAction S3 (Space 1) := trivialAction _
 
 def base := ChartFamily.preferred (n := 1) (M := Space 1)
 def zeroMap := (atlasIso base).inv ≫ ManifoldRealization.map (fun _ : Space 1 => (0 : Space 1))
-  (show ContMDiff (Model 1) (Model 1) ∞ (fun _ : Space 1 => (0 : Space 1)) from contMDiff_const)
+  (show ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ (fun _ : Space 1 => (0 : Space 1)) from contMDiff_const)
 def quotient := SheafActionQuotient.chart (representation (smooth S3)).action zeroMap
 
 def arrow (g : S3) : SheafActionQuotient.Arrow quotient quotient :=
@@ -302,12 +302,12 @@ theorem coord_open : IsOpenEmbedding coord :=
   coordEquiv.toHomeomorph.isOpenEmbedding.comp
     (isOpen_ne : IsOpen {z : ℂ | z ≠ 0}).isOpenEmbedding_subtypeVal
 local instance manifoldCharts : ChartedSpace (Space 2) E := coord_open.singletonChartedSpace
-local instance manifoldSmooth : IsManifold (Model 2) ∞ E := coord_open.isManifold_singleton
+local instance manifoldSmooth : IsManifold (modelWithCorners 2) ∞ E := coord_open.isManifold_singleton
 
-theorem coord_smooth : ContMDiff (Model 2) (Model 2) ∞ coord := contMDiff_isOpenEmbedding coord_open
+theorem coord_smooth : ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ coord := contMDiff_isOpenEmbedding coord_open
 
 theorem ambient_smooth (F : ℂ → ℂ) (hF : ContDiff ℝ ∞ F) (f : E → E)
-    (he : ∀ z, (f z).val = F z.val) : ContMDiff (Model 2) (Model 2) ∞ f := by
+    (he : ∀ z, (f z).val = F z.val) : ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ f := by
   apply ContMDiff.of_comp_isOpenEmbedding coord_open
   have h : ContDiff ℝ ∞ (coordEquiv ∘ F ∘ coordEquiv.symm) :=
     coordEquiv.contDiff.comp (hF.comp coordEquiv.symm.contDiff)
@@ -316,20 +316,20 @@ theorem ambient_smooth (F : ℂ → ℂ) (hF : ContDiff ℝ ∞ F) (f : E → E)
   funext z
   simp [coord, Function.comp_def, he]
 
-theorem square_smooth : ContMDiff (Model 2) (Model 2) ∞ Examples.SmoothFiniteCover.square :=
+theorem square_smooth : ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ Examples.SmoothFiniteCover.square :=
   ambient_smooth (fun z => z^2) (contDiff_id.pow 2) _ (fun _ => rfl)
 theorem ambient_smoothAt (F : ℂ → ℂ) (f : E → E)
     (he : ∀ z, (f z).val = F z.val) (z : E) (hF : ContDiffAt ℝ ∞ F z.val) :
-    ContMDiffAt (Model 2) (Model 2) ∞ f z := by
+    ContMDiffAt (modelWithCorners 2) (modelWithCorners 2) ∞ f z := by
   have hF' : ContDiffAt ℝ ∞ F (coordEquiv.symm (coord z)) := by simpa [coord] using hF
   have h : ContDiffAt ℝ ∞ (coordEquiv ∘ F ∘ coordEquiv.symm) (coord z) :=
     coordEquiv.contDiff.contDiffAt.comp _
       (hF'.comp _ coordEquiv.symm.contDiff.contDiffAt)
-  have hh : ContMDiffAt (Model 2) (Model 2) ∞ (coord ∘ f) z := by
+  have hh : ContMDiffAt (modelWithCorners 2) (modelWithCorners 2) ∞ (coord ∘ f) z := by
     convert h.contMDiffAt.comp z coord_smooth.contMDiffAt using 1
     funext y
     simp [coord, Function.comp_def, he]
-  have hi := (contMDiffOn_isOpenEmbedding_symm (I := Model 2) (n := ∞) coord_open).contMDiffAt
+  have hi := (contMDiffOn_isOpenEmbedding_symm (I := modelWithCorners 2) (n := ∞) coord_open).contMDiffAt
     (coord_open.isOpen_range.mem_nhds (Set.mem_range_self (f z)))
   apply (hi.comp z hh).congr_of_eventuallyEq
   exact Filter.Eventually.of_forall (fun y => (coord_open.toOpenPartialHomeomorph_left_inv coord (x := f y)).symm)
@@ -349,7 +349,7 @@ local instance rootAction : MulAction G E where
 
 theorem smul_val (g : G) (z : E) : (g • z).val = (g.val : ℂ) * z.val := rfl
 
-theorem action_smooth (g : G) : ContMDiff (Model 2) (Model 2) ∞ (fun z : E => g • z) :=
+theorem action_smooth (g : G) : ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ (fun z : E => g • z) :=
   ambient_smooth (fun z => (g.val : ℂ) * z) (contDiff_const.mul contDiff_id) _ (fun _ => rfl)
 
 theorem invariant (g : G) (z : E) : Examples.SmoothFiniteCover.square (g • z) =
@@ -377,7 +377,7 @@ theorem fiber_principal (z w : E) (h : Examples.SmoothFiniteCover.square z =
     exact hv.trans (div_mul_cancel₀ w.val z.property).symm
 open Examples.SmoothFiniteCover
 variable (V : Set E) (hV : IsOpen V) (s : E → E)
-  (hs : ContMDiffOn (Model 2) (Model 2) ∞ s V)
+  (hs : ContMDiffOn (modelWithCorners 2) (modelWithCorners 2) ∞ s V)
   (hp : ∀ b ∈ V, square (s b) = b)
 
 def branch (g : G) (b : V) : E := g • s b.val
@@ -445,11 +445,11 @@ def negativeSlit : Set E := {b | -b.val ∈ Complex.slitPlane}
 theorem positiveSlit_open : IsOpen positiveSlit := Complex.isOpen_slitPlane.preimage continuous_subtype_val
 theorem negativeSlit_open : IsOpen negativeSlit := Complex.isOpen_slitPlane.preimage continuous_subtype_val.neg
 
-theorem positiveRoot_smooth : ContMDiffOn (Model 2) (Model 2) ∞ positiveRoot positiveSlit := by
+theorem positiveRoot_smooth : ContMDiffOn (modelWithCorners 2) (modelWithCorners 2) ∞ positiveRoot positiveSlit := by
   intro b hb
   exact (ambient_smoothAt root positiveRoot (fun _ => rfl) b (root_smooth hb)).contMDiffWithinAt
 
-theorem negativeRoot_smooth : ContMDiffOn (Model 2) (Model 2) ∞ negativeRoot negativeSlit := by
+theorem negativeRoot_smooth : ContMDiffOn (modelWithCorners 2) (modelWithCorners 2) ∞ negativeRoot negativeSlit := by
   intro b hb
   exact (ambient_smoothAt (fun z => Complex.I * root (-z)) negativeRoot (fun _ => rfl) b
     (opposite_root_smooth hb)).contMDiffWithinAt

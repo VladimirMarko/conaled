@@ -199,9 +199,9 @@ theorem LocalFilling.toFilling_fills {Γ Δ : Context.{u}} {A : Family Γ}
     exact eq_of_heq (hy.trans (hv.symm.trans ((heq_of_eq hc).trans (Term.val_heq b.base e))))
   · intro x hx
     let σ := represented (intervalBase x)
-    have ht : (φ.reindex (projection (interval Δ))).holds
+    have ht : (φ.reindex (projection (interval Δ))).Holds
         ((intervalSub σ).mapElements.obj (intervalGeneric x)) :=
-      (congrArg (φ.reindex (projection (interval Δ))).holds (intervalEvaluation_source x)).mpr hx
+      (congrArg (φ.reindex (projection (interval Δ))).Holds (intervalEvaluation_source x)).mpr hx
     have hl := (hF.fills (intervalSub σ ≫ p) (φ.reindex σ) (Term.reindex r σ) (b.reindex σ)).2
       (intervalGeneric x) ht
     change (Cartesian.reindex A p).map (intervalEvaluation x) _ = _

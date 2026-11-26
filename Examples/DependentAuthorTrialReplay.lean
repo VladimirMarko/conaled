@@ -55,7 +55,7 @@ theorem branch_recipe : (DependentAuthorTrial.Candidate.certificateCommand hx hT
     reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T)) := rfl
 
 /-- The original source typing survives the actual extension embedding. -/
-noncomputable def selected_typing := DependentAuthorTrial.Candidate.extendedCertificate hx hT hp
+noncomputable def selectedTyping := DependentAuthorTrial.Candidate.extendedCertificate hx hT hp
 
 end Candidate
 end Examples.DependentAuthorTrialReplay

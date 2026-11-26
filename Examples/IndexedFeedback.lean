@@ -66,7 +66,7 @@ example : (compSub later later (inputs,0)).2 = 2 := rfl
 example : (tmSub (tmSub (backwardSection seed reverseFirst) later) later (inputs,0)).val = 3 := rfl
 
 /-- The terminal family really depends on the evolving history length. -/
-def delayed : Temporal.Until (fun _ => PUnit) (fun n => forwardFamily seed (inputs,n)) 0 :=
+def delayed : Temporal.Until (fun _ => PUnit) (fun n => ForwardFamily seed (inputs,n)) 0 :=
   .wait PUnit.unit (.wait PUnit.unit (.now (forwardCursor seed first inputs 2)))
 
 def reversed := mapUntil seed seed initialRelated inputs delayed

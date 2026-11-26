@@ -12,7 +12,7 @@ open Realizability Realizability.Assembly VaryingPartialCertificates
 /-- Every bounded value remains valid; its canonical trace is retained as data. -/
 def certificates (n k : Nat) : Assembly where
   Carrier := Cert n k
-  realizes r c := r = c.value.val
+  Realizes r c := r = c.value.val
   inhabited c := ⟨c.value.val, rfl⟩
 
 /-- The same proper certificate embeddings now have actual recursive trackers. -/
@@ -86,7 +86,7 @@ theorem lifted_negate_bottom : (programLiftMap negate).toFun none = none := rfl
 
 /-- A zero evaluation bound does not establish semantic undefinedness. -/
 example : Nat.Partrec.Code.evaln 0 (Nat.Partrec.Code.const 3) 0 = none ∧
-    (programLift (encoded Nat)).realizes (Encodable.encode (Nat.Partrec.Code.const 3))
+    (programLift (encoded Nat)).Realizes (Encodable.encode (Nat.Partrec.Code.const 3))
       (some (3 : Nat)) := by
   constructor
   · simp [Nat.Partrec.Code.evaln]

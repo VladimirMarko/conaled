@@ -46,7 +46,7 @@ that some equivalence of the endpoints exists.
 | `mapping-comparison` | `Boundary.mappingComparison`: actual postcomposition with the supplied target cocone. |
 | `restriction-naturality`, `comparison-computation` | `Cocone.post_comp` followed by `Boundary.comparison_computation`: postcomposition and the section yield equality of the whole native cocone. The native extensionality lemma does not retain distinct gluing proofs. |
 | `homotopy-isEquiv`, `cancel-right-isEquiv` | `homotopy`, `cancelRight`: derived using native `funext`, transport and composition of actual equivalences. These are native reconstructions, not the source's intensional fiber-path derivations. |
-| `mapping-square-local` | `Boundary.mapping_square_local`: derives contractible fibers of precomposition by the chosen gap. No field assumes that final conclusion. |
+| `mapping-square-local` | `Boundary.mappingSquareLocalEquivalence`: derives contractible fibers of precomposition by the chosen gap. No field assumes that final conclusion. |
 
 The definitions and proofs are in
 [Extensional.lean](../../../SquareKit/Internal/DesignatedMap/Extensional.lean).

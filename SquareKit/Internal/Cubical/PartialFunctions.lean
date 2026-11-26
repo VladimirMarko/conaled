@@ -20,7 +20,7 @@ def PartialSection.app {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
 
 theorem PartialSection.app_val {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     {φ : Cofibration Γ} (s : PartialSection (pi A B) φ) (x : (total A).Elements)
-    (h : (φ.reindex (projection A)).full x) :
+    (h : (φ.reindex (projection A)).Full x) :
     s.app.val x h = (s.val ((projection A).mapElements.obj x) h).val (𝟙 _) x.val.2 := rfl
 
 theorem PartialSection.app_reindex {Γ Δ : Context.{u}} {A : Family Γ}

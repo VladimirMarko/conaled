@@ -15,7 +15,7 @@ set_option backward.defeqAttrib.useBackward false
 universe u
 variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u}) {V : Type}
 variable {Ω : List (Contextual.Judgment V)} (ρ : V → Value M.toStructuralModel)
-variable (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+variable (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
 
 include hΩ in
 theorem term_exists {g a t : Contextual.Expression V} (ht : Tm (Ω := Ω) g a t)

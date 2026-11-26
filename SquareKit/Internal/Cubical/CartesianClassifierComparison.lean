@@ -51,18 +51,18 @@ def familyPresentation {Γ : Context.{u}} (P : Γ.Elements → Type u) {S : Type
   inv_hom_id := by ext x a; exact (e x).apply_symm_apply a
 
 /-- Every represented chart has small tuple fibers, without lifting its base. -/
-def fiber {I : Cube} (T : VertexSystem.{u} (Vertex I.dimension))
+def Fiber {I : Cube} (T : VertexSystem.{u} (Vertex I.dimension))
     (x : (representable.{u} I).Elements) : Type u :=
   (T.reindex (Cube.vertices x.val.down)).Tuple
 
 def presentationEquiv {I : Cube} (T : VertexSystem.{u} (Vertex I.dimension))
     (x : (representable.{u} I).Elements) :
-    fiber T x ≃ (T.obj (fun _ => false)).carrier :=
+    Fiber T x ≃ (T.obj (fun _ => false)).Carrier :=
   T.tupleGlobalEquiv (Cube.vertices x.val.down) (fun _ => false) (fun _ => false)
 
 def family {I : Cube} (T : VertexSystem.{u} (Vertex I.dimension)) :
     Family (representable.{u} I) :=
-  familyFromPresentation (fiber T) (presentationEquiv T)
+  familyFromPresentation (Fiber T) (presentationEquiv T)
 
 /-- Conjugation is exactly tuple restriction, not a different decoding action. -/
 theorem family_map_coordinate {I : Cube} (T : VertexSystem.{u} (Vertex I.dimension))
@@ -125,8 +125,8 @@ theorem family_reindex {I J : Cube} (T : VertexSystem.{u} (Vertex I.dimension))
 
 def presentation {I : Cube} (T : VertexSystem.{u} (Vertex I.dimension)) :
     family T ≅ constantFamily (representable.{u} I)
-      (T.obj (fun _ => false)).carrier :=
-  familyPresentation (fiber T) (presentationEquiv T)
+      (T.obj (fun _ => false)).Carrier :=
+  familyPresentation (Fiber T) (presentationEquiv T)
 
 def filling {I : Cube} (T : VertexSystem.{u} (Vertex I.dimension)) :
     Filling (family T) := presentedFilling (presentation T)
@@ -186,7 +186,7 @@ theorem decodedFinite_map_coordinate {x y : finiteNerve.{u}.Elements}
     (f : x ⟶ y) (a : decodedFinite.obj x) (w : Vertex y.obj.unop.dimension) :
     HEq ((decodedFinite.map f a).val w) (a.val (Cube.vertices f.hom.unop w)) := by
   have hc := cast_heq
-    (congrArg (fun A : SmallFamilyCode.{u} y.obj.unop => codeFiber A)
+    (congrArg (fun A : SmallFamilyCode.{u} y.obj.unop => CodeFiber A)
       ((classifyFinite.mapElements.map f).map_val))
     ((localFamily x.val).family.map (representableGenericHom f.hom.unop) a)
   have ht : y.val.reindex (Cube.vertices (𝟙 y.obj.unop)) =
@@ -573,39 +573,39 @@ namespace Selected
 noncomputable def filling : Filling TupleDecoder.family.{u} :=
   classifiedFilling.transport tupleDecoderIso
 noncomputable def line (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) :=
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :=
   filling.fill (TargetTransport.intervalChart Γ ≫ TupleDecoder.chart (VertexSystem.loopSystem S e))
     (TargetTransport.emptyTube Γ) (TargetTransport.endpointTerm Γ false) (TargetTransport.box Γ S e s)
 
 theorem line_eq (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) : line Γ S e s = TargetTransport.selected Γ S e s := by
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) : line Γ S e s = TargetTransport.selected Γ S e s := by
   unfold line filling
   rw [classifiedFilling_recovers_tuple]
   rfl
 
-noncomputable def action (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) : S.carrier :=
+noncomputable def action (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) : S.Carrier :=
   ((line (representable.{u+1} ⟨0⟩) S e s).val
     (extendObj (interval (representable.{u+1} ⟨0⟩))
       ((representable.{u+1} ⟨0⟩).elementsMk (.op ⟨0⟩) ⟨𝟙 _⟩)
       ⟨Cube.endpoint ⟨0⟩ true⟩)).down.val (fun i => Fin.elim0 i)
 
-theorem action_eq (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) : action S e s = e s := by
+theorem action_eq (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) : action S e s = e s := by
   unfold action
   rw [line_eq]
   exact TargetTransport.action_eq S e s
 
-theorem action_composite (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem action_composite (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     action S (e.trans d) s = action S d (action S e s) := by
   simp only [action_eq, Equiv.trans_apply]
-noncomputable def arrow (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) : S.carrier ≃ S.carrier :=
+noncomputable def arrow (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) : S.Carrier ≃ S.Carrier :=
   Equiv.ofBijective (action S e) (by
     have h : action S e = e := funext (action_eq S e)
     rw [h]
     exact e.bijective)
-theorem arrow_eq (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) : arrow S e = e :=
+theorem arrow_eq (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) : arrow S e = e :=
   Equiv.ext (action_eq S e)
 
-theorem arrow_eq_tuple_selected (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem arrow_eq_tuple_selected (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     arrow S e = TargetTransport.arrow S e :=
   (arrow_eq S e).trans (TargetTransport.arrow_eq S e).symm
 
@@ -710,7 +710,7 @@ noncomputable def line : Term (reindex (P (a := a) (b := b)) (π (Γ := Γ))) :=
         (EquivalenceFamilies.homogeneousReindexIso A a b (π (Γ := Γ))).hom))
 
 theorem line_boundary (x : (total (interval Γ)).Elements)
-    (hx : ((intervalFace Γ false).join (intervalFace Γ true)).holds x) :
+    (hx : ((intervalFace Γ false).join (intervalFace Γ true)).Holds x) :
     (line c F hF H K).val x = (boundary H K).val x hx := by
   let e := EquivalenceFamilies.homogeneousReindexIso A a b (π (Γ := Γ))
   have h := EquivalenceFamilies.ContractiblePaths.extend_boundary
@@ -723,9 +723,9 @@ theorem line_zero : (Term.reindex (line c F hF H K) (endpointSub Γ false)) = H 
   apply Term.ext
   intro x
   let y := (endpointSub Γ false).mapElements.obj x
-  have hy : (intervalFace Γ false).holds y :=
+  have hy : (intervalFace Γ false).Holds y :=
     (intervalFace_iff false y).mpr rfl
-  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).holds y :=
+  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).Holds y :=
     Or.inl hy
   exact (line_boundary c F hF H K y hj).trans
     ((endpointBoundary_zero (reindex (homogeneousPath A a b) (projection (interval Γ))) H K y hj hy).trans
@@ -735,9 +735,9 @@ theorem line_one : (Term.reindex (line c F hF H K) (endpointSub Γ true)) = K :=
   apply Term.ext
   intro x
   let y := (endpointSub Γ true).mapElements.obj x
-  have hy : (intervalFace Γ true).holds y :=
+  have hy : (intervalFace Γ true).Holds y :=
     (intervalFace_iff true y).mpr rfl
-  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).holds y :=
+  have hj : ((intervalFace Γ false).join (intervalFace Γ true)).Holds y :=
     Or.inr hy
   exact (line_boundary c F hF H K y hj).trans
     ((endpointBoundary_one (reindex (homogeneousPath A a b) (projection (interval Γ))) H K y hj hy).trans
@@ -1063,7 +1063,7 @@ def realizedConstant (S : FiniteCode.{u}) : raisedContext point.{u} ⟶
     smallFamilyCodes.{u} := constantNerve _ S ≫ classifyFinite
 
 def loopNerve (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) : total (interval Γ) ⟶ finiteNerve.{u} where
+    (e : S.Carrier ≃ S.Carrier) : total (interval Γ) ⟶ finiteNerve.{u} where
   app I := TypeCat.ofHom (fun x => (VertexSystem.loopSystem S e).reindex (Cube.vertices x.2.down))
   naturality I J f := by
     apply ConcreteCategory.hom_ext
@@ -1073,7 +1073,7 @@ def loopNerve (Γ : Context.{u+1}) (S : FiniteCode.{u})
     exact congrArg (VertexSystem.reindex _) (funext (Cube.vertices_comp f.unop x.2.down))
 
 theorem loopNerve_endpoint (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (b : Bool) :
+    (e : S.Carrier ≃ S.Carrier) (b : Bool) :
     endpointSub Γ b ≫ loopNerve Γ S e = constantNerve Γ S := by
   ext I x
   change (VertexSystem.loopSystem S e).reindex (Cube.vertices (Cube.endpoint I.unop b)) = _
@@ -1082,12 +1082,12 @@ theorem loopNerve_endpoint (Γ : Context.{u+1}) (S : FiniteCode.{u})
   rw [h]
   exact VertexSystem.loopSystem_endpoint S e _ b
 
-def realizedLoopCode (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+def realizedLoopCode (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     total (interval (raisedContext point.{u})) ⟶
       smallFamilyCodes.{u} := loopNerve _ S e ≫ classifyFinite
 
 def compositionNerve (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e d : S.carrier ≃ S.carrier) :
+    (e d : S.Carrier ≃ S.Carrier) :
     total (interval (total (interval Γ))) ⟶ finiteNerve.{u} where
   app I := TypeCat.ofHom (fun x => (VertexSystem.compositionSquare S e d).reindex
     (Cube.vertices (Cube.pair x.2.down x.1.2.down)))
@@ -1102,7 +1102,7 @@ def compositionNerve (Γ : Context.{u+1}) (S : FiniteCode.{u})
 
 
 noncomputable def constantDecodePresentation (S : FiniteCode.{u}) :
-    decode (realizedConstant S) ≅ constantFamily point S.carrier where
+    decode (realizedConstant S) ≅ constantFamily point S.Carrier where
   hom := {
     app := fun x => TypeCat.ofHom (fun a => a.val (fun _ => false))
     naturality := fun x y f => by
@@ -1137,16 +1137,16 @@ noncomputable def constantDecodePresentation (S : FiniteCode.{u}) :
 abbrev loops (S : FiniteCode.{u}) := homogeneousPath
   (SmallUniverse.family (raisedContext point.{u}))
   (SmallUniverse.term (realizedConstant S)) (SmallUniverse.term (realizedConstant S))
-def realizedLoop (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) : Term (loops S) :=
+def realizedLoop (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) : Term (loops S) :=
   SmallUniverse.pathOfCode _ _ (realizedLoopCode S e)
     ((Category.assoc _ _ _).symm.trans (congrArg (fun p => p ≫ classifyFinite) (loopNerve_endpoint _ S e false)))
     ((Category.assoc _ _ _).symm.trans (congrArg (fun p => p ≫ classifyFinite) (loopNerve_endpoint _ S e true)))
 
-noncomputable def realizedComposition (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+noncomputable def realizedComposition (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     Term (homogeneousPath (loops S) (realizedLoop S (e.trans d)) (realizedLoop S (e.trans d))) :=
   homogeneousRefl (realizedLoop S (e.trans d))
 
-theorem realizedComposition_body (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem realizedComposition_body (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     RelativeComparison.squareBody (realizedComposition S e d) =
       SmallUniverse.term (compositionNerve _ S e d ≫ classifyFinite) := by
   apply Term.ext
@@ -1165,27 +1165,27 @@ def raisedConstantIso (Γ : Context.{u}) (S : Type u) :
 
 noncomputable def decoderPresentation (S : FiniteCode.{u}) :
     SmallUniverse.liftedDecode (realizedConstant S) ≅
-      constantFamily (raisedContext point) (ULift.{u+1} S.carrier) :=
+      constantFamily (raisedContext point) (ULift.{u+1} S.Carrier) :=
   Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _
 
 noncomputable def nativeRecordPresentation (S : FiniteCode.{u}) :
     EquivalenceFamilies.equiv (SmallUniverse.liftedDecode (realizedConstant S))
       (SmallUniverse.liftedDecode (realizedConstant S)) ≅
-    constantFamily (raisedContext point) (ULift.{u+1} S.carrier ≃ ULift.{u+1} S.carrier) :=
+    constantFamily (raisedContext point) (ULift.{u+1} S.Carrier ≃ ULift.{u+1} S.Carrier) :=
   DiscreteRecords.presentedEquivIso (decoderPresentation S) (decoderPresentation S)
 
-noncomputable def nativeIso (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+noncomputable def nativeIso (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     SmallUniverse.liftedDecode (realizedConstant S) ≅ SmallUniverse.liftedDecode (realizedConstant S) :=
   decoderPresentation S ≪≫ DiscreteRecords.sectionIso
     ⟨fun _ => Equiv.ulift.trans (e.trans Equiv.ulift.symm), fun _ => rfl⟩ ≪≫ (decoderPresentation S).symm
 
-noncomputable def nativeEquivalence (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+noncomputable def nativeEquivalence (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     HomotopyEquivalence (nativeIso S e).hom :=
   HomotopyEquivalence.ofIso (nativeIso S e)
     (SmallUniverse.NativeDecode.filling (realizedConstant S))
     (SmallUniverse.NativeDecode.filling_lawful (realizedConstant S))
 
-noncomputable def compositeEquivalence (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+noncomputable def compositeEquivalence (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     HomotopyEquivalence ((nativeIso S e).hom ≫ (nativeIso S d).hom) :=
   (nativeEquivalence S e).comp (nativeEquivalence S d)
     (SmallUniverse.NativeDecode.filling (realizedConstant S))
@@ -1195,7 +1195,7 @@ noncomputable def compositeEquivalence (S : FiniteCode.{u}) (e d : S.carrier ≃
     (SmallUniverse.NativeDecode.filling (realizedConstant S))
     (SmallUniverse.NativeDecode.filling_lawful (realizedConstant S))
 
-theorem composite_complete (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem composite_complete (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     (⟨(nativeIso S e).hom ≫ (nativeIso S d).hom, compositeEquivalence S e d⟩ :
       Σ f : SmallUniverse.liftedDecode (realizedConstant S) ⟶ _, HomotopyEquivalence f) =
       ⟨(nativeIso S (e.trans d)).hom, nativeEquivalence S (e.trans d)⟩ := by
@@ -1207,17 +1207,17 @@ theorem composite_complete (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) 
   rw [(decoderPresentation S).inv_hom_id_app_apply]
   rfl
 
-noncomputable def inverseIso (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :=
+noncomputable def inverseIso (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :=
   (DiscreteRecords.discreteIso (decoderPresentation S) (decoderPresentation S)
     (nativeIso S e).hom (nativeEquivalence S e)).symm
 
-noncomputable def inverseEquivalence (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+noncomputable def inverseEquivalence (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     HomotopyEquivalence (inverseIso S e).hom :=
   HomotopyEquivalence.ofIso (inverseIso S e)
     (SmallUniverse.NativeDecode.filling (realizedConstant S))
     (SmallUniverse.NativeDecode.filling_lawful (realizedConstant S))
 
-theorem inverse_map (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem inverse_map (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     (inverseIso S e).hom = (nativeIso S e).inv := by
   have h := DiscreteRecords.discrete_right (decoderPresentation S) (nativeIso S e).hom
     (nativeEquivalence S e)
@@ -1226,7 +1226,7 @@ theorem inverse_map (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
     (inverseIso S e).hom = ((inverseIso S e).hom ≫ (nativeIso S e).hom) ≫ (nativeIso S e).inv := by simp
     _ = (nativeIso S e).inv := by rw [h]; exact Category.id_comp _
 
-theorem inverse_complete (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem inverse_complete (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     (⟨(inverseIso S e).hom, inverseEquivalence S e⟩ :
       Σ f : SmallUniverse.liftedDecode (realizedConstant S) ⟶ _, HomotopyEquivalence f) =
       ⟨(nativeIso S e.symm).hom, nativeEquivalence S e.symm⟩ := by
@@ -1315,11 +1315,11 @@ theorem body_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
 end PathSection
 
 namespace NativeNerve
-noncomputable def loopTuple (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+noncomputable def loopTuple (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Term (SmallUniverse.liftedDecode (realizedLoopCode S e)) :=
   Term.map (Functor.whiskerLeft (loopNerve (raisedContext point) S e).mapElements tupleDecoderIso.inv)
     (TargetTransport.tupleSection (raisedContext point) S e s)
-noncomputable def loopBase (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :=
+noncomputable def loopBase (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :=
   Term.reindex (loopTuple S e s) (endpointSub (raisedContext point) false)
 theorem transport_line_of_presentation {Γ : Context.{u}} {A B : Family (total (interval Γ))}
     (i : A ≅ B) (hB : BijectiveRestrictions B) (F : Filling A) (hF : F.Lawful)
@@ -1331,14 +1331,14 @@ theorem transport_line_of_presentation {Γ : Context.{u}} {A B : Family (total (
       exact congrArg (Term.map (Functor.whiskerLeft (graph r).mapElements i.hom))
         (IntervalTransport.line_source F hF r (𝟙 _) (Term.reindex t (graph r))))
   exact (Term.map_iso_roundtrip i _).symm.trans ((congrArg (Term.map i.inv) h).trans (Term.map_iso_roundtrip i _))
-theorem transport_line (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem transport_line (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
   IntervalTransport.line (SmallUniverse.NativeDecode.filling (realizedLoopCode S e))
     (endpoint (raisedContext point) false) (𝟙 _) (loopBase S e s) = loopTuple S e s :=
   transport_line_of_presentation
     (Functor.isoWhiskerLeft (loopNerve (raisedContext point) S e).mapElements tupleDecoderIso)
     (fun f => TupleDecoder.bijective ((loopNerve (raisedContext point) S e).mapElements.map f))
     _ (SmallUniverse.NativeDecode.filling_lawful _) _ _
-theorem selected_transport_section (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem selected_transport_section (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Term.map (UniversalTransport.selectedMap (realizedLoopCode S e)
       (endpoint (raisedContext point) false) (endpoint (raisedContext point) true)) (loopBase S e s) =
       Term.reindex (loopTuple S e s) (endpointSub (raisedContext point) true) := by
@@ -1350,7 +1350,7 @@ theorem selected_transport_section (S : FiniteCode.{u}) (e : S.carrier ≃ S.car
       (endpoint (raisedContext point) false) (endpoint (raisedContext point) true) (loopBase S e s)).trans
       (congrArg (fun t => Term.reindex t (endpointSub (raisedContext point) true)) (transport_line S e s)))
 
-noncomputable def constantElement (S : FiniteCode.{u}) (s : S.carrier) :
+noncomputable def constantElement (S : FiniteCode.{u}) (s : S.Carrier) :
     Term (SmallUniverse.liftedDecode (realizedConstant S)) :=
   Term.map (decoderPresentation S).inv ⟨fun _ => ⟨s⟩, fun _ => rfl⟩
 theorem cast_section {Γ : Context.{u}} {A B A' B' : Family Γ}
@@ -1363,14 +1363,14 @@ theorem cast_component_heq {Γ : Context.{u}} {A B : Family Γ} (h : A = B)
     (x : Γ.Elements) (a : A.obj x) : HEq ((eqToHom h).app x a) a := by
   subst B; rfl
 
-theorem loopCode_endpoint (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (b : Bool) :
+theorem loopCode_endpoint (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (b : Bool) :
     endpointSub (raisedContext point) b ≫ realizedLoopCode S e = realizedConstant S := by
   cases b
   · exact SmallUniverse.codeOfPath_zero (realizedLoop S e)
   · exact SmallUniverse.codeOfPath_one (realizedLoop S e)
 theorem ulift_heq {A B : Type u} {a : A} {b : B} (h : HEq a b) :
     HEq (ULift.up.{u+1} a) (ULift.up.{u+1} b) := by cases h; rfl
-theorem loop_endpoint (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier)
+theorem loop_endpoint (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier)
     (b : Bool) :
     Term.map (eqToHom (congrArg SmallUniverse.liftedDecode
       (loopCode_endpoint S e b)))
@@ -1394,7 +1394,7 @@ theorem loop_endpoint (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.
     intro v
     rfl
 
-theorem native_coe_section (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem native_coe_section (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Term.map (SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e)) (constantElement S s) =
       constantElement S (e s) := by
   have h := cast_section
@@ -1411,7 +1411,7 @@ theorem native_coe_section (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s
     (congrArg SmallUniverse.liftedDecode (loopCode_endpoint S e true))))
       (selected_transport_section S e s)).trans ht)
 
-theorem native_coe_map (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem native_coe_map (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e) = (nativeIso S e).hom := by
   ext x a
   let s := ((decoderPresentation S).hom.app x a).down
@@ -1420,7 +1420,7 @@ theorem native_coe_map (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
   have h := congrArg (fun t => t.val x) (native_coe_section S e s)
   exact (congrArg ((SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e)).app x) hs.symm).trans h
 
-theorem native_coe_complete (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem native_coe_complete (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     (⟨SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e),
       SmallUniverse.NativeUnivalence.pathToEquivalence (realizedLoop S e)⟩ :
       Σ f : SmallUniverse.liftedDecode (realizedConstant S) ⟶ _, HomotopyEquivalence f) =
@@ -1438,7 +1438,7 @@ set_option warningAsError true
 namespace SquareKit.Cubical.Cartesian.ClassifierComparison.NativeNerve
 open CategoryTheory
 universe u
-theorem native_coe_encoded (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem native_coe_encoded (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     Term.map (SmallUniverse.NativeUnivalence.pathToEquiv (realizedConstant S) (realizedConstant S))
       (realizedLoop S e) =
       EquivalenceFamilies.equivSections (SmallUniverse.liftedDecode (realizedConstant S))
@@ -1453,12 +1453,12 @@ set_option warningAsError true
 namespace SquareKit.Cubical.Cartesian.ClassifierComparison.NativeNerve
 open CategoryTheory SmallUniverse.NativeUnivalence
 universe u
-noncomputable def uaLoop (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) : Term (loops S) :=
+noncomputable def uaLoop (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) : Term (loops S) :=
   ua (realizedConstant S) (realizedConstant S) (nativeIso S e).hom (nativeEquivalence S e)
-noncomputable def uaComposite (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) : Term (loops S) :=
+noncomputable def uaComposite (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) : Term (loops S) :=
   ua (realizedConstant S) (realizedConstant S)
     ((nativeIso S e).hom ≫ (nativeIso S d).hom) (compositeEquivalence S e d)
-noncomputable def uaConcatenation (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) : Term (loops S) :=
+noncomputable def uaConcatenation (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) : Term (loops S) :=
   homogeneousConcat (SmallUniverse.filling (raisedContext point))
     (SmallUniverse.filling_lawful _) (uaLoop S e) (uaLoop S d)
 
@@ -1475,7 +1475,7 @@ theorem coe_ua_encoded (S : FiniteCode.{u})
   exact (congrArg (fun t => t.val x) (pathToEquiv_beta
     (ua (realizedConstant S) (realizedConstant S) f E))).symm.trans h.symm
 
-theorem uaComposite_observation (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem uaComposite_observation (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     Term.map (pathToEquiv (realizedConstant S) (realizedConstant S)) (uaComposite S e d) =
       Term.map (pathToEquiv (realizedConstant S) (realizedConstant S)) (realizedLoop S (e.trans d)) :=
   (coe_ua_encoded S _ _).trans
@@ -1490,7 +1490,7 @@ theorem ua_complete (S : FiniteCode.{u})
       Σ g, HomotopyEquivalence g) = ⟨f,E⟩ :=
   (EquivalenceFamilies.equivSections _ _).injective
     ((pathToEquiv_beta _).trans (coe_ua_encoded S f E))
-theorem uaLoop_map (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem uaLoop_map (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     pathToMap (uaLoop S e) = (nativeIso S e).hom :=
   congrArg Sigma.fst (ua_complete S _ _)
 
@@ -1503,28 +1503,28 @@ theorem maps_equal_of_homotopy {Γ : Context.{u}} {A B : Family Γ} {T : Type u}
   exact DiscreteRecords.presented_path_endpoints
     (Functor.isoWhiskerLeft (projection A).mapElements j) (H.val (extendObj A x a))
 
-theorem uaConcatenation_map (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem uaConcatenation_map (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     pathToMap (uaConcatenation S e d) = (nativeIso S e).hom ≫ (nativeIso S d).hom :=
   (maps_equal_of_homotopy (decoderPresentation S) _ _
     (concatMapHomotopy (SmallUniverse.filling (raisedContext point)) (SmallUniverse.filling_lawful _)
       (uaLoop S e) (uaLoop S d))).trans
     (congrArg₂ (fun f g => f ≫ g) (uaLoop_map S e) (uaLoop_map S d))
 
-theorem uaConcatenation_complete (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem uaConcatenation_complete (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     (⟨pathToMap (uaConcatenation S e d), pathToEquivalence (uaConcatenation S e d)⟩ :
       Σ g, HomotopyEquivalence g) =
       ⟨(nativeIso S (e.trans d)).hom, nativeEquivalence S (e.trans d)⟩ := by
   apply DiscreteRecords.record_ext (decoderPresentation S) (decoderPresentation S)
   exact (uaConcatenation_map S e d).trans (congrArg Sigma.fst (composite_complete S e d))
 
-theorem uaConcatenation_observation (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem uaConcatenation_observation (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     Term.map (pathToEquiv (realizedConstant S) (realizedConstant S)) (uaConcatenation S e d) =
       Term.map (pathToEquiv (realizedConstant S) (realizedConstant S)) (realizedLoop S (e.trans d)) :=
   (pathToEquiv_beta _).symm.trans
     ((congrArg (EquivalenceFamilies.equivSections _ _) (uaConcatenation_complete S e d)).trans
       (native_coe_encoded S (e.trans d)).symm)
 
-theorem nativeIso_injective (S : FiniteCode.{u}) {e d : S.carrier ≃ S.carrier}
+theorem nativeIso_injective (S : FiniteCode.{u}) {e d : S.Carrier ≃ S.Carrier}
     (h : (nativeIso S e).hom = (nativeIso S d).hom) : e = d := by
   apply Equiv.ext
   intro s
@@ -1537,12 +1537,12 @@ theorem nativeIso_injective (S : FiniteCode.{u}) {e d : S.carrier ≃ S.carrier}
     ⟨d (((decoderPresentation S).hom.app x ((decoderPresentation S).inv.app x ⟨s⟩)).down)⟩)).down at hh
   simpa only [(decoderPresentation S).inv_hom_id_app_apply] using hh
 
-theorem uaLoop_injective (S : FiniteCode.{u}) {e d : S.carrier ≃ S.carrier}
+theorem uaLoop_injective (S : FiniteCode.{u}) {e d : S.Carrier ≃ S.Carrier}
     (h : uaLoop S e = uaLoop S d) : e = d :=
   nativeIso_injective S ((uaLoop_map S e).symm.trans
     ((congrArg pathToMap h).trans (uaLoop_map S d)))
 
-theorem uaConcatenation_order (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier)
+theorem uaConcatenation_order (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier)
     (h : uaConcatenation S e d = uaConcatenation S d e) : e.trans d = d.trans e := by
   apply nativeIso_injective S
   have h₀ := (uaConcatenation_map S e d).symm.trans
@@ -1567,7 +1567,7 @@ theorem recordFilling_lawful (S : FiniteCode.{u}) : (recordFilling S).Lawful :=
   EquivalenceFamilies.equivFilling_lawful _ (SmallUniverse.NativeDecode.filling_lawful _)
     _ (SmallUniverse.NativeDecode.filling_lawful _)
 
-variable (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier)
+variable (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier)
 theorem observed_endpoints : Term.map (coe S) (uaConcatenation S e d) = Term.map (coe S) (uaComposite S e d) :=
   (uaConcatenation_observation S e d).trans (uaComposite_observation S e d).symm
 

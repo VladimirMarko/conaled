@@ -13,9 +13,9 @@ def runDiagonal (n : Nat) : Part Nat := (ofNat Code n).eval n
 zero-input lifting. -/
 def diagonalLift (A : Assembly.{u}) : Assembly.{u} where
   Carrier := Option A.Carrier
-  realizes n x := match x with
+  Realizes n x := match x with
     | none => ¬ (runDiagonal n).Dom
-    | some x => ∃ m, m ∈ runDiagonal n ∧ A.realizes m x
+    | some x => ∃ m, m ∈ runDiagonal n ∧ A.Realizes m x
   inhabited x := by
     cases x with
     | none =>

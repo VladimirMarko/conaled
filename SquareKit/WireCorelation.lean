@@ -16,17 +16,17 @@ def boundary {A B : Type u} (n : Cospan A B) : A ⊕ B → n.Node :=
 def network {A B V : Type u} (n : Cospan A B) :
     OpenConstraint.Network (A → V) (B → V) where
   Internal := n.Node → V
-  accepts a v b := (∀ x, v (n.left x) = a x) ∧ (∀ y, v (n.right y) = b y)
+  Accepts a v b := (∀ x, v (n.left x) = a x) ∧ (∀ y, v (n.right y) = b y)
 
 /-- A boundary coloring is constant on each block of the kernel corelation. -/
-def compatible {A B V : Type u} (n : Cospan A B) (a : A → V) (b : B → V) : Prop :=
+def Compatible {A B V : Type u} (n : Cospan A B) (a : A → V) (b : B → V) : Prop :=
   ∀ x y, boundary n x = boundary n y → Sum.elim a b x = Sum.elim a b y
 
 /-- Unobserved nodes need a value. With a nonempty value domain, the kernel
 partition determines exactly all extendable assignments. -/
 theorem exact_blackbox {A B V : Type u} [Nonempty V] (n : Cospan A B)
     (a : A → V) (b : B → V) :
-    OpenConstraint.behavior (network n) a b ↔ compatible n a b := by
+    OpenConstraint.Behavior (network n) a b ↔ Compatible n a b := by
   classical
   constructor
   · rintro ⟨v, ha, hb⟩ x y h
@@ -60,7 +60,7 @@ theorem reduce_surjective {A B : Type u} (n : Cospan A B) :
   exact ⟨x, Subtype.ext (by simpa using hx)⟩
 
 theorem compatible_reduce {A B V : Type u} (n : Cospan A B) (a : A → V) (b : B → V) :
-    compatible (reduce n) a b ↔ compatible n a b := by
+    Compatible (reduce n) a b ↔ Compatible n a b := by
   constructor
   · intro h x y he
     exact h x y (Subtype.ext (by simpa using he))
@@ -69,8 +69,8 @@ theorem compatible_reduce {A B V : Type u} (n : Cospan A B) (a : A → V) (b : B
 
 theorem behavior_reduce {A B V : Type u} [Nonempty V] (n : Cospan A B)
     (a : A → V) (b : B → V) :
-    OpenConstraint.behavior (network (reduce n)) a b ↔
-      OpenConstraint.behavior (network n) a b := by
+    OpenConstraint.Behavior (network (reduce n)) a b ↔
+      OpenConstraint.Behavior (network n) a b := by
   rw [exact_blackbox, exact_blackbox, compatible_reduce]
 
 /-- The pushout relation identifies the two copies of every glued boundary. -/
@@ -105,9 +105,9 @@ theorem descend_unique {A B C V : Type u} (n : Cospan A B) (m : Cospan B C)
 preservation law is an input. -/
 theorem behavior_compose {A B C V : Type u} (n : Cospan A B) (m : Cospan B C)
     (a : A → V) (c : C → V) :
-    OpenConstraint.behavior (network (compose n m)) a c ↔
-      ∃ b, OpenConstraint.behavior (network n) a b ∧
-        OpenConstraint.behavior (network m) b c := by
+    OpenConstraint.Behavior (network (compose n m)) a c ↔
+      ∃ b, OpenConstraint.Behavior (network n) a b ∧
+        OpenConstraint.Behavior (network m) b c := by
   constructor
   · rintro ⟨v, ha, hc⟩
     refine ⟨fun b => v (Quot.mk _ (.inl (n.right b))), ?_, ?_⟩
@@ -122,8 +122,8 @@ theorem behavior_compose {A B C V : Type u} (n : Cospan A B) (m : Cospan B C)
 /-- Corelation composition takes the image after the pushout. -/
 theorem reduced_composition {A B C V : Type u} [Nonempty V]
     (n : Cospan A B) (m : Cospan B C) (a : A → V) (c : C → V) :
-    OpenConstraint.behavior (network (reduce (compose (reduce n) (reduce m)))) a c ↔
-      OpenConstraint.behavior (OpenConstraint.compose (network n) (network m)) a c := by
+    OpenConstraint.Behavior (network (reduce (compose (reduce n) (reduce m)))) a c ↔
+      OpenConstraint.Behavior (OpenConstraint.compose (network n) (network m)) a c := by
   rw [behavior_reduce, behavior_compose, OpenConstraint.behavior_compose]
   simp only [behavior_reduce]
 

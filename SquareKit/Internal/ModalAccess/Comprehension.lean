@@ -26,38 +26,38 @@ variable {G D E : Type u}
 abbrev reindex (A : G → Type u) (σ : D → G) : D → Type u :=
   DependentSquares.tySub A σ
 
-abbrev term (A : G → Type u) := DependentSquares.Tm A
+abbrev Term (A : G → Type u) := DependentSquares.Tm A
 
-abbrev subst {A : G → Type u} (t : term A) (σ : D → G) : term (reindex A σ) :=
+abbrev subst {A : G → Type u} (t : Term A) (σ : D → G) : Term (reindex A σ) :=
   DependentSquares.tmSub t σ
 
 abbrev projection {A : G → Type u} : Sigma A → G := DependentSquares.p
 
-abbrev newest {A : G → Type u} : term (reindex A (projection (A := A))) :=
+abbrev newest {A : G → Type u} : Term (reindex A (projection (A := A))) :=
   DependentSquares.q
 
-abbrev pair {A : G → Type u} (σ : D → G) (t : term (reindex A σ)) : D → Sigma A :=
+abbrev pair {A : G → Type u} (σ : D → G) (t : Term (reindex A σ)) : D → Sigma A :=
   DependentSquares.extend σ t
 
 @[simp] theorem reindex_id (A : G → Type u) : reindex A id = A :=
   DependentSquares.tySub_id A
 @[simp] theorem reindex_comp (A : G → Type u) (σ : D → G) (τ : E → D) :
     reindex (reindex A σ) τ = reindex A (σ ∘ τ) := DependentSquares.tySub_comp A σ τ
-@[simp] theorem subst_id {A : G → Type u} (t : term A) : subst t id = t :=
+@[simp] theorem subst_id {A : G → Type u} (t : Term A) : subst t id = t :=
   DependentSquares.tmSub_id t
-@[simp] theorem subst_comp {A : G → Type u} (t : term A) (σ : D → G) (τ : E → D) :
+@[simp] theorem subst_comp {A : G → Type u} (t : Term A) (σ : D → G) (τ : E → D) :
     subst (subst t σ) τ = subst t (σ ∘ τ) := DependentSquares.tmSub_comp t σ τ
 @[simp] theorem projection_pair {A : G → Type u} (σ : D → G)
-    (t : term (reindex A σ)) : projection ∘ pair σ t = σ := DependentSquares.p_extend σ t
+    (t : Term (reindex A σ)) : projection ∘ pair σ t = σ := DependentSquares.p_extend σ t
 @[simp] theorem variable_pair {A : G → Type u} (σ : D → G)
-    (t : term (reindex A σ)) : subst newest (pair σ t) = t := DependentSquares.q_extend σ t
+    (t : Term (reindex A σ)) : subst newest (pair σ t) = t := DependentSquares.q_extend σ t
 
 theorem pair_eta {A : G → Type u} (f : D → Sigma A) :
     pair (projection ∘ f) (fun d => (f d).2) = f := DependentSquares.extend_eta_sub f
 
 /-- Comprehension universal property, including the dependent second component. -/
 theorem pair_unique {A : G → Type u} (f : D → Sigma A) (σ : D → G)
-    (t : term (reindex A σ)) (hp : ∀ d, (f d).1 = σ d)
+    (t : Term (reindex A σ)) (hp : ∀ d, (f d).1 = σ d)
     (hq : ∀ d, HEq (f d).2 (t d)) : f = pair σ t := by
   funext d
   exact Sigma.ext (hp d) (hq d)
@@ -106,14 +106,14 @@ end Model
 operation of the shallow family signature. Its arguments already exclude
 inaccessible variables. No arbitrary environment outside G is supplied. -/
 inductive Term : {G : Type u} → (Γ : Context G) → (A : G → Type u) → Type (u + 1)
-  | primitive {G} {Γ : Context G} {A} : Model.term A → Term Γ A
+  | primitive {G} {Γ : Context G} {A} : Model.Term A → Term Γ A
   | variable {G} {Γ : Context G} {A : G → Type u} :
       Term (.ext Γ A) (Model.reindex A Model.projection)
   | subst {G D} {Γ : Context G} {Δ : Context D} {A : G → Type u}
       (t : Term Γ A) (σ : D → G) : Term Δ (Model.reindex A σ)
 
 /-- Evaluation is recursive over generated term construction. -/
-def Term.eval {G : Type u} {Γ : Context G} {A} : Term Γ A → Model.term A
+def Term.eval {G : Type u} {Γ : Context G} {A} : Term Γ A → Model.Term A
   | .primitive t => t
   | .variable => Model.newest
   | .subst t σ => Model.subst t.eval σ

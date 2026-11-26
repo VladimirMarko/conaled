@@ -192,7 +192,7 @@ noncomputable def returnEquivalence (v : Vertex I.dimension) : HomotopyEquivalen
 /-- Only closed vertex decoders are required to have finite constant presentations. -/
 structure FiniteVertices where
   code : Vertex I.dimension → FiniteCode.{u}
-  presentation : ∀ v, vertexFamily A v ≅ Presheaf.constantFamily terminal (code v).carrier
+  presentation : ∀ v, vertexFamily A v ≅ Presheaf.constantFamily terminal (code v).Carrier
 
 noncomputable def arrow (P : FiniteVertices A) (v w : Vertex I.dimension) :
     Presheaf.Term (vertexFamily A v) ≃ Presheaf.Term (vertexFamily A w) :=
@@ -278,7 +278,7 @@ theorem arrow_composition (P : FiniteVertices A) (v w z : Vertex I.dimension) :
 /-- The observation retains the actual closed sections, not a chosen host encoding. -/
 noncomputable def system (P : FiniteVertices A) : VertexSystem.{u} (Vertex I.dimension) where
   obj v := ⟨Presheaf.Term (vertexFamily A v),
-    Finite.of_equiv (P.code v).carrier (closedSectionsPresentation (P.presentation v)).symm⟩
+    Finite.of_equiv (P.code v).Carrier (closedSectionsPresentation (P.presentation v)).symm⟩
   arrow := arrow A P
   identity := arrow_identity A P
   composition := arrow_composition A P

@@ -13,13 +13,13 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
 /-- The chosen atlas is transported to the preferred realization of the base. -/
 def realizedTorsor := SheafTorsor.reindex P.descendedObject.torsor (atlasIso P.baseCharts).hom
 
-def realizedTotalIso : SplitSheaf.Ext P.realizedTorsor.family ≅ object n E := by
+def realizedTotalIso : SplitSheaf.extension P.realizedTorsor.family ≅ object n E := by
   let l := SplitSheaf.lift P.descendedObject.torsor.family (atlasIso P.baseCharts).hom
   letI : IsIso l := (SplitSheaf.extension_pullback P.descendedObject.torsor.family
     (atlasIso P.baseCharts).hom).isIso_fst_of_isIso
@@ -50,12 +50,12 @@ variable {n : ℕ} {G B E E' : Type} [Group G] [MulAction G E] [MulAction G E']
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model n) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners n) ∞ E']
 variable {P : Bundle (n := n) (G := G) (B := B) (E := E)}
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')} (f : Map P Q)
 
-def realizedTotalMap : SplitSheaf.Ext P.realizedTorsor.family ⟶
-    SplitSheaf.Ext Q.realizedTorsor.family :=
+def realizedTotalMap : SplitSheaf.extension P.realizedTorsor.family ⟶
+    SplitSheaf.extension Q.realizedTorsor.family :=
   P.realizedTotalIso.hom ≫ ManifoldRealization.map f.toFun f.smooth ≫ Q.realizedTotalIso.inv
 
 theorem realizedTotalMap_projection :
@@ -117,7 +117,7 @@ variable {n : ℕ} {G B E E' : Type} [Group G] [MulAction G E] [MulAction G E']
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model n) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners n) ∞ E']
 variable {P : Bundle (n := n) (G := G) (B := B) (E := E)}
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')}
 
@@ -196,7 +196,7 @@ variable {n : ℕ} {G B E E' : Type} [Group G] [MulAction G E] [MulAction G E']
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model n) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners n) ∞ E']
 variable {P : Bundle (n := n) (G := G) (B := B) (E := E)}
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')}
 
@@ -257,8 +257,8 @@ variable {n : ℕ} {G B E E' E'' : Type} [Group G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace E'] [TopologicalSpace E'']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
   [ChartedSpace (Space n) E'']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
-  [IsManifold (Model n) ∞ E'] [IsManifold (Model n) ∞ E'']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ E'] [IsManifold (modelWithCorners n) ∞ E'']
 variable {P : Bundle (n := n) (G := G) (B := B) (E := E)}
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')}
   {R : Bundle (n := n) (G := G) (B := B) (E := E'')}
@@ -326,12 +326,12 @@ variable {n : ℕ} {G B E E' : Type} [Group G] [MulAction G E] [MulAction G E']
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model n) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners n) ∞ E']
 variable {P : Bundle (n := n) (G := G) (B := B) (E := E)}
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')}
 
 /-- The ordinary equivariant map is a genuine smooth bundle isomorphism. -/
-def Map.diffeomorph (f : Map P Q) : E ≃ₘ⟮Model n, Model n⟯ E' where
+def Map.diffeomorph (f : Map P Q) : E ≃ₘ⟮modelWithCorners n, modelWithCorners n⟯ E' where
   toEquiv := {
     toFun := f.toFun
     invFun := f.inverse.toFun

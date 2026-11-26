@@ -190,7 +190,7 @@ the corresponding actual `Delivers` witnesses for arbitrary starts and
 lengths: `n` guarded transitions and `2*n` paused transitions. In the concrete
 case both reach seven, after three and six transitions respectively.
 
-The Prop-valued consumer `first p` has tail-ignoring step `fun a _ => p a` and
+The Prop-valued consumer `First p` has tail-ignoring step `fun a _ => p a` and
 seed `False`. It obtains `p 4` from either counting realization, `p a` from the
 actual emit-once producer, and `False` from an always-silent producer. An
 identity tail step with seed `True` separately distinguishes known nil from

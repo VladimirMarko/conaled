@@ -130,10 +130,10 @@ theorem broker_allowed (s : Inputs T α) (ms : Streams T α) (a : Nat → Action
     rw [hn]; rfl
 
 /-- The executable broker graph does not contain the desired safety theorem. -/
-def broker (ms : Streams T α) (a : Nat → Action T) (t : T) (n : Nat)
+def Broker (ms : Streams T α) (a : Nat → Action T) (t : T) (n : Nat)
     (s : Inputs T α) (xs : List (Option (List α))) : Prop := feedbackInputs s ms a t n = xs
 
-def consumer (s : History α) (xs : List (Option (List α))) (z : Result α) : Prop :=
+def Consumer (s : History α) (xs : List (Option (List α))) (z : Result α) : Prop :=
   consume (history s) s xs = z
 
 def admissible (ms : Streams T α) (truth : Source → T → List α) : Set (Inputs T α) :=
@@ -143,13 +143,13 @@ open SquareKit.RelationTransport
 
 theorem broker_compatibility (ms : Streams T α) (a : Nat → Action T) (t : T)
     (reg : a 0 = .register t) (truth : Source → T → List α) (n : Nat) :
-    image (broker ms a t n) (admissible ms truth) ⊆
+    image (Broker ms a t n) (admissible ms truth) ⊆
       AllowedInput (truth .left t ++ truth .right t) := by
   rintro xs ⟨s,hs,rfl⟩
   exact broker_allowed s ms a t reg truth hs n
 
 theorem consumer_compatibility (s : History α) (batch : List α) :
-    image (consumer s) (AllowedInput batch) ⊆ AllowedResult s batch := by
+    image (Consumer s) (AllowedInput batch) ⊆ AllowedResult s batch := by
   rintro z ⟨xs,h,rfl⟩
   exact consume_allowed s xs batch h
 
@@ -157,22 +157,22 @@ theorem consumer_compatibility (s : History α) (batch : List α) :
 then broker emissions meeting the consumer requirement. -/
 theorem connected_requirement (ms : Streams T α) (a : Nat → Action T) (t : T)
     (reg : a 0 = .register t) (truth : Source → T → List α) (n : Nat) (s : History α) :
-    admissible ms truth ⊆ requirement (Relation.Comp (broker ms a t n) (consumer s))
+    admissible ms truth ⊆ requirement (Relation.Comp (Broker ms a t n) (Consumer s))
       (AllowedResult s (truth .left t ++ truth .right t)) := by
   rw [requirement_comp]
-  have hb := (image_requirement (broker ms a t n) _ _).mp
+  have hb := (image_requirement (Broker ms a t n) _ _).mp
     (broker_compatibility ms a t reg truth n)
-  have hc := (image_requirement (consumer s) _ _).mp (consumer_compatibility s
+  have hc := (image_requirement (Consumer s) _ _).mp (consumer_compatibility s
     (truth .left t ++ truth .right t))
   intro x hx xs hxs
   exact hc (hb hx xs hxs)
 
 theorem connected_image (ms : Streams T α) (a : Nat → Action T) (t : T)
     (reg : a 0 = .register t) (truth : Source → T → List α) (n : Nat) (s : History α) :
-    image (Relation.Comp (broker ms a t n) (consumer s)) (admissible ms truth) ⊆
+    image (Relation.Comp (Broker ms a t n) (Consumer s)) (admissible ms truth) ⊆
       AllowedResult s (truth .left t ++ truth .right t) := by
   rw [image_comp]
-  exact ((image_requirement (consumer s)).monotone_l (broker_compatibility ms a t reg truth n)).trans
+  exact ((image_requirement (Consumer s)).monotone_l (broker_compatibility ms a t reg truth n)).trans
     (consumer_compatibility s _)
 
 /-- The selected registering consumer discharges the broker requirement without
@@ -181,7 +181,7 @@ theorem handshake (ms : Streams T α) (tail : Nat → Action T) (t : T)
     (truth : Source → T → List α) (n : Nat) (s : History α) :
     (∀ initial, request initial ms (register t tail) 1 = .pending t) ∧
     admissible ms truth ⊆ requirement
-      (Relation.Comp (broker ms (register t tail) t n) (consumer s))
+      (Relation.Comp (Broker ms (register t tail) t n) (Consumer s))
       (AllowedResult s (truth .left t ++ truth .right t)) :=
   ⟨fun initial => bootstrap initial ms t tail,
     connected_requirement ms (register t tail) t rfl truth n s⟩
@@ -190,14 +190,14 @@ theorem handshake (ms : Streams T α) (tail : Nat → Action T) (t : T)
 theorem connected_refines (ms : Streams T α) (a : Nat → Action T) (t : T)
     (reg : a 0 = .register t) (truth : Source → T → List α) (n : Nat) (s : History α) :
     Interaction.Refines Eq (AllowedResult s (truth .left t ++ truth .right t))
-      (image (Relation.Comp (broker ms a t n) (consumer s)) (admissible ms truth)) := by
+      (image (Relation.Comp (Broker ms a t n) (Consumer s)) (admissible ms truth)) := by
   intro z hz
   exact ⟨z,connected_image ms a t reg truth n s hz,rfl⟩
 
 /-- A property transferred through refinement, retaining order and multiplicity. -/
 theorem connected_history (ms : Streams T α) (a : Nat → Action T) (t : T)
     (reg : a 0 = .register t) (truth : Source → T → List α) (n : Nat) (s : History α) :
-    image (Relation.Comp (broker ms a t n) (consumer s)) (admissible ms truth) ⊆
+    image (Relation.Comp (Broker ms a t n) (Consumer s)) (admissible ms truth) ⊆
       {z | z.2 = s ∨ z.2 = updated s (truth .left t ++ truth .right t)} := by
   apply (connected_refines ms a t reg truth n s).requirement
   intro z hz y he

@@ -65,7 +65,7 @@ theorem splitIdentity_local (b : Bool) :
 /-- The local coordinate criterion accepts a cover that cannot be replaced by
 a single target chart, as witnessed by `no_whole_target_chart`. -/
 theorem splitIdentity_smooth_from_coordinates :
-    ContMDiff (Model 1) (Model 1) ∞ (id : Space 1 → Space 1) :=
+    ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ (id : Space 1 → Space 1) :=
   (globalFamily 1).contMDiff_of_localMap splitFamily
     ((globalFamily 1).localMap splitFamily id contMDiff_id)
 
@@ -76,12 +76,12 @@ theorem smooth_from_coordinates {n m : ℕ} {M N : Type}
     [ChartedSpace (Space n) M] [ChartedSpace (Space m) N]
     (A : ChartFamily n M) (B : ChartFamily m N) (f : M → N)
     (l : Charts.LocalMap A.charts B.charts f) :
-    Continuous f ∧ ContMDiff (Model n) (Model m) ∞ f :=
+    Continuous f ∧ ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f :=
   ⟨(A.contMDiff_of_localMap B l).continuous, A.contMDiff_of_localMap B l⟩
 
 def exponential (x : Space 1) : Space 1 := fun _ => Real.exp (x 0)
 
-theorem exponential_smooth : ContMDiff (Model 1) (Model 1) ∞ exponential :=
+theorem exponential_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ exponential :=
   (contDiff_pi.mpr (fun _ => Real.contDiff_exp.comp (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) 0))).contMDiff
 
 def interpretedExponential : object 1 (Space 1) ⟶ object 1 (Space 1) :=

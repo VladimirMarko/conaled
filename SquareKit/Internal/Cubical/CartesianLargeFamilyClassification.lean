@@ -13,7 +13,7 @@ namespace LowerFilling
 variable {Γ Δ Θ : Context.{u}}
 
 def face (φ : Subcontext Γ) : Subcontext (raisedContext Γ) where
-  holds x := φ.holds ((Raising.lowerElements Γ).obj x)
+  Holds x := φ.Holds ((Raising.lowerElements Γ).obj x)
   natural f := φ.natural ((Raising.lowerElements Γ).map f)
 
 def source (r : Term (interval Γ)) : Term (interval (raisedContext Γ)) where
@@ -72,14 +72,14 @@ variable {Ξ : Context.{u+1}} (A : Family Ξ)
 
 /-- A small representative of each fiber, with both inverse equations. -/
 structure Data where
-  fiber : Ξ.Elements → Type u
-  equiv : ∀ x, fiber x ≃ A.obj x
+  Fiber : Ξ.Elements → Type u
+  equiv : ∀ x, Fiber x ≃ A.obj x
 
 namespace Data
 variable {A} (P : Data A)
 
 def family : Ξ.Elements ⥤ Type u where
-  obj := P.fiber
+  obj := P.Fiber
   map f := TypeCat.ofHom (fun z => (P.equiv _).symm (A.map f (P.equiv _ z)))
   map_id x := by
     apply ConcreteCategory.hom_ext

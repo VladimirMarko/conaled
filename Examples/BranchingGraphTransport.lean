@@ -20,7 +20,7 @@ theorem second (x z : Nat) : (∃ y, y = 0 ∧ z = y) ↔ z = 0 :=
 
 /-- π₁ after swap uses the same source proof and the explicit route comparison. -/
 theorem swapped_first (x z : Nat) :
-    formula (reindex (swap models) (fun _ : Unit => true))
+    FormulaHolds (reindex (swap models) (fun _ : Unit => true))
       (composite Arrow.first Arrow.second) () (environment _ _ x z) ↔
       z = 2 * (x + 1) := by
   have h : InterpretationRoutes.Valid (reindex models (fun _ : Unit => false))
@@ -40,7 +40,7 @@ def duplicate : Sub Arrow [.input, .output] [.input, .input, .output]
 
 /-- An independently chosen expectation, 3 ↦ 4 ↦ 8, also exercises the binder. -/
 theorem substituted_graph :
-    formula (reindex (swap models) (fun _ : Unit => true))
+    FormulaHolds (reindex (swap models) (fun _ : Unit => true))
       ((composite Arrow.first Arrow.second).subst duplicate) ()
       (fun {s} i => match s, i with
         | _, .zero => (3 : Nat)
@@ -61,25 +61,25 @@ theorem empty_graph :
 
 /-- The inhabited branch remains usable despite the other branch's empty context. -/
 theorem inhabited_beside_empty :
-    formula emptyModels (composite Arrow.first Arrow.second) true (environment _ _ 3 8) :=
+    FormulaHolds emptyModels (composite Arrow.first Arrow.second) true (environment _ _ 3 8) :=
   (graph emptyModels Arrow.first Arrow.second true (environment _ _ 3 8)).mpr rfl
 
 /-- A closed existential observes the empty carrier without supplying an element. -/
 def hasMiddle : Formula Arrow [] := .ex (s := .middle) (.eq (.var .zero) (.var .zero))
 
-theorem empty_ex : ¬ formula emptyModels hasMiddle false (fun i => nomatch i) := by
+theorem empty_ex : ¬ FormulaHolds emptyModels hasMiddle false (fun i => nomatch i) := by
   rintro ⟨x, _⟩
   exact nomatch x
 
-theorem inhabited_ex : formula emptyModels hasMiddle true (fun i => nomatch i) :=
+theorem inhabited_ex : FormulaHolds emptyModels hasMiddle true (fun i => nomatch i) :=
   (existential_route emptyModels id _ true _).mpr ⟨(0 : Nat), rfl⟩
 
 /-- Two paired arrows 1 → (1, Bool) differ only in their second component. -/
-def codomain : Bool → Type | false => Unit | true => Bool
+def Codomain : Bool → Type | false => Unit | true => Bool
 
-def arrow₀ : ∀ b, Unit → codomain b | false => fun _ => () | true => fun _ => false
+def arrow₀ : ∀ b, Unit → Codomain b | false => fun _ => () | true => fun _ => false
 
-def arrow₁ : ∀ b, Unit → codomain b | false => fun _ => () | true => fun _ => true
+def arrow₁ : ∀ b, Unit → Codomain b | false => fun _ => () | true => fun _ => true
 
 theorem projection_does_not_reflect : arrow₀ false = arrow₁ false ∧ arrow₀ ≠ arrow₁ := by
   constructor
@@ -88,7 +88,7 @@ theorem projection_does_not_reflect : arrow₀ false = arrow₁ false ∧ arrow�
     have bad : false = true := congrFun (congrFun h true) ()
     cases bad
 
-theorem both_detect {f g : ∀ b, Unit → codomain b}
+theorem both_detect {f g : ∀ b, Unit → Codomain b}
     (h₀ : f false = g false) (h₁ : f true = g true) : f = g :=
   joint_reflection f g h₀ h₁
 

@@ -24,16 +24,16 @@ abbrev insert := List.orderedInsert (α := Nat) (· ≤ ·)
 abbrev sort := List.insertionSort (α := Nat) (· ≤ ·)
 
 /-- IsChain supplies the source's empty, singleton and adjacent-cons rules. -/
-abbrev sorted (xs : List Nat) : Prop := xs.IsChain (· ≤ ·)
+abbrev Sorted (xs : List Nat) : Prop := xs.IsChain (· ≤ ·)
 
-abbrev sorted' := Indexed (α := Nat) (· ≤ ·)
+abbrev IndexedSorted := Indexed (α := Nat) (· ≤ ·)
 
-def sorted'' (xs : List Nat) : Prop :=
+def GetDSorted (xs : List Nat) : Prop :=
   ∀ i j : Nat, i < j → j < xs.length → xs.getD i 0 ≤ xs.getD j 0
 
 /-- Occurrence-sensitive permutation and adjacent ordering, for every input. -/
-def isASortingAlgorithm (f : List Nat → List Nat) : Prop :=
-  ∀ xs, xs.Perm (f xs) ∧ sorted (f xs)
+def IsSortingAlgorithm (f : List Nat → List Nat) : Prop :=
+  ∀ xs, xs.Perm (f xs) ∧ Sorted (f xs)
 
 theorem insert_nil (a : Nat) : insert a [] = [a] := rfl
 
@@ -45,21 +45,21 @@ theorem sort_nil : sort [] = [] := rfl
 theorem sort_cons (a : Nat) (xs : List Nat) :
     sort (a :: xs) = insert a (sort xs) := rfl
 
-theorem sorted_nil : sorted [] := by decide
+theorem sorted_nil : Sorted [] := by decide
 
-theorem sorted_1 (a : Nat) : sorted [a] := by simp [sorted]
+theorem sorted_1 (a : Nat) : Sorted [a] := by simp [Sorted]
 
 theorem sorted_cons (a b : Nat) (xs : List Nat)
-    (hab : a ≤ b) (h : sorted (b :: xs)) : sorted (a :: b :: xs) :=
+    (hab : a ≤ b) (h : Sorted (b :: xs)) : Sorted (a :: b :: xs) :=
   List.isChain_cons_cons.mpr ⟨hab, h⟩
 
 /-- Ordinary route: reuse the library's branch proof of ordered insertion. -/
-theorem insert_sorted (a : Nat) (xs : List Nat) (h : sorted xs) :
-    sorted (insert a xs) :=
+theorem insert_sorted (a : Nat) (xs : List Nat) (h : Sorted xs) :
+    Sorted (insert a xs) :=
   List.isChain_iff_pairwise.mpr
     (List.Pairwise.orderedInsert a xs (List.isChain_iff_pairwise.mp h))
 
-theorem sort_sorted (xs : List Nat) : sorted (sort xs) := by
+theorem sort_sorted (xs : List Nat) : Sorted (sort xs) := by
   induction xs with
   | nil => exact sorted_nil
   | cons a xs ih => exact insert_sorted a (sort xs) ih
@@ -72,16 +72,16 @@ theorem sort_perm (xs : List Nat) : xs.Perm (sort xs) := by
   | nil => exact List.Perm.refl []
   | cons a xs ih => exact (ih.cons a).trans (insert_perm a (sort xs))
 
-theorem insertion_sort_correct : isASortingAlgorithm sort :=
+theorem insertion_sort_correct : IsSortingAlgorithm sort :=
   fun xs => ⟨sort_perm xs, sort_sorted xs⟩
 
-theorem sorted_sorted' (xs : List Nat) : sorted xs → sorted' xs :=
+theorem sorted_indexedSorted (xs : List Nat) : Sorted xs → IndexedSorted xs :=
   (adjacent_iff_indexed (· ≤ ·) xs).mp
 
-theorem sorted'_sorted (xs : List Nat) : sorted' xs → sorted xs :=
+theorem indexedSorted_sorted (xs : List Nat) : IndexedSorted xs → Sorted xs :=
   (adjacent_iff_indexed (· ≤ ·) xs).mpr
 
-theorem sorted''_iff_sorted' (xs : List Nat) : sorted'' xs ↔ sorted' xs :=
+theorem getDSorted_iff_indexedSorted (xs : List Nat) : GetDSorted xs ↔ IndexedSorted xs :=
   (boundedIndexed_iff_getD (· ≤ ·) 0 xs).symm.trans
     (indexed_iff_boundedIndexed (· ≤ ·) 0 xs).symm
 
@@ -91,10 +91,10 @@ theorem nth_error_insert (xs : List Nat) (a i iv : Nat)
     a = iv ∨ ∃ j : Nat, xs[j]? = some iv :=
   getElem?_orderedInsert_origin (· ≤ ·) a xs i iv h
 
-theorem insert_sorted' (a : Nat) (xs : List Nat) (h : sorted' xs) :
-    sorted' (insert a xs) := indexed_orderedInsert (· ≤ ·) a xs h
+theorem insert_indexedSorted (a : Nat) (xs : List Nat) (h : IndexedSorted xs) :
+    IndexedSorted (insert a xs) := indexed_orderedInsert (· ≤ ·) a xs h
 
-theorem sort_sorted' (xs : List Nat) : sorted' (sort xs) :=
+theorem sort_indexedSorted (xs : List Nat) : IndexedSorted (sort xs) :=
   indexed_insertionSort (· ≤ ·) xs
 
 /-- Independent calculation from the source, retaining all repeated entries. -/
@@ -104,11 +104,11 @@ theorem sort_pi :
 theorem pi_contract :
     ([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] : List Nat).Perm
       [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] ∧
-      sorted [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
+      Sorted [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
   simpa only [sort_pi] using insertion_sort_correct [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
 
-theorem pi_indexed : sorted' [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
-  simpa only [sort_pi] using sort_sorted' [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+theorem pi_indexed : IndexedSorted [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
+  simpa only [sort_pi] using sort_indexedSorted [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
 
 /-- Stopping preserves the arbitrary suffix value, without a sorted-tail premise. -/
 theorem insert_suffix (tail : List Nat) :
@@ -122,10 +122,10 @@ theorem source_ties : insert 2 [2, 0] = [2, 2, 0] := rfl
 
 /-- Insertion preserves occurrences on unsorted input but need not sort it. -/
 theorem unsorted_insertion :
-    ([1, 2, 0] : List Nat).Perm (insert 1 [2, 0]) ∧ ¬ sorted (insert 1 [2, 0]) :=
+    ([1, 2, 0] : List Nat).Perm (insert 1 [2, 0]) ∧ ¬ Sorted (insert 1 [2, 0]) :=
   ⟨insert_perm 1 [2, 0], by decide⟩
 
-theorem sorted_fixed (xs : List Nat) (h : sorted xs) : sort xs = xs :=
+theorem sorted_fixed (xs : List Nat) (h : Sorted xs) : sort xs = xs :=
   (List.isChain_iff_pairwise.mp h).insertionSort_eq
 
 theorem sort_idempotent (xs : List Nat) : sort (sort xs) = sort xs :=
@@ -192,12 +192,12 @@ theorem sorted_indexed_permutation_not_stable :
 /-- Reuse FDSA's executed value and recursive-call tariff through the new contract.
 This is not the distinct n*(n-1)/2 comparison tariff. -/
 theorem measured_sort_spec (xs : List Nat) :
-    sorted' (Resources.InsertionSort.sortRun (· ≤ ·) xs).1 ∧
+    IndexedSorted (Resources.InsertionSort.sortRun (· ≤ ·) xs).1 ∧
       xs.Perm (Resources.InsertionSort.sortRun (· ≤ ·) xs).1 ∧
       2 * (Resources.InsertionSort.sortRun (· ≤ ·) xs).2 ≤
         (xs.length + 1) * (xs.length + 2) := by
   rw [Resources.InsertionSort.sortRun_value]
-  exact ⟨sort_sorted' xs, sort_perm xs,
+  exact ⟨sort_indexedSorted xs, sort_perm xs,
     Resources.InsertionSort.sortRun_double_cost_le (· ≤ ·) xs⟩
 
 /-- This stopping branch has four declared recursive calls, independent of the tail.

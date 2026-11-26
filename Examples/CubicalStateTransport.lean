@@ -11,16 +11,16 @@ universe u v
 structure StatePackage (A : Type u) where
   initial : A
   step : A → A
-  invariant : A → Prop
-  initial_valid : invariant initial
-  preserves : ∀ a, invariant a → invariant (step a)
+  Invariant : A → Prop
+  initial_valid : Invariant initial
+  preserves : ∀ a, Invariant a → Invariant (step a)
 
 /-- Change every carrier-dependent component, including preservation evidence. -/
 def StatePackage.conjugate {A : Type u} {B : Type v} (e : A ≃ B)
     (s : StatePackage A) : StatePackage B where
   initial := e s.initial
   step b := e (s.step (e.symm b))
-  invariant b := s.invariant (e.symm b)
+  Invariant b := s.Invariant (e.symm b)
   initial_valid := by simpa using s.initial_valid
   preserves b h := by simpa using s.preserves (e.symm b) h
 
@@ -33,7 +33,7 @@ def successor : Int ≃ Int where
 def evenPackage : StatePackage Int where
   initial := 0
   step n := n + 2
-  invariant n := n % 2 = 0
+  Invariant n := n % 2 = 0
   initial_valid := rfl
   preserves n h := by omega
 
@@ -45,7 +45,7 @@ theorem odd_step (n : Int) : oddPackage.step n = n + 2 := by
   change (n - 1 + 2) + 1 = n + 2
   omega
 
-theorem odd_invariant (n : Int) : oddPackage.invariant n ↔ n % 2 = 1 := by
+theorem odd_invariant (n : Int) : oddPackage.Invariant n ↔ n % 2 = 1 := by
   change (n - 1) % 2 = 0 ↔ n % 2 = 1
   omega
 

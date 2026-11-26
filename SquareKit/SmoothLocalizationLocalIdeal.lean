@@ -11,14 +11,14 @@ namespace SquareKit.SmoothAlgebra.PresentedLocalization
 open SmoothInverseGraph
 variable {n m : ℕ}
 
-abbrev graphValue (p : Free n) (H : Free (n+1)) : (Fin n → ℝ) → ℝ :=
+abbrev graphValue (p : freeAlgebra n) (H : freeAlgebra (n+1)) : (Fin n → ℝ) → ℝ :=
   fun x => H.val (graph p.val x)
 
-theorem graphValue_smooth (p : Free n) (H : Free (n+1)) :
+theorem graphValue_smooth (p : freeAlgebra n) (H : freeAlgebra (n+1)) :
     ContDiffOn ℝ ∞ (graphValue p H) {x | p.val x ≠ 0} :=
   (show ContDiff ℝ ∞ H.val from H.property).comp_contDiffOn (graph_smoothOn p.property)
 
-private theorem relation_graph_value (r : Fin m → Free n) (p : Free n)
+private theorem relation_graph_value (r : Fin m → freeAlgebra n) (p : freeAlgebra n)
     (x : Fin n → ℝ) (hx : p.val x ≠ 0) :
     (fun j => (Presentation.relations r (equation p) j).val (graph p.val x)) =
       Fin.snoc (fun j => (r j).val x) 0 := by
@@ -32,7 +32,7 @@ private theorem relation_graph_value (r : Fin m → Free n) (p : Free n)
 
 /-- A localized representative is zero exactly when its graph restriction lies
 locally in the original finitely generated ideal, with smooth coefficients. -/
-theorem zero_iff_local (r : Fin m → Free n) (p : Free n) (H : Free (n+1)) :
+theorem zero_iff_local (r : Fin m → freeAlgebra n) (p : freeAlgebra n) (H : freeAlgebra (n+1)) :
     Presentation.projection (Presentation.relations r (equation p)) H = 0 ↔
       ∀ x, p.val x ≠ 0 → LocalIdeal.Mem r (graphValue p H) x := by
   change Ideal.Quotient.mk (Presentation.ideal (Presentation.relations r (equation p))) H = 0 ↔ _
@@ -45,10 +45,10 @@ theorem zero_iff_local (r : Fin m → Free n) (p : Free n) (H : Free (n+1)) :
       fun y j => (c j.castSucc).val (graph p.val y),?_,?_⟩
     · exact contDiffOn_pi.mpr (fun j => graphValue_smooth p (c j.castSucc))
     · intro y hy
-      have he := congrArg (fun q : Free (n+1) => q.val (graph p.val y)) hc
+      have he := congrArg (fun q : freeAlgebra (n+1) => q.val (graph p.val y)) hc
       rw [show (∑ i, c i * Presentation.relations r (equation p) i).val =
         ∑ i, (c i * Presentation.relations r (equation p) i).val from
-        map_sum (Free (n+1)).val _ Finset.univ] at he
+        map_sum (freeAlgebra (n+1)).val _ Finset.univ] at he
       simp only [Finset.sum_apply,Subalgebra.coe_mul,Pi.mul_apply] at he
       have hr := relation_graph_value r p y hy
       simp_rw [congrFun hr] at he
@@ -98,10 +98,10 @@ theorem zero_iff_local (r : Fin m → Free n) (p : Free n) (H : Free (n+1)) :
       have hp : p.val (SmoothInverseGraph.base z) = 0 := not_ne_iff.mp hz
       simp [relation,hp]
 
-theorem base_zero_iff_local (r : Fin m → Free n) (p f : Free n) :
+theorem base_zero_iff_local (r : Fin m → freeAlgebra n) (p f : freeAlgebra n) :
     base r p (Presentation.projection r f) = 0 ↔
       ∀ x, p.val x ≠ 0 → LocalIdeal.Mem r f.val x := by
-  have hb := congrArg (fun h : Hom (Free n) (Carrier r p) => h f)
+  have hb := congrArg (fun h : Hom (freeAlgebra n) (Carrier r p) => h f)
     (Presentation.inclusion_projection r (equation p))
   change base r p (Presentation.projection r f) =
     Presentation.projection (Presentation.relations r (equation p)) (Localization.extend f) at hb

@@ -56,12 +56,12 @@ theorem crop_complete (q : T) (s : Frontier.State T α) (truth : T → List α)
   exact (batch_crop q t s.log hq).trans (h t ht)
 
 @[simp] theorem window_crop (q : T) (s : Frontier.State T α) (w : T) (xs : Log T α) :
-    windowValid (crop q s) w xs ↔ windowValid s w xs := Iff.rfl
+    WindowValid (crop q s) w xs ↔ WindowValid s w xs := Iff.rfl
 
 /-- Crop the incoming accepted packet too; q can be ahead of the source frontier. -/
 theorem process_crop (q : T) (s : Frontier.State T α) (m : Message T α) :
     crop q (process (crop q s) m) = crop q (process s m) := by
-  by_cases h : windowValid s m.frontier m.packet
+  by_cases h : WindowValid s m.frontier m.packet
   · simp only [process,advance,window_crop,h,ite_true,Option.getD_some]
     simp [crop,cropLog,List.filter_append,List.filter_filter]
   · simp only [process,advance,window_crop,h,ite_false,Option.getD_none]

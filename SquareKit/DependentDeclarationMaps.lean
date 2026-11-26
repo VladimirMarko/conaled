@@ -82,7 +82,7 @@ def Rule.map (F : SyntaxMap S T) : Rule S → Rule T
   cases r <;> simp [Rule.map, Rule.schema, Schema.map, Judgment.map, Judgment.mapForm,
     Judgment.ctx, Judgment.type, Judgment.term]
 
-def G_declarations : TheoryMap (rulesOf (Rule.schema projection))
+def gDeclarations : TheoryMap (rulesOf (Rule.schema projection))
     (rulesOf (Rule.schema elimination)) (Judgment.map G) :=
   replayMap _ _ G (Rule.map G) Rule.G_schema
 
@@ -99,7 +99,7 @@ def Congruence.map (F : SyntaxMap S T) : Congruence S → Congruence T
   cases r <;> simp [Congruence.map, Congruence.schema, Schema.map, Judgment.map, Judgment.mapForm,
     Judgment.ctx, Judgment.term, Judgment.typeEq, Judgment.termEq]
 
-def G_declarationCongruence : TheoryMap (rulesOf (Congruence.schema projection))
+def gDeclarationCongruence : TheoryMap (rulesOf (Congruence.schema projection))
     (rulesOf (Congruence.schema elimination)) (Judgment.map G) :=
   replayMap _ _ G (Congruence.map G) Congruence.G_schema
 

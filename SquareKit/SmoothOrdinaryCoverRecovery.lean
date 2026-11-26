@@ -10,7 +10,7 @@ noncomputable section
 open CategoryTheory CategoryTheory.Limits Opposite
 namespace SquareKit.EuclideanOpen
 open SmoothAlgebra SmoothOpenSite
-variable (U : Domain) {ι : Type} (g : ι → Free U.dimension)
+variable (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension)
 
 def ordinaryCoverMap : (∐ fun i => embedding.obj (subdomain U (g i))) ⟶ embedding.obj U :=
   Sigma.desc (fun i => embedding.map (subInclusion U (g i)))

@@ -9,7 +9,7 @@ universe u
 theorem hcompSchema_valid (out : Judgment (Fin 6))
     (valid : ∀ (Γ : Context.{u}) (A : Family Γ) (F : Filling A) (φ : Cofibration Γ)
       (b : OpenBox (reindex A (Presheaf.projection (Presheaf.interval Γ))) φ), F.Lawful →
-      out.eval algebra ![.context Γ,.family Γ A,.filling Γ A F,.cofibration Γ φ,
+      out.Eval algebra ![.context Γ,.family Γ A,.filling Γ A F,.cofibration Γ φ,
         .term (restrictContext (φ.reindex (Presheaf.projection (Presheaf.interval Γ))))
           (reindex (reindex A (Presheaf.projection (Presheaf.interval Γ)))
             (restrictInclusion (φ.reindex (Presheaf.projection (Presheaf.interval Γ))))) b.tube.toRestricted,

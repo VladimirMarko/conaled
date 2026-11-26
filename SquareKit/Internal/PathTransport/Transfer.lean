@@ -16,15 +16,15 @@ set_option backward.defeqAttrib.useBackward true
 namespace TransferFrame
 variable (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ)
 
-def left_beta : TmEqDeriv (contextRaw (branchContext hΓ x)) (contextCode (branchContext hΓ x))
+def leftBeta : TmEqDeriv (contextRaw (branchContext hΓ x)) (contextCode (branchContext hΓ x))
     (.fiber (z hΓ x).raw) (fiberCode (z hΓ x).code)
     (leftRoot hΓ x).raw (leftRoot hΓ x).code (branchValue hΓ x).raw (branchValue hΓ x).code :=
-  (transport_reindex_conversion (context hΓ x) (branchContext hΓ x)
+  (transportReindexConversion (context hΓ x) (branchContext hΓ x)
     (concat (context hΓ x) (first hΓ x) (second hΓ x)) (element hΓ x) (root hΓ x)).trans
-      (transport_congr (branchContext hΓ x) (concatRootPath hΓ x) (q hΓ x)
-        (b hΓ x) (b hΓ x) (concat_root_normalized hΓ x) (.refl (b hΓ x).deriv))
+      (transportCongr (branchContext hΓ x) (concatRootPath hΓ x) (q hΓ x)
+        (b hΓ x) (b hΓ x) (concatRootNormalized hΓ x) (.refl (b hΓ x).deriv))
 
-def branch := branchFromComputations hΓ x (left_beta hΓ x)
+def branch := branchFromComputations hΓ x (leftBeta hΓ x)
 
 def command : @PathCommand Γ γ .base x.raw (baseCode γ) x.code 3
     [(.fiber (ConcatFrame.fixed hΓ x).raw),

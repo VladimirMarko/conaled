@@ -53,12 +53,12 @@ theorem touching_intersection : negativeLeft.toSet ∩ touchingRight.toSet = {-1
   · rintro rfl
     exact ⟨⟨by decide, le_rfl⟩, ⟨le_rfl, by decide⟩⟩
 
-theorem touching_overlap : IntervalKey.overlap negativeLeft touchingRight := by
+theorem touching_overlap : IntervalKey.Overlap negativeLeft touchingRight := by
   apply (IntervalKey.overlap_iff_nonempty_inter _ _).mpr
   rw [touching_intersection]
   exact ⟨-1, rfl⟩
 
-theorem touching_overlap_reverse : IntervalKey.overlap touchingRight negativeLeft :=
+theorem touching_overlap_reverse : IntervalKey.Overlap touchingRight negativeLeft :=
   (IntervalKey.overlap_comm _ _).mp touching_overlap
 
 theorem gap_intersection : negativeShort.toSet ∩ touchingRight.toSet = ∅ := by
@@ -69,14 +69,14 @@ theorem gap_intersection : negativeShort.toSet ∩ touchingRight.toSet = ∅ := 
     exact (by decide : ¬ (-1 : Int) ≤ -2) (le_trans h.2.1 h.1.2)
   · exact False.elim
 
-theorem gap_no_overlap : ¬ IntervalKey.overlap negativeShort touchingRight := by
+theorem gap_no_overlap : ¬ IntervalKey.Overlap negativeShort touchingRight := by
   intro h
   have witness := (IntervalKey.overlap_iff_nonempty_inter _ _).mp h
   simp only [gap_intersection, Set.not_nonempty_empty] at witness
 
 theorem singleton_touches_both :
-    IntervalKey.overlap negativePoint negativeLeft ∧
-      IntervalKey.overlap negativePoint touchingRight :=
+    IntervalKey.Overlap negativePoint negativeLeft ∧
+      IntervalKey.Overlap negativePoint touchingRight :=
   ⟨(IntervalKey.overlap_iff_nonempty_inter _ _).mpr
       ⟨-1, ⟨by decide, by decide⟩, ⟨by decide, by decide⟩⟩,
     (IntervalKey.overlap_iff_nonempty_inter _ _).mpr
@@ -108,35 +108,35 @@ def bridgeQuery : IntervalKey Int := IntervalKey.ofBounds (-2) 1 (by decide)
 def gapQuery : IntervalKey Int := IntervalKey.ofBounds (-1) 0 (by decide)
 def rightTouchQuery : IntervalKey Int := IntervalKey.ofBounds 0 1 (by decide)
 
-theorem abstract_bridge_overlap : hasOverlap abstractContents bridgeQuery :=
+theorem abstract_bridge_overlap : HasOverlap abstractContents bridgeQuery :=
   (hasOverlap_insert_iff _ _ _).mpr (Or.inl
     ((IntervalKey.overlap_iff_nonempty_inter _ _).mpr
       ⟨-2, ⟨by decide, by decide⟩, ⟨by decide, by decide⟩⟩))
 
-theorem abstract_gap_absent : ¬ hasOverlap abstractContents gapQuery := by
-  change ¬ hasOverlap (insert negativeShort {positiveRight}) gapQuery
+theorem abstract_gap_absent : ¬ HasOverlap abstractContents gapQuery := by
+  change ¬ HasOverlap (insert negativeShort {positiveRight}) gapQuery
   rw [hasOverlap_insert_iff, hasOverlap_singleton_iff]
   decide
 
-theorem abstract_right_touch : hasOverlap abstractContents rightTouchQuery :=
+theorem abstract_right_touch : HasOverlap abstractContents rightTouchQuery :=
   (hasOverlap_insert_iff _ _ _).mpr (Or.inr
     ((hasOverlap_singleton_iff _ _).mpr
       ((IntervalKey.overlap_iff_nonempty_inter _ _).mpr
         ⟨1, ⟨by decide, by decide⟩, ⟨by decide, by decide⟩⟩)))
 
-theorem abstract_empty_absent (query : IntervalKey Int) : ¬ hasOverlap ∅ query :=
+theorem abstract_empty_absent (query : IntervalKey Int) : ¬ HasOverlap ∅ query :=
   not_hasOverlap_empty query
 
 /-- This set is specified directly by endpoint conditions, with no finite representation. -/
 def nonnegativePoints : Set (IntervalKey Int) := {x | x.low = x.high ∧ 0 ≤ x.low}
 
-theorem unrestricted_set_touches : hasOverlap nonnegativePoints gapQuery :=
+theorem unrestricted_set_touches : HasOverlap nonnegativePoints gapQuery :=
   ⟨IntervalKey.ofBounds 0 0 le_rfl, ⟨rfl, le_rfl⟩,
     (IntervalKey.overlap_iff_nonempty_inter _ _).mpr
       ⟨0, ⟨by decide, by decide⟩, ⟨by decide, by decide⟩⟩⟩
 
 theorem unrestricted_set_negative_absent :
-    ¬ hasOverlap nonnegativePoints (IntervalKey.ofBounds (-2) (-1) (by decide)) := by
+    ¬ HasOverlap nonnegativePoints (IntervalKey.ofBounds (-2) (-1) (by decide)) := by
   rintro ⟨x, hx, overlaps⟩
   exact (by decide : ¬ (0 : Int) ≤ -1) (le_trans hx.2 overlaps.2)
 

@@ -14,7 +14,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable (P : SheafTorsor.Torsor G X) (a : SheafActionQuotient.Action G M)
 
 /-- The fiber before descent is the actual sheaf M over the torsor total. -/
-abbrev localFamily := SplitSheaf.constant M (SplitSheaf.Ext P.family)
+abbrev localFamily := SplitSheaf.constant M (SplitSheaf.extension P.family)
 
 set_option backward.isDefEq.respectTransparency false in
 /-- Local values change by the unique group element changing the torsor lift. -/
@@ -81,7 +81,7 @@ theorem classOf_natural {x y : X.obj.Elements} (f : x ⟶ y)
   rw [evaluate_natural, evaluate_classOf, evaluate_classOf]
 
 /-- The actual quotient map has domain the total constant family, hence P.total × M. -/
-def quotient : SplitSheaf.Ext (localFamily P (M := M)) ⟶ SplitSheaf.Ext (associated P a) := ⟨{
+def quotient : SplitSheaf.extension (localFamily P (M := M)) ⟶ SplitSheaf.extension (associated P a) := ⟨{
   app U := ↾fun z => ⟨z.1.1, classOf P a (X.obj.elementsMk U z.1.1) z.1.2 z.2⟩
   naturality {U V} f := by
     ext z
@@ -104,7 +104,7 @@ instance quotient_locallySurjective : Presheaf.IsLocallySurjective J (quotient P
     let s := (associated P a).family.map (along X.obj k.op z.1) z.2
     refine ⟨⟨⟨x.val,p⟩, evaluate P a x p s⟩, ?_⟩
     change (⟨x.val, classOf P a x p (evaluate P a x p s)⟩ :
-      (SplitSheaf.Ext (associated P a)).obj.obj (op V)) = ⟨x.val,s⟩
+      (SplitSheaf.extension (associated P a)).obj.obj (op V)) = ⟨x.val,s⟩
     rw [classOf_evaluate]
 
 /-- An invariant map of pairs with values in an arbitrary sheaf display. -/
@@ -225,8 +225,8 @@ def pairFamily : X.obj.Elements ⥤ Type (max u v) where
   map_comp f g := by ext z <;> simp [Functor.map_comp]
 
 /-- The pair domain is the actual product with the torsor total, over X. -/
-def pairTotalIso : SplitPresheaf.Ext (pairFamily P (M := M)) ≅
-    (SplitSheaf.Ext (localFamily P (M := M))).obj where
+def pairTotalIso : SplitPresheaf.extension (pairFamily P (M := M)) ≅
+    (SplitSheaf.extension (localFamily P (M := M))).obj where
   hom := { app U := ↾fun z => ⟨⟨z.1,z.2.1⟩,z.2.2⟩ }
   inv := { app U := ↾fun z => ⟨z.1.1,z.1.2,z.2⟩ }
 
@@ -234,7 +234,7 @@ def pairTotalIso : SplitPresheaf.Ext (pairFamily P (M := M)) ≅
 def pairs : SplitSheaf.Ty X where
   family := pairFamily P (M := M)
   isSheaf := (Presheaf.isSheaf_of_iso_iff (J := J) (pairTotalIso P (M := M))).2
-    (SplitSheaf.Ext (localFamily P (M := M))).property
+    (SplitSheaf.extension (localFamily P (M := M))).property
 
 /-- The quotient is a map in the full category of sheaf displays. -/
 def quotientMap : pairs P (M := M) ⟶ associated P a where

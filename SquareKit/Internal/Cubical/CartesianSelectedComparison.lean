@@ -31,11 +31,11 @@ def constant (S : FiniteCode.{u}) (V : Type) : VertexSystem.{u} V where
   identity _ := rfl
   composition _ _ _ := rfl
 
-def loopSystem (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) : VertexSystem.{u} (Vertex 1) :=
+def loopSystem (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) : VertexSystem.{u} (Vertex 1) :=
   (constant S (Vertex 1)).conjugate (fun _ => S)
     (fun v => if v 0 then e else Equiv.refl _)
 
-theorem loopSystem_endpoint (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier)
+theorem loopSystem_endpoint (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier)
     (V : Type) (b : Bool) :
     (loopSystem S e).reindex (fun _ : V => fun _ => b) = constant S V := by
   apply VertexSystem.ext (B := (loopSystem S e).reindex (fun _ : V => fun _ => b))
@@ -46,31 +46,31 @@ theorem loopSystem_endpoint (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier)
   intro s
   cases b <;> simp [loopSystem, constant, conjugate, reindex]
 
-theorem loopSystem_transport (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+theorem loopSystem_transport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     (loopSystem S e).arrow (fun _ => false) (fun _ => true) = e := rfl
 
-def concatenatedSystem (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+def concatenatedSystem (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     VertexSystem.{u} (Vertex 1) :=
   loopSystem S (((loopSystem S e).arrow (fun _ => false) (fun _ => true)).trans
     ((loopSystem S d).arrow (fun _ => false) (fun _ => true)))
 
-theorem concatenatedSystem_eq (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem concatenatedSystem_eq (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     concatenatedSystem S e d = loopSystem S (e.trans d) := rfl
 
-theorem loopTuple_transport (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier)
+theorem loopTuple_transport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier)
     (t : (loopSystem S e).Tuple) : e (t.val (fun _ => false)) = t.val (fun _ => true) :=
   t.property (fun _ => false) (fun _ => true)
 
-def compositionSquare (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+def compositionSquare (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     VertexSystem.{u} (Vertex 2) :=
   (loopSystem S (e.trans d)).reindex (fun v _ => v 1)
 
-theorem compositionSquare_horizontal (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier)
+theorem compositionSquare_horizontal (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier)
     (b : Bool) :
     (compositionSquare S e d).reindex (fun v : Vertex 1 => Fin.cases b v) =
       loopSystem S (e.trans d) := rfl
 
-theorem compositionSquare_vertical (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier)
+theorem compositionSquare_vertical (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier)
     (b : Bool) :
     (compositionSquare S e d).reindex (fun v : Vertex 1 => Fin.cases (v 0) (fun _ => b)) =
       constant S (Vertex 1) := loopSystem_endpoint S (e.trans d) _ b
@@ -88,16 +88,16 @@ def endpointTerm (Γ : Context.{u+1}) (b : Bool) : Term (interval Γ) where
   property _ := rfl
 
 def emptyTube (Γ : Context.{u+1}) : Subcontext Γ where
-  holds _ := False
+  Holds _ := False
   natural _ h := h
 
 noncomputable def tupleSection (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) :=
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :=
   Term.reindex (TupleDecoder.chartSection (VertexSystem.loopSystem S e)
     (((VertexSystem.loopSystem S e).tupleEquiv (fun _ => false)).symm s)) (intervalChart Γ)
 
 noncomputable def box (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     OpenBox (reindex TupleDecoder.family
       (intervalChart Γ ≫ TupleDecoder.chart (VertexSystem.loopSystem S e)))
       (emptyTube Γ) (endpointTerm Γ false) where
@@ -106,54 +106,54 @@ noncomputable def box (Γ : Context.{u+1}) (S : FiniteCode.{u})
   boundary _ h := h.elim
 
 noncomputable def selected (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) :=
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :=
   TupleDecoder.filling.fill (intervalChart Γ ≫ TupleDecoder.chart (VertexSystem.loopSystem S e))
     (emptyTube Γ) (endpointTerm Γ false) (box Γ S e s)
 
 theorem selected_eq (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) : selected Γ S e s = tupleSection Γ S e s :=
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) : selected Γ S e s = tupleSection Γ S e s :=
   TupleDecoder.fill_chart _ _ _ _ _ _ rfl
 
 theorem selected_endpoint (Γ : Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) (x : Γ.Elements)
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) (x : Γ.Elements)
     (v : Vertex x.obj.unop.dimension) :
     ((selected Γ S e s).val (extendObj (interval Γ) x ((endpointTerm Γ true).val x))).down.val v = e s := by
   rw [selected_eq]
   rfl
 
-noncomputable def action (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
-    S.carrier :=
+noncomputable def action (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
+    S.Carrier :=
   ((selected (representable.{u+1} ⟨0⟩) S e s).val
     (extendObj (interval (representable.{u+1} ⟨0⟩))
       ((representable.{u+1} ⟨0⟩).elementsMk (.op ⟨0⟩) ⟨𝟙 _⟩)
       ⟨Cube.endpoint ⟨0⟩ true⟩)).down.val (fun i => Fin.elim0 i)
 
-theorem action_eq (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem action_eq (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     action S e s = e s := selected_endpoint _ _ _ _ _ _
 
-noncomputable def arrow (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
-    S.carrier ≃ S.carrier :=
+noncomputable def arrow (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
+    S.Carrier ≃ S.Carrier :=
   Equiv.ofBijective (action S e) (by
     have h : action S e = e := funext (action_eq S e)
     rw [h]
     exact e.bijective)
 
-theorem arrow_eq (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) : arrow S e = e :=
+theorem arrow_eq (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) : arrow S e = e :=
   Equiv.ext (action_eq S e)
 
-noncomputable def selectedCompositionSquare (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+noncomputable def selectedCompositionSquare (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     VertexSystem.{u} (Vertex 2) :=
   (VertexSystem.loopSystem S ((arrow S e).trans (arrow S d))).reindex (fun v _ => v 1)
 
-theorem selectedCompositionSquare_eq (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem selectedCompositionSquare_eq (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     selectedCompositionSquare S e d = VertexSystem.compositionSquare S e d := by
   simp only [selectedCompositionSquare, arrow_eq, VertexSystem.compositionSquare]
 
-theorem selected_inverse (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem selected_inverse (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     action S e.symm (action S e s) = s := by
   rw [action_eq, action_eq, e.symm_apply_apply]
 
-theorem selected_composite (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem selected_composite (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     action S (e.trans d) s = action S d (action S e s) := by
   simp only [action_eq, Equiv.trans_apply]
 
@@ -167,7 +167,7 @@ def realizedConstant (S : FiniteCode.{u}) : Presheaf.raisedContext Presheaf.term
     Presheaf.smallFamilyCodes.{u} := constantNerve _ S ≫ realizeDM
 
 def loopNerve (Γ : Presheaf.Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) : Presheaf.total (Presheaf.interval Γ) ⟶ dmFiniteNerve.{u} where
+    (e : S.Carrier ≃ S.Carrier) : Presheaf.total (Presheaf.interval Γ) ⟶ dmFiniteNerve.{u} where
   app I := TypeCat.ofHom (fun x => (VertexSystem.loopSystem S e).reindex (dmVertices x.2.down))
   naturality I J f := by
     apply ConcreteCategory.hom_ext
@@ -177,7 +177,7 @@ def loopNerve (Γ : Presheaf.Context.{u+1}) (S : FiniteCode.{u})
     exact congrArg (VertexSystem.reindex _) (funext (dmVertices_comp f.unop x.2.down))
 
 theorem loopNerve_endpoint (Γ : Presheaf.Context.{u+1}) (S : FiniteCode.{u})
-    (e : S.carrier ≃ S.carrier) (b : Bool) :
+    (e : S.Carrier ≃ S.Carrier) (b : Bool) :
     Presheaf.endpointSub Γ b ≫ loopNerve Γ S e = constantNerve Γ S := by
   ext I x
   change (VertexSystem.loopSystem S e).reindex (dmVertices (SquareKit.Cubical.Cube.endpoint I.unop b)) = _
@@ -186,18 +186,18 @@ theorem loopNerve_endpoint (Γ : Presheaf.Context.{u+1}) (S : FiniteCode.{u})
   rw [h]
   exact VertexSystem.loopSystem_endpoint S e _ b
 
-def realizedLoopCode (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+def realizedLoopCode (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     Presheaf.total (Presheaf.interval (Presheaf.raisedContext Presheaf.terminal.{u})) ⟶
       Presheaf.smallFamilyCodes.{u} := loopNerve _ S e ≫ realizeDM
 
-def realizedLoop (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) :
+def realizedLoop (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :
     Presheaf.Term (Presheaf.SmallUniverse.NativeUnivalence.paths (realizedConstant S) (realizedConstant S)) :=
   Presheaf.SmallUniverse.pathOfCode _ _ (realizedLoopCode S e)
     ((Category.assoc _ _ _).symm.trans (congrArg (fun p => p ≫ realizeDM) (loopNerve_endpoint _ S e false)))
     ((Category.assoc _ _ _).symm.trans (congrArg (fun p => p ≫ realizeDM) (loopNerve_endpoint _ S e true)))
 
 def compositionNerve (Γ : Presheaf.Context.{u+1}) (S : FiniteCode.{u})
-    (e d : S.carrier ≃ S.carrier) :
+    (e d : S.Carrier ≃ S.Carrier) :
     Presheaf.total (Presheaf.interval (Presheaf.total (Presheaf.interval Γ))) ⟶ dmFiniteNerve.{u} where
   app I := TypeCat.ofHom (fun x => (VertexSystem.compositionSquare S e d).reindex
     (dmVertices (SquareKit.Cubical.Cube.pair x.2.down x.1.2.down)))
@@ -214,7 +214,7 @@ namespace RealizedNerve
 open Presheaf
 
 noncomputable def constantDecodePresentation (S : FiniteCode.{u}) :
-    Presheaf.decode (realizedConstant S) ≅ Presheaf.constantFamily Presheaf.terminal S.carrier where
+    Presheaf.decode (realizedConstant S) ≅ Presheaf.constantFamily Presheaf.terminal S.Carrier where
   hom := {
     app := fun x => TypeCat.ofHom (fun a => a.val (fun _ => false))
     naturality := fun x y f => by
@@ -244,8 +244,8 @@ noncomputable def constantDecodePresentation (S : FiniteCode.{u}) :
     exact a.property (fun _ => false) v
   inv_hom_id := by ext x s; rfl
 
-def loopTuple (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier)
-    {I : SquareKit.Cubical.Cube} (r : I ⟶ ⟨1⟩) (s : S.carrier) :
+def loopTuple (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier)
+    {I : SquareKit.Cubical.Cube} (r : I ⟶ ⟨1⟩) (s : S.Carrier) :
     ((VertexSystem.loopSystem S e).reindex (dmVertices r)).Tuple :=
   ⟨fun v => if dmVertices r v 0 then e s else s, by
     intro v w
@@ -254,10 +254,10 @@ def loopTuple (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier)
         (if dmVertices r v 0 then e s else s))) = _
     cases hv : dmVertices r v 0 <;> cases hw : dmVertices r w 0 <;> simp [hw]⟩
 
-noncomputable def loopInput (S : FiniteCode.{u}) (s : S.carrier) : Presheaf.Term (Presheaf.decode (realizedConstant S)) :=
+noncomputable def loopInput (S : FiniteCode.{u}) (s : S.Carrier) : Presheaf.Term (Presheaf.decode (realizedConstant S)) :=
   Presheaf.Term.map (constantDecodePresentation S).inv ⟨fun _ => s, fun _ => rfl⟩
 
-def loopSection (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+def loopSection (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Presheaf.Term (Presheaf.decode ((SmallUniverse.raisedIntervalIso terminal).hom ≫
       SmallUniverse.codeOfPath (realizedLoop S e))) where
   val x := loopTuple S e x.val.2.down s
@@ -278,7 +278,7 @@ private theorem section_hext {Γ : Presheaf.Context.{u}} {A B : Presheaf.Family 
   subst B
   exact heq_of_eq (Presheaf.Term.ext (fun x => eq_of_heq (hs x)))
 
-theorem loopSection_zero (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem loopSection_zero (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     HEq (Presheaf.Term.reindex (loopSection S e s) (endpointSub terminal false)) (loopInput S s) := by
   apply section_hext (congrArg Presheaf.decode (SmallUniverse.codeOfPath_zero (realizedLoop S e)))
   intro x
@@ -286,7 +286,7 @@ theorem loopSection_zero (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s :
   intro v
   rfl
 
-theorem loopSection_one (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem loopSection_one (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     HEq (Presheaf.Term.reindex (loopSection S e s) (endpointSub terminal true)) (loopInput S (e s)) := by
   apply section_hext (congrArg Presheaf.decode (SmallUniverse.codeOfPath_one (realizedLoop S e)))
   intro x
@@ -296,43 +296,43 @@ theorem loopSection_one (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : 
 
 noncomputable def endpointIso (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier) :
     Presheaf.decode a ≅ Presheaf.decode (realizedConstant S) :=
   ea ≪≫ (constantDecodePresentation S).symm
 
 noncomputable def endpointPath (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier) :
     Presheaf.Term (SmallUniverse.NativeUnivalence.paths a (realizedConstant S)) :=
   SmallUniverse.NativeUnivalence.ua _ _ (Raising.iso (endpointIso S a ea)).hom
     (HomotopyEquivalence.ofIso (Raising.iso (endpointIso S a ea)))
 
 noncomputable def whiskeredLoop (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier)
-    (e : S.carrier ≃ S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
+    (e : S.Carrier ≃ S.Carrier) :
     Presheaf.Term (SmallUniverse.NativeUnivalence.paths a a) :=
   homogeneousConcat (SmallUniverse.filling _) (SmallUniverse.filling_lawful _)
     (homogeneousConcat (SmallUniverse.filling _) (SmallUniverse.filling_lawful _)
       (endpointPath S a ea) (realizedLoop S e)) (homogeneousReverse (endpointPath S a ea))
 
-noncomputable def realizedComposition (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+noncomputable def realizedComposition (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     Presheaf.Term (Presheaf.homogeneousPath (SmallUniverse.NativeUnivalence.paths (realizedConstant S) (realizedConstant S))
       (realizedLoop S (e.trans d)) (realizedLoop S (e.trans d))) :=
   homogeneousRefl (realizedLoop S (e.trans d))
 
 noncomputable def whiskeredComposition (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier)
-    (e d : S.carrier ≃ S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
+    (e d : S.Carrier ≃ S.Carrier) :
     Presheaf.Term (Presheaf.homogeneousPath (SmallUniverse.NativeUnivalence.paths a a)
       (whiskeredLoop S a ea (e.trans d)) (whiskeredLoop S a ea (e.trans d))) :=
   homogeneousRefl (whiskeredLoop S a ea (e.trans d))
 
 theorem whiskeredComposition_line (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier)
-    (e d : S.carrier ≃ S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
+    (e d : S.Carrier ≃ S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.nativePathReindex a a
       (Presheaf.projection (Presheaf.interval _))) (pathApp (whiskeredComposition S a ea e d)) =
     homogeneousConcat ((SmallUniverse.filling _).reindex (Presheaf.projection (Presheaf.interval _)))
@@ -350,7 +350,7 @@ theorem whiskeredComposition_line (S : FiniteCode.{u})
   rw [homogeneousConcat_reindex, homogeneousConcat_reindex, homogeneousReindex_reverse]
   rfl
 
-theorem realizedComposition_body (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem realizedComposition_body (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     SmallUniverse.NativeUnivalence.comparisonSquare (realizedComposition S e d) =
       SmallUniverse.term (compositionNerve _ S e d ≫ realizeDM) := by
   apply Presheaf.Term.ext
@@ -364,7 +364,7 @@ theorem realizedComposition_body (S : FiniteCode.{u}) (e d : S.carrier ≃ S.car
   rfl
 
 /-- The whole realized square comes from the arrows selected by target tuple filling. -/
-theorem realizedComposition_selected_body (S : FiniteCode.{u}) (e d : S.carrier ≃ S.carrier) :
+theorem realizedComposition_selected_body (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     SmallUniverse.NativeUnivalence.comparisonSquare (realizedComposition S e d) =
       SmallUniverse.term (compositionNerve _ S (TargetTransport.arrow S e)
         (TargetTransport.arrow S d) ≫ realizeDM) := by
@@ -377,27 +377,27 @@ def raisedConstantIso (Γ : Presheaf.Context.{u}) (S : Type u) :
   hom := { app := fun _ => 𝟙 _, naturality := fun _ _ _ => rfl }
   inv := { app := fun _ => 𝟙 _, naturality := fun _ _ _ => rfl }
 
-theorem loopTransport (S : FiniteCode.{u}) (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+theorem loopTransport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e))
       (Raising.raiseTerm (loopInput S s)) = Raising.raiseTerm (loopInput S (e s)) :=
   SmallUniverse.NativeUnivalence.pathToMap_of_smallSection (realizedLoop S e)
-    (PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.carrier))
+    (PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
       (Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _))
     (loopSection S e s) (loopInput S s) (loopInput S (e s))
     (loopSection_zero S e s) (loopSection_one S e s)
 
 noncomputable def sourceInput (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier) (s : S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier) (s : S.Carrier) :
     Presheaf.Term (SmallUniverse.liftedDecode a) :=
   Raising.raiseTerm (Presheaf.Term.map ea.inv ⟨fun _ => s, fun _ => rfl⟩)
 
 theorem endpointTransport (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier) (s : S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier) (s : S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.pathToMap (endpointPath S a ea))
       (sourceInput S a ea s) = Raising.raiseTerm (loopInput S s) := by
-  have h := (PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.carrier))
+  have h := (PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
     (Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _)) (𝟙 _)
       (SmallUniverse.NativeUnivalence.uaComparison a (realizedConstant S)
         (Raising.iso (endpointIso S a ea)).hom (HomotopyEquivalence.ofIso (Raising.iso (endpointIso S a ea)))
@@ -412,13 +412,13 @@ theorem endpointTransport (S : FiniteCode.{u})
 
 theorem whiskeredTransport (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier)
-    (e : S.carrier ≃ S.carrier) (s : S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
+    (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.pathToMap (whiskeredLoop S a ea e))
       (sourceInput S a ea s) = sourceInput S a ea (e s) := by
-  have hA : PathDiscrete (SmallUniverse.liftedDecode a) := PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.carrier))
+  have hA : PathDiscrete (SmallUniverse.liftedDecode a) := PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
     (Raising.iso ea ≪≫ raisedConstantIso _ _)
-  have hB : PathDiscrete (SmallUniverse.liftedDecode (realizedConstant S)) := PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.carrier))
+  have hB : PathDiscrete (SmallUniverse.liftedDecode (realizedConstant S)) := PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
     (Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _)
   have first := hB (𝟙 _) (SmallUniverse.NativeUnivalence.concatTransportComparison a
     (realizedConstant S) (realizedConstant S) (endpointPath S a ea) (realizedLoop S e)
@@ -437,15 +437,15 @@ theorem whiskeredTransport (S : FiniteCode.{u})
 
 noncomputable def nativeRecordPresentation (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier) :
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier) :
     SmallUniverse.NativeUnivalence.equivalences a a ≅
-      Presheaf.constantFamily (raisedContext terminal) (ULift.{u+1} S.carrier ≃ ULift.{u+1} S.carrier) :=
+      Presheaf.constantFamily (raisedContext terminal) (ULift.{u+1} S.Carrier ≃ ULift.{u+1} S.Carrier) :=
   DiscreteRecords.constantPresentationIso (Raising.iso ea ≪≫ raisedConstantIso _ _)
     (Raising.iso ea ≪≫ raisedConstantIso _ _)
 
 theorem recordFilling_eq (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier)
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
     (F : Presheaf.Filling (SmallUniverse.liftedDecode a)) (hF : F.Lawful) :
     presentationFilling (nativeRecordPresentation S a ea) =
       EquivalenceFamilies.equivFilling F hF F hF :=
@@ -454,7 +454,7 @@ theorem recordFilling_eq (S : FiniteCode.{u})
 
 noncomputable def relativeComparison (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
-    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.carrier)
+    (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
     {p q : Presheaf.Term (SmallUniverse.NativeUnivalence.paths a a)}
     (H K : Presheaf.Term (Presheaf.homogeneousPath (SmallUniverse.NativeUnivalence.paths a a) p q)) :
     Presheaf.Term (Presheaf.homogeneousPath (Presheaf.homogeneousPath (SmallUniverse.NativeUnivalence.paths a a) p q) H K) :=

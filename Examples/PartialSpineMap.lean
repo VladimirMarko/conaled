@@ -24,7 +24,7 @@ variable {α S : Type u} {β : Type v}
 
 /-- The new operations recover the existing first-output consumer on every ideal. -/
 theorem head_map_first (p : α → Prop) (I : Observations α) :
-    Observations.head (Observations.map p I) = first p I :=
+    Observations.head (Observations.map p I) = First p I :=
   Observations.foldr_map (fun (P : Prop) (_ : Prop) => P) p False
     (fun P => ScottContinuous.const P) I
 

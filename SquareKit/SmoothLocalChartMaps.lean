@@ -10,7 +10,7 @@ variable {M N : Type} (A : Charts M) (B : Charts N)
 /-- Ordinary coordinate descriptions on a cover of each source chart. -/
 structure LocalMap (f : M → N) where
   Cover : A.Index → Type
-  defining : ∀ i, Cover i → Free (A.domain i).dimension
+  defining : ∀ i, Cover i → freeAlgebra (A.domain i).dimension
   covers : ∀ i, Covers (A.domain i) (defining i)
   index : ∀ i, Cover i → B.Index
   coordinate : ∀ i k, subdomain (A.domain i) (defining i k) ⟶ B.domain (index i k)

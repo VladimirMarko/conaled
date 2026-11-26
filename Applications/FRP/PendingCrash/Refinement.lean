@@ -36,7 +36,7 @@ structure DurableFrames (initial : Frame) (a : Durability.Abstract Frame) (stabl
   active : ∀ record, a.active = some record →
     record ∈ a.history ∨ successor stable record.payload = true
 
-def permittedInvocation (stable : Frame) : Durability.Event Frame → Prop
+def PermittedInvocation (stable : Frame) : Durability.Event Frame → Prop
   | .invoke record => successor stable record.payload = true
   | _ => True
 
@@ -46,7 +46,7 @@ def publishedFrame (stable : Frame) : Durability.Event Frame → Frame
 
 theorem DurableFrames.step {initial stable : Frame} {a b : Durability.Abstract Frame}
     {event : Durability.Event Frame} (frames : DurableFrames initial a stable)
-    (step : Durability.SpecStep event a b) (permitted : permittedInvocation stable event) :
+    (step : Durability.SpecStep event a b) (permitted : PermittedInvocation stable event) :
     DurableFrames initial b (publishedFrame stable event) := by
   cases step with
   | internal => exact frames
@@ -88,7 +88,7 @@ is discharged at the adapter's checked advance, not by the storage layer. -/
 theorem DurableFrames.native_step {initial stable : Frame} {a : Durability.Abstract Frame}
     {s t : Durability.Machine Frame} {event : Durability.Event Frame}
     (frames : DurableFrames initial a stable) (related : Durability.Related s a)
-    (step : Durability.Step event s t) (permitted : permittedInvocation stable event) :
+    (step : Durability.Step event s t) (permitted : PermittedInvocation stable event) :
     ∃ b, Durability.Related t b ∧ DurableFrames initial b (publishedFrame stable event) := by
   obtain ⟨b, source, relation⟩ := step.simulation related
   exact ⟨b, relation, frames.step source permitted⟩
@@ -128,7 +128,7 @@ theorem journalInvoke_event (journal : Journal) (next : Frame) (result : Journal
 theorem beginChange_permitted (s : System) (stable : Frame) (command : FrameCommand)
     (current : StableCurrent s stable) :
     ∀ event, (beginChange s command).journalEvent = some event →
-      permittedInvocation stable event := by
+      PermittedInvocation stable event := by
   intro event observed
   unfold beginChange at observed
   split at observed
@@ -151,18 +151,18 @@ theorem beginChange_permitted (s : System) (stable : Frame) (command : FrameComm
           exact allowed
 
 
-def recoveredFrame (initial stable : Frame) : Durability.Event Frame → Prop
+def RecoveredFrame (initial stable : Frame) : Durability.Event Frame → Prop
   | .recover history => validateFrames initial (history.map Durability.Record.payload) = some stable
   | _ => True
 
 theorem DurableFrames.recovered {initial stable : Frame} {a b : Durability.Abstract Frame}
     {event : Durability.Event Frame} (frames : DurableFrames initial a stable)
-    (step : Durability.SpecStep event a b) : recoveredFrame initial stable event := by
+    (step : Durability.SpecStep event a b) : RecoveredFrame initial stable event := by
   cases step <;> first | trivial | exact frames.validated
 
 theorem applyJournal_done_current (s : System) (stable : Frame)
     (result : JournalResult s.adapter.journal) (current : StableCurrent s stable)
-    (recover : recoveredFrame (initialFrame s.adapter.initialKind) stable result.event) :
+    (recover : RecoveredFrame (initialFrame s.adapter.initialKind) stable result.event) :
     StableCurrent (applyJournal s (.done result)).system (publishedFrame stable result.event) := by
   intro frame present
   unfold applyJournal at present
@@ -277,7 +277,7 @@ theorem FrameConsistent.applyJournal {s : System} (consistent : FrameConsistent 
     (attempt : JournalAttempt s.adapter.journal)
     (allowed : ∀ a stable, Durability.Related s.adapter.journal.machine a →
       DurableFrames (initialFrame s.adapter.initialKind) a stable → StableCurrent s stable →
-      ∀ result, attempt = .done result → permittedInvocation stable result.event)
+      ∀ result, attempt = .done result → PermittedInvocation stable result.event)
     (notInvoke : ∀ result, attempt = .done result → ∀ record, result.event ≠ .invoke record) :
     FrameConsistent (applyJournal s attempt).system := by
   obtain ⟨a,stable,related,frames,current,pending⟩ := consistent
@@ -314,7 +314,7 @@ theorem FrameConsistent.beginChange {s : System} (consistent : FrameConsistent s
         · rename_i result done
           have event := journalInvoke_event _ _ result done
           obtain ⟨b,source,relation⟩ := result.native.simulation related
-          have allowed : permittedInvocation stable result.event := by rw [event]; exact successor
+          have allowed : PermittedInvocation stable result.event := by rw [event]; exact successor
           have extended := frames.step source allowed
           refine ⟨b,stable,relation,?_,current,?_⟩
           · simpa only [event,publishedFrame] using extended
@@ -327,11 +327,11 @@ theorem FrameConsistent.beginChange {s : System} (consistent : FrameConsistent s
 theorem journalStorage_permitted (journal : Journal) (command : StorageCommand) (stable : Frame)
     (result : JournalResult journal)
     (done : journalStep journal (storageCommand command) = .done result) :
-    permittedInvocation stable result.event := by
+    PermittedInvocation stable result.event := by
   cases command <;> simp only [storageCommand,journalStep,journalPrepare,journalWrite,
     journalPersist,journalPublish,journalAcknowledge,journalStartRead,journalRead,journalRecover] at done
   all_goals repeat' first | trivial | split at done | cases done
-  all_goals change permittedInvocation stable (match _ with | none => .internal | some e => .commit e)
+  all_goals change PermittedInvocation stable (match _ with | none => .internal | some e => .commit e)
   all_goals split <;> trivial
 
 
@@ -1301,7 +1301,7 @@ theorem sourceView_terminal_head (frame : Frame) (peer : Peer) (slot : Bool) (re
   case committed =>
     simp only [RequestPeer,phase] at recorded
     obtain ⟨output,selected,published⟩ := recorded
-    simp only [requestValid,phase] at wellFormed
+    simp only [RequestValid,phase] at wellFormed
     have inputEq : request.input = frame.logical := wellFormed.2.1
     simp [sourceView,head,published,inputEq,pendingEntry]
   case cancelled =>
@@ -1701,7 +1701,7 @@ theorem occupied_publish_safe (frame : Frame) (peer : Peer) (slot : Bool) (reque
   have sourceOutput : request.phase = .computed → output = frame.logical := by
     intro phase
     have wf := (valid.2.2.2.1 slot request found).2.1
-    simp only [requestValid,phase] at wf
+    simp only [RequestValid,phase] at wf
     exact Option.some.inj (selected.symm.trans wf.2.1)
   constructor
   · cases recorded : (lookup request.identity peer).1 with

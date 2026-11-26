@@ -155,7 +155,7 @@ theorem interpret_term_map {M : PathTransport.Typed.Model.{u}} {N : PathTranspor
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) {V : Type} {Γ A t : Expression V}
     (ρ : V → Value M.toStructuralModel)
-    (ht : (term Γ A t).eval (algebra M S) ρ) :
+    (ht : (term Γ A t).Eval (algebra M S) ρ) :
     Value.map F.toStructuralMap (t.eval (algebra M S) ρ) =
       t.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) := by
   apply interpret_map F
@@ -186,7 +186,7 @@ inductive Defined (Ω : List (Judgment V)) : Expression V → Type where
 
 theorem Defined.sound {e : Expression V} (he : Defined Ω e)
     (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStructuralModel) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M S) ρ) : e.eval (algebra M S) ρ ≠ .invalid := by
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) : e.eval (algebra M S) ρ ≠ .invalid := by
   cases he with
   | context h =>
     rcases interpret h M S ρ hΩ with ⟨Γ, hΓ⟩
@@ -222,7 +222,7 @@ def TypedAssumptions (Ω : List (Judgment V)) : Prop :=
 theorem predicate_defined (M : PathTransport.Typed.Model.{u})
     (S : Capability M.toStructuralModel) (p : signature.Predicate)
     (args : Fin (signature.arguments p) → Value M.toStructuralModel)
-    (h : (algebra M S).predicate p args) : ∀ i, args i ≠ .invalid := by
+    (h : (algebra M S).Predicate p args) : ∀ i, args i ≠ .invalid := by
   cases p with
   | inl p => exact Contextual.predicate_defined M p args h
   | inr p => nomatch p
@@ -232,8 +232,8 @@ reflection of equality, sorting, or invalid values is needed. -/
 theorem premises_map {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) (typed : TypedAssumptions Ω) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M S) ρ) :
-    ∀ p ∈ Ω, p.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) := by
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) :
+    ∀ p ∈ Ω, p.Eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) := by
   intro p hp
   cases p with
   | eq s t =>
@@ -250,7 +250,7 @@ theorem premises_map {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Type
     have e : (Value.map F.toStructuralMap ∘ fun i => (args i).eval (algebra M S) ρ) =
         (fun i => (args i).eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ)) :=
       funext (fun i => interpret_map F (args i) ρ (hd i))
-    change (algebra N T).predicate p
+    change (algebra N T).Predicate p
       (Value.map F.toStructuralMap ∘ fun i => (args i).eval (algebra M S) ρ) at hm
     erw [e] at hm
     exact hm
@@ -260,8 +260,8 @@ theorem interpret_target {a : Judgment V} (d : Derivation theory Ω a)
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) (typed : TypedAssumptions Ω) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M S) ρ) :
-    a.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) :
+    a.Eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
   interpret d N T _ (premises_map F typed ρ hΩ)
 
 /-- Typing supplies the side condition for preservation of the retained value. -/
@@ -269,7 +269,7 @@ theorem Tm.interpret_map {Γ A t : Expression V} (ht : Tm (Ω := Ω) Γ A t)
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M S) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) :
     Value.map F.toStructuralMap (t.eval (algebra M S) ρ) =
       t.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
   Sigma.interpret_map F t ρ ((Defined.term ht).sound M S ρ hΩ)
@@ -282,7 +282,7 @@ theorem TypedEquality.map {Γ A s t : Expression V}
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M S) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) :
     s.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) =
       t.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) := by
   have h := interpret comparison.equality M S ρ hΩ
@@ -300,7 +300,7 @@ theorem Tm.pair_map {Γ A B a b : Expression V}
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M S) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) :
     Value.map F.toStructuralMap ((Sigma.pair Γ A B a b).eval (algebra M S) ρ) =
       (Sigma.pair Γ A B a b).eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
   (Tm.pair hA hB ha hb).interpret_map F ρ hΩ
@@ -313,7 +313,7 @@ theorem Tm.split_map {Γ A B C d : Expression V}
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M S) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) :
     Value.map F.toStructuralMap ((Sigma.split A B d).eval (algebra M S) ρ) =
       (Sigma.split A B d).eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
   (Tm.split hA hB hC hd).interpret_map F ρ hΩ
@@ -329,8 +329,8 @@ theorem splitDerivation_target
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel}
     (F : SourceMap S T) (ρ : Fin 5 → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ List.ofFn splitRule.premise, p.eval (algebra M S) ρ) :
-    splitRule.conclusion.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
+    (hΩ : ∀ p ∈ List.ofFn splitRule.premise, p.Eval (algebra M S) ρ) :
+    splitRule.conclusion.Eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
   interpret_target splitDerivation F splitRule_assumptions_typed ρ hΩ
 
 end SquareKit.Internal.DependentJudgments.Sigma

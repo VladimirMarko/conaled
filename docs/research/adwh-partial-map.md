@@ -53,11 +53,11 @@ map then relates actual guarded and paused mapped producers to semantic map
 of their observations.
 
 [The connected examples](../../Examples/PartialSpineMap.lean) consume these
-equalities through existing `allCuts`/`truncate` and `first`. The arbitrary-ideal
+equalities through existing `allCuts`/`truncate` and `First`. The arbitrary-ideal
 identity
 
 ```lean
-head (map p I) = PartialSpineLimits.first p I
+head (map p I) = PartialSpineLimits.First p I
 ```
 
 uses the standard CPO on Prop and follows from public fold-after-map. Actual

@@ -536,8 +536,8 @@ structure. Since a map between final coalgebras must be invertible,
 `transported_not_final` follows from the failed comparison.
 
 The positive contract is deliberately separate. An invertible coalgebra
-comparison transfers finality (`final_of_comparison`). For routes from Type,
-`final_of_preservesPower` requires preservation of the one countable diagram
+comparison transfers finality (`finalOfComparison`). For routes from Type,
+`finalOfPreservesPower` requires preservation of the one countable diagram
 of copies of the output type and the explicit coalgebra comparison equation;
 it does not require preservation of arbitrary limits or arbitrary final
 coalgebras. The Cantor constant-sheaf route satisfies the equation and fails

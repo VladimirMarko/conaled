@@ -8,7 +8,7 @@ open SquareKit.Internal
 
 /-- The existential binder is y, followed by x and z, even with equal carriers. -/
 theorem binder_order (x y z : Nat) :
-    (SquareKit.Internal.GraphTarget.translateFormula (Graph.body .first .second)).eval
+    (SquareKit.Internal.GraphTarget.translateFormula (Graph.body .first .second)).Eval
       (Graph.model (fun n : Nat => n + 1) (fun n => 2 * n))
       (Env.extend y (Graph.environment (fun n : Nat => n + 1) (fun n => 2 * n) x z)) ↔
       y = x + 1 ∧ z = 2 * y := Iff.rfl
@@ -42,10 +42,10 @@ theorem empty_input (x : Empty) (z : Nat) :
 /-- With inhabited input and output an empty middle admits no first arrow. -/
 theorem empty_middle_obstruction (f : Unit → Empty) : False := Empty.elim (f ())
 
-example : SquareKit.Internal.GraphTarget.Declaration.denote.{0} SquareKit.Internal.GraphTarget.forwardDeclaration :=
+example : SquareKit.Internal.GraphTarget.Declaration.Denote.{0} SquareKit.Internal.GraphTarget.forwardDeclaration :=
   SquareKit.Internal.GraphTarget.declaration_sound SquareKit.Internal.GraphTarget.forwardDeclaration
 
-example : SquareKit.Internal.GraphTarget.Declaration.denote.{1} SquareKit.Internal.GraphTarget.backwardDeclaration :=
+example : SquareKit.Internal.GraphTarget.Declaration.Denote.{1} SquareKit.Internal.GraphTarget.backwardDeclaration :=
   SquareKit.Internal.GraphTarget.declaration_sound SquareKit.Internal.GraphTarget.backwardDeclaration
 
 /-- Conversion compares proofs while preserving the same formula observation. -/

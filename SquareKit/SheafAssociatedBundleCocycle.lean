@@ -15,7 +15,7 @@ variable (a : SheafActionQuotient.Action G M) (c : SheafTorsor.Cocycle.Datum G A
 
 set_option backward.isDefEq.respectTransparency false in
 /-- Right-translation torsor labels act inversely on associated coordinates. -/
-def cocycleDatum : SplitSheafDescent.Datum A (SplitSheaf.constant M (SplitSheaf.Ext A)) where
+def cocycleDatum : SplitSheafDescent.Datum A (SplitSheaf.constant M (SplitSheaf.extension A)) where
   transport x p q m := a.act x.obj (c.label x p q)⁻¹ m
   identity x p m := by rw [c.identity, inv_one, a.one_act]
   cocycle x p q r m := by rw [← a.mul_act, ← mul_inv_rev, c.cocycle]
@@ -361,7 +361,7 @@ def mappedGauge (φ : G ⟶ H) {d : SheafTorsor.Cocycle.Datum G A} (g : SheafTor
     exact congrArg (φ.hom.app x.obj) (g.compatible x p q)
 
 private theorem datum_transport_ext {A : SplitSheaf.Ty X}
-    {T : SplitSheaf.Ty (SplitSheaf.Ext A)} {d e : SplitSheafDescent.Datum A T}
+    {T : SplitSheaf.Ty (SplitSheaf.extension A)} {d e : SplitSheafDescent.Datum A T}
     (h : d.transport = e.transport) : d = e := by
   cases d
   cases e
@@ -381,7 +381,7 @@ theorem cocycleExtensionData_eq (φ : G ⟶ H) (c : SheafTorsor.Cocycle.Datum G 
   rw [(φ.hom.app x.obj).hom.map_inv, inv_inv]
 
 private theorem evaluate_eqToIso {A : SplitSheaf.Ty X}
-    {T : SplitSheaf.Ty (SplitSheaf.Ext A)} {d e : SplitSheafDescent.Datum A T}
+    {T : SplitSheaf.Ty (SplitSheaf.extension A)} {d e : SplitSheafDescent.Datum A T}
     (h : d = e) (x : X.obj.Elements) (p : A.family.obj x)
     (s : (SplitSheafDescent.family d).family.obj x) :
     SplitSheafDescent.evaluationEquiv e x p

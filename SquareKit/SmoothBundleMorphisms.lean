@@ -14,7 +14,7 @@ variable {n : ℕ} {G B E E' E'' : Type} [Group G]
 structure Map (P : Bundle (n := n) (G := G) (B := B) (E := E))
     (Q : Bundle (n := n) (G := G) (B := B) (E := E')) where
   toFun : E → E'
-  smooth : ContMDiff (Model n) (Model n) ∞ toFun
+  smooth : ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ toFun
   projection : ∀ e, Q.projection (toFun e) = P.projection e
   equivariant : ∀ (g : G) e, toFun (g • e) = g • toFun e
 

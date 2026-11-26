@@ -57,7 +57,7 @@ theorem interpreted_selected :
         (typeModel.pairSub finiteFamily shift selected)) =
     Value.term Nat (typeModel.subTy finiteFamily shift) selected := by
   have h := interpret_variablePair typeModel Nat Nat finiteFamily shift selected
-  simpa [variablePairRule, SquareKit.GuardedTheory.Atom.eval,
+  simpa [variablePairRule, SquareKit.GuardedTheory.Atom.Eval,
     SquareKit.GuardedTheory.Term.eval, subTm, generic, pair, apply2, apply3,
     algebra, operation] using h
 

@@ -34,7 +34,7 @@ def onePlan := appendPlan (fun _ => none) emptyRoot [] (empty_rep _) 0 ab rfl
 abbrev accepted : Machine (Edge 2) := acknowledgeState (publishState
   (writePersist (prepareState (invokeState initial ab) onePlan) (0,.node none ab)) onePlan)
 
-theorem one_execution : interpret Step (appendEvents ab) initial accepted :=
+theorem one_execution : Interpret Step (appendEvents ab) initial accepted :=
   append_execution initial [] rfl rfl rfl (empty_rep _) 0 ab rfl
     (by simp [initial]) (by simp [Fresh])
 theorem accepted_rep : Represents accepted.disk accepted.root [ab] :=
@@ -53,7 +53,7 @@ theorem cp_enumerates (i : Nat) (c : Cell (Edge 2)) :
   simp [cp,checkpointPlan,checkpointWrites,copy,addresses,put,cpCells,h10,h11]
 
 def cpEvents : List (Event (Edge 2)) := .internal :: List.replicate 4 .internal ++ [.internal]
-theorem checkpoint_execution : interpret Step cpEvents accepted checkpointed := by
+theorem checkpoint_execution : Interpret Step cpEvents accepted checkpointed := by
   apply replacement_execution accepted [ab] cp rfl rfl rfl rfl rfl rfl cpCells cp_enumerates
   · intro x hx
     simp only [cpCells,List.mem_cons,List.not_mem_nil,or_false] at hx
@@ -66,7 +66,7 @@ theorem checkpointed_rep : Represents checkpointed.disk checkpointed.root [ab] :
   exact ⟨[ab],[],.block (as := [10]) rfl (.cons rfl .nil),.nil,rfl⟩
 
 theorem all_checkpoint_execution :
-    interpret Step (appendEvents ab ++ cpEvents) initial checkpointed := by
+    Interpret Step (appendEvents ab ++ cpEvents) initial checkpointed := by
   rw [interpret_append]
   exact ⟨accepted,one_execution,checkpoint_execution⟩
 
@@ -80,7 +80,7 @@ abbrev afterTwo (s : Machine (Edge 2)) (rep : Represents s.disk s.root [ab])
 theorem append_again (s : Machine (Edge 2)) (rep : Represents s.disk s.root [ab])
     (ready : s.cache = some [ab]) (idle : s.active = none) (noplan : s.pending = none)
     (space : s.disk 20 = none) (unused : 20 ∉ s.used) :
-    interpret Step (appendEvents abAgain) s (afterTwo s rep space) :=
+    Interpret Step (appendEvents abAgain) s (afterTwo s rep space) :=
   append_execution s [ab] ready idle noplan rep 20 abAgain space unused
     (by intro e mem; simp only [List.mem_singleton] at mem; subst e; decide)
 
@@ -89,11 +89,11 @@ abbrev checkpointTwo := afterTwo checkpointed checkpointed_rep rfl
 def logEvents := appendEvents ab ++ appendEvents abAgain
 def checkpointEvents := appendEvents ab ++ cpEvents ++ appendEvents abAgain
 
-theorem log_execution : interpret Step logEvents initial logTwo := by
+theorem log_execution : Interpret Step logEvents initial logTwo := by
   rw [logEvents,interpret_append]
   exact ⟨accepted,one_execution,append_again accepted accepted_rep rfl rfl rfl rfl
     (by simp [writePersist,initial,onePlan,appendPlan,put])⟩
-theorem checkpoint_tail_execution : interpret Step checkpointEvents initial checkpointTwo := by
+theorem checkpoint_tail_execution : Interpret Step checkpointEvents initial checkpointTwo := by
   rw [checkpointEvents,interpret_append]
   refine ⟨checkpointed,all_checkpoint_execution,
     append_again checkpointed checkpointed_rep rfl rfl rfl rfl ?_⟩
@@ -140,7 +140,7 @@ theorem both_encoded_clients :
 
 def logRecoveryEvents : List (Event (Edge 2)) :=
   [.crash,.internal,.internal,.internal,.internal,.recover [ab,abAgain]]
-theorem log_recovery : interpret Step logRecoveryEvents logTwo logTwo := by
+theorem log_recovery : Interpret Step logRecoveryEvents logTwo logTwo := by
   let crashed := crashState logTwo
   let started := {crashed with cursor := some (.tailCells (some 20) [] [])}
   let one := {started with cursor := some (.tailCells (some 0) [] [abAgain])}
@@ -152,7 +152,7 @@ theorem log_recovery : interpret Step logRecoveryEvents logTwo logTwo := by
 
 def cpRecoveryEvents : List (Event (Edge 2)) :=
   [.crash,.internal,.internal,.internal,.internal,.internal,.recover [ab,abAgain]]
-theorem cp_recovery : interpret Step cpRecoveryEvents checkpointTwo checkpointTwo := by
+theorem cp_recovery : Interpret Step cpRecoveryEvents checkpointTwo checkpointTwo := by
   let crashed := crashState checkpointTwo
   let started := {crashed with cursor := some (.prefixCells [10] [] (some 20))}
   let one := {started with cursor := some (.prefixCells [] [ab] (some 20))}
@@ -164,8 +164,8 @@ theorem cp_recovery : interpret Step cpRecoveryEvents checkpointTwo checkpointTw
     two,.read rfl rfl (.node rfl),done,.read rfl rfl .finish,checkpointTwo,.recover rfl rfl,rfl⟩
 
 theorem recovered_layouts :
-    interpret Step (logEvents ++ logRecoveryEvents) initial logTwo ∧
-    interpret Step (checkpointEvents ++ cpRecoveryEvents) initial checkpointTwo := by
+    Interpret Step (logEvents ++ logRecoveryEvents) initial logTwo ∧
+    Interpret Step (checkpointEvents ++ cpRecoveryEvents) initial checkpointTwo := by
   constructor <;> rw [interpret_append]
   · exact ⟨logTwo,log_execution,log_recovery⟩
   · exact ⟨checkpointTwo,checkpoint_tail_execution,cp_recovery⟩
@@ -185,15 +185,15 @@ theorem recovered_projection_clients :
     (expected_projection _ rfl).2,(expected_projection _ rfl).2⟩
 
 theorem recovered_encoded_executions :
-    interpret (EncodedStep (edgeCodec 2)) (logEvents ++ logRecoveryEvents) encodedInitial
+    Interpret (EncodedStep (edgeCodec 2)) (logEvents ++ logRecoveryEvents) encodedInitial
       (encodeState (edgeCodec 2) logTwo) ∧
-    interpret (EncodedStep (edgeCodec 2)) (checkpointEvents ++ cpRecoveryEvents) encodedInitial
+    Interpret (EncodedStep (edgeCodec 2)) (checkpointEvents ++ cpRecoveryEvents) encodedInitial
       (encodeState (edgeCodec 2) checkpointTwo) :=
   ⟨encode_script _ recovered_layouts.1,encode_script _ recovered_layouts.2⟩
 
 theorem admitted_layouts :
-    interpret AdmittedStep (logEvents ++ logRecoveryEvents) initial logTwo ∧
-    interpret AdmittedStep (checkpointEvents ++ cpRecoveryEvents) initial checkpointTwo := by
+    Interpret AdmittedStep (logEvents ++ logRecoveryEvents) initial logTwo ∧
+    Interpret AdmittedStep (checkpointEvents ++ cpRecoveryEvents) initial checkpointTwo := by
   have safe : Acyclic [ab,abAgain] := (acyclic_correct _).mp (by decide)
   have logRep : Represents logTwo.disk logTwo.root [ab,abAgain] := append_rep accepted_rep 20 abAgain rfl
   have cpRep : Represents checkpointTwo.disk checkpointTwo.root [ab,abAgain] :=

@@ -57,24 +57,24 @@ def discreteCode {Γ : Context.{u}} {T : Type u} (q : Term (constantFamily Γ T)
     (S : T → Type u) : raisedContext Γ ⟶ smallFamilyCodes.{u} :=
   (LocalFamily.discrete q S).code
 
-def sigmaCode_decode {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+def sigmaCodeDecodeIso {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
     (b : raisedContext (total (decode a)) ⟶ smallFamilyCodes.{u}) :
     decode (sigmaCode a b) ≅ sigma (decode a) (decode b) :=
   ((decodedLocalFamily a).sigma (decodedLocalFamily b)).decodeCodeIso
 
-noncomputable def piCode_decode {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+noncomputable def piCodeDecodeIso {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
     (b : raisedContext (total (decode a)) ⟶ smallFamilyCodes.{u}) :
     decode (piCode a b) ≅ pi (decode a) (decode b) :=
   ((decodedLocalFamily a).pi (decodedLocalFamily b)).decodeCodeIso
 
-noncomputable def pathCode_decode {Γ : Context.{u}}
+noncomputable def pathCodeDecodeIso {Γ : Context.{u}}
     (b : raisedContext (total (interval Γ)) ⟶ smallFamilyCodes.{u})
     (a₀ : Term (Presheaf.reindex (decode b) (endpointSub Γ false)))
     (a₁ : Term (Presheaf.reindex (decode b) (endpointSub Γ true))) :
     decode (pathCode b a₀ a₁) ≅ path (decode b) a₀ a₁ :=
   ((decodedLocalFamily b).path a₀ a₁).decodeCodeIso
 
-def discreteCode_decode {Γ : Context.{u}} {T : Type u} (q : Term (constantFamily Γ T))
+def discreteCodeDecodeIso {Γ : Context.{u}} {T : Type u} (q : Term (constantFamily Γ T))
     (S : T → Type u) : decode (discreteCode q S) ≅ discreteFamily q S :=
   (LocalFamily.discrete q S).decodeCodeIso
 

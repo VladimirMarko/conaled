@@ -11,10 +11,10 @@ universe u
 namespace Glue
 variable {Γ : Context.{u}} (φ : Cofibration Γ)
 
-def faceObj (x : Γ.Elements) (h : φ.full x) : (restrictContext φ).Elements :=
+def faceObj (x : Γ.Elements) (h : φ.Full x) : (restrictContext φ).Elements :=
   (restrictContext φ).elementsMk x.obj ⟨x.val,h⟩
 
-def faceHom {x y : Γ.Elements} (f : x ⟶ y) (h : φ.full x) :
+def faceHom {x y : Γ.Elements} (f : x ⟶ y) (h : φ.Full x) :
     faceObj φ x h ⟶ faceObj φ y (φ.full_natural f h) :=
   Functor.Elements.homMk f.hom (Subtype.ext f.map_val)
 
@@ -24,10 +24,10 @@ variable (A : Family Γ) (T : Family (restrictContext φ))
 /-- Face data is coherent after every restriction, including newly full faces. -/
 structure CompatibleElement (x : Γ.Elements) where
   ambient : A.obj x
-  face : ∀ {y : Γ.Elements} (_f : x ⟶ y) (h : φ.full y), T.obj (faceObj φ y h)
-  naturality : ∀ {y z : Γ.Elements} (f : x ⟶ y) (g : y ⟶ z) (h : φ.full y),
+  face : ∀ {y : Γ.Elements} (_f : x ⟶ y) (h : φ.Full y), T.obj (faceObj φ y h)
+  naturality : ∀ {y z : Γ.Elements} (f : x ⟶ y) (g : y ⟶ z) (h : φ.Full y),
     T.map (faceHom φ g h) (face f h) = face (f ≫ g) (φ.full_natural g h)
-  compatible : ∀ {y : Γ.Elements} (f : x ⟶ y) (h : φ.full y),
+  compatible : ∀ {y : Γ.Elements} (f : x ⟶ y) (h : φ.Full y),
     e.app (faceObj φ y h) (face f h) = A.map f ambient
 
 @[ext] theorem CompatibleElement.ext {x : Γ.Elements} {s t : CompatibleElement φ A T e x}
@@ -72,7 +72,7 @@ def compatibleUnglue : compatibleFamily φ A T e ⟶ A where
   naturality _ _ _ := rfl
 
 /-- On a full face the ambient component is determined by the face element. -/
-def fromFace {x : Γ.Elements} (h : φ.full x) (t : T.obj (faceObj φ x h)) :
+def fromFace {x : Γ.Elements} (h : φ.Full x) (t : T.obj (faceObj φ x h)) :
     CompatibleElement φ A T e x where
   ambient := e.app (faceObj φ x h) t
   face f _ := T.map (faceHom φ f h) t
@@ -81,11 +81,11 @@ def fromFace {x : Γ.Elements} (h : φ.full x) (t : T.obj (faceObj φ x h)) :
       (faceHom φ g (φ.full_natural f h))) t).symm
   compatible f _ := ConcreteCategory.congr_hom (e.naturality (faceHom φ f h)) t
 
-theorem fromFace_read {x : Γ.Elements} (h : φ.full x)
+theorem fromFace_read {x : Γ.Elements} (h : φ.Full x)
     (t : T.obj (faceObj φ x h)) : (fromFace φ A T e h t).face (𝟙 x) h = t :=
   ConcreteCategory.congr_hom (T.map_id (faceObj φ x h)) t
 
-theorem read_fromFace {x : Γ.Elements} (h : φ.full x)
+theorem read_fromFace {x : Γ.Elements} (h : φ.Full x)
     (s : CompatibleElement φ A T e x) : fromFace φ A T e h (s.face (𝟙 x) h) = s := by
   apply CompatibleElement.ext
   · exact (s.compatible (𝟙 x) h).trans
@@ -94,7 +94,7 @@ theorem read_fromFace {x : Γ.Elements} (h : φ.full x)
     change T.map (faceHom φ f h) (s.face (𝟙 x) h) = s.face f hy
     simpa only [Category.id_comp] using s.naturality (𝟙 x) f h
 
-def fullFaceEquiv {x : Γ.Elements} (h : φ.full x) :
+def fullFaceEquiv {x : Γ.Elements} (h : φ.Full x) :
     T.obj (faceObj φ x h) ≃ CompatibleElement φ A T e x where
   toFun := fromFace φ A T e h
   invFun s := s.face (𝟙 x) h
@@ -102,22 +102,22 @@ def fullFaceEquiv {x : Γ.Elements} (h : φ.full x) :
   right_inv := read_fromFace φ A T e h
 
 /-- The strict carrier uses the supplied face type whenever the face is full. -/
-def fiber (x : Γ.Elements) : Type u :=
-  if h : φ.full x then T.obj (faceObj φ x h) else CompatibleElement φ A T e x
+def Fiber (x : Γ.Elements) : Type u :=
+  if h : φ.Full x then T.obj (faceObj φ x h) else CompatibleElement φ A T e x
 
-def fiberEquiv (x : Γ.Elements) : fiber φ A T e x ≃ CompatibleElement φ A T e x :=
-  if h : φ.full x then
-    (Equiv.cast (show fiber φ A T e x = T.obj (faceObj φ x h) from dite_eq_left h)).trans
+def fiberEquiv (x : Γ.Elements) : Fiber φ A T e x ≃ CompatibleElement φ A T e x :=
+  if h : φ.Full x then
+    (Equiv.cast (show Fiber φ A T e x = T.obj (faceObj φ x h) from dite_eq_left h)).trans
       (fullFaceEquiv φ A T e h)
-  else Equiv.cast (show fiber φ A T e x = CompatibleElement φ A T e x from dite_eq_right h)
+  else Equiv.cast (show Fiber φ A T e x = CompatibleElement φ A T e x from dite_eq_right h)
 
 /-- Restrictions use compatible data also when a face becomes full later. -/
 def family : Family Γ :=
-  (compatibleFamily φ A T e).copyObj (fiber φ A T e)
+  (compatibleFamily φ A T e).copyObj (Fiber φ A T e)
     (fun x => (fiberEquiv φ A T e x).symm.toIso)
 
 def familyIso : family φ A T e ≅ compatibleFamily φ A T e :=
-  ((compatibleFamily φ A T e).isoCopyObj (fiber φ A T e)
+  ((compatibleFamily φ A T e).isoCopyObj (Fiber φ A T e)
     (fun x => (fiberEquiv φ A T e x).symm.toIso)).symm
 
 def unglue : family φ A T e ⟶ A :=
@@ -187,8 +187,8 @@ theorem compatible_eta (s : Term (compatibleFamily φ A T e)) :
     rw [Category.comp_id] at hs
     exact hs.symm
 
-theorem fiber_full (x : Γ.Elements) (h : φ.full x) :
-    fiber φ A T e x = T.obj (faceObj φ x h) := dite_eq_left h
+theorem fiber_full (x : Γ.Elements) (h : φ.Full x) :
+    Fiber φ A T e x = T.obj (faceObj φ x h) := dite_eq_left h
 
 def compatibleFullFaceIso : reindex (compatibleFamily φ A T e) (restrictInclusion φ) ≅ T :=
   NatIso.ofComponents (fun x =>
@@ -208,14 +208,14 @@ def fullFaceIso : reindex (family φ A T e) (restrictInclusion φ) ≅ T :=
   (Functor.isoWhiskerLeft (restrictInclusion φ).mapElements (familyIso φ A T e)) ≪≫
     compatibleFullFaceIso φ A T e
 
-theorem fiberEquiv_full {x : Γ.Elements} (h : φ.full x)
-    (a : fiber φ A T e x) (t : T.obj (faceObj φ x h)) (ha : HEq a t) :
+theorem fiberEquiv_full {x : Γ.Elements} (h : φ.Full x)
+    (a : Fiber φ A T e x) (t : T.obj (faceObj φ x h)) (ha : HEq a t) :
     (fiberEquiv φ A T e x) a = fromFace φ A T e h t := by
   simp only [fiberEquiv, dite_eq_left h]
   apply congrArg (fromFace φ A T e h)
   exact eq_of_heq ((cast_heq _ a).trans ha)
 
-theorem fiberEquiv_symm_full {x : Γ.Elements} (h : φ.full x)
+theorem fiberEquiv_symm_full {x : Γ.Elements} (h : φ.Full x)
     (s : CompatibleElement φ A T e x) :
     HEq ((fiberEquiv φ A T e x).symm s) (s.face (𝟙 x) h) := by
   simp only [fiberEquiv, dite_eq_left h]

@@ -39,7 +39,7 @@ open SheafTorsor SheafAssociatedBundle
 set_option backward.isDefEq.respectTransparency false in
 /-- The associated transition maps preserve the regular left H-action. -/
 def extensionDatum (φ : G ⟶ H) (P : Torsor G X) :
-    Descent.Datum P.family (trivial H (SplitSheaf.Ext P.family)) where
+    Descent.Datum P.family (trivial H (SplitSheaf.extension P.family)) where
   transport := (datum P (rightInverseAction φ)).transport
   identity := (datum P (rightInverseAction φ)).identity
   cocycle := (datum P (rightInverseAction φ)).cocycle

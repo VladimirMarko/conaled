@@ -74,11 +74,11 @@ parameter.
 
 ## Recovery under an interval parameter
 
-`recoverLoop_path` connects the actual round trip
+`recoverLoopPath` connects the actual round trip
 `equivToPath (pathToEquiv p)` to the original path `p`.
 `recoverLoop_reindex` proves that its recovered endpoint commutes with
 substitution, using the full map-and-fiber-witness substitution laws.
-`recoverLoop_path_reindex` restricts the whole recovery path and corrects its
+`recoverLoopPathReindex` restricts the whole recovery path and corrects its
 endpoints to those recomputed expressions. The client specializes this to the
 interval projection in `intervalLoopRecovery` and `intervalRecovery_endpoint`.
 This is a transported recovery witness; no claim identifies it with a

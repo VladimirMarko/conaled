@@ -1171,7 +1171,7 @@ higher/cohesive structure remain absent. #36 remains open.
 ## Substitution-stable split dependent functions (#71)
 
 `SplitSheafPi` constructs experimental dependent functions for arbitrary
-`A : SplitSheaf.Ty Γ` and `B : SplitSheaf.Ty (Ext A)`. Objects of the site
+`A : SplitSheaf.Ty Γ` and `B : SplitSheaf.Ty (extension A)`. Objects of the site
 may live in `Type u` and arrows in `Type v`; sections live in
 `Type (max u v)`. Callers provide no dependent-product, stability or sheaf
 certificates beyond those already carried by A and B.
@@ -1416,7 +1416,7 @@ higher/cohesive target remain open; #36 remains incomplete.
 Actual Hadamard remainders now prove nilsquare Taylor in arbitrary smooth
 algebras. Their actual dual-number extensions have smooth operations and the
 universal mapping/coproduct property with the real dual algebra. The principal
-presentation `Free 1/(x²)` is identified with that algebra through smooth inverse
+presentation `freeAlgebra 1/(x²)` is identified with that algebra through smooth inverse
 maps. See the [construction record](algebraic-kl-model.md#smooth-dual-extensions-and-their-universal-maps-81).
 A small smooth site, categorical smooth KL and the higher/cohesive target remain
 open; #36 remains incomplete.
@@ -1463,7 +1463,7 @@ elements, canonical comparisons between representatives, and algebra pushout
 squares for arbitrary smooth base maps. Actual smooth dual extensions commute
 with localization; inverse comparisons preserve base maps and ε. These arrows
 are packaged as coded stages, and the empty-relation case recovers the prior
-ordinary-open comparison. The nilpotent presentation `Free 1/(x²)` distinguishes
+ordinary-open comparison. The nilpotent presentation `freeAlgebra 1/(x²)` distinguishes
 unit localization from nilpotent localization. See the
 [construction record](algebraic-kl-model.md#formal-stage-localization-and-base-change-85).
 Formal cover descent, well-adaptedness, general Weil KL and higher/cohesive

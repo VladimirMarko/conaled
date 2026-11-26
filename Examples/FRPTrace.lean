@@ -96,7 +96,7 @@ theorem stalled_prefix (source : Source) (n : Nat) :
     sourcePrefix (start source) (stalled source) n = initial 2 := by
   induction n with
   | zero => rfl
-  | succ n ih => simp [sourcePrefix, ih, stalled, process, advance, windowValid, initial]
+  | succ n ih => simp [sourcePrefix, ih, stalled, process, advance, WindowValid, initial]
 
 example (n : Nat) : observe (run start stalled rightFirst n) 2 = none := by
   simp [observe, run, stalled_prefix, observeMerge, initial]
@@ -141,10 +141,10 @@ theorem packets_honest : ∀ source n, Honest (sourcePrefix (start source) (pack
     cases n with
     | zero => by_cases h : t = 2 <;> simp [packets, batch, truth, eq_comm, h]
     | succ n =>
-      have bad : ¬ windowValid (sourcePrefix (start .left) (packets .left) (n + 1))
+      have bad : ¬ WindowValid (sourcePrefix (start .left) (packets .left) (n + 1))
           (packets .left (n + 1)).frontier (packets .left (n + 1)).packet := by
         rw [left_prefix]
-        change ¬ windowValid (⟨3, [(2, [3, 4]), (2, [3])]⟩ : State ℚ Nat) 4 [(2, [9])]
+        change ¬ WindowValid (⟨3, [(2, [3, 4]), (2, [3])]⟩ : State ℚ Nat) 4 [(2, [9])]
         decide
       exact (bad hv).elim
   | right => rfl

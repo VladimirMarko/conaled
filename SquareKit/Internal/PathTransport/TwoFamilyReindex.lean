@@ -35,7 +35,7 @@ noncomputable def arrowIso [IsGroupoid Γ] [∀ x, IsGroupoid (F.obj x)]
     {x y : Total F} (p : x ⟶ y) : x ≅ y := by
   letI : IsGroupoid (F.obj y.base) := inferInstance
   letI : IsIso (show (F.map p.base).obj x.fiber ⟶ y.fiber from p.fiber) :=
-    IsGroupoid.all_isIso (C := (F.obj y.base).carrier) p.fiber
+    IsGroupoid.all_isIso (C := (F.obj y.base).Carrier) p.fiber
   exact {
   hom := p
   inv := fromUnderlyingHom F

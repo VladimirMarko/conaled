@@ -17,7 +17,7 @@ variable (hx : Typed.TmDeriv.{2} Γ γ B b x ξ)
 
 def termDiagram (A : SplitSheaf.Ty X) :
     CechMatching.StrictMap (strictDiagram a hΓ A) ((relativeFamilyData a hΓ hB A).total (relativeFamilyCoherence a hΓ hB A)) where
-  localMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.Ext A))).down.lift
+  localMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.extension A))).down.lift
   doubleMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down.lift
   tripleMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.triple A))).down.lift
   first := generatedSectionLift_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.first A)) hΓ hB hx
@@ -49,7 +49,7 @@ def termFiber (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
 
 theorem termFiber_local (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
     (termFiber a hΓ hB hx A d).localFiber =
-      (ξ (SmoothQuotientSource.model a (SplitSheaf.Ext A))).down.obj d.localObject :=
+      (ξ (SmoothQuotientSource.model a (SplitSheaf.extension A))).down.obj d.localObject :=
   eq_of_heq (CechMatching.Comprehension.Fiber.localFiber_ofDatum _ _)
 
 end SquareKit.SmoothQuotientGeneratedMatching

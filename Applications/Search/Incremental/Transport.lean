@@ -269,8 +269,8 @@ theorem select_map (e : Relabel n) (h : Fin n → ℚ) (s : State n) :
   argmin_map e _ _ (labelKey_map e h s) s.queue
 
 theorem active_map (e : Relabel n) (goal : Fin n) (h : Fin n → ℚ) (s : State n) :
-    active (e goal) (heuristic e h) (state e s) ↔ active goal h s := by
-  simp only [active, topKey, select_map, labelKey_map]
+    Active (e goal) (heuristic e h) (state e s) ↔ Active goal h s := by
+  simp only [Active, topKey, select_map, labelKey_map]
   cases select h s <;> simp [state, labelKey]
 
 def outcome (e : Relabel n) : Outcome n → Outcome n

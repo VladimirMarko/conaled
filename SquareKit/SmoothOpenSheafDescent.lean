@@ -6,7 +6,7 @@ any sheaf; no preservation of arbitrary colimits is assumed. -/
 noncomputable section
 namespace SquareKit.EuclideanOpen
 open CategoryTheory Opposite SmoothAlgebra SmoothPresentationSite
-variable (U : Domain) {ι : Type} (g : ι → Free U.dimension)
+variable (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension)
 local notation "J" => SmoothOpenSite.topology
 
 /-- The actual generated-topology sheaf condition on this ordinary cover. -/

@@ -18,7 +18,7 @@ example (d : Datum a hΓ A) (x : (relativeMatchingFamily a hΓ hB A).obj d) :
     ((dependentComprehensionEquivalence a hΓ hB A).functor.obj
       (⟨d, x⟩ : Grothendieck (relativeMatchingFamily a hΓ hB A ⋙ Grpd.forgetToCat))).localObject =
       (⟨d.localObject, x.localFiber⟩ : GroupoidModel.Extend
-        (interpretedFamily a hΓ hB (SplitSheaf.Ext A))) := rfl
+        (interpretedFamily a hΓ hB (SplitSheaf.extension A))) := rfl
 
 /-- Distinct total arrows survive reconstruction; no thinness premise is used. -/
 example {x y : Grothendieck (relativeMatchingFamily a hΓ hB A ⋙ Grpd.forgetToCat)}
@@ -40,16 +40,16 @@ example (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
     (x : (b (SmoothQuotientCechLocal.model a A)).obj c) :
     ((SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).obj x).datum ≅
       (SmoothQuotientCechLocal.fiberTotalEvaluation a A hΓ hB c).obj x :=
-  (SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).app x
+  (SmoothQuotientCechLocal.familyEvaluationTotalIso a A hΓ hB c).app x
 
 /-- Recovery is natural for every supplied vertical arrow, not just objects. -/
 example (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
     {x y : (b (SmoothQuotientCechLocal.model a A)).obj c} (f : x ⟶ y) :
     ((SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).map f).matchingArrow ≫
-        ((SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).app y).hom =
-      ((SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).app x).hom ≫
+        ((SmoothQuotientCechLocal.familyEvaluationTotalIso a A hΓ hB c).app y).hom =
+      ((SmoothQuotientCechLocal.familyEvaluationTotalIso a A hΓ hB c).app x).hom ≫
         (SmoothQuotientCechLocal.fiberTotalEvaluation a A hΓ hB c).map f :=
-  (SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).hom.naturality f
+  (SmoothQuotientCechLocal.familyEvaluationTotalIso a A hΓ hB c).hom.naturality f
 
 /-- The extracted value is the actual generated family-map component. -/
 example (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))

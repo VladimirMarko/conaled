@@ -99,11 +99,11 @@ def Compatible.comp {A B C : Setting.{u, v, w}} {f : Connection A B} {g : Connec
 parameter of the relation rather than being chosen from it. -/
 structure RelRealization (A : Setting.{u, v, w}) where
   Carrier : A.Model → A.Sentence → Type w
-  relates : ∀ m p, Carrier m p → A.Evidence m p → Prop
+  Relates : ∀ m p, Carrier m p → A.Evidence m p → Prop
 structure RelRealizationMap {A B : Setting.{u, v, w}} (f : Connection A B)
     (R : RelRealization A) (S : RelRealization B) where
   map : ∀ m p, R.Carrier (f.reduct m) p → S.Carrier m (f.sentence p)
-  preserves : ∀ m p r e, R.relates _ p r e → S.relates m _ (map m p r) (f.evidence m p e)
+  preserves : ∀ m p r e, R.Relates _ p r e → S.Relates m _ (map m p r) (f.evidence m p e)
 def RelRealizationMap.comp {A B C : Setting.{u, v, w}} {f : Connection A B} {g : Connection B C}
     {R : RelRealization A} {S : RelRealization B} {T : RelRealization C}
     (b : RelRealizationMap g S T) (a : RelRealizationMap f R S) :
@@ -195,7 +195,7 @@ theorem Compatible.forget_realization {f : Connection A B} {g : Connection B C}
 
 def RelRealizationMap.square {f : Connection A B} {R : RelRealization A} {S : RelRealization B}
     (c : RelRealizationMap f R S) (m) (p) :
-    Relational.RelSquare ⟨_,_, R.relates (f.reduct m) p⟩ ⟨_,_,S.relates m (f.sentence p)⟩ :=
+    Relational.RelSquare ⟨_,_, R.Relates (f.reduct m) p⟩ ⟨_,_,S.Relates m (f.sentence p)⟩ :=
   ⟨c.map m p, f.evidence m p, fun h => c.preserves m p _ _ h⟩
 
 theorem RealizationMap.square_comp {f : Connection A B} {g : Connection B C}

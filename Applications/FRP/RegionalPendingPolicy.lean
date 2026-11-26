@@ -28,15 +28,15 @@ def Candidate.staticWork (c : Candidate) : Nat :=
   Rich.dispatches Rich.code ((),Sum.inl false) + c.consumerWork +
   4 * retainedCells c.cut + 8 * 14 + 12
 
-def Candidate.eligible (r : Requirements) (c : Candidate) : Prop :=
-  supported r ∧ serviceCapacity c.cut ≤ r.capacity
-instance (r : Requirements) (c : Candidate) : Decidable (c.eligible r) :=
+def Candidate.Eligible (r : Requirements) (c : Candidate) : Prop :=
+  Supported r ∧ serviceCapacity c.cut ≤ r.capacity
+instance (r : Requirements) (c : Candidate) : Decidable (c.Eligible r) :=
   inferInstanceAs (Decidable (_ ∧ _))
 
 def inspectCandidates (r : Requirements) : List Candidate → List Candidate × List Selection.Event
   | [] => ([],[])
   | c::cs =>
-    let assessed := Selection.conjunction (Selection.probe (decide (supported r)) 3) fun _ =>
+    let assessed := Selection.conjunction (Selection.probe (decide (Supported r)) 3) fun _ =>
       (decide (serviceCapacity c.cut ≤ r.capacity),[.admission (retainedCells c.cut)])
     let rest := inspectCandidates r cs
     (if assessed.1 then c::rest.1 else rest.1,assessed.2 ++ rest.2)
@@ -85,14 +85,14 @@ def propose (s : Session) (r : Requirements) (workload : String)
     {out with events := .policy bill :: out.events}
 
 @[simp] theorem inspectCandidates_value (r : Requirements) (cs : List Candidate) :
-    (inspectCandidates r cs).1 = cs.filter (fun c => decide (c.eligible r)) := by
+    (inspectCandidates r cs).1 = cs.filter (fun c => decide (c.Eligible r)) := by
   induction cs with
   | nil => rfl
   | cons c cs ih =>
     simp only [inspectCandidates,List.filter_cons,ih,Selection.conjunction_value,Selection.probe]
-    have test : (decide (supported r) && decide (serviceCapacity c.cut ≤ r.capacity)) =
-        decide (c.eligible r) := by
-      by_cases h : supported r <;> simp [Candidate.eligible,h]
+    have test : (decide (Supported r) && decide (serviceCapacity c.cut ≤ r.capacity)) =
+        decide (c.Eligible r) := by
+      by_cases h : Supported r <;> simp [Candidate.Eligible,h]
     rw [test]
 
 theorem rankCandidates_value (score : Candidate → Nat × List Selection.Event) (cs : List Candidate) :

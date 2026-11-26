@@ -143,7 +143,7 @@ abbrev Equal (a b : Expression V) := Derivation theory Ω (.eq a b)
 model and schematic assignment. Assumptions are source typing/equality guards. -/
 theorem interpret {a : Judgment V} (d : Derivation theory Ω a)
     (M : PathTransport.Typed.Model.{u}) (ρ : V → Value M.toStructuralModel)
-    (h : ∀ p ∈ Ω, p.eval (algebra M) ρ) : a.eval (algebra M) ρ :=
+    (h : ∀ p ∈ Ω, p.Eval (algebra M) ρ) : a.Eval (algebra M) ρ :=
   d.sound (model M) ρ h
 
 /-- Simultaneous source substitution preserves every admitted derivation. -/

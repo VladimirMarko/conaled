@@ -21,7 +21,7 @@ open Search.PositiveTrie Numerals.PositiveArithmetic
 open Examples.PositiveFiniteTrieWork Examples.PositiveFinitePrimitiveWork
 open Resources.PositiveTrie
 
-abbrev allowed (command : PosNum × Nat) : Prop := command = (2, 9) ∨ command = (1, 7)
+abbrev Allowed (command : PosNum × Nat) : Prop := command = (2, 9) ∨ command = (1, 7)
 
 def saturating (command : PosNum × Nat) (state : Nat) : Resources.Measured Nat Nat :=
   (min (state + command.2) 10, state + 1)
@@ -29,14 +29,14 @@ def saturating (command : PosNum × Nat) (state : Nat) : Resources.Measured Nat 
 theorem saturating_actual_run :
     Resources.run saturating (SparseMap.elements twoValues) 0 = (10, 11) := by decide
 
-theorem twoValues_allowed : ∀ command ∈ SparseMap.elements twoValues, allowed command := by
+theorem twoValues_allowed : ∀ command ∈ SparseMap.elements twoValues, Allowed command := by
   intro command member
   change command ∈ [(2, 9), (1, 7)] at member
   simpa only [List.mem_cons, List.not_mem_nil, or_false] using member
 
 theorem saturating_work_client :
     (Resources.run saturating (SparseMap.elements twoValues) 0).2 ≤ 22 := by
-  apply Resources.run_work_le_on saturating allowed (fun state => state ≤ 10) 11
+  apply Resources.run_work_le_on saturating Allowed (fun state => state ≤ 10) 11
     (fun _ _ _ _ => Nat.min_le_right _ _) (fun _ _ _ h => by dsimp [saturating]; omega)
     (SparseMap.elements twoValues) twoValues_allowed 0 (by decide)
 
@@ -44,26 +44,26 @@ def domainStep (command : PosNum × Nat) (state : Nat) : Resources.Measured Nat 
   if command = (2, 9) ∨ command = (1, 7) then saturating command state else (11, 100)
 
 theorem domainStep_closed (command : PosNum × Nat) (state : Nat)
-    (input : allowed command) (_initial : state ≤ 10) : (domainStep command state).1 ≤ 10 := by
-  change (if allowed command then saturating command state else (11, 100)).1 ≤ 10
+    (input : Allowed command) (_initial : state ≤ 10) : (domainStep command state).1 ≤ 10 := by
+  change (if Allowed command then saturating command state else (11, 100)).1 ≤ 10
   rw [ite_eq_left input]
   exact Nat.min_le_right _ _
 
 theorem domainStep_bounded (command : PosNum × Nat) (state : Nat)
-    (input : allowed command) (initial : state ≤ 10) : (domainStep command state).2 ≤ 11 := by
-  change (if allowed command then saturating command state else (11, 100)).2 ≤ 11
+    (input : Allowed command) (initial : state ≤ 10) : (domainStep command state).2 ≤ 11 := by
+  change (if Allowed command then saturating command state else (11, 100)).2 ≤ 11
   rw [ite_eq_left input]
   dsimp [saturating]
   omega
 
 theorem restricted_invariant_client :
     (Resources.run domainStep (SparseMap.elements twoValues) 0).1 ≤ 10 :=
-  Resources.run_invariant_on domainStep allowed (fun state => state ≤ 10)
+  Resources.run_invariant_on domainStep Allowed (fun state => state ≤ 10)
     domainStep_closed (SparseMap.elements twoValues) twoValues_allowed 0 (by decide)
 
 theorem restricted_work_client :
     (Resources.run domainStep (SparseMap.elements twoValues) 0).2 ≤ 22 :=
-  Resources.run_work_le_on domainStep allowed (fun state => state ≤ 10) 11
+  Resources.run_work_le_on domainStep Allowed (fun state => state ≤ 10) 11
     domainStep_closed domainStep_bounded (SparseMap.elements twoValues) twoValues_allowed 0
     (by decide)
 
@@ -71,19 +71,19 @@ theorem restricted_actual_run :
     Resources.run domainStep (SparseMap.elements twoValues) 0 = (10, 11) := by decide
 
 theorem off_domain_failure :
-    ¬ allowed (3, 0) ∧ (domainStep (3, 0) 0).1 = 11 ∧
+    ¬ Allowed (3, 0) ∧ (domainStep (3, 0) 0).1 = 11 ∧
       ¬ (domainStep (3, 0) 0).1 ≤ 10 ∧ (domainStep (3, 0) 0).2 = 100 ∧
       ¬ (domainStep (3, 0) 0).2 ≤ 11 := by decide
 
 theorem off_invariant_failure :
-    allowed (2, 9) ∧ (domainStep (2, 9) 11).2 = 12 ∧
+    Allowed (2, 9) ∧ (domainStep (2, 9) 11).2 = 12 ∧
       ¬ (domainStep (2, 9) 11).2 ≤ 11 := by decide
 
 theorem changed_prefix_not_allowed :
-    ¬ (∀ command ∈ SparseMap.elementsFrom twoValues 5, allowed command) := by
+    ¬ (∀ command ∈ SparseMap.elementsFrom twoValues 5, Allowed command) := by
   intro allAllowed
   have bad := allAllowed (9, 9) (by decide)
-  exact (by decide : ¬ allowed (9, 9)) bad
+  exact (by decide : ¬ Allowed (9, 9)) bad
 
 theorem twoValues_mass :
     Resources.PositiveTrie.Traversal.prefixMass twoValues 1 = 3 ∧
@@ -134,13 +134,13 @@ theorem map_trace_order : FreeAddMonoid.toList (MapFold.run traceMap twoValues 0
 
 theorem map_fold_restricted_client :
     (MapFold.run (fun key value => domainStep (key, value)) twoValues 0).2.2 ≤ 22 :=
-  MapFold.runFrom_callback_work_le (fun key value => domainStep (key, value)) allowed
+  MapFold.runFrom_callback_work_le (fun key value => domainStep (key, value)) Allowed
     (fun state => state ≤ 10) 11 (fun key value => domainStep_closed (key, value))
     (fun key value => domainStep_bounded (key, value)) twoValues .one twoValues_allowed 0 (by decide)
 
 theorem map_fold_restricted_state_client :
     (MapFold.run (fun key value => domainStep (key, value)) twoValues 0).1 ≤ 10 :=
-  MapFold.runFrom_invariant_on (fun key value => domainStep (key, value)) allowed
+  MapFold.runFrom_invariant_on (fun key value => domainStep (key, value)) Allowed
     (fun state => state ≤ 10) (fun key value => domainStep_closed (key, value))
     twoValues .one twoValues_allowed 0 (by decide)
 
@@ -194,12 +194,12 @@ theorem reversed_prefix_value_client :
       KeySet.foldFrom (fun key keys => keys ++ [key]) leftSet [] 5 :=
   SetFold.runFrom_value collectKey leftSet [] 5
 
-abbrev generatedSetAllowed (key : PosNum) : Prop := key = 10 ∨ key = 6
-abbrev generatedSetInvariant (keys : List PosNum) : Prop := ∀ key ∈ keys, generatedSetAllowed key
+abbrev GeneratedSetAllowed (key : PosNum) : Prop := key = 10 ∨ key = 6
+abbrev GeneratedSetInvariant (keys : List PosNum) : Prop := ∀ key ∈ keys, GeneratedSetAllowed key
 
 theorem generatedSet_closed (key : PosNum) (state : List PosNum)
-    (input : generatedSetAllowed key) (initial : generatedSetInvariant state) :
-    generatedSetInvariant (collectKey key state).1 := by
+    (input : GeneratedSetAllowed key) (initial : GeneratedSetInvariant state) :
+    GeneratedSetInvariant (collectKey key state).1 := by
   intro query member
   change query ∈ state ++ [key] at member
   rcases List.mem_append.mp member with old | fresh
@@ -208,18 +208,18 @@ theorem generatedSet_closed (key : PosNum) (state : List PosNum)
     exact input
 
 theorem generatedSet_inputs :
-    ∀ key ∈ (KeySet.rawKeys leftSet).map (Numerals.PositivePaths.reverseAppend 5), generatedSetAllowed key := by
+    ∀ key ∈ (KeySet.rawKeys leftSet).map (Numerals.PositivePaths.reverseAppend 5), GeneratedSetAllowed key := by
   intro key member
   change key ∈ [(10 : PosNum), 6] at member
   simpa only [List.mem_cons, List.not_mem_nil, or_false] using member
 
-theorem set_restricted_invariant_client : generatedSetInvariant (SetFold.runFrom collectKey leftSet [] 5).1 :=
-  SetFold.runFrom_invariant_on collectKey generatedSetAllowed generatedSetInvariant
+theorem set_restricted_invariant_client : GeneratedSetInvariant (SetFold.runFrom collectKey leftSet [] 5).1 :=
+  SetFold.runFrom_invariant_on collectKey GeneratedSetAllowed GeneratedSetInvariant
     generatedSet_closed leftSet 5 generatedSet_inputs []
     (fun _ member => by simp only [List.not_mem_nil] at member)
 
 theorem set_restricted_work_client : (SetFold.runFrom collectKey leftSet [] 5).2.2 ≤ 0 :=
-  SetFold.runFrom_callback_work_le collectKey generatedSetAllowed generatedSetInvariant 0
+  SetFold.runFrom_callback_work_le collectKey GeneratedSetAllowed GeneratedSetInvariant 0
     generatedSet_closed (fun _ _ _ _ => Nat.le_refl 0) leftSet 5 generatedSet_inputs []
     (fun _ member => by simp only [List.not_mem_nil] at member)
 

@@ -105,8 +105,8 @@ def encodedInitial {P B : Type} : Encoded P B :=
 
 theorem encoded_script {P B : Type} (codec : Codec (Cell P) B)
     {events : List (Event P)} {s t : Encoded P B}
-    (run : Interaction.Events.interpret (EncodedStep codec) events s t) :
-    Interaction.Events.interpret Step events (observe codec s) (observe codec t) := by
+    (run : Interaction.Events.Interpret (EncodedStep codec) events s t) :
+    Interaction.Events.Interpret Step events (observe codec s) (observe codec t) := by
   induction events generalizing s with
   | nil => cases run; rfl
   | cons e es ih =>
@@ -114,7 +114,7 @@ theorem encoded_script {P B : Type} (codec : Codec (Cell P) B)
     exact ⟨observe codec mid, first.simulation, ih rest⟩
 
 def encodedBehaviors {P B : Type} (codec : Codec (Cell P) B) (events : List (Event P)) :
-    Set (Encoded P B) := {s | Interaction.Events.interpret (EncodedStep codec) events encodedInitial s}
+    Set (Encoded P B) := {s | Interaction.Events.Interpret (EncodedStep codec) events encodedInitial s}
 
 theorem encoding_refinement {P B : Type} (codec : Codec (Cell P) B) (events : List (Event P)) :
     Interaction.Refines (fun t e => t = observe codec e)
@@ -217,8 +217,8 @@ theorem Step.encode {P B : Type} (codec : Codec (Cell P) B) {s t : Machine P} {e
 
 theorem encode_script {P B : Type} (codec : Codec (Cell P) B)
     {events : List (Event P)} {s t : Machine P}
-    (run : Interaction.Events.interpret Step events s t) :
-    Interaction.Events.interpret (EncodedStep codec) events (encodeState codec s) (encodeState codec t) := by
+    (run : Interaction.Events.Interpret Step events s t) :
+    Interaction.Events.Interpret (EncodedStep codec) events (encodeState codec s) (encodeState codec t) := by
   induction events generalizing s with
   | nil => cases run; rfl
   | cons e es ih =>

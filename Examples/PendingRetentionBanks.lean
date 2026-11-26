@@ -72,7 +72,7 @@ example :
 
 example : SnapshotBanks.Allowed localCopy.state (SnapshotBanks.replacement localTarget.encode) :=
   local_replacement_allowed _ _
-example : (SnapshotBanks.Access.mutation false).safeOverwrite true :=
+example : (SnapshotBanks.Access.mutation false).SafeOverwrite true :=
   (inactive_overwrite false).1
 
 /-- An arbitrary torn inactive payload cannot satisfy publication permission. -/

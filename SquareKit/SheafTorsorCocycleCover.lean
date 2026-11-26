@@ -121,7 +121,7 @@ def AdmitsCover (P : Torsor G X) : Prop :=
   Nonempty (Arrow (SheafTorsor.trivial G Y) (reindex P f))
 
 theorem admitsCover_iff_split (P : Torsor G X) :
-    AdmitsCover f P ↔ Nonempty (Arrow (SheafTorsor.trivial G (SplitSheaf.Ext (SplitSheaf.ofDisplay f)))
+    AdmitsCover f P ↔ Nonempty (Arrow (SheafTorsor.trivial G (SplitSheaf.extension (SplitSheaf.ofDisplay f)))
       (reindex P (SplitSheaf.p (SplitSheaf.ofDisplay f)))) := by
   constructor
   · rintro ⟨e⟩
@@ -154,7 +154,7 @@ theorem admitsCover_family (P : Torsor G X) :
     exact ⟨h⟩
   · intro h
     let t (i : I) := sectionOfArrow (h i).some
-    let k : (∐ Y) ⟶ SplitSheaf.Ext P.family := Sigma.desc (fun i => SplitSheaf.pair P.family (f i) (t i))
+    let k : (∐ Y) ⟶ SplitSheaf.extension P.family := Sigma.desc (fun i => SplitSheaf.pair P.family (f i) (t i))
     have hk : k ≫ SplitSheaf.p P.family = Sigma.desc f := by
       apply Sigma.hom_ext
       intro i

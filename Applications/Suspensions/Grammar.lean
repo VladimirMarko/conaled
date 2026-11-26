@@ -59,25 +59,25 @@ phrases and the inherited alternatives at the full expression/pattern level.
 An opaque token represents an already delimited phrase, not an arbitrary span
 that the adapter is permitted to swallow. -/
 structure Base (Primitive : Type) where
-  identifier : String → Prop
-  atomicExpression : Type
-  expression : Type
-  atomicPattern : Type
-  pattern : Type
-  embedAtomicExpression : atomicExpression → Expr Primitive
-  embedExpression : expression → Expr Primitive
-  embedAtomicPattern : atomicPattern → Pattern
-  embedPattern : pattern → Pattern
+  Identifier : String → Prop
+  AtomicExpression : Type
+  Expression : Type
+  AtomicPattern : Type
+  Pattern : Type
+  embedAtomicExpression : AtomicExpression → Expr Primitive
+  embedExpression : Expression → Expr Primitive
+  embedAtomicPattern : AtomicPattern → Core.Pattern
+  embedPattern : Pattern → Core.Pattern
 
 inductive Token {Primitive : Type} (base : Base Primitive) where
-  | identifier (name : Identifier base.identifier)
+  | identifier (name : Identifier base.Identifier)
   | dollar
   | leftParen
   | rightParen
-  | atomicExpression (phrase : base.atomicExpression)
-  | expression (phrase : base.expression)
-  | atomicPattern (phrase : base.atomicPattern)
-  | pattern (phrase : base.pattern)
+  | atomicExpression (phrase : base.AtomicExpression)
+  | expression (phrase : base.Expression)
+  | atomicPattern (phrase : base.AtomicPattern)
+  | pattern (phrase : base.Pattern)
 
 mutual
   inductive ParsesExpression {Primitive : Type} (base : Base Primitive) :
@@ -87,7 +87,7 @@ mutual
         ParsesExpression base (.dollar :: tokens) (.delay body)
     | application {tokens : List (Token base)} {e : Expr Primitive}
         (parsed : ParsesApplication base tokens e) : ParsesExpression base tokens e
-    | inherited (phrase : base.expression) :
+    | inherited (phrase : base.Expression) :
         ParsesExpression base [.expression phrase] (base.embedExpression phrase)
 
   inductive ParsesApplication {Primitive : Type} (base : Base Primitive) :
@@ -102,12 +102,12 @@ mutual
 
   inductive ParsesAtomicExpression {Primitive : Type} (base : Base Primitive) :
       List (Token base) → Expr Primitive → Prop
-    | identifier (name : Identifier base.identifier) :
+    | identifier (name : Identifier base.Identifier) :
         ParsesAtomicExpression base [.identifier name] name.role.expression
     | parentheses {tokens : List (Token base)} {e : Expr Primitive}
         (parsed : ParsesExpression base tokens e) :
         ParsesAtomicExpression base (.leftParen :: tokens ++ [.rightParen]) e
-    | inherited (phrase : base.atomicExpression) :
+    | inherited (phrase : base.AtomicExpression) :
         ParsesAtomicExpression base [.atomicExpression phrase] (base.embedAtomicExpression phrase)
 end
 
@@ -119,19 +119,19 @@ mutual
         ParsesPattern base (.dollar :: tokens) (.suspended p)
     | higher {tokens : List (Token base)} {p : Pattern}
         (parsed : ParsesHigherPattern base tokens p) : ParsesPattern base tokens p
-    | inherited (phrase : base.pattern) :
+    | inherited (phrase : base.Pattern) :
         ParsesPattern base [.pattern phrase] (base.embedPattern phrase)
 
   inductive ParsesHigherPattern {Primitive : Type} (base : Base Primitive) :
       List (Token base) → Pattern → Prop
     | atomic {tokens : List (Token base)} {p : Pattern}
         (parsed : ParsesAtomicPattern base tokens p) : ParsesHigherPattern base tokens p
-    | constructor (name : Identifier base.identifier) {tag : Nat}
+    | constructor (name : Identifier base.Identifier) {tag : Nat}
         (classified : name.role = .valueConstructor tag)
         {tokens : List (Token base)} {argument : Pattern}
         (parsed : ParsesAtomicPattern base tokens argument) :
         ParsesHigherPattern base (.identifier name :: tokens) (.constructor tag (some argument))
-    | exception (name : Identifier base.identifier) {exceptionName : Nat}
+    | exception (name : Identifier base.Identifier) {exceptionName : Nat}
         (classified : name.role = .exceptionConstructor exceptionName)
         {tokens : List (Token base)} {argument : Pattern}
         (parsed : ParsesAtomicPattern base tokens argument) :
@@ -139,12 +139,12 @@ mutual
 
   inductive ParsesAtomicPattern {Primitive : Type} (base : Base Primitive) :
       List (Token base) → Pattern → Prop
-    | identifier (name : Identifier base.identifier) :
+    | identifier (name : Identifier base.Identifier) :
         ParsesAtomicPattern base [.identifier name] name.role.pattern
     | parentheses {tokens : List (Token base)} {p : Pattern}
         (parsed : ParsesPattern base tokens p) :
         ParsesAtomicPattern base (.leftParen :: tokens ++ [.rightParen]) p
-    | inherited (phrase : base.atomicPattern) :
+    | inherited (phrase : base.AtomicPattern) :
         ParsesAtomicPattern base [.atomicPattern phrase] (base.embedAtomicPattern phrase)
 end
 

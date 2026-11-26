@@ -17,8 +17,8 @@ set_option backward.defeqAttrib.useBackward true
 universe u v w z
 variable {Γ : Type u} [Category.{v} Γ]
 variable (A : Γ ⥤ Grpd.{z,w}) (x : Section A)
-abbrev PathFamily := identityFamily (weaken A ⋙ A) (x.reindex (weaken A)) («variable» A)
-abbrev PathCtx := Extend (PathFamily A x)
+abbrev pathComparisonFamily := identityFamily (weaken A ⋙ A) (x.reindex (weaken A)) («variable» A)
+abbrev PathCtx := Extend (pathComparisonFamily A x)
 
 def arrow (a : PathCtx A x) : x.lift.obj a.base.base ⟶ a.base :=
   (Grothendieck.ι (A ⋙ Grpd.forgetToCat) a.base.base).map a.fiber.as
@@ -39,7 +39,7 @@ theorem arrow_natural {a b : PathCtx A x} (f : a ⟶ b) :
     rw [← hn]
     simp
 
-def retract : PathCtx A x ⥤ Γ := weaken (PathFamily A x) ⋙ weaken A
+def retract : PathCtx A x ⥤ Γ := weaken (pathComparisonFamily A x) ⋙ weaken A
 
 def reflexive : Γ ⥤ PathCtx A x where
   obj γ := ⟨x.lift.obj γ, Discrete.mk (𝟙 _)⟩
@@ -55,7 +55,7 @@ def reflexive : Γ ⥤ PathCtx A x where
     · exact x.lift.map_comp f g
     · exact congrArg Discrete.Hom.mk rfl
 
-instance forget_faithful : (weaken (PathFamily A x)).Faithful where
+instance forget_faithful : (weaken (pathComparisonFamily A x)).Faithful where
   map_injective {a b} f g h := by
     fapply Grothendieck.ext
     · exact h
@@ -77,12 +77,12 @@ variable [IsGroupoid Γ]
 def contraction : retract A x ⋙ reflexive A x ≅ 𝟭 (PathCtx A x) :=
   NatIso.ofComponents (fun a => asIso (contractionArrow A x a)) (by
     intro a b f
-    apply (weaken (PathFamily A x)).map_injective
+    apply (weaken (pathComparisonFamily A x)).map_injective
     exact arrow_natural A x f)
 
 @[simp] theorem contraction_reflexive (γ : Γ) :
     (contraction A x).hom.app ((reflexive A x).obj γ) = 𝟙 _ := by
-  apply (weaken (PathFamily A x)).map_injective
+  apply (weaken (pathComparisonFamily A x)).map_injective
   change arrow A x ((reflexive A x).obj γ) = 𝟙 _
   fapply Grothendieck.ext
   · rfl
@@ -108,7 +108,7 @@ variable {Δ : Type*} [Category* Δ]
 variable (A : Γ ⥤ Grpd.{z,w}) (x : Section A) (σ : Δ ⥤ Γ)
 
 def substitution : PathCtx (σ ⋙ A) (x.reindex σ) ⥤ PathCtx A x :=
-  Grothendieck.pre (PathFamily A x ⋙ Grpd.forgetToCat)
+  Grothendieck.pre (pathComparisonFamily A x ⋙ Grpd.forgetToCat)
     (Grothendieck.pre (A ⋙ Grpd.forgetToCat) σ)
 
 theorem substitution_retract :
@@ -133,6 +133,6 @@ theorem substitution_contraction :
   apply Iso.ext
   apply NatTrans.ext
   funext a
-  apply (weaken (PathFamily A x)).map_injective
+  apply (weaken (pathComparisonFamily A x)).map_injective
   exact substitution_arrow A x σ a
 end SquareKit.Internal.PathTransport.GroupoidModel.PathComparison

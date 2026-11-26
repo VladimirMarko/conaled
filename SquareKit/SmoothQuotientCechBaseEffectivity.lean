@@ -64,11 +64,11 @@ theorem baseCoefficientProjection_variable :
   · change (baseCoefficientProjection a A hΓ).localMap = _
     rw [show (baseCoefficientProjection a A hΓ).localMap =
       CechMatching.Comprehension.Constant.fiberFunctor
-        (context a hΓ (SplitSheaf.Ext A))
-        (Grpd.of (AsSmall.{0} (Object a (SplitSheaf.Ext A)))) from
+        (context a hΓ (SplitSheaf.extension A))
+        (Grpd.of (AsSmall.{0} (Object a (SplitSheaf.extension A)))) from
       eq_of_heq (CechMatching.Comprehension.Constant.projectionOfEq_localMap
         (relativeFamilyData_base a hΓ A) _ _)]
-    exact (baseVariable_functor a hΓ (SplitSheaf.Ext A)).symm
+    exact (baseVariable_functor a hΓ (SplitSheaf.extension A)).symm
   · change (baseCoefficientProjection a A hΓ).doubleMap = _
     rw [show (baseCoefficientProjection a A hΓ).doubleMap =
       CechMatching.Comprehension.Constant.fiberFunctor

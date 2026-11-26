@@ -20,7 +20,7 @@ noncomputable def equivalence : Code F.Elements (Type w) ≌ Over F :=
 
 /-- Context extension of an arbitrary coherent code. -/
 abbrev extension (A : Code F.Elements (Type w)) :=
-  SplitPresheaf.Ext ((decode F.Elements (Type w)).obj A)
+  SplitPresheaf.extension ((decode F.Elements (Type w)).obj A)
 
 abbrev projection (A : Code F.Elements (Type w)) : extension F A ⟶ F :=
   SplitPresheaf.p ((decode F.Elements (Type w)).obj A)

@@ -19,7 +19,7 @@ open DependentStructural.SheafSem (evalBase eval_sub eval_precomp)
 variable {X Y Z : Sh J} {n m k : Nat}
 
 abbrev baseType (X : Sh J) := constant M.B X
-abbrev baseExt (X : Sh J) := Ext (baseType M X)
+abbrev baseExt (X : Sh J) := extension (baseType M X)
 
 def extend (ρ : Fin n → (X ⟶ M.B)) : Fin (n+1) → (baseExt M X ⟶ M.B) :=
   Fin.cases (constantValue M.B) (fun i => p (baseType M X) ≫ ρ i)

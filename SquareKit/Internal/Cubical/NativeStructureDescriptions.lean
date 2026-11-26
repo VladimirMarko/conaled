@@ -37,7 +37,7 @@ noncomputable def filling (D : Description.{u}) {A : Family Γ} (F : Filling A) 
 
 def smallReindex {Δ : Context.{u+1}} {A : Family Γ} (P : SmallPresentation.Data A)
     (σ : Δ ⟶ Γ) : SmallPresentation.Data (reindex A σ) where
-  fiber x := P.fiber (σ.mapElements.obj x)
+  Fiber x := P.Fiber (σ.mapElements.obj x)
   equiv x := P.equiv (σ.mapElements.obj x)
 
 noncomputable def presentation (D : Description.{u}) {A : Family Γ} (P : SmallPresentation.Data A) :

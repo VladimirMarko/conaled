@@ -127,7 +127,7 @@ theorem Datum.baseChangeComparison_unique (d : Datum (a := a) A) (f : Y ⟶ X)
       (d.baseChange f).comparison = d.comparison.reindex (SplitSheaf.lift A f)) :
     k = d.baseChangeComparison f := by
   apply restriction_injective (A := SplitSheaf.tySub A f)
-  apply (cancel_mono (C := Object a (SplitSheaf.Ext (SplitSheaf.tySub A f))) ((d.baseChange f).comparison :
+  apply (cancel_mono (C := Object a (SplitSheaf.extension (SplitSheaf.tySub A f))) ((d.baseChange f).comparison :
     reindex (d.baseChange f).object (SplitSheaf.p (SplitSheaf.tySub A f)) ⟶
       (d.baseChange f).localObject)).1
   exact hk.trans (d.baseChangeComparison_recover f).symm
@@ -138,7 +138,7 @@ theorem Map.baseChangeComparison_naturality {d e : Datum (a := a) A}
     (h.arrow.reindex f).comp (e.baseChangeComparison f) =
       (d.baseChangeComparison f).comp (h.baseChange f).arrow := by
   apply restriction_injective (A := SplitSheaf.tySub A f)
-  apply (cancel_mono (C := Object a (SplitSheaf.Ext (SplitSheaf.tySub A f))) ((e.baseChange f).comparison :
+  apply (cancel_mono (C := Object a (SplitSheaf.extension (SplitSheaf.tySub A f))) ((e.baseChange f).comparison :
     reindex (e.baseChange f).object (SplitSheaf.p (SplitSheaf.tySub A f)) ⟶
       (e.baseChange f).localObject)).1
   change ((h.arrow.reindex f).reindex (SplitSheaf.p (SplitSheaf.tySub A f))).comp

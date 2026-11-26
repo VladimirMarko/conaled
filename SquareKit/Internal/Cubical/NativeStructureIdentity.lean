@@ -29,7 +29,7 @@ noncomputable def backwardFieldCap := Term.sigmaSndOver
   (a.reindex (endpointSub Δ true)) ha
 
 include hb in
-theorem backwardFieldTube_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem backwardFieldTube_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (backwardFieldTube σ φ t a hat).val ((endpointSub Δ true).mapElements.obj x) hx =
       (backwardFieldCap σ b a ha).val x := by
   apply eq_of_heq
@@ -128,13 +128,13 @@ def tube : PartialSection (reindex (target C) (projection (interval Δ) ≫ σ �
     (genericFiberPath (map f C) (restrictInclusion φ ≫ σ) s.toRestricted)).reindex
     (restrictedInterval φ))
 
-theorem tube_source (x : Δ.Elements) (hx : φ.full x) :
+theorem tube_source (x : Δ.Elements) (hx : φ.Full x) :
     (tube f C σ s).val ((endpointSub Δ true).mapElements.obj x) hx =
       (targetPoint C σ).val x :=
   congrArg (fun t => t.val (faceObj φ x hx)) (pathApp_one
     (genericFiberPath (map f C) (restrictInclusion φ ≫ σ) s.toRestricted))
 
-theorem tube_target (x : Δ.Elements) (hx : φ.full x) :
+theorem tube_target (x : Δ.Elements) (hx : φ.Full x) :
     (tube f C σ s).val ((endpointSub Δ false).mapElements.obj x) hx =
       (Term.map (Functor.whiskerLeft (restrictInclusion φ ≫ σ ≫ projection (target C)).mapElements
         (map f C)) (genericFiberFst (map f C) (restrictInclusion φ ≫ σ) s.toRestricted)).val
@@ -161,7 +161,7 @@ theorem basePath_on_face :
     (genericFiberPathIso f (restrictInclusion φ ≫ σ ≫ targetBase C) _).symm _))
 
 theorem basePath_boundary (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).full x) :
+    (hx : (φ.reindex (projection (interval Δ))).Full x) :
     (pathApp (basePath f C E FA hFA FB hFB σ s)).val x = ((tube f C σ s).val x hx).1 := by
   let y := (restrictedInterval φ).mapElements.obj
     ((restrictContext (φ.reindex (projection (interval Δ)))).elementsMk x.obj ⟨x.val,hx⟩)
@@ -257,7 +257,7 @@ theorem extend_on_face :
       (pathTerm_hext _ _ (totalPath_on_face f C E FA hFA FB hFB σ s FC hFC))).trans
       (genericFiberIntro_eta (map f C) (restrictInclusion φ ≫ σ) s.toRestricted))
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (extend f C E FA hFA FB hFB σ s FC hFC).val x = s.val x hx :=
   congrArg (fun t => t.val ((restrictContext φ).elementsMk x.obj ⟨x.val,hx⟩))
     (extend_on_face f C E FA hFA FB hFB σ s FC hFC)

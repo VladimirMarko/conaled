@@ -175,8 +175,8 @@ def quotientAutEquiv (P : SheafActionQuotient.Object a X) :
 
 /-- Recovery gives an isomorphism of the original total displays. -/
 def quotientDisplayComparison (P : SheafActionQuotient.Object a X) :
-    SplitSheaf.Ext P.torsor.family ≅
-      SplitSheaf.Ext (((quotientEquivalence J K F a).functor ⋙
+    SplitSheaf.extension P.torsor.family ≅
+      SplitSheaf.extension (((quotientEquivalence J K F a).functor ⋙
         (quotientEquivalence J K F a).inverse).obj P).torsor.family :=
   ObjectProperty.isoMk _ (ElementFamilies.totalFunctor _ |>.mapIso
     ((quotientEquivalence J K F a).unitIso.app P).hom.torsorArrow.iso |>

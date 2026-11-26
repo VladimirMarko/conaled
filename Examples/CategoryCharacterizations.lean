@@ -62,26 +62,26 @@ open ExceptionalHomFamilies Examples.ExceptionalInternalHom
 def successor : Nat ⟶ Nat := ↾Nat.succ
 
 /-- The unit reconstructed from the hom bijection inserts the selected index. -/
-theorem unit_selected : (exceptional.unit.app coefficient true) true =
-    (⟨true, true⟩ : Sigma coefficient) := rfl
+theorem unit_selected : (exceptional.unit.app Coefficient true) true =
+    (⟨true, true⟩ : Sigma Coefficient) := rfl
 
 theorem counit_selected : exceptional.counit.app Nat ⟨false, (31 : Nat)⟩ = (31 : Nat) := rfl
 
 /-- This uses the recovered adjunction's naturality, not a separate evaluation. -/
 theorem postcompose :
-    exceptional.homEquiv coefficient Nat (observe ≫ successor) =
-      exceptional.homEquiv coefficient Nat observe ≫ pull.map successor :=
+    exceptional.homEquiv Coefficient Nat (observe ≫ successor) =
+      exceptional.homEquiv Coefficient Nat observe ≫ pull.map successor :=
   exceptional.homEquiv_naturality_right observe successor
 
 theorem postcompose_value :
-    (exceptional.homEquiv coefficient Nat (observe ≫ successor) true) true = (32 : Nat) := by
+    (exceptional.homEquiv Coefficient Nat (observe ≫ successor) true) true = (32 : Nat) := by
   rw [postcompose]
   rfl
 
 theorem recover_observation :
-    (exceptional.homEquiv coefficient Nat).symm
-      (exceptional.homEquiv coefficient Nat observe) = observe :=
-  (exceptional.homEquiv coefficient Nat).symm_apply_apply _
+    (exceptional.homEquiv Coefficient Nat).symm
+      (exceptional.homEquiv Coefficient Nat observe) = observe :=
+  (exceptional.homEquiv Coefficient Nat).symm_apply_apply _
 end Adjunctions
 
 namespace Representability

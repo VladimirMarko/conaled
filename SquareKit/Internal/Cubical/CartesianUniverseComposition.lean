@@ -18,7 +18,7 @@ def liftedDecode {Ξ : Context.{u+1}} (a : Ξ ⟶ smallFamilyCodes.{u}) : Family
 
 def chartFace {Γ : Context.{u}} {Δ : Context.{u+1}}
     (φ : Subcontext Δ) (σ : raisedContext Γ ⟶ Δ) : Subcontext Γ where
-  holds x := φ.holds ((raisedElements Γ ⋙ σ.mapElements).obj x)
+  Holds x := φ.Holds ((raisedElements Γ ⋙ σ.mapElements).obj x)
   natural f hx := φ.natural ((raisedElements Γ ⋙ σ.mapElements).map f) hx
 
 def chartInterval {Γ : Context.{u}} {Δ : Context.{u+1}} (σ : raisedContext Γ ⟶ Δ) :

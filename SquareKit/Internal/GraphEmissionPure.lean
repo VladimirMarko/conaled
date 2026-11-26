@@ -312,7 +312,7 @@ theorem term_denotes (M : Interpretation Graph.Arrow) (m : Model) (a : Assignmen
 
 theorem formula_denotes (M : Interpretation Graph.Arrow) (m : Model) (a : Assignment Γ)
     (ρ : Env M Γ) (p : GraphTarget.Formula Γ) :
-    FormulaDenotes M m a ρ (formula m a p) (p.eval M ρ) := by
+    FormulaDenotes M m a ρ (formula m a p) (p.Eval M ρ) := by
   induction p generalizing m with
   | eq t u => exact .eq (term_denotes M m a ρ t) (term_denotes M m a ρ u)
   | conj p q hp hq => exact .conj (hp m a ρ) (hq m a ρ)
@@ -322,7 +322,7 @@ theorem formula_denotes (M : Interpretation Graph.Arrow) (m : Model) (a : Assign
 using the proved decoder connection rather than equality of host proofs. -/
 theorem formula_toLean_denotes (M : Interpretation Graph.Arrow) (m : Model)
     (a : Assignment Γ) (ρ : Env M Γ) (p : GraphTarget.Formula Γ) :
-    CoreSyntax.InLean (fun e => FormulaDenotes M m a ρ e (p.eval M ρ))
+    CoreSyntax.InLean (fun e => FormulaDenotes M m a ρ e (p.Eval M ρ))
       (formula m a p).toLean :=
   (CoreSyntax.inLean_toLean _ _).mpr (formula_denotes M m a ρ p)
 

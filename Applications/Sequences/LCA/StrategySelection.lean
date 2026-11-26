@@ -21,7 +21,7 @@ def realize (m : Nat) : (c : Strategy) → Ops (Input m) (Nat × Nat) Nat (Rep m
   | .sparse => SparseCatalog.ops m
   | .shared => Backend.ops m
 
-def valid (m : Nat) : (c : Strategy) → Input m → Rep m c → Prop
+def Valid (m : Nat) : (c : Strategy) → Input m → Rep m c → Prop
   | .direct => fun s r => r=s
   | .sparse => SparseCatalog.Valid
   | .shared => Backend.Valid
@@ -55,13 +55,13 @@ def storage (m : Nat) : (c : Strategy) → Storage (Input m) (Rep m c)
   | .sparse => SparseCatalog.storage m
   | .shared => BackendBounds.storage m
 
-theorem laws (m : Nat) (c : Strategy) : Laws (@Backend.spec m) (realize m c) (valid m c) := by
+theorem laws (m : Nat) (c : Strategy) : Laws (@Backend.spec m) (realize m c) (Valid m c) := by
   cases c
   · exact Catalog.direct_laws m
   · exact SparseCatalog.laws m
   · exact Backend.laws m
 
-theorem bounds (m : Nat) (c : Strategy) : Bounds (realize m c) (valid m c) (storage m c) (profile m c) := by
+theorem bounds (m : Nat) (c : Strategy) : Bounds (realize m c) (Valid m c) (storage m c) (profile m c) := by
   cases c
   · exact Catalog.direct_bounds m
   · exact SparseCatalog.bounds m
@@ -77,7 +77,7 @@ def choose {m : Nat} (requirements : Requirements) (_input : Input m) : Option S
 theorem chosen_correct {m : Nat} {requirements : Requirements} {input : Input m} {c : Strategy}
     (h : choose requirements input = some c) (q : Nat × Nat) :
     ((realize m c).answer ((realize m c).prepare input).1 q).1 = Backend.spec input q :=
-  selected_agreement (realize m) (valid m) (fun c _ => laws m c)
+  selected_agreement (realize m) (Valid m) (fun c _ => laws m c)
     (show Resources.Prepared.select catalog (profile m) requirements input
       (fun c => (profile m c).preparation input) = some c from h) q
 

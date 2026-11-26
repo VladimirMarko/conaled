@@ -84,7 +84,7 @@ theorem contraction_one : endpointSub (context A a) true ≫ contraction A a = �
   exact hc.trans (he.trans (introduce_generic A a))
 
 theorem introduce_full {Δ : Context.{u}} (σ : Δ ⟶ Γ) (t : Term (reindex A σ))
-    (p : Term (identity (reindex A σ) (a.reindex σ) t)) (h : ∀ x, (identityFace p).full x) :
+    (p : Term (identity (reindex A σ) (a.reindex σ) t)) (h : ∀ x, (identityFace p).Full x) :
     introduce A a σ t p = σ ≫ reflexivity A a := by
   have he := introduce_congr A a σ (identity_full_endpoints p h)
     ((Term.convert_heq _ p).symm.trans (heq_of_eq (identity_full_refl p h)))

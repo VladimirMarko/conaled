@@ -35,7 +35,7 @@ theorem baseCoefficient_local_heq (e : AsSmall.{0} (SheafActionQuotient.Cech.Dat
     AsSmall.down.obj (((baseCoefficientEquivalence a A).functor.obj e).localObject) =
       (AsSmall.down.obj e).localObject := by
   have h := (eq_of_heq (baseCoefficient_local_heq a A e)).trans (liftedCoefficient_local a A e)
-  exact congrArg (fun z : AsSmall.{0} (Object a (SplitSheaf.Ext A)) => AsSmall.down.obj z) h
+  exact congrArg (fun z : AsSmall.{0} (Object a (SplitSheaf.extension A)) => AsSmall.down.obj z) h
 
 /-- Recovery of the complete selected overlap across the presentation change. -/
 theorem baseCoefficient_overlap (e : AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A)) :

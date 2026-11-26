@@ -27,11 +27,11 @@ abbrev elements (X : Sheaf K (Type u)) := Functor.Elements.precomp F.op X.obj
 /-- Restriction retains the dependent fibers at every image object. -/
 def family {X : Sheaf K (Type u)} (A : SplitSheaf.Ty X) : SplitSheaf.Ty (sheaf J K F X) where
   family := elements K F X ⋙ A.family
-  isSheaf := (sheaf J K F (SplitSheaf.Ext A)).property
+  isSheaf := (sheaf J K F (SplitSheaf.extension A)).property
 
 /-- The total space and its projection restrict componentwise. -/
 theorem family_total {X : Sheaf K (Type u)} (A : SplitSheaf.Ty X) :
-    SplitSheaf.Ext (family J K F A) = sheaf J K F (SplitSheaf.Ext A) := rfl
+    SplitSheaf.extension (family J K F A) = sheaf J K F (SplitSheaf.extension A) := rfl
 
 theorem family_projection {X : Sheaf K (Type u)} (A : SplitSheaf.Ty X) :
     SplitSheaf.p (family J K F A) = map J K F (SplitSheaf.p A) := rfl

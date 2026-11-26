@@ -159,7 +159,7 @@ def pullbackFamily {Z : Sheaf J (Type (max u v))} (g : Z ⟶ X) (i : I) : SplitS
   SplitSheaf.tySub (SplitSheaf.ofDisplay (f i)) g
 
 abbrev pullbackMaps {Z : Sheaf J (Type (max u v))} (g : Z ⟶ X) :
-    ∀ i, SplitSheaf.Ext (pullbackFamily f g i) ⟶ Z :=
+    ∀ i, SplitSheaf.extension (pullbackFamily f g i) ⟶ Z :=
   fun i => SplitSheaf.p (pullbackFamily f g i)
 
 /-- Each selected member is an actual pullback of the original map. -/

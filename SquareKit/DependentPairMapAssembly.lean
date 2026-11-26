@@ -20,12 +20,12 @@ def fullGWithCongruence (congruence : ∀ r, GCongruenceCertificate r) :
   certificate r := match r with
     | .inl r => MetavariableCertificate.mapRules fullEliminationStructural
         ((MetavariableTheoryMap.ofTheoryMap (structuralMap G)).certificate r)
-    | .inr (.inl r) => MetavariableCertificate.mapRules eliminationInclusion (GPrimitiveCertificate r)
+    | .inr (.inl r) => MetavariableCertificate.mapRules eliminationInclusion (gPrimitiveCertificate r)
     | .inr (.inr (.inl r)) => congruence r
     | .inr (.inr (.inr (.inl r))) => MetavariableCertificate.mapRules fullEliminationDeclaration
-        ((MetavariableTheoryMap.ofTheoryMap DependentPairDeclarations.G_declarations).certificate r)
+        ((MetavariableTheoryMap.ofTheoryMap DependentPairDeclarations.gDeclarations).certificate r)
     | .inr (.inr (.inr (.inr r))) => MetavariableCertificate.mapRules fullEliminationDeclarationCongruence
-        ((MetavariableTheoryMap.ofTheoryMap DependentPairDeclarations.G_declarationCongruence).certificate r)
+        ((MetavariableTheoryMap.ofTheoryMap DependentPairDeclarations.gDeclarationCongruence).certificate r)
 
 /-- Composition retains the ordinary proof tree obtained by first transporting
 through beta-to-eta inclusion and then replaying the projection templates. -/

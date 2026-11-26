@@ -19,7 +19,7 @@ abbrev CoverMap (f : Y ⟶ X) (A : SplitSheaf.Ty X) (B : SplitSheaf.Ty Y) :=
 namespace CoverMap
 variable {f : Y ⟶ X}
 
-def total (r : CoverMap f A B) : SplitSheaf.Ext B ⟶ SplitSheaf.Ext A :=
+def total (r : CoverMap f A B) : SplitSheaf.extension B ⟶ SplitSheaf.extension A :=
   SplitSheaf.pair A (SplitSheaf.p B ≫ f) {
     val x := r.app (Y.obj.elementsMk x.obj x.val.1) x.val.2
     natural {x y} k := by
@@ -86,7 +86,7 @@ variable [Presheaf.IsLocallySurjective J (SplitSheaf.p B).hom]
 
 /-- The comparison over the original cover restricts along any map of covers. -/
 def CoverMap.localTrivialization (c : Datum G A) :
-    Arrow (SheafTorsor.trivial G (SplitSheaf.Ext B))
+    Arrow (SheafTorsor.trivial G (SplitSheaf.extension B))
       (reindex (reindex c.glue.obj f) (SplitSheaf.p B)) :=
   (Descent.comparison c.toDescent).inverse.reindex r.total
 

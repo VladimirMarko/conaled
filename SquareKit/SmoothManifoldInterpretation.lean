@@ -14,15 +14,15 @@ variable {n m p : ℕ} {M N P : Type}
 
 abbrev realization : Sheaf SmoothOpenSite.topology (Type) := A.charts.realization
 
-def interpret (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f) : A.realization ⟶ B.realization :=
+def interpret (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) : A.realization ⟶ B.realization :=
   (A.localMap B f hf).realize
 
 /-- Every local coordinate choice gives the actual interpretation of the map. -/
-theorem interpret_choice (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f)
+theorem interpret_choice (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f)
     (l : Charts.LocalMap A.charts B.charts f) : A.interpret B f hf = l.realize :=
   Charts.LocalMap.realize_eq _ l
 
-@[reassoc] theorem interpret_chart (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f)
+@[reassoc] theorem interpret_chart (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f)
     (i : A.Index) (j : B.Index) :
     embedding.map (subInclusion (chartDomain (A.chart i))
       (coordinateDefining (e := A.chart i) (B.chart j) f hf.continuous)) ≫
@@ -35,7 +35,7 @@ theorem interpret_id : A.interpret A id contMDiff_id = 𝟙 A.realization :=
   Charts.LocalMap.realize_id _
 
 theorem interpret_comp (f : M → N) (g : N → P)
-    (hf : ContMDiff (Model n) (Model m) ∞ f) (hg : ContMDiff (Model m) (Model p) ∞ g) :
+    (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) (hg : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ g) :
     A.interpret C (g ∘ f) (hg.comp hf) = A.interpret B f hf ≫ B.interpret C g hg :=
   Charts.LocalMap.realize_comp _ _ _
 
@@ -60,7 +60,7 @@ theorem comparison_trans (A' A'' : ChartFamily n M) :
   exact (A.interpret_comp A' A'' id id contMDiff_id contMDiff_id).symm
 
 theorem comparison_naturality (A' : ChartFamily n M) (B' : ChartFamily m N)
-    (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f) :
+    (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) :
     (A.comparison A').hom ≫ A'.interpret B' f hf =
       A.interpret B f hf ≫ (B.comparison B').hom := by
   change A.interpret A' id contMDiff_id ≫ A'.interpret B' f hf = _

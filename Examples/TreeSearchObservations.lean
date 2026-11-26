@@ -114,12 +114,12 @@ namespace Nontransitive
 inductive Label where
   | low | middle | high
 
-def step : Label → Label → Prop
+def Step : Label → Label → Prop
   | .low, .middle => True
   | .middle, .high => True
   | _, _ => False
 
-instance : LT Label := ⟨step⟩
+instance : LT Label := ⟨Step⟩
 
 def tree : BinaryTree Label :=
   .node .middle (.node .low .nil .nil) (.node .high .nil .nil)
@@ -128,9 +128,9 @@ def tree : BinaryTree Label :=
 Transitivity is needed to infer that cross-subtree comparison. -/
 theorem forward_requires_transitivity :
     Ordered tree ∧ ¬ (Trees.inorder tree).Pairwise (· < ·) := by
-  change Ordered tree ∧ ¬ (Trees.inorder tree).Pairwise step
-  simp [tree, Ordered, OrderedBy, All, Trees.inorder_node, Trees.inorder_nil, step,
-    show (fun x y : Label => x < y) = step from rfl]
+  change Ordered tree ∧ ¬ (Trees.inorder tree).Pairwise Step
+  simp [tree, Ordered, OrderedBy, All, Trees.inorder_node, Trees.inorder_nil, Step,
+    show (fun x y : Label => x < y) = Step from rfl]
 
 end Nontransitive
 
@@ -146,41 +146,41 @@ def Valid : Option Bool → Prop
   | none => False
   | some _ => True
 
-def observe (s : Option Bool) (_ : Unit) : Prop := s = some true
+def Observe (s : Option Bool) (_ : Unit) : Prop := s = some true
 
 /-- On invalid None this observer deliberately differs from the original. -/
-def observe' (s : Option Bool) (_ : Unit) : Prop := s ≠ some false
+def Observe' (s : Option Bool) (_ : Unit) : Prop := s ≠ some false
 
-theorem laws : AbstractSet.Laws ops observe Valid where
+theorem laws : AbstractSet.Laws ops Observe Valid where
   empty_valid := trivial
-  empty _ := by simp [ops, observe]
+  empty _ := by simp [ops, Observe]
   insert_valid _ _ _ := trivial
   insert x s _ y := by
     cases x
     cases y
-    simp [ops, observe, AbstractSet.add]
+    simp [ops, Observe, AbstractSet.add]
   member x s valid := by
     cases s with
     | none => exact False.elim valid
-    | some b => cases b <;> simp [ops, observe]
+    | some b => cases b <;> simp [ops, Observe]
 
 theorem agree_on_valid (s : Option Bool) (valid : Valid s) (x : Unit) :
-    observe s x ↔ observe' s x := by
+    Observe s x ↔ Observe' s x := by
   cases s with
   | none => exact False.elim valid
-  | some b => cases b <;> simp [observe, observe']
+  | some b => cases b <;> simp [Observe, Observe']
 
-theorem transported_laws : AbstractSet.Laws ops observe' Valid :=
+theorem transported_laws : AbstractSet.Laws ops Observe' Valid :=
   laws.congr_observe agree_on_valid
 
 theorem observers_differ_at_invalid :
-    ¬ Valid none ∧ ¬ observe none () ∧ observe' none () := by
-  simp [Valid, observe, observe']
+    ¬ Valid none ∧ ¬ Observe none () ∧ Observe' none () := by
+  simp [Valid, Observe, Observe']
 
 /-- The transported member contract cannot silently discard its validity premise. -/
 theorem invalid_member_contract_fails :
-    ¬ (ops.member () none = true ↔ observe' none ()) := by
-  simp [ops, observe']
+    ¬ (ops.member () none = true ↔ Observe' none ()) := by
+  simp [ops, Observe']
 
 theorem repeated_insertion_member :
     ops.member () (AbstractSet.insertMany ops [(), ()] ops.empty) = true :=

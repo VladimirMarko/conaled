@@ -15,16 +15,16 @@ variable {Γ Δ Ξ Ω : Sheaf J (Type w)}
 /-- Only families whose total presheaf is a sheaf are accepted. -/
 @[ext] structure Ty (Γ : Sheaf J (Type w)) where
   family : SplitPresheaf.Ty Γ.obj
-  isSheaf : Presheaf.IsSheaf J (SplitPresheaf.Ext family)
+  isSheaf : Presheaf.IsSheaf J (SplitPresheaf.extension family)
 
-abbrev Ext (A : Ty Γ) : Sheaf J (Type w) := ⟨SplitPresheaf.Ext A.family, A.isSheaf⟩
-abbrev p (A : Ty Γ) : Ext A ⟶ Γ := ⟨SplitPresheaf.p A.family⟩
+abbrev extension (A : Ty Γ) : Sheaf J (Type w) := ⟨SplitPresheaf.extension A.family, A.isSheaf⟩
+abbrev p (A : Ty Γ) : extension A ⟶ Γ := ⟨SplitPresheaf.p A.family⟩
 abbrev Tm (A : Ty Γ) := SplitPresheaf.Tm A.family
 
 /-- The reindexed total is isomorphic to an ordinary sheaf pullback, so its
 sheaf certificate is constructed, not an assumption on substitution. -/
 def subPresheafIso (A : Ty Γ) (σ : Δ ⟶ Γ) :
-    SplitPresheaf.Ext (SplitPresheaf.tySub A.family σ.hom) ≅ (pullback (p A) σ).obj :=
+    SplitPresheaf.extension (SplitPresheaf.tySub A.family σ.hom) ≅ (pullback (p A) σ).obj :=
   (SplitPresheaf.extension_pullback A.family σ.hom).isoPullback ≪≫
     ((IsPullback.of_hasPullback (p A) σ).map (sheafToPresheaf J (Type w))).isoPullback.symm
 
@@ -47,16 +47,16 @@ theorem transport_trans {A B D : Ty Γ} (h : A = B) (k : B = D) (t : Tm A) :
     transport k (transport h t) = transport (h.trans k) t := by cases h; cases k; rfl
 
 abbrev q (A : Ty Γ) : Tm (tySub A (p A)) := SplitPresheaf.q A.family
-def pair (A : Ty Γ) (σ : Δ ⟶ Γ) (t : Tm (tySub A σ)) : Δ ⟶ Ext A := ⟨SplitPresheaf.pair A.family σ.hom t⟩
-def lift (A : Ty Γ) (σ : Δ ⟶ Γ) : Ext (tySub A σ) ⟶ Ext A := ⟨SplitPresheaf.lift A.family σ.hom⟩
+def pair (A : Ty Γ) (σ : Δ ⟶ Γ) (t : Tm (tySub A σ)) : Δ ⟶ extension A := ⟨SplitPresheaf.pair A.family σ.hom t⟩
+def lift (A : Ty Γ) (σ : Δ ⟶ Γ) : extension (tySub A σ) ⟶ extension A := ⟨SplitPresheaf.lift A.family σ.hom⟩
 
 @[simp] theorem pair_p (A : Ty Γ) (σ : Δ ⟶ Γ) (t : Tm (tySub A σ)) : pair A σ t ≫ p A = σ := rfl
 @[simp] theorem pair_q (A : Ty Γ) (σ : Δ ⟶ Γ) (t : Tm (tySub A σ)) : tmSub (q A) (pair A σ t) = t := rfl
-theorem pair_eta (A : Ty Γ) (k : Δ ⟶ Ext A) : pair A (k ≫ p A) (tmSub (q A) k) = k := rfl
+theorem pair_eta (A : Ty Γ) (k : Δ ⟶ extension A) : pair A (k ≫ p A) (tmSub (q A) k) = k := rfl
 theorem pair_natural (A : Ty Γ) (σ : Δ ⟶ Γ) (t : Tm (tySub A σ)) (τ : Ξ ⟶ Δ) :
     pair A (τ ≫ σ) (tmSub t τ) = τ ≫ pair A σ t := rfl
 @[simp] theorem lift_p (A : Ty Γ) (σ : Δ ⟶ Γ) : lift A σ ≫ p A = p (tySub A σ) ≫ σ := rfl
-@[simp] theorem lift_id (A : Ty Γ) : lift A (𝟙 Γ) = 𝟙 (Ext A) := rfl
+@[simp] theorem lift_id (A : Ty Γ) : lift A (𝟙 Γ) = 𝟙 (extension A) := rfl
 @[simp] theorem lift_comp (A : Ty Γ) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) :
     lift (tySub A σ) τ ≫ lift A σ = lift A (τ ≫ σ) := rfl
 
@@ -67,7 +67,7 @@ theorem extension_pullback (A : Ty Γ) (σ : Δ ⟶ Γ) :
     IsPullback (lift A σ) (p (tySub A σ)) (p A) σ :=
   IsPullback.of_map (sheafToPresheaf J (Type w)) rfl (SplitPresheaf.extension_pullback A.family σ.hom)
 
-def substitutionIso (A : Ty Γ) (σ : Δ ⟶ Γ) : Ext (tySub A σ) ≅ pullback (p A) σ :=
+def substitutionIso (A : Ty Γ) (σ : Δ ⟶ Γ) : extension (tySub A σ) ≅ pullback (p A) σ :=
   (extension_pullback A σ).isoPullback
 @[simp, reassoc] theorem substitution_value (A : Ty Γ) (σ : Δ ⟶ Γ) :
     (substitutionIso A σ).hom ≫ Family.comparison (p A) σ = lift A σ :=
@@ -77,10 +77,10 @@ def substitutionIso (A : Ty Γ) (σ : Δ ⟶ Γ) : Ext (tySub A σ) ≅ pullback
   (extension_pullback A σ).isoPullback_hom_snd
 
 /-- Read a dependent term from any map satisfying its display equation. -/
-def readTerm (A : Ty Γ) {σ : Δ ⟶ Γ} (k : Δ ⟶ Ext A) (h : k ≫ p A = σ) : Tm (tySub A σ) :=
+def readTerm (A : Ty Γ) {σ : Δ ⟶ Γ} (k : Δ ⟶ extension A) (h : k ≫ p A = σ) : Tm (tySub A σ) :=
   transport (congrArg (tySub A) h) (tmSub (q A) k)
 
-theorem pair_read (A : Ty Γ) {σ : Δ ⟶ Γ} (k : Δ ⟶ Ext A) (h : k ≫ p A = σ) :
+theorem pair_read (A : Ty Γ) {σ : Δ ⟶ Γ} (k : Δ ⟶ extension A) (h : k ≫ p A = σ) :
     pair A σ (readTerm A k h) = k := by cases h; rfl
 
 def terms (A : Ty Γ) : Tm A ≃ Family.Term (p A) where
@@ -109,7 +109,7 @@ theorem pairing_comparison (A : Ty Γ) (σ : Δ ⟶ Γ) (t : Tm (tySub A σ)) :
 
 /-- Identity and composition comparisons are those of the existing Family API. -/
 theorem substitution_identity (A : Ty Γ) :
-    (substitutionIso A (𝟙 Γ)).hom ≫ (Family.identityIso (p A)).hom = 𝟙 (Ext A) := by
+    (substitutionIso A (𝟙 Γ)).hom ≫ (Family.identityIso (p A)).hom = 𝟙 (extension A) := by
   change (substitutionIso A (𝟙 Γ)).hom ≫ Family.comparison (p A) (𝟙 Γ) = _
   rw [substitution_value, lift_id]
 
@@ -130,7 +130,7 @@ def ofDisplay {B : Sheaf J (Type w)} (d : B ⟶ Γ) : Ty Γ where
   isSheaf := (SheafSlice.totalSheaf Γ ((SheafSlice.forward Γ).obj (Over.mk d))).property
 
 /-- This is the reconstruction from the actual element-site sheaf equivalence. -/
-def displayIso {B : Sheaf J (Type w)} (d : B ⟶ Γ) : Ext (ofDisplay d) ≅ B :=
+def displayIso {B : Sheaf J (Type w)} (d : B ⟶ Γ) : extension (ofDisplay d) ≅ B :=
   (Over.forget Γ).mapIso (SheafSlice.reconstruction Γ (Over.mk d))
 
 theorem displayIso_projection {B : Sheaf J (Type w)} (d : B ⟶ Γ) :

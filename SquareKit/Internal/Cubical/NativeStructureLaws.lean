@@ -38,7 +38,7 @@ def holdsIsProp {P : Type u} [PropositionCarrier P] (p : Term (constantFamily Γ
 
 def holdsPresentation {P : Type u} [PropositionCarrier P] (p : Term (constantFamily Γ (ULift.{u+1} P))) :
     SmallUniverse.SmallPresentation.Data (holdsFamily p) where
-  fiber x := ULift.{u} (PLift (PropositionCarrier.decode (p.val x).down))
+  Fiber x := ULift.{u} (PLift (PropositionCarrier.decode (p.val x).down))
   equiv _ := Equiv.ulift.trans Equiv.ulift.symm
 
 def lawFamily {D C : Description.{u}} (p : Formula D C) {Γ : Context.{u+1}} {A : Family Γ}

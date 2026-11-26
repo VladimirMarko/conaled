@@ -14,7 +14,7 @@ abbrev familySubSchema (out : Judgment (Fin 4)) : Rule signature where
   conclusion := out
 
 theorem familySubSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 4))
-    (valid : ∀ Γ Δ A σ, out.eval (algebra M)
+    (valid : ∀ Γ Δ A σ, out.Eval (algebra M)
       ![.context Γ, .context Δ, .family Γ A, .substitution Δ Γ σ]) :
     Satisfies (algebra M) (familySubSchema out) := by
   intro ρ h
@@ -45,7 +45,7 @@ abbrev termSubSchema (out : Judgment (Fin 5)) : Rule signature where
   conclusion := out
 
 theorem termSubSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 5))
-    (valid : ∀ Γ Δ A t σ, out.eval (algebra M)
+    (valid : ∀ Γ Δ A t σ, out.Eval (algebra M)
       ![.context Γ, .context Δ, .family Γ A, .term Γ A t, .substitution Δ Γ σ]) :
     Satisfies (algebra M) (termSubSchema out) := by
   intro ρ h
@@ -87,7 +87,7 @@ abbrev subSchema (out : Judgment (Fin 3)) : Rule signature where
   conclusion := out
 
 theorem subSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 3))
-    (valid : ∀ Γ Δ σ, out.eval (algebra M) ![.context Γ, .context Δ, .substitution Δ Γ σ]) :
+    (valid : ∀ Γ Δ σ, out.Eval (algebra M) ![.context Γ, .context Δ, .substitution Δ Γ σ]) :
     Satisfies (algebra M) (subSchema out) := by
   intro ρ h
   rcases h 0 with ⟨Δ, Γ, σ, hΔ, hΓ, hσ⟩
@@ -119,7 +119,7 @@ abbrev familySchema (out : Judgment (Fin 2)) : Rule signature where
   conclusion := out
 
 theorem familySchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 2))
-    (valid : ∀ Γ A, out.eval (algebra M) ![.context Γ, .family Γ A]) :
+    (valid : ∀ Γ A, out.Eval (algebra M) ![.context Γ, .family Γ A]) :
     Satisfies (algebra M) (familySchema out) := by
   intro ρ h
   rcases h 0 with ⟨Γ, A, hΓ, hA⟩
@@ -165,7 +165,7 @@ abbrev compSchema (out : Judgment (Fin 5)) : Rule signature where
   conclusion := out
 
 theorem compSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 5))
-    (valid : ∀ Γ Δ Θ σ τ, out.eval (algebra M)
+    (valid : ∀ Γ Δ Θ σ τ, out.Eval (algebra M)
       ![.context Γ, .context Δ, .context Θ, .substitution Δ Γ σ, .substitution Θ Δ τ]) :
     Satisfies (algebra M) (compSchema out) := by
   intro ρ h
@@ -197,7 +197,7 @@ abbrev familyCompSchema (out : Judgment (Fin 6)) : Rule signature where
   conclusion := out
 
 theorem familyCompSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 6))
-    (valid : ∀ Γ Δ Θ A σ τ, out.eval (algebra M)
+    (valid : ∀ Γ Δ Θ A σ τ, out.Eval (algebra M)
       ![.context Γ, .context Δ, .context Θ, .family Γ A, .substitution Δ Γ σ, .substitution Θ Δ τ]) :
     Satisfies (algebra M) (familyCompSchema out) := by
   intro ρ h
@@ -236,7 +236,7 @@ abbrev termCompSchema (out : Judgment (Fin 7)) : Rule signature where
   conclusion := out
 
 theorem termCompSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 7))
-    (valid : ∀ Γ Δ Θ A t σ τ, out.eval (algebra M)
+    (valid : ∀ Γ Δ Θ A t σ τ, out.Eval (algebra M)
       ![.context Γ, .context Δ, .context Θ, .family Γ A, .term Γ A t,
         .substitution Δ Γ σ, .substitution Θ Δ τ]) :
     Satisfies (algebra M) (termCompSchema out) := by
@@ -277,7 +277,7 @@ abbrev assocSchema (out : Judgment (Fin 7)) : Rule signature where
   conclusion := out
 
 theorem assocSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 7))
-    (valid : ∀ Γ Δ Θ Ξ σ τ υ, out.eval (algebra M)
+    (valid : ∀ Γ Δ Θ Ξ σ τ υ, out.Eval (algebra M)
       ![.context Γ, .context Δ, .context Θ, .context Ξ,
         .substitution Δ Γ σ, .substitution Θ Δ τ, .substitution Ξ Θ υ]) :
     Satisfies (algebra M) (assocSchema out) := by

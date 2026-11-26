@@ -23,8 +23,8 @@ abbrev Context {I : Type w} (M : Models I F P) (Γ : List S) (i : I) := Env (M i
 def term {I : Type w} (M : Models I F P) (t : Term F Γ s) (i : I)
     (ρ : Context M Γ i) : (M i).Carrier s := t.eval (M i) ρ
 
-def formula {I : Type w} (M : Models I F P) (p : Formula F Γ P) (i : I)
-    (ρ : Context M Γ i) : Prop := p.eval (M i) ρ
+def FormulaHolds {I : Type w} (M : Models I F P) (p : Formula F Γ P) (i : I)
+    (ρ : Context M Γ i) : Prop := p.Eval (M i) ρ
 
 /-- Each component quantifies over its own environments. Requiring a global
 pair of environments here would lose information when one carrier is empty. -/
@@ -44,16 +44,16 @@ theorem term_route {I : Type w} {J : Type w'} (M : Models I F P) (r : J → I)
     (t : Term F Γ s) (j : J) (ρ : Context M Γ (r j)) :
     term (reindex M r) t j ρ = term M t (r j) ρ := rfl
 
-theorem formula_route {I : Type w} {J : Type w'} (M : Models I F P) (r : J → I)
+theorem formulaHolds_route {I : Type w} {J : Type w'} (M : Models I F P) (r : J → I)
     (p : Formula F Γ P) (j : J) (ρ : Context M Γ (r j)) :
-    formula (reindex M r) p j ρ ↔ formula M p (r j) ρ := Iff.rfl
+    FormulaHolds (reindex M r) p j ρ ↔ FormulaHolds M p (r j) ρ := Iff.rfl
 
 /-- Substitution evaluates in the selected context, including lifted
 substitution under every existential binder. -/
 theorem substitution {I : Type w} {J : Type w'} (M : Models I F P) (r : J → I)
     (p : Formula F Γ P) (σ : Sub F Γ Δ) (j : J) (ρ : Context M Δ (r j)) :
-    formula (reindex M r) (p.subst σ) j ρ ↔
-      formula M p (r j) (fun x => term M (σ x) (r j) ρ) :=
+    FormulaHolds (reindex M r) (p.subst σ) j ρ ↔
+      FormulaHolds M p (r j) (fun x => term M (σ x) (r j) ρ) :=
   formula_subst (M (r j)) p σ ρ
 
 theorem term_substitution {I : Type w} {J : Type w'} (M : Models I F P) (r : J → I)
@@ -64,8 +64,8 @@ theorem term_substitution {I : Type w} {J : Type w'} (M : Models I F P) (r : J �
 
 theorem existential_route {I : Type w} {J : Type w'} (M : Models I F P) (r : J → I)
     (p : Formula F (s :: Γ) P) (j : J) (ρ : Context M Γ (r j)) :
-    formula (reindex M r) (.ex p) j ρ ↔
-      ∃ x, formula M p (r j) (ρ.extend x) := Iff.rfl
+    FormulaHolds (reindex M r) (.ex p) j ρ ↔
+      ∃ x, FormulaHolds M p (r j) (ρ.extend x) := Iff.rfl
 
 /-- Identity, composition and associativity of these strict routes reduce;
 no categorical isomorphism is silently replaced by equality. -/
@@ -101,7 +101,7 @@ theorem first_via_swap (M : Pair F P) :
 /-- Both branches reuse exactly the source graph derivations. -/
 theorem graph {I : Type w} (M : Models I F NoRelations) (f : F a b) (g : F b c)
     (i : I) (ρ : Context M [a, c] i) :
-    formula M (Graph.composite f g) i ρ ↔ formula M (Graph.result f g) i ρ :=
+    FormulaHolds M (Graph.composite f g) i ρ ↔ FormulaHolds M (Graph.result f g) i ρ :=
   ⟨derivation M (Graph.forward f g) i ρ, derivation M (Graph.backward f g) i ρ⟩
 
 /-- Joint observation reflects equality of arbitrary paired arrows. A single

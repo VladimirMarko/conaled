@@ -48,7 +48,7 @@ Compatibility has two independently proved directions:
    `at_most_once` excludes additional completed batches. This discharges the
    history consumer's input requirement.
 
-The relation `broker` is the graph of actual finite `feedbackInputs`; `consumer`
+The relation `Broker` is the graph of actual finite `feedbackInputs`; `Consumer`
 is the graph of actual `consume`. Neither graph embeds the desired result as a
 premise. With streams, actions, query and truth fixed, the admissible source-world
 set ranges over initial states satisfying `(traceRep streams).Rel initial truth`.

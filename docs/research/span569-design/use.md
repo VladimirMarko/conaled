@@ -40,7 +40,7 @@ Reuse `Examples.MatesBaseChange.noninvertible_inverse_mate`, which references `I
 
 For F : C⥤D preserving pullbacks, components `Over.post F` should intertwine A_C(S) with A_D(FS). Use `MixedBaseChange.iso F S.l` and the post/map compatibility. Preserve the value and apex projections through `MixedBaseChange.comparison_fst/snd`; prove unit and composition compatibility, including the canonical apex comparison F(S×Y T) ≅ FS×FY FT. `MixedBaseChange.composition` and `context_composition` provide checked local pasting equations but do not already package the whole span-level transformation.
 
-`Examples.MatesBaseChange.forget_comparison_iso` and `forget_not_leftExact` for F=`Over.forget Bool` supply a relevant positive control: pullback preservation suffices even though finite-limit preservation fails. This example should instantiate the interpretation comparison, not be forced into geometric-morphism data. Without pullback preservation the mixed forward comparison still exists; span composition transport has noninvertible apex comparisons and should be described with the actual direction rather than promoted to a pseudonatural equivalence.
+`Examples.MatesBaseChange.forgetComparisonIso` and `forget_not_leftExact` for F=`Over.forget Bool` supply a relevant positive control: pullback preservation suffices even though finite-limit preservation fails. This example should instantiate the interpretation comparison, not be forced into geometric-morphism data. Without pullback preservation the mixed forward comparison still exists; span composition transport has noninvertible apex comparisons and should be described with the actual direction rather than promoted to a pseudonatural equivalence.
 
 ## Validation boundary
 

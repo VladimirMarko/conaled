@@ -36,7 +36,7 @@ variable {G A}
 /-- A gauge is an actual sheaf label on the cover, with its compatibility equation.
 No inverse or global descended map is part of this primitive input. -/
 structure Gauge (c d : Datum G A) where
-  label : SplitSheaf.Ext A ⟶ groupSheaf G
+  label : SplitSheaf.extension A ⟶ groupSheaf G
   compatible (x : X.obj.Elements) (a b : A.family.obj x) :
     c.label x a b * (show G.obj.obj x.obj from label.hom.app x.obj ⟨x.val, b⟩) =
       (show G.obj.obj x.obj from label.hom.app x.obj ⟨x.val, a⟩) * d.label x a b
@@ -54,13 +54,13 @@ def trivial : Datum G A where
   cocycle _ _ _ _ := one_mul _
   natural f _ _ := (G.obj.map f.hom).hom.map_one
 
-def labelValue (g : SplitSheaf.Ext A ⟶ groupSheaf G)
+def labelValue (g : SplitSheaf.extension A ⟶ groupSheaf G)
     (x : X.obj.Elements) (a : A.family.obj x) : G.obj.obj x.obj := g.hom.app x.obj ⟨x.val, a⟩
 
 /-- A restriction carries a chosen lift to its restricted lift. -/
 def coverArrow {x y : X.obj.Elements} (f : x ⟶ y) (a : A.family.obj x) :
-    (SplitSheaf.Ext A).obj.elementsMk x.obj ⟨x.val, a⟩ ⟶
-      (SplitSheaf.Ext A).obj.elementsMk y.obj ⟨y.val, A.family.map f a⟩ :=
+    (SplitSheaf.extension A).obj.elementsMk x.obj ⟨x.val, a⟩ ⟶
+      (SplitSheaf.extension A).obj.elementsMk y.obj ⟨y.val, A.family.map f a⟩ :=
   Functor.Elements.homMk f.hom (by
       apply ElementFamilies.total_ext X.obj f.map_val
       change A.family.map _ (A.family.map _ a) = A.family.map f a
@@ -71,7 +71,7 @@ def coverArrow {x y : X.obj.Elements} (f : x ⟶ y) (a : A.family.obj x) :
         simp [ElementFamilies.vertical]
       rw [he])
 
-theorem labelValue_natural (g : SplitSheaf.Ext A ⟶ groupSheaf G)
+theorem labelValue_natural (g : SplitSheaf.extension A ⟶ groupSheaf G)
     {x y : X.obj.Elements} (f : x ⟶ y) (a : A.family.obj x) :
     G.obj.map f.hom (labelValue g x a) = labelValue g y (A.family.map f a) := by
   let k := coverArrow f a
@@ -82,7 +82,7 @@ theorem labelValue_natural (g : SplitSheaf.Ext A ⟶ groupSheaf G)
   exact h.symm
 
 /-- A chosen cover label produces its coboundary in the right-translation convention. -/
-def coboundary (g : SplitSheaf.Ext A ⟶ groupSheaf G) : Datum G A where
+def coboundary (g : SplitSheaf.extension A ⟶ groupSheaf G) : Datum G A where
   label x a b := (labelValue g x a)⁻¹ * labelValue g x b
   identity x a := inv_mul_cancel _
   cocycle x a b c := by simp [mul_assoc]
@@ -91,7 +91,7 @@ def coboundary (g : SplitSheaf.Ext A ⟶ groupSheaf G) : Datum G A where
       labelValue_natural, labelValue_natural]
 
 /-- This explicit gauge records the chosen trivialization of a coboundary. -/
-def coboundaryGauge (g : SplitSheaf.Ext A ⟶ groupSheaf G) : Gauge trivial (coboundary g) where
+def coboundaryGauge (g : SplitSheaf.extension A ⟶ groupSheaf G) : Gauge trivial (coboundary g) where
   label := g
   compatible x a b := by
     change 1 * labelValue g x b = labelValue g x a * ((labelValue g x a)⁻¹ * labelValue g x b)
@@ -141,7 +141,7 @@ def Gauge.toIso {c d : Datum G A} (g : Gauge c d) : c ≅ d where
 /-- Cocycles act on the regular torsor by right translation. -/
 def Datum.toDescent {G : Sheaf J GrpCat.{max u v}} {X : Sheaf J (Type (max u v))}
     {A : SplitSheaf.Ty X} (c : Datum G A) :
-    Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.Ext A)) where
+    Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.extension A)) where
   transport x a b p := (show G.obj.obj x.obj from p) * c.label x a b
   identity x a p := by rw [c.identity, mul_one]
   cocycle x a b k p := by
@@ -157,7 +157,7 @@ def Datum.toDescent {G : Sheaf J GrpCat.{max u v}} {X : Sheaf J (Type (max u v))
 
 /-- Reading a regular descent transport at one recovers its primitive label. -/
 def ofDescent {G : Sheaf J GrpCat.{max u v}} {X : Sheaf J (Type (max u v))}
-    {A : SplitSheaf.Ty X} (d : Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.Ext A))) :
+    {A : SplitSheaf.Ty X} (d : Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.extension A))) :
     Datum G A where
   label x a b := d.transport x a b (1 : G.obj.obj x.obj)
   identity x a := d.identity x a (1 : G.obj.obj x.obj)

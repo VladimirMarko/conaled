@@ -73,7 +73,7 @@ is the structural interpretation theorem. None is a field assumed of a model.
 `IdTerm s t` is a generated identity witness indexed by both source endpoints.
 Its only constructor is reflexivity. `IdFamily s t` interprets the type as
 `ρ ↦ PLift (eval s ρ = eval t ρ)`; `IdFamily.subst` and `IdFamily.key`
-identify the reindexed families, including their endpoints. The `trueFiber`
+identify the reindexed families, including their endpoints. The `TrueFiber`
 case is inhabited when the permitted value is true and empty when false.
 Thus the type interpretation is not just a constant truth token.
 

@@ -51,7 +51,7 @@ def Theory.extend {S : Signature.{u}} (T : Theory S) (R : Signature.{u})
 def Algebra.restrictLeft {S R : Signature.{u}} (M : Algebra.{u,v} (S.sum R)) : Algebra S where
   Carrier := M.Carrier
   operation op args := M.operation (.inl op) args
-  predicate p args := M.predicate (.inl p) args
+  Predicate p args := M.Predicate (.inl p) args
 
 theorem Term.eval_inl {S R : Signature} (M : Algebra (S.sum R)) {V : Type}
     (t : Term S V) (ρ : V → M.Carrier) :
@@ -62,8 +62,8 @@ theorem Term.eval_inl {S R : Signature} (M : Algebra (S.sum R)) {V : Type}
 
 theorem Atom.eval_inl {S R : Signature} (M : Algebra (S.sum R)) {V : Type}
     (a : Atom S V) (ρ : V → M.Carrier) :
-    (a.inl R).eval M ρ = a.eval M.restrictLeft ρ := by
-  cases a <;> simp only [inl, eval, Term.eval_inl, Algebra.restrictLeft]
+    (a.inl R).Eval M ρ = a.Eval M.restrictLeft ρ := by
+  cases a <;> simp only [inl, Eval, Term.eval_inl, Algebra.restrictLeft]
   rfl
 
 /-- Model restriction forgets new operations and laws. Its soundness field is

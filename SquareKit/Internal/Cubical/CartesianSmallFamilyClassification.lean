@@ -59,7 +59,7 @@ theorem code_represented {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamil
   ext J f
   exact (ConcreteCategory.congr_hom (a.naturality f.down.down.op) ⟨x.val⟩)
 
-def decode_represented_iso {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+def decodeRepresentedIso {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
     (x : Γ.Elements) : Cartesian.reindex (decode a) (represented x) ≅ (a.app x.obj ⟨x.val⟩).family :=
   eqToIso (decode_reindex a (represented x)).symm ≪≫
     eqToIso (congrArg decode (code_represented a x)) ≪≫ (a.app x.obj ⟨x.val⟩).decodeCodeIso
@@ -85,7 +85,7 @@ def chartDecodeIso {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes
     Cartesian.reindex (decode a) p ≅
       Cartesian.reindex (chartCode a p).family (representableIntervalIso I).hom :=
   eqToIso (congrArg (Cartesian.reindex (decode a)) (chart_presentation p).symm) ≪≫
-    Functor.isoWhiskerLeft (representableIntervalIso I).hom.mapElements (decode_represented_iso a (chartElement p))
+    Functor.isoWhiskerLeft (representableIntervalIso I).hom.mapElements (decodeRepresentedIso a (chartElement p))
 
 def decodedLocalFilling {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
     LocalFilling (decode a) where
@@ -182,11 +182,11 @@ theorem LocalFamily.decodeCodeIso_hom_heq {Γ : Context.{u}} (A : LocalFamily Γ
   family_map_identity_heq A.family (eqToHom (represented_generic_source x))
     (represented_generic_source x) (heq_of_eq (elements_eqToHom_hom _)) v
 
-theorem decode_represented_iso_hom_heq {Γ : Context.{u}}
+theorem decodeRepresentedIso_hom_heq {Γ : Context.{u}}
     (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) (x : Γ.Elements)
     (y : (representable.{u} x.obj.unop).Elements)
     (v : (Cartesian.reindex (decode a) (represented x)).obj y) :
-    HEq ((decode_represented_iso a x).hom.app y v) v := by
+    HEq ((decodeRepresentedIso a x).hom.app y v) v := by
   let e₁ := (decode_reindex a (represented x)).symm
   let e₂ := congrArg decode (code_represented a x)
   exact ((a.app x.obj ⟨x.val⟩).decodeCodeIso_hom_heq y
@@ -200,7 +200,7 @@ theorem chartDecodeIso_hom_heq {Γ : Context.{u}}
     (v : (Cartesian.reindex (decode a) p).obj x) :
     HEq ((chartDecodeIso a p).hom.app x v) v := by
   let e := congrArg (Cartesian.reindex (decode a)) (chart_presentation p).symm
-  exact (decode_represented_iso_hom_heq a (chartElement p)
+  exact (decodeRepresentedIso_hom_heq a (chartElement p)
     ((representableIntervalIso I).hom.mapElements.obj x)
     ((eqToIso e).hom.app x v)).trans (family_eqToIso_hom_heq e x v)
 
@@ -380,7 +380,7 @@ not a claim of source-language definitional conversion. -/
 def codeDecodedComparison {Γ : Context.{u}}
     (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) (x : Γ.Elements) :
     ((decodedLocalFamily a).code.app x.obj ⟨x.val⟩).family ≅ (a.app x.obj ⟨x.val⟩).family :=
-  decode_represented_iso a x
+  decodeRepresentedIso a x
 
 theorem decoded_represented_family {Γ : Context.{u}}
     (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) (x : Γ.Elements) :

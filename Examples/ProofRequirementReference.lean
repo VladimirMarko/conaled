@@ -92,7 +92,7 @@ theorem selected_value {A : Type u} {B : Type v} {m : A → A → A}
     (selected h x).val = x := rfl
 
 /-- Replay the concrete witness proof at its original, stronger leaf boundary. -/
-def selected_original {A : Type u} {B : Type v} {m : A → A → A} {e : A}
+def selectedOriginal {A : Type u} {B : Type v} {m : A → A → A} {e : A}
     {observe : A → B} (rightUnit : ∀ x, m x e = x) (x : A) :
     { y : A // observe y = observe (m x e) } :=
   ⟨x, congrArg observe (rightUnit x).symm⟩
@@ -101,10 +101,10 @@ theorem observed_of_right_unit {A : Type u} {B : Type v} {m : A → A → A} {e 
     {observe : A → B} (rightUnit : ∀ x, m x e = x) :
     ObservedUnit A B m e observe := ⟨fun x => congrArg observe (rightUnit x)⟩
 
-theorem selected_original_eq {A : Type u} {B : Type v} {m : A → A → A} {e : A}
+theorem selectedOriginal_eq {A : Type u} {B : Type v} {m : A → A → A} {e : A}
     {observe : A → B} (rightUnit : ∀ x, m x e = x) (x : A) :
     selected (observed_of_right_unit (observe := observe) rightUnit) x =
-      selected_original rightUnit x := rfl
+      selectedOriginal rightUnit x := rfl
 
 theorem listObserved : ObservedUnit (List Nat) Nat Targets.listOp Targets.listUnit
     Targets.listObserve := ⟨fun x => congrArg List.length (List.append_nil x)⟩

@@ -119,7 +119,7 @@ def emptyCode : context ⟶ smallFamilyCodes.{0} :=
   baseProjection ≫ discreteCode (CubicalSmallFamilies.unitIndex naturals) (fun _ => Empty)
 
 def emptyFiber (x : context.Elements) : (liftedDecode emptyCode).obj x ≃ Empty :=
-  Equiv.ulift.trans ((discreteCode_decode (CubicalSmallFamilies.unitIndex naturals)
+  Equiv.ulift.trans ((discreteCodeDecodeIso (CubicalSmallFamilies.unitIndex naturals)
     (fun _ => Empty)).app ((Raising.lowerElements naturals).obj (baseProjection.mapElements.obj x))).toEquiv
 
 noncomputable def emptySum := LargeConstructors.sigma emptyCode

@@ -28,7 +28,7 @@ theorem recovery_safety_without_progress :
 /-- A further count-only observer composes with the coarse relation, but this
 chain does not restore publication information lost at the first stage. -/
 theorem count_observer_composes :
-    Refines (Relation.Comp Evidence.countObservation
+    Refines (Relation.Comp Evidence.CountObservation
       (fun s : Evidence.State => fun n : Nat => n = s.effects))
       {Evidence.recorded} {1} := by
   refine Evidence.coarse_refinement.trans ?_

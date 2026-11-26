@@ -36,7 +36,7 @@ theorem realLine_arrow_roundtrip (f : SheafActionQuotient.Arrow realLineObject r
   realLineCompleteArrows.apply_symm_apply f
 
 def scale (a : ℝ) (x : Space 1) : Space 1 := a • x
-theorem scale_smooth (a : ℝ) : ContMDiff (Model 1) (Model 1) ∞ (scale a) := by
+theorem scale_smooth (a : ℝ) : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ (scale a) := by
   have h : ContDiff ℝ ∞ (fun x : Space 1 => a • x) :=
     (contDiff_const : ContDiff ℝ ∞ (fun _ : Space 1 => a)).smul
       (contDiff_id : ContDiff ℝ ∞ (fun x : Space 1 => x))

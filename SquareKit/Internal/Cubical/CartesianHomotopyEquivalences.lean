@@ -144,7 +144,7 @@ def sides (Γ : Context.{u}) : Subcontext (total (interval Γ)) :=
   (Subcontext.intervalFace Γ false).join (Subcontext.intervalFace Γ true)
 
 theorem endpoint_iff (b : Bool) (x : (total (interval Γ)).Elements) :
-    (Subcontext.intervalFace Γ b).holds x ↔ x.val.2 = ⟨Cube.endpoint x.obj.unop b⟩ := by
+    (Subcontext.intervalFace Γ b).Holds x ↔ x.val.2 = ⟨Cube.endpoint x.obj.unop b⟩ := by
   constructor
   · intro h
     apply ULift.ext
@@ -157,8 +157,8 @@ theorem endpoint_iff (b : Bool) (x : (total (interval Γ)).Elements) :
     rfl
 
 theorem endpoints_disjoint (x : (total (interval Γ)).Elements)
-    (h₀ : (Subcontext.intervalFace Γ false).holds x)
-    (h₁ : (Subcontext.intervalFace Γ true).holds x) : False := by
+    (h₀ : (Subcontext.intervalFace Γ false).Holds x)
+    (h₁ : (Subcontext.intervalFace Γ true).Holds x) : False := by
   change x.val.2.down 0 = .endpoint false at h₀
   change x.val.2.down 0 = .endpoint true at h₁
   cases h₀.symm.trans h₁
@@ -176,7 +176,7 @@ noncomputable def tube (l r : Term (intervalCoefficient A)) :
       ((sides Γ).reindex (projection (interval (total (interval Γ))))) where
   val x _ := by
     classical
-    exact if (Subcontext.intervalFace Γ false).holds
+    exact if (Subcontext.intervalFace Γ false).Holds
       ((projection (interval (total (interval Γ)))).mapElements.obj x) then
     (verticalTerm l).val x else (verticalTerm r).val x
   natural {x y} f hx := by
@@ -184,26 +184,26 @@ noncomputable def tube (l r : Term (intervalCoefficient A)) :
     let px := (projection (interval (total (interval Γ)))).mapElements.obj x
     let py := (projection (interval (total (interval Γ)))).mapElements.obj y
     let pf := (projection (interval (total (interval Γ)))).mapElements.map f
-    by_cases h₀ : (Subcontext.intervalFace Γ false).holds px
+    by_cases h₀ : (Subcontext.intervalFace Γ false).Holds px
     · have hy := (Subcontext.intervalFace Γ false).natural pf h₀
       change (reindex A (squareBase Γ)).map f
-        (if (Subcontext.intervalFace Γ false).holds px then _ else _) =
-        (if (Subcontext.intervalFace Γ false).holds py then _ else _)
+        (if (Subcontext.intervalFace Γ false).Holds px then _ else _) =
+        (if (Subcontext.intervalFace Γ false).Holds py then _ else _)
       rw [ite_eq_left h₀, ite_eq_left hy]
       exact (verticalTerm l).property f
-    · have h₁ : (Subcontext.intervalFace Γ true).holds px := hx.resolve_left h₀
+    · have h₁ : (Subcontext.intervalFace Γ true).Holds px := hx.resolve_left h₀
       have hy₁ := (Subcontext.intervalFace Γ true).natural pf h₁
-      have hy₀ : ¬ (Subcontext.intervalFace Γ false).holds py := fun h => endpoints_disjoint py h hy₁
+      have hy₀ : ¬ (Subcontext.intervalFace Γ false).Holds py := fun h => endpoints_disjoint py h hy₁
       change (reindex A (squareBase Γ)).map f
-        (if (Subcontext.intervalFace Γ false).holds px then _ else _) =
-        (if (Subcontext.intervalFace Γ false).holds py then _ else _)
+        (if (Subcontext.intervalFace Γ false).Holds px then _ else _) =
+        (if (Subcontext.intervalFace Γ false).Holds py then _ else _)
       rw [ite_eq_right h₀, ite_eq_right hy₀]
       exact (verticalTerm r).property f
 
 
 theorem tube_left (l r : Term (intervalCoefficient A))
     (x : (total (interval (total (interval Γ)))).Elements)
-    (h : (Subcontext.intervalFace Γ false).holds
+    (h : (Subcontext.intervalFace Γ false).Holds
       ((projection (interval (total (interval Γ)))).mapElements.obj x)) :
     (tube l r).val x (Or.inl h) = (verticalTerm l).val x := by
   classical
@@ -211,7 +211,7 @@ theorem tube_left (l r : Term (intervalCoefficient A))
 
 theorem tube_right (l r : Term (intervalCoefficient A))
     (x : (total (interval (total (interval Γ)))).Elements)
-    (h : (Subcontext.intervalFace Γ true).holds
+    (h : (Subcontext.intervalFace Γ true).Holds
       ((projection (interval (total (interval Γ)))).mapElements.obj x)) :
     (tube l r).val x (Or.inr h) = (verticalTerm r).val x := by
   classical
@@ -254,7 +254,7 @@ theorem fill_left :
   apply Term.ext
   intro x
   let y := (intervalSub (endpointSub Γ false)).mapElements.obj x
-  have hy : (Subcontext.intervalFace Γ false).holds
+  have hy : (Subcontext.intervalFace Γ false).Holds
       ((projection (interval (total (interval Γ)))).mapElements.obj y) := rfl
   exact ((hF.fills (squareBase Γ) (sides Γ) (endpoint (total (interval Γ)) ε)
     (box ε l r base h₀ h₁)).2 y (Or.inl hy)).trans (tube_left l r y hy)
@@ -265,7 +265,7 @@ theorem fill_right :
   apply Term.ext
   intro x
   let y := (intervalSub (endpointSub Γ true)).mapElements.obj x
-  have hy : (Subcontext.intervalFace Γ true).holds
+  have hy : (Subcontext.intervalFace Γ true).Holds
       ((projection (interval (total (interval Γ)))).mapElements.obj y) := rfl
   exact ((hF.fills (squareBase Γ) (sides Γ) (endpoint (total (interval Γ)) ε)
     (box ε l r base h₀ h₁)).2 y (Or.inr hy)).trans (tube_right l r y hy)

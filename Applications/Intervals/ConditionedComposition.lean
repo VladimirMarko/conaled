@@ -10,7 +10,7 @@ open Relational
 `0 ≤ z` depends only on the fixed output, not the interval or contained point. -/
 theorem nonnegative_composition {A : Type} (R : A → Interval → Prop)
     (T : ℚ → ℚ → Prop) (a : A) (z : ℚ) :
-    (0 ≤ z ∧ compRel (compRel R representation.Rel) T a z) ↔
-      ∃ I, 0 ≤ z ∧ R a I ∧ compRel representation.Rel T I z :=
+    (0 ≤ z ∧ CompRel (CompRel R representation.Rel) T a z) ↔
+      ∃ I, 0 ≤ z ∧ R a I ∧ CompRel representation.Rel T I z :=
   compRel_condition R representation.Rel T (fun z => 0 ≤ z) a z
 end IntervalAnalysis

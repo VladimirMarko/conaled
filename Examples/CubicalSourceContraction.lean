@@ -21,7 +21,7 @@ noncomputable def environment : Fin 4 → Value :=
     .term terminal.{u} (reindex (methodFamily X) (Presheaf.pair (𝟙 terminal.{u}) (natZero terminal.{u}))) (sourceZero X),
     .term (total (methodFamily X)) (reindex (methodFamily X) (projection (methodFamily X) ≫ natSuccessorSub terminal.{u})) (sourceSuccessor X).toTerm]
 
-theorem premises : ∀ p ∈ List.ofFn successorBetaRule.premise, p.eval Naturals.algebra (environment X) := by
+theorem premises : ∀ p ∈ List.ofFn successorBetaRule.premise, p.Eval Naturals.algebra (environment X) := by
   intro p hp
   rcases List.mem_ofFn.mp hp with ⟨i,rfl⟩
   have hz := zeroSub_eval (.var (0 : Fin 4)) (environment X) terminal.{u} rfl

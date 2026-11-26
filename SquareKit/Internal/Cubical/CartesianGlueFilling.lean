@@ -30,8 +30,8 @@ namespace Glue
 abbrev intervalAll {Γ : Context.{u}} (φ : Subcontext (total (interval Γ))) := φ.forallInterval
 
 theorem intervalAll_specialize {Γ : Context.{u}} (φ : Subcontext (total (interval Γ)))
-    (x : Γ.Elements) (h : (intervalAll φ).holds x) (r : (interval Γ).obj x) :
-    φ.holds (extendObj (interval Γ) x r) :=
+    (x : Γ.Elements) (h : (intervalAll φ).Holds x) (r : (interval Γ).obj x) :
+    φ.Holds (extendObj (interval Γ) x r) :=
   (Subcontext.forallInterval_iff φ x).mp h (𝟙 _) r
 
 variable {Γ : Context.{u}} {A : Family (total (interval Γ))}
@@ -70,9 +70,9 @@ theorem addTube_preserves_whole {Δ : Context.{u}} {B : Family Δ}
     (t : PartialSection (reindex B p) (ψ.reindex (projection (interval Γ))))
     (h : b.tube.Compatible t)
     (h₀ : ∀ x hx, t.val ((graph r).mapElements.obj x) hx = b.base.val x)
-    (x : (total (interval Γ)).Elements) (hx : (ψ.reindex (projection (interval Γ))).holds x) :
+    (x : (total (interval Γ)).Elements) (hx : (ψ.reindex (projection (interval Γ))).Holds x) :
     (F.fill p (φ.join ψ) r (addTube b t h h₀)).val x = t.val x hx := by
-  have hu : ((φ.join ψ).reindex (projection (interval Γ))).holds x :=
+  have hu : ((φ.join ψ).reindex (projection (interval Γ))).Holds x :=
     Or.inr hx
   exact ((hF.fills p (φ.join ψ) r (addTube b t h h₀)).2 x hu).trans
     (glueValue_right b.tube t h x hu hx)
@@ -153,7 +153,7 @@ theorem selectedFaceTube_compatible (F : Filling T) (hF : F.Lawful) (ψ : Subcon
 
 theorem selectedFaceTube_zero (F : Filling T) (hF : F.Lawful) (ψ : Subcontext Δ) (r : Term (interval Δ))
     (b : OpenBox (reindex (family φ A T e) p) ψ r)
-    (x : Δ.Elements) (hx : (intervalAll (φ.reindex p)).holds x) :
+    (x : Δ.Elements) (hx : (intervalAll (φ.reindex p)).Holds x) :
     (selectedFaceTube φ A T e p F ψ r b).val ((graph r).mapElements.obj x) hx =
       b.base.val x := by
   exact congrArg (fun t => t.val
@@ -180,7 +180,7 @@ theorem preserveSelectedFace_fills (F : Filling T) (hF : F.Lawful)
   constructor
   · exact hf.1
   · intro x hx
-    have hu : ((ψ.join (intervalAll (φ.reindex p))).reindex (projection (interval Δ))).holds x :=
+    have hu : ((ψ.join (intervalAll (φ.reindex p))).reindex (projection (interval Δ))).Holds x :=
       Or.inl hx
     exact (hf.2 x hu).trans (glueValue_left b.tube t x hu hx)
 
@@ -188,7 +188,7 @@ theorem preserveSelectedFace_whole (F : Filling T) (hF : F.Lawful)
     (H : Filling (family φ A T e)) (hH : H.Lawful) (ψ : Subcontext Δ) (r : Term (interval Δ))
     (b : OpenBox (reindex (family φ A T e) p) ψ r)
     (x : (total (interval Δ)).Elements)
-    (hx : ((intervalAll (φ.reindex p)).reindex (projection (interval Δ))).holds x) :
+    (hx : ((intervalAll (φ.reindex p)).reindex (projection (interval Δ))).Holds x) :
     (preserveSelectedFace φ A T e p F hF H ψ r b).val x =
       (selectedFaceTube φ A T e p F ψ r b).val x hx :=
   addTube_preserves_whole H hH p b (selectedFaceTube φ A T e p F ψ r b)
@@ -197,8 +197,8 @@ theorem preserveSelectedFace_whole (F : Filling T) (hF : F.Lawful)
 
 section FlexibleFace
 variable (δ : Subcontext Δ)
-  (hδ : ∀ (x : Δ.Elements), δ.holds x → ∀ r : (interval Δ).obj x,
-    (φ.reindex p).holds (extendObj (interval Δ) x r))
+  (hδ : ∀ (x : Δ.Elements), δ.Holds x → ∀ r : (interval Δ).obj x,
+    (φ.reindex p).Holds (extendObj (interval Δ) x r))
 
 /-- A supplied face whose lines stay inside the gluing face. -/
 def wholeFaceLineOn : total (interval (restrictContext δ)) ⟶
@@ -267,7 +267,7 @@ theorem selectedFaceTube_compatibleOn (F : Filling T) (hF : F.Lawful) (ψ : Subc
 
 theorem selectedFaceTube_zeroOn (F : Filling T) (hF : F.Lawful) (ψ : Subcontext Δ) (r : Term (interval Δ))
     (b : OpenBox (reindex (family φ A T e) p) ψ r)
-    (x : Δ.Elements) (hx : δ.holds x) :
+    (x : Δ.Elements) (hx : δ.Holds x) :
     (selectedFaceTubeOn φ A T e p δ hδ F ψ r b).val ((graph r).mapElements.obj x) hx =
       b.base.val x := by
   exact congrArg (fun t => t.val
@@ -294,7 +294,7 @@ theorem preserveSelectedFace_fillsOn (F : Filling T) (hF : F.Lawful)
   constructor
   · exact hf.1
   · intro x hx
-    have hu : ((ψ.join δ).reindex (projection (interval Δ))).holds x :=
+    have hu : ((ψ.join δ).reindex (projection (interval Δ))).Holds x :=
       Or.inl hx
     exact (hf.2 x hu).trans (glueValue_left b.tube t x hu hx)
 
@@ -302,7 +302,7 @@ theorem preserveSelectedFace_wholeOn (F : Filling T) (hF : F.Lawful)
     (H : Filling (family φ A T e)) (hH : H.Lawful) (ψ : Subcontext Δ) (r : Term (interval Δ))
     (b : OpenBox (reindex (family φ A T e) p) ψ r)
     (x : (total (interval Δ)).Elements)
-    (hx : (δ.reindex (projection (interval Δ))).holds x) :
+    (hx : (δ.reindex (projection (interval Δ))).Holds x) :
     (preserveSelectedFaceOn φ A T e p δ hδ F hF H ψ r b).val x =
       (selectedFaceTubeOn φ A T e p δ hδ F ψ r b).val x hx :=
   addTube_preserves_whole H hH p b (selectedFaceTubeOn φ A T e p δ hδ F ψ r b)
@@ -402,8 +402,8 @@ theorem preserveSelectedFaceOn_reindex (F : Filling T) (hF : F.Lawful)
     (hH.uniform p (ψ.join δ) r (addTube b t hc hz) σ)
 
 theorem preserveSelectedFaceOn_congr (δ' : Subcontext Δ)
-    (hδ' : ∀ (x : Δ.Elements), δ'.holds x → ∀ r : (interval Δ).obj x,
-      (φ.reindex p).holds (extendObj (interval Δ) x r)) (he : δ = δ')
+    (hδ' : ∀ (x : Δ.Elements), δ'.Holds x → ∀ r : (interval Δ).obj x,
+      (φ.reindex p).Holds (extendObj (interval Δ) x r)) (he : δ = δ')
     (F : Filling T) (hF : F.Lawful) (H : Filling (family φ A T e)) (ψ : Subcontext Δ) (r : Term (interval Δ))
     (b : OpenBox (reindex (family φ A T e) p) ψ r) :
     preserveSelectedFaceOn φ A T e p δ hδ F hF H ψ r b =
@@ -559,14 +559,14 @@ def restrictedPathTube {Ξ : Context.{u}} {B : Family Ξ} (θ : Subcontext Ξ)
 theorem restrictedPathTube_source {Ξ : Context.{u}} {B : Family Ξ} (θ : Subcontext Ξ)
     (a : Term B) (t : Term (reindex B (restrictInclusion θ)))
     (q : Term (homogeneousPath (reindex B (restrictInclusion θ))
-      t (Term.reindex a (restrictInclusion θ)))) (x : Ξ.Elements) (hx : θ.holds x) :
+      t (Term.reindex a (restrictInclusion θ)))) (x : Ξ.Elements) (hx : θ.Holds x) :
     (restrictedPathTube θ a t q).val ((endpointSub Ξ true).mapElements.obj x) hx = a.val x :=
   congrArg (fun s => s.val (faceObj θ x hx)) (pathApp_one q)
 
 theorem restrictedPathTube_target {Ξ : Context.{u}} {B : Family Ξ} (θ : Subcontext Ξ)
     (a : Term B) (t : Term (reindex B (restrictInclusion θ)))
     (q : Term (homogeneousPath (reindex B (restrictInclusion θ))
-      t (Term.reindex a (restrictInclusion θ)))) (x : Ξ.Elements) (hx : θ.holds x) :
+      t (Term.reindex a (restrictInclusion θ)))) (x : Ξ.Elements) (hx : θ.Holds x) :
     (restrictedPathTube θ a t q).val ((endpointSub Ξ false).mapElements.obj x) hx =
       t.val (faceObj θ x hx) :=
   congrArg (fun s => s.val (faceObj θ x hx)) (pathApp_zero q)
@@ -606,9 +606,9 @@ theorem correctAmbient_face {Ξ : Context.{u}} {B : Family Ξ} (F : Filling B) (
       t (Term.reindex a (restrictInclusion θ))))
     (h : (restrictedPathTube θ a t q).Compatible
       (PartialSection.ofTerm (χ.reindex (projection (interval Ξ)))
-        (Term.reindex a (projection (interval Ξ))))) (x : Ξ.Elements) (hx : θ.holds x) :
+        (Term.reindex a (projection (interval Ξ))))) (x : Ξ.Elements) (hx : θ.Holds x) :
     (correctAmbient F θ χ a t q h).val x = t.val (faceObj θ x hx) := by
-  have hu : (θ.join χ).holds x := Or.inl hx
+  have hu : (θ.join χ).Holds x := Or.inl hx
   exact ((hF.fills (projection (interval Ξ)) (θ.join χ) (endpoint Ξ true) (correctionBox θ χ a t q h)).2 ((endpointSub Ξ false).mapElements.obj x) hu).trans
     ((glueValue_left (restrictedPathTube θ a t q)
         (PartialSection.ofTerm (χ.reindex (projection (interval Ξ))) (Term.reindex a (projection (interval Ξ)))) ((endpointSub Ξ false).mapElements.obj x)
@@ -620,9 +620,9 @@ theorem correctAmbient_fixed {Ξ : Context.{u}} {B : Family Ξ} (F : Filling B) 
       t (Term.reindex a (restrictInclusion θ))))
     (h : (restrictedPathTube θ a t q).Compatible
       (PartialSection.ofTerm (χ.reindex (projection (interval Ξ)))
-        (Term.reindex a (projection (interval Ξ))))) (x : Ξ.Elements) (hx : χ.holds x) :
+        (Term.reindex a (projection (interval Ξ))))) (x : Ξ.Elements) (hx : χ.Holds x) :
     (correctAmbient F θ χ a t q h).val x = a.val x := by
-  have hu : (θ.join χ).holds x := Or.inr hx
+  have hu : (θ.join χ).Holds x := Or.inr hx
   exact ((hF.fills (projection (interval Ξ)) (θ.join χ) (endpoint Ξ true) (correctionBox θ χ a t q h)).2 ((endpointSub Ξ false).mapElements.obj x) hu).trans
     (glueValue_right (restrictedPathTube θ a t q) _ h ((endpointSub Ξ false).mapElements.obj x) hu hx)
 
@@ -757,7 +757,7 @@ theorem genericFiberPartialIntro_fst {Γ Δ : Context.{u}} {A B : Family Γ} (f 
     (σ : Δ ⟶ total B) {φ : Subcontext Δ}
     (a : PartialSection (Cartesian.reindex A (σ ≫ projection B)) φ)
     (h : a.map (Functor.whiskerLeft (σ ≫ projection B).mapElements f) =
-      PartialSection.ofTerm φ (Term.reindex (generic B) σ)) (x : Δ.Elements) (hx : φ.holds x) :
+      PartialSection.ofTerm φ (Term.reindex (generic B) σ)) (x : Δ.Elements) (hx : φ.Holds x) :
     ((genericFiberPartialIntro f σ a h).val x hx).1 = a.val x hx := rfl
 
 /-- Reflexive partial fiber data is constant along every generalized path coordinate. -/
@@ -765,7 +765,7 @@ theorem genericFiberPartialIntro_path {Γ Δ : Context.{u}} {A B : Family Γ} (f
     (σ : Δ ⟶ total B) {φ : Subcontext Δ}
     (a : PartialSection (Cartesian.reindex A (σ ≫ projection B)) φ)
     (h : a.map (Functor.whiskerLeft (σ ≫ projection B).mapElements f) =
-      PartialSection.ofTerm φ (Term.reindex (generic B) σ)) (x : Δ.Elements) (hx : φ.holds x)
+      PartialSection.ofTerm φ (Term.reindex (generic B) σ)) (x : Δ.Elements) (hx : φ.Holds x)
     {y : (total (Cartesian.reindex A (projection B))).Elements}
     (g : extendObj (Cartesian.reindex A (projection B)) (σ.mapElements.obj x) (a.val x hx) ⟶ y)
     (r : (interval (total (Cartesian.reindex A (projection B)))).obj y) :
@@ -785,7 +785,7 @@ theorem extendAlong_path_boundary {Γ Δ : Context.{u}} {A B : Family Γ}
     (σ : Δ ⟶ total B) {φ : Subcontext Δ}
     (a : PartialSection (Cartesian.reindex A (σ ≫ projection B)) φ)
     (h : a.map (Functor.whiskerLeft (σ ≫ projection B).mapElements f) =
-      PartialSection.ofTerm φ (Term.reindex (generic B) σ)) (x : Δ.Elements) (hx : φ.holds x)
+      PartialSection.ofTerm φ (Term.reindex (generic B) σ)) (x : Δ.Elements) (hx : φ.Holds x)
     (r : (interval Δ).obj x) :
     (pathApp (genericFiberPath f σ
       (E.extendAlong F hF G hG σ (genericFiberPartialIntro f σ a h)))).val
@@ -879,7 +879,7 @@ theorem extendedFace_boundary (E : HomotopyEquivalence f) (F : Filling U) (hF : 
     (s : PartialSection (pulledCompatible θ B U f p) χ) (a : Term (reindex B p))
     (h : s.map (compatibleUnglue (θ.reindex p) (reindex B p) (reindex U (restrictSubstitution θ p))
       (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)) = PartialSection.ofTerm χ a)
-    (x : (restrictContext (θ.reindex p)).Elements) (hx : (χ.reindex (restrictInclusion (θ.reindex p))).holds x) :
+    (x : (restrictContext (θ.reindex p)).Elements) (hx : (χ.reindex (restrictInclusion (θ.reindex p))).Holds x) :
     (extendedFace θ B U f p E F hF G hG s a h).val x = (faceSection θ B U f p s).val x hx :=
   congrArg Sigma.fst (E.extendAlong_boundary F hF (G.reindex (restrictInclusion θ)) (hG.reindex _)
     (target θ B p a) (genericFiberPartialIntro f (target θ B p a) (faceSection θ B U f p s)
@@ -957,7 +957,7 @@ noncomputable def extendSection : Term (pulledCompatible θ B U f p) :=
     (corrected θ B U f p E F hF G hG s a h)
     (corrected_face θ B U f p E F hF G hG s a h)
 
-theorem extendSection_boundary (x : Ω.Elements) (hx : χ.holds x) :
+theorem extendSection_boundary (x : Ω.Elements) (hx : χ.Holds x) :
     (extendSection θ B U f p E F hF G hG s a h).val x = s.val x hx := by
   apply CompatibleElement.ext
   · exact (correctAmbient_fixed (G.reindex p) (hG.reindex p) (θ.reindex p) χ a _ _
@@ -1030,11 +1030,11 @@ theorem correctionInput_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
     let c₁ := PartialSection.ofTerm ((χ.reindex τ).reindex (projection (interval Λ)))
       (Term.reindex (Term.reindex a τ) (projection (interval Λ)))
     change glueValue t₁ c₁ x hx = glueValue t₀ c₀ ((intervalSub τ).mapElements.obj x) hx
-    by_cases hp : ((θ.reindex (τ ≫ p)).reindex (projection (interval Λ))).holds x
+    by_cases hp : ((θ.reindex (τ ≫ p)).reindex (projection (interval Λ))).Holds x
     · exact (glueValue_left t₁ c₁ x hx hp).trans
         ((congrArg (fun t => t.val x hp) ht).trans
           (glueValue_left t₀ c₀ ((intervalSub τ).mapElements.obj x) hx hp).symm)
-    · have hp₀ : ¬ ((θ.reindex p).reindex (projection (interval Ω))).holds
+    · have hp₀ : ¬ ((θ.reindex p).reindex (projection (interval Ω))).Holds
           ((intervalSub τ).mapElements.obj x) := hp
       simp only [glueValue, dite_eq_right hp, dite_eq_right hp₀]
       rfl
@@ -1092,7 +1092,7 @@ def sourceSection {Θ : Context.{u}} (B : Family (total (interval Θ))) (r : Ter
     (Term.reindex a (restrictInclusion (sourceFace r) ≫ projection (interval Θ))))
 
 theorem sourceSection_val {Θ : Context.{u}} (B : Family (total (interval Θ))) (r : Term (interval Θ))
-    (a : Term (reindex B (graph r))) (x : (total (interval Θ)).Elements) (h : (sourceFace r).holds x) :
+    (a : Term (reindex B (graph r))) (x : (total (interval Θ)).Elements) (h : (sourceFace r).Holds x) :
     HEq ((sourceSection B r a).val x h) (a.val ((projection (interval Θ)).mapElements.obj x)) :=
   Term.convert_val_heq _ _ ((restrictContext (sourceFace r)).elementsMk x.obj ⟨x.val,h⟩)
 
@@ -1155,12 +1155,12 @@ theorem fills_of_boxPartial {Θ : Context.{u}} {B : Family (total (interval Θ))
   · apply Term.ext
     intro x
     let y := (graph r).mapElements.obj x
-    have hz : (sourceFace r).holds y := rfl
-    have hu : (boxFace ψ r).holds y := Or.inr hz
+    have hz : (sourceFace r).Holds y := rfl
+    have hu : (boxFace ψ r).Holds y := Or.inr hz
     exact (h y hu).trans ((glueValue_right b.tube (sourceSection B r b.base)
       ((source_compatible b)) y hu hz).trans (eq_of_heq (sourceSection_val B r b.base y hz)))
   · intro x hx
-    have hu : (boxFace ψ r).holds x := Or.inl hx
+    have hu : (boxFace ψ r).Holds x := Or.inl hx
     exact (h x hu).trans (glueValue_left b.tube (sourceSection B r b.base) x hu hx)
 
 theorem partialGlue_map {Θ : Context.{u}} {B C : Family Θ} (η : B ⟶ C)
@@ -1828,12 +1828,12 @@ variable {Γ Δ : Context.{u}} (φ : Subcontext Γ) (A : Family Γ)
 
 abbrev C := family φ A T e
 abbrev f := unglue φ A T e
-abbrev Fiber := Homotopy.fiber (Functor.whiskerLeft (projection A).mapElements (f φ A T e))
+abbrev fiber := Homotopy.fiber (Functor.whiskerLeft (projection A).mapElements (f φ A T e))
   (generic A)
 abbrev face := φ.reindex (σ ≫ projection A)
 abbrev target := Term.reindex (generic A) σ
 
-variable {ψ : Subcontext Δ} (s : PartialSection (reindex (Fiber φ A T e) σ) ψ)
+variable {ψ : Subcontext Δ} (s : PartialSection (reindex (fiber φ A T e) σ) ψ)
 
 def partialDomain := genericFiberFst (f φ A T e) (restrictInclusion ψ ≫ σ) s.toRestricted
 
@@ -1960,7 +1960,7 @@ noncomputable def filled := G.fill (projection (interval Δ) ≫ σ ≫ projecti
 noncomputable def ambient := Term.reindex (filled φ A T e σ s E F hF G hG) (endpointSub Δ false)
 
 theorem filled_face (x : (total (interval Δ)).Elements)
-    (hx : ((face φ A σ).reindex (projection (interval Δ))).holds x) :
+    (hx : ((face φ A σ).reindex (projection (interval Δ))).Holds x) :
     (filled φ A T e σ s E F hF G hG).val x =
     (faceTube φ A T e σ s E F hF G hG).val x hx := by
   have hu := (Subcontext.full_join (face φ A σ) ψ
@@ -1969,7 +1969,7 @@ theorem filled_face (x : (total (interval Δ)).Elements)
     (glueValue_left _ _ x hu hx)
 
 theorem filled_partial (x : (total (interval Δ)).Elements)
-    (hx : (ψ.reindex (projection (interval Δ))).holds x) :
+    (hx : (ψ.reindex (projection (interval Δ))).Holds x) :
     (filled φ A T e σ s E F hF G hG).val x =
     (partialTube φ A T e σ s).val x hx := by
   have hu := (Subcontext.full_join (face φ A σ) ψ
@@ -2021,7 +2021,7 @@ noncomputable def extension := genericFiberIntro (f φ A T e) σ
   (domain φ A T e σ s E F hF G hG) (resultPath φ A T e σ s E F hF G hG)
 
 theorem faceDomain_boundary (x : (restrictContext (face φ A σ)).Elements)
-    (hx : (ψ.reindex (restrictInclusion (face φ A σ))).holds x) :
+    (hx : (ψ.reindex (restrictInclusion (face φ A σ))).Holds x) :
     (faceDomain φ A T e σ s E F hF G hG).val x =
     ((familyIso φ A T e).hom.app ((σ ≫ projection A).mapElements.obj
       ((restrictInclusion (face φ A σ)).mapElements.obj x))
@@ -2029,7 +2029,7 @@ theorem faceDomain_boundary (x : (restrictContext (face φ A σ)).Elements)
   exact congrArg Sigma.fst (E.extendAlong_boundary F hF
     (G.reindex (restrictInclusion φ)) (hG.reindex _) _ (facePartial φ A T e σ s) x hx)
 
-theorem domainCompatible_boundary (x : Δ.Elements) (hx : ψ.holds x) :
+theorem domainCompatible_boundary (x : Δ.Elements) (hx : ψ.Holds x) :
     (domainCompatible φ A T e σ s E F hF G hG).val x =
     (compatibleReindexMap φ A T e (σ ≫ projection A)).app x
       ((familyIso φ A T e).hom.app ((σ ≫ projection A).mapElements.obj x) (s.val x hx).1) := by
@@ -2093,7 +2093,7 @@ theorem extension_restricted :
     (resultPath φ A T e σ s E F hF G hG) (restrictInclusion ψ) s.toRestricted
     (domain_boundary φ A T e σ s E F hF G hG) (resultPath_boundary φ A T e σ s E F hF G hG)
 
-theorem extension_boundary (x : Δ.Elements) (hx : ψ.holds x) :
+theorem extension_boundary (x : Δ.Elements) (hx : ψ.Holds x) :
     (extension φ A T e σ s E F hF G hG).val x = s.val x hx :=
   congrArg (fun t => t.val ((restrictContext ψ).elementsMk x.obj ⟨x.val,hx⟩))
     (extension_restricted φ A T e σ s E F hF G hG)

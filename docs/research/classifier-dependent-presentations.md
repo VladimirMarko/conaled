@@ -239,7 +239,7 @@ non-univalence control remains with
 [diamond cases](../../Examples/ClassifierSheafPi.lean). Fix `C : Type u`,
 `Category.{v} C`, a topology J, and sheaf contexts with sections in
 `Type (max u v)`. The inputs are `A : SplitSheaf.Ty Γ` and
-`B : SplitSheaf.Ty (Ext A)`. Each includes total-space sheafness; the Π
+`B : SplitSheaf.Ty (extension A)`. Each includes total-space sheafness; the Π
 total's sheafness follows from `SplitFunctionSheaf.piType`. Substitutions are
 arbitrary sheaf morphisms. Neither an inhabited argument fiber nor a global
 argument section is required for formation or abstraction.

@@ -27,7 +27,7 @@ of the same sort as the binder. Its value must remain outside that binder. -/
 example {S : Type} {F : S → S → Type} {s : S} {Δ : List S}
     (M : Interpretation F) (ρ : Env M Δ) (t : Term F Δ s) :
     let σ : Sub F [s] Δ := fun {_} i => match i with | .zero => t | .succ i => nomatch i
-    ((Formula.ex (.eq (.var (.succ .zero)) (.var .zero))).subst σ).eval M ρ ↔
+    ((Formula.ex (.eq (.var (.succ .zero)) (.var .zero))).subst σ).Eval M ρ ↔
       ∃ x : M.Carrier s, t.eval M ρ = x := by
   dsimp only
   rw [formula_subst]

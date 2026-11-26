@@ -8,8 +8,8 @@ open scoped ContDiff
 namespace Examples.SmoothQuotient
 open SquareKit.SmoothAlgebra
 
-abbrev atZero : Hom (Free 1) ℝ := evaluate (fun _ => 0)
-def vanishing : Ideal (Free 1) := RingHom.ker atZero.toAlgHom
+abbrev atZero : Hom (freeAlgebra 1) ℝ := evaluate (fun _ => 0)
+def vanishing : Ideal (freeAlgebra 1) := RingHom.ker atZero.toAlgHom
 
 /-- The ideal is neither the zero ideal nor the improper ideal. -/
 theorem vanishing_nontrivial : vanishing ≠ ⊥ ∧ vanishing ≠ ⊤ := by
@@ -19,22 +19,22 @@ theorem vanishing_nontrivial : vanishing ≠ ⊥ ∧ vanishing ≠ ⊤ := by
       change atZero (generator 0) = 0
       exact evaluate_generator _ _
     rw [h, Ideal.mem_bot] at hg
-    have := congrArg (fun f : Free 1 => f.val (fun _ => 1)) hg
+    have := congrArg (fun f : freeAlgebra 1 => f.val (fun _ => 1)) hg
     norm_num [generator, projection] at this
   · intro h
-    have ho : (1 : Free 1) ∈ vanishing := by rw [h]; trivial
+    have ho : (1 : freeAlgebra 1) ∈ vanishing := by rw [h]; trivial
     change atZero.toAlgHom 1 = 0 at ho
     simp at ho
 
 /-- This map is obtained by the general smooth quotient universal property. -/
-def value : Hom (Free 1 ⧸ vanishing) ℝ :=
+def value : Hom (freeAlgebra 1 ⧸ vanishing) ℝ :=
   SquareKit.SmoothAlgebra.Quotient.lift vanishing atZero (fun _ h => h)
 
-def constants : Hom ℝ (Free 1) where
+def constants : Hom ℝ (freeAlgebra 1) where
   toFun r := constant 1 r
   map_act _ _ := rfl
 
-def inverse : Hom ℝ (Free 1 ⧸ vanishing) := Hom.comp (Quotient.projection vanishing) constants
+def inverse : Hom ℝ (freeAlgebra 1 ⧸ vanishing) := Hom.comp (Quotient.projection vanishing) constants
 
 theorem value_inverse : Hom.comp value inverse = Hom.ident := Hom.ext fun _ => rfl
 
@@ -49,22 +49,22 @@ theorem inverse_value : Hom.comp inverse value = Hom.ident := by
   exact sub_self _
 
 /-- An isomorphism of underlying carriers with smooth maps in both directions. -/
-def quotientEquiv : (Free 1 ⧸ vanishing) ≃ ℝ where
+def quotientEquiv : (freeAlgebra 1 ⧸ vanishing) ≃ ℝ where
   toFun := value
   invFun := inverse
-  left_inv q := congrArg (fun h : Hom (Free 1 ⧸ vanishing) (Free 1 ⧸ vanishing) => h q) inverse_value
+  left_inv q := congrArg (fun h : Hom (freeAlgebra 1 ⧸ vanishing) (freeAlgebra 1 ⧸ vanishing) => h q) inverse_value
   right_inv r := congrArg (fun h : Hom ℝ ℝ => h r) value_inverse
 
 def exponential : Operation 1 :=
   ⟨fun x => Real.exp (x 0), Real.contDiff_exp.comp (contDiff_apply ℝ _ 0)⟩
 
 theorem exponential_descends : value (Quotient.projection vanishing exponential) = 1 := by
-  have h := congrArg (fun k : Hom (Free 1) ℝ => k exponential)
+  have h := congrArg (fun k : Hom (freeAlgebra 1) ℝ => k exponential)
     (Quotient.lift_projection vanishing atZero (fun _ h => h))
   exact h.trans Real.exp_zero
 
-theorem exp_operation (q : Free 1 ⧸ vanishing) :
-    (value (show Free 1 ⧸ vanishing from @Structure.act (Free 1 ⧸ vanishing) inferInstance inferInstance inferInstance 1 exponential (fun _ => q))) = Real.exp (value q) := value.map_act _ _
+theorem exp_operation (q : freeAlgebra 1 ⧸ vanishing) :
+    (value (show freeAlgebra 1 ⧸ vanishing from @Structure.act (freeAlgebra 1 ⧸ vanishing) inferInstance inferInstance inferInstance 1 exponential (fun _ => q))) = Real.exp (value q) := value.map_act _ _
 
 /-- Improper ideals retain the nullary laws in the actual zero ring quotient. -/
 theorem improper_nullary (r : ℝ) :

@@ -8,28 +8,28 @@ universe u v u' v'
 variable {C : Type u} [Category.{v} C]
 
 structure SieveObjects (C : Type u) [Category.{v} C] where
-  contains : C → Prop
-  downward : ∀ {X Y : C}, (X ⟶ Y) → contains Y → contains X
+  Contains : C → Prop
+  downward : ∀ {X Y : C}, (X ⟶ Y) → Contains Y → Contains X
 
-abbrev PartialCochain1 (S : SieveObjects C) := ∀ {X Y : C}, (X ⟶ Y) → S.contains Y → ℤ
+abbrev PartialCochain1 (S : SieveObjects C) := ∀ {X Y : C}, (X ⟶ Y) → S.Contains Y → ℤ
 
 noncomputable def extendZero {S : SieveObjects C} (b : PartialCochain1 S) : Cochain1 C := by
   classical
-  exact fun {X Y} f => if h : S.contains Y then b f h else 0
+  exact fun {X Y} f => if h : S.Contains Y then b f h else 0
 
 theorem extendZero_inside {S : SieveObjects C} (b : PartialCochain1 S)
-    {X Y : C} (f : X ⟶ Y) (h : S.contains Y) : extendZero b f = b f h := by
+    {X Y : C} (f : X ⟶ Y) (h : S.Contains Y) : extendZero b f = b f h := by
   simp [extendZero,h]
 
 theorem δ1_extendZero_inside {S : SieveObjects C} (b : PartialCochain1 S)
-    {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) (h : S.contains Z) :
+    {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) (h : S.Contains Z) :
     δ1 (extendZero b) f g = b g h - b (f ≫ g) h + b f (S.downward g h) := by
   simp only [δ1,extendZero_inside b g h,extendZero_inside b (f ≫ g) h,
     extendZero_inside b f (S.downward g h)]
 
 variable {D : Type u'} [Category.{v'} D]
 def SieveObjects.pullback (S : SieveObjects D) (F : C ⥤ D) : SieveObjects C where
-  contains X := S.contains (F.obj X)
+  Contains X := S.Contains (F.obj X)
   downward f := S.downward (F.map f)
 
 def PartialCochain1.pullback {S : SieveObjects D} (b : PartialCochain1 S)

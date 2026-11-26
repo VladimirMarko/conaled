@@ -48,8 +48,8 @@ theorem model_descent (b : embedding.obj line ⟶ embedding.obj line) :
     (∀ i, embedding.map (subInclusion line (defining i)) ≫ b = embedding.map (localExp i)) ↔
       b = embedding.map gluedExp := glue_sheaf_comparison line defining line covers localExp localExp_compatible b
 
-abbrev g : Free 1 := generator 0
-abbrev h : Free 1 := generator 0 - 1
+abbrev g : freeAlgebra 1 := generator 0
+abbrev h : freeAlgebra 1 := generator 0 - 1
 
 theorem proper_overlap : ¬ Function.Surjective
     (show Map (overlap line g h) (subdomain line g) from overlapLeft line g h) := by
@@ -79,7 +79,7 @@ theorem reciprocal_baseChange :
   baseChange_square EuclideanOpenEmbedding.reciprocal g
 
 abbrev emptyDomain := EuclideanOpenEmbedding.emptyDomain
-abbrev emptyFamily : Fin 0 → Free emptyDomain.dimension := Fin.elim0
+abbrev emptyFamily : Fin 0 → freeAlgebra emptyDomain.dimension := Fin.elim0
 
 theorem empty_covers : EuclideanOpen.Covers emptyDomain emptyFamily :=
   (empty_cover_iff emptyDomain emptyFamily).mpr EuclideanOpenEmbedding.empty_points

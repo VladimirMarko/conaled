@@ -15,13 +15,13 @@ def sheafContext : Sheaf (⊥ : GrothendieckTopology Base) (Type 0) :=
 def sheafFamily : SplitSheaf.Ty sheafContext :=
   ⟨family, Presheaf.isSheaf_bot _⟩
 
-example : SplitPresheaf.Ext (PresheafFamily.decodeSheaf sheafFamily).family ≅
-    SplitPresheaf.Ext family := (PresheafFamily.evaluation family).totalIso
+example : SplitPresheaf.extension (PresheafFamily.decodeSheaf sheafFamily).family ≅
+    SplitPresheaf.extension family := (PresheafFamily.evaluation family).totalIso
 
 /-- Every sheaf display can be classified and recovered over its original base. -/
 example {C : Type} [SmallCategory C] {J : GrothendieckTopology C}
     {Γ B : Sheaf J (Type 0)} (d : B ⟶ Γ) :
-    SplitSheaf.Ext (PresheafFamily.decodeSheaf (SplitSheaf.ofDisplay d)) ≅ B :=
+    SplitSheaf.extension (PresheafFamily.decodeSheaf (SplitSheaf.ofDisplay d)) ≅ B :=
   PresheafFamily.decodeSheafIso (SplitSheaf.ofDisplay d) ≪≫ SplitSheaf.displayIso d
 
 /-- Strict restriction laws alone do not entail even empty-cover descent. -/

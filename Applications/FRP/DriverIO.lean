@@ -58,7 +58,7 @@ theorem decoded_error_stutters (s : State) (e : DecodeError) :
     (decodedStep s (.error e)).1 = s := by cases e <;> rfl
 
 theorem decoded_agrees (s : State) (c : Command) :
-    decodedStep s (.ok c) = ((Lifecycle.Pipeline.step Consumer s c).1,render (step s c).2) := rfl
+    decodedStep s (.ok c) = ((Lifecycle.Pipeline.step consumer s c).1,render (step s c).2) := rfl
 
 /-- Finite replay is a specification helper; the IO loop does not call it or
 retain a transcript. Invalid positions remain in its output list. -/
@@ -71,7 +71,7 @@ def acceptedCommands (xs : List (Except DecodeError Command)) : List Command :=
   xs.filterMap (fun x => match x with | .ok c => some c | .error _ => none)
 
 theorem replay_state (s : State) (xs : List (Except DecodeError Command)) :
-    (replay s xs).1 = (Lifecycle.Pipeline.run Consumer s (acceptedCommands xs)).1 := by
+    (replay s xs).1 = (Lifecycle.Pipeline.run consumer s (acceptedCommands xs)).1 := by
   induction xs generalizing s with
   | nil => rfl
   | cons x xs ih =>
@@ -79,7 +79,7 @@ theorem replay_state (s : State) (xs : List (Except DecodeError Command)) :
     | error e => cases e <;> simpa [replay,decodedStep,acceptedCommands] using ih s
     | ok c =>
       simpa [replay,decodedStep,acceptedCommands,Lifecycle.Pipeline.run,step] using
-        (ih (Lifecycle.Pipeline.step Consumer s c).1)
+        (ih (Lifecycle.Pipeline.step consumer s c).1)
 
 inductive Frame | eof | line (text : String) | error (reason : String)
 

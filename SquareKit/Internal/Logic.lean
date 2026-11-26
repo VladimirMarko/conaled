@@ -107,7 +107,7 @@ structure Interpretation (F : S → S → Type u)
   arrow : F s t → Carrier s → Carrier t
   /-- Empty relation signatures need no adapter field. The default predicate
   is false; nonempty signatures can supply any intended interpretation. -/
-  relation : P s t → Carrier s → Carrier t → Prop := fun _ _ _ => False
+  Relation : P s t → Carrier s → Carrier t → Prop := fun _ _ _ => False
 
 abbrev Env (M : Interpretation.{u,v} F P) (Γ : List S) := ∀ {s}, Var Γ s → M.Carrier s
 
@@ -119,11 +119,11 @@ def Term.eval (M : Interpretation F P) (ρ : Env M Γ) : Term F Γ s → M.Carri
   | .var x => ρ x
   | .app f t => M.arrow f (t.eval M ρ)
 
-def FormulaCore.eval (M : Interpretation F P) (ρ : Env M Γ) : Formula F Γ P → Prop
-  | .atom r a b => M.relation r (a.eval M ρ) (b.eval M ρ)
+def FormulaCore.Eval (M : Interpretation F P) (ρ : Env M Γ) : Formula F Γ P → Prop
+  | .atom r a b => M.Relation r (a.eval M ρ) (b.eval M ρ)
   | .eq a b => a.eval M ρ = b.eval M ρ
-  | .conj p q => p.eval M ρ ∧ q.eval M ρ
-  | .ex p => ∃ x, p.eval M (ρ.extend x)
+  | .conj p q => p.Eval M ρ ∧ q.Eval M ρ
+  | .ex p => ∃ x, p.Eval M (ρ.extend x)
 
 theorem term_subst (M : Interpretation F P) (σ : Sub F Γ Δ) (ρ : Env M Δ) (t : Term F Γ s) :
     (t.subst σ).eval M ρ = t.eval M (fun x => (σ x).eval M ρ) := by
@@ -136,13 +136,13 @@ theorem term_shift (M : Interpretation F P) (ρ : Env M Γ) (x : M.Carrier b) (t
   simp only [Term.shift, term_subst, Term.eval, Env.extend]
 
 theorem formula_subst (M : Interpretation F P) (p : Formula F Γ P) (σ : Sub F Γ Δ) (ρ : Env M Δ) :
-    (p.subst σ).eval M ρ ↔ p.eval M (fun x => (σ x).eval M ρ) := by
+    (p.subst σ).Eval M ρ ↔ p.Eval M (fun x => (σ x).eval M ρ) := by
   induction p generalizing Δ with
-  | atom r a b => simp only [FormulaCore.subst, FormulaCore.eval, term_subst]
-  | eq a b => simp only [FormulaCore.subst, FormulaCore.eval, term_subst]
-  | conj p q hp hq => simp only [FormulaCore.subst, FormulaCore.eval, hp, hq]
+  | atom r a b => simp only [FormulaCore.subst, FormulaCore.Eval, term_subst]
+  | eq a b => simp only [FormulaCore.subst, FormulaCore.Eval, term_subst]
+  | conj p q hp hq => simp only [FormulaCore.subst, FormulaCore.Eval, hp, hq]
   | ex p ih =>
-    simp only [FormulaCore.subst, FormulaCore.eval]
+    simp only [FormulaCore.subst, FormulaCore.Eval]
     apply exists_congr
     intro x
     rw [ih]
@@ -155,13 +155,13 @@ theorem formula_subst (M : Interpretation F P) (p : Formula F Γ P) (σ : Sub F 
     rw [h]
 
 theorem formula_shift (M : Interpretation F P) (p : Formula F Γ P) (ρ : Env M Γ) (x : M.Carrier s) :
-    p.shift.eval M (ρ.extend x) ↔ p.eval M ρ := by
+    p.shift.Eval M (ρ.extend x) ↔ p.Eval M ρ := by
   simpa only [FormulaCore.shift, Term.eval, Env.extend] using
     formula_subst M p (fun i => .var (.succ i)) (ρ.extend x)
 
 theorem formula_instantiate (M : Interpretation F P) (p : Formula F (s :: Γ) P)
     (t : Term F Γ s) (ρ : Env M Γ) :
-    (p.instantiate t).eval M ρ ↔ p.eval M (ρ.extend (t.eval M ρ)) := by
+    (p.instantiate t).Eval M ρ ↔ p.Eval M (ρ.extend (t.eval M ρ)) := by
   rw [FormulaCore.instantiate, formula_subst]
   have h : (fun {s} (i : Var _ s) => (single t i).eval M ρ) = (fun {s} (i : Var _ s) => ρ.extend (t.eval M ρ) i) := by
     funext s i
@@ -169,7 +169,7 @@ theorem formula_instantiate (M : Interpretation F P) (p : Formula F (s :: Γ) P)
   rw [h]
 
 def Valid (M : Interpretation F P) (p q : Formula F Γ P) : Prop :=
-  ∀ ρ, p.eval M ρ → q.eval M ρ
+  ∀ ρ, p.Eval M ρ → q.Eval M ρ
 
 theorem sound (M : Interpretation F P) (d : Derives p q) : Valid M p q := by
   induction d with
@@ -196,6 +196,6 @@ theorem sound (M : Interpretation F P) (d : Derives p q) : Valid M p q := by
 
 -- Namespace aliases preserve qualified #38 calls without wrapper definitions.
 namespace Formula
-export FormulaCore (atom eq conj ex subst shift instantiate eval)
+export FormulaCore (atom eq conj ex subst shift instantiate Eval)
 end Formula
 end SquareKit.Internal

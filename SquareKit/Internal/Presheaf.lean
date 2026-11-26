@@ -30,7 +30,7 @@ variable (M : Model (J := J) F P)
 def fiber (j : Jᵒᵖ) : Interpretation F P where
   Carrier s := (M.carrier s).obj j
   arrow f := (M.arrow f).app j
-  relation r x y := (M.relation r).obj j (x, y)
+  Relation r x y := (M.relation r).obj j (x, y)
 
 def restrict {j k : Jᵒᵖ} (f : j ⟶ k) (ρ : Env (M.fiber j) Γ) : Env (M.fiber k) Γ :=
   fun {s} i => (M.carrier s).map f (ρ i)
@@ -147,7 +147,7 @@ theorem image_projection (Q : Subfunctor (M.context (s :: Γ))) (j : Jᵒᵖ)
 
 /-- One comparison for every formula; applications need no formula induction. -/
 theorem evaluation (p : Formula F Γ P) (j : Jᵒᵖ) (ρ : Env (M.fiber j) Γ) :
-    (M.formula p).obj j ρ ↔ p.eval (M.fiber j) ρ := by
+    (M.formula p).obj j ρ ↔ p.Eval (M.fiber j) ρ := by
   induction p with
   | atom => rfl
   | eq => rfl

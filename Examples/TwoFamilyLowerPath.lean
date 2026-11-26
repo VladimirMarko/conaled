@@ -18,7 +18,7 @@ set_option backward.isDefEq.respectTransparency.types false
 set_option backward.defeqAttrib.useBackward true
 
 def cyclicContext : Context where
-  carrier := LocallyDiscrete C4
+  Carrier := LocallyDiscrete C4
   bicategory := inferInstance
   strict := inferInstance
   groupoid := by

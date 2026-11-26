@@ -48,7 +48,7 @@ example : ¬ Function.Surjective (boundedShift 1 (show 2+1 ≤ 4 by omega)).toFu
   boundedShift_second_proper 1
 
 /-- Returned cut labels do not affect the successful coordinate or its value. -/
-example : finalCuts.realizes (encode (Code.comp (Code.const 99) (cutCode 3))) ⟨some 3⟩ :=
+example : finalCuts.Realizes (encode (Code.comp (Code.const 99) (cutCode 3))) ⟨some 3⟩ :=
   InternalIteration.alternative_cut_labels
 example : cutWait.toFun (⟨some 3⟩,(2 : Nat)) = some (2 : Nat) := rfl
 

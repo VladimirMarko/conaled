@@ -37,13 +37,13 @@ theorem rawRootContraction_normalized {Γ : Context.{u}} (A : Family Γ) (x : UL
       g.assign d.toExpr
       Lean.Elab.Tactic.replaceMainGoal []
 
-private def normalized_cast {Γ Δ : Context.{u}} {i j : StrictPseudofunctor Δ Γ}
+private def castNormalizedContraction {Γ Δ : Context.{u}} {i j : StrictPseudofunctor Δ Γ}
     (c : SourceContraction i) (hc : c.Normalized) (h : i = j) :
     {d : SourceContraction j // d.Normalized} :=
   ⟨c.cast h, SourceContraction.cast_normalized h c hc⟩
 noncomputable def rootContraction {Γ : Context.{u}} (A : Family Γ) (x : ULift.{u+1} (TwoFamily.Section A.data)) :
     {c : SourceContraction ((M).rootSub A x).down // c.Normalized} :=
-  normalized_cast (rawRootContraction C D A x) (rawRootContraction_normalized C D A x)
+  castNormalizedContraction (rawRootContraction C D A x) (rawRootContraction_normalized C D A x)
     (rootSub_down_eq C D A x).symm
 
 theorem rawRootContraction_square {Γ Δ : Context.{u}} (A : Family Γ)

@@ -17,14 +17,14 @@ abbrev classify (A : Ty Γ) := (code Γ.obj.Elements (Type (max u v))).obj A.fam
 
 /-- Classification retains formation after substitution, including the result
 family reindexed along the argument display map. -/
-theorem pi_reindex (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem pi_reindex (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     (reindex σ.hom.mapElements).obj (classify (SplitSheafPi.pi A B)) =
       classify (SplitSheafPi.pi (tySub A σ) (tySub B (lift A σ))) := by
   change classify (tySub (SplitSheafPi.pi A B) σ) = _
   exact congrArg classify (SplitSheafPi.substitution A B σ)
 
 /-- The classified output has the same actual display pullback. -/
-theorem display_pullback (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ) :
+theorem display_pullback (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     IsPullback (SplitPresheaf.lift (SplitSheafPi.pi A B).family σ.hom)
       (SplitPresheaf.p (SplitPresheaf.tySub (SplitSheafPi.pi A B).family σ.hom))
       (ClassifierDisplayComparison.projection Γ.obj (classify (SplitSheafPi.pi A B))) σ.hom :=
@@ -42,8 +42,8 @@ def sections (A : Ty Γ) (σ : Δ ⟶ Γ) : Tm (tySub A σ) ≃ Section A σ whe
   left_inv _ := rfl
   right_inv k := by
     apply Subtype.ext
-    exact congrArg (fun f : Δ ⟶ Ext A => f.hom) (pair_read A ⟨k.val⟩
-      (show (⟨k.val⟩ : Δ ⟶ Ext A) ≫ p A = σ from by
+    exact congrArg (fun f : Δ ⟶ extension A => f.hom) (pair_read A ⟨k.val⟩
+      (show (⟨k.val⟩ : Δ ⟶ extension A) ≫ p A = σ from by
         apply ObjectProperty.hom_ext; exact k.property))
 
 def sub {A : Ty Γ} {σ : Δ ⟶ Γ} (t : Section A σ) (τ : Ξ ⟶ Δ) :
@@ -83,35 +83,35 @@ theorem map_sub {A B : Ty Γ} (f : classify A ⟶ classify B)
     map f (sub t τ) = sub (map f t) τ := rfl
 
 /-- Lambda at an arbitrary base substitution, with the result display fixed. -/
-def lam (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+def lam (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section B (lift A σ)) : Section (SplitSheafPi.pi A B) σ :=
   sections _ σ (SplitSheafPi.lamAt A B σ ((sections B (lift A σ)).symm t))
 
-def unlam (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+def unlam (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section (SplitSheafPi.pi A B) σ) : Section B (lift A σ) :=
   sections B _ (SplitSheafPi.unlamAt A B σ ((sections _ σ).symm t))
 
-@[simp] theorem beta (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+@[simp] theorem beta (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section B (lift A σ)) : unlam A B σ (lam A B σ t) = t := by
   simp [lam, unlam]
 
-@[simp] theorem eta (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+@[simp] theorem eta (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section (SplitSheafPi.pi A B) σ) : lam A B σ (unlam A B σ t) = t := by
   simp [lam, unlam]
 
-theorem lam_sections (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem lam_sections (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Tm (tySub B (lift A σ))) :
     lam A B σ (sections B _ t) = sections _ σ (SplitSheafPi.lamAt A B σ t) := by
   simp [lam]
 
-theorem lam_sub (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem lam_sub (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section B (lift A σ)) (τ : Ξ ⟶ Δ) :
     lam A B (τ ≫ σ) (sub t (lift (tySub A σ) τ)) = sub (lam A B σ t) τ := by
   obtain ⟨s, rfl⟩ := (sections B (lift A σ)).surjective t
   change lam A B (τ ≫ σ) (sections B _ (tmSub s (lift (tySub A σ) τ))) = _
   erw [lam_sections, lam_sections, ← sections_sub, SplitSheafPi.lamAt_natural]
 
-theorem lam_sub_twice (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem lam_sub_twice (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section B (lift A σ)) (τ : Ξ ⟶ Δ) (υ : Ω ⟶ Ξ) :
     lam A B (υ ≫ τ ≫ σ)
       (sub (sub t (lift (tySub A σ) τ)) (lift (tySub A (τ ≫ σ)) υ)) =
@@ -119,19 +119,19 @@ theorem lam_sub_twice (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
   erw [lam_sub, lam_sub]
 
 /-- Application lands above the actual argument pairing, retaining dependence. -/
-def app (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+def app (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section (SplitSheafPi.pi A B) σ) (a : Tm (tySub A σ)) :
     Section B (pair A σ a) :=
   sub (unlam A B σ t) (pair (tySub A σ) (𝟙 Δ) a)
 
-@[simp] theorem app_beta (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+@[simp] theorem app_beta (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section B (lift A σ)) (a : Tm (tySub A σ)) :
     app A B σ (lam A B σ t) a = sub t (pair (tySub A σ) (𝟙 Δ) a) := by
   unfold app
   rw [beta]
 
 /-- The classified application recovers the existing dependent application. -/
-theorem app_sections (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem app_sections (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Tm (tySub (SplitSheafPi.pi A B) σ)) (a : Tm (tySub A σ)) :
     app A B σ (sections _ σ t) a = sections B (pair A σ a)
       (SplitSheafPi.app (tySub A σ) (B := tySub B (lift A σ))
@@ -139,21 +139,21 @@ theorem app_sections (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
   simp only [app, unlam, Equiv.symm_apply_apply]
   rfl
 
-theorem unlam_sub (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem unlam_sub (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section (SplitSheafPi.pi A B) σ) (τ : Ξ ⟶ Δ) :
     unlam A B (τ ≫ σ) (sub t τ) = sub (unlam A B σ t) (lift (tySub A σ) τ) := by
   have h := congrArg (unlam A B (τ ≫ σ)) (lam_sub A B σ (unlam A B σ t) τ)
   simp only [eta] at h
   exact h.symm.trans (beta A B (τ ≫ σ) _)
 
-theorem app_sub (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem app_sub (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section (SplitSheafPi.pi A B) σ) (a : Tm (tySub A σ)) (τ : Ξ ⟶ Δ) :
     app A B (τ ≫ σ) (sub t τ) (tmSub a τ) = sub (app A B σ t a) τ := by
   unfold app
   rw [unlam_sub]
   rfl
 
-theorem app_sub_twice (A : Ty Γ) (B : Ty (Ext A)) (σ : Δ ⟶ Γ)
+theorem app_sub_twice (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ)
     (t : Section (SplitSheafPi.pi A B) σ) (a : Tm (tySub A σ))
     (τ : Ξ ⟶ Δ) (υ : Ω ⟶ Ξ) :
     app A B (υ ≫ τ ≫ σ) (sub (sub t τ) υ) (tmSub (tmSub a τ) υ) =

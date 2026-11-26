@@ -22,7 +22,7 @@ def PartialSection.app {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
 
 theorem PartialSection.app_val {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     {φ : Subcontext Γ} (s : PartialSection (pi A B) φ) (x : (total A).Elements)
-    (h : (φ.reindex (projection A)).holds x) :
+    (h : (φ.reindex (projection A)).Holds x) :
     s.app.val x h = (s.val ((projection A).mapElements.obj x) h).val (𝟙 _) x.val.2 := rfl
 
 theorem PartialSection.app_reindex {Γ Δ : Context.{u}} {A : Family Γ}
@@ -62,12 +62,12 @@ end OpenBox
 
 namespace FunctionFilling
 variable {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)}
-abbrev Args (A : Family Γ) (p : total (interval Δ) ⟶ Γ) : Context := total (reindex A p)
-def argumentProjection (p : total (interval Δ) ⟶ Γ) : Args A p ⟶ Δ :=
+abbrev argumentContext (A : Family Γ) (p : total (interval Δ) ⟶ Γ) : Context := total (reindex A p)
+def argumentProjection (p : total (interval Δ) ⟶ Γ) : argumentContext A p ⟶ Δ :=
   projection (reindex A p) ≫ projection (interval Δ)
-def target (p : total (interval Δ) ⟶ Γ) : Term (interval (Args A p)) :=
+def target (p : total (interval Δ) ⟶ Γ) : Term (interval (argumentContext A p)) :=
   Term.reindex (generic (interval Δ)) (projection (reindex A p))
-def argumentPath (p : total (interval Δ) ⟶ Γ) : total (interval (Args A p)) ⟶ Γ :=
+def argumentPath (p : total (interval Δ) ⟶ Γ) : total (interval (argumentContext A p)) ⟶ Γ :=
   intervalSub (argumentProjection (A := A) p) ≫ p
 
 def argumentBox (p : total (interval Δ) ⟶ Γ) :
@@ -113,8 +113,8 @@ theorem fill_normalize (F : Filling A) (hF : F.Lawful) (G : Filling B)
 
 theorem body_tube (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
     (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ))
-    (b : OpenBox (reindex (pi A B) p) φ r) (z : (Args A p).Elements)
-    (hz : φ.holds ((argumentProjection p).mapElements.obj z)) :
+    (b : OpenBox (reindex (pi A B) p) φ r) (z : (argumentContext A p).Elements)
+    (hz : φ.Holds ((argumentProjection p).mapElements.obj z)) :
     (body F hF G p φ r b).val z =
       (b.tube.val ((projection (reindex A p)).mapElements.obj z) hz).val (𝟙 _) z.val.2 := by
   have hc := Filling.comp_tube hG (pair (argumentPath p) (argument F p))
@@ -152,7 +152,7 @@ set_option backward.isDefEq.respectTransparency false in
 theorem fill_tube (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
     (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ))
     (b : OpenBox (reindex (pi A B) p) φ r) (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (fill F hF G p φ r b).val x = b.tube.val x hx := by
   apply ((piReindexIso A B p).app x).toEquiv.injective
   change (Term.map (piReindex A B p) (fill F hF G p φ r b)).val x = _

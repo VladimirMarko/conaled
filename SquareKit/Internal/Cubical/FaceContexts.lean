@@ -20,14 +20,14 @@ def faceContext : Context.{u} where
 
 abbrev Cofibration (Γ : Context.{u}) := Γ ⟶ faceContext.{u}
 
-def Cofibration.full {Γ : Context.{u}} (φ : Cofibration Γ) (x : Γ.Elements) : Prop :=
+def Cofibration.Full {Γ : Context.{u}} (φ : Cofibration Γ) (x : Γ.Elements) : Prop :=
   Face.Full (φ.app x.obj x.val).down
 
-instance {Γ : Context.{u}} (φ : Cofibration Γ) (x : Γ.Elements) : Decidable (φ.full x) :=
+instance {Γ : Context.{u}} (φ : Cofibration Γ) (x : Γ.Elements) : Decidable (φ.Full x) :=
   inferInstanceAs (Decidable ((φ.app x.obj x.val).down.holds (fun _ => none) = true))
 
 theorem Cofibration.full_natural {Γ : Context.{u}} (φ : Cofibration Γ) {x y : Γ.Elements}
-    (f : x ⟶ y) (h : φ.full x) : φ.full y := by
+    (f : x ⟶ y) (h : φ.Full x) : φ.Full y := by
   have hp := Face.full_substitute f.hom.unop (φ.app x.obj x.val).down h
   have he := congrArg ULift.down (φ.naturality_apply f.hom x.val)
   change (φ.app y.obj (Γ.map f.hom x.val)).down = Face.substitute f.hom.unop (φ.app x.obj x.val).down at he
@@ -39,7 +39,7 @@ theorem Cofibration.full_natural {Γ : Context.{u}} (φ : Cofibration Γ) {x y :
 def Cofibration.reindex {Γ Δ : Context.{u}} (φ : Cofibration Γ) (σ : Δ ⟶ Γ) : Cofibration Δ := σ ≫ φ
 
 @[simp] theorem Cofibration.full_reindex {Γ Δ : Context.{u}} (φ : Cofibration Γ) (σ : Δ ⟶ Γ)
-    (x : Δ.Elements) : (φ.reindex σ).full x ↔ φ.full (σ.mapElements.obj x) := Iff.rfl
+    (x : Δ.Elements) : (φ.reindex σ).Full x ↔ φ.Full (σ.mapElements.obj x) := Iff.rfl
 
 def Cofibration.top (Γ : Context.{u}) : Cofibration Γ where
   app I := TypeCat.ofHom (fun _ => ⟨Face.top I.unop.dimension⟩)
@@ -66,13 +66,13 @@ def Cofibration.join {Γ : Context.{u}} (φ ψ : Cofibration Γ) : Cofibration �
       (φ.naturality_apply f x) (ψ.naturality_apply f x)
 
 @[simp] theorem Cofibration.full_meet {Γ : Context.{u}} (φ ψ : Cofibration Γ) (x : Γ.Elements) :
-    (φ.meet ψ).full x ↔ φ.full x ∧ ψ.full x := Face.full_meet _ _
+    (φ.meet ψ).Full x ↔ φ.Full x ∧ ψ.Full x := Face.full_meet _ _
 @[simp] theorem Cofibration.full_join {Γ : Context.{u}} (φ ψ : Cofibration Γ) (x : Γ.Elements) :
-    (φ.join ψ).full x ↔ φ.full x ∨ ψ.full x := Face.full_join _ _
+    (φ.join ψ).Full x ↔ φ.Full x ∨ ψ.Full x := Face.full_join _ _
 
 /-- The restricted context has precisely the elements where the face is full. -/
 def restrictContext {Γ : Context.{u}} (φ : Cofibration Γ) : Context.{u} where
-  obj I := {x : Γ.obj I // φ.full (Γ.elementsMk I x)}
+  obj I := {x : Γ.obj I // φ.Full (Γ.elementsMk I x)}
   map f := TypeCat.ofHom (fun x => ⟨Γ.map f x.val,φ.full_natural (Functor.Elements.homMk f rfl) x.property⟩)
   map_id I := by
     apply ConcreteCategory.hom_ext

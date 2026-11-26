@@ -27,7 +27,7 @@ private def pureParameters : Machine.Parameters Empty where
   matchException := 20
   bindException := 21
 
-private def operations : Empty → Prop := fun _ => False
+private def Operations : Empty → Prop := fun _ => False
 private def definitions : List (Nat × Rhs Empty) := [(1, .delay (.atom (.integer 7)))]
 private def outerBody : Core.Expr Empty :=
   .recursive (Rhs.toBindings definitions) (.variable 1)
@@ -48,7 +48,7 @@ private def rawAfter : Core.Machine.Config Empty :=
 private def pureAfter : Machine.Config Empty :=
   ⟨.eval (bodyEnvironment [] (some (.mk definitions []))) (.variable 1), pureStack⟩
 
-private theorem outer_code : CodeAllowed operations outerBody := by
+private theorem outer_code : CodeAllowed Operations outerBody := by
   apply (CodeAllowed.recursive_iff _ _).mpr
   refine ⟨?_, CodeAllowed.variable 1, Rhs.toBindings_permitted definitions, by decide⟩
   apply (NamedCodeAllowed.cons_iff _ _ []).mpr
@@ -57,7 +57,7 @@ private theorem outer_code : CodeAllowed operations outerBody := by
 private theorem before_state : Memory.StateRep pureParameters beforeWorld beforeMemory :=
   ((Memory.StateRep.empty pureParameters).delay EnvRep.nil outerBody).2.1
 
-private theorem before_allowed : WorldAllowed operations beforeWorld :=
+private theorem before_allowed : WorldAllowed Operations beforeWorld :=
   WorldAllowed.empty.put 0 outerMeaning (.suspension outer_code .nil .none)
 
 private theorem pending_history :
@@ -76,7 +76,7 @@ creation prefix. The still-pending outer occurrence has a valid past history
 after creation, and no new body was entered during those five transitions. -/
 theorem creation_preserves_active_history :
     ∃ world,
-      Durability.Extends beforeWorld world ∧ WorldAllowed operations world ∧
+      Durability.Extends beforeWorld world ∧ WorldAllowed Operations world ∧
       Core.Prefix.observe rawParameters 5 rawBefore = .inr rawAfter ∧
       Recurrence.Reaches pureParameters 1 pureBefore pureAfter ∧
       ConfigRep pureParameters world rawAfter pureAfter ∧

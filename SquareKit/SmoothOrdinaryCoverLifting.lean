@@ -7,9 +7,9 @@ open scoped ContDiff
 namespace SquareKit.EuclideanOpen
 open SmoothAlgebra SmoothPresentationSite
 
-theorem function_isUnit (U : Domain) (b : Functions U) (hb : ∀ x, b.val x ≠ 0) :
+theorem function_isUnit (U : Domain) (b : functionAlgebra U) (hb : ∀ x, b.val x ≠ 0) :
     IsUnit b := by
-  let c : Functions U := ⟨fun x => (b.val x)⁻¹, by
+  let c : functionAlgebra U := ⟨fun x => (b.val x)⁻¹, by
     apply (OpenFunctions.representative_iff _ (fun x => (OpenFunctions.extendZero (Points U) b.val x)⁻¹)
       (fun x => congrArg Inv.inv (OpenFunctions.extendZero_mem b.val x))).mpr
     exact b.property.inv (fun x hx => (OpenFunctions.extendZero_mem b.val ⟨x, hx⟩) ▸ hb ⟨x, hx⟩)⟩
@@ -26,7 +26,7 @@ theorem element_isUnit (U : Domain) (a : Localization.Principal U.defining)
   change IsUnit (Localization.fromOpen U.defining (Localization.toOpen U.defining a)) at h
   exact he ▸ h
 
-def functionMap (U : Domain) (b : Functions U) : U ⟶ full 1 where
+def functionMap (U : Domain) (b : functionAlgebra U) : U ⟶ full 1 where
   toFun x := ⟨fun _ => b.val x, one_ne_zero⟩
   smooth _ := b.property
 
@@ -34,7 +34,7 @@ def functionMap (U : Domain) (b : Functions U) : U ⟶ full 1 where
 principal neighborhood of that point. -/
 theorem local_unit (U : Domain) (a : Localization.Principal U.defining)
     (x : Points U) (ha : (Localization.toOpen U.defining a).val x ≠ 0) :
-    ∃ q : Free U.dimension, q.val x.val ≠ 0 ∧
+    ∃ q : freeAlgebra U.dimension, q.val x.val ≠ 0 ∧
       IsUnit (Localization.pullback (subInclusion U q) a) := by
   let f := functionMap U (Localization.toOpen U.defining a)
   let q := inverseDefining f (generator 0)
@@ -49,7 +49,7 @@ coordinate inclusion around every point of the test domain. -/
 theorem covering_local_inclusion {X : Site} (S : Sieve X)
     (hS : S ∈ SmoothOpenSite.topology X) (U : Domain)
     (f : toSite.obj U ⟶ X) (x : Points U) :
-    ∃ q : Free U.dimension, ∃ u : (⟨U.dimension, q⟩ : Domain) ⟶ U,
+    ∃ q : freeAlgebra U.dimension, ∃ u : (⟨U.dimension, q⟩ : Domain) ⟶ U,
       (∀ y, ((show Map _ _ from u) y).val = y.val) ∧
       (∃ y, (show Map _ _ from u) y = x) ∧ S (toSite.map u ≫ f) := by
   induction hS generalizing U with

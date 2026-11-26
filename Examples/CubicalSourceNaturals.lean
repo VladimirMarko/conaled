@@ -19,7 +19,7 @@ noncomputable def environment : Fin 4 → Value :=
     .term base (reindex finiteMotive (Presheaf.pair (𝟙 base) (natZero base))) zeroCase,
     .term (total finiteMotive) (reindex finiteMotive (projection finiteMotive ≫ natSuccessorSub base)) stepCase.toTerm]
 
-theorem premises : ∀ p ∈ List.ofFn successorBetaRule.premise, p.eval Naturals.algebra environment := by
+theorem premises : ∀ p ∈ List.ofFn successorBetaRule.premise, p.Eval Naturals.algebra environment := by
   intro p hp
   rcases List.mem_ofFn.mp hp with ⟨i,rfl⟩
   have hz := zeroSub_eval (.var (0 : Fin 4)) environment base rfl

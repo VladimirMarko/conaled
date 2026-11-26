@@ -9,7 +9,7 @@ namespace CoList
 variable {A : Type}
 
 def ofList (xs : List A) : CoList A where
-  live n := n < xs.length
+  Live n := n < xs.length
   initial := fun h hj => lt_of_le_of_lt h hj
   value i := xs[i.val]
 
@@ -21,7 +21,7 @@ theorem ofList_injective : Function.Injective (@ofList A) := by
   intro xs ys h
   have hl : xs.length = ys.length := by
     have hd : ∀ n, n < xs.length ↔ n < ys.length := fun n =>
-      Iff.of_eq (congrArg (fun s : CoList A => s.live n) h)
+      Iff.of_eq (congrArg (fun s : CoList A => s.Live n) h)
     apply Nat.le_antisymm
     · by_contra hn
       exact (Nat.lt_irrefl _) ((hd ys.length).mp (Nat.lt_of_not_ge hn))
@@ -90,7 +90,7 @@ def fromFiniteBatch (b : {b : Batch ℝ A // b.FiniteHistory}) : FRPSpec.Event A
   finite_past t := by
     apply ((b.property t).image Batch.Occ.time).subset
     rintro u ⟨hu, hne⟩
-    have hex : ∃ i, (b.val u).live i := by
+    have hex : ∃ i, (b.val u).Live i := by
       by_contra hn
       apply hne
       apply CoList.ofList_injective

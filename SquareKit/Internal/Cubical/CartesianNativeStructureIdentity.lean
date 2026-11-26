@@ -197,7 +197,7 @@ theorem extend_on_face :
       (pathTerm_hext _ _ (totalPath_on_face f C E FA hFA FB hFB σ s FC hFC))).trans
       (genericFiberIntro_eta (map f C) (restrictInclusion φ ≫ σ) s.toRestricted))
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Holds x) :
     (extend f C E FA hFA FB hFB σ s FC hFC).val x = s.val x hx :=
   congrArg (fun t => t.val ((restrictContext φ).elementsMk x.obj ⟨x.val,hx⟩))
     (extend_on_face f C E FA hFA FB hFB σ s FC hFC)

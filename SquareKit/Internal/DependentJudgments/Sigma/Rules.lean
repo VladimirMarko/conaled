@@ -53,7 +53,7 @@ theorem packOver_valid : Satisfies (algebra M S) packOverRule := by
 /-- Inversion of the eliminator guards recovers a motive depending on the
 whole sum value and a branch in its pullback along packing. -/
 theorem splitSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value M.toStructuralModel)
-    (h : ∀ i, ((splitSchema out).premise i).eval (algebra M S) ρ) :
+    (h : ∀ i, ((splitSchema out).premise i).Eval (algebra M S) ρ) :
     ∃ (Γ : M.Context) (A : M.Family Γ) (B : M.Family (M.extend Γ A))
       (C : M.Family (M.extend Γ (S.sigma A B)))
       (d : M.Section (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B))),
@@ -61,7 +61,7 @@ theorem splitSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value M.toSt
         .family (M.extend Γ (S.sigma A B)) C,
         .term (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B)) d] := by
   let ρ₀ : Fin 3 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
-  have h₀ : ∀ i, (formationRule.premise i).eval (algebra M S) ρ₀ := by
+  have h₀ : ∀ i, (formationRule.premise i).Eval (algebra M S) ρ₀ := by
     intro i
     fin_cases i <;> first | exact h 0 | exact h 1
   rcases formationSchema_inputs M S _ ρ₀ h₀ with ⟨Γ, A, B, e⟩
@@ -105,7 +105,7 @@ theorem splitSchema_valid (out : Judgment (Fin 5))
     (valid : ∀ (Γ : M.Context) (A : M.Family Γ) (B : M.Family (M.extend Γ A))
       (C : M.Family (M.extend Γ (S.sigma A B)))
       (d : M.Section (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B))),
-      out.eval (algebra M S) ![.context Γ, .family Γ A, .family (M.extend Γ A) B,
+      out.Eval (algebra M S) ![.context Γ, .family Γ A, .family (M.extend Γ A) B,
         .family (M.extend Γ (S.sigma A B)) C,
         .term (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B)) d]) :
     Satisfies (algebra M S) (splitSchema out) := by

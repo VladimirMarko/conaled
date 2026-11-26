@@ -124,7 +124,7 @@ def scanJob (r : Request) (implementation : String) : Except String Job := do
       pure ([ScanPlan.pair.rightPow r.power, ScanPlan.pair.leftPow r.power], [], 2^r.power)
     else throw "unknown scan variant"
   let base := baseContext r implementation
-  let ctx := admittedContext catalog (PolicyChoice.admitted frames size r.depthLimit)
+  let ctx := admittedContext catalog (PolicyChoice.Admitted frames size r.depthLimit)
     PolicyChoice.identify (PolicyChoice.scope frames size r.depthLimit base)
   return {
     context := ctx

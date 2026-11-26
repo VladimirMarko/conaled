@@ -17,13 +17,13 @@ def natCode : raisedContext naturals ⟶ smallFamilyCodes :=
   discreteCode (unitIndex naturals) (fun _ => Nat)
 
 def natDecode : decode natCode ≅ constantFamily naturals Nat :=
-  discreteCode_decode (unitIndex naturals) (fun _ => Nat)
+  discreteCodeDecodeIso (unitIndex naturals) (fun _ => Nat)
 
 def intCode : raisedContext naturals ⟶ smallFamilyCodes :=
   discreteCode (unitIndex naturals) (fun _ => Int)
 
 def intDecode : decode intCode ≅ constantFamily naturals Int :=
-  discreteCode_decode (unitIndex naturals) (fun _ => Int)
+  discreteCodeDecodeIso (unitIndex naturals) (fun _ => Int)
 
 /-- Read the actual decoded argument, not just a constant in its base context. -/
 def argument : Term (constantFamily (total (decode natCode)) Nat) :=
@@ -34,7 +34,7 @@ def dependentCode : raisedContext (total (decode natCode)) ⟶ smallFamilyCodes 
   discreteCode argument (fun n => Fin (n+1))
 
 def dependentDecode : decode dependentCode ≅ discreteFamily argument (fun n => Fin (n+1)) :=
-  discreteCode_decode argument (fun n => Fin (n+1))
+  discreteCodeDecodeIso argument (fun n => Fin (n+1))
 
 def atArgument (n : Nat) : (total (decode natCode)).Elements :=
   (total (decode natCode)).elementsMk (Opposite.op ⟨0⟩) ⟨(0 : Nat),n⟩
@@ -79,20 +79,20 @@ theorem selected_last_at_two :
   rfl
 
 def sigmaComparison : decode (sigmaCode natCode dependentCode) ≅
-    sigma (decode natCode) (decode dependentCode) := sigmaCode_decode natCode dependentCode
+    sigma (decode natCode) (decode dependentCode) := sigmaCodeDecodeIso natCode dependentCode
 
 noncomputable def piComparison : decode (piCode natCode dependentCode) ≅
-    pi (decode natCode) (decode dependentCode) := piCode_decode natCode dependentCode
+    pi (decode natCode) (decode dependentCode) := piCodeDecodeIso natCode dependentCode
 
 def sigmaSubstitution : decode (raisedSub successor ≫ sigmaCode natCode dependentCode) ≅
     decode (sigmaCode (raisedSub successor ≫ natCode)
       (raisedSub (liftSub (decode natCode) successor) ≫ dependentCode)) :=
-  sigmaCode_reindex natCode dependentCode successor
+  sigmaCodeReindexIso natCode dependentCode successor
 
 noncomputable def piSubstitution : decode (raisedSub twice ≫ piCode natCode dependentCode) ≅
     decode (piCode (raisedSub twice ≫ natCode)
       (raisedSub (liftSub (decode natCode) twice) ≫ dependentCode)) :=
-  piCode_reindex natCode dependentCode twice
+  piCodeReindexIso natCode dependentCode twice
 
 
 def sumCode := sigmaCode natCode dependentCode
@@ -103,8 +103,8 @@ def unitOverSum : raisedContext (total (decode sumCode)) ⟶ smallFamilyCodes :=
 noncomputable def functionsCode := piCode sumCode unitOverSum
 
 noncomputable def functionSection : Term (decode functionsCode) :=
-  Term.map (piCode_decode sumCode unitOverSum).inv
-    (lam (Term.map (discreteCode_decode (unitIndex (total (decode sumCode))) (fun _ => Unit)).inv
+  Term.map (piCodeDecodeIso sumCode unitOverSum).inv
+    (lam (Term.map (discreteCodeDecodeIso (unitIndex (total (decode sumCode))) (fun _ => Unit)).inv
       (unitIndex (total (decode sumCode)))))
 
 noncomputable def pathBody := raisedSub (projection (interval naturals)) ≫ functionsCode
@@ -117,14 +117,14 @@ noncomputable def composedPathComparison : decode composedPathCode ≅
     path (decode pathBody)
       (functionSection.reindex (endpointSub naturals false ≫ projection (interval naturals)))
       (functionSection.reindex (endpointSub naturals true ≫ projection (interval naturals))) :=
-  pathCode_decode pathBody _ _
+  pathCodeDecodeIso pathBody _ _
 
 noncomputable def composedPathSubstitution :
     decode (raisedSub successor ≫ composedPathCode) ≅
       decode (pathCode (raisedSub (liftSub (interval naturals) successor) ≫ pathBody)
         ((functionSection.reindex (endpointSub naturals false ≫ projection (interval naturals))).reindex successor)
         ((functionSection.reindex (endpointSub naturals true ≫ projection (interval naturals))).reindex successor)) :=
-  pathCode_reindex pathBody _ _ successor
+  pathCodeReindexIso pathBody _ _ successor
 
 
 -- Elaboration rejection checks, not impossibility theorems about bare families.

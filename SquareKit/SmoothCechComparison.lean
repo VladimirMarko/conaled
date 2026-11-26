@@ -9,8 +9,8 @@ open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafAction
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 namespace Hom
 variable {p q : Datum (d := d) (G := G) (M := M) A} (f : Hom p q)
 
@@ -61,7 +61,7 @@ theorem localLabel_commutes :
   simpa only [mul_inv_rev] using congrArg Inv.inv (f.commutes i j x)
 
 /-- The entire local arrow on the split cover, retaining its right label. -/
-def splitLabel : SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover) ⟶ locallyConstantGroupSheaf G :=
+def splitLabel : SplitSheaf.extension (SplitSheaf.ofDisplay A.cover) ⟶ locallyConstantGroupSheaf G :=
   (SplitSheaf.displayIso A.cover).hom ≫ f.localLabel smoothAction
 
 omit [TopologicalSpace G] [DiscreteTopology G] in
@@ -226,18 +226,18 @@ def ofCechMap (f : SheafActionQuotient.Cech.Map (p.cech smoothAction) (q.cech sm
       (show (locallyConstantGroup G).obj.obj U from (q.splitLabel smoothAction).hom.app U x) =
       _ at h
     change _ = f.localArrow.torsorArrow.iso.hom.app
-      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U
+      ((SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U
         ((SplitSheaf.Cech.second _).hom.app U x))
       ((1 : (locallyConstantGroup G).obj.obj U) *
         (show (locallyConstantGroup G).obj.obj U from (p.splitLabel smoothAction).hom.app U x)) at h
     rw [one_mul] at h
     have he := f.localArrow.torsorArrow.equivariant
-      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U
+      ((SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U
         ((SplitSheaf.Cech.second _).hom.app U x))
       (show (locallyConstantGroup G).obj.obj U from (p.splitLabel smoothAction).hom.app U x)
       (1 : (locallyConstantGroup G).obj.obj U)
     change f.localArrow.torsorArrow.iso.hom.app
-      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U
+      ((SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U
         ((SplitSheaf.Cech.second (SplitSheaf.ofDisplay A.cover)).hom.app U x))
       ((show (locallyConstantGroup G).obj.obj U from (p.splitLabel smoothAction).hom.app U x) *
         (1 : (locallyConstantGroup G).obj.obj U)) =

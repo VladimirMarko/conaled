@@ -57,51 +57,51 @@ theorem chart_transition_source (z w : E) :
   rw [S.projection] at h
   rwa [proj_chart_symm (n := n) S z hx.1] at h
 
-theorem isManifold [IsManifold (Model n) ∞ B] :
+theorem isManifold [IsManifold (modelWithCorners n) ∞ B] :
     letI := chartedSpace (n := n) S
-    IsManifold (Model n) ∞ E := by
+    IsManifold (modelWithCorners n) ∞ E := by
   let := chartedSpace (n := n) S
-  apply isManifold_of_contDiffOn (Model n) ∞ E
+  apply isManifold_of_contDiffOn (modelWithCorners n) ∞ E
   rintro e e' ⟨z, rfl⟩ ⟨w, rfl⟩
   have h := contMDiffOn_of_mem_contDiffGroupoid
-    ((contDiffGroupoid ∞ (Model n)).compatible
+    ((contDiffGroupoid ∞ (modelWithCorners n)).compatible
       (chart_mem_atlas (Space n) (p z)) (chart_mem_atlas (Space n) (p w)))
   have hd := h.contDiffOn.mono (chart_transition_source (n := n) S z w)
-  simpa only [Model, modelWithCornersSelf_coe, modelWithCornersSelf_coe_symm,
+  simpa only [modelWithCorners, modelWithCornersSelf_coe, modelWithCornersSelf_coe_symm,
     Function.comp_id, Function.id_comp, Set.preimage_id, Set.range_id, Set.inter_univ] using
     hd.congr (fun x hx => chart_transition (n := n) S z w hx)
 
-theorem smooth_of_proj_at [IsManifold (Model n) ∞ B] {k : ℕ} {N : Type}
+theorem smooth_of_proj_at [IsManifold (modelWithCorners n) ∞ B] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N]
     (h : N → E) (x : N) (hc : ContinuousAt h x)
-    (hs : ContMDiffAt (Model k) (Model n) ∞ (p ∘ h) x) :
+    (hs : ContMDiffAt (modelWithCorners k) (modelWithCorners n) ∞ (p ∘ h) x) :
     letI := chartedSpace (n := n) S
-    ContMDiffAt (Model k) (Model n) ∞ h x := by
+    ContMDiffAt (modelWithCorners k) (modelWithCorners n) ∞ h x := by
   let := chartedSpace (n := n) S
   apply contMDiffAt_iff_target.mpr
   refine ⟨hc, ?_⟩
-  change ContMDiffAt (Model k) (Model n) ∞
+  change ContMDiffAt (modelWithCorners k) (modelWithCorners n) ∞
     ((chartAt (Space n) (p (h x))) ∘ (S.sheet (h x) ∘ h)) x
   rw [S.projection]
-  exact (contMDiffOn_chart (I := Model n) (x := p (h x))).contMDiffAt
+  exact (contMDiffOn_chart (I := modelWithCorners n) (x := p (h x))).contMDiffAt
     ((chartAt (Space n) (p (h x))).open_source.mem_nhds
       (mem_chart_source _ _)) |>.comp x hs
 
-theorem smooth_of_proj [IsManifold (Model n) ∞ B] {k : ℕ} {N : Type}
+theorem smooth_of_proj [IsManifold (modelWithCorners n) ∞ B] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N]
     (h : N → E) (hc : Continuous h)
-    (hs : ContMDiff (Model k) (Model n) ∞ (p ∘ h)) :
+    (hs : ContMDiff (modelWithCorners k) (modelWithCorners n) ∞ (p ∘ h)) :
     letI := chartedSpace (n := n) S
-    ContMDiff (Model k) (Model n) ∞ h :=
+    ContMDiff (modelWithCorners k) (modelWithCorners n) ∞ h :=
   fun x => smooth_of_proj_at S h x hc.continuousAt (hs x)
 
-theorem smooth_proj [IsManifold (Model n) ∞ B] :
+theorem smooth_proj [IsManifold (modelWithCorners n) ∞ B] :
     letI := chartedSpace (n := n) S
-    ContMDiff (Model n) (Model n) ∞ p := by
+    ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ p := by
   let := chartedSpace (n := n) S
   intro z
   apply contMDiffAt_iff_source.mpr
-  have hb := (contMDiffOn_chart_symm (I := Model n) (n := ∞) (x := p z)).contMDiffAt
+  have hb := (contMDiffOn_chart_symm (I := modelWithCorners n) (n := ∞) (x := p z)).contMDiffAt
     ((chartAt (Space n) (p z)).open_target.mem_nhds (mem_chart_target _ _))
   have he : (p ∘ (chart (n := n) S z).symm) =ᶠ[
       nhds ((chart (n := n) S z) z)] (chartAt (Space n) (p z)).symm :=
@@ -112,16 +112,16 @@ theorem smooth_proj [IsManifold (Model n) ∞ B] :
     change (chartAt (Space n) (p z)) (S.sheet z z) = _
     rw [S.projection]
   rw [hz] at he
-  change ContMDiffWithinAt (Model n) (Model n) ∞
+  change ContMDiffWithinAt (modelWithCorners n) (modelWithCorners n) ∞
     (p ∘ (chart (n := n) S z).symm) _ ((chart (n := n) S z) z)
   rw [hz]
   exact (hb.congr_of_eventuallyEq he).contMDiffWithinAt
 
-theorem smooth_iff_proj [IsManifold (Model n) ∞ B] {k : ℕ} {N : Type}
+theorem smooth_iff_proj [IsManifold (modelWithCorners n) ∞ B] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N] (h : N → E) :
     letI := chartedSpace (n := n) S
-    ContMDiff (Model k) (Model n) ∞ h ↔
-      Continuous h ∧ ContMDiff (Model k) (Model n) ∞ (p ∘ h) := by
+    ContMDiff (modelWithCorners k) (modelWithCorners n) ∞ h ↔
+      Continuous h ∧ ContMDiff (modelWithCorners k) (modelWithCorners n) ∞ (p ∘ h) := by
   let := chartedSpace (n := n) S
   exact ⟨fun hs => ⟨hs.continuous, (smooth_proj S).comp hs⟩,
     fun hs => smooth_of_proj S h hs.1 hs.2⟩

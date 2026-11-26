@@ -28,15 +28,15 @@ def Cube.vertices {I J : Cube} (f : I ⟶ J) (v : Vertex I.dimension) : Vertex J
 
 /-- The object universe is one level larger than every decoded carrier. -/
 structure FiniteCode where
-  carrier : Type u
-  finite : Finite carrier
+  Carrier : Type u
+  finite : Finite Carrier
 
 attribute [instance] FiniteCode.finite
 
 /-- A functor from the indiscrete groupoid of vertices to finite sets and bijections. -/
 structure VertexSystem (V : Type v) where
   obj : V → FiniteCode.{u}
-  arrow : ∀ v w, (obj v).carrier ≃ (obj w).carrier
+  arrow : ∀ v w, (obj v).Carrier ≃ (obj w).Carrier
   identity : ∀ v, arrow v v = Equiv.refl _
   composition : ∀ v w z, (arrow v w).trans (arrow w z) = arrow v z
 
@@ -55,7 +55,7 @@ def reindex (T : VertexSystem.{u} V) (f : W → V) : VertexSystem.{u} W where
 
 /-- The decoder has small fibers even though the code type is large. -/
 def Tuple (T : VertexSystem.{u} V) :=
-  { x : ∀ v, (T.obj v).carrier // ∀ v w, T.arrow v w (x v) = x w }
+  { x : ∀ v, (T.obj v).Carrier // ∀ v w, T.arrow v w (x v) = x w }
 
 @[ext] theorem Tuple.ext {T : VertexSystem.{u} V} {x y : T.Tuple}
     (h : ∀ v, x.val v = y.val v) : x = y := Subtype.ext (funext h)
@@ -77,10 +77,10 @@ def Tuple.reindex {T : VertexSystem.{u} V} (x : T.Tuple) (f : W → V) : (T.rein
 @[simp] theorem Tuple.reindex_comp {T : VertexSystem.{u} V} (x : T.Tuple)
     (f : W → V) (g : Z → W) : (x.reindex f).reindex g = x.reindex (f ∘ g) := rfl
 
-def tupleEquiv (T : VertexSystem.{u} V) (v : V) : T.Tuple ≃ (T.obj v).carrier where
+def tupleEquiv (T : VertexSystem.{u} V) (v : V) : T.Tuple ≃ (T.obj v).Carrier where
   toFun x := x.val v
   invFun a := ⟨fun w => T.arrow v w a, fun w z => by
-    exact congrArg (fun e : (T.obj v).carrier ≃ (T.obj z).carrier => e a)
+    exact congrArg (fun e : (T.obj v).Carrier ≃ (T.obj z).Carrier => e a)
       (T.composition v w z)⟩
   left_inv x := by
     apply Tuple.ext
@@ -97,13 +97,13 @@ theorem arrow_symm (T : VertexSystem.{u} V) (v w : V) :
   have h := congrArg (fun e => e a) (T.composition w v w)
   exact (h.trans (congrArg (fun e => e a) (T.identity w))).symm
 
-theorem arrow_comp_apply (T : VertexSystem.{u} V) (v w z : V) (a : (T.obj v).carrier) :
+theorem arrow_comp_apply (T : VertexSystem.{u} V) (v w z : V) (a : (T.obj v).Carrier) :
     T.arrow w z (T.arrow v w a) = T.arrow v z a :=
   congrArg (fun e => e a) (T.composition v w z)
 
 /-- Any chosen vertex of the local system presents every represented tuple. -/
 def tupleGlobalEquiv (T : VertexSystem.{u} V) (f : W → V) (w₀ : W) (v₀ : V) :
-    (T.reindex f).Tuple ≃ (T.obj v₀).carrier :=
+    (T.reindex f).Tuple ≃ (T.obj v₀).Carrier :=
   (tupleEquiv (T.reindex f) w₀).trans (T.arrow (f w₀) v₀)
 
 theorem tupleGlobalEquiv_apply (T : VertexSystem.{u} V) (f : W → V) (w₀ w : W)
@@ -114,7 +114,7 @@ theorem tupleGlobalEquiv_apply (T : VertexSystem.{u} V) (f : W → V) (w₀ w : 
   exact hc.symm.trans (congrArg (T.arrow (f w) v₀) (x.property w₀ w))
 
 theorem tupleGlobalEquiv_symm_apply (T : VertexSystem.{u} V) (f : W → V)
-    (w₀ w : W) (v₀ : V) (a : (T.obj v₀).carrier) :
+    (w₀ w : W) (v₀ : V) (a : (T.obj v₀).Carrier) :
     ((tupleGlobalEquiv T f w₀ v₀).symm a).val w = T.arrow v₀ (f w) a := by
   change T.arrow (f w₀) (f w) ((T.arrow (f w₀) v₀).symm a) = _
   rw [arrow_symm]
@@ -163,7 +163,7 @@ theorem fillTuple_natural {V W : Type v} (T : VertexSystem.{u} (V × Bool))
 
 /-- Rebuild all arrows by conjugating the base system with chosen vertical bijections. -/
 def conjugate (B : VertexSystem.{u} V) (A : V → FiniteCode.{u})
-    (e : ∀ v, (B.obj v).carrier ≃ (A v).carrier) : VertexSystem.{u} V where
+    (e : ∀ v, (B.obj v).Carrier ≃ (A v).Carrier) : VertexSystem.{u} V where
   obj := A
   arrow v w := (e v).symm.trans ((B.arrow v w).trans (e w))
   identity v := by ext a; simp [B.identity]
@@ -196,18 +196,18 @@ theorem conjugate_from_system (T : VertexSystem.{u} V) (f : V → V) :
 
 
 theorem conjugate_eq (B : VertexSystem.{u} V) (A : V → FiniteCode.{u})
-    (e : ∀ v, (B.obj v).carrier ≃ (A v).carrier) (ho : A = B.obj)
-    (he : ∀ v, HEq (e v) (Equiv.refl (B.obj v).carrier)) : B.conjugate A e = B := by
+    (e : ∀ v, (B.obj v).Carrier ≃ (A v).Carrier) (ho : A = B.obj)
+    (he : ∀ v, HEq (e v) (Equiv.refl (B.obj v).Carrier)) : B.conjugate A e = B := by
   subst A
-  have hh : e = fun v => Equiv.refl (B.obj v).carrier := funext (fun v => eq_of_heq (he v))
+  have hh : e = fun v => Equiv.refl (B.obj v).Carrier := funext (fun v => eq_of_heq (he v))
   subst e
   rfl
 
 
 theorem conjugate_congr {B C : VertexSystem.{u} V} (hB : B = C)
     {A D : V → FiniteCode.{u}} (hA : A = D)
-    {e : ∀ v, (B.obj v).carrier ≃ (A v).carrier}
-    {g : ∀ v, (C.obj v).carrier ≃ (D v).carrier}
+    {e : ∀ v, (B.obj v).Carrier ≃ (A v).Carrier}
+    {g : ∀ v, (C.obj v).Carrier ≃ (D v).Carrier}
     (he : ∀ v, HEq (e v) (g v)) : B.conjugate A e = C.conjugate D g := by
   subst C
   subst D
@@ -240,14 +240,14 @@ theorem source_object (b : VertexBox.{u} V φ r) (v : V) :
   · rfl
 
 noncomputable def vertical (b : VertexBox.{u} V φ r) (vz : V × Bool) :
-    (b.base.obj vz.1).carrier ≃ (b.object vz).carrier := by
+    (b.base.obj vz.1).Carrier ≃ (b.object vz).Carrier := by
   classical
   unfold object
   split
   · rename_i hv
     have ho : b.tube.obj (⟨vz.1, hv⟩, r vz.1) = b.base.obj vz.1 :=
       congrFun (congrArg VertexSystem.obj b.boundary) ⟨vz.1, hv⟩
-    exact (Equiv.cast (congrArg FiniteCode.carrier ho.symm)).trans
+    exact (Equiv.cast (congrArg FiniteCode.Carrier ho.symm)).trans
       (b.tube.arrow (⟨vz.1, hv⟩, r vz.1) (⟨vz.1, hv⟩, vz.2))
   · exact Equiv.refl _
 
@@ -255,7 +255,7 @@ private theorem cast_heq (A B : Type u) (h : A = B) :
     HEq (Equiv.cast h) (Equiv.refl A) := by subst B; rfl
 
 theorem vertical_source (b : VertexBox.{u} V φ r) (v : V) :
-    HEq (b.vertical (v, r v)) (Equiv.refl (b.base.obj v).carrier) := by
+    HEq (b.vertical (v, r v)) (Equiv.refl (b.base.obj v).Carrier) := by
   classical
   unfold vertical
   split
@@ -381,7 +381,7 @@ namespace NerveFilling
 variable {Γ : Context.{u+1}} {φ : Subcontext Γ} {r : Term (interval Γ)}
   (b : OpenBox (nerveFamily (total (interval Γ))) φ r)
 
-abbrev line (x : Γ.Elements) (v : Vertex x.obj.unop.dimension) (hv : φ.holds (vertexPoint x v)) :=
+abbrev line (x : Γ.Elements) (v : Vertex x.obj.unop.dimension) (hv : φ.Holds (vertexPoint x v)) :=
   (b.tube.val (freshExtension (vertexPoint x v)) (φ.natural (freshBaseHom _) hv)).reindex
     (fun z : Bool => (fun _ : Fin 1 => z))
 
@@ -391,7 +391,7 @@ theorem source_dimension (x : Γ.Elements) (v : Vertex x.obj.unop.dimension) :
   exact h.symm.trans (Dim.subst_endpoints ((r.val x).down 0) v)
 
 theorem line_source (x : Γ.Elements) (v : Vertex x.obj.unop.dimension)
-    (hv : φ.holds (vertexPoint x v)) :
+    (hv : φ.Holds (vertexPoint x v)) :
     (line b x v hv).obj (((r.val x).down 0).eval v) = (b.base.val x).obj v := by
   let a := vertexPoint x v
   let k := intervalArgument (𝟙 a) (r.val a)
@@ -409,35 +409,35 @@ theorem line_source (x : Γ.Elements) (v : Vertex x.obj.unop.dimension)
   rw [he] at ho
   exact ho.trans (hb.trans hn.symm)
 
-def closedLine (γ : Γ.obj (.op ⟨0⟩)) (h : φ.holds (Γ.elementsMk (.op ⟨0⟩) γ)) :
+def closedLine (γ : Γ.obj (.op ⟨0⟩)) (h : φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)) :
     VertexSystem.{u} Bool :=
   (b.tube.val (freshExtension (Γ.elementsMk (.op ⟨0⟩) γ))
     (φ.natural (freshBaseHom _) h)).reindex (fun z : Bool => (fun _ : Fin 1 => z))
 
 theorem line_natural {x y : Γ.Elements} (f : x ⟶ y)
-    (v : Vertex y.obj.unop.dimension) (hy : φ.holds (vertexPoint y v))
-    (hx : φ.holds (vertexPoint x (Cube.vertices f.hom.unop v))) :
+    (v : Vertex y.obj.unop.dimension) (hy : φ.Holds (vertexPoint y v))
+    (hx : φ.Holds (vertexPoint x (Cube.vertices f.hom.unop v))) :
     line b y v hy = line b x (Cube.vertices f.hom.unop v) hx := by
   have he := vertexValue_natural f v
   change closedLine b _ hy = closedLine b _ hx
   have hh : (⟨Γ.map (Quiver.Hom.op (Cube.vertex v)) y.val, hy⟩ :
-      {γ : Γ.obj (.op ⟨0⟩) // φ.holds (Γ.elementsMk (.op ⟨0⟩) γ)}) =
+      {γ : Γ.obj (.op ⟨0⟩) // φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)}) =
       ⟨Γ.map (Quiver.Hom.op (Cube.vertex (Cube.vertices f.hom.unop v))) x.val, hx⟩ := Subtype.ext he
-  exact congrArg (fun z : {γ : Γ.obj (.op ⟨0⟩) // φ.holds (Γ.elementsMk (.op ⟨0⟩) γ)} =>
+  exact congrArg (fun z : {γ : Γ.obj (.op ⟨0⟩) // φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)} =>
     closedLine b z.val z.property) hh
 
 noncomputable def object (x : Γ.Elements) (vz : Vertex x.obj.unop.dimension × Bool) : FiniteCode.{u} := by
   classical
-  exact if hv : φ.holds (vertexPoint x vz.1) then (line b x vz.1 hv).obj vz.2
+  exact if hv : φ.Holds (vertexPoint x vz.1) then (line b x vz.1 hv).obj vz.2
     else (b.base.val x).obj vz.1
 
 noncomputable def vertical (x : Γ.Elements) (vz : Vertex x.obj.unop.dimension × Bool) :
-    ((b.base.val x).obj vz.1).carrier ≃ (object b x vz).carrier := by
+    ((b.base.val x).obj vz.1).Carrier ≃ (object b x vz).Carrier := by
   classical
   unfold object
   split
   · rename_i hv
-    exact (Equiv.cast (congrArg FiniteCode.carrier (line_source b x vz.1 hv).symm)).trans
+    exact (Equiv.cast (congrArg FiniteCode.Carrier (line_source b x vz.1 hv).symm)).trans
       ((line b x vz.1 hv).arrow (((r.val x).down 0).eval vz.1) vz.2)
   · exact Equiv.refl _
 
@@ -457,7 +457,7 @@ theorem object_source (x : Γ.Elements) (v : Vertex x.obj.unop.dimension) :
 
 theorem vertical_source (x : Γ.Elements) (v : Vertex x.obj.unop.dimension) :
     HEq (vertical b x (v, ((r.val x).down 0).eval v))
-      (Equiv.refl ((b.base.val x).obj v).carrier) := by
+      (Equiv.refl ((b.base.val x).obj v).Carrier) := by
   classical
   unfold vertical
   split
@@ -480,11 +480,11 @@ theorem object_natural {x y : Γ.Elements} (f : x ⟶ y)
   classical
   have hp := vertexPoint_natural f vz.1
   unfold object
-  by_cases hy : φ.holds (vertexPoint y vz.1)
-  · have hx : φ.holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := hp ▸ hy
+  by_cases hy : φ.Holds (vertexPoint y vz.1)
+  · have hx : φ.Holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := hp ▸ hy
     simp only [dite_eq_left hy, dite_eq_left hx]
     exact congrArg (fun T => T.obj vz.2) (line_natural b f vz.1 hy hx)
-  · have hx : ¬φ.holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := fun h => hy (hp.symm ▸ h)
+  · have hx : ¬φ.Holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := fun h => hy (hp.symm ▸ h)
     simp only [dite_eq_right hy, dite_eq_right hx]
     exact (congrArg (fun T => T.obj vz.1) (b.base.property f)).symm
 
@@ -492,7 +492,7 @@ private theorem equiv_cast_trans_heq {A B C : Type u} (h : A = B) (e : B ≃ C) 
     HEq ((Equiv.cast h).trans e) e := by subst B; rfl
 
 theorem vertical_line (x : Γ.Elements) (vz : Vertex x.obj.unop.dimension × Bool)
-    (h : φ.holds (vertexPoint x vz.1)) :
+    (h : φ.Holds (vertexPoint x vz.1)) :
     HEq (vertical b x vz) ((line b x vz.1 h).arrow (((r.val x).down 0).eval vz.1) vz.2) := by
   classical
   unfold vertical
@@ -516,24 +516,24 @@ theorem vertical_natural {x y : Γ.Elements} (f : x ⟶ y)
     HEq (vertical b y vz) (vertical b x (Cube.vertices f.hom.unop vz.1, vz.2)) := by
   classical
   have hp := vertexPoint_natural f vz.1
-  by_cases hy : φ.holds (vertexPoint y vz.1)
-  · have hx : φ.holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := hp ▸ hy
+  by_cases hy : φ.Holds (vertexPoint y vz.1)
+  · have hx : φ.Holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := hp ▸ hy
     exact (vertical_line b y vz hy).trans
       ((arrow_heq (line_natural b f vz.1 hy hx) (dimension_natural f vz.1) rfl).trans
         (vertical_line b x (Cube.vertices f.hom.unop vz.1, vz.2) hx).symm)
-  · have hx : ¬φ.holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := fun h => hy (hp.symm ▸ h)
-    have left : HEq (vertical b y vz) (Equiv.refl ((b.base.val y).obj vz.1).carrier) := by
+  · have hx : ¬φ.Holds (vertexPoint x (Cube.vertices f.hom.unop vz.1)) := fun h => hy (hp.symm ▸ h)
+    have left : HEq (vertical b y vz) (Equiv.refl ((b.base.val y).obj vz.1).Carrier) := by
       unfold vertical
       split
       · contradiction
       · exact _root_.cast_heq _ _
     have right : HEq (vertical b x (Cube.vertices f.hom.unop vz.1, vz.2))
-        (Equiv.refl ((b.base.val x).obj (Cube.vertices f.hom.unop vz.1)).carrier) := by
+        (Equiv.refl ((b.base.val x).obj (Cube.vertices f.hom.unop vz.1)).Carrier) := by
       unfold vertical
       split
       · contradiction
       · exact _root_.cast_heq _ _
-    exact left.trans ((equiv_refl_heq (congrArg (fun T => (T.obj vz.1).carrier)
+    exact left.trans ((equiv_refl_heq (congrArg (fun T => (T.obj vz.1).Carrier)
       (b.base.property f).symm)).trans right.symm)
 
 theorem system_natural {x y : Γ.Elements} (f : x ⟶ y) :
@@ -574,11 +574,11 @@ noncomputable def fillSection : Term (nerveFamily (total (interval Γ))) where
 
 def vertexPair {n : Nat} (vz : Vertex n × Bool) : Vertex (n+1) := Fin.cases vz.2 vz.1
 
-def genericSystem (x : Γ.Elements) (hx : φ.holds x) :
+def genericSystem (x : Γ.Elements) (hx : φ.Holds x) :
     VertexSystem.{u} (Vertex x.obj.unop.dimension × Bool) :=
   (b.tube.val (freshExtension x) (φ.natural (freshBaseHom x) hx)).reindex vertexPair
 
-theorem genericSystem_source (x : Γ.Elements) (hx : φ.holds x) :
+theorem genericSystem_source (x : Γ.Elements) (hx : φ.Holds x) :
     (genericSystem b x hx).reindex (fun v => (v, ((r.val x).down 0).eval v)) = b.base.val x := by
   have ht := b.tube.natural (intervalArgument (𝟙 x) (r.val x))
     (φ.natural (freshBaseHom x) hx)
@@ -592,7 +592,7 @@ theorem genericSystem_source (x : Γ.Elements) (hx : φ.holds x) :
   rw [he] at ht
   exact ht.trans (b.boundary x hx)
 
-theorem genericSystem_line (x : Γ.Elements) (hx : φ.holds x)
+theorem genericSystem_line (x : Γ.Elements) (hx : φ.Holds x)
     (v : Vertex x.obj.unop.dimension) :
     (genericSystem b x hx).reindex (fun z => (v,z)) =
       line b x v (φ.natural (vertexHom x v) hx) := by
@@ -611,7 +611,7 @@ theorem genericSystem_line (x : Γ.Elements) (hx : φ.holds x)
   exact (congrArg (VertexSystem.reindex (b.tube.val (freshExtension x)
     (φ.natural (freshBaseHom x) hx))) he).symm.trans h
 
-theorem object_tube (x : Γ.Elements) (hx : φ.holds x)
+theorem object_tube (x : Γ.Elements) (hx : φ.Holds x)
     (vz : Vertex x.obj.unop.dimension × Bool) :
     object b x vz = (genericSystem b x hx).obj vz := by
   classical
@@ -619,14 +619,14 @@ theorem object_tube (x : Γ.Elements) (hx : φ.holds x)
   rw [dite_eq_left (φ.natural (vertexHom x vz.1) hx)]
   exact (congrArg (fun T => T.obj vz.2) (genericSystem_line b x hx vz.1)).symm
 
-theorem vertical_tube (x : Γ.Elements) (hx : φ.holds x)
+theorem vertical_tube (x : Γ.Elements) (hx : φ.Holds x)
     (vz : Vertex x.obj.unop.dimension × Bool) :
     HEq (vertical b x vz) ((genericSystem b x hx).arrow
       (vz.1, ((r.val x).down 0).eval vz.1) vz) :=
   (vertical_line b x vz (φ.natural (vertexHom x vz.1) hx)).trans
     (arrow_heq (genericSystem_line b x hx vz.1).symm rfl rfl)
 
-theorem system_tube (x : Γ.Elements) (hx : φ.holds x) :
+theorem system_tube (x : Γ.Elements) (hx : φ.Holds x) :
     system b x = genericSystem b x hx := by
   have hb := congrArg (fun T : VertexSystem.{u} (Vertex x.obj.unop.dimension) =>
     T.reindex (Prod.fst : Vertex x.obj.unop.dimension × Bool → Vertex x.obj.unop.dimension))
@@ -637,7 +637,7 @@ theorem system_tube (x : Γ.Elements) (hx : φ.holds x) :
         (fun vz => (vz.1, ((r.val x).down 0).eval vz.1)))
 
 theorem value_tube (x : (total (interval Γ)).Elements)
-    (hx : φ.holds ((projection (interval Γ)).mapElements.obj x)) :
+    (hx : φ.Holds ((projection (interval Γ)).mapElements.obj x)) :
     value b x = b.tube.val x hx := by
   let a := (projection (interval Γ)).mapElements.obj x
   have ht := b.tube.natural (intervalArgument (𝟙 a) x.val.2)
@@ -673,16 +673,16 @@ theorem freshExtension_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) (x : Δ.Ele
   · rfl
 
 private theorem tube_val_heq {x y : (total (interval Γ)).Elements} (h : x = y)
-    (hx : φ.holds ((projection (interval Γ)).mapElements.obj x))
-    (hy : φ.holds ((projection (interval Γ)).mapElements.obj y)) :
+    (hx : φ.Holds ((projection (interval Γ)).mapElements.obj x))
+    (hy : φ.Holds ((projection (interval Γ)).mapElements.obj y)) :
     HEq (b.tube.val x hx) (b.tube.val y hy) := by
   subst y
   rfl
 
 theorem line_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) (x : Δ.Elements)
     (v : Vertex x.obj.unop.dimension)
-    (hx : (φ.reindex σ).holds (vertexPoint x v))
-    (hy : φ.holds (vertexPoint (σ.mapElements.obj x) v)) :
+    (hx : (φ.reindex σ).Holds (vertexPoint x v))
+    (hy : φ.Holds (vertexPoint (σ.mapElements.obj x) v)) :
     line (b.reindex σ) x v hx = line b (σ.mapElements.obj x) v hy := by
   have hp := vertexPoint_reindex σ x v
   have hf := (freshExtension_reindex σ (vertexPoint x v)).trans
@@ -702,11 +702,11 @@ theorem object_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) (x : Δ.Elements)
   classical
   have hp := vertexPoint_reindex σ x vz.1
   unfold object
-  by_cases hx : (φ.reindex σ).holds (vertexPoint x vz.1)
-  · have hy : φ.holds (vertexPoint (σ.mapElements.obj x) vz.1) := hp ▸ hx
+  by_cases hx : (φ.reindex σ).Holds (vertexPoint x vz.1)
+  · have hy : φ.Holds (vertexPoint (σ.mapElements.obj x) vz.1) := hp ▸ hx
     rw [dite_eq_left hx, dite_eq_left hy]
     exact congrArg (fun T => T.obj vz.2) (line_reindex b σ x vz.1 hx hy)
-  · have hy : ¬φ.holds (vertexPoint (σ.mapElements.obj x) vz.1) := fun h => hx (show φ.holds (σ.mapElements.obj (vertexPoint x vz.1)) from hp.symm ▸ h)
+  · have hy : ¬φ.Holds (vertexPoint (σ.mapElements.obj x) vz.1) := fun h => hx (show φ.Holds (σ.mapElements.obj (vertexPoint x vz.1)) from hp.symm ▸ h)
     rw [dite_eq_right hx, dite_eq_right hy]
     rfl
 
@@ -715,20 +715,20 @@ theorem vertical_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) (x : Δ.Elements)
     HEq (vertical (b.reindex σ) x vz) (vertical b (σ.mapElements.obj x) vz) := by
   classical
   have hp := vertexPoint_reindex σ x vz.1
-  by_cases hx : (φ.reindex σ).holds (vertexPoint x vz.1)
-  · have hy : φ.holds (vertexPoint (σ.mapElements.obj x) vz.1) := hp ▸ hx
+  by_cases hx : (φ.reindex σ).Holds (vertexPoint x vz.1)
+  · have hy : φ.Holds (vertexPoint (σ.mapElements.obj x) vz.1) := hp ▸ hx
     exact (vertical_line (b.reindex σ) x vz hx).trans
       ((arrow_heq (line_reindex b σ x vz.1 hx hy) rfl rfl).trans
         (vertical_line b (σ.mapElements.obj x) vz hy).symm)
-  · have hy : ¬φ.holds (vertexPoint (σ.mapElements.obj x) vz.1) := fun h => hx (show φ.holds (σ.mapElements.obj (vertexPoint x vz.1)) from hp.symm ▸ h)
+  · have hy : ¬φ.Holds (vertexPoint (σ.mapElements.obj x) vz.1) := fun h => hx (show φ.Holds (σ.mapElements.obj (vertexPoint x vz.1)) from hp.symm ▸ h)
     have left : HEq (vertical (b.reindex σ) x vz)
-        (Equiv.refl ((b.base.val (σ.mapElements.obj x)).obj vz.1).carrier) := by
+        (Equiv.refl ((b.base.val (σ.mapElements.obj x)).obj vz.1).Carrier) := by
       unfold vertical
       split
       · contradiction
       · exact _root_.cast_heq _ _
     have right : HEq (vertical b (σ.mapElements.obj x) vz)
-        (Equiv.refl ((b.base.val (σ.mapElements.obj x)).obj vz.1).carrier) := by
+        (Equiv.refl ((b.base.val (σ.mapElements.obj x)).obj vz.1).Carrier) := by
       unfold vertical
       split
       · contradiction

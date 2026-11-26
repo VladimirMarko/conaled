@@ -48,13 +48,13 @@ noncomputable def algebra : Algebra signature where
   operation
     | .inl op => Naturals.algebra.operation op
     | .inr op => extraOperation op
-  predicate
-    | .inl p => Naturals.algebra.predicate p
+  Predicate
+    | .inl p => Naturals.algebra.Predicate p
     | .inr p => nomatch p
 
 theorem dimensionSchema_valid (n : ℕ) (out : Judgment (Fin (n+1)))
     (valid : ∀ (Γ : Context.{u}) (r : Fin n → Presheaf.Term (Presheaf.interval Γ)),
-      out.eval algebra (Matrix.vecCons (.context Γ) (fun i => .term Γ (Presheaf.interval Γ) (r i)))) :
+      out.Eval algebra (Matrix.vecCons (.context Γ) (fun i => .term Γ (Presheaf.interval Γ) (r i)))) :
     Satisfies algebra.{u} (dimensionSchema n out) := by
   intro ρ h
   rcases h 0 with ⟨Γ,hΓ⟩
@@ -63,7 +63,7 @@ theorem dimensionSchema_valid (n : ℕ) (out : Judgment (Fin (n+1)))
       ρ i.succ = .term Γ (Presheaf.interval Γ) t := by
     intro i
     have hi := h i.succ
-    change Source.predicate .term ![ρ 0,extraOperation .interval ![ρ 0],ρ i.succ] at hi
+    change Source.Predicate .term ![ρ 0,extraOperation .interval ![ρ 0],ρ i.succ] at hi
     rw [hΓ,extra_interval] at hi
     exact Value.term_input Γ (Presheaf.interval Γ) _ hi
   choose r hr using hr
@@ -75,7 +75,7 @@ theorem dimensionSchema_valid (n : ℕ) (out : Judgment (Fin (n+1)))
 
 theorem substitutionSchema_valid (n : ℕ) (out : Judgment (Fin (n+3)))
     (valid : ∀ (Γ Δ : Context.{u}) (σ : Δ ⟶ Γ) (r : Fin n → Presheaf.Term (Presheaf.interval Γ)),
-      out.eval algebra (Matrix.vecCons (.context Γ) (Matrix.vecCons (.context Δ)
+      out.Eval algebra (Matrix.vecCons (.context Γ) (Matrix.vecCons (.context Δ)
         (Matrix.vecCons (.substitution Δ Γ σ) (fun i => .term Γ (Presheaf.interval Γ) (r i)))))) :
     Satisfies algebra.{u} (substitutionSchema n out) := by
   intro ρ h
@@ -87,7 +87,7 @@ theorem substitutionSchema_valid (n : ℕ) (out : Judgment (Fin (n+3)))
       ρ i.succ.succ.succ = .term Γ (Presheaf.interval Γ) t := by
     intro i
     have hi := h i.succ
-    change Source.predicate .term ![ρ 0,extraOperation .interval ![ρ 0],ρ i.succ.succ.succ] at hi
+    change Source.Predicate .term ![ρ 0,extraOperation .interval ![ρ 0],ρ i.succ.succ.succ] at hi
     rw [hΓ,extra_interval] at hi
     exact Value.term_input Γ (Presheaf.interval Γ) _ hi
   choose r hr using hr

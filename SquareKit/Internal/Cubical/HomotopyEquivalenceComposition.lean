@@ -259,14 +259,14 @@ theorem extend_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     (genericFiberIntro_reindex (f ≫ g) σ (source f g E D FA hFA FB hFB FC hFC σ s)
       (finalPath f g E D FA hFA FB hFB FC hFC σ s) τ)
 
-theorem source_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem source_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (source f g E D FA hFA FB hFB FC hFC σ s).val x = (s.val x hx).1 :=
   congrArg Sigma.fst (E.extendAlong_boundary FA hFA FB hFB
     (target f g D FB hFB FC hFC σ s)
     (genericFiberPartialIntro f (target f g D FB hFB FC hFC σ s)
       (partialSource f g σ s) (partialSource_image f g D FB hFB FC hFC σ s)) x hx)
 
-theorem endpoint_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem endpoint_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (endpoint f g E D FA hFA FB hFB FC hFC σ s).val x =
       (partialMiddle f g σ s).val x hx :=
   (ContractibleTotals.fillOver_fills (pathFiller g FC hFC) (pathFiller_lawful g FC hFC)
@@ -312,7 +312,7 @@ theorem extend_restricted :
       (pathTerm_hext _ _ (finalPath_restricted f g E D FA hFA FB hFB FC hFC σ s))).trans
       (genericFiberIntro_eta (f ≫ g) (restrictInclusion φ ≫ σ) s.toRestricted))
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Full x) :
     (extend f g E D FA hFA FB hFB FC hFC σ s).val x = s.val x hx :=
   congrArg (fun t => t.val ((restrictContext φ).elementsMk x.obj ⟨x.val,hx⟩))
     (extend_restricted f g E D FA hFA FB hFB FC hFC σ s)

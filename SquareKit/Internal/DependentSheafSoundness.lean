@@ -21,14 +21,14 @@ theorem type_substitution (σ : Sub Δ Γ) (A : Ty n) :
   | family b => exact congrArg (SplitSheaf.tySub M.A) (base_substitution M σ b)
 
 theorem read_sub {X Y Z : Sh.{u,v,w} J} (A : SplitSheaf.Ty Z) {f : X ⟶ Z}
-    (a : X ⟶ SplitSheaf.Ext A) (h : a ≫ SplitSheaf.p A = f) (σ : Y ⟶ X) :
+    (a : X ⟶ SplitSheaf.extension A) (h : a ≫ SplitSheaf.p A = f) (σ : Y ⟶ X) :
     SplitSheaf.tmSub (SplitSheaf.readTerm A a h) σ =
       SplitSheaf.readTerm A (σ := σ ≫ f) (σ ≫ a) (by rw [Category.assoc, h]) := by
   cases h
   rfl
 
 theorem read_heq {X Z : Sh.{u,v,w} J} (A : SplitSheaf.Ty Z) {f g : X ⟶ Z}
-    {a b : X ⟶ SplitSheaf.Ext A} (ha : a = b) (hf : f = g)
+    {a b : X ⟶ SplitSheaf.extension A} (ha : a = b) (hf : f = g)
     (h : a ≫ SplitSheaf.p A = f) (k : b ≫ SplitSheaf.p A = g) :
     HEq (SplitSheaf.readTerm A a h) (SplitSheaf.readTerm A b k) := by
   cases ha

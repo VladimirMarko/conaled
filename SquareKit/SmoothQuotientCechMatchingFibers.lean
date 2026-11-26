@@ -18,7 +18,7 @@ variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 /-- This uses only local deformations and the actual overlap equation. -/
 def matchingFamily : CechMatching.Datum (SheafActionQuotient.Cech.matchingDiagram a A) ⥤ Type :=
   CechMatching.SetFamily.family (D := SheafActionQuotient.Cech.matchingDiagram a A)
-    (SmoothQuotientDeformations.family a (SplitSheaf.Ext A))
+    (SmoothQuotientDeformations.family a (SplitSheaf.extension A))
     (SmoothQuotientDeformations.family a (double A))
     (restrictionFamily (first A)) (restrictionFamily (second A))
 

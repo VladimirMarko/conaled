@@ -12,7 +12,7 @@ namespace FiniteSetting
 variable {X : Type u} {T : Presentation X}
 
 /-- The three existing source axioms give a complementary partition in the predicate lattice. -/
-def Model.asComplementary (M : Model T) : ComplementaryModel.Model T.parameter where
+def Model.asComplementary (M : Model T) : ComplementaryModel.Model T.Parameter where
   p := M.P
   q := M.Q
   complementary := IsCompl.of_eq
@@ -21,7 +21,7 @@ def Model.asComplementary (M : Model T) : ComplementaryModel.Model T.parameter w
   bounded := (satisfies_iff T M.P M.Q).mp M.satisfies |>.2.2
 
 /-- Recover precisely the original three source sequents. -/
-def Model.ofComplementary (M : ComplementaryModel.Model T.parameter) : Model T where
+def Model.ofComplementary (M : ComplementaryModel.Model T.Parameter) : Model T where
   P := M.p
   Q := M.q
   satisfies := (satisfies_iff T M.p M.q).mpr ⟨
@@ -30,7 +30,7 @@ def Model.ofComplementary (M : ComplementaryModel.Model T.parameter) : Model T w
     M.bounded⟩
 
 /-- This comparison preserves the actual predicates, not only model cardinalities. -/
-def modelComplementaryEquiv (T : Presentation X) : Model T ≃ ComplementaryModel.Model T.parameter where
+def modelComplementaryEquiv (T : Presentation X) : Model T ≃ ComplementaryModel.Model T.Parameter where
   toFun := Model.asComplementary
   invFun := Model.ofComplementary
   left_inv _ := Model.ext rfl rfl
@@ -86,7 +86,7 @@ instance (M N : Model T) : Subsingleton (M ⟶ N) :=
   inferInstanceAs (Subsingleton (M.asComplementary ⟶ N.asComplementary))
 
 /-- The original and complementary presentations agree on objects and predicate-preserving maps. -/
-def modelComplementaryEquivalence (T : Presentation X) : Model T ≌ ComplementaryModel.Model T.parameter where
+def modelComplementaryEquivalence (T : Presentation X) : Model T ≌ ComplementaryModel.Model T.Parameter where
   functor := { obj := Model.asComplementary, map := fun α => α }
   inverse := {
     obj := Model.ofComplementary

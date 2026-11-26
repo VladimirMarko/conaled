@@ -24,7 +24,7 @@ theorem malformed_root_hit : IntervalTree.search id malformedLeaf fivePoint = tr
 
 theorem malformed_root_witness :
     ∃ key ∈ Trees.setTree (Trees.Cached.erase malformedLeaf),
-      IntervalKey.overlap key fivePoint :=
+      IntervalKey.Overlap key fivePoint :=
   IntervalTree.search_sound id malformed_root_hit
 
 theorem same_reader_different_search :
@@ -42,8 +42,8 @@ theorem pruneLeft_valid : IntervalTree.CacheValid id pruneLeft := by
   decide
 
 theorem pruneLeft_absent :
-    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase pruneLeft), IntervalKey.overlap key a := by
-  simp [pruneLeft, leaf, pruneLeftKey, a, IntervalKey.overlap,
+    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase pruneLeft), IntervalKey.Overlap key a := by
+  simp [pruneLeft, leaf, pruneLeftKey, a, IntervalKey.Overlap,
     IntervalKey.ofBounds, IntervalKey.low, IntervalKey.high]
 
 theorem pruning_cross (rightCache : Nat) :
@@ -64,7 +64,7 @@ theorem invalid_right_lows_excluded :
 
 theorem invalid_right_overlap_excluded :
     ¬∃ key ∈ Trees.setTree (Trees.Cached.erase (leaf pruneRightKey 999)),
-      IntervalKey.overlap key a :=
+      IntervalKey.Overlap key a :=
   IntervalTree.not_overlap_right_of_left id pruneLeft_valid
     (by intro h; cases h) (by decide) pruneLeft_absent (pruning_cross 999)
 
@@ -75,11 +75,11 @@ theorem pruned_right_is_invalid : ¬IntervalTree.CacheValid id (leaf pruneRightK
 def threePoint : IntervalKey Nat := IntervalKey.ofBounds 3 3 (by decide)
 
 theorem unordered_subtree_excluded :
-    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase unordered), IntervalKey.overlap key threePoint :=
+    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase unordered), IntervalKey.Overlap key threePoint :=
   IntervalTree.not_overlap_of_maxHi_lt id unordered_valid (by decide)
 
 theorem empty_subtree_excluded (query : IntervalKey Nat) :
-    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase (.nil : NTree)), IntervalKey.overlap key query :=
+    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase (.nil : NTree)), IntervalKey.Overlap key query :=
   IntervalTree.not_overlap_nil id query
 
 /-! O11: exact paths and semantic answers use the existing seven-node tree. -/
@@ -93,7 +93,7 @@ def thirtyOnePoint : IntervalKey Nat := IntervalKey.ofBounds 31 31 (by decide)
 
 theorem main_correct (query : IntervalKey Nat) :
     IntervalTree.search id mainTree query = true ↔
-      IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) query :=
+      IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) query :=
   IntervalTree.search_correct_book mainTree_valid mainTree_strict query
 
 theorem main_left_choice :
@@ -114,13 +114,13 @@ theorem main_literal_answers :
       (IntervalTree.search id mainTree) = [true, true, true, true, false, false, false] := rfl
 
 theorem main_semantic_answers :
-    IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) touchRoot ∧
-    IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) touchLeft ∧
-    IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) touchRight ∧
-    IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) tenPoint ∧
-    ¬IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) zeroPoint ∧
-    ¬IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) thirtyOnePoint ∧
-    ¬IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) twentyOnePoint := by
+    IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) touchRoot ∧
+    IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) touchLeft ∧
+    IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) touchRight ∧
+    IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) tenPoint ∧
+    ¬IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) zeroPoint ∧
+    ¬IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) thirtyOnePoint ∧
+    ¬IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase mainTree)) twentyOnePoint := by
   refine ⟨(main_correct touchRoot).mp rfl, (main_correct touchLeft).mp rfl,
     (main_correct touchRight).mp rfl, (main_correct tenPoint).mp rfl, ?_, ?_, ?_⟩
   · intro h
@@ -139,7 +139,7 @@ theorem duplicate_lowOrdered : IntervalTree.LowOrdered id duplicateTree := by
 
 theorem duplicate_search_correct (query : IntervalKey Nat) :
     IntervalTree.search id duplicateTree query = true ↔
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase duplicateTree), IntervalKey.overlap key query :=
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase duplicateTree), IntervalKey.Overlap key query :=
   IntervalTree.search_correct id duplicateTree_valid duplicate_lowOrdered query
 
 theorem weak_search_order_is_not_strict_key_order :
@@ -150,11 +150,11 @@ theorem weak_search_order_is_not_strict_key_order :
 /-! O13/O18: agreement of raw programs does not imply semantic completeness. -/
 theorem malformed_interval_false_negatives :
     (IntervalTree.search id boundOnly twoPoint = false ∧
-      IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase boundOnly)) twoPoint) ∧
+      IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase boundOnly)) twoPoint) ∧
     (IntervalTree.search id attainmentOnly threePoint = false ∧
-      IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase attainmentOnly)) threePoint) ∧
+      IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase attainmentOnly)) threePoint) ∧
     (IntervalTree.search id correctRoot twoPoint = false ∧
-      IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase correctRoot)) twoPoint) := by
+      IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase correctRoot)) twoPoint) := by
   refine ⟨⟨rfl, twoPoint, ?_, IntervalKey.overlap_self twoPoint⟩,
     ⟨rfl, tallZero, ?_, by decide⟩, ⟨rfl, farHigh, ?_, by decide⟩⟩
   · simp [boundOnly]
@@ -171,11 +171,11 @@ theorem malformed_singleton_bridges :
 
 theorem malformed_point_false_negatives :
     (IntervalTree.searchPoint id boundOnly 2 = false ∧
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase boundOnly), IntervalTree.containsPoint 2 key) ∧
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase boundOnly), IntervalTree.ContainsPoint 2 key) ∧
     (IntervalTree.searchPoint id attainmentOnly 3 = false ∧
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase attainmentOnly), IntervalTree.containsPoint 3 key) ∧
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase attainmentOnly), IntervalTree.ContainsPoint 3 key) ∧
     (IntervalTree.searchPoint id correctRoot 2 = false ∧
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase correctRoot), IntervalTree.containsPoint 2 key) := by
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase correctRoot), IntervalTree.ContainsPoint 2 key) := by
   refine ⟨⟨?_, twoPoint, ?_, by decide⟩, ⟨?_, tallZero, ?_, by decide⟩,
     ⟨?_, farHigh, ?_, by decide⟩⟩
   · rw [malformed_singleton_bridges.1]
@@ -190,7 +190,7 @@ theorem malformed_point_false_negatives :
 
 theorem main_point_correct (point : Nat) :
     IntervalTree.searchPoint id mainTree point = true ↔
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.containsPoint point key :=
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.ContainsPoint point key :=
   IntervalTree.searchPoint_correct_book mainTree_valid mainTree_strict point
 
 theorem main_point_literal_answers :
@@ -198,9 +198,9 @@ theorem main_point_literal_answers :
       [true, true, false, false, false] := rfl
 
 theorem main_point_contacts_and_gap :
-    (∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.containsPoint 20 key) ∧
-    (∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.containsPoint 22 key) ∧
-    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.containsPoint 21 key := by
+    (∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.ContainsPoint 20 key) ∧
+    (∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.ContainsPoint 22 key) ∧
+    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase mainTree), IntervalTree.ContainsPoint 21 key := by
   refine ⟨(main_point_correct 20).mp rfl, (main_point_correct 22).mp rfl, ?_⟩
   intro h
   have bad := (main_point_correct 21).mpr h
@@ -224,7 +224,7 @@ theorem leaf_observation_separation :
 
 theorem duplicate_point_correct (point : Nat) :
     IntervalTree.searchPoint id duplicateTree point = true ↔
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase duplicateTree), IntervalTree.containsPoint point key :=
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase duplicateTree), IntervalTree.ContainsPoint point key :=
   IntervalTree.searchPoint_correct id duplicateTree_valid duplicate_lowOrdered point
 
 theorem point_empty_and_bottom :
@@ -309,21 +309,21 @@ theorem mixed_from_main_refines_list :
 theorem mixed_from_main_overlap (query : NKey) :
     IntervalTree.search id (AbstractSet.execute (IntervalTree.deleteOps id) mixedWord mainTree)
       query = true ↔
-      IntervalSet.hasOverlap
+      IntervalSet.HasOverlap
         (id '' mixedWord.foldl AbstractSet.meaningStep
           (Trees.setTree (Trees.Cached.erase mainTree))) query :=
   book_contract.search_execute mixedWord ⟨mainTree_valid, mainTree_strict⟩ query
 
 theorem mixed_overlap_semantics (n : Nat) (query : NKey) :
     IntervalTree.search id (mixedPrefix n) query = true ↔
-      IntervalSet.hasOverlap
+      IntervalSet.HasOverlap
         (id '' ((mixedWord.take n).foldl AbstractSet.meaningStep (fun _ => False))) query :=
   book_contract.search_execute (mixedWord.take n) book_contract.empty_valid query
 
 theorem mixed_point_semantics (n point : Nat) :
     IntervalTree.searchPoint id (mixedPrefix n) point = true ↔
       ∃ key ∈ Trees.setTree (Trees.Cached.erase (mixedPrefix n)),
-        IntervalTree.containsPoint point key :=
+        IntervalTree.ContainsPoint point key :=
   IntervalTree.searchPoint_correct_book (mixed_prefix_valid n).1 (mixed_prefix_valid n).2 point
 
 theorem mixed_prefix_shapes :
@@ -387,13 +387,13 @@ theorem left_pruned_choice :
     (by decide) (by intro h; cases h) (by decide)
 
 theorem left_pruned_semantics :
-    ¬IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase leftPrunedTree)) a := by
+    ¬IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase leftPrunedTree)) a := by
   intro h
   have bad := (IntervalTree.search_correct_book leftPruned_valid.1 leftPruned_valid.2 a).mpr h
   cases bad
 
 theorem right_pruned_left_absent :
-    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase (leaf a 2)), IntervalKey.overlap key sevenPoint :=
+    ¬∃ key ∈ Trees.setTree (Trees.Cached.erase (leaf a 2)), IntervalKey.Overlap key sevenPoint :=
   IntervalTree.not_overlap_of_maxHi_lt id rightPruned_valid.1.1 (by decide)
 
 theorem right_pruned_choice :
@@ -403,14 +403,14 @@ theorem right_pruned_choice :
     (by decide) (by decide)
 
 theorem right_pruned_semantics :
-    IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase rightPrunedTree)) sevenPoint :=
+    IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase rightPrunedTree)) sevenPoint :=
   (IntervalTree.search_correct_book rightPruned_valid.1 rightPruned_valid.2 sevenPoint).mp rfl
 
 /-! O14: deleting only the nonempty-left guard changes raw behavior. -/
 def searchWithoutGuard : NTree → NKey → Bool
   | .nil, _ => false
   | .node (key, _) l r, query =>
-      if IntervalKey.overlap query key then true
+      if IntervalKey.Overlap query key then true
       else if query.low ≤ IntervalTree.maxHi l then searchWithoutGuard l query
       else searchWithoutGuard r query
 
@@ -479,7 +479,7 @@ theorem reversed_exact_membership : OrderedMap.containsKey 2 reversedTree = true
 
 theorem reversed_false_negative :
     IntervalTree.search reversedInterval reversedTree zeroPoint = false ∧
-    IntervalSet.hasOverlap (reversedInterval '' Trees.setTree (Trees.Cached.erase reversedTree))
+    IntervalSet.HasOverlap (reversedInterval '' Trees.setTree (Trees.Cached.erase reversedTree))
       zeroPoint := by
   refine ⟨rfl, (IntervalSet.hasOverlap_image_iff reversedInterval _ zeroPoint).mpr ?_⟩
   exact ⟨2, by simp [reversedTree], IntervalKey.overlap_self zeroPoint⟩
@@ -492,7 +492,7 @@ theorem reversed_raw_point_bridge :
 theorem reversed_point_false_negative :
     IntervalTree.searchPoint reversedInterval reversedTree 0 = false ∧
     ∃ key ∈ Trees.setTree (Trees.Cached.erase reversedTree),
-      IntervalTree.containsPoint 0 (reversedInterval key) := by
+      IntervalTree.ContainsPoint 0 (reversedInterval key) := by
   refine ⟨?_, 2, by simp [reversedTree], by decide⟩
   rw [reversed_raw_point_bridge]
   exact reversed_false_negative.1
@@ -535,7 +535,7 @@ theorem indexed_member_semantics (n : Nat) (key : IndexedKey) :
 
 theorem indexed_overlap_semantics (n : Nat) (query : NKey) :
     IntervalTree.search indexedInterval (indexedPrefix n) query = true ↔
-      IntervalSet.hasOverlap
+      IntervalSet.HasOverlap
         (indexedInterval '' ((indexedWord.take n).foldl AbstractSet.meaningStep (fun _ => False)))
         query :=
   indexed_contract.search_execute (indexedWord.take n) indexed_contract.empty_valid query
@@ -543,7 +543,7 @@ theorem indexed_overlap_semantics (n : Nat) (query : NKey) :
 theorem indexed_point_semantics (n point : Nat) :
     IntervalTree.searchPoint indexedInterval (indexedPrefix n) point = true ↔
       ∃ key ∈ Trees.setTree (Trees.Cached.erase (indexedPrefix n)),
-        IntervalTree.containsPoint point (indexedInterval key) :=
+        IntervalTree.ContainsPoint point (indexedInterval key) :=
   IntervalTree.searchPoint_correct_of_strict indexedInterval indexed_compatible
     (indexed_prefix_valid n).1 (indexed_prefix_valid n).2 point
 
@@ -603,7 +603,7 @@ theorem indexedSearch_lowOrdered : IntervalTree.LowOrdered indexedInterval index
 
 theorem indexedSearch_semantics (query : NKey) :
     IntervalTree.search indexedInterval indexedSearchTree query = true ↔
-      IntervalSet.hasOverlap
+      IntervalSet.HasOverlap
         (indexedInterval '' Trees.setTree (Trees.Cached.erase indexedSearchTree)) query :=
   indexed_contract.overlap indexedSearchTree indexedSearch_valid query
 
@@ -632,14 +632,14 @@ def liftedQuery (point : Nat) : IntervalKey (ULift.{1} Nat) :=
 
 theorem lifted_semantics (query : IntervalKey (ULift.{1} Nat)) :
     IntervalTree.search liftedInterval liftedEndpoints query = true ↔
-      IntervalSet.hasOverlap (liftedInterval '' Trees.setTree (Trees.Cached.erase liftedEndpoints))
+      IntervalSet.HasOverlap (liftedInterval '' Trees.setTree (Trees.Cached.erase liftedEndpoints))
         query :=
   lifted_contract.overlap liftedEndpoints lifted_valid query
 
 theorem lifted_point_semantics (point : ULift.{1} Nat) :
     IntervalTree.searchPoint liftedInterval liftedEndpoints point = true ↔
       ∃ key ∈ Trees.setTree (Trees.Cached.erase liftedEndpoints),
-        IntervalTree.containsPoint point (liftedInterval key) :=
+        IntervalTree.ContainsPoint point (liftedInterval key) :=
   IntervalTree.searchPoint_correct_of_strict liftedInterval lifted_compatible
     lifted_valid.1 lifted_valid.2 point
 
@@ -669,12 +669,12 @@ theorem negative_state_valid {t : ZTree} (member : t ∈ negativeStates) : Inter
 
 theorem negative_overlap_semantics {t : ZTree} (member : t ∈ negativeStates) (query : ZKey) :
     IntervalTree.search id t query = true ↔
-      IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase t)) query :=
+      IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase t)) query :=
   IntervalTree.search_correct_book (negative_state_valid member).1 (negative_state_valid member).2 query
 
 theorem negative_point_semantics {t : ZTree} (member : t ∈ negativeStates) (point : WithBot Int) :
     IntervalTree.searchPoint id t point = true ↔
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase t), IntervalTree.containsPoint point key :=
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase t), IntervalTree.ContainsPoint point key :=
   IntervalTree.searchPoint_correct_book (negative_state_valid member).1
     (negative_state_valid member).2 point
 
@@ -721,12 +721,12 @@ theorem falling_valid {t : NTree} (member : t ∈ fallingTrees) : IntervalTree.V
 
 theorem falling_overlap_semantics {t : NTree} (member : t ∈ fallingTrees) (query : NKey) :
     IntervalTree.search id t query = true ↔
-      IntervalSet.hasOverlap (Trees.setTree (Trees.Cached.erase t)) query :=
+      IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase t)) query :=
   IntervalTree.search_correct_book (falling_valid member).1 (falling_valid member).2 query
 
 theorem falling_point_semantics {t : NTree} (member : t ∈ fallingTrees) (point : Nat) :
     IntervalTree.searchPoint id t point = true ↔
-      ∃ key ∈ Trees.setTree (Trees.Cached.erase t), IntervalTree.containsPoint point key :=
+      ∃ key ∈ Trees.setTree (Trees.Cached.erase t), IntervalTree.ContainsPoint point key :=
   IntervalTree.searchPoint_correct_book (falling_valid member).1 (falling_valid member).2 point
 
 theorem falling_point_table :

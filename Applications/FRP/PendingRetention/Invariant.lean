@@ -67,7 +67,7 @@ theorem computed_message_safe (frame : Frame) (history : Peer) (slot : Bool)
   have member : slot ∈ frame.order := (valid.2.2.1 slot).mpr (by simp [present])
   have wf := (valid.2.2.2.1 slot request (by simp [present])).2.1
   have outputEq : output = frame.logical := by
-    simp only [requestValid, computed] at wf
+    simp only [RequestValid, computed] at wf
     exact Option.some.inj (selected.symm.trans wf.2.1)
   refine ⟨Or.inr (Or.inr ⟨slot,request,member,present,rfl,rfl,outputEq,head⟩),?_⟩
   intro _

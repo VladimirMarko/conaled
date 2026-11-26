@@ -19,7 +19,7 @@ variable {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A]
 theorem evaluate_coefficient_diagonal {n : ℕ} (f : Operation n) (i : Fin n) (x : Fin n → A) :
     evaluate (Fin.append x x) (differenceCoefficient f i) = act (derivative f i) x := by
   have h : pullback (Fin.append (fun j : Fin n => projection j) (fun j : Fin n => projection j))
-      (differenceCoefficient f i) = (show Free n from derivative f i) := by
+      (differenceCoefficient f i) = (show freeAlgebra n from derivative f i) := by
     apply Subtype.ext
     funext z
     rw [pullback_apply]
@@ -87,8 +87,8 @@ theorem linear_coordinates {n : ℕ} (L : (Fin n → ℝ) →L[ℝ] ℝ) (v : Fi
       simp [Pi.single_apply]
 
 theorem derivative_chain {m n : ℕ} (f : Operation n) (g : Fin n → Operation m) (j : Fin m) :
-    (show Free m from derivative (substitute f g) j) =
-      ∑ i, (show Free m from substitute (derivative f i) g) * (show Free m from derivative (g i) j) := by
+    (show freeAlgebra m from derivative (substitute f g) j) =
+      ∑ i, (show freeAlgebra m from substitute (derivative f i) g) * (show freeAlgebra m from derivative (g i) j) := by
   apply Subtype.ext
   funext x
   simp only [AddSubmonoidClass.coe_finsetSum, Finset.sum_apply]
@@ -116,7 +116,7 @@ theorem differential_chain {m n : ℕ} (f : Operation n) (g : Fin n → Operatio
         apply Finset.sum_congr rfl
         intro i _
         have hm := (evaluate x).toAlgHom.map_mul
-          (show Free m from substitute (derivative f i) g) (show Free m from derivative (g i) j)
+          (show freeAlgebra m from substitute (derivative f i) g) (show freeAlgebra m from derivative (g i) j)
         change evaluate x _ = act (substitute (derivative f i) g) x * act (derivative (g i) j) x at hm
         rw [Structure.substitute] at hm
         exact hm

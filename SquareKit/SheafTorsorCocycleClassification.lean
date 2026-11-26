@@ -15,7 +15,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {G : Sheaf J GrpCat.{max u v}} {X : Sheaf J (Type (max u v))}
 variable {A : SplitSheaf.Ty X}
 
-private theorem descentMap_ext {P Q : Torsor G (SplitSheaf.Ext A)}
+private theorem descentMap_ext {P Q : Torsor G (SplitSheaf.extension A)}
     {c : Descent.Datum A P} {d : Descent.Datum A Q} (h k : Descent.Map c d)
     (eq : h.hom = k.hom) : h = k := by
   rcases h with ⟨⟨h, he⟩, ht⟩
@@ -58,8 +58,8 @@ theorem gaugeOfDescentMap_toDescentMap {c d : Datum G A} (g : Gauge c d) :
 theorem Gauge.toDescentMap_gaugeOfDescentMap {c d : Datum G A}
     (h : Descent.Map c.toDescent d.toDescent) :
     (gaugeOfDescentMap h).toDescentMap = h := by
-  have he := congrArg (fun a : Arrow (SheafTorsor.trivial G (SplitSheaf.Ext A))
-      (SheafTorsor.trivial G (SplitSheaf.Ext A)) => a.iso.hom)
+  have he := congrArg (fun a : Arrow (SheafTorsor.trivial G (SplitSheaf.extension A))
+      (SheafTorsor.trivial G (SplitSheaf.extension A)) => a.iso.hom)
     (regularArrowLabel_recovers h.toEquivariantMap.toArrow)
   exact descentMap_ext _ _ he
 
@@ -72,17 +72,17 @@ def gaugeDescentEquiv (c d : Datum G A) : Gauge c d ≃ Descent.Map c.toDescent 
 theorem Gauge.toDescentMap_ident (c : Datum G A) :
     (Gauge.ident c).toDescentMap = Descent.Map.ident c.toDescent := by
   apply descentMap_ext
-  exact congrArg (fun h : Arrow (SheafTorsor.trivial G (SplitSheaf.Ext A))
-    (SheafTorsor.trivial G (SplitSheaf.Ext A)) => h.iso.hom) regularArrow_ident
+  exact congrArg (fun h : Arrow (SheafTorsor.trivial G (SplitSheaf.extension A))
+    (SheafTorsor.trivial G (SplitSheaf.extension A)) => h.iso.hom) regularArrow_ident
 
 theorem Gauge.toDescentMap_comp {c d e : Datum G A} (g : Gauge c d) (h : Gauge d e) :
     (g.comp h).toDescentMap = g.toDescentMap.comp h.toDescentMap := by
   apply descentMap_ext
-  exact congrArg (fun k : Arrow (SheafTorsor.trivial G (SplitSheaf.Ext A))
-    (SheafTorsor.trivial G (SplitSheaf.Ext A)) => k.iso.hom)
+  exact congrArg (fun k : Arrow (SheafTorsor.trivial G (SplitSheaf.extension A))
+    (SheafTorsor.trivial G (SplitSheaf.extension A)) => k.iso.hom)
     (regularArrow_comp g.label h.label).symm
 
-private theorem descentDatum_ext {P : Torsor G (SplitSheaf.Ext A)}
+private theorem descentDatum_ext {P : Torsor G (SplitSheaf.extension A)}
     (c d : Descent.Datum A P)
     (h : ∀ x a b p, c.transport x a b p = d.transport x a b p) : c = d := by
   have ht : c.transport = d.transport := funext fun x => funext fun a => funext fun b => funext (h x a b)
@@ -92,7 +92,7 @@ private theorem descentDatum_ext {P : Torsor G (SplitSheaf.Ext A)}
   cases ht
   rfl
 
-theorem toDescent_ofDescent (d : Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.Ext A))) :
+theorem toDescent_ofDescent (d : Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.extension A))) :
     (ofDescent d).toDescent = d := by
   apply descentDatum_ext
   intro x a b p
@@ -109,12 +109,12 @@ theorem ofDescent_toDescent (c : Datum G A) : ofDescent c.toDescent = c := by
 
 /-- Chosen local trivializations are data used to extract labels, separately from admission. -/
 def chosenCocycle (P : Torsor G X)
-    (e : Arrow (SheafTorsor.trivial G (SplitSheaf.Ext A)) (reindex P (SplitSheaf.p A))) : Datum G A :=
+    (e : Arrow (SheafTorsor.trivial G (SplitSheaf.extension A)) (reindex P (SplitSheaf.p A))) : Datum G A :=
   ofDescent (Descent.ofLocalIso P _ e)
 
 /-- Admission is a property; no chosen trivialization is retained in the target object. -/
 def Admits (A : SplitSheaf.Ty X) : ObjectProperty (Torsor G X) :=
-  fun P => Nonempty (Arrow (SheafTorsor.trivial G (SplitSheaf.Ext A))
+  fun P => Nonempty (Arrow (SheafTorsor.trivial G (SplitSheaf.extension A))
     (reindex P (SplitSheaf.p A)))
 
 abbrev Admitted (A : SplitSheaf.Ty X) := (Admits (G := G) A).FullSubcategory
@@ -164,14 +164,14 @@ instance : (glueFunctor (G := G) (A := A)).Full := glueFullyFaithful.full
 instance : (glueFunctor (G := G) (A := A)).Faithful := glueFullyFaithful.faithful
 
 def chosenRecovery (P : Torsor G X)
-    (e : Arrow (SheafTorsor.trivial G (SplitSheaf.Ext A)) (reindex P (SplitSheaf.p A))) :
+    (e : Arrow (SheafTorsor.trivial G (SplitSheaf.extension A)) (reindex P (SplitSheaf.p A))) :
     Arrow (chosenCocycle P e).glue.obj P :=
   (show Arrow (chosenCocycle P e).glue.obj (Descent.torsor (Descent.ofLocalIso P _ e)) from
     eqToHom (congrArg (fun d => Descent.torsor d) (toDescent_ofDescent (Descent.ofLocalIso P _ e)))).comp
       (Descent.ofLocalIsoRecovery P _ e)
 
 theorem descentComparison_eqToHom
-    {d e : Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.Ext A))} (h : d = e) :
+    {d e : Descent.Datum A (SheafTorsor.trivial G (SplitSheaf.extension A))} (h : d = e) :
     ((show Arrow (Descent.torsor d) (Descent.torsor e) from
       eqToHom (congrArg (fun d => Descent.torsor d) h)).reindex (SplitSheaf.p A)).comp
         (Descent.comparison e) = Descent.comparison d := by
@@ -180,7 +180,7 @@ theorem descentComparison_eqToHom
 
 /-- The chosen recovery restricts to exactly the specified local trivialization. -/
 theorem chosenRecovery_reindex (P : Torsor G X)
-    (e : Arrow (SheafTorsor.trivial G (SplitSheaf.Ext A)) (reindex P (SplitSheaf.p A))) :
+    (e : Arrow (SheafTorsor.trivial G (SplitSheaf.extension A)) (reindex P (SplitSheaf.p A))) :
     (chosenRecovery P e).reindex (SplitSheaf.p A) =
       (Descent.comparison (chosenCocycle P e).toDescent).comp e := by
   change ((show Arrow (chosenCocycle P e).glue.obj
@@ -209,7 +209,7 @@ def trivialRecovery : Arrow (trivial (G := G) (A := A)).glue.obj (SheafTorsor.tr
   chosenRecovery (SheafTorsor.trivial G X) (Arrow.ident _)
 
 /-- An explicit coboundary gauge yields an explicit trivialization of its glued torsor. -/
-def coboundaryRecovery (g : SplitSheaf.Ext A ⟶ groupSheaf G) :
+def coboundaryRecovery (g : SplitSheaf.extension A ⟶ groupSheaf G) :
     Arrow (coboundary g).glue.obj (SheafTorsor.trivial G X) :=
   ((coboundaryGauge g).inverse.glue.hom).comp trivialRecovery
 

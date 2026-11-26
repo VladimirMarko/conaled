@@ -63,7 +63,7 @@ namespace SquareKit.SmoothTorsorReconstruction
 open ManifoldRealization SmoothOpenSite
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
   [TopologicalSpace G] [DiscreteTopology G]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 

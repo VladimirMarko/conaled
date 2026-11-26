@@ -20,11 +20,11 @@ def reconstruct (h : A.realization ⟶ B.realization) : M → N :=
   A.charts.realMap B.charts A.atlas.covers B.atlas.covers h
 
 theorem reconstruct_smooth (h : A.realization ⟶ B.realization) :
-    ContMDiff (Model n) (Model m) ∞ (A.reconstruct B h) :=
+    ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ (A.reconstruct B h) :=
   A.contMDiff_of_localMap B
     (A.charts.reconstructLocalMap B.charts A.atlas.covers B.atlas.covers h)
 
-theorem reconstruct_interpret (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f) :
+theorem reconstruct_interpret (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) :
     A.reconstruct B (A.interpret B f hf) = f :=
   A.charts.realMap_realize B.charts A.atlas.covers B.atlas.covers (A.localMap B f hf)
 
@@ -36,7 +36,7 @@ theorem interpret_reconstruct (h : A.realization ⟶ B.realization) :
       (A.charts.reconstruct_realize B.charts A.atlas.covers B.atlas.covers h)
 
 def homEquiv :
-    {f : M → N // ContMDiff (Model n) (Model m) ∞ f} ≃ (A.realization ⟶ B.realization) where
+    {f : M → N // ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f} ≃ (A.realization ⟶ B.realization) where
   toFun f := A.interpret B f.val f.property
   invFun h := ⟨A.reconstruct B h, A.reconstruct_smooth B h⟩
   left_inv f := Subtype.ext (A.reconstruct_interpret B f.val f.property)
@@ -66,22 +66,22 @@ theorem reconstruct_comparison (A' : ChartFamily n M) (B' : ChartFamily m N)
 
 end ChartFamily
 
-variable [IsManifold (Model n) ∞ M] [IsManifold (Model m) ∞ N] [IsManifold (Model p) ∞ P]
+variable [IsManifold (modelWithCorners n) ∞ M] [IsManifold (modelWithCorners m) ∞ N] [IsManifold (modelWithCorners p) ∞ P]
 
 def reconstruct (h : object n M ⟶ object m N) : M → N :=
   ChartFamily.reconstruct .preferred .preferred h
 
 theorem reconstruct_smooth (h : object n M ⟶ object m N) :
-    ContMDiff (Model n) (Model m) ∞ (reconstruct h) :=
+    ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ (reconstruct h) :=
   ChartFamily.reconstruct_smooth .preferred .preferred h
 
-def homEquiv : {f : M → N // ContMDiff (Model n) (Model m) ∞ f} ≃ (object n M ⟶ object m N) :=
+def homEquiv : {f : M → N // ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f} ≃ (object n M ⟶ object m N) :=
   ChartFamily.homEquiv .preferred .preferred
 
-theorem homEquiv_apply (f : {f : M → N // ContMDiff (Model n) (Model m) ∞ f}) :
+theorem homEquiv_apply (f : {f : M → N // ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f}) :
     homEquiv f = map f.val f.property := rfl
 
-theorem reconstruct_map (f : M → N) (hf : ContMDiff (Model n) (Model m) ∞ f) :
+theorem reconstruct_map (f : M → N) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) :
     reconstruct (map f hf) = f :=
   ChartFamily.reconstruct_interpret .preferred .preferred f hf
 
@@ -90,7 +90,7 @@ theorem map_reconstruct (h : object n M ⟶ object m N) :
   ChartFamily.interpret_reconstruct .preferred .preferred h
 
 theorem map_injective {f g : M → N}
-    (hf : ContMDiff (Model n) (Model m) ∞ f) (hg : ContMDiff (Model n) (Model m) ∞ g)
+    (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) (hg : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ g)
     (h : map f hf = map g hg) : f = g :=
   (reconstruct_map f hf).symm.trans ((congrArg reconstruct h).trans (reconstruct_map g hg))
 

@@ -42,7 +42,7 @@ example (n : Nat) : (actual n).2 = initialHistory ∨
   apply connected_history packets early 2 rfl truth n initialHistory
   exact ⟨start,honest,feedbackInputs start packets early 2 n,rfl,rfl⟩
 example (n : Nat) : admissible packets truth ⊆
-    requirement (Relation.Comp (broker packets early 2 n) (consumer initialHistory))
+    requirement (Relation.Comp (Broker packets early 2 n) (Consumer initialHistory))
       (AllowedResult initialHistory [3,4,3]) :=
   connected_requirement packets early 2 rfl truth n initialHistory
 example (xs ys : List (Option (List Nat))) :
@@ -122,7 +122,7 @@ example : response start packets (fun _ => .idle) 0 = none ∧
 /-- A legitimate empty response blocks a consumer requiring nonempty deliveries. -/
 def nonemptyInputs : Set (List (Option (List Nat))) :=
   {xs | ∀ batch ∈ completed xs, batch ≠ []}
-example : ¬ image (broker packets emptyQuery 1 2) (admissible packets truth) ⊆ nonemptyInputs := by
+example : ¬ image (Broker packets emptyQuery 1 2) (admissible packets truth) ⊆ nonemptyInputs := by
   intro h
   have bad := h ⟨start,honest,rfl⟩
   exact bad [] (by decide) rfl

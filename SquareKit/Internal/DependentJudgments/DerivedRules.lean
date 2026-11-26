@@ -32,7 +32,7 @@ abbrev contextSchema (out : Judgment (Fin 1)) : Rule signature where
   conclusion := out
 
 theorem contextSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin 1))
-    (h : ∀ Γ, out.eval (algebra M) ![.context Γ]) : Satisfies (algebra M) (contextSchema out) := by
+    (h : ∀ Γ, out.Eval (algebra M) ![.context Γ]) : Satisfies (algebra M) (contextSchema out) := by
   intro ρ hs
   rcases hs 0 with ⟨Γ, hΓ⟩
   have he : ρ = ![Value.context Γ] := by funext i; fin_cases i; exact hΓ
@@ -51,12 +51,12 @@ theorem totalNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra 
 theorem pullbackNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pullbackNilRule := by
   apply subSchema_valid
   intro Γ Δ σ
-  simp [Atom.eval, Term.eval, FinitaryTerm.fold, algebra, operation, Telescope.pullback, Telescope.reindex]
+  simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation, Telescope.pullback, Telescope.reindex]
 
 theorem rootTailNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) rootTailNilRule := by
   apply pointSchema_valid
   intro Γ A x
-  simp [Atom.eval, Term.eval, FinitaryTerm.fold, algebra, operation, Telescope.pullback, Telescope.total, StructuralModel.rootTail, Telescope.liftSub, Telescope.reindex]
+  simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation, Telescope.pullback, Telescope.total, StructuralModel.rootTail, Telescope.liftSub, Telescope.reindex]
 
 theorem pathDef_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathDefRule := by
   apply pointSchema_valid

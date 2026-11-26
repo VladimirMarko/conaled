@@ -29,8 +29,8 @@ new parser, a syntactic universe of all theories, or arbitrary internal sites.
 No categorical model is supplied as the parameter.
 
 Existing declarations make that boundary explicit. `FiniteSetting.Formula`,
-`Sequent`, `axioms` and `Formula.eval` express and interpret the finite geometric
-scheme; `Presentation.parameter` supplies its internal predicate in Set/X.
+`Sequent`, `axioms` and `Formula.Eval` express and interpret the finite geometric
+scheme; `Presentation.Parameter` supplies its internal predicate in Set/X.
 The concrete arithmetic predicate n>0 and the generic-tag predicate are
 Lean-hosted predicate expressions, not trees in a new arithmetic source syntax.
 `Total`, `genericSection`, `genericModel`, `modelSectionEquiv` and the recovery

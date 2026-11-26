@@ -19,7 +19,7 @@ namespace Examples.SuspensionPureValues
 open Suspensions
 open Pure
 
-private def noOperations : Unit → Prop := fun _ => False
+private def NoOperations : Unit → Prop := fun _ => False
 
 def mutualClauses : List (Core.Pattern × Core.Expr Unit) :=
   [(.record [], Core.force (.variable 2))]
@@ -50,7 +50,7 @@ theorem mutual_source_distinct : ((Rhs.toBindings mutualBindings).map Prod.fst).
   rw [Rhs.toBindings_names]
   decide
 
-theorem mutual_source_allowed : ExpressionAllowed noOperations
+theorem mutual_source_allowed : ExpressionAllowed NoOperations
     (.recursive (Rhs.toBindings mutualBindings) (Core.force (.variable 2))) := by
   apply ExpressionAllowed.recursive
   · exact .cons (.function (.cons (.record .nil) (force_allowed (.variable 2)) .nil))
@@ -100,7 +100,7 @@ def cachedBodyEnvironment : Pure.Env Unit := bodyEnvironment cachedOuter (some c
 The closure itself has no additional recursive descriptor. -/
 def cachedClosure : Pure.Value Unit := .closure cachedClauses cachedBodyEnvironment none
 
-theorem cached_source_allowed : ExpressionAllowed noOperations
+theorem cached_source_allowed : ExpressionAllowed NoOperations
     (.recursive [(1, .delay cachedCode)]
       (.apply (Core.force (.variable 1)) (.atom (.boolean false)))) := by
   apply ExpressionAllowed.recursive
@@ -125,7 +125,7 @@ theorem cached_closure_backedge :
   ⟨cachedBodyEnvironment, none, rfl, cached_suspension_lookup, rfl⟩
 
 theorem recursive_pattern_effect_excluded :
-    ¬ ExpressionAllowed noOperations
+    ¬ ExpressionAllowed NoOperations
       (.function [(.reference .wildcard, .atom (.integer 0))]) := by
   intro allowed
   cases allowed with
@@ -134,13 +134,13 @@ theorem recursive_pattern_effect_excluded :
       | cons matching _ _ => exact reference_pattern_excluded _ matching
 
 /-- Fixed exceptions are retained; this does not generate an exception name. -/
-theorem fixed_exception_allowed : ExpressionAllowed noOperations
+theorem fixed_exception_allowed : ExpressionAllowed NoOperations
     (.handle (.raise (.variable 7)) [(.exception 7 none, .atom (.integer 0))]) :=
   .handle (.raise (.variable 7)) (.cons (.exception 7) (.atom (.integer 0)) .nil)
 
 /-- Absence of effects does not turn an unsupported recursive RHS into a
 source-valid declaration. The separate RHS decoder rejects it. -/
-theorem invalid_recursive_rhs_effect_free : ExpressionAllowed noOperations
+theorem invalid_recursive_rhs_effect_free : ExpressionAllowed NoOperations
     (.recursive [(3, .atom (.integer 0))] (.variable 3)) :=
   .recursive (.cons (.atom (.integer 0)) .nil) (.variable 3)
 

@@ -383,7 +383,7 @@ theorem constant_false_not_laws : ¬ IntervalSet.Laws listOps (fun _ _ => false)
     (fun xs key => key ∈ xs) OrderedList.Strict := by
   intro laws
   have overlap := laws.overlap [duplicateKey0] (OrderedList.strict_singleton _) square.x
-  have witness : IntervalSet.hasOverlap (keyInterval '' {key | key ∈ [duplicateKey0]})
+  have witness : IntervalSet.HasOverlap (keyInterval '' {key | key ∈ [duplicateKey0]})
       square.x :=
     ⟨square.x, ⟨duplicateKey0, by simp, rfl⟩, square.x.overlap_self⟩
   exact Bool.false_ne_true (overlap.mpr witness)
@@ -441,7 +441,7 @@ noncomputable def semanticOps {α : Type u} [LE α] :
 noncomputable def semanticQuery {α : Type u} [LE α]
     (s : Set (Key α)) (q : IntervalKey α) : Bool := by
   classical
-  exact decide (IntervalSet.hasOverlap (keyInterval '' s) q)
+  exact decide (IntervalSet.HasOverlap (keyInterval '' s) q)
 
 theorem semanticLaws {α : Type u} [LE α] :
     IntervalSet.Laws (semanticOps (α := α)) semanticQuery keyInterval id (fun _ => True) where

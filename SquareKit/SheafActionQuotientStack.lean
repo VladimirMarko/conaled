@@ -58,7 +58,7 @@ theorem glue_action (D : Data a A) (x : X.obj.Elements) (g : G.obj.obj x.obj)
     (glue D).torsor.act x g p = (datum D).descendedTorsor.act x g p := rfl
 
 /-- Recovery commutes with the group action on the actual local fibers. -/
-theorem localComparison_action (D : Data a A) (x : (SplitSheaf.Ext A).obj.Elements)
+theorem localComparison_action (D : Data a A) (x : (SplitSheaf.extension A).obj.Elements)
     (g : G.obj.obj x.obj)
     (p : (reindex (glue D) (SplitSheaf.p A)).torsor.family.family.obj x) :
     ((localComparison D).hom.hom ()).torsorArrow.iso.hom.app x
@@ -67,7 +67,7 @@ theorem localComparison_action (D : Data a A) (x : (SplitSheaf.Ext A).obj.Elemen
   ((localComparison D).hom.hom ()).torsorArrow.equivariant x g p
 
 /-- Recovery also retains the full equivariant target value. -/
-theorem localComparison_target (D : Data a A) (x : (SplitSheaf.Ext A).obj.Elements)
+theorem localComparison_target (D : Data a A) (x : (SplitSheaf.extension A).obj.Elements)
     (p : (reindex (glue D) (SplitSheaf.p A)).torsor.family.family.obj x) :
     (D.obj ()).value x (((localComparison D).hom.hom ()).torsorArrow.iso.hom.app x p) =
       (reindex (glue D) (SplitSheaf.p A)).value x p :=

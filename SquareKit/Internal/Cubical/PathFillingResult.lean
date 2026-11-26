@@ -16,11 +16,11 @@ variable {Γ Δ : Context.{u}} {B : Family (total (interval Γ))}
   (ht : (pathFillingBox p φ b).Fills t)
 
 def pathFillingResult : Term (reindex (path B a₀ a₁) p) :=
-  Term.map (pathReindexIso B a₀ a₁ p).inv (pathFillingBody_path p φ b t ht)
+  Term.map (pathReindexIso B a₀ a₁ p).inv (pathFillingBodyPath p φ b t ht)
 
 theorem pathFillingResult_normalize :
     Term.map (pathReindex B a₀ a₁ p) (pathFillingResult p φ b t ht) =
-      pathFillingBody_path p φ b t ht :=
+      pathFillingBodyPath p φ b t ht :=
   Term.map_iso_roundtrip (pathReindexIso B a₀ a₁ p).symm _
 
 theorem pathFillingResult_cap :
@@ -34,13 +34,13 @@ theorem pathFillingResult_cap :
   exact hn.trans ht.1
 
 theorem pathFillingResult_tube (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).full x) :
+    (hx : (φ.reindex (projection (interval Δ))).Full x) :
     (pathFillingResult p φ b t ht).val x = b.tube.val x hx := by
   apply ((pathReindexIso B a₀ a₁ p).app x).toEquiv.injective
   let s := b.tube.map (pathReindex B a₀ a₁ p)
   change (Term.map (pathReindex B a₀ a₁ p) (pathFillingResult p φ b t ht)).val x = s.val x hx
   calc
-    _ = (pathFillingBody_path p φ b t ht).val x :=
+    _ = (pathFillingBodyPath p φ b t ht).val x :=
       congrArg (fun v => v.val x) (pathFillingResult_normalize p φ b t ht)
     _ = _ := by
       apply Subtype.ext
@@ -48,7 +48,7 @@ theorem pathFillingResult_tube (x : (total (interval Δ)).Elements)
       intro y f j
       have hy := (φ.reindex (projection (interval Δ))).full_natural f hx
       let z := extendObj (interval (total (interval Δ))) y j
-      have hz : (pathBoundaryFace φ).full
+      have hz : (pathBoundaryFace φ).Full
           ((projection (interval (total (interval Δ)))).mapElements.obj
             ((swapIntervals Δ).mapElements.obj z)) :=
         (Cofibration.full_join _ _ _).mpr (Or.inl hy)

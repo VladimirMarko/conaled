@@ -20,7 +20,7 @@ def branchFromComputations
       (.fiber (z hΓ x).raw) (fiberCode (z hΓ x).code)
       (leftRoot hΓ x).raw (leftRoot hΓ x).code (branchValue hΓ x).raw (branchValue hΓ x).code) :=
   ((TmDeriv.refl (.fiber (z hΓ x).deriv) (branchValue hΓ x).deriv).convert
-    (TyEqDeriv.identity (.fiber (z hΓ x).deriv) el.symm (right_beta hΓ x).symm)).convert
+    (TyEqDeriv.identity (.fiber (z hΓ x).deriv) el.symm (rightBeta hΓ x).symm)).convert
       (motiveNormalization hΓ x).symm
 
 end SquareKit.Internal.PathTransport.Typed.Authoring.TransferFrame

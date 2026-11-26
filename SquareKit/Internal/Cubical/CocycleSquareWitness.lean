@@ -10,7 +10,7 @@ def zeroCocycle (C : Type*) [Category C] : Cocycle2 C where
   closed _ _ _ := rfl
 
 theorem squareCocycle_face {I : Cube} (α : I ⟶ (⟨2⟩ : Cube))
-    (p : squareBoundarySieve.contains (Over.mk α)) :
+    (p : squareBoundarySieve.Contains (Over.mk α)) :
     squareCocycle.pullback (Over.map α) = zeroCocycle (Over I) := by
   apply Cocycle2.ext
   funext X Y Z f g

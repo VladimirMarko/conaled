@@ -47,7 +47,7 @@ variable {Γ : RawCtx} {γ : CtxCode.{u+1}}
 def pathWitness {G : Type u} [Category.{u} G] (x : Section (constant (Γ := G) C)) :
     Section (identityFamily (constant C)
       (x.reindex (PathComparison.retract (constant C) x)) (DerivedSemantics.endpoint x)) :=
-  «variable» (PathComparison.PathFamily (constant C) x)
+  «variable» (PathComparison.pathComparisonFamily (constant C) x)
 
 theorem baseReindex_eval {δ : CtxCode.{u+1}} (t : TmCode γ (baseCode γ)) (s : SubCode δ γ) :
     baseReindexCode t s M = ⟨(t M).down.reindex (s M).down⟩ :=

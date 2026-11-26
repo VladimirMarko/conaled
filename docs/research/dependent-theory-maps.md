@@ -24,8 +24,8 @@ capture-avoiding simultaneous substitution. `DependentTheoryTemplates` adds
 explicit argument metavariables, their arities and simultaneous instantiation.
 A `TemplateMap` supplies one closed expression over argument metavariables per
 source symbol. Its interpretation derives substitution compatibility from the
-generic instantiation lemmas. The concrete `Gtemplate` expands projections to
-split expressions; `Gtemplate_act` proves agreement with the independently
+generic instantiation lemmas. The concrete `gTemplate` expands projections to
+split expressions; `gTemplate_act` proves agreement with the independently
 written raw translation. `TemplateMap.comp` constructs actual finite closed
 composite bodies by lifting the second map through the first symbol's argument
 metavariables. Nested instantiation fusion proves `comp_act`: interpreting the
@@ -33,7 +33,7 @@ composite agrees with successive interpretation on every scoped expression.
 Identity and associativity laws hold as equality of those expression actions;
 we do not claim literal equality of raw template-body records. This syntax-level
 construction is separate from proof-certificate composition below. The concrete
-`FGtemplate` composes identity with G and maps the selected twice-substituted
+`fgTemplate` composes identity with G and maps the selected twice-substituted
 client to the independently written target `u(d(k))`.
 
 This is a bounded contextual adaptation, not a literal transcription of every
@@ -132,7 +132,7 @@ checked local cases; they are not merely records awaiting the relevant laws.
 The projection beta and beta/eta presentations share structural machinery but
 are separate rule tables. The eliminator presentation independently declares
 formation, pack, dependent split, split beta and eta, with its own constructor
-congruence. `GPrimitiveCertificate` checks every projection primitive. `fullG` supplies every certificate, including the constructor congruence cases,
+congruence. `gPrimitiveCertificate` checks every projection primitive. `fullG` supplies every certificate, including the constructor congruence cases,
 with no remaining law parameters. `fullFG` compresses the actual F/G pair;
 `compressed_compiles` proves equality of the resulting ordinary proof trees. First
 uses a constant motive and variable branch. Second's motive applies the family

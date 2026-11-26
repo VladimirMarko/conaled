@@ -157,8 +157,8 @@ abbrev negation_mate (b : Bool) :=
   source_substitution_mate finiteModel (negRealization finiteModel (finiteSection b)).base body.type
 
 /-- Both fibers of the result family have checked ordinary interpretations. -/
-abbrev result_false := SplitDependentFunctions.falseFiber
-abbrev result_true := SplitDependentFunctions.trueFiber
+abbrev resultFalse := SplitDependentFunctions.falseFiber
+abbrev resultTrue := SplitDependentFunctions.trueFiber
 
 /-- The extended source still cannot manufacture an inhabitant of the original
 false-point family at true, even by adding lambdas and applications. -/

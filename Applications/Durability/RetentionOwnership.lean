@@ -15,31 +15,31 @@ structure Ownership where
   owner : Option Nat
   consumed : Set Nat
 
-def Ownership.admits (d : Ownership) (h : Handle) : Prop :=
+def Ownership.Admits (d : Ownership) (h : Handle) : Prop :=
   h.connection = d.connection ∧ d.owner = some h.scope ∧ h.scope ∉ d.consumed
 
 inductive OwnershipStep : Ownership → Ownership → Prop
   | acquire {d name} : d.owner = none → name ∉ d.consumed →
       OwnershipStep d { d with owner := some name }
-  | release {d h} : d.admits h →
+  | release {d h} : d.Admits h →
       OwnershipStep d { d with owner := none, consumed := insert h.scope d.consumed }
-  | use {d h} : d.admits h → OwnershipStep d d
+  | use {d h} : d.Admits h → OwnershipStep d d
   | restart {d} : OwnershipStep d ⟨d.connection + 1, none, ∅⟩
 
 /-- Release consumes ownership even when no append changes the stored position. -/
 theorem released_not_admitted (d : Ownership) (h : Handle) :
-    ¬({ d with owner := none, consumed := insert h.scope d.consumed } : Ownership).admits h := by
-  simp [Ownership.admits]
+    ¬({ d with owner := none, consumed := insert h.scope d.consumed } : Ownership).Admits h := by
+  simp [Ownership.Admits]
 
 /-- Reacquisition uses a fresh scoped resource. An alias of the consumed owner
 cannot release the new pin, even if its numeric position is unchanged. -/
 theorem reacquired_excludes_old (d : Ownership) (h : Handle) (name : Nat) :
-    ¬({ d with owner := some name, consumed := insert h.scope d.consumed } : Ownership).admits h := by
-  simp [Ownership.admits]
+    ¬({ d with owner := some name, consumed := insert h.scope d.consumed } : Ownership).Admits h := by
+  simp [Ownership.Admits]
 
 theorem restarted_excludes_old (d : Ownership) (h : Handle) :
-    ¬(⟨d.connection + 1, none, ∅⟩ : Ownership).admits h := by
-  simp [Ownership.admits]
+    ¬(⟨d.connection + 1, none, ∅⟩ : Ownership).Admits h := by
+  simp [Ownership.Admits]
 
 /-- The fencing adapter must derive this flag from connection validity. It is
 not a client assertion trusted by the service. -/
@@ -77,17 +77,17 @@ def handleCommand (d : Ownership) (h : Handle) : HandleOperation → Command
 /-- Stale connections may ask and receive InvalidHandle. A call in the current
 connection is admitted only with the unique unconsumed scoped capability. -/
 def AdmittedHandle (d : Ownership) (h : Handle) : Prop :=
-  h.connection ≠ d.connection ∨ d.admits h
+  h.connection ≠ d.connection ∨ d.Admits h
 
 theorem replay_not_admitted (d : Ownership) (h : Handle) (name : Nat)
     (connection : h.connection = d.connection) :
     ¬AdmittedHandle { d with owner := some name, consumed := insert h.scope d.consumed } h := by
-  simp [AdmittedHandle, connection, Ownership.admits]
+  simp [AdmittedHandle, connection, Ownership.Admits]
 
 /-- This is the connection between the affine premise and the actual service
 release transition. It does not make a raw Boolean flag into a capability. -/
 theorem owned_release {c : Config} (ops : Operations α) (s : Service α)
-    (d : Ownership) (h : Handle) (admitted : d.admits h)
+    (d : Ownership) (h : Handle) (admitted : d.Admits h)
     (owns : Owns d s.control) (online : s.control.online = true) :
     (command c ops s (handleCommand d h .release)).1 = .released ∧
     Owns { d with owner := none, consumed := insert h.scope d.consumed }
@@ -97,7 +97,7 @@ theorem owned_release {c : Config} (ops : Operations α) (s : Service α)
     rw [← owns, admitted.2.1]
     rfl
   simp [command, handleCommand, currentConnection, admitted.1, online, pin,
-    Owns, AdmittedHandle, Ownership.admits]
+    Owns, AdmittedHandle, Ownership.Admits]
 
 def Exclusive (ctl : Control) : Prop := ctl.pinned = true → ctl.pending = none
 

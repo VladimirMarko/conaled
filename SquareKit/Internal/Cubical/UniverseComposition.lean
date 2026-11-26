@@ -73,14 +73,14 @@ open CategoryTheory
 universe u
 variable {Γ : Context.{u}} (φ : Cofibration Γ)
 
-abbrev TubeContext := restrictContext (φ.reindex (projection (interval Γ)))
+abbrev tubeContext := restrictContext (φ.reindex (projection (interval Γ)))
 
-def tubeProjection : TubeContext φ ⟶ restrictContext φ where
+def tubeProjection : tubeContext φ ⟶ restrictContext φ where
   app _ := TypeCat.ofHom (fun x => ⟨x.val.1,x.property⟩)
   naturality _ _ _ := rfl
 
 /-- Scale the tube coordinate while preserving its base face. -/
-def tubeScale : total (interval (TubeContext φ)) ⟶ TubeContext φ where
+def tubeScale : total (interval (tubeContext φ)) ⟶ tubeContext φ where
   app _ := TypeCat.ofHom (fun x =>
     ⟨⟨x.1.val.1,ULift.up (Cube.meet x.1.val.2.down x.2.down)⟩,x.1.property⟩)
   naturality I J f := by
@@ -90,28 +90,28 @@ def tubeScale : total (interval (TubeContext φ)) ⟶ TubeContext φ where
     exact (scaleInterval Γ).naturality_apply f ⟨x.1.val,x.2⟩
 
 theorem tubeScale_zero :
-    endpointSub (TubeContext φ) false ≫ tubeScale φ = tubeProjection φ ≫ tubeCap φ := by
+    endpointSub (tubeContext φ) false ≫ tubeScale φ = tubeProjection φ ≫ tubeCap φ := by
   ext I x
   apply Subtype.ext
   exact congrArg (fun r => (⟨x.val.1,ULift.up r⟩ : (total (interval Γ)).obj I))
     (Cube.meet_zero x.val.2.down)
 
-theorem tubeScale_one : endpointSub (TubeContext φ) true ≫ tubeScale φ = 𝟙 _ := by
+theorem tubeScale_one : endpointSub (tubeContext φ) true ≫ tubeScale φ = 𝟙 _ := by
   ext I x
   apply Subtype.ext
   exact congrArg (fun r => (⟨x.val.1,ULift.up r⟩ : (total (interval Γ)).obj I))
     (Cube.meet_one x.val.2.down)
 
-def backwardScale : total (interval (TubeContext φ)) ⟶ TubeContext φ :=
-  reverseInterval (TubeContext φ) ≫ tubeScale φ
+def backwardScale : total (interval (tubeContext φ)) ⟶ tubeContext φ :=
+  reverseInterval (tubeContext φ) ≫ tubeScale φ
 
-theorem backwardScale_zero : endpointSub (TubeContext φ) false ≫ backwardScale φ = 𝟙 _ := by
+theorem backwardScale_zero : endpointSub (tubeContext φ) false ≫ backwardScale φ = 𝟙 _ := by
   unfold backwardScale
   rw [← Category.assoc, reverseInterval_endpoint]
   exact tubeScale_one φ
 
 theorem backwardScale_one :
-    endpointSub (TubeContext φ) true ≫ backwardScale φ = tubeProjection φ ≫ tubeCap φ := by
+    endpointSub (tubeContext φ) true ≫ backwardScale φ = tubeProjection φ ≫ tubeCap φ := by
   unfold backwardScale
   rw [← Category.assoc, reverseInterval_endpoint]
   exact tubeScale_zero φ
@@ -119,15 +119,15 @@ theorem backwardScale_one :
 variable {φ} (b : Box Γ φ)
 
 /-- The backward code line contracts each supplied tube fiber to the cap. -/
-def backwardCode : raisedContext (total (interval (TubeContext φ))) ⟶ smallFamilyCodes.{u} :=
+def backwardCode : raisedContext (total (interval (tubeContext φ))) ⟶ smallFamilyCodes.{u} :=
   raisedSub (backwardScale φ) ≫ b.tube
 
 theorem backwardCode_zero :
-    raisedSub (endpointSub (TubeContext φ) false) ≫ b.backwardCode = b.tube :=
+    raisedSub (endpointSub (tubeContext φ) false) ≫ b.backwardCode = b.tube :=
   congrArg (fun σ => raisedSub σ ≫ b.tube) (backwardScale_zero φ)
 
 theorem backwardCode_one :
-    raisedSub (endpointSub (TubeContext φ) true) ≫ b.backwardCode =
+    raisedSub (endpointSub (tubeContext φ) true) ≫ b.backwardCode =
       raisedSub (restrictInclusion (φ.reindex (projection (interval Γ))) ≫ projection (interval Γ)) ≫ b.base :=
   (congrArg (fun σ => raisedSub σ ≫ b.tube) (backwardScale_one φ)).trans
     (congrArg (fun a => raisedSub (tubeProjection φ) ≫ a) b.boundary)

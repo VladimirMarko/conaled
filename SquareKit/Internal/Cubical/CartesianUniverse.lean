@@ -89,29 +89,29 @@ namespace CodeSystem
 def Compatible {Γ : Context.{u}} {φ ψ : Subcontext Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) : Prop :=
-  ∀ (x : Γ.Elements) (h : φ.holds x) (k : ψ.holds x),
+  ∀ (x : Γ.Elements) (h : φ.Holds x) (k : ψ.Holds x),
     a.app x.obj ⟨⟨x.val,h⟩⟩ = b.app x.obj ⟨⟨x.val,k⟩⟩
 
 def value {Γ : Context.{u}} {φ ψ : Subcontext Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u})
-    (x : Γ.Elements) (p : (φ.join ψ).holds x) : SmallFamilyCode.{u} x.obj.unop :=
-  if h : φ.holds x then a.app x.obj ⟨⟨x.val,h⟩⟩
+    (x : Γ.Elements) (p : (φ.join ψ).Holds x) : SmallFamilyCode.{u} x.obj.unop :=
+  if h : φ.Holds x then a.app x.obj ⟨⟨x.val,h⟩⟩
   else b.app x.obj ⟨⟨x.val,((Subcontext.full_join φ ψ x).mp p).resolve_left h⟩⟩
 
 theorem value_left {Γ : Context.{u}} {φ ψ : Subcontext Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u})
-    (x : Γ.Elements) (p : (φ.join ψ).holds x) (h : φ.holds x) :
+    (x : Γ.Elements) (p : (φ.join ψ).Holds x) (h : φ.Holds x) :
     value a b x p = a.app x.obj ⟨⟨x.val,h⟩⟩ := by
   exact dite_eq_left h
 
 theorem value_right {Γ : Context.{u}} {φ ψ : Subcontext Γ}
     (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
     (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b)
-    (x : Γ.Elements) (p : (φ.join ψ).holds x) (h : ψ.holds x) :
+    (x : Γ.Elements) (p : (φ.join ψ).Holds x) (h : ψ.Holds x) :
     value a b x p = b.app x.obj ⟨⟨x.val,h⟩⟩ := by
-  by_cases k : φ.holds x
+  by_cases k : φ.Holds x
   · exact (value_left a b x p k).trans (c x k h)
   · exact dite_eq_right k
 
@@ -255,11 +255,11 @@ variable {Γ : Context.{u}} {φ ψ : Subcontext Γ}
 abbrev original (x : (restrictContext (φ.join ψ)).Elements) : Γ.Elements :=
   (restrictInclusion (φ.join ψ)).mapElements.obj x
 
-def left (x : (restrictContext (φ.join ψ)).Elements) (h : φ.holds (original x)) :
+def left (x : (restrictContext (φ.join ψ)).Elements) (h : φ.Holds (original x)) :
     (restrictContext φ).Elements :=
   (restrictContext φ).elementsMk x.obj ⟨x.val.val,h⟩
 
-def right (x : (restrictContext (φ.join ψ)).Elements) (h : ψ.holds (original x)) :
+def right (x : (restrictContext (φ.join ψ)).Elements) (h : ψ.Holds (original x)) :
     (restrictContext ψ).Elements :=
   (restrictContext ψ).elementsMk x.obj ⟨x.val.val,h⟩
 
@@ -269,20 +269,20 @@ variable (a : reindex A (includeLeft φ ψ) ⟶ reindex B (includeLeft φ ψ))
 /-- Equality on the overlap is required for maps, independently of code compatibility. -/
 def Compatible : Prop :=
   ∀ (x : (restrictContext (φ.join ψ)).Elements)
-    (h : φ.holds (original x)) (k : ψ.holds (original x)) (z : A.obj x),
+    (h : φ.Holds (original x)) (k : ψ.Holds (original x)) (z : A.obj x),
     a.app (left x h) z = b.app (right x k) z
 
 def value (x : (restrictContext (φ.join ψ)).Elements) (z : A.obj x) : B.obj x :=
-  if h : φ.holds (original x) then a.app (left x h) z
+  if h : φ.Holds (original x) then a.app (left x h) z
   else b.app (right x (((Subcontext.full_join φ ψ _).mp x.val.property).resolve_left h)) z
 
 theorem value_left (x : (restrictContext (φ.join ψ)).Elements)
-    (h : φ.holds (original x)) (z : A.obj x) : value a b x z = a.app (left x h) z := by
+    (h : φ.Holds (original x)) (z : A.obj x) : value a b x z = a.app (left x h) z := by
   exact dite_eq_left h
 
 theorem value_right (c : Compatible a b) (x : (restrictContext (φ.join ψ)).Elements)
-    (h : ψ.holds (original x)) (z : A.obj x) : value a b x z = b.app (right x h) z := by
-  by_cases k : φ.holds (original x)
+    (h : ψ.Holds (original x)) (z : A.obj x) : value a b x z = b.app (right x h) z := by
+  by_cases k : φ.Holds (original x)
   · exact (value_left a b x k z).trans (c x k h z)
   · exact dite_eq_right k
 
@@ -382,7 +382,7 @@ theorem constant_partial (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
       raisedSub (restrictInclusion (face (φ := φ) (r := r)) ≫ projection (interval Γ)) ≫ a := by
   ext I x
   let y := (total (interval Γ)).elementsMk I x.down.val
-  by_cases h : (Glue.sourceFace r).holds y
+  by_cases h : (Glue.sourceFace r).Holds y
   · exact value_left (sourceCode a r) (constant φ r a).tube y x.down.property h
   · exact value_right (sourceCode a r) (constant φ r a).tube (constant φ r a).compatible
       y x.down.property (x.down.property.resolve_left h)
@@ -455,20 +455,20 @@ variable {Γ : Context.{u}} {φ ψ : Subcontext Γ}
   (b : Term (reindex A (includeRight φ ψ)))
 
 def Compatible : Prop := ∀ (x : (restrictContext (φ.join ψ)).Elements)
-    (h : φ.holds (Maps.original x)) (k : ψ.holds (Maps.original x)),
+    (h : φ.Holds (Maps.original x)) (k : ψ.Holds (Maps.original x)),
     a.val (Maps.left x h) = b.val (Maps.right x k)
 
 def value (x : (restrictContext (φ.join ψ)).Elements) : A.obj x :=
-  if h : φ.holds (Maps.original x) then a.val (Maps.left x h)
+  if h : φ.Holds (Maps.original x) then a.val (Maps.left x h)
   else b.val (Maps.right x (x.val.property.resolve_left h))
 
 theorem value_left (x : (restrictContext (φ.join ψ)).Elements)
-    (h : φ.holds (Maps.original x)) : value a b x = a.val (Maps.left x h) :=
+    (h : φ.Holds (Maps.original x)) : value a b x = a.val (Maps.left x h) :=
   dite_eq_left h
 
 theorem value_right (c : Compatible a b) (x : (restrictContext (φ.join ψ)).Elements)
-    (k : ψ.holds (Maps.original x)) : value a b x = b.val (Maps.right x k) := by
-  by_cases h : φ.holds (Maps.original x)
+    (k : ψ.Holds (Maps.original x)) : value a b x = b.val (Maps.right x k) := by
+  by_cases h : φ.Holds (Maps.original x)
   · exact (value_left a b x h).trans (c x h k)
   · exact dite_eq_right h
 
@@ -560,7 +560,7 @@ def extend : Term (reindex (isEquiv f) σ) :=
     (lam (body f F hF G hG σ e φ s))
 
 theorem body_boundary (x : (total (reindex B σ)).Elements)
-    (hx : (φ.reindex (projection (reindex B σ))).holds x) :
+    (hx : (φ.reindex (projection (reindex B σ))).Holds x) :
     (body f F hF G hG σ e φ s).val x =
       ((s.map (piReindex B (contr (fiber f)) σ)).app).val x hx := by
   let i := contrReindexIso (fiber f) (liftSub B σ)
@@ -571,7 +571,7 @@ theorem body_boundary (x : (total (reindex B σ)).Elements)
       (((s.map (piReindex B (contr (fiber f)) σ)).app).map i.hom) x hx)).trans
     (congrArg (fun m => m.app x (((s.map (piReindex B (contr (fiber f)) σ)).app).val x hx)) i.hom_inv_id)
 
-theorem extend_boundary (x : Δ.Elements) (hx : φ.holds x) :
+theorem extend_boundary (x : Δ.Elements) (hx : φ.Holds x) :
     (extend f F hF G hG σ e φ s).val x = s.val x hx := by
   let i := piReindexIso B (contr (fiber f)) σ
   let p := s.map i.hom
@@ -664,21 +664,21 @@ open CategoryTheory
 universe u
 variable {Γ : Context.{u}} (φ : Subcontext Γ)
 
-abbrev TubeContext := restrictContext (φ.reindex (projection (interval Γ)))
+abbrev tubeContext := restrictContext (φ.reindex (projection (interval Γ)))
 
 /-- Forget the tube coordinate while retaining its face membership. -/
-def tubeProjection : TubeContext φ ⟶ restrictContext φ where
+def tubeProjection : tubeContext φ ⟶ restrictContext φ where
   app _I := TypeCat.ofHom (fun x => ⟨x.val.1,x.property⟩)
   naturality _I _J _f := rfl
 
-def tubeVariable : Term (interval (TubeContext φ)) :=
+def tubeVariable : Term (interval (tubeContext φ)) :=
   Term.reindex (generic (interval Γ)) (restrictInclusion (φ.reindex (projection (interval Γ))))
 
-def tubeSourceTerm (r : Term (interval Γ)) : Term (interval (TubeContext φ)) :=
+def tubeSourceTerm (r : Term (interval Γ)) : Term (interval (tubeContext φ)) :=
   Term.reindex r (restrictInclusion (φ.reindex (projection (interval Γ))) ≫ projection (interval Γ))
 
 /-- Replace the tube coordinate by an independent variable. No connection is used. -/
-def tubeEvaluation : total (interval (TubeContext φ)) ⟶ TubeContext φ where
+def tubeEvaluation : total (interval (tubeContext φ)) ⟶ tubeContext φ where
   app _I := TypeCat.ofHom (fun x => ⟨⟨x.1.val.1,x.2⟩,x.1.property⟩)
   naturality _I _J _f := rfl
 
@@ -690,7 +690,7 @@ theorem tubeEvaluation_source (r : Term (interval Γ)) :
 
 variable {φ} {r : Term (interval Γ)} (b : Box Γ φ r)
 
-def tubeLine : LocalFamily (total (interval (TubeContext φ))) :=
+def tubeLine : LocalFamily (total (interval (tubeContext φ))) :=
   decodedLocalFamily (raisedSub (tubeEvaluation φ) ≫ b.tube)
 
 theorem tubeLine_variable : (tubeLine b).reindex (graph (tubeVariable φ)) =
@@ -1089,7 +1089,7 @@ theorem mapsCompatibleOfDiagonal {Δ : Context.{u}} {α β : Subcontext Δ}
     (hleft : Cartesian.reindex A (includeLeft α β) = Cartesian.reindex B (includeLeft α β))
     (m : Cartesian.reindex A (includeRight α β) ⟶ Cartesian.reindex B (includeRight α β))
     (hm : ∀ (x : (restrictContext (α.join β)).Elements)
-      (_h : α.holds (Maps.original x)) (k : β.holds (Maps.original x)) (z : A.obj x),
+      (_h : α.Holds (Maps.original x)) (k : β.Holds (Maps.original x)) (z : A.obj x),
       HEq (m.app (Maps.right x k) z) z) : Maps.Compatible (eqToHom hleft) m := by
   intro x h k z
   have hl := eqToHom_value_heq hleft (Maps.left x h) z
@@ -1103,7 +1103,7 @@ theorem mapsCompatibleOfCodeDiagonal {Δ : Context.{u}} {α β : Subcontext Δ}
     (hr : decode (raisedSub (graph r) ≫ a) = Cartesian.reindex A (includeRight α β))
     (hs : decode (raisedSub (graph s) ≫ a) = Cartesian.reindex B (includeRight α β))
     (hdiag : ∀ (x : (restrictContext (α.join β)).Elements)
-      (_h : α.holds (Maps.original x)) (k : β.holds (Maps.original x)),
+      (_h : α.Holds (Maps.original x)) (k : β.Holds (Maps.original x)),
       r.val (Maps.right x k) = s.val (Maps.right x k)) :
     Maps.Compatible (eqToHom hleft) (UniversalTransport.mapTo a r s _ _ hr hs) :=
   mapsCompatibleOfDiagonal hleft _
@@ -1162,12 +1162,12 @@ theorem glue_reindex : Term.reindex (glue a b c) (restrictSubstitution (φ.join 
   apply Term.ext
   intro x
   let y := (restrictSubstitution (φ.join ψ) σ).mapElements.obj x
-  by_cases h : φ.holds (Maps.original y)
+  by_cases h : φ.Holds (Maps.original y)
   · exact (value_left a b y h).trans
       (value_left (φ := φ.reindex σ) (ψ := ψ.reindex σ)
         (A := reindex A (restrictSubstitution (φ.join ψ) σ)) (Term.reindex a (restrictSubstitution φ σ))
         (Term.reindex b (restrictSubstitution ψ σ)) x h).symm
-  · have k : ψ.holds (Maps.original y) := y.val.property.resolve_left h
+  · have k : ψ.Holds (Maps.original y) := y.val.property.resolve_left h
     exact (value_right a b c y k).trans
       (value_right (φ := φ.reindex σ) (ψ := ψ.reindex σ)
         (A := reindex A (restrictSubstitution (φ.join ψ) σ)) (Term.reindex a (restrictSubstitution φ σ))
@@ -1406,7 +1406,7 @@ theorem center_transport : center (Contractible.map e c) (F.transport e) (s.map 
 def inverseContext : total B ⟶ total A := pair (projection B) (Term.map (Functor.whiskerLeft (projection B).mapElements e.inv) (generic B))
 theorem partialAt_eval (a : Term A) (ha : ∀ x h, a.val x = (s.val x h).1)
     (x : (total (interval (total A))).Elements)
-    (hx : (φ.reindex (projection (interval (total A)) ≫ projection A)).holds x) :
+    (hx : (φ.reindex (projection (interval (total A)) ≫ projection A)).Holds x) :
     (partialAt s a ha).pathApp.val x hx =
       contrEval ((projection A).mapElements.obj ((projection (interval (total A))).mapElements.obj x))
         (s.val _ hx) x.val.1.2 x.val.2 := by

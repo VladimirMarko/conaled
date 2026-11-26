@@ -44,7 +44,7 @@ theorem result_constant (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
     (b : OpenBox (reindex (identity A a₀ a₁) p) φ)
     (r : Term (reindex (paths (A := A) (a₀ := a₀) (a₁ := a₁)) (endpointSub Δ true ≫ p)))
     (hr : ∀ x hx, r.val x = (pathBox p φ b).tube.val ((endpointSub Δ true).mapElements.obj x) hx)
-    (x : Δ.Elements) (hx : (resultFace p φ b).full x) (i : (interval Δ).obj x) :
+    (x : Δ.Elements) (hx : (resultFace p φ b).Full x) (i : (interval Δ).obj x) :
     ((normalizePath p r).val x).val.val (𝟙 _) i = (a₀.reindex (endpointSub Δ true ≫ p)).val x := by
   obtain ⟨hφ,hψ⟩ := (Cofibration.dependent_full φ (endpointFace p φ b) x).mp hx
   have hp := congrArg (fun q : PathElement (reindex A (projection (interval Γ))) a₀ a₁
@@ -83,7 +83,7 @@ def composition (G : Composition (paths (A := A) (a₀ := a₀) (a₁ := a₁)))
 
 theorem composition_boundary (G : Composition (paths (A := A) (a₀ := a₀) (a₁ := a₁)))
     (hG : G.Lawful) (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
-    (b : OpenBox (reindex (identity A a₀ a₁) p) φ) (x : Δ.Elements) (hx : φ.full x) :
+    (b : OpenBox (reindex (identity A a₀ a₁) p) φ) (x : Δ.Elements) (hx : φ.Full x) :
     ((composition G hG).comp p φ b).val x = b.tube.val ((endpointSub Δ true).mapElements.obj x) hx := by
   apply IdentityElement.ext
   · have h := congrArg (fun t => t.val x) (result_path p φ b (G.comp p φ (pathBox p φ b))

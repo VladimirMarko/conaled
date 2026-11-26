@@ -59,8 +59,8 @@ def balancedFour : ScanPlan := .prod pair pair
 def coarseA : ScanPlan := .prod balancedFour sequentialFour
 def coarseB : ScanPlan := .comp balancedFour pair
 
-def coarse (a b : ScanPlan) : Prop := a.work ≤ b.work ∧ a.depth ≤ b.depth
-instance (a b : ScanPlan) : Decidable (coarse a b) := by unfold coarse; infer_instance
+def Coarse (a b : ScanPlan) : Prop := a.work ≤ b.work ∧ a.depth ≤ b.depth
+instance (a b : ScanPlan) : Decidable (Coarse a b) := by unfold Coarse; infer_instance
 
 theorem coarse_tie :
     (coarseA.work, coarseA.depth) = (11,4) ∧ (coarseB.work, coarseB.depth) = (11,4) := by decide
@@ -70,7 +70,7 @@ theorem coarse_arrivals :
     coarseB.arrivals (fun _ => 0) = [0,0,1,2,2,3,3,4,3] := by decide
 
 theorem coarse_pruning_loses :
-    thinBy coarse [coarseA,coarseB] = [coarseA] ∧
+    thinBy Coarse [coarseA,coarseB] = [coarseA] ∧
     (ScanPlan.prod coarseA .leaf).depth = 5 ∧
     (ScanPlan.prod coarseB .leaf).depth = 4 := by decide
 
@@ -124,7 +124,7 @@ def leftThree : ScanPlan := .prod pair .leaf
 def rightThree : ScanPlan := .prod .leaf pair
 
 theorem nonuniform_counterexample :
-    coarse leftThree rightThree ∧
+    Coarse leftThree rightThree ∧
     leftThree.totalArrival (fun i => if i = 0 then 2 else 0) = 4 ∧
     rightThree.totalArrival (fun i => if i = 0 then 2 else 0) = 3 ∧
     ¬ ObservedLE leftThree rightThree := by decide

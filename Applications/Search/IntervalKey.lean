@@ -39,15 +39,15 @@ def ofBounds (low high : α) (valid : low ≤ high) : IntervalKey α :=
 theorem low_le_high (x : IntervalKey α) : x.low ≤ x.high :=
   x.interval.fst_le_snd
 
-def overlap (x y : IntervalKey α) : Prop :=
+def Overlap (x y : IntervalKey α) : Prop :=
   y.low ≤ x.high ∧ x.low ≤ y.high
 
-instance [DecidableLE α] (x y : IntervalKey α) : Decidable (overlap x y) :=
+instance [DecidableLE α] (x y : IntervalKey α) : Decidable (Overlap x y) :=
   inferInstanceAs (Decidable (y.low ≤ x.high ∧ x.low ≤ y.high))
 
-theorem overlap_comm (x y : IntervalKey α) : overlap x y ↔ overlap y x := and_comm
+theorem overlap_comm (x y : IntervalKey α) : Overlap x y ↔ Overlap y x := and_comm
 
-theorem overlap_self (x : IntervalKey α) : overlap x x :=
+theorem overlap_self (x : IntervalKey α) : Overlap x x :=
   ⟨x.low_le_high, x.low_le_high⟩
 
 @[ext] theorem ext {x y : IntervalKey α}
@@ -108,7 +108,7 @@ theorem low_le_of_le {x y : IntervalKey α} (h : x ≤ y) : x.low ≤ y.low := b
 /-- The maximum of the two lows is a common point exactly when the cross
 inequalities hold. Each interval's own endpoint inequality is used. -/
 theorem overlap_iff_nonempty_inter (x y : IntervalKey α) :
-    overlap x y ↔ (x.toSet ∩ y.toSet).Nonempty := by
+    Overlap x y ↔ (x.toSet ∩ y.toSet).Nonempty := by
   constructor
   · rintro ⟨hyl, hxl⟩
     exact ⟨max x.low y.low,

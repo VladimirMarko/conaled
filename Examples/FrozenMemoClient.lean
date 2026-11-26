@@ -25,7 +25,7 @@ structure Client (M : SquareKit.Internal.PathTransport.Typed.Model.{u}) {V : Typ
 
 def Client.ofTyping (M : SquareKit.Internal.PathTransport.Typed.Model.{u}) {V : Type}
     {Ω : List (Contextual.Judgment V)} (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ) (S : Frozen.Signature Ω) : Client M ρ S where
+    (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ) (S : Frozen.Signature Ω) : Client M ρ S where
   input := InputRealization.ofTyping M ρ hΩ S.input
   delta := InputRealization.ofTyping M ρ hΩ S.deltaInput
   theta := InputRealization.ofTyping M ρ hΩ S.thetaInput

@@ -47,11 +47,11 @@ theorem constant_section_interval {Γ : Context.{u}} {S : Type u}
 /-- The same rigidity holds on an arbitrary face pulled back from the base. -/
 theorem constant_partial_interval {Γ : Context.{u}} {S : Type u} {φ : Cofibration Γ}
     (a : PartialSection (constantFamily (total (interval Γ)) S) (φ.reindex (projection (interval Γ))))
-    (x : Γ.Elements) (h : φ.full x) (r s : (interval Γ).obj x) :
+    (x : Γ.Elements) (h : φ.Full x) (r s : (interval Γ).obj x) :
     a.val (extendObj (interval Γ) x r) h = a.val (extendObj (interval Γ) x s) h := by
   let q : x ⟶ Γ.elementsMk (Opposite.op (Cube.extend x.obj.unop)) (Γ.map (dropOpp x.obj) x.val) :=
     Functor.Elements.homMk (dropOpp x.obj) rfl
-  have hf : (φ.reindex (projection (interval Γ))).full (freshExtension x) := φ.full_natural q h
+  have hf : (φ.reindex (projection (interval Γ))).Full (freshExtension x) := φ.full_natural q h
   exact (a.property (specializeInterval x r) hf).symm.trans (a.property (specializeInterval x s) hf)
 
 end SquareKit.Cubical.Presheaf

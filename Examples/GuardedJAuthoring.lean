@@ -52,12 +52,12 @@ universe u
 variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
   (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
   (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
-  (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ)
+  (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ)
 
 include hσ hτ hΩ in
 theorem interpreted :
     (term Θ (subTy (identity Q p p) (comp σ τ))
-      (subTm (subTm (Command.reflexivity hx hT hp).expression σ) τ)).eval (algebra M) ρ :=
+      (subTm (subTm (Command.reflexivity hx hT hp).expression σ) τ)).Eval (algebra M) ρ :=
   interpret (aligned hx hT hp hσ hτ) M ρ hΩ
 
 include hσ hτ hΩ in
@@ -66,7 +66,7 @@ the chosen expression and its full twice-substituted source type. -/
 theorem extensionSelected :
     ((term Θ (subTy (subTy (identity Q p p) σ) τ)
       (subTm (subTm (Command.reflexivity hx hT hp).expression σ) τ)).inl
-      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((subTm (subTm (Command.reflexivity hx hT hp).expression σ) τ).inl
       SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval

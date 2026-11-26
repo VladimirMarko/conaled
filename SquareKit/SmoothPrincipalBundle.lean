@@ -20,7 +20,7 @@ structure LocalTrivialization (p : E → B) where
   sheet : G → OpenPartialHomeomorph E B
   target : ∀ g, (sheet g).target = base
   projection : ∀ g e, e ∈ (sheet g).source → sheet g e = p e
-  smooth_inverse : ∀ g, ContMDiffOn (Model n) (Model n) ∞ (sheet g).symm base
+  smooth_inverse : ∀ g, ContMDiffOn (modelWithCorners n) (modelWithCorners n) ∞ (sheet g).symm base
   sheets : ∀ e, p e ∈ base → ∃! g, e ∈ (sheet g).source
   equivariant : ∀ g h b, b ∈ base → (sheet (g*h)).symm b = g • (sheet h).symm b
 
@@ -28,8 +28,8 @@ structure LocalTrivialization (p : E → B) where
 sheaf torsor, or quotient comparison occurs among the fields. -/
 structure Bundle where
   projection : E → B
-  smooth_projection : ContMDiff (Model n) (Model n) ∞ projection
-  smooth_action : ∀ g : G, ContMDiff (Model n) (Model n) ∞ (fun e : E => g • e)
+  smooth_projection : ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ projection
+  smooth_action : ∀ g : G, ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ (fun e : E => g • e)
   invariant : ∀ (g : G) (e : E), projection (g • e) = projection e
   triviality : ∀ b, ∃ t : LocalTrivialization (n := n) (G := G) projection, b ∈ t.base
 

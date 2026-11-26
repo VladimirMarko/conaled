@@ -50,8 +50,8 @@ abbrev Equal (a b : Expression V) := Derivation theory Ω (.eq a b)
 preservation equation is supplied by the proof author. -/
 theorem interpret {a : Judgment V} (d : Derivation theory Ω a)
     (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStructuralModel)
-    (ρ : V → Value M.toStructuralModel) (h : ∀ p ∈ Ω, p.eval (algebra M S) ρ) :
-    a.eval (algebra M S) ρ := d.sound (model M S) ρ h
+    (ρ : V → Value M.toStructuralModel) (h : ∀ p ∈ Ω, p.Eval (algebra M S) ρ) :
+    a.Eval (algebra M S) ρ := d.sound (model M S) ρ h
 
 /-- Raw simultaneous source substitution preserves admitted derivations. This
 is distinct from the semantic stability laws of a reindexed constructor. -/

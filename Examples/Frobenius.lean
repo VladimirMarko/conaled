@@ -8,32 +8,32 @@ namespace Examples.Frobenius
 open SquareKit.Internal Relational IntervalAnalysis
 
 -- An input admits the interval [-2,3]; realization adds one to a contained point.
-def enclosure : Unit → Interval → Prop := fun _ I => I = ⟨-2, 3⟩
-def realize : ℚ → ℚ → Prop := fun x z => z = x + 1
+def Enclosure : Unit → Interval → Prop := fun _ I => I = ⟨-2, 3⟩
+def Realize : ℚ → ℚ → Prop := fun x z => z = x + 1
 
-theorem accepted : ∃ I, (0 : ℚ) ≤ 2 ∧ enclosure () I ∧ compRel representation.Rel realize I 2 := by
-  apply (nonnegative_composition enclosure realize () 2).mp
+theorem accepted : ∃ I, (0 : ℚ) ≤ 2 ∧ Enclosure () I ∧ CompRel representation.Rel Realize I 2 := by
+  apply (nonnegative_composition Enclosure Realize () 2).mp
   refine ⟨by norm_num, 1, ⟨⟨-2, 3⟩, rfl, ?_⟩, ?_⟩
   · norm_num [representation, Contains]
-  · norm_num [realize]
+  · norm_num [Realize]
 
 -- Containment and realization are satisfiable here, but the output condition fails.
-theorem negative_realization : compRel (compRel enclosure representation.Rel) realize () (-1) := by
+theorem negative_realization : CompRel (CompRel Enclosure representation.Rel) Realize () (-1) := by
   refine ⟨-2, ⟨⟨-2, 3⟩, rfl, ?_⟩, ?_⟩
   · norm_num [representation, Contains]
-  · norm_num [realize]
+  · norm_num [Realize]
 
 theorem rejected_negative :
-    ¬ ∃ I, (0 : ℚ) ≤ -1 ∧ enclosure () I ∧ compRel representation.Rel realize I (-1) := by
+    ¬ ∃ I, (0 : ℚ) ≤ -1 ∧ Enclosure () I ∧ CompRel representation.Rel Realize I (-1) := by
   intro h
-  have nonnegative := ((nonnegative_composition enclosure realize () (-1)).mpr h).1
+  have nonnegative := ((nonnegative_composition Enclosure Realize () (-1)).mpr h).1
   norm_num at nonnegative
 
 -- A positive endpoint outside the realized enclosure must also be rejected.
 theorem rejected_outside :
-    ¬ ∃ I, (0 : ℚ) ≤ 5 ∧ enclosure () I ∧ compRel representation.Rel realize I 5 := by
+    ¬ ∃ I, (0 : ℚ) ≤ 5 ∧ Enclosure () I ∧ CompRel representation.Rel Realize I 5 := by
   intro h
-  obtain ⟨_, x, ⟨I, hI, hx⟩, hz⟩ := (nonnegative_composition enclosure realize () 5).mpr h
+  obtain ⟨_, x, ⟨I, hI, hx⟩, hz⟩ := (nonnegative_composition Enclosure Realize () 5).mpr h
   change I = ⟨-2, 3⟩ at hI
   subst I
   change -2 ≤ x ∧ x ≤ 3 at hx
@@ -42,9 +42,9 @@ theorem rejected_outside :
 
 -- Empty intermediate carriers require no Nonempty assumptions.
 example (R : Unit → Empty → Prop) (S : Empty → ℚ → Prop) :
-    ¬ ∃ b, (0 : ℚ) ≤ 2 ∧ R () b ∧ compRel S realize b 2 := by
+    ¬ ∃ b, (0 : ℚ) ≤ 2 ∧ R () b ∧ CompRel S Realize b 2 := by
   intro h
-  obtain ⟨_, _, ⟨b, _, _⟩, _⟩ := (compRel_condition R S realize (fun z => 0 ≤ z) () 2).mpr h
+  obtain ⟨_, _, ⟨b, _, _⟩, _⟩ := (compRel_condition R S Realize (fun z => 0 ≤ z) () 2).mpr h
   exact nomatch b
 
 namespace Capture
@@ -55,7 +55,7 @@ inductive Relation : ValueSort → ValueSort → Type where | nonnegative : Rela
 def model : Interpretation Arrow Relation where
   Carrier _ := ℚ
   arrow f := nomatch f
-  relation _ x _ := 0 ≤ x
+  Relation _ x _ := 0 ≤ x
 
 def condition : Formula Arrow [.value] Relation :=
   .atom .nonnegative (.var .zero) (.var .zero)
@@ -75,14 +75,14 @@ theorem same_sort (z : ℚ) :
 def reflexive : Formula Arrow [.value, .value] Relation := .eq (.var .zero) (.var .zero)
 
 theorem shifted_rejects :
-    ¬ (Formula.ex (.conj condition.shift reflexive)).eval model (environment (-1)) := by
+    ¬ (Formula.ex (.conj condition.shift reflexive)).Eval model (environment (-1)) := by
   intro h
   have hh := (SquareKit.Internal.Frobenius.inSet condition reflexive model (environment (-1))).mpr h
   change (0 : ℚ) ≤ -1 ∧ _ at hh
   norm_num at hh
 
 theorem captured_accepts :
-    (Formula.ex (.conj (.atom Relation.nonnegative (.var .zero) (.var .zero)) reflexive)).eval
+    (Formula.ex (.conj (.atom Relation.nonnegative (.var .zero) (.var .zero)) reflexive)).Eval
       model (environment (-1)) := by
   exact ⟨(0 : ℚ), le_rfl, rfl⟩
 

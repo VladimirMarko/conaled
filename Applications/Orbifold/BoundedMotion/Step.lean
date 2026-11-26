@@ -81,11 +81,11 @@ inductive Failure where
   deriving DecidableEq, Repr, BEq
 
 /-- Integer domain guard for the selected coordinates, after all rounding. -/
-def State.admitted (s : State) : Prop :=
+def State.Admitted (s : State) : Prop :=
   s.px.ticks^2 + s.py.ticks^2 ≤ 16384 ∧ s.fx.ticks^2 + s.fy.ticks^2 ≤ 65536
-instance (s : State) : Decidable s.admitted := inferInstanceAs (Decidable (_ ∧ _))
+instance (s : State) : Decidable s.Admitted := inferInstanceAs (Decidable (_ ∧ _))
 
-theorem State.admitted_sound {s : State} (h : s.admitted) : Domain s.rational.decode := by
+theorem State.admitted_sound {s : State} (h : s.Admitted) : Domain s.rational.decode := by
   have hp : (s.px.ticks : ℚ)^2 + (s.py.ticks : ℚ)^2 ≤ 16384 := by exact_mod_cast h.1
   have hf : (s.fx.ticks : ℚ)^2 + (s.fy.ticks : ℚ)^2 ≤ 65536 := by exact_mod_cast h.2
   have hp' : s.rational.position.normSq ≤ (1/2 : ℚ)^2 := by
@@ -98,18 +98,18 @@ theorem State.admitted_sound {s : State} (h : s.admitted) : Domain s.rational.de
   · simpa [Numerical.State.decode] using norm_decode_of_sq (by norm_num : (0 : ℚ) ≤ 1/2) hp'
   · simpa [Numerical.State.decode] using norm_decode_of_sq (by norm_num : (0 : ℚ) ≤ 1) hf'
 
-def inputWithinRange (c : Tick) : Prop :=
+def InputWithinRange (c : Tick) : Prop :=
   |c.control.velocity.1| ≤ 256 ∧ |c.control.velocity.2| ≤ 256 ∧
     |c.control.angular| ≤ 256 ∧ c.duration ≤ 256
-instance (c : Tick) : Decidable (inputWithinRange c) := by unfold inputWithinRange; infer_instance
+instance (c : Tick) : Decidable (InputWithinRange c) := by unfold InputWithinRange; infer_instance
 
 def checkedStep (c : Tick) (q : Packet) : Except Failure Packet :=
   match importInput c with
-  | none => .error (if inputWithinRange c then .precision else .range)
+  | none => .error (if InputWithinRange c then .precision else .range)
   | some i => match evaluate (inputEnv i q) with
     | none => .error .range
     | some o =>
-      if Motion.admitted (inputEnv i q) && decide o.state.admitted then
+      if Motion.admitted (inputEnv i q) && decide o.state.Admitted then
         match pack o.errorTicks o.errorTicks o.errorTicks with
         | none => .error .range
         | some b => .ok ⟨o.state, b.value⟩
@@ -131,7 +131,7 @@ theorem checkedStep_correct {c : Tick} {q r : Packet} {p : Pose}
       split at h
       · rename_i ha
         simp only [Bool.and_eq_true, decide_eq_true_eq] at ha
-        have hd : o.state.admitted := ha.2
+        have hd : o.state.Admitted := ha.2
         have hc := Motion.admitted_sound c q.rational (inputEnv_sound hi q) ha.1
         cases hb : pack o.errorTicks o.errorTicks o.errorTicks with
         | none => simp [hb] at h

@@ -57,7 +57,7 @@ theorem rawMap_chart {X : SmoothPresentationSite.Site}
 /-- Around every ordinary source point an arbitrary sheaf arrow factors through
 a target chart, with an ordinary coordinate inclusion as its source restriction. -/
 theorem local_chart (U : Domain) (h : embedding.obj U ⟶ A.realization) (x : Points U) :
-    ∃ q : SmoothAlgebra.Free U.dimension,
+    ∃ q : SmoothAlgebra.freeAlgebra U.dimension,
       ∃ u : (⟨U.dimension, q⟩ : Domain) ⟶ U,
       (∀ y, ((show EuclideanOpen.Map _ _ from u) y).val = y.val) ∧
       (∃ y, (show EuclideanOpen.Map _ _ from u) y = x) ∧
@@ -82,7 +82,7 @@ theorem local_chart (U : Domain) (h : embedding.obj U ⟶ A.realization) (x : Po
   exact congrArg ((A.chart i).hom.app _) (toSiteFullyFaithful.map_preimage b).symm
 
 theorem local_chart_principal (U : Domain) (h : embedding.obj U ⟶ A.realization) (x : Points U) :
-    ∃ q : SmoothAlgebra.Free U.dimension, q.val x.val ≠ 0 ∧
+    ∃ q : SmoothAlgebra.freeAlgebra U.dimension, q.val x.val ≠ 0 ∧
       ∃ i, ∃ b : subdomain U q ⟶ A.domain i,
         embedding.map (subInclusion U q) ≫ h = embedding.map b ≫ A.chart i := by
   obtain ⟨q, u, hu, ⟨y, hy⟩, i, b, hb⟩ := A.local_chart U h x
@@ -97,7 +97,7 @@ theorem local_chart_principal (U : Domain) (h : embedding.obj U ⟶ A.realizatio
 
 /-- A chart lift near one specified ordinary source point. -/
 structure LocalLift (U : Domain) (h : embedding.obj U ⟶ A.realization) (x : Points U) where
-  defining : SmoothAlgebra.Free U.dimension
+  defining : SmoothAlgebra.freeAlgebra U.dimension
   atPoint : defining.val x.val ≠ 0
   index : A.Index
   coordinate : subdomain U defining ⟶ A.domain index

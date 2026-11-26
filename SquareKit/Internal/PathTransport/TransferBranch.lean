@@ -15,10 +15,10 @@ def trConcatReflexiveEquality (hΓ : CtxDeriv Γ γ) (x z : BasePoint Γ γ)
       (transport hΓ (concat hΓ (Path.reflexivity hΓ x) q) b).code
       (transport hΓ q (transport hΓ (Path.reflexivity hΓ x) b)).raw
       (transport hΓ q (transport hΓ (Path.reflexivity hΓ x) b)).code := by
-  have left := transport_congr hΓ (concat hΓ (Path.reflexivity hΓ x) q) q
-    b b (concat_beta hΓ x z q) (.refl b.deriv)
-  have right := transport_congr hΓ q q (transport hΓ (Path.reflexivity hΓ x) b) b
-    (.refl q.deriv) (transport_beta hΓ x b)
+  have left := transportCongr hΓ (concat hΓ (Path.reflexivity hΓ x) q) q
+    b b (concatBeta hΓ x z q) (.refl b.deriv)
+  have right := transportCongr hΓ q q (transport hΓ (Path.reflexivity hΓ x) b) b
+    (.refl q.deriv) (transportBeta hΓ x b)
   exact left.trans right.symm
 
 def trConcatReflexive (hΓ : CtxDeriv Γ γ) (x z : BasePoint Γ γ)

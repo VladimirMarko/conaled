@@ -25,7 +25,7 @@ abbrev dualStructure : Structure (DualNumber ℝ) := inferInstance
 theorem dual_act {n : ℕ} (f : Operation n) (z : Fin n → DualNumber ℝ) :
     act f z = SmoothDual.act f z := SmoothSquareZero.act_real f z
 
-instance secondStructure : Structure SecondStage.Stage where
+instance secondStructure : Structure SecondStage.stageAlgebra where
   act := SmoothSecondStage.act
   projection := SmoothSecondStage.act_projection
   substitute := SmoothSecondStage.act_substitute
@@ -39,12 +39,12 @@ def linear {V W : Type*} [AddCommGroup V] [Module ℝ V] [Module ℝᵐᵒᵖ V]
   toFun := SmoothSquareZero.map L
   map_act := SmoothSquareZero.map_act L
 
-def project : Hom SecondStage.Stage (DualNumber ℝ) where
+def project : Hom SecondStage.stageAlgebra (DualNumber ℝ) where
   toFun := SecondStage.project
   map_act f z := (SmoothSecondStage.project_act f z).trans
     (SmoothSquareZero.act_real f (fun i => SecondStage.project (z i))).symm
 
-def reparam (a b : ℝ) : Hom SecondStage.Stage SecondStage.Stage where
+def reparam (a b : ℝ) : Hom SecondStage.stageAlgebra SecondStage.stageAlgebra where
   toFun := SecondStage.reparam a b
   map_act := SmoothSecondStage.reparam_act a b
 

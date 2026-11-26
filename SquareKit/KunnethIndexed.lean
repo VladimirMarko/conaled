@@ -30,8 +30,8 @@ structure Indexed (C : Type u) [Category.{v} C] where
 attribute [instance] Indexed.monoidal Indexed.symmetric Indexed.pullBraided
 namespace Indexed
 variable (D : Indexed C)
-abbrev Fiber (X : C) := D.fibers.obj ⟨op X⟩
-abbrev pull {X Y : C} (f : X ⟶ Y) : D.Fiber Y ⥤ D.Fiber X :=
+abbrev fiberCategory (X : C) := D.fibers.obj ⟨op X⟩
+abbrev pull {X Y : C} (f : X ⟶ Y) : D.fiberCategory Y ⥤ D.fiberCategory X :=
   (D.fibers.map f.op.toLoc).toFunctor
 
 /-- The pullback comparison is extracted from the specified compositor. -/
@@ -39,7 +39,7 @@ def pullComp {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) :
     D.pull (f ≫ g) ≅ D.pull g ⋙ D.pull f :=
   Cat.Hom.toNatIso (D.fibers.mapComp g.op.toLoc f.op.toLoc)
 
-def pullId (X : C) : D.pull (𝟙 X) ≅ 𝟭 (D.Fiber X) :=
+def pullId (X : C) : D.pull (𝟙 X) ≅ 𝟭 (D.fiberCategory X) :=
   Cat.Hom.toNatIso (D.fibers.mapId ⟨op X⟩)
 
 /-- Both routes around a commuting base square, with their actual comparisons. -/
@@ -67,23 +67,23 @@ structure Coherent : Prop where
 canonical maps. The pullback premise is an actual universal-property witness. -/
 structure Proper where
   coherent : D.Coherent
-  admissible : ∀ {X Y : C}, (X ⟶ Y) → Prop
-  identity (X : C) : admissible (𝟙 X)
+  Admissible : ∀ {X Y : C}, (X ⟶ Y) → Prop
+  identity (X : C) : Admissible (𝟙 X)
   composition {X Y Z : C} {f : X ⟶ Y} {g : Y ⟶ Z} :
-    admissible f → admissible g → admissible (f ≫ g)
+    Admissible f → Admissible g → Admissible (f ≫ g)
   pullback {W X Y S : C} {p : W ⟶ X} {q : W ⟶ Y} {f : X ⟶ S} {g : Y ⟶ S} :
-    IsPullback p q f g → admissible g → admissible p
-  projection {X Y : C} (f : X ⟶ Y) : admissible f →
-    ∀ (A : D.Fiber X) (B : D.Fiber Y), IsIso (Kunneth.projection (D.adj f) A B)
+    IsPullback p q f g → Admissible g → Admissible p
+  projection {X Y : C} (f : X ⟶ Y) : Admissible f →
+    ∀ (A : D.fiberCategory X) (B : D.fiberCategory Y), IsIso (Kunneth.projection (D.adj f) A B)
   baseChange {W X Y S : C} {p : W ⟶ X} {q : W ⟶ Y} {f : X ⟶ S} {g : Y ⟶ S}
-    (h : IsPullback p q f g) : admissible g → ∀ B : D.Fiber Y,
+    (h : IsPullback p q f g) : Admissible g → ∀ B : D.fiberCategory Y,
       IsIso (Kunneth.baseChange (D.adj g) (D.adj p) (D.square h.w).hom B)
 
 variable {D}
 /-- The indexed Künneth map uses the adjunction-induced pushforward compositor. -/
 noncomputable def kunneth {W X Y S : C} {p : W ⟶ X} {q : W ⟶ Y}
     {f : X ⟶ S} {g : Y ⟶ S} (h : IsPullback p q f g)
-    (A : D.Fiber X) (B : D.Fiber Y) :
+    (A : D.fiberCategory X) (B : D.fiberCategory Y) :
     (D.push f).obj A ⊗ (D.push g).obj B ⟶
       (D.push (p ≫ f)).obj ((D.pull p).obj A ⊗ (D.pull q).obj B) :=
   Kunneth.map (D.adj f) (D.adj g) (D.adj p) (D.square h.w).hom A B ≫
@@ -92,8 +92,8 @@ noncomputable def kunneth {W X Y S : C} {p : W ⟶ X} {q : W ⟶ Y}
 /-- Properness discharges exactly the three invertibility obligations in (K). -/
 noncomputable def kunnethIso (laws : D.Proper)
     {W X Y S : C} {p : W ⟶ X} {q : W ⟶ Y} {f : X ⟶ S} {g : Y ⟶ S}
-    (h : IsPullback p q f g) (hf : laws.admissible f) (hg : laws.admissible g)
-    (A : D.Fiber X) (B : D.Fiber Y) :
+    (h : IsPullback p q f g) (hf : laws.Admissible f) (hg : laws.Admissible g)
+    (A : D.fiberCategory X) (B : D.fiberCategory Y) :
     (D.push f).obj A ⊗ (D.push g).obj B ≅
       (D.push (p ≫ f)).obj ((D.pull p).obj A ⊗ (D.pull q).obj B) := by
   letI := laws.projection f hf A ((D.push g).obj B)
@@ -107,15 +107,15 @@ noncomputable def kunnethIso (laws : D.Proper)
 
 @[simp] theorem kunnethIso_hom (laws : D.Proper)
     {W X Y S : C} {p : W ⟶ X} {q : W ⟶ Y} {f : X ⟶ S} {g : Y ⟶ S}
-    (h : IsPullback p q f g) (hf : laws.admissible f) (hg : laws.admissible g)
-    (A : D.Fiber X) (B : D.Fiber Y) :
+    (h : IsPullback p q f g) (hf : laws.Admissible f) (hg : laws.Admissible g)
+    (A : D.fiberCategory X) (B : D.fiberCategory Y) :
     (kunnethIso laws h hf hg A B).hom = kunneth h A B := rfl
 
 /-- Counit characterization after converting to the chosen composite right
 adjoint. The endpoint conversion is the canonical uniqueness isomorphism. -/
 theorem kunneth_counit
     {W X Y S : C} {p : W ⟶ X} {q : W ⟶ Y} {f : X ⟶ S} {g : Y ⟶ S}
-    (h : IsPullback p q f g) (A : D.Fiber X) (B : D.Fiber Y) :
+    (h : IsPullback p q f g) (A : D.fiberCategory X) (B : D.fiberCategory Y) :
     (((D.adj (p ≫ f)).ofNatIsoLeft (D.pullComp p f)).homEquiv _ _).symm
         (kunneth h A B) =
     (D.pull p).map (Functor.OplaxMonoidal.δ (D.pull f) _ _) ≫

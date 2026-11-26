@@ -4,13 +4,13 @@ import SquareKit.FunctionCategory
 namespace Examples.MorphismRestriction
 open SquareKit
 
-def admissible {A B : Type} (_ : A → B) := Bool
+def Admissible {A B : Type} (_ : A → B) := Bool
 
-def closure : SquareKit.MorphismRestriction.CategoryClosure FunctionCategory.ops admissible where
+def closure : SquareKit.MorphismRestriction.CategoryClosure FunctionCategory.ops Admissible where
   ident := false
   comp a b := Bool.xor a b
 
-def chosen (w : Bool) : SquareKit.MorphismRestriction.Hom FunctionCategory.ops admissible Nat Nat :=
+def chosen (w : Bool) : SquareKit.MorphismRestriction.Hom FunctionCategory.ops Admissible Nat Nat :=
   ⟨Nat.succ, w⟩
 
 theorem choices_distinct : chosen false ≠ chosen true := by
@@ -31,7 +31,7 @@ theorem forgotten_composition (m n : Bool) (x : Nat) :
       ((SquareKit.MorphismRestriction.ops closure).comp (chosen m) (chosen n)) x = x+2 := rfl
 
 def productClosure : SquareKit.MorphismRestriction.ProductClosure
-    (M := admissible) FunctionCategory.products where
+    (M := Admissible) FunctionCategory.products where
   fst := false
   snd := false
   pair a b := a && b

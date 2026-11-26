@@ -37,31 +37,31 @@ theorem fibers_not_equivalent : ¬ Nonempty (Fin (size false) ≃ Fin (size true
   simp [size] at h
 
 abbrev Base := Env Γ bc
-def later : Base → Type := fun ρ => Fin (size (ρ 0 κ))
+def Later : Base → Type := fun ρ => Fin (size (ρ 0 κ))
 def baseContext : Context Base := locked Γ bc
-def extended : Context (Sigma later) := .ext baseContext later
+def extended : Context (Sigma Later) := .ext baseContext Later
 
 /-- The later declaration is an actual newest variable of the extended context. -/
-def indexTerm : Comprehension.Term extended (fun e => later e.1) := .variable
+def indexTerm : Comprehension.Term extended (fun e => Later e.1) := .variable
 
-def observe (e : Sigma later) : Result := ⟨e.1 0 κ, indexTerm.eval e⟩
+def observe (e : Sigma Later) : Result := ⟨e.1 0 κ, indexTerm.eval e⟩
 
-def selected (b y : Bool) : Sigma later := ⟨valuation b y bc, largest b⟩
+def selected (b y : Bool) : Sigma Later := ⟨valuation b y bc, largest b⟩
 
 theorem native_comparison (b y : Bool) : observe (selected b y) = native b := rfl
 
 /-- First change negates every accessible base value and chooses the largest
 index of the resulting fiber. It is a typed dependent extension substitution. -/
-def changeBase (e : Sigma later) : Base :=
+def changeBase (e : Sigma Later) : Base :=
   Examples.ModalAccess.τ.eval e.1
 
 def change : Sub extended extended :=
-  .extend later changeBase (.primitive (fun e => largest (changeBase e 0 κ)))
+  .extend Later changeBase (.primitive (fun e => largest (changeBase e 0 κ)))
 
 /-- Full dependent observation, with both selected components retained. -/
 def resultTerm : Comprehension.Term extended (fun _ => Result) := .primitive observe
 
-theorem change_observation (e : Sigma later) :
+theorem change_observation (e : Sigma Later) :
     observe (change.eval e) = nativeChange (observe e) := rfl
 
 theorem two_changes (b y : Bool) :
@@ -71,15 +71,15 @@ theorem two_changes (b y : Bool) :
   rw [change_observation, change_observation, native_comparison, native_twice]
 
 /-- The substitution's second component really has the reindexed later type. -/
-example : Comprehension.Term extended (Model.reindex later changeBase) :=
+example : Comprehension.Term extended (Model.reindex Later changeBase) :=
   .primitive (fun e => largest (changeBase e 0 κ))
 
 /-- Keying an extension transports its index without resetting it. -/
-def earlier : Env Γ ac → Type := fun ρ => Fin (size (ρ 0 (.id ac)))
+def Earlier : Env Γ ac → Type := fun ρ => Fin (size (ρ 0 (.id ac)))
 
-def keyed : Sub extended (.ext (locked Γ ac) earlier) := keyExtension κ earlier
+def keyed : Sub extended (.ext (locked Γ ac) Earlier) := keyExtension κ Earlier
 
-theorem key_keeps_index (e : Sigma later) : (keyed.eval e).2 = e.2 := rfl
+theorem key_keeps_index (e : Sigma Later) : (keyed.eval e).2 = e.2 := rfl
 
 theorem key_keeps_selected (b y : Bool) :
     (⟨(keyed.eval (selected b y)).1 0 (.id ac),
@@ -87,14 +87,14 @@ theorem key_keeps_selected (b y : Bool) :
 
 /-- The actual key square satisfies the constructed pullback universal property. -/
 theorem key_pullback_reconstruct :
-    (id : Sigma later → Sigma later) =
+    (id : Sigma Later → Sigma Later) =
       Model.pullbackFactor (Env.key κ) keyed.eval Model.projection (fun _ => rfl) := by
   exact Model.pullbackFactor_unique (Env.key κ) keyed.eval Model.projection
     (fun _ => rfl) id rfl rfl
 
 /-- The generic comprehension universal property reconstructs this actual
 parameter substitution from its base and selected typed component. -/
-theorem change_from_components (f : Sigma later → Sigma later)
+theorem change_from_components (f : Sigma Later → Sigma Later)
     (hp : ∀ e, (f e).1 = changeBase e)
     (hq : ∀ e, HEq (f e).2 (largest (changeBase e 0 κ))) : f = change.eval :=
   Model.pair_unique f changeBase (fun e => largest (changeBase e 0 κ)) hp hq
@@ -105,11 +105,11 @@ theorem selected_independent (b y y' : Bool) : selected b y = selected b y' := b
   apply Sigma.ext (Examples.ModalAccess.locked_environment_independent b y y')
   rfl
 
-theorem all_observers_independent {R : Type} (f : Sigma later → R) (b y y' : Bool) :
+theorem all_observers_independent {R : Type} (f : Sigma Later → R) (b y y' : Bool) :
     f (selected b y) = f (selected b y') := by rw [selected_independent b y y']
 
 theorem forbidden_dependency :
-    ¬ ∃ f : Sigma later → Bool, ∀ b y, f (selected b y) = y := by
+    ¬ ∃ f : Sigma Later → Bool, ∀ b y, f (selected b y) = y := by
   rintro ⟨f, h⟩
   have same := all_observers_independent f false false true
   rw [h, h] at same
@@ -137,7 +137,7 @@ example (b y : Bool) :
   exact Examples.ModalAccess.exact_native_comparison b y
 
 example : identityType (SquareKit.Internal.ModalAccess.Term.var 0 κ) (.lit true) =
-    Examples.ModalAccess.trueFiber := rfl
+    Examples.ModalAccess.TrueFiber := rfl
 
 example (b y : Bool) :
     (booleanTerm (SquareKit.Internal.ModalAccess.Term.var 0 κ)).eval (valuation b y bc) = b := rfl

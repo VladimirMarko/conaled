@@ -35,22 +35,22 @@ example : DeliversWithin (mealyProcessor coupled.mealy (0,0)) (fun n => n+1) :=
   mealy_delivery _ _
 
 /-- The same source state relates to two different target states. -/
-def tagged (s : Nat × Nat) (t : (Nat × Nat) × Bool) : Prop := s = t.1
+def Tagged (s : Nat × Nat) (t : (Nat × Nat) × Bool) : Prop := s = t.1
 def decorated (tag : Bool) : Initialized Nat (Nat × Nat) ((Nat × Nat) × Bool) where
   initial := ((0,0),tag)
   step := fun (a,t) => let next := coupled.step (a,t.1); (next.1,(next.2,!t.2))
 
 theorem decorated_step (tag : Bool) (a a' : Nat) (s : Nat × Nat) (t : (Nat × Nat) × Bool)
-    (ha : a = a') (hs : tagged s t) :
+    (ha : a = a') (hs : Tagged s t) :
     (coupled.step (a,s)).1 = ((decorated tag).step (a',t)).1 ∧
-      tagged (coupled.step (a,s)).2 ((decorated tag).step (a',t)).2 := by
+      Tagged (coupled.step (a,s)).2 ((decorated tag).step (a',t)).2 := by
   subst a'; cases t with | mk t flag => cases hs; exact ⟨rfl,rfl⟩
-example : tagged (0,0) ((0,0),false) ∧ tagged (0,0) ((0,0),true) ∧
-    ((0,0),false) ≠ ((0,0),true) := by unfold tagged; decide
+example : Tagged (0,0) ((0,0),false) ∧ Tagged (0,0) ((0,0),true) ∧
+    ((0,0),false) ≠ ((0,0),true) := by unfold Tagged; decide
 
 theorem decorated_prefix (tag : Bool) (a : Stream Nat) (n : Nat) :
     List.Forall₂ Eq (prefixOf (output coupled a) n) (prefixOf (output (decorated tag) a) n) :=
-  prefix_related _ _ _ (transport coupled (decorated tag) Eq tagged Eq rfl
+  prefix_related _ _ _ (transport coupled (decorated tag) Eq Tagged Eq rfl
     (decorated_step tag) a a (fun _ => rfl)).2 n
 
 def totals : Relational.RelSquare (streamRep (Eq : Nat × Nat → Nat × Nat → Prop))
@@ -63,7 +63,7 @@ def totals : Relational.RelSquare (streamRep (Eq : Nat × Nat → Nat × Nat →
 example (tag : Bool) (a : Stream Nat) :
     ∀ n, (output coupled a n).1 + (output coupled a n).2 =
       (output (decorated tag) a n).1 + (output (decorated tag) a n).2 :=
-  (Relational.compose totals (solutionSquare coupled (decorated tag) Eq tagged Eq rfl
+  (Relational.compose totals (solutionSquare coupled (decorated tag) Eq Tagged Eq rfl
     (decorated_step tag))).preserves (fun _ => rfl)
 
 /-- The functional specialization also consumes the existing coalgebra law. -/
@@ -79,10 +79,10 @@ example : (fun _ : Nat => false) ≠ (fun _ : Nat => true) ∧
     (∀ n, (fun _ : Nat => true) (n+1) = (fun _ => true) n) := by
   refine ⟨?_,fun _ => rfl,fun _ => rfl⟩
   intro h; have := congrFun h 0; cases this
-example : ¬ tagged (0,0) ((1,0),false) := by unfold tagged; decide
+example : ¬ Tagged (0,0) ((1,0),false) := by unfold Tagged; decide
 example : output (joint p q 0 0) inputs 0 ≠ output (joint p q 1 0) inputs 0 := by decide
-example : ¬ (∀ a s t, tagged s t →
-    tagged (coupled.step (a,s)).2 ((t.1.1+1,t.1.2),t.2)) := by
+example : ¬ (∀ a s t, Tagged s t →
+    Tagged (coupled.step (a,s)).2 ((t.1.1+1,t.1.2),t.2)) := by
   intro h
   have bad := h 1 (0,0) ((0,0),false) rfl
   change (1,1) = (1,0) at bad

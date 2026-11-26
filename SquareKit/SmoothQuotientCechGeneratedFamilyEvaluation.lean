@@ -57,7 +57,7 @@ def familyEvaluation (c : (show Grpd.{1,1} from γ (model a A))) :
     (fiberTotalEvaluation a A hΓ hB c) _ (fiberTotalEvaluation_projection a A hΓ hB c)
 
 /-- Forgetting the dependent matching fiber recovers its complete total evaluation. -/
-def familyEvaluation_total (c : (show Grpd.{1,1} from γ (model a A))) :
+def familyEvaluationTotalIso (c : (show Grpd.{1,1} from γ (model a A))) :
     familyEvaluation a A hΓ hB c ⋙ CechMatching.Comprehension.Fiber.forget ≅
       fiberTotalEvaluation a A hΓ hB c :=
   CechMatching.Comprehension.fixedBaseComparison _ _ _ _ _

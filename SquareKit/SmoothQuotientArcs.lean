@@ -37,7 +37,7 @@ abbrev Pointed (X : Sheaf topology Type) := QuotientPointedArcs.Pullback a (para
 /-- i(M^D) ≃ iM ×ʰ_Q Map(iD,Q), for every sheaf-valued parameter.
 The comma boundary is retained as an isomorphism, with its coherence square. -/
 def comparison (X : Sheaf topology Type) :
-    DiscreteSheaf.sections (exponential D M) X ≌ Pointed a X :=
+    DiscreteSheaf.Sections (exponential D M) X ≌ Pointed a X :=
   (DiscreteSheaf.mappingEquiv D M X).trans
     (QuotientPointedArcs.equivalence a (parameterZero X))
 

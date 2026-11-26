@@ -13,14 +13,14 @@ namespace Realizability
 /-- Every element has a natural-number realizer; realizers need not be unique. -/
 structure Assembly where
   Carrier : Type u
-  realizes : Nat → Carrier → Prop
-  inhabited : ∀ x, ∃ n, realizes n x
+  Realizes : Nat → Carrier → Prop
+  inhabited : ∀ x, ∃ n, Realizes n x
 
 namespace Assembly
 
 /-- A partial recursive tracker must terminate on every realizer of an input. -/
 def Tracks (A B : Assembly.{u}) (φ : Nat → Part Nat) (f : A.Carrier → B.Carrier) : Prop :=
-  ∀ x n, A.realizes n x → ∃ m, m ∈ φ n ∧ B.realizes m (f x)
+  ∀ x n, A.Realizes n x → ∃ m, m ∈ φ n ∧ B.Realizes m (f x)
 
 /-- Trackers certify arrows but are not part of arrow equality. -/
 structure Hom (A B : Assembly.{u}) where
@@ -64,7 +64,7 @@ theorem Hom.has_code {A B : Assembly.{u}} (f : Hom A B) :
 /-- The usual assembly on a coded type. -/
 def encoded (α : Type u) [Primcodable α] : Assembly.{u} where
   Carrier := α
-  realizes n x := n = Encodable.encode x
+  Realizes n x := n = Encodable.encode x
   inhabited x := ⟨Encodable.encode x, rfl⟩
 
 /-- A computable map induces an assembly arrow with its actual recursive tracker. -/
@@ -98,7 +98,7 @@ theorem nat_tracked_iff (f : Nat → Nat) :
 /-- Realizers for a product carry both realizers. -/
 def prod (A B : Assembly.{u}) : Assembly.{u} where
   Carrier := A.Carrier × B.Carrier
-  realizes n x := A.realizes n.unpair.1 x.1 ∧ B.realizes n.unpair.2 x.2
+  Realizes n x := A.Realizes n.unpair.1 x.1 ∧ B.Realizes n.unpair.2 x.2
   inhabited x := by
     obtain ⟨a, ha⟩ := A.inhabited x.1
     obtain ⟨b, hb⟩ := B.inhabited x.2

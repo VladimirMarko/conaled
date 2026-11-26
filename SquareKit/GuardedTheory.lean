@@ -63,15 +63,15 @@ structure Theory (S : Signature.{u}) where
 structure Algebra (S : Signature.{u}) where
   Carrier : Type v
   operation : (op : S.Operation) → (Fin (S.arity op) → Carrier) → Carrier
-  predicate : (p : S.Predicate) → (Fin (S.arguments p) → Carrier) → Prop
+  Predicate : (p : S.Predicate) → (Fin (S.arguments p) → Carrier) → Prop
 
 abbrev Term.eval {S : Signature.{u}} {V : Type w} (M : Algebra.{u,v} S)
     (ρ : V → M.Carrier) : Term S V → M.Carrier := FinitaryTerm.fold M.operation ρ
 
-def Atom.eval {S : Signature.{u}} {V : Type w} (M : Algebra.{u,v} S)
+def Atom.Eval {S : Signature.{u}} {V : Type w} (M : Algebra.{u,v} S)
     (ρ : V → M.Carrier) : Atom S V → Prop
   | .eq a b => a.eval M ρ = b.eval M ρ
-  | .pred p args => M.predicate p (fun i => (args i).eval M ρ)
+  | .pred p args => M.Predicate p (fun i => (args i).eval M ρ)
 
 theorem Term.eval_subst {S : Signature} {V W : Type} (M : Algebra S)
     (ρ : W → M.Carrier) (σ : V → Term S W) (t : Term S V) :
@@ -80,12 +80,12 @@ theorem Term.eval_subst {S : Signature} {V W : Type} (M : Algebra S)
 
 theorem Atom.eval_subst {S : Signature} {V W : Type} (M : Algebra S)
     (ρ : W → M.Carrier) (σ : V → Term S W) (a : Atom S V) :
-    (a.subst σ).eval M ρ = a.eval M (fun x => (σ x).eval M ρ) := by
-  cases a <;> simp only [subst, eval, Term.eval_subst]
+    (a.subst σ).Eval M ρ = a.Eval M (fun x => (σ x).eval M ρ) := by
+  cases a <;> simp only [subst, Eval, Term.eval_subst]
 
 def Satisfies {S : Signature} (M : Algebra S) (r : Rule S) : Prop :=
   ∀ ρ : Fin r.parameterCount → M.Carrier,
-    (∀ i, (r.premise i).eval M ρ) → r.conclusion.eval M ρ
+    (∀ i, (r.premise i).Eval M ρ) → r.conclusion.Eval M ρ
 
 structure Model {S : Signature.{u}} (T : Theory S) extends Algebra.{u,v} S where
   rules : ∀ a, Satisfies toAlgebra (T.rule a)
@@ -127,8 +127,8 @@ noncomputable def Derivation.substitute {S : Signature} {T : Theory S} {V W : Ty
 
 theorem Derivation.sound {S : Signature} {T : Theory S} {V : Type}
     (M : Model T) {Γ : List (Atom S V)} {a : Atom S V} (d : Derivation T Γ a)
-    (ρ : V → M.Carrier) (hΓ : ∀ p ∈ Γ, p.eval M.toAlgebra ρ) :
-    a.eval M.toAlgebra ρ := by
+    (ρ : V → M.Carrier) (hΓ : ∀ p ∈ Γ, p.Eval M.toAlgebra ρ) :
+    a.Eval M.toAlgebra ρ := by
   induction d with
   | hypothesis h => exact hΓ _ h
   | rule a σ _ ih =>
@@ -141,14 +141,14 @@ theorem Derivation.sound {S : Signature} {T : Theory S} {V : Type}
   | transitive _ _ ih ih' => exact ih.trans ih'
   | congruence op _ ih => exact congrArg (M.operation op) (funext ih)
   | conversion p _ _ ih hp =>
-    change M.predicate p _
-    change M.predicate p _ at hp
+    change M.Predicate p _
+    change M.Predicate p _ at hp
     rwa [← funext ih]
 
 structure Hom {S : Signature.{u}} (M : Algebra.{u,v} S) (N : Algebra.{u,w} S) where
   map : M.Carrier → N.Carrier
   operation : ∀ op args, map (M.operation op args) = N.operation op (map ∘ args)
-  predicate : ∀ p args, M.predicate p args → N.predicate p (map ∘ args)
+  predicate : ∀ p args, M.Predicate p args → N.Predicate p (map ∘ args)
 
 theorem Hom.eval {S : Signature} {M N : Algebra S} (F : Hom M N)
     {V : Type} (t : Term S V) (ρ : V → M.Carrier) :
@@ -185,7 +185,7 @@ structure PartialHom {S : Signature.{u}} (M : PartialAlgebra.{u,v} S)
   operation : ∀ op args, M.operation op args ≠ M.invalid →
     map (M.operation op args) = N.operation op (map ∘ args)
   defined : ∀ x, x ≠ M.invalid → map x ≠ N.invalid
-  predicate : ∀ p args, M.predicate p args → N.predicate p (map ∘ args)
+  predicate : ∀ p args, M.Predicate p args → N.Predicate p (map ∘ args)
 
 theorem PartialHom.eval {S : Signature} {M N : PartialAlgebra S} (F : PartialHom M N)
     {V : Type} (t : Term S V) (ρ : V → M.Carrier)

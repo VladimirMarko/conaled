@@ -497,7 +497,7 @@ def Execution.journalEvents (run : Execution) : List (Durability.Event Frame) :=
   run.observations.filterMap LogEntry.journalEvent
 
 theorem execute_native (s : System) (commands : List Command) :
-    Interaction.Events.interpret Durability.Step (execute s commands).journalEvents
+    Interaction.Events.Interpret Durability.Step (execute s commands).journalEvents
       s.adapter.journal.machine (execute s commands).system.adapter.journal.machine := by
   induction commands generalizing s with
   | nil => rfl
@@ -515,14 +515,14 @@ theorem execute_native (s : System) (commands : List Command) :
       simp only [h] at certificate
       simp only [result] at h
       simpa only [execute, Execution.journalEvents, List.filterMap_cons, h] using
-        (show Interaction.Events.interpret Durability.Step
+        (show Interaction.Events.Interpret Durability.Step
           (event :: (execute result.system commands).journalEvents)
           s.adapter.journal.machine (execute result.system commands).system.adapter.journal.machine from
           ⟨result.system.adapter.journal.machine, certificate, rest⟩)
 
 theorem execute_durability (s : System) (commands : List Command)
     (a : Durability.Abstract Frame) (related : Durability.Related s.adapter.journal.machine a) :
-    ∃ b, Interaction.Events.interpret Durability.SpecStep (execute s commands).journalEvents a b ∧
+    ∃ b, Interaction.Events.Interpret Durability.SpecStep (execute s commands).journalEvents a b ∧
       Durability.Related (execute s commands).system.adapter.journal.machine b :=
   Durability.script_simulation _ related (execute_native s commands)
 

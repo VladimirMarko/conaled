@@ -137,7 +137,7 @@ def identityRouteFinal : IsTerminal (functionCoalgebra Bool) := by
     intro n
     rw [Category.id_comp]
     exact piComparison_comp_π (𝟭 (Type 0)) (fun _ : Nat => Bool) n
-  apply final_of_preservesPower (𝟭 (Type 0)) Bool (functionCoalgebra Bool).str
+  apply finalOfPreservesPower (𝟭 (Type 0)) Bool (functionCoalgebra Bool).str
   simp only [Functor.id_map, pid, Category.comp_id]
   exact (functionComparison Bool).h
 
@@ -170,8 +170,8 @@ theorem transported_structure : transportedCoalgebra.str =
 
 /-- For any proposed replacement route in this setting, an invertible coalgebra
 comparison is sufficient, and requires no assumptions about arbitrary codata. -/
-def final_when_comparison_invertible {S : Coalgebra (step (obj space Bool))}
+def finalWhenComparisonInvertible {S : Coalgebra (step (obj space Bool))}
     (f : S ⟶ coalgebra (obj space Bool)) [IsIso f.f] : IsTerminal S :=
-  final_of_comparison (obj space Bool) f
+  finalOfComparison (obj space Bool) f
 
 end Examples.ConstantSheafStreams

@@ -19,7 +19,7 @@ variable (hx : Typed.TmDeriv.{2} Γ γ .base (Typed.baseCode γ) x ξ)
 def primitiveCoefficientValues (A : SplitSheaf.Ty X) :
     CechMatching.Datum (baseDiagram a A).toDiagram ⥤ Type 1 :=
   CechMatching.SetFamily.family
-    (Instance.liftedFamily (Object a (SplitSheaf.Ext A)) (SmoothQuotientDeformations.family a _))
+    (Instance.liftedFamily (Object a (SplitSheaf.extension A)) (SmoothQuotientDeformations.family a _))
     (Instance.liftedFamily (Object a (SplitSheaf.Cech.double A)) (SmoothQuotientDeformations.family a _))
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.first A)).fiberMap
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.second A)).fiberMap

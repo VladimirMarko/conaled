@@ -4,14 +4,14 @@ import SquareKit.AssemblyCuts
 namespace Realizability.Assembly
 
 /-- Observations of a finite or infinite cut. -/
-def cutTest (n : Option Nat) (k : Nat) : Prop := n.elim True (fun n => k < n)
+def CutTest (n : Option Nat) (k : Nat) : Prop := n.elim True (fun n => k < n)
 
 noncomputable def cutLength (P : Nat → Prop) : Option Nat := by
   classical
   exact if h : ∃ n, ¬ P n then some (Nat.find h) else none
 
 theorem cutLength_test (P : Nat → Prop) (hd : ∀ k, P (k + 1) → P k) (k : Nat) :
-    cutTest (cutLength P) k ↔ P k := by
+    CutTest (cutLength P) k ↔ P k := by
   classical
   have hmono : ∀ m n, m ≤ n → P n → P m := by
     intro m n h
@@ -32,7 +32,7 @@ theorem cutLength_test (P : Nat → Prop) (hd : ∀ k, P (k + 1) → P k) (k : N
     by_contra hk
     exact h ⟨k, hk⟩
 
-theorem cutTest_ext {x y : Option Nat} (h : ∀ k, cutTest x k ↔ cutTest y k) : x = y := by
+theorem cutTest_ext {x y : Option Nat} (h : ∀ k, CutTest x k ↔ CutTest y k) : x = y := by
   cases x with
   | none =>
     cases y with

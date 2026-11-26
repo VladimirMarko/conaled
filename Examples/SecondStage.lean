@@ -61,7 +61,7 @@ theorem exp_analytic_coefficient (x : ℝ) :
 
 def square : Operation 1 := substitute multiplication (fun _ => projection 0)
 
-theorem square_coeff (z : Fin 1 → Stage) : coeff (act square z) =
+theorem square_coeff (z : Fin 1 → stageAlgebra) : coeff (act square z) =
     ((coeff (z 0)).1^2, 2*(coeff (z 0)).1*(coeff (z 0)).2.1,
       (coeff (z 0)).2.1^2+2*(coeff (z 0)).1*(coeff (z 0)).2.2) := by
   rw [square, act_substitute, act_multiplication, act_projection]
@@ -94,18 +94,18 @@ theorem projection_loses_quadratic :
   rw [epsilon_sq, project_ofCoeff, map_zero]
   rfl
 
-theorem reparam_nonidentity : reparam 2 1 ≠ AlgHom.id ℝ Stage := by
+theorem reparam_nonidentity : reparam 2 1 ≠ AlgHom.id ℝ stageAlgebra := by
   intro h
-  have hh := congrArg (fun k : Stage →ₐ[ℝ] Stage => (coeff (k epsilon)).2.1) h
+  have hh := congrArg (fun k : stageAlgebra →ₐ[ℝ] stageAlgebra => (coeff (k epsilon)).2.1) h
   rw [coeff_reparam] at hh
   norm_num [epsilon] at hh
 
-theorem reparam_exponential (z : Fin 1 → Stage) :
+theorem reparam_exponential (z : Fin 1 → stageAlgebra) :
     reparam 2 1 (act SmoothDual.exponential z) =
       act SmoothDual.exponential (fun i => reparam 2 1 (z i)) := reparam_act _ _ _ _
 
-theorem nullary (f : Operation 0) (z : Fin 0 → Stage) :
-    act f z = algebraMap ℝ Stage (f.val Fin.elim0) := by
+theorem nullary (f : Operation 0) (z : Fin 0 → stageAlgebra) :
+    act f z = algebraMap ℝ stageAlgebra (f.val Fin.elim0) := by
   have h : f = constant 0 (f.val Fin.elim0) := by
     apply Subtype.ext
     funext x

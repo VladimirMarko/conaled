@@ -13,12 +13,12 @@ inductive Formula (Atom : Type u) : Type u
   | next : Formula Atom → Formula Atom
   | until : Formula Atom → Formula Atom → Formula Atom
 
-def Formula.meaning {Atom : Type u} (V : Atom → Nat → Type u) : Formula Atom → Nat → Type u
+def Formula.Meaning {Atom : Type u} (V : Atom → Nat → Type u) : Formula Atom → Nat → Type u
   | .atom p, n => V p n
   | .unit, _ => PUnit
-  | .prod a b, n => a.meaning V n × b.meaning V n
-  | .next a, n => a.meaning V (n+1)
-  | .until a b, n => Until (a.meaning V) (b.meaning V) n
+  | .prod a b, n => a.Meaning V n × b.Meaning V n
+  | .next a, n => a.Meaning V (n+1)
+  | .until a b, n => Until (a.Meaning V) (b.Meaning V) n
 
 abbrev Context (Atom : Type u) := List (Nat × Formula Atom)
 
@@ -39,12 +39,12 @@ inductive Term {Atom : Type u} (Γ : Context Atom) : Nat → Formula Atom → Ty
   | untilWait {n a b} : Term Γ n a → Term Γ (n+1) (.until a b) → Term Γ n (.until a b)
 
 abbrev Env {Atom : Type u} (V : Atom → Nat → Type u) (Γ : Context Atom) :=
-  ∀ {n a}, Var Γ n a → a.meaning V n
+  ∀ {n a}, Var Γ n a → a.Meaning V n
 
 namespace Term
 variable {Atom : Type u} {Γ Δ Θ : Context Atom} {n : Nat} {a : Formula Atom}
 
-def eval {V : Atom → Nat → Type u} (ρ : Env V Γ) : {n : Nat} → {a : Formula Atom} → Term Γ n a → a.meaning V n
+def eval {V : Atom → Nat → Type u} (ρ : Env V Γ) : {n : Nat} → {a : Formula Atom} → Term Γ n a → a.Meaning V n
   | _, _, .var x => ρ x
   | _, _, .unit => PUnit.unit
   | _, _, .pair x y => (eval ρ x, eval ρ y)

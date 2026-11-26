@@ -280,7 +280,7 @@ frozen validation and independent review remain separate qualification gates.
 | `Trie.lookup@449` | `Trie.lookup`, using the table's own default. |
 | `Trie.ins@452` | `Trie.ins` and all six source key/tree equations. |
 | `Trie.insert@468` | `Trie.insert`, preserving the table default. |
-| `Trie.three_ten@472` | `Examples.PositiveTries.three_ten`, its complete constructor result and source queries. |
+| `Trie.three_ten@472` | `Examples.PositiveTries.threeTenTable`, its complete constructor result and source queries. |
 | `Trie.FastEnough.loop@491` | `FastEnough.loop`, retaining `1 + c` and using actual trie operations. |
 | `Trie.FastEnough.collisions@499` | `FastEnough.collisions` and the independent-result theorem. |
 | `Trie.FastEnough.collisions_pi@501` | The actual positive-numeral source-list result in `CollisionCounting`. |
@@ -294,7 +294,7 @@ frozen validation and independent review remain separate qualification gates.
 | `Trie.nat2pos2nat@590` | `Keys.decode_encode`. |
 | `Trie.pos2nat_injective@600` | `Keys.decode_injective`. |
 | `Trie.nat2pos_injective@603` | `Keys.encode_injective`. |
-| `Trie.is_trie@614` | `Trie.isTrie`, exactly `True`. |
+| `Trie.is_trie@614` | `Trie.IsTrie`, exactly `True`. |
 | `Trie.abstract@624` | `Trie.abstract`, lookup after shifted encoding. |
 | `Trie.Abs@627` | `Trie.Abs`, equality with the abstract total function. |
 | `Trie.empty_is_trie@636` | `Trie.empty_isTrie`. |
@@ -302,7 +302,7 @@ frozen validation and independent review remain separate qualification gates.
 | `Trie.empty_relate@650` | `Trie.empty_relate`. |
 | `Trie.lookup_relate@660` | `Trie.lookup_relate`, querying the abstract function at `decode key`. |
 | `Trie.insert_relate@674` | `Trie.insert_relate`, point update at `decode key`. |
-| `Trie.Abs_three_ten@684` | `Examples.PositiveTries.Abs_three_ten`, natural writes at 9 and then 2. |
+| `Trie.Abs_three_ten@684` | `Examples.PositiveTries.abs_threeTenTable`, natural writes at 9 and then 2. |
 
 ### Exercises and pedagogical commands
 
@@ -329,8 +329,8 @@ proving both alternatives; the completed route is the latter.
 | 345 | Existing positive addition, connected by `add_eq_add`. |
 | 347 | Existing signed addition, used by the actual signed source loop and its integer-observed theorem. |
 | 413 | The same positive carrier indexes the raw binary trie. |
-| 475 | `three_ten_constructor`, the complete source tree. |
-| 482 | `three_ten_queries`, the exact source query vector. |
+| 475 | `threeTenTable_constructor`, the complete source tree. |
+| 482 | `threeTenTable_queries`, the exact source query vector. |
 
 The remaining prose explains representation choices, the difference between
 mathematical and machine integers, imperative array access, binary-key tries,

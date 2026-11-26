@@ -6,7 +6,7 @@ universe u
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
 
-def endpoint_congr (hΓ : CtxDeriv Γ γ) (x y : BasePoint Γ γ) (p q : Path x y)
+def endpointCongr (hΓ : CtxDeriv Γ γ) (x y : BasePoint Γ γ) (p q : Path x y)
     (e : TmEqDeriv Γ γ (.identity .base x.raw y.raw) (identityCode (baseCode γ) x.code y.code)
       p.raw p.code q.raw q.code) :
     SubEqDeriv Γ γ (pathCtx Γ .base x.raw) (pathCode (baseCode γ) x.code)
@@ -17,7 +17,7 @@ def endpoint_congr (hΓ : CtxDeriv Γ γ) (x y : BasePoint Γ γ) (p q : Path x 
     (pathFamilyAt_code (baseCode γ) x.code y.code)
     (pathFamilyAt_code (baseCode γ) x.code y.code) e
 
-def transport_congr (hΓ : CtxDeriv Γ γ) {x y : BasePoint Γ γ}
+def transportCongr (hΓ : CtxDeriv Γ γ) {x y : BasePoint Γ γ}
     (p q : Path x y) (b c : FiberElement x)
     (ep : TmEqDeriv Γ γ (.identity .base x.raw y.raw) (identityCode (baseCode γ) x.code y.code)
       p.raw p.code q.raw q.code)
@@ -34,7 +34,7 @@ def transport_congr (hΓ : CtxDeriv Γ γ) {x y : BasePoint Γ γ}
   let l := cmd.motive.pathInduction hΓ (.base hΓ) x.deriv cmd.telescope y.deriv p.deriv hs
   let r := cmd'.motive.pathInduction hΓ (.base hΓ) x.deriv cmd'.telescope y.deriv q.deriv ht
   have branch := eb.annotateType (transportMotive_root hΓ x).symm
-  have endpoints := endpoint_congr hΓ x y p q ep
+  have endpoints := endpointCongr hΓ x y p q ep
   have eqn := TmEqDeriv.pathInductionAtCongr (Γ := Γ) (γ := γ) (A := .base) (x := x.raw) (a := baseCode γ) (ξ := x.code) (η' := cmd'.motive.branchCode) (n := 0) (args := genericArguments 0) (args' := genericArguments 0) (Δ := []) (T := telNil (pathCode (baseCode γ) x.code)) (.refl (transportMotive hΓ x)) branch endpoints
     (by simpa only [Expr.liftSubN_var, Expr.sub_id, cmd, cmd', transportCommand, moving, BasePoint.reindex, BasePoint.variable, Expr.sub, Expr.rename, Function.comp_apply, eliminationSub, argsSub_zero, consSub] using l)
     (by simpa only [Expr.liftSubN_var, Expr.sub_id, cmd, cmd', transportCommand, moving, BasePoint.reindex, BasePoint.variable, Expr.sub, Expr.rename, Function.comp_apply, eliminationSub, argsSub_zero, consSub] using r)

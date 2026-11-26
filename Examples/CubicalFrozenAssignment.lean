@@ -10,44 +10,44 @@ open CategoryTheory SquareKit.Cubical SquareKit.Cubical.Presheaf
 open SquareKit.Cubical.CategoryCocycles
 open Examples.FrozenMemoStages
 
-abbrev afterHomotopy := homotopyPoints CM cocycleBase cocycleRootedFamily
-abbrev afterQ := qPoints CM cocycleBase cocycleRootedFamily
+abbrev afterHomotopy := homotopyPoints cocycleStructuralModel cocycleBase cocycleRootedFamily
+abbrev afterQ := qPoints cocycleStructuralModel cocycleBase cocycleRootedFamily
 
-theorem q_at_assignment : reindex (qFamily CM cocycleBase cocycleRootedFamily).family assignHomotopy =
-    FirstIdentityFamily terminal.{0} :=
+theorem q_at_assignment : reindex (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family assignHomotopy =
+    firstIdentityFamily terminal.{0} :=
   normalizedIdentity_reindex afterHomotopy.family.family afterHomotopy.y.down afterHomotopy.z.down assignHomotopy
 
-def assignedQ : Term (reindex (qFamily CM cocycleBase cocycleRootedFamily).family assignHomotopy) :=
+def assignedQ : Term (reindex (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family assignHomotopy) :=
   (normalizedIdentityRefl (zeroTerm terminal)).convert q_at_assignment.symm
 
 def assignQ : terminal.{0} ⟶ afterQ.context := pair assignHomotopy assignedQ
 
-abbrev firstPoint := Points.initial (M := CM) cocycleBase cocycleRootedFamily
+abbrev firstPoint := Points.initial (M := cocycleStructuralModel) cocycleBase cocycleRootedFamily
 abbrev twoPoints := firstPoint.addY
 
 def fiberBaseMap : total afterQ.family.family ⟶ total cocycleBase.family :=
-  (CM.lift afterHomotopy.family (CM.weaken afterHomotopy.context (qFamily CM cocycleBase cocycleRootedFamily))).down ≫
-  (CM.lift parallelPoints.family (CM.weaken parallelPoints.context parallelPoints.identity)).down ≫
-  (CM.lift onePath.family (CM.weaken onePath.context onePath.path)).down ≫
-  (CM.lift points.family (CM.weaken points.context points.path)).down ≫
-  (CM.lift twoPoints.family (CM.weaken twoPoints.context twoPoints.family)).down ≫
-  (CM.lift firstPoint.family (CM.weaken firstPoint.context firstPoint.family)).down ≫
-  (CM.lift cocycleBase (CM.weaken CM.empty cocycleBase)).down
+  (cocycleStructuralModel.lift afterHomotopy.family (cocycleStructuralModel.weaken afterHomotopy.context (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily))).down ≫
+  (cocycleStructuralModel.lift parallelPoints.family (cocycleStructuralModel.weaken parallelPoints.context parallelPoints.identity)).down ≫
+  (cocycleStructuralModel.lift onePath.family (cocycleStructuralModel.weaken onePath.context onePath.path)).down ≫
+  (cocycleStructuralModel.lift points.family (cocycleStructuralModel.weaken points.context points.path)).down ≫
+  (cocycleStructuralModel.lift twoPoints.family (cocycleStructuralModel.weaken twoPoints.context twoPoints.family)).down ≫
+  (cocycleStructuralModel.lift firstPoint.family (cocycleStructuralModel.weaken firstPoint.context firstPoint.family)).down ≫
+  (cocycleStructuralModel.lift cocycleBase (cocycleStructuralModel.weaken cocycleStructuralModel.empty cocycleBase)).down
 
 def assignedFiberBaseMap : terminal.{0} ⟶ total cocycleBase.family :=
-  assignQ ≫ (CM.sectionSub afterQ.family afterQ.x).down ≫ fiberBaseMap
+  assignQ ≫ (cocycleStructuralModel.sectionSub afterQ.family afterQ.x).down ≫ fiberBaseMap
 
-theorem u_at_assignment : reindex (uFamily CM cocycleBase cocycleRootedFamily).family assignQ =
-    FirstIdentityFamily terminal.{0} := by
+theorem u_at_assignment : reindex (uFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family assignQ =
+    firstIdentityFamily terminal.{0} := by
   exact normalizedIdentity_reindex
     (reindex cocycleBase.family (projection cocycleBase.family))
     ((zeroTerm terminal).reindex (projection cocycleBase.family))
     (generic cocycleBase.family) assignedFiberBaseMap
 
-def assignedU : Term (reindex (uFamily CM cocycleBase cocycleRootedFamily).family assignQ) :=
+def assignedU : Term (reindex (uFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family assignQ) :=
   (normalizedIdentityRefl (zeroTerm terminal)).convert u_at_assignment.symm
 
-def assignInput : terminal.{0} ⟶ inputContext CM cocycleBase cocycleRootedFamily := pair assignQ assignedU
+def assignInput : terminal.{0} ⟶ inputContext cocycleStructuralModel cocycleBase cocycleRootedFamily := pair assignQ assignedU
 
 /-- The semantic interpretation evaluates the actual source context and higher binder. -/
 theorem sourceContext :

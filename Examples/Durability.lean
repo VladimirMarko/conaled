@@ -19,7 +19,7 @@ abbrev accepted := acknowledgeState committed
 def appendEvents (e : Record Nat) : List (Event Nat) :=
   [.invoke e, .internal, .internal, .internal, .commit e, .acknowledge e]
 
-theorem first_execution : interpret Step (appendEvents first) initial accepted :=
+theorem first_execution : Interpret Step (appendEvents first) initial accepted :=
   append_execution initial [] rfl rfl rfl (empty_rep _) 0 first rfl (by simp [initial])
     (by simp [Fresh])
 
@@ -38,12 +38,12 @@ theorem after_commit_lost_ack : Step .crash committed (crashState committed) ∧
   ⟨.crash, accepted_rep⟩
 
 theorem retry_without_append :
-    interpret Step [.invoke first, .acknowledge first] accepted accepted := by
+    Interpret Step [.invoke first, .acknowledge first] accepted accepted := by
   exact ⟨invokeState accepted first, .invoke rfl rfl rfl,
     accepted, .acknowledge (h := [first]) rfl rfl rfl (by simp), rfl⟩
 
 theorem conflicting_retry_rejects :
-    interpret Step [.invoke conflict, .reject conflict] accepted accepted := by
+    Interpret Step [.invoke conflict, .reject conflict] accepted accepted := by
   exact ⟨invokeState accepted conflict, .invoke rfl rfl rfl,
     accepted, .reject (r := first) (h := [first]) rfl rfl rfl (by simp) rfl (by decide), rfl⟩
 
@@ -81,7 +81,7 @@ theorem publish_checkpoint : Step .internal fullyRetained checkpointed := by
       fullyRetained, indexed, partlyRetained, copied, copying] using hw
   · simp [cp, checkpointPlan, checkpointWrites, copy, put, ten, eleven] at hw
 
-theorem checkpoint_execution : interpret Step (List.replicate 6 .internal) accepted checkpointed :=
+theorem checkpoint_execution : Interpret Step (List.replicate 6 .internal) accepted checkpointed :=
   ⟨copying, prepare_checkpoint, copied, copy_record, partlyRetained, persist_record,
     indexed, copy_index, fullyRetained, persist_index, checkpointed, publish_checkpoint, rfl⟩
 
@@ -133,7 +133,7 @@ abbrev readTail := { readRecord with cursor := some (Cursor.tailCells none [firs
 abbrev doneRead := { readTail with cursor := some (Cursor.done [first]) }
 abbrev recovered := { doneRead with cache := some [first], cursor := none }
 
-theorem recovery_execution : interpret Step
+theorem recovery_execution : Interpret Step
     [.internal, .internal, .internal, .internal, .recover [first]] restart recovered := by
   exact ⟨reading, .startRead rfl rfl (.checkpoint rfl (by decide)),
     readRecord, .read rfl rfl (.flat (by decide)), readTail, .read rfl rfl .boundary,
@@ -141,7 +141,7 @@ theorem recovery_execution : interpret Step
 
 /-- Restarting midway loses only the volatile cursor and permits the same scan. -/
 theorem repeated_recovery_crash : Step .crash readRecord restart ∧
-    interpret Step [.internal, .internal, .internal, .internal, .recover [first]] restart recovered :=
+    Interpret Step [.internal, .internal, .internal, .internal, .recover [first]] restart recovered :=
   ⟨.crash, recovery_execution⟩
 
 def afterAck : List (Event Nat) := List.replicate 6 .internal ++ [.internal, .crash] ++
@@ -149,12 +149,12 @@ def afterAck : List (Event Nat) := List.replicate 6 .internal ++ [.internal, .cr
 def beforeAck : List (Event Nat) := [.invoke first, .internal, .internal, .internal, .commit first]
 
 theorem accepted_recovered_execution :
-    interpret Step (beforeAck ++ .acknowledge first :: afterAck) initial recovered := by
-  have rest : interpret Step afterAck accepted recovered := by
+    Interpret Step (beforeAck ++ .acknowledge first :: afterAck) initial recovered := by
+  have rest : Interpret Step afterAck accepted recovered := by
     rw [afterAck, interpret_append, interpret_append]
     exact ⟨restart, ⟨checkpointed, checkpoint_execution,
       reclaimed, safe_reclamation, restart, Step.crash, rfl⟩, recovery_execution⟩
-  have combined : interpret Step (appendEvents first ++ afterAck) initial recovered := by
+  have combined : Interpret Step (appendEvents first ++ afterAck) initial recovered := by
     rw [interpret_append]
     exact ⟨accepted, first_execution, rest⟩
   exact combined
@@ -185,11 +185,11 @@ theorem early_acknowledgment (t : Machine Nat) : ¬ Step (.acknowledge first) wr
   | acknowledge online active mem => simp at mem
 
 /-- Actual encoded primitive transitions execute the same checkpoint and recovery. -/
-theorem encoded_checkpoint : interpret (EncodedStep wordCodec) (List.replicate 6 .internal)
+theorem encoded_checkpoint : Interpret (EncodedStep wordCodec) (List.replicate 6 .internal)
     (encodeState wordCodec accepted) (encodeState wordCodec checkpointed) :=
   encode_script wordCodec checkpoint_execution
 
-theorem encoded_recovery : interpret (EncodedStep wordCodec)
+theorem encoded_recovery : Interpret (EncodedStep wordCodec)
     [.internal, .internal, .internal, .internal, .recover [first]]
     (encodeState wordCodec restart) (encodeState wordCodec recovered) :=
   encode_script wordCodec recovery_execution
@@ -209,11 +209,11 @@ theorem append_second_client (s : Machine Nat)
     (rep : Represents s.disk s.root [first]) (cache : s.cache = some [first])
     (active : s.active = none) (pending : s.pending = none) (cursor : s.cursor = none)
     (space : s.disk 20 = none) (unused : 20 ∉ s.used) :
-    ∃ t, interpret Step (appendEvents second) s t ∧
+    ∃ t, Interpret Step (appendEvents second) s t ∧
       t.cache = some [first, second] ∧
       Represents t.disk t.root [first, second] ∧
       ([first, second].foldl (fun n e => n * 10 + e.payload) 0 = 49) ∧
-      interpret (EncodedStep wordCodec) (appendEvents second) (encodeState wordCodec s)
+      Interpret (EncodedStep wordCodec) (appendEvents second) (encodeState wordCodec s)
         (encodeState wordCodec t) := by
   have run := append_execution s [first] cache active pending rep 20 second space unused
     (by intro r mem; simp only [List.mem_singleton] at mem; subst r; decide)
@@ -226,18 +226,18 @@ theorem append_second_client (s : Machine Nat)
   · rw [← hist] at folded
     exact folded.trans rfl
 
-theorem log_two_records : ∃ t, interpret Step (appendEvents second) accepted t ∧
+theorem log_two_records : ∃ t, Interpret Step (appendEvents second) accepted t ∧
     t.cache = some [first, second] ∧ Represents t.disk t.root [first, second] ∧
     [first, second].foldl (fun n e => n * 10 + e.payload) 0 = 49 ∧
-    interpret (EncodedStep wordCodec) (appendEvents second) (encodeState wordCodec accepted)
+    Interpret (EncodedStep wordCodec) (appendEvents second) (encodeState wordCodec accepted)
       (encodeState wordCodec t) :=
   append_second_client accepted accepted_rep rfl rfl rfl rfl rfl
     (by simp [initial, firstPlan, appendPlan, put])
 
-theorem checkpoint_tail_two_records : ∃ t, interpret Step (appendEvents second) recovered t ∧
+theorem checkpoint_tail_two_records : ∃ t, Interpret Step (appendEvents second) recovered t ∧
     t.cache = some [first, second] ∧ Represents t.disk t.root [first, second] ∧
     [first, second].foldl (fun n e => n * 10 + e.payload) 0 = 49 ∧
-    interpret (EncodedStep wordCodec) (appendEvents second) (encodeState wordCodec recovered)
+    Interpret (EncodedStep wordCodec) (appendEvents second) (encodeState wordCodec recovered)
       (encodeState wordCodec t) := by
   apply append_second_client recovered
   · exact ⟨[first], [], .block (as := [10]) rfl (.cons rfl .nil), .nil, rfl⟩
@@ -278,7 +278,7 @@ abbrev account (e : Record Nat) : Machine Nat :=
       0 (.node none e)) 0 (.node none e)) (accountPlan e))
 
 theorem account_execution (e : Record Nat) :
-    interpret Step (appendEvents e) initial (account e) :=
+    Interpret Step (appendEvents e) initial (account e) :=
   append_execution initial [] rfl rfl rfl (empty_rep _) 0 e rfl
     (by simp [initial]) (by simp [Fresh])
 
@@ -291,7 +291,7 @@ abbrev debited : Machine Nat := acknowledgeState (publishState
   (persistState (writeState (prepareState (invokeState (account balanceTen) debitNine)
     debitPlan) 1 (.node (some 0) debitNine)) 1 (.node (some 0) debitNine)) debitPlan)
 
-theorem debit_execution : interpret Step (appendEvents debitNine) (account balanceTen) debited :=
+theorem debit_execution : Interpret Step (appendEvents debitNine) (account balanceTen) debited :=
   append_execution (account balanceTen) [balanceTen] rfl rfl rfl
     (account_rep balanceTen) 1 debitNine rfl
     (by simp [initial, accountPlan, appendPlan, put])
@@ -306,7 +306,7 @@ abbrev leftRecovered := { leftDone with cache := some [balanceTen,debitNine], cu
 def leftRecoveryEvents : List (Event Nat) :=
   [.crash,.internal,.internal,.internal,.internal,.recover [balanceTen,debitNine]]
 
-theorem left_recovery : interpret Step leftRecoveryEvents debited leftRecovered := by
+theorem left_recovery : Interpret Step leftRecoveryEvents debited leftRecovered := by
   exact ⟨leftCrash, .crash, leftStart, .startRead rfl rfl (.log rfl),
     leftReadOne, .read rfl rfl (.node rfl), leftReadTwo, .read rfl rfl (.node rfl),
     leftDone, .read rfl rfl .finish, leftRecovered, .recover rfl rfl, rfl⟩
@@ -322,7 +322,7 @@ def rightRecoveryEvents : List (Event Nat) :=
   [.invoke creditOne,.crash,.internal,.internal,.internal,.recover [balanceZero]]
 
 theorem right_recovery :
-    interpret Step rightRecoveryEvents (account balanceZero) rightRecovered := by
+    Interpret Step rightRecoveryEvents (account balanceZero) rightRecovered := by
   exact ⟨creditInvoked, .invoke rfl rfl rfl, rightCrash, .crash,
     rightStart, .startRead rfl rfl (.log rfl), rightRead, .read rfl rfl (.node rfl),
     rightDone, .read rfl rfl .finish, rightRecovered, .recover rfl rfl, rfl⟩
@@ -330,11 +330,11 @@ theorem right_recovery :
 def leftEvents := appendEvents balanceTen ++ appendEvents debitNine ++ leftRecoveryEvents
 def rightEvents := appendEvents balanceZero ++ rightRecoveryEvents
 
-theorem left_transfer_execution : interpret Step leftEvents initial leftRecovered := by
+theorem left_transfer_execution : Interpret Step leftEvents initial leftRecovered := by
   rw [leftEvents, interpret_append, interpret_append]
   exact ⟨debited, ⟨account balanceTen, account_execution _, debit_execution⟩, left_recovery⟩
 
-theorem right_transfer_execution : interpret Step rightEvents initial rightRecovered := by
+theorem right_transfer_execution : Interpret Step rightEvents initial rightRecovered := by
   rw [rightEvents, interpret_append]
   exact ⟨account balanceZero, account_execution _, right_recovery⟩
 
@@ -392,16 +392,16 @@ theorem shared_root_transfer (root : Root) (h : List (Record (Nat × Nat)))
     rfl
 
 /-- Two independently admitted directed edges form a cycle after union. -/
-def edgeAB (a b : Bool) : Prop := a = false ∧ b = true
-def edgeBA (a b : Bool) : Prop := a = true ∧ b = false
+def EdgeAB (a b : Bool) : Prop := a = false ∧ b = true
+def EdgeBA (a b : Bool) : Prop := a = true ∧ b = false
 
-theorem concurrent_cycle : (¬ ∃ a b c, edgeAB a b ∧ edgeAB b c) ∧
-    (¬ ∃ a b c, edgeBA a b ∧ edgeBA b c) ∧
-    ∃ a b, (edgeAB a b ∨ edgeBA a b) ∧ (edgeAB b a ∨ edgeBA b a) := by
+theorem concurrent_cycle : (¬ ∃ a b c, EdgeAB a b ∧ EdgeAB b c) ∧
+    (¬ ∃ a b c, EdgeBA a b ∧ EdgeBA b c) ∧
+    ∃ a b, (EdgeAB a b ∨ EdgeBA a b) ∧ (EdgeAB b a ∨ EdgeBA b a) := by
   constructor
-  · simp [edgeAB]
+  · simp [EdgeAB]
   constructor
-  · simp [edgeBA]
+  · simp [EdgeBA]
   · exact ⟨false, true, Or.inl ⟨rfl, rfl⟩, Or.inr ⟨rfl, rfl⟩⟩
 
 /-- The copied record's buffered write and persistence have distinct charges. -/

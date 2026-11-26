@@ -96,13 +96,13 @@ def sheets : SquareKit.SmoothLocalHomeomorph.ProjectionSheets coordinate where
   projection _ := rfl
 
 instance : ChartedSpace (Space 1) D := sheets.chartedSpace
-instance : IsManifold (Model 1) ∞ D := sheets.isManifold
+instance : IsManifold (modelWithCorners 1) ∞ D := sheets.isManifold
 
-theorem smooth_coordinate : ContMDiff (Model 1) (Model 1) ∞ coordinate :=
+theorem smooth_coordinate : ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ coordinate :=
   sheets.smooth_proj
 
 theorem smooth_inclusion (i : Bool) :
-    ContMDiff (Model 1) (Model 1) ∞ (inclusion i) := by
+    ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ (inclusion i) := by
   apply sheets.smooth_of_proj _ (continuous_inclusion i)
   have h : coordinate ∘ inclusion i = id := funext (coordinate_inclusion i)
   rw [h]

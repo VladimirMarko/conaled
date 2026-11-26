@@ -7,10 +7,10 @@ namespace SquareKit.PredicateCategory
 universe u w
 structure Obj where
   Carrier : Type u
-  pred : Carrier → Type w
+  Family : Carrier → Type w
 structure Hom (A B : Obj.{u,w}) where
   toFun : A.Carrier → B.Carrier
-  imp : ∀ x, A.pred x → B.pred (toFun x)
+  imp : ∀ x, A.Family x → B.Family (toFun x)
 
 def ops : CategoryOps Obj.{u,w} where
   Hom := Hom
@@ -29,7 +29,7 @@ def terminal : TerminalOps ops.{u,w} where
   unit := ⟨PUnit,fun _ => PUnit⟩
   terminal := ⟨fun _ => PUnit.unit,fun _ _ => PUnit.unit⟩
 def products : ProductOps ops.{u,w} where
-  prod A B := ⟨A.Carrier × B.Carrier,fun p => A.pred p.1 × B.pred p.2⟩
+  prod A B := ⟨A.Carrier × B.Carrier,fun p => A.Family p.1 × B.Family p.2⟩
   fst := ⟨Prod.fst,fun _ h => h.1⟩
   snd := ⟨Prod.snd,fun _ h => h.2⟩
   pair f g := ⟨fun x => (f.toFun x,g.toFun x),fun x h => (f.imp x h,g.imp x h)⟩
@@ -37,7 +37,7 @@ def initial : InitialOps ops.{u,w} where
   zero := ⟨PEmpty,fun _ => PEmpty⟩
   initial := ⟨PEmpty.elim,fun x => x.elim⟩
 def coproducts : CoproductOps ops.{u,w} where
-  sum A B := ⟨Sum A.Carrier B.Carrier,Sum.elim A.pred B.pred⟩
+  sum A B := ⟨Sum A.Carrier B.Carrier,Sum.elim A.Family B.Family⟩
   inl := ⟨Sum.inl,fun _ h => h⟩
   inr := ⟨Sum.inr,fun _ h => h⟩
   copair f g := ⟨Sum.elim f.toFun g.toFun,fun x => by cases x with

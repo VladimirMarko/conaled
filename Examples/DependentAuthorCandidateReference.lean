@@ -83,26 +83,26 @@ variable (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
   (hσ : Contextual.Sub (Ω := Ω) Δ (total T) σ) (hτ : Contextual.Sub (Ω := Ω) Θ Δ τ)
 variable (M : PathTransport.Typed.Model) (S : Sigma.Stable M.toStructuralModel)
   (ρ : V → Value M.toStructuralModel)
-  (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+  (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
 
 include hσ hτ hΩ in
 theorem certificateValidity :
     (Contextual.term Θ (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ)
-      (Contextual.subTm (Contextual.subTm (certificateCommand hx hT hp).expression σ) τ)).eval
+      (Contextual.subTm (Contextual.subTm (certificateCommand hx hT hp).expression σ) τ)).Eval
       (Contextual.algebra M) ρ :=
   Contextual.interpret (certificateTwice hx hT hp hσ hτ) M ρ hΩ
 
 include hp hσ hτ hΩ in
 theorem valueValidity :
     (Contextual.term Θ (Contextual.subTy (Contextual.subTy Q σ) τ)
-      (Contextual.subTm (Contextual.subTm p σ) τ)).eval (Contextual.algebra M) ρ :=
+      (Contextual.subTm (Contextual.subTm p σ) τ)).Eval (Contextual.algebra M) ρ :=
   Contextual.interpret (valueTwice hp hσ hτ) M ρ hΩ
 
 include hσ hτ hΩ in
 theorem extendedValidity :
     ((Contextual.term Θ (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ)
       (Contextual.subTm (Contextual.subTm (certificateCommand hx hT hp).expression σ) τ)).inl
-      Sigma.extraSignature).eval (Sigma.algebra M S.toCapability) ρ := by
+      Sigma.extraSignature).Eval (Sigma.algebra M S.toCapability) ρ := by
   apply Sigma.interpret (extendedCertificate hx hT hp hσ hτ) M S.toCapability ρ
   intro j hj
   rcases List.mem_map.mp hj with ⟨k, hk, rfl⟩

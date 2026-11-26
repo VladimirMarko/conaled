@@ -42,7 +42,7 @@ theorem presented_recovery {Ξ : Context.{u+1}} {A : Family Ξ}
 /-- The chart uses Boolean negation before lifting; it is not the identity presentation. -/
 def negatedPresentation (Ξ : Context.{1}) :
     SmallPresentation.Data.{0} (constantFamily Ξ (ULift.{1} Bool)) where
-  fiber _ := Bool
+  Fiber _ := Bool
   equiv _ := {
     toFun := fun b => ⟨!b⟩
     invFun := fun b => !(b.down)
@@ -134,7 +134,7 @@ theorem presented_recovery {Ξ : Context.{u+1}} {A : Family Ξ}
 /-- The chart uses Boolean negation before lifting; it is not the identity presentation. -/
 def negatedPresentation (Ξ : Context.{1}) :
     SmallPresentation.Data.{0} (constantFamily Ξ (ULift.{1} Bool)) where
-  fiber _ := Bool
+  Fiber _ := Bool
   equiv _ := {
     toFun := fun b => ⟨!b⟩
     invFun := fun b => !(b.down)
@@ -168,7 +168,7 @@ def groupSystemLift (V : Type) : GroupSystem CartesianHigherSeparation.Two V ≃
 
 def groupPresentation (Ξ : Context.{1}) : SmallPresentation.Data.{0}
     (GroupNerve.family (ULift.{1} CartesianHigherSeparation.Two) Ξ) where
-  fiber x := GroupSystem CartesianHigherSeparation.Two (Vertex x.obj.unop.dimension)
+  Fiber x := GroupSystem CartesianHigherSeparation.Two (Vertex x.obj.unop.dimension)
   equiv x := groupSystemLift (Vertex x.obj.unop.dimension)
 
 /-- General recovery applies to each non-discrete group-nerve filler selection. -/

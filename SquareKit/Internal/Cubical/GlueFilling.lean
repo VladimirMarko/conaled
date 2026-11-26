@@ -103,12 +103,12 @@ def intervalAll {Γ : Context.{u}} (φ : Cofibration (total (interval Γ))) : Co
     exact congrArg ULift.up ((congrArg Face.allFresh h).trans (Face.allFresh_substitute f.unop _))
 
 theorem intervalAll_full {Γ : Context.{u}} (φ : Cofibration (total (interval Γ)))
-    (x : Γ.Elements) : (intervalAll φ).full x ↔ φ.full (freshExtension x) :=
+    (x : Γ.Elements) : (intervalAll φ).Full x ↔ φ.Full (freshExtension x) :=
   Face.allFresh_full _
 
 theorem intervalAll_specialize {Γ : Context.{u}} (φ : Cofibration (total (interval Γ)))
-    (x : Γ.Elements) (h : (intervalAll φ).full x) (r : (interval Γ).obj x) :
-    φ.full (extendObj (interval Γ) x r) :=
+    (x : Γ.Elements) (h : (intervalAll φ).Full x) (r : (interval Γ).obj x) :
+    φ.Full (extendObj (interval Γ) x r) :=
   φ.full_natural (specializeInterval x r) ((intervalAll_full φ x).mp h)
 
 theorem intervalAll_reindex {Γ Δ : Context.{u}} (φ : Cofibration (total (interval Γ)))
@@ -123,9 +123,9 @@ theorem intervalAll_reindex {Γ Δ : Context.{u}} (φ : Cofibration (total (inte
 
 /-- The universal face tests all future restrictions and all interval values. -/
 theorem intervalAll_spec {Γ : Context.{u}} (φ : Cofibration (total (interval Γ)))
-    (x : Γ.Elements) : (intervalAll φ).full x ↔
+    (x : Γ.Elements) : (intervalAll φ).Full x ↔
       ∀ {y : Γ.Elements} (_f : x ⟶ y) (r : (interval Γ).obj y),
-        φ.full (extendObj (interval Γ) y r) := by
+        φ.Full (extendObj (interval Γ) y r) := by
   constructor
   · intro h y f r
     exact intervalAll_specialize φ y ((intervalAll φ).full_natural f h) r
@@ -172,9 +172,9 @@ theorem addTube_preserves_whole {Δ : Context.{u}} {B : Family Δ}
     (t : PartialSection (reindex B p) (ψ.reindex (projection (interval Γ))))
     (h : b.tube.Compatible t)
     (h₀ : ∀ x hx, t.val ((endpointSub Γ false).mapElements.obj x) hx = b.base.val x)
-    (x : (total (interval Γ)).Elements) (hx : (ψ.reindex (projection (interval Γ))).full x) :
+    (x : (total (interval Γ)).Elements) (hx : (ψ.reindex (projection (interval Γ))).Full x) :
     (F.fill p (φ.join ψ) (addTube b t h h₀)).val x = t.val x hx := by
-  have hu : ((φ.join ψ).reindex (projection (interval Γ))).full x :=
+  have hu : ((φ.join ψ).reindex (projection (interval Γ))).Full x :=
     (Cofibration.full_join φ ψ ((projection (interval Γ)).mapElements.obj x)).mpr (Or.inr hx)
   exact ((hF.fills p (φ.join ψ) (addTube b t h h₀)).2 x hu).trans
     (glueValue_right b.tube t h x hu hx)
@@ -231,14 +231,14 @@ def restrictedPathTube {Ξ : Context.{u}} {B : Family Ξ} (θ : Cofibration Ξ)
 theorem restrictedPathTube_zero {Ξ : Context.{u}} {B : Family Ξ} (θ : Cofibration Ξ)
     (a : Term B) (t : Term (reindex B (restrictInclusion θ)))
     (q : Term (homogeneousPath (reindex B (restrictInclusion θ))
-      (a.reindex (restrictInclusion θ)) t)) (x : Ξ.Elements) (hx : θ.full x) :
+      (a.reindex (restrictInclusion θ)) t)) (x : Ξ.Elements) (hx : θ.Full x) :
     (restrictedPathTube θ a t q).val ((endpointSub Ξ false).mapElements.obj x) hx = a.val x :=
   congrArg (fun s => s.val (faceObj θ x hx)) (pathApp_zero q)
 
 theorem restrictedPathTube_one {Ξ : Context.{u}} {B : Family Ξ} (θ : Cofibration Ξ)
     (a : Term B) (t : Term (reindex B (restrictInclusion θ)))
     (q : Term (homogeneousPath (reindex B (restrictInclusion θ))
-      (a.reindex (restrictInclusion θ)) t)) (x : Ξ.Elements) (hx : θ.full x) :
+      (a.reindex (restrictInclusion θ)) t)) (x : Ξ.Elements) (hx : θ.Full x) :
     (restrictedPathTube θ a t q).val ((endpointSub Ξ true).mapElements.obj x) hx =
       t.val (faceObj θ x hx) :=
   congrArg (fun s => s.val (faceObj θ x hx)) (pathApp_one q)
@@ -278,7 +278,7 @@ theorem correctAmbient_face {Ξ : Context.{u}} {B : Family Ξ} (F : Filling B) (
       (a.reindex (restrictInclusion θ)) t))
     (h : (restrictedPathTube θ a t q).Compatible
       (PartialSection.ofTerm (χ.reindex (projection (interval Ξ)))
-        (a.reindex (projection (interval Ξ))))) (x : Ξ.Elements) (hx : θ.full x) :
+        (a.reindex (projection (interval Ξ))))) (x : Ξ.Elements) (hx : θ.Full x) :
     (correctAmbient F θ χ a t q h).val x = t.val (faceObj θ x hx) := by
   have hu := (Cofibration.full_join θ χ x).mpr (Or.inl hx)
   exact (Filling.hcomp_boundary hF _ (correctionBox θ χ a t q h) x hu).trans
@@ -292,7 +292,7 @@ theorem correctAmbient_fixed {Ξ : Context.{u}} {B : Family Ξ} (F : Filling B) 
       (a.reindex (restrictInclusion θ)) t))
     (h : (restrictedPathTube θ a t q).Compatible
       (PartialSection.ofTerm (χ.reindex (projection (interval Ξ)))
-        (a.reindex (projection (interval Ξ))))) (x : Ξ.Elements) (hx : χ.full x) :
+        (a.reindex (projection (interval Ξ))))) (x : Ξ.Elements) (hx : χ.Full x) :
     (correctAmbient F θ χ a t q h).val x = a.val x := by
   have hu := (Cofibration.full_join θ χ x).mpr (Or.inr hx)
   exact (Filling.hcomp_boundary hF _ (correctionBox θ χ a t q h) x hu).trans
@@ -372,7 +372,7 @@ theorem extendedFace_boundary (E : HomotopyEquivalence f) (F : Filling U) (hF : 
     (s : PartialSection (pulledCompatible θ B U f p) χ) (a : Term (reindex B p))
     (h : s.map (compatibleUnglue (θ.reindex p) (reindex B p) (reindex U (restrictSubstitution θ p))
       (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)) = PartialSection.ofTerm χ a)
-    (x : (restrictContext (θ.reindex p)).Elements) (hx : (χ.reindex (restrictInclusion (θ.reindex p))).full x) :
+    (x : (restrictContext (θ.reindex p)).Elements) (hx : (χ.reindex (restrictInclusion (θ.reindex p))).Full x) :
     (extendedFace θ B U f p E F hF G hG s a h).val x = (faceSection θ B U f p s).val x hx :=
   congrArg Sigma.fst (E.extendAlong_boundary F hF (G.reindex (restrictInclusion θ)) (hG.reindex _)
     (target θ B p a) (genericFiberPartialIntro f (target θ B p a) (faceSection θ B U f p s)
@@ -450,7 +450,7 @@ noncomputable def extendSection : Term (pulledCompatible θ B U f p) :=
     (corrected θ B U f p E F hF G hG s a h)
     (corrected_face θ B U f p E F hF G hG s a h)
 
-theorem extendSection_boundary (x : Ω.Elements) (hx : χ.full x) :
+theorem extendSection_boundary (x : Ω.Elements) (hx : χ.Full x) :
     (extendSection θ B U f p E F hF G hG s a h).val x = s.val x hx := by
   apply CompatibleElement.ext
   · exact (correctAmbient_fixed (G.reindex p) (hG.reindex p) (θ.reindex p) χ a _ _
@@ -524,11 +524,11 @@ theorem correctionInput_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
     let c₁ := PartialSection.ofTerm ((χ.reindex τ).reindex (projection (interval Λ)))
       ((a.reindex τ).reindex (projection (interval Λ)))
     change glueValue t₁ c₁ x hx = glueValue t₀ c₀ ((liftSub (interval Ω) τ).mapElements.obj x) hx
-    by_cases hp : ((θ.reindex (τ ≫ p)).reindex (projection (interval Λ))).full x
+    by_cases hp : ((θ.reindex (τ ≫ p)).reindex (projection (interval Λ))).Full x
     · exact (glueValue_left t₁ c₁ x hx hp).trans
         ((congrArg (fun t => t.val x hp) ht).trans
           (glueValue_left t₀ c₀ ((liftSub (interval Ω) τ).mapElements.obj x) hx hp).symm)
-    · have hp₀ : ¬ ((θ.reindex p).reindex (projection (interval Ω))).full
+    · have hp₀ : ¬ ((θ.reindex p).reindex (projection (interval Ω))).Full
           ((liftSub (interval Ω) τ).mapElements.obj x) := hp
       simp only [glueValue, dite_eq_right hp, dite_eq_right hp₀]
       rfl

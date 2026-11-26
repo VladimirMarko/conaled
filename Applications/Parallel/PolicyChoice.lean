@@ -41,10 +41,10 @@ theorem run_correct (p : ScanPlan) (xs : List M) (h : p.shape.size = xs.length) 
   unfold run
   rw [p.correct, Shape.flatten_load _ _ (by omega), List.take_of_length_le (by omega)]
 
-def admitted (frames : List Frame) (size : Nat) (depthLimit : Option Nat) (p : ScanPlan) : Prop :=
+def Admitted (frames : List Frame) (size : Nat) (depthLimit : Option Nat) (p : ScanPlan) : Prop :=
   (plug frames p).shape.size = size ∧ ∀ limit ∈ depthLimit, (plug frames p).depth ≤ limit
 instance (frames : List Frame) (size : Nat) (depthLimit : Option Nat) (p : ScanPlan) :
-    Decidable (admitted frames size depthLimit p) :=
+    Decidable (Admitted frames size depthLimit p) :=
   inferInstanceAs (Decidable (_ ∧ _))
 
 /-- Candidate identity retains the recipe, rather than just size/work/depth. -/
@@ -69,7 +69,7 @@ def scope (frames : List Frame) (size : Nat) (depthLimit : Option Nat)
 def choose (catalog : List ScanPlan) (frames : List Frame) (size : Nat)
     (depthLimit : Option Nat) (context : Context) (repetitions : Nat)
     (fixed : ScanPlan → Nat) (evidence : Option Epoch) : Option ScanPlan :=
-  Optimization.Choice.choose catalog (admitted frames size depthLimit) identify (scope frames size depthLimit context) repetitions
+  Optimization.Choice.choose catalog (Admitted frames size depthLimit) identify (scope frames size depthLimit context) repetitions
     (fun p => fixed (plug frames p)) evidence
 
 theorem chosen_correct {catalog : List ScanPlan} {frames : List Frame} {size : Nat}

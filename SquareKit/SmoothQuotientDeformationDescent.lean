@@ -38,26 +38,26 @@ instance productMap_locallySurjective (A : Sheaf topology Type) {B E : Sheaf top
 /-- The action on the torsor component leaves the infinitesimal parameter fixed. -/
 def actOnTotal (P : Object a X) :
     product (SheafTorsor.groupSheaf (locallyConstantGroup H))
-      (product D (SplitSheaf.Ext P.torsor.family)) ⟶ product D (SplitSheaf.Ext P.torsor.family) :=
+      (product D (SplitSheaf.extension P.torsor.family)) ⟶ product D (SplitSheaf.extension P.torsor.family) :=
   ⟨{ app U := ↾fun y => (y.2.1,⟨y.2.2.1,P.torsor.act (X.obj.elementsMk U y.2.2.1) y.1 y.2.2.2⟩)
      naturality {U V} f := by
        apply ConcreteCategory.hom_ext
        intro y
-       change (show (product D (SplitSheaf.Ext P.torsor.family)).obj.obj V from ((D).obj.map f y.2.1,
+       change (show (product D (SplitSheaf.extension P.torsor.family)).obj.obj V from ((D).obj.map f y.2.1,
          ⟨X.obj.map f y.2.2.1, P.torsor.act (X.obj.elementsMk V (X.obj.map f y.2.2.1))
            ((locallyConstantGroup H).obj.map f y.1)
            (P.torsor.family.family.map (ElementFamilies.along X.obj f y.2.2.1) y.2.2.2)⟩)) =
-         (show (product D (SplitSheaf.Ext P.torsor.family)).obj.obj V from ((D).obj.map f y.2.1,
+         (show (product D (SplitSheaf.extension P.torsor.family)).obj.obj V from ((D).obj.map f y.2.1,
            ⟨X.obj.map f y.2.2.1, P.torsor.family.family.map (ElementFamilies.along X.obj f y.2.2.1)
              (P.torsor.act (X.obj.elementsMk U y.2.2.1) y.1 y.2.2.2)⟩))
-       exact congrArg (fun p => (show (product D (SplitSheaf.Ext P.torsor.family)).obj.obj V from
+       exact congrArg (fun p => (show (product D (SplitSheaf.extension P.torsor.family)).obj.obj V from
          ((D).obj.map f y.2.1, ⟨X.obj.map f y.2.2.1,p⟩)))
          (P.torsor.natural (ElementFamilies.along X.obj f y.2.2.1) y.1 y.2.2.2).symm }⟩
 
 /-- No effectiveness is assumed: this is only the usual matching condition. -/
 structure DescentDatum (P : Object a X) (f : Y ⟶ X) where
   localDeformation : Deformation (reindex P f)
-  compatible : ∀ U (p q : (product D (SplitSheaf.Ext (reindex P f).torsor.family)).obj.obj U),
+  compatible : ∀ U (p q : (product D (SplitSheaf.extension (reindex P f).torsor.family)).obj.obj U),
     (cover P f).hom.app U p = (cover P f).hom.app U q →
       localDeformation.map.hom.app U p = localDeformation.map.hom.app U q
 
@@ -65,13 +65,13 @@ namespace DescentDatum
 variable {P : Object a X} {f : Y ⟶ X} [Presheaf.IsLocallySurjective topology f.hom]
 variable (d : DescentDatum P f)
 
-def map : product D (SplitSheaf.Ext P.torsor.family) ⟶ M :=
+def map : product D (SplitSheaf.extension P.torsor.family) ⟶ M :=
   SheafActionQuotient.Descent.descendMap (cover P f) d.localDeformation.map d.compatible
 
 theorem map_fac : cover P f ≫ d.map = d.localDeformation.map :=
   SheafActionQuotient.Descent.descendMap_fac (cover P f) d.localDeformation.map d.compatible
 
-theorem map_zero : parameterZero (SplitSheaf.Ext P.torsor.family) ≫ d.map = P.totalMap := by
+theorem map_zero : parameterZero (SplitSheaf.extension P.torsor.family) ≫ d.map = P.totalMap := by
   apply (cancel_epi (SplitSheaf.lift P.torsor.family f)).mp
   ext U p
   have he := congrArg (fun k => k.hom.app U

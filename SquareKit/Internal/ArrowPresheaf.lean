@@ -17,12 +17,12 @@ variable {D : Type u} [Category.{v} D]
 variable (p : D → Prop) (hp : ∀ {X Y : D}, (X ⟶ Y) → p X → p Y)
 
 /-- Selected elements carry the branch witness, which is proposition-valued. -/
-def selected (a : Arrow (D ⥤ Type w)) (X : D) : Type w :=
+def Selected (a : Arrow (D ⥤ Type w)) (X : D) : Type w :=
   {_x : a.right.obj X // p X} ⊕ {_x : a.left.obj X // ¬ p X}
 
 /-- Restriction across the boundary uses the original arrow. -/
 def restrict (a : Arrow (D ⥤ Type w)) {X Y : D} (f : X ⟶ Y) :
-    selected p a X ⟶ selected p a Y := by
+    Selected p a X ⟶ Selected p a Y := by
   classical
   exact TypeCat.ofHom fun x => match x with
     | .inl x => .inl ⟨a.right.map f x.val, hp f x.property⟩
@@ -31,7 +31,7 @@ def restrict (a : Arrow (D ⥤ Type w)) {X Y : D} (f : X ⟶ Y) :
 
 /-- The selected sets form a diagram, including boundary-crossing maps. -/
 def object (a : Arrow (D ⥤ Type w)) : D ⥤ Type w where
-  obj := selected p a
+  obj := Selected p a
   map := restrict p hp a
   map_id X := by
     classical

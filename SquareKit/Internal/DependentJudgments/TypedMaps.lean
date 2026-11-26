@@ -21,7 +21,7 @@ inductive Defined (Ω : List (Judgment V)) : Expression V → Type where
 
 theorem Defined.sound {e : Expression V} (he : Defined Ω e)
     (M : PathTransport.Typed.Model.{u}) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) : e.eval (algebra M) ρ ≠ .invalid := by
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M) ρ) : e.eval (algebra M) ρ ≠ .invalid := by
   cases he with
   | context h =>
     rcases interpret h M ρ hΩ with ⟨Γ, hΓ⟩
@@ -56,7 +56,7 @@ def TypedAssumptions (Ω : List (Judgment V)) : Prop :=
 
 theorem predicate_defined (M : PathTransport.Typed.Model.{u}) (p : signature.Predicate)
     (args : Fin (signature.arguments p) → Value M.toStructuralModel)
-    (h : (algebra M).predicate p args) : ∀ i, args i ≠ .invalid := by
+    (h : (algebra M).Predicate p args) : ∀ i, args i ≠ .invalid := by
   cases p with
   | inl p =>
     cases p with
@@ -99,8 +99,8 @@ theorem predicate_defined (M : PathTransport.Typed.Model.{u}) (p : signature.Pre
 reflection of equality, sorting, or invalid values is needed. -/
 theorem premises_map {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     (F : ModelMap M N) (typed : TypedAssumptions Ω) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
-    ∀ p ∈ Ω, p.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) := by
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M) ρ) :
+    ∀ p ∈ Ω, p.Eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) := by
   intro p hp
   cases p with
   | eq s t =>
@@ -117,7 +117,7 @@ theorem premises_map {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Type
     have e : (Value.map F.toStructuralMap ∘ fun i => (args i).eval (algebra M) ρ) =
         (fun i => (args i).eval (algebra N) (Value.map F.toStructuralMap ∘ ρ)) :=
       funext (fun i => interpret_map F (args i) ρ (hd i))
-    change (algebra N).predicate p
+    change (algebra N).Predicate p
       (Value.map F.toStructuralMap ∘ fun i => (args i).eval (algebra M) ρ) at hm
     erw [e] at hm
     exact hm
@@ -126,15 +126,15 @@ theorem premises_map {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Type
 theorem interpret_target {a : Judgment V} (d : Derivation theory Ω a)
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     (F : ModelMap M N) (typed : TypedAssumptions Ω) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
-    a.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M) ρ) :
+    a.Eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=
   interpret d N _ (premises_map F typed ρ hΩ)
 
 /-- Typing supplies the side condition for preservation of the retained value. -/
 theorem Tm.interpret_map {Γ A t : Expression V} (ht : Tm (Ω := Ω) Γ A t)
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     (F : ModelMap M N) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M) ρ) :
     Value.map F.toStructuralMap (t.eval (algebra M) ρ) =
       t.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=
   Contextual.interpret_map F t ρ ((Defined.term ht).sound M ρ hΩ)
@@ -146,7 +146,7 @@ theorem TypedEquality.map {Γ A s t : Expression V}
     (comparison : TypedEquality Ω Γ A s t)
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     (F : ModelMap M N) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M) ρ) :
     s.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) =
       t.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) := by
   have h := interpret comparison.equality M ρ hΩ
@@ -160,7 +160,7 @@ theorem Command.comparison_map {Γ Δ A x σ : Expression V}
     (command : Command Ω Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ)
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     (F : ModelMap M N) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M) ρ) :
     (subTm command.expression (pathTailMap A x command.tail σ)).eval
         (algebra N) (Value.map F.toStructuralMap ∘ ρ) =
       (command.fresh hσ).expression.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=

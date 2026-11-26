@@ -8,7 +8,7 @@ noncomputable section
 open scoped ContDiff
 namespace SquareKit.EuclideanOpen
 open CategoryTheory CategoryTheory.Limits Opposite SmoothAlgebra SmoothPresentationSite Localization
-variable (U : Domain) (g h : Free U.dimension)
+variable (U : Domain) (g h : freeAlgebra U.dimension)
 
 abbrev overlap : Domain := subdomain (subdomain U g) h
 abbrev overlapLeft : overlap U g h ⟶ subdomain U g := subInclusion (subdomain U g) h
@@ -22,7 +22,7 @@ def overlapRight : overlap U g h ⟶ subdomain U h :=
 theorem overlap_square : overlapLeft U g h ≫ subInclusion U g = overlapRight U g h ≫ subInclusion U h :=
   OpenFunctions.Map.ext (fun _ => rfl)
 
-theorem overlapRight_base (a : Free U.dimension) :
+theorem overlapRight_base (a : freeAlgebra U.dimension) :
     Localization.pullback (overlapRight U g h) (principalBase (U.defining*h) a) =
       principalBase ((U.defining*g)*h) a := by
   apply (toOpen_bijective ((U.defining*g)*h)).injective
@@ -48,7 +48,7 @@ theorem overlap_universal {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
     rw [(principalBase (U.defining*h)).map_mul,IsUnit.mul_iff] at hv
     have hv' := hv.2.map v.toAlgHom
     rw [show u (principalBase (U.defining*g) h) = v (principalBase (U.defining*h) h) from
-      congrArg (fun k : Hom (Free U.dimension) B => k h) he]
+      congrArg (fun k : Hom (freeAlgebra U.dimension) B => k h) he]
     exact hv'
   let w := subLift (U.defining*g) h u hu
   have hl : w.comp (Localization.pullback (overlapLeft U g h)) = u := by
@@ -60,12 +60,12 @@ theorem overlap_universal {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
     intro a
     change w (Localization.pullback (overlapRight U g h) (principalBase (U.defining*h) a)) = _
     rw [overlapRight_base]
-    have hw := congrArg (fun k : Hom (Free U.dimension) B => k a)
+    have hw := congrArg (fun k : Hom (freeAlgebra U.dimension) B => k a)
       (lift_base (fun _ : Fin 1 => (U.defining*g)*h) (u.comp (principalBase (U.defining*g)))
         (fun _ => by
           rw [(u.comp (principalBase (U.defining*g))).map_mul]
           exact ((base_isUnit (fun _ : Fin 1 => U.defining*g) 0).map u.toAlgHom).mul hu))
-    exact hw.trans (congrArg (fun k : Hom (Free U.dimension) B => k a) he)
+    exact hw.trans (congrArg (fun k : Hom (freeAlgebra U.dimension) B => k a) he)
   refine ⟨w,⟨hl,hr⟩,?_⟩
   intro w' hw'
   apply sub_unique (U.defining*g) h

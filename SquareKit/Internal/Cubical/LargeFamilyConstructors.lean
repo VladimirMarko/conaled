@@ -13,19 +13,19 @@ namespace SmallPresentation.Data
 variable {Ξ : Context.{u+1}} {A : Family Ξ} {B : Family (total A)}
 
 noncomputable def ofSmall (C : Family Ξ) [∀ x, Small.{u} (C.obj x)] : SmallPresentation.Data C where
-  fiber x := Shrink.{u} (C.obj x)
+  Fiber x := Shrink.{u} (C.obj x)
   equiv x := (equivShrink (C.obj x)).symm
 
 def sigma (P : SmallPresentation.Data A) (Q : SmallPresentation.Data B) :
     SmallPresentation.Data (Presheaf.sigma A B) where
-  fiber x := Σ a : P.fiber x, Q.fiber (extendObj A x (P.equiv x a))
+  Fiber x := Σ a : P.Fiber x, Q.Fiber (extendObj A x (P.equiv x a))
   equiv x := Equiv.sigmaCongr (P.equiv x) (fun a => Q.equiv (extendObj A x (P.equiv x a)))
 
 /-- Only cube restrictions and small arguments index this function space. -/
 def FunctionValues (P : SmallPresentation.Data A) (Q : SmallPresentation.Data B)
     (x : Ξ.Elements) : Type u :=
-  ∀ (J : Cubeᵒᵖ) (f : x.obj ⟶ J) (a : P.fiber (Ξ.elementsMk J (Ξ.map f x.val))),
-    Q.fiber (extendObj A (Ξ.elementsMk J (Ξ.map f x.val))
+  ∀ (J : Cubeᵒᵖ) (f : x.obj ⟶ J) (a : P.Fiber (Ξ.elementsMk J (Ξ.map f x.val))),
+    Q.Fiber (extendObj A (Ξ.elementsMk J (Ξ.map f x.val))
       (P.equiv (Ξ.elementsMk J (Ξ.map f x.val)) a))
 
 def functionValues (P : SmallPresentation.Data A) (Q : SmallPresentation.Data B)
@@ -53,7 +53,7 @@ noncomputable def pi (P : SmallPresentation.Data A) (Q : SmallPresentation.Data 
   exact ofSmall _
 
 def interval (Ξ : Context.{u+1}) : SmallPresentation.Data (Presheaf.interval Ξ) where
-  fiber x := ULift.{u} (Cube.Hom x.obj.unop ⟨1⟩)
+  Fiber x := ULift.{u} (Cube.Hom x.obj.unop ⟨1⟩)
   equiv _ := Equiv.ulift.trans Equiv.ulift.symm
 
 noncomputable def path (B : Family (total (Presheaf.interval Ξ))) (Q : SmallPresentation.Data B)
@@ -70,7 +70,7 @@ end SmallPresentation.Data
 
 /-- The existing universal decoder has explicitly small fibers. -/
 def decodePresentation {Ξ : Context.{u+1}} (a : Ξ ⟶ smallFamilyCodes.{u}) : SmallPresentation.Data (liftedDecode a) where
-  fiber x := (decode a).obj x
+  Fiber x := (decode a).obj x
   equiv _ := Equiv.ulift.symm
 
 namespace LargeConstructors

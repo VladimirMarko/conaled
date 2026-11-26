@@ -115,14 +115,14 @@ theorem observedRightUnit_of_rightUnit {A : Type u} {B : Type v}
     ObservedRightUnit m e observe := fun x => congrArg observe (h x)
 
 /-- Original source proof, with its right-unit dependency retained. -/
-def selected_original {A : Type u} {B : Type v}
+def selectedOriginal {A : Type u} {B : Type v}
     {m : A → A → A} {e : A} (observe : A → B) (h : RightUnit m e) (x : A) :
     {y : A // observe y = observe (m x e)} :=
   ⟨x, congrArg observe (h x).symm⟩
 
-theorem selected_original_value {A : Type u} {B : Type v}
+theorem selectedOriginal_value {A : Type u} {B : Type v}
     {m : A → A → A} {e : A} (observe : A → B) (h : RightUnit m e) (x : A) :
-    (selected_original observe h x).val = x := rfl
+    (selectedOriginal observe h x).val = x := rfl
 
 /-- This construction retains the supplied input as data. -/
 def selected {A : Type u} {B : Type v}
@@ -137,7 +137,7 @@ theorem selected_value {A : Type u} {B : Type v}
 /-- Weakening requirements preserves the entire subtype value. -/
 theorem selected_agrees_original {A : Type u} {B : Type v}
     {m : A → A → A} {e : A} (observe : A → B) (h : RightUnit m e) (x : A) :
-    selected (observedRightUnit_of_rightUnit observe h) x = selected_original observe h x := by
+    selected (observedRightUnit_of_rightUnit observe h) x = selectedOriginal observe h x := by
   apply Subtype.ext
   rfl
 
@@ -171,8 +171,8 @@ theorem selectedList_value (x : List Nat) : (selectedList x).val = x :=
 theorem selectedBool_value (x : Bool) : (selectedBool x).val = x :=
   selected_value boolObservedRightUnit x
 
-theorem list_selected_original_replay (x : List Nat) :
-    selected_original Targets.listObserve listRightUnit x = Source.selected x := by
+theorem list_selectedOriginal_replay (x : List Nat) :
+    selectedOriginal Targets.listObserve listRightUnit x = Source.selected x := by
   apply Subtype.ext
   rfl
 
@@ -180,9 +180,9 @@ theorem selectedList_eq_source (x : List Nat) : selectedList x = Source.selected
   apply Subtype.ext
   exact selectedList_value x
 
-theorem bool_selected_original_replay (x : Bool) :
-    (selected_original Targets.boolObserve boolRightUnit x).val = x :=
-  selected_original_value Targets.boolObserve boolRightUnit x
+theorem bool_selectedOriginal_replay (x : Bool) :
+    (selectedOriginal Targets.boolObserve boolRightUnit x).val = x :=
+  selectedOriginal_value Targets.boolObserve boolRightUnit x
 
 theorem selectedList_empty : (selectedList []).val = [] := selectedList_value []
 theorem selectedList_nonempty : (selectedList [1,2]).val = [1,2] := selectedList_value [1,2]

@@ -15,16 +15,16 @@ variable {n m : ℕ} {G B E B' E' : Type} [Group G] [MulAction G E] [MulAction G
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
   [ChartedSpace (Space m) B'] [ChartedSpace (Space m) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
-  [IsManifold (Model m) ∞ B'] [IsManifold (Model m) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
+  [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners m) ∞ E']
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
   (Q : Bundle (n := m) (G := G) (B := B') (E := E'))
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-  (k : E' → E) (hk : ContMDiff (Model m) (Model n) ∞ k)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+  (k : E' → E) (hk : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ k)
   (hp : ∀ e, P.projection (k e) = f (Q.projection e))
   (ha : ∀ (g : G) e, k (g • e) = g • k e)
 
-def totalAlong : SplitSheaf.Ext Q.realizedTorsor.family ⟶ SplitSheaf.Ext P.realizedTorsor.family :=
+def totalAlong : SplitSheaf.extension Q.realizedTorsor.family ⟶ SplitSheaf.extension P.realizedTorsor.family :=
   Q.realizedTotalIso.hom ≫ ManifoldRealization.map k hk ≫ P.realizedTotalIso.inv
 
 include hp in
@@ -92,12 +92,12 @@ variable {n m : ℕ} {G B E B' E' : Type} [Group G] [MulAction G E] [MulAction G
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
   [ChartedSpace (Space m) B'] [ChartedSpace (Space m) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
-  [IsManifold (Model m) ∞ B'] [IsManifold (Model m) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
+  [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners m) ∞ E']
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
   (Q : Bundle (n := m) (G := G) (B := B') (E := E'))
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-  (k : E' → E) (hk : ContMDiff (Model m) (Model n) ∞ k)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+  (k : E' → E) (hk : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ k)
   (hp : ∀ e, P.projection (k e) = f (Q.projection e))
   (ha : ∀ (g : G) e, k (g • e) = g • k e)
 
@@ -142,9 +142,9 @@ variable {n m : ℕ} {G B E B' : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space m) B']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model m) ∞ B']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners m) ∞ B']
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
 
 /-- The actual sheet-constructed ordinary pullback realizes to torsor reindexing. -/
 def realizationComparison :
@@ -179,7 +179,7 @@ variable {n : ℕ} {G B E E' : Type} [Group G] [MulAction G E] [MulAction G E']
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model n) ∞ E']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners n) ∞ E']
 variable {P : Bundle (n := n) (G := G) (B := B) (E := E)}
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')} (a : Map P Q)
 
@@ -200,10 +200,10 @@ variable {n m : ℕ} {G B E B' E' : Type} [Group G] [MulAction G E] [MulAction G
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace E']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
   [ChartedSpace (Space m) B']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model n) ∞ E']
-  [IsManifold (Model m) ∞ B']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners n) ∞ E']
+  [IsManifold (modelWithCorners m) ∞ B']
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
 
 theorem realizationComparison_total :
     let := chartedSpace (m := m) P f hf.continuous
@@ -267,7 +267,7 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 theorem realizationComparison_id :
     let := chartedSpace (m := n) P (id : B → B) continuous_id
@@ -289,9 +289,9 @@ theorem realizationComparison_id :
   rfl
 variable {m k : ℕ} {B' B'' : Type} [TopologicalSpace B'] [TopologicalSpace B'']
   [ChartedSpace (Space m) B'] [ChartedSpace (Space k) B'']
-  [IsManifold (Model m) ∞ B'] [IsManifold (Model k) ∞ B'']
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-  (g : B'' → B') (hg : ContMDiff (Model k) (Model m) ∞ g)
+  [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners k) ∞ B'']
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+  (g : B'' → B') (hg : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ g)
 theorem realizationComparison_comp :
     let := chartedSpace (m := m) P f hf.continuous
     let := isManifold (m := m) P f hf.continuous

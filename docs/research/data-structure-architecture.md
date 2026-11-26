@@ -204,7 +204,7 @@ claim.
 | Concern | Required distinction and implementation obligation |
 | --- | --- |
 | Equality | Raw cache equality, ordered List equality, summary equality and hom equivalence are different. Use `RawMap.Reflects` only when proved; induced equivalence does not recover information discarded by a summary. |
-| Witnesses | `compRel` uses existence in Prop; `Intermediate` stores a middle value as data. Sheaf composition admits local witnesses. Neither `witnessSquare` nor existence authorizes a runtime selector or removal of stored data. |
+| Witnesses | `CompRel` uses existence in Prop; `Intermediate` stores a middle value as data. Sheaf composition admits local witnesses. Neither `witnessSquare` nor existence authorizes a runtime selector or removal of stored data. |
 | Order | Summary multiplication preserves sequence order; no commutativity is needed. Sorted search additionally needs the ordering and its link to sequence semantics. Noncommutative test summaries catch accidental permutation. |
 | Partiality | Random-access lookup returns Option; out-of-range update is totalized as List.set. Empty endpoint queries and failed search must remain visible. A relational specification can be partial, but `RelSquare.impl` itself is a total function. Do not turn absence into a default value without specifying that choice. |
 | Induction/recursion | Finite-list fusion and representation recursion are host Lean proofs. The proposed reassociation proof needs only conjunction and existential rules. Transporting list induction or nested recursion requires additional semantics, not merely products or a monoid. |

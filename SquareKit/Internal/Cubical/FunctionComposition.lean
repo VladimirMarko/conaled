@@ -10,10 +10,10 @@ universe u
 namespace FunctionComposition
 variable {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)}
 
-abbrev Args (A : Family Γ) (p : total (interval Δ) ⟶ Γ) : Context :=
+abbrev argumentContext (A : Family Γ) (p : total (interval Δ) ⟶ Γ) : Context :=
   total (reindex A (endpointSub Δ true ≫ p))
 
-def argumentPath (p : total (interval Δ) ⟶ Γ) : total (interval (Args A p)) ⟶ Γ :=
+def argumentPath (p : total (interval Δ) ⟶ Γ) : total (interval (argumentContext A p)) ⟶ Γ :=
   liftSub (interval Δ) (projection (reindex A (endpointSub Δ true ≫ p))) ≫ p
 
 def argument (F : Filling A) (p : total (interval Δ) ⟶ Γ) :
@@ -21,12 +21,12 @@ def argument (F : Filling A) (p : total (interval Δ) ⟶ Γ) :
   F.backwards (argumentPath p) (generic (reindex A (endpointSub Δ true ≫ p)))
 
 theorem argument_one (F : Filling A) (hF : F.Lawful) (p : total (interval Δ) ⟶ Γ) :
-    (argument F p).reindex (endpointSub (Args A p) true) =
+    (argument F p).reindex (endpointSub (argumentContext A p) true) =
       generic (reindex A (endpointSub Δ true ≫ p)) :=
   F.backwards_one hF _ _
 
 theorem argument_pair_one (F : Filling A) (hF : F.Lawful) (p : total (interval Δ) ⟶ Γ) :
-    endpointSub (Args A p) true ≫ pair (argumentPath p) (argument F p) =
+    endpointSub (argumentContext A p) true ≫ pair (argumentPath p) (argument F p) =
       liftSub A (endpointSub Δ true ≫ p) :=
   congrArg (pair (projection (reindex A (endpointSub Δ true ≫ p)) ≫ endpointSub Δ true ≫ p))
     (argument_one F hF p)
@@ -34,7 +34,7 @@ theorem argument_pair_one (F : Filling A) (hF : F.Lawful) (p : total (interval �
 def bodyAlong (G : Composition B) (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
     (b : OpenBox (reindex (pi A B) p) φ)
     (v : Term (reindex A (argumentPath (A := A) p)))
-    (hv : v.reindex (endpointSub (Args A p) true) =
+    (hv : v.reindex (endpointSub (argumentContext A p) true) =
       generic (reindex A (endpointSub Δ true ≫ p))) :
     Term (reindex B (liftSub A (endpointSub Δ true ≫ p))) :=
   (G.comp (pair (argumentPath p) v)
@@ -63,7 +63,7 @@ theorem comp_normalize (F : Filling A) (hF : F.Lawful) (G : Composition B)
 
 theorem comp_boundary (F : Filling A) (hF : F.Lawful) (G : Composition B) (hG : G.Lawful)
     (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
-    (b : OpenBox (reindex (pi A B) p) φ) (x : Δ.Elements) (hx : φ.full x) :
+    (b : OpenBox (reindex (pi A B) p) φ) (x : Δ.Elements) (hx : φ.Full x) :
     (comp F hF G p φ b).val x = b.tube.val ((endpointSub Δ true).mapElements.obj x) hx := by
   apply ((piReindexIso A B (endpointSub Δ true ≫ p)).app x).toEquiv.injective
   change (Term.map (piReindex A B (endpointSub Δ true ≫ p)) (comp F hF G p φ b)).val x = _
@@ -99,18 +99,18 @@ theorem argument_uniform (F : Filling A) (hF : F.Lawful)
     (p : total (interval Δ) ⟶ Γ) {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
     argument F (liftSub (interval Δ) σ ≫ p) =
       (argument F p).reindex
-        (liftSub (interval (Args A p)) (liftSub (reindex A (endpointSub Δ true ≫ p)) σ)) :=
+        (liftSub (interval (argumentContext A p)) (liftSub (reindex A (endpointSub Δ true ≫ p)) σ)) :=
   F.backwards_uniform hF (argumentPath p) (generic (reindex A (endpointSub Δ true ≫ p))) (liftSub (reindex A (endpointSub Δ true ≫ p)) σ)
 
 theorem bodyAlong_uniform (G : Composition B) (hG : G.Lawful)
     (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
     (b : OpenBox (reindex (pi A B) p) φ)
     (v : Term (reindex A (argumentPath (A := A) p)))
-    (hv : v.reindex (endpointSub (Args A p) true) =
+    (hv : v.reindex (endpointSub (argumentContext A p) true) =
       generic (reindex A (endpointSub Δ true ≫ p)))
     {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
     bodyAlong G (liftSub (interval Δ) σ ≫ p) (φ.reindex σ) (b.reindex σ)
-      (v.reindex (liftSub (interval (Args A p)) (liftSub (reindex A (endpointSub Δ true ≫ p)) σ)))
+      (v.reindex (liftSub (interval (argumentContext A p)) (liftSub (reindex A (endpointSub Δ true ≫ p)) σ)))
       (congrArg (fun t => t.reindex (liftSub (reindex A (endpointSub Δ true ≫ p)) σ)) hv) =
       (bodyAlong G p φ b v hv).reindex (liftSub (reindex A (endpointSub Δ true ≫ p)) σ) := by
   let τ := liftSub (reindex A (endpointSub Δ true ≫ p)) σ
@@ -132,13 +132,13 @@ theorem body_uniform (F : Filling A) (hF : F.Lawful) (G : Composition B) (hG : G
   let p' := liftSub (interval Δ) σ ≫ p
   let τ := liftSub (reindex A (endpointSub Δ true ≫ p)) σ
   let k : {v : Term (reindex A (argumentPath (A := A) p')) //
-      v.reindex (endpointSub (Args A p') true) = generic (reindex A (endpointSub Θ true ≫ p'))} →
+      v.reindex (endpointSub (argumentContext A p') true) = generic (reindex A (endpointSub Θ true ≫ p'))} →
       Term (reindex B (liftSub A (endpointSub Θ true ≫ p'))) :=
     fun v => bodyAlong G p' (φ.reindex σ) (b.reindex σ) v.val v.property
   have he : (⟨argument F p',argument_one F hF p'⟩ :
       {v : Term (reindex A (argumentPath (A := A) p')) //
-        v.reindex (endpointSub (Args A p') true) = generic (reindex A (endpointSub Θ true ≫ p'))}) =
-      ⟨(argument F p).reindex (liftSub (interval (Args A p)) τ),
+        v.reindex (endpointSub (argumentContext A p') true) = generic (reindex A (endpointSub Θ true ≫ p'))}) =
+      ⟨(argument F p).reindex (liftSub (interval (argumentContext A p)) τ),
         congrArg (fun t => t.reindex τ) (argument_one F hF p)⟩ :=
     Subtype.ext (argument_uniform F hF p σ)
   exact (congrArg k he).trans (bodyAlong_uniform G hG p φ b _ _ σ)

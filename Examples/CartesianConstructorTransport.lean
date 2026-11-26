@@ -390,14 +390,14 @@ theorem variable_cap (b : Bool) : cap ≠ endpoint square b := by
   have he := congrArg (fun t => (t.val genericPoint).down 0) h
   change Dim.var (0 : Fin 2) = Dim.endpoint b at he
   cases he
-theorem proper_face : ¬ face.holds genericPoint := by
+theorem proper_face : ¬ face.Holds genericPoint := by
   intro h
   have he := congrArg (fun t => t.down 0) h
   change Dim.var (0 : Fin 2) = Dim.endpoint false at he
   cases he
 def zeroPoint : square.Elements := square.elementsMk (Opposite.op ⟨0⟩)
   ⟨⟨fun _ => .endpoint false⟩⟩
-theorem face_nonempty : face.holds zeroPoint := rfl
+theorem face_nonempty : face.Holds zeroPoint := rfl
 
 noncomputable def a : total (interval square) ⟶ smallFamilyCodes.{0} :=
   intervalSub forget ≫ lineCode cycle

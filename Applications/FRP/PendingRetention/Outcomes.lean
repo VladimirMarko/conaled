@@ -66,19 +66,19 @@ theorem PoolSafe.filter {frame : Frame} {history : Peer} {outcomes : List Outcom
 
 /-- A terminal valid frame already carries the exact receipt to retain at release. -/
 theorem terminal_request_receipt (state : Bool) (history : Peer) (request : Request)
-    (valid : requestValid state request) (coupled : RequestPeer history request)
+    (valid : RequestValid state request) (coupled : RequestPeer history request)
     (done : terminal request.phase = true) :
     ∃ answer, request.receipt = some ⟨request.identity,answer⟩ ∧
       terminalAnswer answer = true ∧ ReceiptAuthentic history ⟨request.identity,answer⟩ := by
   cases phase : request.phase <;> simp [terminal,phase] at done
-  · simp only [requestValid,phase] at valid
+  · simp only [RequestValid,phase] at valid
     simp only [RequestPeer,phase] at coupled
     obtain ⟨output,present,receipt⟩ := valid.2.2
     obtain ⟨selected,selection,recorded⟩ := coupled
     have same : output = selected := Option.some.inj (present.symm.trans selection)
     subst selected
     exact ⟨.published request.input output,receipt,rfl,recorded⟩
-  · simp only [requestValid,phase] at valid
+  · simp only [RequestValid,phase] at valid
     exact ⟨.prevented request.input,valid.2,rfl,by simpa only [ReceiptAuthentic,RequestPeer,phase] using coupled⟩
 
 theorem PoolSafe.released_not_live {frame : Frame} {history : Peer} {outcomes : List Outcome}

@@ -14,16 +14,16 @@ variable {n m d : ℕ} {G B E B' E' M : Type} [Group G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace E'] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
   [ChartedSpace (Space m) B'] [ChartedSpace (Space m) E'] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
-  [IsManifold (Model m) ∞ B'] [IsManifold (Model m) ∞ E'] [IsManifold (Model d) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
+  [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners m) ∞ E'] [IsManifold (modelWithCorners d) ∞ M]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
   (Q : Bundle (n := m) (G := G) (B := B') (E := E'))
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-  (k : E' → E) (hk : ContMDiff (Model m) (Model n) ∞ k)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+  (k : E' → E) (hk : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ k)
   (hp : ∀ e, P.projection (k e) = f (Q.projection e))
   (ha : ∀ (g : G) e, k (g • e) = g • k e)
-  (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
-  (F : E → M) (hF : ContMDiff (Model n) (Model d) ∞ F)
+  (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
+  (F : E → M) (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F)
   (hG : ∀ (g : G) e, F (g • e) = g • F e)
 
 /-- A smooth equivariant map over a base map preserves the composite target. -/
@@ -52,12 +52,12 @@ variable {n m d : ℕ} {G B E B' M : Type} [Group G] [MulAction G E] [MulAction 
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space m) B']
   [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model m) ∞ B']
-  [IsManifold (Model d) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners m) ∞ B']
+  [IsManifold (modelWithCorners d) ∞ M]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-  (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
-  (F : E → M) (hF : ContMDiff (Model n) (Model d) ∞ F)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+  (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
+  (F : E → M) (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F)
   (hG : ∀ (g : G) e, F (g • e) = g • F e)
 
 /-- The actual pullback with target `F ∘ snd` realizes to quotient reindexing. -/
@@ -87,11 +87,11 @@ variable {n m d : ℕ} {G B E B' E' M : Type} [Group G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace E'] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
   [ChartedSpace (Space m) B'] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model n) ∞ E']
-  [IsManifold (Model m) ∞ B'] [IsManifold (Model d) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners n) ∞ E']
+  [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners d) ∞ M]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')}
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
   {F : E → M} {F' : E' → M}
 
 /-- Ordinary pullback acts on target-preserving maps by the actual fiber-product map. -/
@@ -104,8 +104,8 @@ def targetMap (a : TargetMap P Q F F') :
   letI := chartedSpace (m := m) Q f hf.continuous
   exact { map P f hf.continuous a.toMap with target := fun z => a.target (snd P f z) }
 
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
-  (hF : ContMDiff (Model n) (Model d) ∞ F) (hF' : ContMDiff (Model n) (Model d) ∞ F')
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
+  (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F) (hF' : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F')
   (hG : ∀ (g : G) e, F (g • e) = g • F e) (hG' : ∀ (g : G) e, F' (g • e) = g • F' e)
 
 /-- Naturality preserves the full quotient arrow and its target, not just its torsor. -/
@@ -136,7 +136,7 @@ variable {n m k : ℕ} {G B E B' B'' M : Type} [Group G] [MulAction G E]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace B'] [TopologicalSpace B'']
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
   [ChartedSpace (Space m) B'] [ChartedSpace (Space k) B'']
-  [IsManifold (Model n) ∞ B] [IsManifold (Model m) ∞ B'] [IsManifold (Model k) ∞ B'']
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners k) ∞ B'']
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
   (f : B' → B) (hf : Continuous f) (g : B'' → B') (hg : Continuous g) (F : E → M)
 
@@ -169,10 +169,10 @@ variable {n d : ℕ} {G B E M : Type} [Group G] [MulAction G E] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model d) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners d) ∞ M]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
-  (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
-  (F : E → M) (hF : ContMDiff (Model n) (Model d) ∞ F)
+  (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
+  (F : E → M) (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F)
   (hG : ∀ (g : G) e, F (g • e) = g • F e)
 
 theorem quotientComparison_id :
@@ -204,13 +204,13 @@ variable {n m k d : ℕ} {G B E B' B'' M : Type} [Group G] [MulAction G E] [MulA
   [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
   [ChartedSpace (Space m) B'] [ChartedSpace (Space k) B''] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
-  [IsManifold (Model m) ∞ B'] [IsManifold (Model k) ∞ B''] [IsManifold (Model d) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
+  [IsManifold (modelWithCorners m) ∞ B'] [IsManifold (modelWithCorners k) ∞ B''] [IsManifold (modelWithCorners d) ∞ M]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
-  (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-  (g : B'' → B') (hg : ContMDiff (Model k) (Model m) ∞ g)
-  (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
-  (F : E → M) (hF : ContMDiff (Model n) (Model d) ∞ F)
+  (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+  (g : B'' → B') (hg : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ g)
+  (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
+  (F : E → M) (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F)
   (hG : ∀ (g : G) e, F (g • e) = g • F e)
 
 /-- Successive ordinary pullbacks agree with quotient reindexing, including their targets. -/

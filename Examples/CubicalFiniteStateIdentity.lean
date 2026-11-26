@@ -25,7 +25,7 @@ def presentation : Fin 3 ≃ Phase where
 def machine : StatePackage (Fin 3) where
   initial := 0
   step n := if n = 0 then 1 else n
-  invariant n := n ≠ 2
+  Invariant n := n ≠ 2
   initial_valid := by decide
   preserves n h := by split <;> simp_all
 
@@ -78,7 +78,7 @@ theorem transported_observation : observer (machineTransported.step machineTrans
   rw [machineTransported_eq]
   exact direct_observation
 
-theorem transported_invariant : machineTransported.invariant .ready ∧ ¬ machineTransported.invariant .failed := by
+theorem transported_invariant : machineTransported.Invariant .ready ∧ ¬ machineTransported.Invariant .failed := by
   rw [machineTransported_eq]
   change (1 : Fin 3) ≠ 2 ∧ ¬ ((2 : Fin 3) ≠ 2)
   decide

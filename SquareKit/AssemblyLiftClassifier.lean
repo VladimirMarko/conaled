@@ -13,7 +13,7 @@ theorem run_partrec : Nat.Partrec run :=
 
 /-- On a realized optional value, termination is exactly definedness. -/
 theorem lift_realizes_dom {B : Assembly.{u}} {n : Nat} {y : (programLift B).Carrier}
-    (hn : (programLift B).realizes n y) : (run n).Dom ↔ ∃ b, y = some b := by
+    (hn : (programLift B).Realizes n y) : (run n).Dom ↔ ∃ b, y = some b := by
   cases y with
   | none => exact ⟨fun h => False.elim (hn h), by simp⟩
   | some b =>
@@ -21,11 +21,11 @@ theorem lift_realizes_dom {B : Assembly.{u}} {n : Nat} {y : (programLift B).Carr
     exact ⟨fun _ => ⟨b, rfl⟩, fun _ => Part.dom_iff_mem.mpr ⟨m, hm⟩⟩
 
 /-- The domain is determined by the underlying value, not by a chosen tracker. -/
-def definedDomain {A B : Assembly.{u}} (g : Hom A (programLift B)) (x : A.Carrier) : Prop :=
+def DefinedDomain {A B : Assembly.{u}} (g : Hom A (programLift B)) (x : A.Carrier) : Prop :=
   ∃ y, g.toFun x = some y
 
 theorem definedDomain_admissible {A B : Assembly.{u}} (g : Hom A (programLift B)) :
-    Admissible A (definedDomain g) := by
+    Admissible A (DefinedDomain g) := by
   obtain ⟨φ, hp, ht⟩ := g.tracked
   refine ⟨fun n => (φ n).bind run, run_partrec.comp hp, ?_⟩
   intro x n hn
@@ -43,7 +43,7 @@ theorem definedDomain_admissible {A B : Assembly.{u}} (g : Hom A (programLift B)
 /-- Extract a value only on the independently recovered domain; its tracker
 runs the program emitted by the original arrow's tracker. -/
 noncomputable def definedMap {A B : Assembly.{u}} (g : Hom A (programLift B)) :
-    Hom (restrict A (definedDomain g)) B where
+    Hom (restrict A (DefinedDomain g)) B where
   toFun x := Classical.choose x.property
   tracked := by
     obtain ⟨φ, hp, ht⟩ := g.tracked
@@ -55,10 +55,10 @@ noncomputable def definedMap {A B : Assembly.{u}} (g : Hom A (programLift B)) :
     exact ⟨r, Part.mem_bind_iff.mpr ⟨m, hm, hr⟩, hb⟩
 
 noncomputable def unclassify {A B : Assembly.{u}} (g : Hom A (programLift B)) : PartialMap A B :=
-  ⟨definedDomain g, definedDomain_admissible g, definedMap g⟩
+  ⟨DefinedDomain g, definedDomain_admissible g, definedMap g⟩
 
 theorem definedMap_spec {A B : Assembly.{u}} (g : Hom A (programLift B))
-    (x : (restrict A (definedDomain g)).Carrier) :
+    (x : (restrict A (DefinedDomain g)).Carrier) :
     g.toFun x.val = some ((definedMap g).toFun x) := Classical.choose_spec x.property
 
 theorem classify_unclassify {A B : Assembly.{u}} (g : Hom A (programLift B)) :
@@ -74,7 +74,7 @@ theorem classify_unclassify {A B : Assembly.{u}} (g : Hom A (programLift B)) :
     exact (definedMap_spec g ⟨x, h⟩).trans (congrArg some hy)
 
 theorem unclassify_classify_domain {A B : Assembly.{u}} (p : PartialMap A B) (x : A.Carrier) :
-    (unclassify p.classify).domain x ↔ p.domain x := by
+    (unclassify p.classify).Domain x ↔ p.Domain x := by
   change (∃ y, p.classify.toFun x = some y) ↔ _
   constructor
   · rintro ⟨y, hy⟩
@@ -84,8 +84,8 @@ theorem unclassify_classify_domain {A B : Assembly.{u}} (p : PartialMap A B) (x 
     exact ⟨_, (p.classify_graph x _).mpr ⟨h, rfl⟩⟩
 
 theorem unclassify_classify_value {A B : Assembly.{u}} (p : PartialMap A B)
-    (x : A.Carrier) (h : p.domain x)
-    (k : (unclassify p.classify).domain x) :
+    (x : A.Carrier) (h : p.Domain x)
+    (k : (unclassify p.classify).Domain x) :
     (unclassify p.classify).map.toFun ⟨x, k⟩ = p.map.toFun ⟨x, h⟩ := by
   apply Option.some.inj
   exact (definedMap_spec p.classify ⟨x, k⟩).symm.trans (p.value_some x h)
@@ -93,7 +93,7 @@ theorem unclassify_classify_value {A B : Assembly.{u}} (p : PartialMap A B)
 /-- Domain equality and equality of all selected values identify partial maps.
 Recursive witnesses are propositions, not additional observations. -/
 theorem PartialMap.ext {A B : Assembly.{u}} (p q : PartialMap A B)
-    (hd : ∀ x, p.domain x ↔ q.domain x)
+    (hd : ∀ x, p.Domain x ↔ q.Domain x)
     (hv : ∀ x hp hq, p.map.toFun ⟨x, hp⟩ = q.map.toFun ⟨x, hq⟩) : p = q := by
   cases p with
   | mk P hp f =>
@@ -120,19 +120,19 @@ noncomputable def partialMapEquiv (A B : Assembly.{u}) :
 
 /-- The recovered partial map forms a commuting classifier square. -/
 theorem classifier_square {A B : Assembly.{u}} (g : Hom A (programLift B)) :
-    (inclusion A (definedDomain g)).comp g = (definedMap g).comp (programLiftUnit B) :=
+    (inclusion A (DefinedDomain g)).comp g = (definedMap g).comp (programLiftUnit B) :=
   Hom.ext (definedMap_spec g)
 
 /-- Every cone over the unit square has a tracked mediator. -/
 def classifierPullbackLift {A B C : Assembly.{u}} (g : Hom A (programLift B))
     (a : Hom C A) (b : Hom C B) (h : a.comp g = b.comp (programLiftUnit B)) :
-    Hom C (restrict A (definedDomain g)) :=
+    Hom C (restrict A (DefinedDomain g)) :=
   factor _ a fun x => ⟨b.toFun x, congrArg (fun k => k.toFun x) h⟩
 
 @[simp] theorem classifierPullbackLift_fst {A B C : Assembly.{u}}
     (g : Hom A (programLift B)) (a : Hom C A) (b : Hom C B)
     (h : a.comp g = b.comp (programLiftUnit B)) :
-    (classifierPullbackLift g a b h).comp (inclusion A (definedDomain g)) = a :=
+    (classifierPullbackLift g a b h).comp (inclusion A (DefinedDomain g)) = a :=
   Hom.ext fun _ => rfl
 
 @[simp] theorem classifierPullbackLift_snd {A B C : Assembly.{u}}
@@ -148,8 +148,8 @@ def classifierPullbackLift {A B C : Assembly.{u}} (g : Hom A (programLift B))
 theorem classifierPullbackLift_unique {A B C : Assembly.{u}}
     (g : Hom A (programLift B)) (a : Hom C A) (b : Hom C B)
     (h : a.comp g = b.comp (programLiftUnit B))
-    (k : Hom C (restrict A (definedDomain g)))
-    (hk : k.comp (inclusion A (definedDomain g)) = a) :
+    (k : Hom C (restrict A (DefinedDomain g)))
+    (hk : k.comp (inclusion A (DefinedDomain g)) = a) :
     k = classifierPullbackLift g a b h :=
   inclusion_monic _ _ _ (hk.trans (classifierPullbackLift_fst g a b h).symm)
 
@@ -162,7 +162,7 @@ instance programLiftUnit_mono (A : Assembly.{u}) :
 
 noncomputable def classifierCone {A B : Assembly.{u}} (g : Hom A (programLift B)) :
     PullbackCone (C := Assembly.{u}) g (programLiftUnit B) :=
-  PullbackCone.mk (inclusion A (definedDomain g)) (definedMap g) (classifier_square g)
+  PullbackCone.mk (inclusion A (DefinedDomain g)) (definedMap g) (classifier_square g)
 
 noncomputable def classifierConeIsLimit {A B : Assembly.{u}} (g : Hom A (programLift B)) :
     IsLimit (classifierCone g) :=
@@ -175,12 +175,12 @@ noncomputable def classifierConeIsLimit {A B : Assembly.{u}} (g : Hom A (program
 /-- The original span, not only its recovered presentation, is a pullback of
 unit along its classified arrow. -/
 theorem PartialMap.square {A B : Assembly.{u}} (p : PartialMap A B) :
-    (inclusion A p.domain).comp p.classify = p.map.comp (programLiftUnit B) :=
+    (inclusion A p.Domain).comp p.classify = p.map.comp (programLiftUnit B) :=
   Hom.ext fun x => p.value_some x.val x.property
 
 noncomputable def PartialMap.cone {A B : Assembly.{u}} (p : PartialMap A B) :
     PullbackCone (C := Assembly.{u}) p.classify (programLiftUnit B) :=
-  PullbackCone.mk (inclusion A p.domain) p.map p.square
+  PullbackCone.mk (inclusion A p.Domain) p.map p.square
 
 noncomputable def PartialMap.coneIsLimit {A B : Assembly.{u}} (p : PartialMap A B) :
     IsLimit p.cone := by
@@ -188,7 +188,7 @@ noncomputable def PartialMap.coneIsLimit {A B : Assembly.{u}} (p : PartialMap A 
     (p.classify_graph (s.fst.toFun x) (s.snd.toFun x)).mp
       (congrArg (fun k : Hom s.pt (programLift B) => k.toFun x) s.condition)
   refine PullbackCone.IsLimit.mk p.square
-    (fun s => factor p.domain s.fst (fun x => (valid s x).choose))
+    (fun s => factor p.Domain s.fst (fun x => (valid s x).choose))
     (fun s => factor_inclusion _ _ _) ?_ ?_
   · intro s
     apply Hom.ext

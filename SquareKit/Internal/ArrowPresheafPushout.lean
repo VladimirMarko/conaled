@@ -15,14 +15,14 @@ open CategoryTheory.CartesianMonoidalCategory
 universe v u w
 variable {D : Type u} [Category.{v} D] (P : D ⥤ Type w)
 
-def inhabited (X : D) : Prop := Nonempty (P.obj X)
+def Inhabited (X : D) : Prop := Nonempty (P.obj X)
 
-theorem inhabited_map {X Y : D} (f : X ⟶ Y) : inhabited P X → inhabited P Y :=
+theorem inhabited_map {X Y : D} (f : X ⟶ Y) : Inhabited P X → Inhabited P Y :=
   fun ⟨x⟩ => ⟨P.map f x⟩
 
 /-- Pointwise interpretation by local inhabitedness of `P`. -/
 def interpretation : Arrow (D ⥤ Type w) ⥤ (D ⥤ Type w) :=
-  ArrowPresheaf.interpretation (inhabited P) (inhabited_map P)
+  ArrowPresheaf.interpretation (Inhabited P) (inhabited_map P)
 
 variable (a : Arrow (D ⥤ Type w))
 
@@ -30,19 +30,19 @@ variable (a : Arrow (D ⥤ Type w))
 def inl : a.left ⟶ (interpretation P).obj a where
   app X := by
     classical
-    exact TypeCat.ofHom fun x => if h : inhabited P X then .inl ⟨a.hom.app X x, h⟩
+    exact TypeCat.ofHom fun x => if h : Inhabited P X then .inl ⟨a.hom.app X x, h⟩
       else .inr ⟨x, h⟩
   naturality {X Y} f := by
     classical
     ext x
     dsimp [interpretation, ArrowPresheaf.interpretation, ArrowPresheaf.object,
       ArrowPresheaf.restrict]
-    by_cases hx : inhabited P X
+    by_cases hx : Inhabited P X
     · have hy := inhabited_map P f hx
       simp only [dite_eq_left hx, dite_eq_left hy]
       congr 2
       exact types_congr_hom (a.hom.naturality f) x
-    · by_cases hy : inhabited P Y <;> simp [hx, hy]
+    · by_cases hy : Inhabited P Y <;> simp [hx, hy]
 
 /-- On `P`, include the codomain element. -/
 def inr : P ⊗ a.right ⟶ (interpretation P).obj a where
@@ -53,7 +53,7 @@ theorem condition : snd P a.left ≫ inl P a = (P ◁ a.hom) ≫ inr P a := by
   classical
   ext X x
   dsimp [inl, inr]
-  simp only [dite_eq_left (show inhabited P X from ⟨x.1⟩)]
+  simp only [dite_eq_left (show Inhabited P X from ⟨x.1⟩)]
   rfl
 
 /-- The actual pushout cocone. -/
@@ -82,7 +82,7 @@ def desc (s : PushoutCocone (snd P a.left) (P ◁ a.hom)) :
     | inr x =>
       dsimp [interpretation, ArrowPresheaf.interpretation, ArrowPresheaf.object,
         ArrowPresheaf.restrict]
-      by_cases hy : inhabited P Y
+      by_cases hy : Inhabited P Y
       · simp only [dite_eq_left hy]
         have c := types_congr_hom (congrArg (fun α => α.app Y) s.condition)
           (Classical.choice hy, a.left.map f x.val)
@@ -98,7 +98,7 @@ def isColimit : IsColimit (cocone P a) :=
       classical
       ext X x
       dsimp [inl, desc]
-      by_cases hx : inhabited P X
+      by_cases hx : Inhabited P X
       · simp only [dite_eq_left hx]
         exact (types_congr_hom (congrArg (fun α => α.app X) s.condition)
           (Classical.choice hx, x)).symm
@@ -139,7 +139,7 @@ omit [∀ X, Subsingleton (P.obj X)] in
   classical
   ext X x
   dsimp [inl, interpretation, ArrowPresheaf.interpretation, ArrowPresheaf.map]
-  by_cases h : inhabited P X
+  by_cases h : Inhabited P X
   · simp only [dite_eq_left h]
     congr 2
     exact types_congr_hom (congrArg (fun α => α.app X) (Arrow.w f)) x
@@ -166,7 +166,7 @@ def comparisonIso : ArrowPushout.interpretation P ≅ interpretation P :=
 /-- The pushout construction is left exact for subterminal presheaves. -/
 instance : PreservesFiniteLimits (ArrowPushout.interpretation P) := by
   let : PreservesFiniteLimits (interpretation P) :=
-    show PreservesFiniteLimits (ArrowPresheaf.interpretation (inhabited P) (inhabited_map P)) from inferInstance
+    show PreservesFiniteLimits (ArrowPresheaf.interpretation (Inhabited P) (inhabited_map P)) from inferInstance
   exact preservesFiniteLimits_of_natIso (comparisonIso P).symm
 
 end SquareKit.Internal.ArrowPresheafPushout

@@ -49,9 +49,9 @@ theorem overlapRun_of_first_true (leRun : α → α → Measured Bool Nat)
 theorem overlapRun_value [DecidableLE α] (leRun : α → α → Measured Bool Nat)
     (query stored : Search.IntervalKey α)
     (hle : ∀ x y, (leRun x y).1 = decide (x ≤ y)) :
-    (overlapRun leRun query stored).1 = decide (Search.IntervalKey.overlap query stored) := by
+    (overlapRun leRun query stored).1 = decide (Search.IntervalKey.Overlap query stored) := by
   by_cases first : stored.low ≤ query.high <;>
-    simp [overlapRun, bind, pure, hle, Search.IntervalKey.overlap, first]
+    simp [overlapRun, bind, pure, hle, Search.IntervalKey.Overlap, first]
 
 /-- This equation retains the actual first cost and only the reached second cost. -/
 theorem overlapRun_cost (leRun : α → α → Measured Bool Nat)
@@ -191,7 +191,7 @@ theorem searchRun_sound [DecidableLE α] (iv : κ → Search.IntervalKey α)
     (hiv : ∀ a, (ivRun a).1 = iv a)
     (hle : ∀ x y, (leRun x y).1 = decide (x ≤ y))
     (found : (searchRun ivRun leRun t query).1 = true) :
-    ∃ a ∈ Trees.setTree (Trees.Cached.erase t), Search.IntervalKey.overlap (iv a) query := by
+    ∃ a ∈ Trees.setTree (Trees.Cached.erase t), Search.IntervalKey.Overlap (iv a) query := by
   rw [searchRun_value iv ivRun leRun t query hiv hle] at found
   exact Search.IntervalTree.Balanced.search_sound iv found
 
@@ -211,7 +211,7 @@ theorem searchRun_correct (iv : κ → Search.IntervalKey α)
     (ordered : (Trees.inorder (Trees.Cached.erase t)).Pairwise
       (fun a b => (iv a).low ≤ (iv b).low)) :
     (searchRun ivRun leRun t query).1 = true ↔
-      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), Search.IntervalKey.overlap (iv a) query := by
+      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), Search.IntervalKey.Overlap (iv a) query := by
   rw [searchRun_value iv ivRun leRun t query hiv hle]
   exact Search.IntervalTree.Balanced.search_correct iv valid ordered query
 
@@ -225,7 +225,7 @@ theorem searchRun_correct_of_strict [LT κ] (iv : κ → Search.IntervalKey α)
     (valid : Search.IntervalTree.CacheValid iv (Search.IntervalTree.Balanced.maximumTree t))
     (strict : (Trees.inorder (Trees.Cached.erase t)).Pairwise (· < ·)) :
     (searchRun ivRun leRun t query).1 = true ↔
-      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), Search.IntervalKey.overlap (iv a) query := by
+      ∃ a ∈ Trees.setTree (Trees.Cached.erase t), Search.IntervalKey.Overlap (iv a) query := by
   rw [searchRun_value iv ivRun leRun t query hiv hle]
   exact Search.IntervalTree.Balanced.search_correct_of_strict iv compatible valid strict query
 

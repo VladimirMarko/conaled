@@ -72,10 +72,10 @@ def Term.eval (M : Interpretation Graph.Arrow) (ρ : Env M Γ) : Term Γ s → M
   | .var x => ρ x
   | .app f t => M.arrow f (t.eval M ρ)
 
-def Formula.eval (M : Interpretation Graph.Arrow) (ρ : Env M Γ) : Formula Γ → Prop
+def Formula.Eval (M : Interpretation Graph.Arrow) (ρ : Env M Γ) : Formula Γ → Prop
   | .eq a b => a.eval M ρ = b.eval M ρ
-  | .conj p q => p.eval M ρ ∧ q.eval M ρ
-  | .ex p => ∃ x, p.eval M (ρ.extend x)
+  | .conj p q => p.Eval M ρ ∧ q.Eval M ρ
+  | .ex p => ∃ x, p.Eval M (ρ.extend x)
 
 theorem term_subst (M : Interpretation Graph.Arrow) (σ : Sub Γ Δ) (ρ : Env M Δ) (t : Term Γ s) :
     (t.subst σ).eval M ρ = t.eval M (fun x => (σ x).eval M ρ) := by
@@ -88,12 +88,12 @@ theorem term_shift (M : Interpretation Graph.Arrow) (ρ : Env M Γ) (x : M.Carri
   simp only [Term.shift, term_subst, Term.eval, Env.extend]
 
 theorem formula_subst (M : Interpretation Graph.Arrow) (p : Formula Γ) (σ : Sub Γ Δ) (ρ : Env M Δ) :
-    (p.subst σ).eval M ρ ↔ p.eval M (fun x => (σ x).eval M ρ) := by
+    (p.subst σ).Eval M ρ ↔ p.Eval M (fun x => (σ x).eval M ρ) := by
   induction p generalizing Δ with
-  | eq a b => simp only [Formula.subst, Formula.eval, term_subst]
-  | conj p q hp hq => simp only [Formula.subst, Formula.eval, hp, hq]
+  | eq a b => simp only [Formula.subst, Formula.Eval, term_subst]
+  | conj p q hp hq => simp only [Formula.subst, Formula.Eval, hp, hq]
   | ex p ih =>
-    simp only [Formula.subst, Formula.eval]
+    simp only [Formula.subst, Formula.Eval]
     apply exists_congr
     intro x
     rw [ih]
@@ -106,13 +106,13 @@ theorem formula_subst (M : Interpretation Graph.Arrow) (p : Formula Γ) (σ : Su
     rw [h]
 
 theorem formula_shift (M : Interpretation Graph.Arrow) (p : Formula Γ) (ρ : Env M Γ) (x : M.Carrier s) :
-    p.shift.eval M (ρ.extend x) ↔ p.eval M ρ := by
+    p.shift.Eval M (ρ.extend x) ↔ p.Eval M ρ := by
   simpa only [Formula.shift, Term.eval, Env.extend] using
     formula_subst M p (fun i => .var (.succ i)) (ρ.extend x)
 
 theorem formula_instantiate (M : Interpretation Graph.Arrow) (p : Formula (s :: Γ))
     (t : Term Γ s) (ρ : Env M Γ) :
-    (p.instantiate t).eval M ρ ↔ p.eval M (ρ.extend (t.eval M ρ)) := by
+    (p.instantiate t).Eval M ρ ↔ p.Eval M (ρ.extend (t.eval M ρ)) := by
   rw [Formula.instantiate, formula_subst]
   have h : (fun {s} (i : Var _ s) => (single t i).eval M ρ) = (fun {s} (i : Var _ s) => ρ.extend (t.eval M ρ) i) := by
     funext s i
@@ -120,7 +120,7 @@ theorem formula_instantiate (M : Interpretation Graph.Arrow) (p : Formula (s :: 
   rw [h]
 
 def Valid (M : Interpretation Graph.Arrow) (p q : Formula Γ) : Prop :=
-  ∀ ρ, p.eval M ρ → q.eval M ρ
+  ∀ ρ, p.Eval M ρ → q.Eval M ρ
 
 theorem sound (M : Interpretation Graph.Arrow) (d : Code p q) : Valid M p q := by
   induction d with
@@ -147,34 +147,34 @@ theorem sound (M : Interpretation Graph.Arrow) (d : Code p q) : Valid M p q := b
 
 /-- Native observation identifies proofs, but does not identify their code. -/
 theorem proof_irrel (M : Interpretation Graph.Arrow) {p q : Formula Γ}
-    (d e : Code p q) (ρ : Env M Γ) (h : p.eval M ρ) :
+    (d e : Code p q) (ρ : Env M Γ) (h : p.Eval M ρ) :
     sound M d ρ h = sound M e ρ h := Subsingleton.elim _ _
 
 /-- Beta for the implication application represented by `cut`. -/
 theorem cut_beta (M : Interpretation Graph.Arrow) {p q r : Formula Γ}
-    (d : Code p q) (e : Code q r) (ρ : Env M Γ) (h : p.eval M ρ) :
+    (d : Code p q) (e : Code q r) (ρ : Env M Γ) (h : p.Eval M ρ) :
     sound M (.cut d e) ρ h = sound M e ρ (sound M d ρ h) := Subsingleton.elim _ _
 
 /-- Iota for the admitted conjunction eliminator. -/
 theorem left_iota (M : Interpretation Graph.Arrow) {p q r : Formula Γ}
-    (d : Code p q) (e : Code p r) (ρ : Env M Γ) (h : p.eval M ρ) :
+    (d : Code p q) (e : Code p r) (ρ : Env M Γ) (h : p.Eval M ρ) :
     sound M (.cut (.pair d e) .left) ρ h = sound M d ρ h := Subsingleton.elim _ _
 
 theorem right_iota (M : Interpretation Graph.Arrow) {p q r : Formula Γ}
-    (d : Code p q) (e : Code p r) (ρ : Env M Γ) (h : p.eval M ρ) :
+    (d : Code p q) (e : Code p r) (ρ : Env M Γ) (h : p.Eval M ρ) :
     sound M (.cut (.pair d e) .right) ρ h = sound M e ρ h := Subsingleton.elim _ _
 
 /-- Existential introduction uses the evaluated term as witness. -/
 theorem intro_beta (M : Interpretation Graph.Arrow) (p : Formula (s :: Γ))
-    (t : Term Γ s) (ρ : Env M Γ) (h : (p.instantiate t).eval M ρ) :
+    (t : Term Γ s) (ρ : Env M Γ) (h : (p.instantiate t).Eval M ρ) :
     sound M (.intro p t) ρ h =
-      (⟨t.eval M ρ, (formula_instantiate M p t ρ).mp h⟩ : (Formula.ex p).eval M ρ) :=
+      (⟨t.eval M ρ, (formula_instantiate M p t ρ).mp h⟩ : (Formula.ex p).Eval M ρ) :=
   Subsingleton.elim _ _
 
 /-- Iota for existential elimination into the fixed proposition q. -/
 theorem elim_iota (M : Interpretation Graph.Arrow) {p : Formula (s :: Γ)}
     {q : Formula Γ} (d : Code p q.shift) (ρ : Env M Γ) (x : M.Carrier s)
-    (h : p.eval M (ρ.extend x)) :
+    (h : p.Eval M (ρ.extend x)) :
     sound M (.elim d) ρ ⟨x, h⟩ =
       (formula_shift M q ρ x).mp (sound M d (ρ.extend x) h) := Subsingleton.elim _ _
 
@@ -188,11 +188,11 @@ structure Declaration where
   code : Code premise conclusion
 
 /-- Universal closure over the declaration telescope in the native model. -/
-def Declaration.denote (d : Declaration) : Prop :=
+def Declaration.Denote (d : Declaration) : Prop :=
   ∀ (M : Interpretation.{0,v} Graph.Arrow) (ρ : Env M d.context),
-    d.premise.eval M ρ → d.conclusion.eval M ρ
+    d.premise.Eval M ρ → d.conclusion.Eval M ρ
 
-theorem declaration_sound (d : Declaration) : Declaration.denote.{v} d :=
+theorem declaration_sound (d : Declaration) : Declaration.Denote.{v} d :=
   fun M => sound M d.code
 
 end SquareKit.Internal.GraphTarget

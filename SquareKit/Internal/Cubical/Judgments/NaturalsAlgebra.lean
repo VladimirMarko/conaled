@@ -61,8 +61,8 @@ noncomputable def algebra : Algebra signature where
   operation
     | .inl op => Sums.algebra.operation op
     | .inr op => extraOperation op
-  predicate
-    | .inl p => Sums.algebra.predicate p
+  Predicate
+    | .inl p => Sums.algebra.Predicate p
     | .inr p => nomatch p
 
 theorem zeroSub_eval {V : Type} (γ : Expression V) (ρ : V → Value.{u})

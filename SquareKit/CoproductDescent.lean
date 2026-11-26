@@ -95,7 +95,7 @@ variable {X : I → C} (c : Cofan X) (hC : IsVanKampenColimit c)
 include hC
 
 /-- Any compatible test object meeting distinct summands is initial. -/
-def isInitial_of_distinct_summands {Z : C} {i j : I} (h : i ≠ j)
+def initialOfDistinctSummands {Z : C} {i j : I} (h : i ≠ j)
     (a : Z ⟶ X i) (b : Z ⟶ X j) (e : a ≫ c.inj i = b ≫ c.inj j) : IsInitial Z :=
   IsInitial.ofStrict
     ((isPullback_initial_to_of_cofan_isVanKampen hC ⟨i⟩ ⟨j⟩
@@ -116,7 +116,7 @@ theorem component_comm (hF : EffectiveCoproducts.{w} F)
     subst b
     rw [D.hom_self q a ha, E.hom_self q a ha, Category.comp_id, Category.id_comp]
   · have := hom_subsingleton_of_isInitial hF
-      (isInitial_of_distinct_summands c hC hij a b (ha.trans hb.symm))
+      (initialOfDistinctSummands c hC hij a b (ha.trans hb.symm))
       ((F.map a.op.toLoc).toFunctor.obj (D.obj i))
       ((F.map b.op.toLoc).toFunctor.obj (E.obj j))
     exact Subsingleton.elim _ _

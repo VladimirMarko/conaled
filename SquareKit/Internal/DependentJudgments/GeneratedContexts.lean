@@ -32,7 +32,7 @@ other generated substitution. Its existence does not assert uniqueness. -/
 theorem emptySubstitution_map {Γ : Expression V} (hΓ : GeneratedContext Ω Γ)
     {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
     (F : PathTransport.Typed.ModelMap M N) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
+    (hΩ : ∀ p ∈ Ω, p.Eval (algebra M) ρ) :
     Value.map F.toStructuralMap (hΓ.emptySubstitution.eval (algebra M) ρ) =
       hΓ.emptySubstitution.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=
   interpret_map F hΓ.emptySubstitution ρ ((Defined.substitution hΓ.emptySubstitutionTyping).sound M ρ hΩ)

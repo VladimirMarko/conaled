@@ -93,7 +93,7 @@ theorem runWith_total (w : Graph n) (hw : Positive w) (start : Fin n)
 theorem run_total (w : Graph n) (hw : Positive w) (start goal : Fin n)
     (h : Fin n → ℚ) (hh : ∀ u v, (h u : Cost) ≤ w u v + (h v : Cost))
     (s : State n) (hs : Valid w start s) : ∃ out, run w start goal h (2*n) s = .stopped out :=
-  runWith_total w hw start h hh (active goal h)
+  runWith_total w hw start h hh (Active goal h)
     (fun s hs hc hn => no_select_not_active w start goal h s hs hn hc) s hs
 
 theorem drain_total (w : Graph n) (hw : Positive w) (start : Fin n)

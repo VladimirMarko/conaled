@@ -28,10 +28,10 @@ theorem restrictedTerm_input (γ a p t : Expression V) (ρ : V → Value.{u})
     (Γ : Context.{u}) (A : Family Γ) (φ : Cofibration Γ)
     (hΓ : γ.eval algebra ρ = .context Γ) (hA : a.eval algebra ρ = .family Γ A)
     (hφ : p.eval algebra ρ = .cofibration Γ φ)
-    (h : (restrictedTerm γ a p t).eval algebra ρ) :
+    (h : (restrictedTerm γ a p t).Eval algebra ρ) :
     ∃ s : Presheaf.Term (reindex A (restrictInclusion φ)),
       t.eval algebra ρ = .term (restrictContext φ) (reindex A (restrictInclusion φ)) s := by
-  change Source.predicate .term ![extraOperation .restriction ![γ.eval algebra ρ,p.eval algebra ρ],
+  change Source.Predicate .term ![extraOperation .restriction ![γ.eval algebra ρ,p.eval algebra ρ],
     (subTy a (inclusion γ p)).eval algebra ρ,t.eval algebra ρ] at h
   rw [restrictedType_eval γ a p ρ Γ A φ hΓ hA hφ,hΓ,hφ,extra_restriction] at h
   exact Value.term_input _ _ _ h

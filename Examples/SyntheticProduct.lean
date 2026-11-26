@@ -17,7 +17,7 @@ abbrev square := AlgebraicKL.square
 def fourth : scalar ⟶ scalar := lift square square ≫ SquareKit.AlgebraicStage.mul
 
 /-- This calculation invokes source soundness, then the old ordinary square client. -/
-theorem derivative_fourth_apply (A : Stage) (x : Carrier A) :
+theorem derivative_fourth_apply (A : Stage) (x : carrierAlgebra A) :
     (derivative fourth).hom.app (atStage A) x = 4*x^3 := by
   have h := SquareKit.SyntheticProductRule.component square square A x
   rw [AlgebraicKL.derivative_square_apply] at h
@@ -26,13 +26,13 @@ theorem derivative_fourth_apply (A : Stage) (x : Carrier A) :
   ring
 
 /-- An ordinary direct-map observation and a source-derived derivative coexist. -/
-theorem mixed_styles (A : Stage) (x : Carrier A) :
+theorem mixed_styles (A : Stage) (x : carrierAlgebra A) :
     square.hom.app (atStage A) x = x*x ∧
       (derivative fourth).hom.app (atStage A) x = 4*x^3 :=
   ⟨rfl, derivative_fourth_apply A x⟩
 
 /-- Taylor with a source-derived coefficient at the nonzero dual epsilon. -/
-theorem fourth_at_epsilon (x : Carrier AlgebraicKL.dualIntegers) :
+theorem fourth_at_epsilon (x : carrierAlgebra AlgebraicKL.dualIntegers) :
     fourth.hom.app (atStage AlgebraicKL.dualIntegers) (x+(eps .integers).val) =
       x^4 + (4*x^3)*(eps .integers).val := by
   have h := taylor fourth AlgebraicKL.dualIntegers x (eps .integers)
@@ -42,7 +42,7 @@ theorem fourth_at_epsilon (x : Carrier AlgebraicKL.dualIntegers) :
   ring
 
 /-- Concrete restriction comparison for the coefficient obtained from source soundness. -/
-theorem fourth_flip (x : Carrier AlgebraicKL.dualIntegers) :
+theorem fourth_flip (x : carrierAlgebra AlgebraicKL.dualIntegers) :
     (derivative fourth).hom.app (atStage AlgebraicKL.dualIntegers) (ringMap AlgebraicKL.flip x) =
       ringMap AlgebraicKL.flip (4*x^3) := by
   have h := congrArg
@@ -56,8 +56,8 @@ theorem fourth_flip (x : Carrier AlgebraicKL.dualIntegers) :
 
 def polynomial : Polynomial ℤ := Polynomial.X ^ 4
 
-theorem fourth_polynomial (A : Stage) (x : Carrier A) :
-    fourth.hom.app (atStage A) x = polynomial.eval₂ (Int.castRingHom (Carrier A)) x := by
+theorem fourth_polynomial (A : Stage) (x : carrierAlgebra A) :
+    fourth.hom.app (atStage A) x = polynomial.eval₂ (Int.castRingHom (carrierAlgebra A)) x := by
   change (x*x)*(x*x) = _
   simp only [polynomial, Polynomial.eval₂_pow, Polynomial.eval₂_X]
   ring
@@ -70,7 +70,7 @@ theorem modelCoefficient_eq : modelCoefficient = polynomial.derivative := by
   have h : (4 : Polynomial ℤ) * (Polynomial.X : Polynomial ℤ)^3 = polynomial.derivative := by
     simp [polynomial]
   exact (derivative_fourth_apply (.polynomial .integers)
-    (show Carrier (.polynomial .integers) from (Polynomial.X : Polynomial ℤ))).trans h
+    (show carrierAlgebra (.polynomial .integers) from (Polynomial.X : Polynomial ℤ))).trans h
 
 /-- External ℝ evaluation consumes the coefficient obtained via the source proof. -/
 theorem analytic_fourth (x : ℝ) :

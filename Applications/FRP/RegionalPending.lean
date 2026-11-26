@@ -40,13 +40,13 @@ structure Requirements where
   finiteWaits : Bool := true
   deriving DecidableEq, Repr
 
-def supported (r : Requirements) : Prop :=
+def Supported (r : Requirements) : Prop :=
   r.protocol = 2 ∧ r.ordered = true ∧ r.finiteWaits = true
-instance (r : Requirements) : Decidable (supported r) := inferInstanceAs (Decidable (_ ∧ _))
+instance (r : Requirements) : Decidable (Supported r) := inferInstanceAs (Decidable (_ ∧ _))
 
 /-- Evidence is indexed by the actual target code, representation and premises. -/
 structure Certificate (r : Requirements) (cut : Cut) (kind : Migration.Kind) : Prop where
-  assumptions : supported r
+  assumptions : Supported r
   service : ServiceCertified cut r.capacity
   semantics : ∀ input state, wholeResult cut input state = oracle input state
   representation : ∀ state, (Migration.realize kind state).logical = state
@@ -204,7 +204,7 @@ def prepare (s : Session) (expected target : Cut) (kind : Migration.Kind) (r : R
   if !s.permitted then reject s .throttled else
   let attempted : Session := ⟨s.active,none,false⟩
   if expected != s.active.cut then reject attempted .stale else
-  if assumptions : supported r then
+  if assumptions : Supported r then
     if capacity : requiredCapacity s.active target kind ≤ r.capacity then
       if !allocationOK then reject attempted .allocation else
       let converted := convert s.active target kind

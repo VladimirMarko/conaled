@@ -15,11 +15,11 @@ def coordinateMap {m n : ℕ} (g : Fin n → Operation m) : full m ⟶ full n wh
 theorem coordinateMap_base {m n : ℕ} (g : Fin n → Operation m) (i : Fin n) :
     Localization.pullback (coordinateMap g) (principalBase 1 (generator i)) =
       principalBase 1 (g i) := by
-  apply (toOpen_bijective (1 : Free m)).injective
+  apply (toOpen_bijective (1 : freeAlgebra m)).injective
   apply OpenFunctions.ext
   intro x
   rw [Localization.pullback_apply, toOpen_base]
-  exact (toOpen_base (1 : Free m) (show Free m from g i) x).symm
+  exact (toOpen_base (1 : freeAlgebra m) (show freeAlgebra m from g i) x).symm
 
 theorem coordinateMap_comparison {m n : ℕ} (g : Fin n → Operation m) :
     embedding.map (coordinateMap g) ≫ (fullPowerIso n).hom =
@@ -29,7 +29,7 @@ theorem coordinateMap_comparison {m n : ℕ} (g : Fin n → Operation m) :
   change smoothMap a.unop (Localization.pullback (coordinateMap g) (principalBase 1 (generator i))) =
     act (g i) (fun j => smoothMap a.unop (principalBase 1 (generator j)))
   rw [coordinateMap_base]
-  exact congrArg (fun h : Hom (Free m) (Carrier A.unop.unop) => h (g i))
+  exact congrArg (fun h : Hom (freeAlgebra m) (Carrier A.unop.unop) => h (g i))
     (evaluate_unique ((smoothMap a.unop).comp (principalBase 1))).symm
 
 def first (n k : ℕ) : full (n+k) ⟶ full n :=
@@ -107,14 +107,14 @@ theorem zeroFiber_isPullback (n k : ℕ) :
     (last_comparison n k).symm (zero_comparison k).symm
 
 /-- The coordinate zero fiber inside any ordinary principal ambient open. -/
-theorem restricted_zeroFiber_isPullback (n k : ℕ) (q : Free (n+k)) :
+theorem restricted_zeroFiber_isPullback (n k : ℕ) (q : freeAlgebra (n+k)) :
     IsPullback (embedding.map (inverseRestriction (insertZero n k) q))
       (embedding.map (subInclusion (full n) (inverseDefining (insertZero n k) q) ≫ toPoint n))
       (embedding.map (subInclusion (full (n+k)) q ≫ last n k)) (embedding.map (zero k)) := by
   simpa only [embedding.map_comp] using
     (inverse_sheaf_pullback (insertZero n k) q).flip.paste_vert (zeroFiber_isPullback n k)
 
-theorem restricted_points (n k : ℕ) (q : Free (n+k)) (x : Points (full n)) :
+theorem restricted_points (n k : ℕ) (q : freeAlgebra (n+k)) (x : Points (full n)) :
     (inverseDefining (insertZero n k) q).val x.val ≠ 0 ↔
       q.val (Fin.addCases x.val (fun _ => 0)) ≠ 0 := by
   rw [inverseDefining_iff]
@@ -132,14 +132,14 @@ its upper-right corner. This can be iterated without identifying chosen support 
 theorem restrict_isPullback {P X Y Z : Domain} (fst : P ⟶ X) (snd : P ⟶ Y)
     (f : X ⟶ Z) (g : Y ⟶ Z)
     (h : IsPullback (embedding.map fst) (embedding.map snd) (embedding.map f) (embedding.map g))
-    (q : Free X.dimension) :
+    (q : freeAlgebra X.dimension) :
     IsPullback (embedding.map (inverseRestriction fst q))
       (embedding.map (subInclusion P (inverseDefining fst q) ≫ snd))
       (embedding.map (subInclusion X q ≫ f)) (embedding.map g) := by
   simpa only [embedding.map_comp] using (inverse_sheaf_pullback fst q).flip.paste_vert h
 
 /-- A second principal restriction retains the composite actual projections. -/
-theorem twice_restricted_zeroFiber_isPullback (n k : ℕ) (q r : Free (n+k)) :
+theorem twice_restricted_zeroFiber_isPullback (n k : ℕ) (q r : freeAlgebra (n+k)) :
     IsPullback
       (embedding.map (inverseRestriction (inverseRestriction (insertZero n k) q) r))
       (embedding.map
@@ -152,7 +152,7 @@ theorem twice_restricted_zeroFiber_isPullback (n k : ℕ) (q r : Free (n+k)) :
 
 /-- The chosen ordinary inverse image commutes with both actual localization
 bases, even though its defining function is selected by smooth support. -/
-theorem inverse_localization_square {U V : Domain} (f : U ⟶ V) (q : Free V.dimension) :
+theorem inverse_localization_square {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension) :
     (localizationBase (code V) (element V q) ≫ (subdomainIso V q).hom) ≫
       (show code (subdomain V q) ⟶ code (subdomain U (inverseDefining f q)) from
         Localization.pullback (inverseRestriction f q)) =
@@ -176,7 +176,7 @@ open CategoryTheory CategoryTheory.Limits SmoothAlgebra
 /-- Empty-cover gluing constructs the unique arrow into every sheaf. -/
 def emptyDomainIsInitial (U : Domain) (hU : IsEmpty (Points U)) :
     IsInitial (embedding.obj U) := by
-  let g : Fin 0 → Free U.dimension := Fin.elim0
+  let g : Fin 0 → freeAlgebra U.dimension := Fin.elim0
   have hc : Covers U g := (empty_cover_iff U g).mpr hU
   have hu (F : Sheaf SmoothOpenSite.topology Type) :
       ∃! b : embedding.obj U ⟶ F, ∀ i : Fin 0,
@@ -196,7 +196,7 @@ def zeroSubdomainIsInitial (U : Domain) : IsInitial (embedding.obj (subdomain U 
   emptyDomainIsInitial _ (isEmpty_points_subdomain_zero U)
 
 /-- The inverse image of an empty principal open is initial as well. -/
-def inverseEmptyIsInitial {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
+def inverseEmptyIsInitial {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension)
     (h : IsEmpty (Points (subdomain V q))) :
     IsInitial (embedding.obj (subdomain U (inverseDefining f q))) :=
   emptyDomainIsInitial _ ⟨fun x => h.false ((inverseRestriction f q).toFun x)⟩

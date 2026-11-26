@@ -64,7 +64,7 @@ def familySquare (d : Datum a hΓ f) :
 
 /-- Extraction recovers the complete total square functor through selected
 base-transport isomorphisms, including all matching arrows. -/
-def familySquare_recovery (d : Datum a hΓ f) :
+def familySquareRecoveryIso (d : Datum a hΓ f) :
     familySquare a hΓ hB u v square d ⋙ CechMatching.Comprehension.Fiber.forget ≅
       CechMatching.Comprehension.Fiber.forget ⋙ relativeSquareFunctor a hΓ hB u v square :=
   CechMatching.Comprehension.fixedBaseComparison _ _ _ _ _
@@ -73,10 +73,10 @@ def familySquare_recovery (d : Datum a hΓ f) :
 theorem familySquare_arrow_recovery (d : Datum a hΓ f)
     {x y : (relativeMatchingFamily a hΓ hB f).obj d} (p : x ⟶ y) :
     ((familySquare a hΓ hB u v square d).map p).matchingArrow ≫
-        (familySquare_recovery a hΓ hB u v square d).hom.app y =
-      (familySquare_recovery a hΓ hB u v square d).hom.app x ≫
+        (familySquareRecoveryIso a hΓ hB u v square d).hom.app y =
+      (familySquareRecoveryIso a hΓ hB u v square d).hom.app x ≫
         (relativeSquareFunctor a hΓ hB u v square).map p.matchingArrow :=
-  (familySquare_recovery a hΓ hB u v square d).hom.naturality p
+  (familySquareRecoveryIso a hΓ hB u v square d).hom.naturality p
 
 /-- Relative reconstruction and the original extended-context cover map form
 an exact square on complete matching functors. -/

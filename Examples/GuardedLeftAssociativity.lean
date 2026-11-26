@@ -49,7 +49,7 @@ def environment (B : C4 ⥤ Type) (m n k : ZMod 4) : Fin 9 → Value (Instance.f
     .term G (identityFamily (constant C4) base base) ⟨labeled k⟩]
 
 theorem assumptions_valid (B : C4 ⥤ Type) (m n k : ZMod 4) :
-    ∀ a ∈ assumptions, a.eval (TelescopePresentation.model (Instance.fullModel C4 B)).toAlgebra (environment B m n k) := by
+    ∀ a ∈ assumptions, a.Eval (TelescopePresentation.model (Instance.fullModel C4 B)).toAlgebra (environment B m n k) := by
   intro a ha
   simp only [assumptions, List.mem_cons, List.not_mem_nil, or_false] at ha
   rcases ha with rfl | rfl | rfl | rfl | rfl | rfl | rfl

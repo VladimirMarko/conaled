@@ -6,7 +6,7 @@ noncomputable section
 open CategoryTheory
 namespace SquareKit.EuclideanOpen
 open SmoothAlgebra
-theorem restrictCodomain_inclusion {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
+theorem restrictCodomain_inclusion {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension)
    (h : ∀ x, q.val ((show Map U V from f) x).val ≠ 0) :
    restrictCodomain f q h ≫ subInclusion V q = f := OpenFunctions.Map.ext (fun _ => rfl)
 end SquareKit.EuclideanOpen
@@ -15,7 +15,7 @@ open EuclideanOpen SmoothAlgebra
 open scoped Manifold ContDiff
 variable {n : ℕ} {M : Type} [TopologicalSpace M] [ChartedSpace (Space n) M]
 variable (A : ChartFamily n M)
-def overlapDefining (i j : A.Index) : Free n :=
+def overlapDefining (i j : A.Index) : freeAlgebra n :=
   coordinateDefining (e := A.chart i) (A.chart j) id continuous_id
 abbrev pair (i j : A.Index) : Domain := subdomain (A.charts.domain i) (A.overlapDefining i j)
 abbrev left (i j : A.Index) : A.pair i j ⟶ A.charts.domain i := subInclusion _ _

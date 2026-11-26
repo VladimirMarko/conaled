@@ -48,7 +48,7 @@ def face (p : Term (identity A a b)) : Cofibration (total (interval Γ)) :=
   ((identityFace p).reindex (projection (interval Γ))).join (intervalFace Γ false)
 
 theorem path_constant (p : Term (identity A a b)) (x : (total (interval Γ)).Elements)
-    (h : (face p).full x) (r : (interval (total (interval Γ))).obj x) :
+    (h : (face p).Full x) (r : (interval (total (interval Γ))).obj x) :
     ((path p).val x).val.val (𝟙 _) r = (a.reindex (projection (interval Γ))).val x := by
   let y := (projection (interval Γ)).mapElements.obj x
   change (p.val y).path.val.val (𝟙 _) ⟨Cube.meet x.val.2.down r.down⟩ = a.val y

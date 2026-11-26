@@ -123,10 +123,10 @@ def assessCandidate (r : Requirements) (c : Sites) : Charged Bool :=
   conjunction (c.plan.analyzed,[.admission (planNodes c.plan)]) fun _ =>
   (decide (c.plan.storage ≤ r.capacity),[.admission c.plan.checkpoints.length])
 @[simp] theorem assessCandidate_value (r : Requirements) (c : Sites) :
-    (assessCandidate r c).1 = decide (eligible r c) := by
+    (assessCandidate r c).1 = decide (Eligible r c) := by
   apply Bool.eq_iff_iff.mpr
   rw [decide_eq_true_eq]
-  simp [assessCandidate,probe,eligible]
+  simp [assessCandidate,probe,Eligible]
 
 /-- The admission traversal evaluates the completed plan at each site pair. -/
 def inspect (r : Requirements) : List Sites → List Sites × List Event
@@ -135,7 +135,7 @@ def inspect (r : Requirements) : List Sites → List Sites × List Event
              let rest := inspect r cs
              (if tested.1 then c::rest.1 else rest.1,tested.2 ++ rest.2)
 @[simp] theorem inspect_value (r : Requirements) (cs : List Sites) :
-    (inspect r cs).1 = cs.filter (fun c => decide (eligible r c)) := by
+    (inspect r cs).1 = cs.filter (fun c => decide (Eligible r c)) := by
   induction cs with
   | nil => rfl
   | cons c cs ih => simp only [inspect,List.filter_cons,ih,assessCandidate_value]
@@ -228,7 +228,7 @@ def withFallback (r : Requirements) (w : String) (e : Option Epoch)
     (cs : List Sites) (fallback : Sites) : Option Sites :=
   match select r w e cs with
   | some c => some c
-  | none => if eligible r fallback then some fallback else none
+  | none => if Eligible r fallback then some fallback else none
 
 /-- Fallback attempts reuse the actual admission traversal and retain rejected
 installation costs. A fallback cannot waive the whole-plan requirement. -/
@@ -249,7 +249,7 @@ theorem installationFallback_selected (r : Requirements) (w : String) (e)
   | none =>
     simp only [hi,Option.map_none] at h
     simp only [installationFallback,hi,withFallback,← h,prepareResult_value,inspect_value]
-    by_cases hf : eligible r fallback <;> simp [hf]
+    by_cases hf : Eligible r fallback <;> simp [hf]
   | some session =>
     simp only [hi,Option.map_some] at h
     simp [installationFallback,hi,withFallback,← h]
@@ -265,7 +265,7 @@ structure Certificate (r : Requirements) (c : Sites) : Prop where
 
 theorem selected_certificate {r : Requirements} {w} {e} {cs} {c : Sites}
     (h : select r w e cs = some c) : Certificate r c := by
-  have hc : eligible r c := Optimization.Choice.choose_contract (eligible r)
+  have hc : Eligible r c := Optimization.Choice.choose_contract (Eligible r)
     (fun _ _ hc => hc) h
   exact ⟨hc.2.2.2.1,hc.2.2.2.2,c.continuation⟩
 

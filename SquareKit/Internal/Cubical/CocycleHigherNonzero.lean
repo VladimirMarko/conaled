@@ -6,12 +6,12 @@ noncomputable section
 namespace SquareKit.Cubical.CategoryCocycles
 open CategoryTheory Presheaf
 
-def secondZero (Γ : Context.{0}) : Term (SecondIdentityFamily Γ) :=
+def secondZero (Γ : Context.{0}) : Term (secondIdentityFamily Γ) :=
   normalizedIdentityRefl (normalizedIdentityRefl (zeroTerm Γ))
 
 theorem secondValue_zero (Γ : Context.{0}) (x : Γ.Elements) (r s : (interval Γ).obj x) :
     secondValue (secondZero Γ) x r s = zeroCocycle (Over x.obj.unop) :=
-  (congrArg (fun p : (FirstIdentityFamily Γ).obj x => p.eval s)
+  (congrArg (fun p : (firstIdentityFamily Γ).obj x => p.eval s)
     (LocalIdentity.eval_refl (normalizedIdentityRefl (zeroTerm Γ)) x r)).trans
       (LocalIdentity.eval_refl (zeroTerm Γ) x s)
 
@@ -21,7 +21,7 @@ theorem secondObservation_zero : secondObservation (secondZero terminal.{0}) = 0
 
 /-- The observer detects erasure even up to an actual third identity. -/
 theorem secondIdentity_no_erasure :
-    IsEmpty (Term (normalizedIdentity (SecondIdentityFamily terminal.{0})
+    IsEmpty (Term (normalizedIdentity (secondIdentityFamily terminal.{0})
       (secondIdentity terminal) (secondZero terminal))) := ⟨by
   intro h
   have e := secondObservation_identity h

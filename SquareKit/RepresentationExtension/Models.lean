@@ -13,7 +13,7 @@ structure Model where
   inhabitedA : Nonempty A
   inhabitedB : Nonempty B
   relation : Setoid A
-  predicate : A → Prop
+  Predicate : A → Prop
 
 attribute [instance] Model.inhabitedA Model.inhabitedB
 
@@ -21,7 +21,7 @@ structure Hom (M N : Model.{u}) where
   onA : M.A → N.A
   onB : M.B → N.B
   relation : ∀ {a b}, M.relation.r a b → N.relation.r (onA a) (onA b)
-  predicate : ∀ {a}, M.predicate a → N.predicate (onA a)
+  predicate : ∀ {a}, M.Predicate a → N.Predicate (onA a)
 
 namespace Hom
 variable {M N K : Model.{u}}

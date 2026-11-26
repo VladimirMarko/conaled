@@ -25,7 +25,7 @@ noncomputable def pathFillingBox {Γ Δ : Context.{u}} {B : Family (total (inter
     let s := b.tube.map (pathReindex B a₀ a₁ p)
     let z := (total (interval (total (interval Δ)))).elementsMk I
       ⟨⟨δ,(endpoint Δ false).val y⟩,j⟩
-    have hp : (pathBoundaryFace (φ.reindex (projection (interval Δ)))).full z := h
+    have hp : (pathBoundaryFace (φ.reindex (projection (interval Δ)))).Full z := h
     rcases (Cofibration.full_join _ _ ((total (interval Δ)).elementsMk I ⟨δ,j⟩)).mp h with hφ | he
     · have hv := s.pathBoundary_old z hp hφ
       exact hv.trans (congrArg (fun v => v.val.val (𝟙 _) j) (b.boundary y hφ))

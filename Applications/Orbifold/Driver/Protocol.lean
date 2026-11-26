@@ -42,7 +42,7 @@ def parseEvent (j : Json) : Except String Event := do
   if hd : 0 ≤ d then
     if d > 1/4 then throw "duration exceeds bounded demonstration limit 1/4"
     let c : Tick := ⟨control,d,hd⟩
-    if supported c then return .command c else throw "unsupported control magnitude"
+    if Supported c then return .command c else throw "unsupported control magnitude"
   else throw "negative duration"
 
 def parseRequest (j : Json) : Except String Request := do

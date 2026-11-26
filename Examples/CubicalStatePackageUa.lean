@@ -55,7 +55,7 @@ theorem gluedMap_isIso {φ ψ : Cofibration Γ}
   have : ∀ x, IsIso ((CodeSystem.Maps.glue a b c).app x) := by
     intro x
     apply (isIso_iff_bijective _).mpr
-    by_cases h : φ.full (CodeSystem.Maps.original x)
+    by_cases h : φ.Full (CodeSystem.Maps.original x)
     · have he : (CodeSystem.Maps.glue a b c).app x = a.app (CodeSystem.Maps.left x h) := by
         apply ConcreteCategory.hom_ext
         intro z
@@ -190,7 +190,7 @@ theorem final_step (n : Int) : finalPackage.step n = n + 2 := by
   rw [finalPackage_eq]
   exact odd_step n
 
-theorem final_invariant (n : Int) : finalPackage.invariant n ↔ n % 2 = 1 := by
+theorem final_invariant (n : Int) : finalPackage.Invariant n ↔ n % 2 = 1 := by
   rw [finalPackage_eq]
   exact odd_invariant n
 

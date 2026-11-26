@@ -80,7 +80,7 @@ noncomputable def extraOperation (op : Operation)
       | none => .invalid
     | _ => .invalid
 
-def extraPredicate (p : Predicate) (args : Fin (extraSignature.arguments p) → Value.{u}) : Prop :=
+def ExtraPredicate (p : Predicate) (args : Fin (extraSignature.arguments p) → Value.{u}) : Prop :=
   match p with
   | .face => ∃ Γ φ, args 0 = .context Γ ∧ args 1 = .cofibration Γ φ
   | .provider => ∃ Γ A F, args 0 = .context Γ ∧ args 1 = .family Γ A ∧ args 2 = .filling Γ A F ∧ F.Lawful
@@ -88,6 +88,6 @@ def extraPredicate (p : Predicate) (args : Fin (extraSignature.arguments p) → 
 noncomputable def algebra : Algebra signature where
   Carrier := Value.{u}
   operation | .inl o => Paths.algebra.operation o | .inr o => extraOperation o
-  predicate | .inl p => Paths.algebra.predicate p | .inr p => extraPredicate p
+  Predicate | .inl p => Paths.algebra.Predicate p | .inr p => ExtraPredicate p
 
 end SquareKit.Cubical.Source.Fillings

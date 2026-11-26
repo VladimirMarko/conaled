@@ -12,7 +12,7 @@ def primitiveValue {I J : Cube} (f : I ⟶ J) (r : I ⟶ (⟨1⟩ : Cube))
 
 theorem boxPrimitive_value {Γ : Context.{0}} {φ : Cofibration Γ}
     (b : OpenBox (cocycleFamily (total (interval Γ))) φ)
-    {X Y : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) (p : (tubeSieve φ).contains Y) :
+    {X Y : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) (p : (tubeSieve φ).Contains Y) :
     boxPrimitive b f p =
       primitiveValue f.unop.hom.unop X.unop.val.2.down Y.unop.val.2.down
         (b.tube.val (freshExtension (intervalBaseElement Y.unop)) (freshPreservesTube φ Y p)) -

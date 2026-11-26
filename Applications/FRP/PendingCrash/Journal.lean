@@ -377,7 +377,7 @@ def journalExecute : Journal → List JournalCommand → JournalExecution
 /-- Every executed write/persist/publication/recovery cut is a native step.
 Failed commands retain their work but do not invent a commit event. -/
 theorem journalExecute_native (s : Journal) (commands : List JournalCommand) :
-    Interaction.Events.interpret Durability.Step (journalExecute s commands).events
+    Interaction.Events.Interpret Durability.Step (journalExecute s commands).events
       s.machine (journalExecute s commands).journal.machine := by
   induction commands generalizing s with
   | nil => rfl
@@ -389,7 +389,7 @@ theorem journalExecute_native (s : Journal) (commands : List JournalCommand) :
 
 theorem journalExecute_simulation (s : Journal) (commands : List JournalCommand)
     (a : Durability.Abstract Frame) (related : Durability.Related s.machine a) :
-    ∃ b, Interaction.Events.interpret Durability.SpecStep (journalExecute s commands).events a b ∧
+    ∃ b, Interaction.Events.Interpret Durability.SpecStep (journalExecute s commands).events a b ∧
       Durability.Related (journalExecute s commands).journal.machine b :=
   Durability.script_simulation _ related (journalExecute_native s commands)
 

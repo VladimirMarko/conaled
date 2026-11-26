@@ -25,7 +25,7 @@ def environment : Fin 7 → Value M.toStructuralModel :=
     .context Δ, .substitution Δ Γ σ]
 
 theorem source_assumptions : ∀ p ∈ List.ofFn Sigma.Reindexing.splitSubRule.premise,
-    p.eval (Sigma.algebra M S.toCapability) (environment M S Γ Δ A B C d σ) := by
+    p.Eval (Sigma.algebra M S.toCapability) (environment M S Γ Δ A B C d σ) := by
   intro p hp
   rcases List.mem_ofFn.mp hp with ⟨i, rfl⟩
   change Fin 5 at i
@@ -40,7 +40,7 @@ theorem source_assumptions : ∀ p ∈ List.ofFn Sigma.Reindexing.splitSubRule.p
   · exact ⟨Δ, Γ, σ, rfl, rfl, rfl⟩
 
 /-- The source proof compares pulled and freshly rebuilt dependent elimination. -/
-theorem fresh_split : Sigma.Reindexing.splitSubRule.conclusion.eval (Sigma.algebra M S.toCapability)
+theorem fresh_split : Sigma.Reindexing.splitSubRule.conclusion.Eval (Sigma.algebra M S.toCapability)
     (environment M S Γ Δ A B C d σ) :=
   Sigma.Reindexing.interpret Sigma.Reindexing.splitReindexDerivation M S _
     (source_assumptions M S Γ Δ A B C d σ)
@@ -77,10 +77,10 @@ abbrev rebuiltTwice := Sigma.split (Sigma.subTy first tauArrow) (Sigma.subTy sec
   (Sigma.subTm (Sigma.subTm branch (Sigma.lift (Sigma.extend delta first) b (Sigma.lift delta a sigmaArrow)))
     (Sigma.lift (Sigma.extend theta (Sigma.subTy first tauArrow)) second (Sigma.lift theta first tauArrow)))
 
-def twice_derivation : Reindexing.Equal (Ω := Ω) pulledTwice rebuiltTwice :=
+def twiceDerivation : Reindexing.Equal (Ω := Ω) pulledTwice rebuiltTwice :=
   Reindexing.Tm.splitSubComp (hyp 0) (hyp 1) (hyp 2) (hyp 3) (hyp 4) (hyp 5)
 
-def composite_derivation : Reindexing.Equal (Ω := Ω) pulledComposite rebuiltTwice :=
+def compositeDerivation : Reindexing.Equal (Ω := Ω) pulledComposite rebuiltTwice :=
   Reindexing.Tm.splitSubComposite (hyp 0) (hyp 1) (hyp 2) (hyp 3) (hyp 4) (hyp 5)
 
 end TwoSubstitutions
@@ -97,12 +97,12 @@ private def double : M.Substitution Nat Nat := ⟨fun n => 2 * n⟩
 
 /-- This is the generic source argument instantiated at varying families and a
 nonidentity base arrow, not a separate native proof of the output equation. -/
-theorem fresh_shift : Sigma.Reindexing.splitSubRule.conclusion.eval (Sigma.algebra M S.toCapability)
+theorem fresh_shift : Sigma.Reindexing.splitSubRule.conclusion.Eval (Sigma.algebra M S.toCapability)
     (environment M S Nat Nat A B C d shift) :=
   fresh_split M S Nat Nat A B C d shift
 
 /-- The composite interpretation retains the source order: shift after doubling. -/
-theorem fresh_composite : Sigma.Reindexing.splitSubRule.conclusion.eval (Sigma.algebra M S.toCapability)
+theorem fresh_composite : Sigma.Reindexing.splitSubRule.conclusion.Eval (Sigma.algebra M S.toCapability)
     (environment M S Nat Nat A B C d (M.compSub shift double)) :=
   fresh_split M S Nat Nat A B C d (M.compSub shift double)
 
@@ -116,7 +116,7 @@ private def twiceEnvironment : Fin 9 → Value M.toStructuralModel :=
     .context Nat, .substitution Nat Nat shift, .context Nat, .substitution Nat Nat double]
 
 theorem twice_assumptions : ∀ p ∈ List.ofFn TwoSubstitutions.premises,
-    p.eval (Sigma.algebra M S.toCapability) twiceEnvironment := by
+    p.Eval (Sigma.algebra M S.toCapability) twiceEnvironment := by
   intro p hp
   rcases List.mem_ofFn.mp hp with ⟨i, rfl⟩
   fin_cases i
@@ -133,16 +133,16 @@ theorem twice_assumptions : ∀ p ∈ List.ofFn TwoSubstitutions.premises,
 /-- Actual successive source reindexing rebuilds the second family, motive and
 branch at each step from the original assumptions. -/
 theorem twice_fresh :
-    (Atom.eq TwoSubstitutions.pulledTwice TwoSubstitutions.rebuiltTwice).eval
+    (Atom.eq TwoSubstitutions.pulledTwice TwoSubstitutions.rebuiltTwice).Eval
       (Sigma.algebra M S.toCapability) twiceEnvironment :=
-  Sigma.Reindexing.interpret TwoSubstitutions.twice_derivation M S _ twice_assumptions
+  Sigma.Reindexing.interpret TwoSubstitutions.twiceDerivation M S _ twice_assumptions
 
 /-- The inherited source composition rule identifies the two pulls with the
 composite of their lifted arrows before the fresh result is compared. -/
 theorem composite_fresh :
-    (Atom.eq TwoSubstitutions.pulledComposite TwoSubstitutions.rebuiltTwice).eval
+    (Atom.eq TwoSubstitutions.pulledComposite TwoSubstitutions.rebuiltTwice).Eval
       (Sigma.algebra M S.toCapability) twiceEnvironment :=
-  Sigma.Reindexing.interpret TwoSubstitutions.composite_derivation M S _ twice_assumptions
+  Sigma.Reindexing.interpret TwoSubstitutions.compositeDerivation M S _ twice_assumptions
 
 end Nonidentity
 end Examples.GuardedSigmaReindexing

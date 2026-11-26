@@ -24,7 +24,7 @@ theorem branch_solves_phase (h : ℝ) (x : ℂ) (hh : 0 < h) (hx : Complex.normS
 example : (0,0) ∈ (minusBranch 1 0 (by norm_num) (by norm_num)).source :=
   minusBranch_contains 1 0 (by norm_num) (by norm_num)
 
-example : ¬ discreteEL 1 0 (1/2) (4/5) := midpoint_rational_not_DEL
+example : ¬ DiscreteEL 1 0 (1/2) (4/5) := midpoint_rational_not_DEL
 example : exactD2 1 0 (1/2) + exactD1 1 (1/2) (4/5) = 0 := rational_exact_DEL
 
 /-- The native selected lift starts at the apex with a nonzero physical velocity. -/

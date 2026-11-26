@@ -89,7 +89,7 @@ def refuse (s : Session) (status : Status) (es : List Event := [.check]) : Outco
   ⟨s,status,none,es⟩
 
 /-- Static semantics and storage evidence are reconstructed for the exact target. -/
-theorem certificate (r : Requirements) (c : Sites) (h : eligible r c) : Selection.Certificate r c :=
+theorem certificate (r : Requirements) (c : Sites) (h : Eligible r c) : Selection.Certificate r c :=
   ⟨h.2.2.2.1,h.2.2.2.2,c.continuation⟩
 
 /-- Compare the converted continuation before publishing ownership. -/
@@ -106,7 +106,7 @@ def prepare (s : Session) (expected target : Sites) (r : Requirements)
   else
     let attempted : Session := ⟨s.active,none,false⟩
     if expected ≠ s.active.sites then refuse attempted .stale
-    else if h : eligible r target then
+    else if h : Eligible r target then
       if hp : required s.active target ≤ r.capacity then
         if !allocationOK then refuse attempted .allocation [.check,.check]
         else

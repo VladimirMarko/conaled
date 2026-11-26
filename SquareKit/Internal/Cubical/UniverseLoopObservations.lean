@@ -43,7 +43,7 @@ theorem twoPath_discrete_observation {S : Type (u+1)}
 noncomputable def recoverLoop (p : Term (paths a a)) :=
   Term.map (equivToPath a a) (Term.map (pathToEquiv a a) p)
 
-noncomputable def recoverLoop_path (p : Term (paths a a)) :
+noncomputable def recoverLoopPath (p : Term (paths a a)) :
     Term (homogeneousPath (paths a a) (recoverLoop a p) p) := leftInverseAt a a p
 
 theorem recoverLoop_eq_ua (p : Term (paths a a)) :
@@ -74,13 +74,13 @@ theorem recoverLoop_reindex {Δ : Context.{u+1}} (p : Term (paths a a)) (σ : Δ
 /-- Restrict the whole recovery witness and normalize both endpoints. This
 constructs the parameterized witness; it does not identify it with a separately
 recomputed choice of leftInverseAt. -/
-noncomputable def recoverLoop_path_reindex {Δ : Context.{u+1}}
+noncomputable def recoverLoopPathReindex {Δ : Context.{u+1}}
     (p : Term (paths a a)) (σ : Δ ⟶ Γ) :
     Term (homogeneousPath (paths (σ ≫ a) (σ ≫ a))
       (recoverLoop (σ ≫ a) (reindexPath p σ)) (reindexPath p σ)) := by
   let r := homogeneousPathMap
     (pathReindex (reindex (family Γ) (projection (interval Γ))) (term a) (term a) σ)
-    (homogeneousReindex (recoverLoop_path a p) σ)
+    (homogeneousReindex (recoverLoopPath a p) σ)
   exact pathLam (pathApp r) ((pathApp_zero r).trans (recoverLoop_reindex a p σ)) (pathApp_one r)
 
 end SquareKit.Cubical.Presheaf.SmallUniverse.NativeUnivalence

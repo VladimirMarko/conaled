@@ -67,9 +67,9 @@ theorem transition_label (G : Type) [Group G] (c : G) :
 
 /-- Refine each sign component by removing either 1 or -1. These overlapping
 principal opens cover each component, and neither test is a constant-only cover. -/
-def radiusDefining (b : Bool) : Free 1 := if b then generator 0 - 1 else generator 0 + 1
+def radiusDefining (b : Bool) : freeAlgebra 1 := if b then generator 0 - 1 else generator 0 + 1
 
-def refinedSignDefining (i : Bool × Bool) : Free 1 := signDefining i.1 * radiusDefining i.2
+def refinedSignDefining (i : Bool × Bool) : freeAlgebra 1 := signDefining i.1 * radiusDefining i.2
 
 theorem radius_covers (U : Domain) (hU : U.dimension = 1) :
     ∀ x : Points U, ∃ b, (radiusDefining b).val (hU ▸ x.val) ≠ 0 := by
@@ -157,7 +157,7 @@ instance : Presheaf.IsLocallySurjective SquareKit.SmoothOpenSite.topology (Split
   ordinaryCoverFamily_locallySurjective punctured refinedSignDefining refinedSign_covers
 
 /-- The refinement on the actual split cover displays. -/
-def signSplitRefinement : SplitSheaf.Ext refinedSignFamily ⟶ SplitSheaf.Ext signFamily :=
+def signSplitRefinement : SplitSheaf.extension refinedSignFamily ⟶ SplitSheaf.extension signFamily :=
   (SplitSheaf.displayIso (ordinaryCoverMap punctured refinedSignDefining)).hom ≫ signCoverRefinement ≫
     (SplitSheaf.displayIso (ordinaryCoverMap punctured signDefining)).inv
 
@@ -327,7 +327,7 @@ theorem squared_data_independent {G : Type} [Group G] {U : Domain}
   (squaredData d).independent d
 
 /-- On the empty domain any supplied functions describe every (empty) fiber. -/
-def emptyData (q : C4 → Free emptyDomain.dimension)
+def emptyData (q : C4 → freeAlgebra emptyDomain.dimension)
     (l : LocallyConstant (Points emptyDomain) C4) : PrincipalLabelData C4 emptyDomain l :=
   ⟨q, fun _ x => isEmptyElim x⟩
 
@@ -338,7 +338,7 @@ theorem empty_supplied_independent :
 
 /-- Zero functions cannot describe the inhabited fiber at the negative point. -/
 theorem zero_not_sign_data :
-    ¬ ∀ k (x : Points punctured), (0 : Free punctured.dimension).val x.val ≠ 0 ↔
+    ¬ ∀ k (x : Points punctured), (0 : freeAlgebra punctured.dimension).val x.val ≠ 0 ↔
       signLabel C4 quarterTurn x = k := by
   intro h
   have bad := (h (signLabel C4 quarterTurn negativePoint) negativePoint).mpr rfl

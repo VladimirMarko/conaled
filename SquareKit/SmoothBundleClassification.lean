@@ -11,7 +11,7 @@ namespace SquareKit.SmoothPrincipalBundle.Ordinary
 open CategoryTheory ManifoldRealization SmoothOpenSite
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace B] [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [TopologicalSpace B] [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 
 abbrev Torsors := SheafTorsor.Torsor (locallyConstantGroup G) (object n B)
 
@@ -92,7 +92,7 @@ theorem recoveryComparison_unique (P : Torsors (n := n) (G := G) (B := B))
 
 /-- Recovery of the full total sheaf, rather than just its real points. -/
 def totalRecovery (P : Torsors (n := n) (G := G) (B := B)) :
-    object n (reconstructed P).Total ≅ SplitSheaf.Ext P.family :=
+    object n (reconstructed P).Total ≅ SplitSheaf.extension P.family :=
   SmoothTorsorReconstruction.reconstructedTotalIso P
 
 theorem totalRecovery_projection (P : Torsors (n := n) (G := G) (B := B)) :
@@ -145,7 +145,7 @@ theorem choiceComparison_unique {P : Torsors (n := n) (G := G) (B := B)}
 
 /-- The categorical unit is an actual equivariant diffeomorphism over the base. -/
 def unitDiffeomorph (P : Ordinary n G B) :
-    P.Total ≃ₘ⟮Model n, Model n⟯ (reconstructed (realization.obj P)).Total :=
+    P.Total ≃ₘ⟮modelWithCorners n, modelWithCorners n⟯ (reconstructed (realization.obj P)).Total :=
   (unitComponent P).hom.diffeomorph
 
 theorem unit_projection (P : Ordinary n G B) (x : P.Total) :

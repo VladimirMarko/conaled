@@ -19,29 +19,29 @@ def language : Language := ⟨fun _ => Empty, Relation⟩
 
 abbrev Carrier (M : Model.{u}) := M.A ⊕ M.B
 
-def isA : Carrier M → Prop
+def IsA : Carrier M → Prop
   | .inl _ => True
   | .inr _ => False
 
-def isB : Carrier M → Prop
+def IsB : Carrier M → Prop
   | .inl _ => False
   | .inr _ => True
 
-def predicate (M : Model.{u}) : Carrier M → Prop
-  | .inl a => M.predicate a
+def Predicate (M : Model.{u}) : Carrier M → Prop
+  | .inl a => M.Predicate a
   | .inr _ => False
 
-def related (M : Model.{u}) : Carrier M → Carrier M → Prop
+def Related (M : Model.{u}) : Carrier M → Carrier M → Prop
   | .inl a, .inl b => M.relation.r a b
   | _, _ => False
 
 instance carrierStructure (M : Model.{u}) : language.Structure (Carrier M) where
   funMap f := nomatch f
   RelMap
-    | .sortA, xs => isA (xs 0)
-    | .sortB, xs => isB (xs 0)
-    | .predicate, xs => predicate M (xs 0)
-    | .related, xs => related M (xs 0) (xs 1)
+    | .sortA, xs => IsA (xs 0)
+    | .sortB, xs => IsB (xs 0)
+    | .predicate, xs => Predicate M (xs 0)
+    | .related, xs => Related M (xs 0) (xs 1)
 
 /-- Sort A quantification is an ordinary Mathlib quantifier with a sort guard. -/
 def allA {α : Type v} {n} (φ : language.BoundedFormula α (n+1)) :
@@ -153,29 +153,29 @@ theorem typed_consequence_iff {α : Type v} (sort : α → OldSort)
  alone cannot supply this Mathlib equivalence. -/
 def oldEquiv {M N : Model.{u}} (a : M.A ≃ N.A) (b : M.B ≃ N.B)
     (hr : ∀ x y, N.relation.r (a x) (a y) ↔ M.relation.r x y)
-    (hp : ∀ x, N.predicate (a x) ↔ M.predicate x) :
+    (hp : ∀ x, N.Predicate (a x) ↔ M.Predicate x) :
     language.Equiv (Carrier M) (Carrier N) where
   toEquiv := Equiv.sumCongr a b
   map_fun' f := nomatch f
   map_rel' r xs := by
     cases r with
     | sortA =>
-      change isA ((Equiv.sumCongr a b) (xs 0)) ↔ isA (xs 0)
-      cases h : xs 0 <;> simp [isA]
+      change IsA ((Equiv.sumCongr a b) (xs 0)) ↔ IsA (xs 0)
+      cases h : xs 0 <;> simp [IsA]
     | sortB =>
-      change isB ((Equiv.sumCongr a b) (xs 0)) ↔ isB (xs 0)
-      cases h : xs 0 <;> simp [isB]
+      change IsB ((Equiv.sumCongr a b) (xs 0)) ↔ IsB (xs 0)
+      cases h : xs 0 <;> simp [IsB]
     | predicate =>
-      change predicate N ((Equiv.sumCongr a b) (xs 0)) ↔ predicate M (xs 0)
-      cases h : xs 0 <;> simp [predicate, hp]
+      change Predicate N ((Equiv.sumCongr a b) (xs 0)) ↔ Predicate M (xs 0)
+      cases h : xs 0 <;> simp [Predicate, hp]
     | related =>
-      change related N ((Equiv.sumCongr a b) (xs 0)) ((Equiv.sumCongr a b) (xs 1)) ↔
-        related M (xs 0) (xs 1)
-      cases h : xs 0 <;> cases k : xs 1 <;> simp [related, hr]
+      change Related N ((Equiv.sumCongr a b) (xs 0)) ((Equiv.sumCongr a b) (xs 1)) ↔
+        Related M (xs 0) (xs 1)
+      cases h : xs 0 <;> cases k : xs 1 <;> simp [Related, hr]
 
 theorem realize_oldEquiv {M N : Model.{u}} (a : M.A ≃ N.A) (b : M.B ≃ N.B)
     (hr : ∀ x y, N.relation.r (a x) (a y) ↔ M.relation.r x y)
-    (hp : ∀ x, N.predicate (a x) ↔ M.predicate x)
+    (hp : ∀ x, N.Predicate (a x) ↔ M.Predicate x)
     {α : Type v} (φ : language.Formula α) (ρ : α → Carrier M) :
     Realize N φ (oldEquiv a b hr hp ∘ ρ) ↔ Realize M φ ρ :=
   StrongHomClass.realize_formula (oldEquiv a b hr hp) φ

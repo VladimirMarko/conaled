@@ -8,15 +8,15 @@ namespace SquareKit.SmoothAlgebra.OpenCover
 open PresentedLocalization PrincipalCover
 variable {n m u v : ℕ} {ι : Type*}
 
-def glue (r : Fin m → Free n) (p : ι → Free n)
+def glue (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i))) (a : Sections r p) : Presentation.Carrier r :=
   (exists_unique r p hs a.val a.property).choose
 
-theorem glue_spec (r : Fin m → Free n) (p : ι → Free n)
+theorem glue_spec (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i))) (a : Sections r p) (i : ι) :
     base r (p i) (glue r p hs a) = a.val i := (exists_unique r p hs a.val a.property).choose_spec.1 i
 
-def descentEquiv (r : Fin m → Free n) (p : ι → Free n)
+def descentEquiv (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i))) : Presentation.Carrier r ≃ Sections r p where
   toFun := restrict r p
   invFun := glue r p hs
@@ -25,7 +25,7 @@ def descentEquiv (r : Fin m → Free n) (p : ι → Free n)
 
 /-- Finite smooth operations act componentwise on compatible sections. -/
 
-theorem glue_act (r : Fin m → Free n) (p : ι → Free n)
+theorem glue_act (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i))) {l : ℕ}
     (f : Operation l) (a : Fin l → Sections r p) :
     glue r p hs (sectionAct r p f a) = act f (fun j => glue r p hs (a j)) := by
@@ -37,7 +37,7 @@ theorem glue_act (r : Fin m → Free n) (p : ι → Free n)
   funext j
   exact (glue_spec r p hs (a j) i).symm
 
-theorem transported_cover (r : Fin m → Free n) (p : ι → Free n) (t : Fin v → Free u) (q : ι → Free u)
+theorem transported_cover (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n) (t : Fin v → freeAlgebra u) (q : ι → freeAlgebra u)
     (h : Hom (Presentation.Carrier r) (Presentation.Carrier t))
     (he : ∀ i, h (Presentation.projection r (p i))=Presentation.projection t (q i))
     (hs : Covers (fun i => Presentation.projection r (p i))) : Covers (fun i => Presentation.projection t (q i)) := by
@@ -45,7 +45,7 @@ theorem transported_cover (r : Fin m → Free n) (p : ι → Free n) (t : Fin v 
 
 /-- Descent commutes with every smooth map of the presented algebras. -/
 
-theorem glue_natural (r : Fin m → Free n) (p : ι → Free n) (t : Fin v → Free u) (q : ι → Free u)
+theorem glue_natural (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n) (t : Fin v → freeAlgebra u) (q : ι → freeAlgebra u)
     (h : Hom (Presentation.Carrier r) (Presentation.Carrier t))
     (he : ∀ i, h (Presentation.projection r (p i))=Presentation.projection t (q i))
     (hs : Covers (fun i => Presentation.projection r (p i))) (a : Sections r p) :
@@ -59,12 +59,12 @@ theorem glue_natural (r : Fin m → Free n) (p : ι → Free n) (t : Fin v → F
   rw [glue_spec] at hb
   exact hb.symm
 
-private theorem rep_cover (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (hs : Covers s) :
+private theorem rep_cover (r : Fin m → freeAlgebra n) (s : ι → Presentation.Carrier r) (hs : Covers s) :
     Covers (fun i => Presentation.projection r (representative r (s i))) := by simpa using hs
 
 /-- Scalar descent on all-element localizations and their actual overlaps. -/
 
-def atDescentEquiv (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (hs : Covers s) :
+def atDescentEquiv (r : Fin m → freeAlgebra n) (s : ι → Presentation.Carrier r) (hs : Covers s) :
     Presentation.Carrier r ≃ AtSections r s :=
   (descentEquiv r (fun i => representative r (s i)) (rep_cover r s hs)).trans
     {toFun := fun a => ⟨a.val,(atCompatible_iff r s a.val).mpr a.property⟩
@@ -72,23 +72,23 @@ def atDescentEquiv (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (h
      left_inv := fun _ => rfl
      right_inv := fun _ => rfl}
 
-theorem at_glue_spec (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (hs : Covers s)
+theorem at_glue_spec (r : Fin m → freeAlgebra n) (s : ι → Presentation.Carrier r) (hs : Covers s)
     (a : AtSections r s) (i : ι) : atBase r (s i) ((atDescentEquiv r s hs).symm a)=a.val i :=
   glue_spec r (fun j => representative r (s j)) (rep_cover r s hs)
     ⟨a.val,(atCompatible_iff r s a.val).mp a.property⟩ i
 
-theorem at_separated (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (hs : Covers s)
+theorem at_separated (r : Fin m → freeAlgebra n) (s : ι → Presentation.Carrier r) (hs : Covers s)
     (a b : Presentation.Carrier r) (he : ∀ i, atBase r (s i) a=atBase r (s i) b) : a=b :=
   separated r (fun i => representative r (s i)) (rep_cover r s hs) a b he
 
-theorem at_restrict_act (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (hs : Covers s)
+theorem at_restrict_act (r : Fin m → freeAlgebra n) (s : ι → Presentation.Carrier r) (hs : Covers s)
     {l : ℕ} (f : Operation l) (a : Fin l → Presentation.Carrier r) :
     atDescentEquiv r s hs (act f a) = atSectionAct r s f (fun j => atDescentEquiv r s hs (a j)) := by
   apply Subtype.ext
   funext i
   exact (atBase r (s i)).map_act f a
 
-theorem at_glue_act (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (hs : Covers s)
+theorem at_glue_act (r : Fin m → freeAlgebra n) (s : ι → Presentation.Carrier r) (hs : Covers s)
     {l : ℕ} (f : Operation l) (a : Fin l → AtSections r s) :
     (atDescentEquiv r s hs).symm (atSectionAct r s f a) =
       act f (fun j => (atDescentEquiv r s hs).symm (a j)) := by
@@ -100,8 +100,8 @@ theorem at_glue_act (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (
   funext j
   exact (at_glue_spec r s hs (a j) i).symm
 
-theorem at_glue_natural (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (hs : Covers s)
-    (t : Fin v → Free u) (h : Hom (Presentation.Carrier r) (Presentation.Carrier t)) (a : AtSections r s) :
+theorem at_glue_natural (r : Fin m → freeAlgebra n) (s : ι → Presentation.Carrier r) (hs : Covers s)
+    (t : Fin v → freeAlgebra u) (h : Hom (Presentation.Carrier r) (Presentation.Carrier t)) (a : AtSections r s) :
     h ((atDescentEquiv r s hs).symm a) =
       (atDescentEquiv t (fun i => h (s i)) (map_covers h s hs)).symm (atTransport r s t h a) := by
   apply at_separated t (fun i => h (s i)) (map_covers h s hs)

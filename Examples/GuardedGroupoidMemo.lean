@@ -154,7 +154,7 @@ def termFamily : Value M.toStructuralModel → Value M.toStructuralModel
   | _ => .invalid
 
 theorem family_of_eval {g a t : Contextual.Expression V} (ht : Tm (Ω := Ω) g a t)
-    (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+    (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
     (G : M.Context) (A : M.Family G) (v : M.Section G A)
     (he : t.eval (Contextual.algebra M) ρ = .term G A v) :
     a.eval (Contextual.algebra M) ρ = .family G A := by
@@ -383,7 +383,7 @@ def reindex {Δ σ : Contextual.Expression V} (hσ : Sub (Ω := Ω) Δ F.Γ σ)
   element := R.element.reindex s
   element_eval := subTm_eval M ρ F.u σ R.context H _ ⟨R.element⟩ ⟨s⟩ R.element_eval hs
 
-variable (hΩ : ∀ a ∈ Ω, a.eval (Contextual.algebra (Instance.fullModel C B)) ρ)
+variable (hΩ : ∀ a ∈ Ω, a.Eval (Contextual.algebra (Instance.fullModel C B)) ρ)
 
 def selectedValue : Section (primitiveFiber B R.z) :=
   (transportValue M (constant C) (DerivedSemantics.Groupoid.genericFiber C B R.context)
@@ -584,7 +584,7 @@ def environment : Fin 2 → Value IS :=
 
 theorem empty_eval : Contextual.empty.eval (Contextual.algebra IM) environment = .context (IS).empty := rfl
 
-theorem inputs : ∀ a ∈ premises, a.eval (Contextual.algebra IM) environment := by
+theorem inputs : ∀ a ∈ premises, a.Eval (Contextual.algebra IM) environment := by
   intro a ha
   simp only [premises, List.mem_cons, List.not_mem_nil, or_false] at ha
   rcases ha with rfl | rfl

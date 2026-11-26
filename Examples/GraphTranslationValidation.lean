@@ -138,11 +138,11 @@ theorem roundTrip_checked : check 10000 roundTrip `GraphValidated.roundTrip
     GraphPrimitiveEnvironment.declarations (payload `GraphValidated.roundTrip roundTripCertificate)
     roundTripCertificate = .ok () := check_payload _ rfl (by decide)
 
-example : roundTrip.denote.{0} :=
+example : roundTrip.Denote.{0} :=
   compose_preserves (check_sound direct_checked) (check_sound backward_checked)
 
 example : artifactRep.{0}.Rel
-    (transformed.type, (transformed.value? true).getD (.sort .zero)) forwardSource.denote.{0} :=
+    (transformed.type, (transformed.value? true).getD (.sort .zero)) forwardSource.Denote.{0} :=
   validatedArtifactSquare.{0}.preserves
     (r := ⟨forwardSource, `GraphValidated.transformed, GraphPrimitiveEnvironment.declarations, transformed⟩)
     ⟨transformed_preserves, rfl⟩

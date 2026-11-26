@@ -6,12 +6,12 @@ open CategoryTheory ElementFamilies
 universe u v w
 variable {C : Type u} [Category.{v} C] {F : C ⥤ Type (max u v)}
 
-abbrev Output (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
-    (x : F.Elements) := (a : A.obj x) → B.obj ((SplitPresheaf.Ext A).elementsMk x.obj ⟨x.val,a⟩)
+abbrev Output (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
+    (x : F.Elements) := (a : A.obj x) → B.obj ((SplitPresheaf.extension A).elementsMk x.obj ⟨x.val,a⟩)
 
-def bodyValue (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+def bodyValue (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm B) (x : F.Elements) : Output A B x :=
-  fun a => t.val ((SplitPresheaf.Ext A).elementsMk x.obj ⟨x.val,a⟩)
+  fun a => t.val ((SplitPresheaf.extension A).elementsMk x.obj ⟨x.val,a⟩)
 
 theorem restrictions_id (x : F.Elements) : (restrictions F x).obj (Under.mk (𝟙 x.obj)) = x := by
   change F.elementsMk x.obj (F.map (𝟙 x.obj) x.val) = x
@@ -19,7 +19,7 @@ theorem restrictions_id (x : F.Elements) : (restrictions F x).obj (Under.mk (�
   rfl
 
 /-- Evaluation reads the identity component after the proved identity transport. -/
-def evaluate (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+def evaluate (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (x : F.Elements) (t : Value A B x) : Output A B x :=
   cast (congrArg (Output A B) (restrictions_id x))
     (fun a => t.val ((restrictions F x ⋙ A).elementsMk (Under.mk (𝟙 x.obj)) a))
@@ -27,33 +27,33 @@ def evaluate (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A
 theorem cast_dependent {X : Sort*} {P : X → Sort*} (f : ∀ x, P x) {x y : X} (h : x = y) :
     cast (congrArg P h) (f x) = f y := by cases h; rfl
 
-theorem evaluate_lam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+theorem evaluate_lam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm B) (x : F.Elements) : evaluate A B x ((lam A t).val x) = bodyValue A t x :=
   cast_dependent (bodyValue A t) (restrictions_id x)
 
 
 /-- Read one object of a complete restriction diagram. -/
 def readDiagram {D : Type*} [Category D] (A : SplitPresheaf.Ty F)
-    (B : SplitPresheaf.Ty (SplitPresheaf.Ext A)) (K : D ⥤ F.Elements)
+    (B : SplitPresheaf.Ty (SplitPresheaf.extension A)) (K : D ⥤ F.Elements)
     (k : D) (t : Sections (diagram A B K)) : Output A B (K.obj k) :=
   fun a => t.val ((K ⋙ A).elementsMk k a)
 
 theorem readDiagram_heq {D : Type*} [Category D] (A : SplitPresheaf.Ty F)
-    (B : SplitPresheaf.Ty (SplitPresheaf.Ext A)) {K L : D ⥤ F.Elements} (h : K = L)
+    (B : SplitPresheaf.Ty (SplitPresheaf.extension A)) {K L : D ⥤ F.Elements} (h : K = L)
     (k : D) {t : Sections (diagram A B K)} {s : Sections (diagram A B L)} (ht : HEq t s) :
     HEq (readDiagram A B K k t) (readDiagram A B L k s) := by cases h; cases ht; rfl
 
 theorem readDiagram_index_heq {D : Type*} [Category D] (A : SplitPresheaf.Ty F)
-    (B : SplitPresheaf.Ty (SplitPresheaf.Ext A)) (K : D ⥤ F.Elements)
+    (B : SplitPresheaf.Ty (SplitPresheaf.extension A)) (K : D ⥤ F.Elements)
     {k l : D} (h : k = l) (t : Sections (diagram A B K)) :
     HEq (readDiagram A B K k t) (readDiagram A B K l t) := by cases h; rfl
 
-theorem evaluate_heq (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem evaluate_heq (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     (x : F.Elements) (t : Value A B x) :
     HEq (evaluate A B x t) (readDiagram A B (restrictions F x) (Under.mk (𝟙 x.obj)) t) :=
   cast_heq _ _
 
-theorem evaluate_restrict_heq (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem evaluate_restrict_heq (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y : F.Elements} (f : x ⟶ y) (t : Value A B x) :
     HEq (evaluate A B y (restrict A B f t))
       (readDiagram A B (restrictions F x) (Under.mk f.hom) t) := by
@@ -66,18 +66,18 @@ theorem evaluate_restrict_heq (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (Sp
 
 /-- A base/input arrow induces the corresponding arrow between dependent pairs. -/
 def pairArrow (A : SplitPresheaf.Ty F) {x y : F.Elements} (f : x ⟶ y) (a : A.obj x) :
-    (SplitPresheaf.Ext A).elementsMk x.obj ⟨x.val,a⟩ ⟶
-      (SplitPresheaf.Ext A).elementsMk y.obj ⟨y.val,A.map f a⟩ :=
+    (SplitPresheaf.extension A).elementsMk x.obj ⟨x.val,a⟩ ⟶
+      (SplitPresheaf.extension A).elementsMk y.obj ⟨y.val,A.map f a⟩ :=
   (totalDiagram A (𝟭 F.Elements)).map (Functor.Elements.homMk
     (x := (𝟭 F.Elements ⋙ A).elementsMk x a)
     (y := (𝟭 F.Elements ⋙ A).elementsMk y (A.map f a)) f rfl)
 
 /-- Compatibility includes the dependent result map, not just base restriction. -/
-def Compatible (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+def Compatible (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y : F.Elements} (f : x ⟶ y) (s : Output A B x) (t : Output A B y) : Prop :=
   ∀ a, B.map (pairArrow A f a) (s a) = t (A.map f a)
 
-theorem compatible_cast (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem compatible_cast (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y x' y' : F.Elements} (hx : x = x') (hy : y = y') {f : x ⟶ y} {g : x' ⟶ y'}
     (hf : HEq f g) {s : Output A B x} {t : Output A B y}
     {s' : Output A B x'} {t' : Output A B y'} (hs : HEq s s') (ht : HEq t t')
@@ -86,7 +86,7 @@ theorem compatible_cast (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPre
   exact h
 
 theorem readDiagram_natural {D : Type*} [Category D] (A : SplitPresheaf.Ty F)
-    (B : SplitPresheaf.Ty (SplitPresheaf.Ext A)) (K : D ⥤ F.Elements)
+    (B : SplitPresheaf.Ty (SplitPresheaf.extension A)) (K : D ⥤ F.Elements)
     (t : Sections (diagram A B K)) {k l : D} (f : k ⟶ l) :
     Compatible A B (K.map f) (readDiagram A B K k t) (readDiagram A B K l t) := by
   intro a
@@ -98,7 +98,7 @@ theorem elements_hom_hext {x y x' y' : F.Elements} (hx : x = x') (hy : y = y')
   cases hx; cases hy
   exact heq_of_eq (Functor.Elements.hom_ext (eq_of_heq h))
 
-theorem evaluate_natural (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem evaluate_natural (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y : F.Elements} (f : x ⟶ y) (t : Value A B x) :
     Compatible A B f (evaluate A B x t) (evaluate A B y (restrict A B f t)) := by
   let i : Under x.obj := Under.mk (𝟙 x.obj)
@@ -113,11 +113,11 @@ theorem evaluate_natural (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPr
     (readDiagram_natural A B (restrictions F x) t k)
 
 
-theorem compatible_total (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A))
+theorem compatible_total (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A))
     {x y : F.Elements} (f : x ⟶ y) {s : Output A B x} {t : Output A B y}
     (h : Compatible A B f s t) (a : A.obj x) (b : A.obj y) (hb : A.map f a = b)
-    (g : (SplitPresheaf.Ext A).elementsMk x.obj ⟨x.val,a⟩ ⟶
-      (SplitPresheaf.Ext A).elementsMk y.obj ⟨y.val,b⟩) (hg : g.hom = f.hom) :
+    (g : (SplitPresheaf.extension A).elementsMk x.obj ⟨x.val,a⟩ ⟶
+      (SplitPresheaf.extension A).elementsMk y.obj ⟨y.val,b⟩) (hg : g.hom = f.hom) :
     B.map g (s a) = t b := by
   cases hb
   have he : g = pairArrow A f a := Functor.Elements.hom_ext hg
@@ -125,7 +125,7 @@ theorem compatible_total (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPr
   exact h a
 
 /-- Uncurrying applies a natural function to the actual dependent input. -/
-def unlam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+def unlam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm (pi A B)) : SplitPresheaf.Tm B where
   val z := evaluate A B ((SplitPresheaf.p A).mapElements.obj z)
     (t.val ((SplitPresheaf.p A).mapElements.obj z)) z.val.2
@@ -139,13 +139,13 @@ def unlam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
 
 
 
-@[simp] theorem beta (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+@[simp] theorem beta (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm B) : unlam A (lam A t) = t := by
   apply SplitPresheaf.Tm.ext
   funext x
   exact congrFun (evaluate_lam A t ((SplitPresheaf.p A).mapElements.obj x)) x.val.2
 
-@[simp] theorem eta (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
+@[simp] theorem eta (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.extension A)}
     (t : SplitPresheaf.Tm (pi A B)) : lam A (unlam A t) = t := by
   apply SplitPresheaf.Tm.ext
   funext x
@@ -158,7 +158,7 @@ def unlam (A : SplitPresheaf.Ty F) {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)}
   exact congrFun (eq_of_heq hh) y.val
 
 /-- The natural dependent term equivalence, with no pointwise-function assumption. -/
-def terms (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.Ext A)) :
+def terms (A : SplitPresheaf.Ty F) (B : SplitPresheaf.Ty (SplitPresheaf.extension A)) :
     SplitPresheaf.Tm B ≃ SplitPresheaf.Tm (pi A B) where
   toFun := lam A
   invFun := unlam A
@@ -177,7 +177,7 @@ theorem tm_hext {D : Type*} [Category D] {G : D ⥤ Type w}
 
 /-- Abstraction respects substitution, with the proved type equality made explicit. -/
 theorem lam_sub_heq {G : C ⥤ Type (max u v)} (A : SplitPresheaf.Ty F)
-    {B : SplitPresheaf.Ty (SplitPresheaf.Ext A)} (t : SplitPresheaf.Tm B) (σ : G ⟶ F) :
+    {B : SplitPresheaf.Ty (SplitPresheaf.extension A)} (t : SplitPresheaf.Tm B) (σ : G ⟶ F) :
     HEq (SplitPresheaf.tmSub (lam A t) σ)
       (lam (SplitPresheaf.tySub A σ) (SplitPresheaf.tmSub t (SplitPresheaf.lift A σ))) := by
   apply tm_hext (pi_sub A B σ).symm

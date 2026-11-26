@@ -17,7 +17,7 @@ def UniformRealizable {n : Nat} (q : State n) : Prop := ∃ e, StateRealizer e q
 
 def stateAssembly (n : Nat) : Assembly where
   Carrier := {q : State n // UniformRealizable q}
-  realizes e q := StateRealizer e q.val
+  Realizes e q := StateRealizer e q.val
   inhabited q := q.property
 
 noncomputable def coordinate {n : Nat} (q : State n) (k : Nat) : Option Nat := by

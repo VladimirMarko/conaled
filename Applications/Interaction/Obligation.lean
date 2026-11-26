@@ -106,20 +106,20 @@ inductive Event (R : Type u) where
   | observation (known : Bool)
 
 /-- Mathematical event meanings, defined separately from executable handlers. -/
-def meaning {R : Type u} : Event R → State R → State R → Prop
+def Meaning {R : Type u} : Event R → State R → State R → Prop
   | .accept r => AcceptSpec r
   | .lease => LeaseSpec
   | .effect => EffectSpec
   | .observation known => ObservationSpec known
 
-def handler {R : Type u} : Event R → State R → State R → Prop
+def Handler {R : Type u} : Event R → State R → State R → Prop
   | .accept r, s, t => tryAccept r s = some t
   | .lease, s, t => t = lease s
   | .effect, s, t => t = execute s
   | .observation known, s, t => t = observe known s
 
 theorem handler_sound {R : Type u} (e : Event R) (s t : State R)
-    (h : handler e s t) : meaning e s t := by
+    (h : Handler e s t) : Meaning e s t := by
   cases e with
   | accept r => exact (tryAccept_iff r s t).mp h
   | lease => subst t; exact ⟨rfl, rfl, rfl, rfl, rfl⟩
@@ -127,7 +127,7 @@ theorem handler_sound {R : Type u} (e : Event R) (s t : State R)
   | observation known => subst t; exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
 theorem meaning_bound {R : Type u} (r : R) (e : Event R) :
-    Stable (meaning e) (Bound r) := by
+    Stable (Meaning e) (Bound r) := by
   intro s t hs h
   cases e with
   | accept q =>
@@ -139,22 +139,22 @@ theorem meaning_bound {R : Type u} (r : R) (e : Event R) :
 
 /-- All scripted endpoint contracts transfer from independent meanings. -/
 theorem script_safe {R : Type u} {script : List (Event R)} {P Q : State R → Prop}
-    (h : Safe P (Events.interpret meaning script) Q) :
-    Safe P (Events.interpret handler script) Q :=
+    (h : Safe P (Events.Interpret Meaning script) Q) :
+    Safe P (Events.Interpret Handler script) Q :=
   Events.interpret_safe handler_sound h
 
 theorem script_bound {R : Type u} (r : R) (script : List (Event R)) :
-    Safe (Bound r) (Events.interpret handler script) (Bound r) :=
+    Safe (Bound r) (Events.Interpret Handler script) (Bound r) :=
   script_safe (Events.interpret_invariant (meaning_bound r) script)
 
 /-- Direct relation interface for acceptance followed by a lease. -/
-def direct {R : Type u} (r : R) : State R → State R → Prop :=
+def Direct {R : Type u} (r : R) : State R → State R → Prop :=
   Relation.Comp (AcceptSpec r) LeaseSpec
 
 def Leased {R : Type u} (r : R) (s : State R) : Prop :=
   Bound r s ∧ s.attempts = 1 ∧ s.effects = 0 ∧ s.settled = false
 
-theorem direct_contract {R : Type u} (r : R) : Safe Ready (direct r) (Leased r) := by
+theorem direct_contract {R : Type u} (r : R) : Safe Ready (Direct r) (Leased r) := by
   rintro s t _ ⟨a, ⟨_, receipt, intent, attempts, effects, settled⟩,
     tr, ti, ta, te, ts⟩
   exact ⟨⟨tr.trans receipt, ti.trans intent⟩,
@@ -162,12 +162,12 @@ theorem direct_contract {R : Type u} (r : R) : Safe Ready (direct r) (Leased r) 
 
 /-- Interpreter syntax agrees with the independently written direct interface. -/
 theorem script_meaning {R : Type u} (r : R) :
-    Events.interpret meaning [.accept r, .lease] = direct r := by
+    Events.Interpret Meaning [.accept r, .lease] = Direct r := by
   funext s t
-  simp [Events.interpret, meaning, direct, Relation.Comp]
+  simp [Events.Interpret, Meaning, Direct, Relation.Comp]
 
 theorem event_contract {R : Type u} (r : R) :
-    Safe Ready (Events.interpret handler [.accept r, .lease]) (Leased r) := by
+    Safe Ready (Events.Interpret Handler [.accept r, .lease]) (Leased r) := by
   apply script_safe
   rw [script_meaning]
   exact direct_contract r

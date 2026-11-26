@@ -192,7 +192,7 @@ end Elimination
   | inr v => exact unzero_zero (f v)
 
 /-- The symbol image for G is the actual first/second binding template above. -/
-def Goperation {V : Type} (s : ProjectionSymbol)
+def gOperation {V : Type} (s : ProjectionSymbol)
     (a : (i : Fin (projectionSignature.arity s)) →
       EExpr (Fin (projectionSignature.binds s i) ⊕ V)) : EExpr V :=
   match s with
@@ -202,13 +202,13 @@ def Goperation {V : Type} (s : ProjectionSymbol)
   | .snd => Elimination.second (unzero (a 0)) (a 1) (unzero (a 2))
   | .declaration decl => .app (.declaration decl) a
 
-def Goperations : OperationMap projectionSignature eliminationSignature where
-  operation := Goperation
+def gOperations : OperationMap projectionSignature eliminationSignature where
+  operation := gOperation
   natural := by
     intro V W f s a
-    cases s <;> simp [Goperation, Expr.subst]
+    cases s <;> simp [gOperation, Expr.subst]
 
-def G : SyntaxMap projectionSignature eliminationSignature := .ofOperations Goperations
+def G : SyntaxMap projectionSignature eliminationSignature := .ofOperations gOperations
 
 theorem G_two_substitutions (e : PExpr V) (σ : V → PExpr W) (τ : W → PExpr X) :
     Expr.subst (fun w => G.act (τ w)) (G.act (Expr.subst σ e)) =

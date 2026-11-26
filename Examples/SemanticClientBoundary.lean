@@ -61,7 +61,7 @@ theorem replacement {W V U : Type u} (f : W → V) (g : V → U)
   | h x => rfl
 
 /-- Indexing by a word retains the entire selected witness type. -/
-def parseHandle {α : Type u} (P : LanguageWitnesses.Language α) (w : List α) :=
+def ParseHandle {α : Type u} (P : LanguageWitnesses.Language α) (w : List α) :=
   Handle (redundant (P w))
 
 theorem selected_parse {α : Type u} (P : LanguageWitnesses.Language α)

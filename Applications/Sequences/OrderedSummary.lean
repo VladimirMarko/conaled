@@ -110,25 +110,25 @@ theorem dlist_batch_decode (xs : List A) :
     batch_decode Batteries.DList.toList (fun _ => True) Batteries.DList.push .empty trivial
       (fun _ _ _ => trivial) (fun r a _ => Batteries.DList.toList_push a r) xs
 
-abbrev listValid (measure : A → M) := Valid (fun (_ : List A) => True) id measure
-abbrev dlistValid (measure : A → M) :=
+abbrev ListValid (measure : A → M) := Valid (fun (_ : List A) => True) id measure
+abbrev DlistValid (measure : A → M) :=
   Valid (fun (_ : Batteries.DList A) => True) Batteries.DList.toList measure
 
-theorem list_empty (measure : A → M) : listValid measure ([], 1) :=
+theorem list_empty (measure : A → M) : ListValid measure ([], 1) :=
   empty_valid _ _ _ _ trivial rfl
 
 theorem list_append (measure : A → M) {x y : List A × M}
-    (hx : listValid measure x) (hy : listValid measure y) :
-    listValid measure (appendCache List.append x y) :=
+    (hx : ListValid measure x) (hy : ListValid measure y) :
+    ListValid measure (appendCache List.append x y) :=
   append_valid _ _ _ _ (fun _ _ _ _ => trivial) (fun _ _ _ _ => rfl) hx hy
 
 theorem dlist_empty (measure : A → M) :
-    dlistValid measure (Batteries.DList.empty, 1) :=
+    DlistValid measure (Batteries.DList.empty, 1) :=
   empty_valid _ _ _ _ trivial Batteries.DList.toList_empty
 
 theorem dlist_append (measure : A → M) {x y : Batteries.DList A × M}
-    (hx : dlistValid measure x) (hy : dlistValid measure y) :
-    dlistValid measure (appendCache (· ++ ·) x y) :=
+    (hx : DlistValid measure x) (hy : DlistValid measure y) :
+    DlistValid measure (appendCache (· ++ ·) x y) :=
   append_valid _ _ _ _ (fun _ _ _ _ => trivial)
     (fun _ _ _ _ => Batteries.DList.toList_append _ _) hx hy
 

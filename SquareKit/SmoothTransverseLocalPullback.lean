@@ -11,7 +11,7 @@ open CategoryTheory SmoothAlgebra SmoothPresentationSite Localization
 
 variable (U V : Domain)
 
-def defining : Free (U.dimension + V.dimension) :=
+def defining : freeAlgebra (U.dimension + V.dimension) :=
   SmoothAlgebra.Coordinates.left U.dimension V.dimension U.defining *
     SmoothAlgebra.Coordinates.right U.dimension V.dimension V.defining
 
@@ -52,15 +52,15 @@ theorem snd_base (i : Fin V.dimension) :
 variable {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
   (a : Hom (Principal U.defining) B) (b : Hom (Principal V.defining) B)
 
-def coordinates : Hom (Free (U.dimension + V.dimension)) B :=
+def coordinates : Hom (freeAlgebra (U.dimension + V.dimension)) B :=
   SmoothAlgebra.Coordinates.pair (a.comp (principalBase U.defining))
     (b.comp (principalBase V.defining))
 
 theorem coordinates_unit : IsUnit (coordinates U V a b (defining U V)) := by
-  have hl := congrArg (fun h : Hom (Free U.dimension) B => h U.defining)
+  have hl := congrArg (fun h : Hom (freeAlgebra U.dimension) B => h U.defining)
     (SmoothAlgebra.Coordinates.pair_left (a.comp (principalBase U.defining))
       (b.comp (principalBase V.defining)))
-  have hr := congrArg (fun h : Hom (Free V.dimension) B => h V.defining)
+  have hr := congrArg (fun h : Hom (freeAlgebra V.dimension) B => h V.defining)
     (SmoothAlgebra.Coordinates.pair_right (a.comp (principalBase U.defining))
       (b.comp (principalBase V.defining)))
   change IsUnit ((coordinates U V a b).toAlgHom (_ * _))
@@ -84,7 +84,7 @@ theorem pair_fst : (pair U V a b).comp (Localization.pullback (fst U V)) = a := 
   intro i
   change pair U V a b (Localization.pullback (fst U V) (principalBase U.defining (generator i))) = _
   rw [fst_base]
-  have h := congrArg (fun k : Hom (Free (U.dimension + V.dimension)) B =>
+  have h := congrArg (fun k : Hom (freeAlgebra (U.dimension + V.dimension)) B =>
     k (generator (Fin.castAdd V.dimension i))) (pair_base U V a b)
   simpa only [Hom.comp, Function.comp_apply, coordinates, SmoothAlgebra.Coordinates.pair,
     evaluate_generator, Fin.addCases_left] using h
@@ -95,7 +95,7 @@ theorem pair_snd : (pair U V a b).comp (Localization.pullback (snd U V)) = b := 
   intro i
   change pair U V a b (Localization.pullback (snd U V) (principalBase V.defining (generator i))) = _
   rw [snd_base]
-  have h := congrArg (fun k : Hom (Free (U.dimension + V.dimension)) B =>
+  have h := congrArg (fun k : Hom (freeAlgebra (U.dimension + V.dimension)) B =>
     k (generator (Fin.natAdd U.dimension i))) (pair_base U V a b)
   simpa only [Hom.comp, Function.comp_apply, coordinates, SmoothAlgebra.Coordinates.pair,
     evaluate_generator, Fin.addCases_right] using h
@@ -338,8 +338,8 @@ theorem normalParameterMap_second_agreement (v : Points (chartDomain A.chart)) :
   rw [A.normalParameterMap_apply, (split m n).apply_symm_apply, A.inverse_val hv]
   rfl
 
-variable [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N] [IsManifold (Model p) ∞ P]
-  (hf : ContMDiff (Model m) (Model p) ∞ f) (hg : ContMDiff (Model n) (Model p) ∞ g)
+variable [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N] [IsManifold (modelWithCorners p) ∞ P]
+  (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f) (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
 
 def ambientFirstRestriction : sourceDomain A.finiteChart ⟶
     subdomain (chartDomain (chartAt (Space m) q.val.1))
@@ -361,7 +361,7 @@ def ambientTargetSecond : sourceDomain A.finiteChart ⟶ chartDomain (chartAt (S
   A.ambientSecondRestriction hg ≫ coordinateMap (chartAt (Space p) (f q.val.1)) g
     (IsManifold.chart_mem_maximalAtlas q.val.2) (IsManifold.chart_mem_maximalAtlas (f q.val.1)) hg
 
-omit [IsManifold (Model n) ∞ N] in
+omit [IsManifold (modelWithCorners n) ∞ N] in
 theorem ambientTargetFirst_agreement (x : Points (sourceDomain A.finiteChart)) :
     f (chartPoint (chartAt (Space m) q.val.1) ((show EuclideanOpen.Map _ _ from A.ambientFirst) x)) =
       chartPoint (chartAt (Space p) (f q.val.1)) ((show EuclideanOpen.Map _ _ from A.ambientTargetFirst hf) x) :=
@@ -369,7 +369,7 @@ theorem ambientTargetFirst_agreement (x : Points (sourceDomain A.finiteChart)) :
     (IsManifold.chart_mem_maximalAtlas q.val.1) (IsManifold.chart_mem_maximalAtlas (f q.val.1)) hf
     ((show EuclideanOpen.Map _ _ from A.ambientFirstRestriction hf) x)
 
-omit [IsManifold (Model m) ∞ M] in
+omit [IsManifold (modelWithCorners m) ∞ M] in
 theorem ambientTargetSecond_agreement (x : Points (sourceDomain A.finiteChart)) :
     g (chartPoint (chartAt (Space n) q.val.2) ((show EuclideanOpen.Map _ _ from A.ambientSecond) x)) =
       chartPoint (chartAt (Space p) (f q.val.1)) ((show EuclideanOpen.Map _ _ from A.ambientTargetSecond hg) x) :=
@@ -437,8 +437,8 @@ theorem normalDifference_zero {B : Type*} [CommRing B] [Algebra ℝ B] [Structur
   change 0 = w.toAlgHom ((Localization.pullback (Product.toPoint (sourceDomain A.finiteChart))).toAlgHom 0)
   rw [map_zero, map_zero]
 
-omit [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N]
-    [IsManifold (Model p) ∞ P] in
+omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N]
+    [IsManifold (modelWithCorners p) ∞ P] in
 theorem normalParameterMap_cancel {B : SmoothPresentationSite.Code}
     (a b : Hom (Localization.Principal (chartDomain A.chart).defining)
       (SmoothPresentationSite.Carrier B))

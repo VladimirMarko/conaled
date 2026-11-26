@@ -70,13 +70,13 @@ def localComparison : (baseEquivalence a A).functor ⋙ restriction (SplitSheaf.
 
 def restrictedFiber : SmoothQuotientDeformations.Cech.family (a := a) (A := A) ⟶
     ((baseEquivalence a A).functor ⋙ restriction (SplitSheaf.p A)) ⋙
-      family a (SplitSheaf.Ext A) :=
+      family a (SplitSheaf.extension A) :=
   (fiberComparison a A).hom ≫ whiskerLeft (baseEquivalence a A).functor
     (restrictionFamily (SplitSheaf.p A))
 
 /-- Fiber recovery uses the selected local comparison, not equality of objects. -/
 theorem localComparison_square : restrictedFiber a A ≫
-    whiskerRight (localComparison a A).hom (family a (SplitSheaf.Ext A)) =
+    whiskerRight (localComparison a A).hom (family a (SplitSheaf.extension A)) =
       SmoothQuotientCechLocal.localFiber a A := by
   apply NatTrans.ext
   funext d
@@ -90,7 +90,7 @@ def contextLocalComparison (hΓ : Typed.CtxDeriv.{2} Γ γ) :
       (GroupoidModel.Comparison.alignedUniverseSignature
         ((baseEquivalence a A).functor ⋙ restriction (SplitSheaf.p A))
         (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
-        (family a (SplitSheaf.Ext A)) (restrictedFiber a A)) hΓ ≅
+        (family a (SplitSheaf.extension A)) (restrictedFiber a A)) hΓ ≅
     GroupoidModel.Comparison.generatedContextMap (SmoothQuotientCechLocal.signature a A) hΓ :=
   GroupoidModel.Comparison.alignedContextComparison (localComparison a A) _ _
     (restrictedFiber a A) (SmoothQuotientCechLocal.localFiber a A)

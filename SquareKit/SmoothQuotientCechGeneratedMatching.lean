@@ -13,7 +13,7 @@ variable {H : Type} [Group H] {M X Y Z : Sheaf topology Type}
 variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 
 theorem localMap_twice (hΓ : Typed.CtxDeriv.{2} Γ γ)
-    (f : Y ⟶ SplitSheaf.Ext A) (g : Z ⟶ Y) :
+    (f : Y ⟶ SplitSheaf.extension A) (g : Z ⟶ Y) :
     (localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f) ⋙
       SmoothQuotientGeneratedMatching.restriction a hΓ g =
     parameterMap a A hΓ (g ≫ f) := by

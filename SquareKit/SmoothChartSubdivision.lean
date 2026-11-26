@@ -7,12 +7,12 @@ open CategoryTheory SquareKit.SmoothAlgebra
 namespace SquareKit.EuclideanOpen.Charts
 variable {M : Type} (A : Charts M)
 
-def subdivision (K : A.Index → Type) (g : ∀ i, K i → Free (A.domain i).dimension) : Charts M where
+def subdivision (K : A.Index → Type) (g : ∀ i, K i → freeAlgebra (A.domain i).dimension) : Charts M where
   Index := Σ i, K i
   domain p := subdomain (A.domain p.1) (g p.1 p.2)
   coordinate p x := A.coordinate p.1 ((show EuclideanOpen.Map _ _ from subInclusion _ _) x)
 
-def subdivisionRefinement (K : A.Index → Type) (g : ∀ i, K i → Free (A.domain i).dimension)
+def subdivisionRefinement (K : A.Index → Type) (g : ∀ i, K i → freeAlgebra (A.domain i).dimension)
     (hc : ∀ i, Covers (A.domain i) (g i)) : Refinement (A.subdivision K g) A where
   map := ⟨id, Sigma.fst, fun _p => subInclusion _ _, fun _ _ => rfl⟩
   point_identity := rfl
@@ -23,11 +23,11 @@ def subdivisionRefinement (K : A.Index → Type) (g : ∀ i, K i → Free (A.dom
   lift _ _ := 𝟙 _
   agreement _ _ _ := rfl
 
-def subdivisionIso (K : A.Index → Type) (g : ∀ i, K i → Free (A.domain i).dimension)
+def subdivisionIso (K : A.Index → Type) (g : ∀ i, K i → freeAlgebra (A.domain i).dimension)
     (hc : ∀ i, Covers (A.domain i) (g i)) : (A.subdivision K g).realization ≅ A.realization :=
   (A.subdivisionRefinement K g hc).iso
 
-theorem subdivision_chart (K : A.Index → Type) (g : ∀ i, K i → Free (A.domain i).dimension)
+theorem subdivision_chart (K : A.Index → Type) (g : ∀ i, K i → freeAlgebra (A.domain i).dimension)
     (hc : ∀ i, Covers (A.domain i) (g i)) (i : A.Index) (k : K i) :
     (A.subdivision K g).chart ⟨i,k⟩ ≫ (A.subdivisionIso K g hc).hom =
       embedding.map (subInclusion (A.domain i) (g i k)) ≫ A.chart i :=

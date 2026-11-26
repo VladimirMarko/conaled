@@ -134,12 +134,12 @@ theorem lookup_insert_other (key query : PosNum) (value : ν) (table : Table ν)
   look_ins_other table.1 key query value table.2 different
 
 /-- The source invariant is deliberately trivial for this representation. -/
-def isTrie (_table : Table ν) : Prop := True
+def IsTrie (_table : Table ν) : Prop := True
 
-theorem empty_isTrie (default : ν) : isTrie (empty default) := trivial
+theorem empty_isTrie (default : ν) : IsTrie (empty default) := trivial
 
 theorem insert_isTrie (key : PosNum) (value : ν) (table : Table ν)
-    (_valid : isTrie table) : isTrie (insert key value table) := trivial
+    (_valid : IsTrie table) : IsTrie (insert key value table) := trivial
 
 def ops (default : ν) : TotalTable.Ops PosNum ν (Table ν) where
   empty := empty default

@@ -50,17 +50,17 @@ end Face
 
 /-- Membership is stable under every generalized substitution. -/
 structure Subcontext (Γ : Context.{u}) where
-  holds : Γ.Elements → Prop
-  natural : ∀ {x y : Γ.Elements} (_f : x ⟶ y), holds x → holds y
+  Holds : Γ.Elements → Prop
+  natural : ∀ {x y : Γ.Elements} (_f : x ⟶ y), Holds x → Holds y
 
 def Subcontext.reindex {Γ Δ : Context.{u}} (φ : Subcontext Γ) (σ : Δ ⟶ Γ) : Subcontext Δ where
-  holds x := φ.holds (σ.mapElements.obj x)
+  Holds x := φ.Holds (σ.mapElements.obj x)
   natural f := φ.natural (σ.mapElements.map f)
 
 /-- A locally finite positive formula in dimension equations. -/
 structure Cofibration (Γ : Context.{u}) extends Subcontext Γ where
   localFormula : ∀ x : Γ.Elements, ∃ p : Face x.obj.unop.dimension,
-    ∀ {y : Γ.Elements} (f : x ⟶ y), holds y ↔ (p.subst f.hom.unop).Holds
+    ∀ {y : Γ.Elements} (f : x ⟶ y), Holds y ↔ (p.subst f.hom.unop).Holds
 
 def Cofibration.reindex {Γ Δ : Context.{u}} (φ : Cofibration Γ) (σ : Δ ⟶ Γ) :
     Cofibration Δ where
@@ -73,7 +73,7 @@ def representable (I : Cube) : Context.{u} :=
   RepresentableClassification.representable I
 
 def Face.cofibration {I : Cube} (p : Face I.dimension) : Cofibration (representable.{u} I) where
-  holds x := (p.subst x.val.down).Holds
+  Holds x := (p.subst x.val.down).Holds
   natural f h := by
     have hh := Face.holds_subst f.hom.unop (p.subst _) h
     rw [Face.subst_comp] at hh
@@ -116,8 +116,8 @@ def intervalSub {Γ Δ : Context.{u}} (σ : Δ ⟶ Γ) : total (interval Δ) ⟶
 
 
 structure PartialSection {Γ : Context.{u}} (A : Family Γ) (φ : Subcontext Γ) where
-  val : ∀ x, φ.holds x → A.obj x
-  natural : ∀ {x y : Γ.Elements} (f : x ⟶ y) (h : φ.holds x),
+  val : ∀ x, φ.Holds x → A.obj x
+  natural : ∀ {x y : Γ.Elements} (f : x ⟶ y) (h : φ.Holds x),
     A.map f (val x h) = val y (φ.natural f h)
 
 def PartialSection.reindex {Γ Δ : Context.{u}} {A : Family Γ} {φ : Subcontext Γ}
@@ -139,7 +139,7 @@ def OpenBox.Fills {Γ : Context.{u}} {A : Family (total (interval Γ))}
 theorem constant_partial_interval {Γ : Context.{u}} {S : Type u} {φ : Subcontext Γ}
     (t : PartialSection (constantFamily (total (interval Γ)) S)
       (φ.reindex (projection (interval Γ))))
-    (x : Γ.Elements) (h : φ.holds x) (r s : (interval Γ).obj x) :
+    (x : Γ.Elements) (h : φ.Holds x) (r s : (interval Γ).obj x) :
     t.val (extendObj (interval Γ) x r) h = t.val (extendObj (interval Γ) x s) h :=
   (t.natural (intervalArgument (𝟙 x) r) (φ.natural (freshBaseHom x) h)).symm.trans
     (t.natural (intervalArgument (𝟙 x) s) (φ.natural (freshBaseHom x) h))
@@ -232,7 +232,7 @@ theorem Filling.comp_diagonal {Γ Δ : Context.{u}} {A : Family Γ} {F : Filling
 theorem Filling.comp_tube {Γ Δ : Context.{u}} {A : Family Γ} {F : Filling A}
     (hF : F.Lawful) (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ)
     (r s : Term (interval Δ)) (b : OpenBox (reindex A p) φ r)
-    (x : Δ.Elements) (h : φ.holds x) :
+    (x : Δ.Elements) (h : φ.Holds x) :
     (F.comp p φ r s b).val x = b.tube.val (extendObj (interval Δ) x (s.val x)) h :=
   (hF.fills p φ r b).2 (extendObj (interval Δ) x (s.val x)) h
 

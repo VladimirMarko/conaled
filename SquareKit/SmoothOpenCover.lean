@@ -26,13 +26,13 @@ theorem trivial_covers [Subsingleton A] (s : ι → A) : Covers s := by
 
 variable {n m : ℕ}
 
-theorem realPoint_coordinates (r : Fin m → Free n) (h : Hom (Presentation.Carrier r) ℝ)
-    (f : Free n) : h (Presentation.projection r f) =
+theorem realPoint_coordinates (r : Fin m → freeAlgebra n) (h : Hom (Presentation.Carrier r) ℝ)
+    (f : freeAlgebra n) : h (Presentation.projection r f) =
       f.val (fun i => h (Presentation.projection r (generator i))) := by
   have he := evaluate_unique (Hom.comp h (Presentation.projection r))
-  exact congrArg (fun k : Hom (Free n) ℝ => k f) he.symm
+  exact congrArg (fun k : Hom (freeAlgebra n) ℝ => k f) he.symm
 
-theorem covers_iff_zero_locus (r : Fin m → Free n) (p : ι → Free n) :
+theorem covers_iff_zero_locus (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n) :
     Covers (fun i => Presentation.projection r (p i)) ↔
       ∀ x : Fin n → ℝ, (∀ j, (r j).val x=0) → ∃ i, (p i).val x ≠ 0 := by
   constructor
@@ -46,25 +46,25 @@ theorem covers_iff_zero_locus (r : Fin m → Free n) (p : ι → Free n) :
     obtain ⟨i,hi⟩ := hc x hr
     exact ⟨i,by rwa [realPoint_coordinates]⟩
 
-theorem finite_iff {k : ℕ} (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r) :
+theorem finite_iff {k : ℕ} (r : Fin m → freeAlgebra n) (s : Fin k → Presentation.Carrier r) :
     Covers s ↔ PrincipalCover.Covers s := by
   have ha := covers_iff_zero_locus r (fun i => PresentedLocalization.representative r (s i))
   have hb := PrincipalCover.covers_iff_zero_locus r (fun i => PresentedLocalization.representative r (s i))
   simp only [PresentedLocalization.representative_eq] at ha hb
   exact ha.trans hb.symm
 
-theorem empty_iff (r : Fin m → Free n) (s : Fin 0 → Presentation.Carrier r) :
+theorem empty_iff (r : Fin m → freeAlgebra n) (s : Fin 0 → Presentation.Carrier r) :
     Covers s ↔ Subsingleton (Presentation.Carrier r) :=
   (finite_iff r s).trans (PrincipalCover.empty_iff s)
 
-theorem ambient_cover (r : Fin m → Free n) (p : ι → Free n)
+theorem ambient_cover (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i))) (x : Fin n → ℝ) :
     (∃ i, (p i).val x≠0) ∨ (∃ j, (r j).val x≠0) := by
   by_cases hr : ∃ j, (r j).val x≠0
   · exact Or.inr hr
   · exact Or.inl ((covers_iff_zero_locus r p).mp hs x (by simpa using hr))
 
-theorem separated (r : Fin m → Free n) (p : ι → Free n)
+theorem separated (r : Fin m → freeAlgebra n) (p : ι → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i)))
     (a b : Presentation.Carrier r)
     (he : ∀ i, PresentedLocalization.base r (p i) a = PresentedLocalization.base r (p i) b) : a=b := by

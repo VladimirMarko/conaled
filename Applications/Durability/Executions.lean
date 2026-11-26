@@ -25,7 +25,7 @@ theorem append_execution {P : Type} (s : Machine P) (h : List (Record P))
     let prepared := prepareState (invokeState s e) p
     let written := writeState prepared a (.node s.root.tail e)
     let persisted := persistState written a (.node s.root.tail e)
-    Interaction.Events.interpret Step
+    Interaction.Events.Interpret Step
       [.invoke e, .internal, .internal, .internal, .commit e, .acknowledge e] s
       (acknowledgeState (publishState persisted p)) := by
   dsimp only

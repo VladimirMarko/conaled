@@ -55,7 +55,7 @@ def remainingPoint : Comparison.Section (remainingSignature.baseFamily middle) w
   right := basePoint.right
   commutes := SquareKit.Internal.PathTransport.GroupoidModel.Section.familyImage_id _
 
-def compositePoint := signature.horizontal_point remainingSignature rfl HEq.rfl rfl
+def compositePoint := signature.horizontalPoint remainingSignature rfl HEq.rfl rfl
   basePoint remainingPoint HEq.rfl
 
 def compositeFiber := (signature.horizontal remainingSignature rfl HEq.rfl).fiber compositePoint

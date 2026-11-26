@@ -6,12 +6,12 @@ open scoped ContDiff Topology
 namespace SquareKit.SmoothAlgebra.PresentedLocalization
 variable {n m : ℕ}
 
-private def overlapCoordinates (q : Free n) : Fin (n+1) → Free (n+1) :=
+private def overlapCoordinates (q : freeAlgebra n) : Fin (n+1) → freeAlgebra (n+1) :=
   Fin.snoc (fun i => generator i.castSucc) (Localization.extend q * generator (Fin.last n))
-private def overlapSubstitute (q : Free n) : Hom (Free (n+1)) (Free (n+1)) :=
+private def overlapSubstitute (q : freeAlgebra n) : Hom (freeAlgebra (n+1)) (freeAlgebra (n+1)) :=
   pullback (overlapCoordinates q)
 
-private theorem overlap_inverse (r : Fin m → Free n) (p q : Free n) :
+private theorem overlap_inverse (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) :
     overlapLeft r p q (inverse r p) = base r (p*q) (Presentation.projection r q)*inverse r (p*q) := by
   apply Localization.inverse_unique (a := base r (p*q) (Presentation.projection r p))
   · have h := congrArg (overlapLeft r p q).toAlgHom (inverse_relation r p)
@@ -24,7 +24,7 @@ private theorem overlap_inverse (r : Fin m → Free n) (p q : Free n) :
   · rw [← mul_assoc,← (base r (p*q)).map_mul,← (Presentation.projection r).map_mul]
     exact inverse_relation r (p*q)
 
-private theorem overlap_substitute (r : Fin m → Free n) (p q : Free n) :
+private theorem overlap_substitute (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) :
     Hom.comp (overlapLeft r p q) (Presentation.projection (Presentation.relations r (equation p))) =
       Hom.comp (Presentation.projection (Presentation.relations r (equation (p*q)))) (overlapSubstitute q) := by
   apply hom_ext_generators
@@ -46,7 +46,7 @@ private theorem overlap_substitute (r : Fin m → Free n) (p q : Free n) :
       (pullback_generator (overlapCoordinates q) i.castSucc).trans (Fin.snoc_castSucc _ _ i)]
     rfl
 
-private theorem overlap_right_inverse (r : Fin m → Free n) (p q : Free n) :
+private theorem overlap_right_inverse (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) :
     overlapRight r p q (inverse r q) = base r (p*q) (Presentation.projection r p)*inverse r (p*q) := by
   apply Localization.inverse_unique (a := base r (p*q) (Presentation.projection r q))
   · have h := congrArg (overlapRight r p q).toAlgHom (inverse_relation r q)
@@ -60,7 +60,7 @@ private theorem overlap_right_inverse (r : Fin m → Free n) (p q : Free n) :
     rw [mul_comm q p]
     exact inverse_relation r (p*q)
 
-private theorem overlap_right_substitute (r : Fin m → Free n) (p q : Free n) :
+private theorem overlap_right_substitute (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) :
     Hom.comp (overlapRight r p q) (Presentation.projection (Presentation.relations r (equation q))) =
       Hom.comp (Presentation.projection (Presentation.relations r (equation (p*q)))) (overlapSubstitute p) := by
   apply hom_ext_generators
@@ -82,7 +82,7 @@ private theorem overlap_right_substitute (r : Fin m → Free n) (p q : Free n) :
       (pullback_generator (overlapCoordinates p) i.castSucc).trans (Fin.snoc_castSucc _ _ i)]
     rfl
 
-private theorem substitute_graph (p q : Free n) (H : Free (n+1)) (x : Fin n → ℝ)
+private theorem substitute_graph (p q : freeAlgebra n) (H : freeAlgebra (n+1)) (x : Fin n → ℝ)
     (hx : (p*q).val x ≠ 0) : graphValue (p*q) (overlapSubstitute q H) x = graphValue p H x := by
   apply congrArg H.val
   funext j
@@ -101,12 +101,12 @@ private theorem substitute_graph (p q : Free n) (H : Free (n+1)) (x : Fin n → 
     simp [SmoothInverseGraph.graph]
 
 /-- An overlap image has the same local coefficient class as the original inverse-graph section. -/
-theorem overlap_graph (r : Fin m → Free n) (p q : Free n) (H K : Free (n+1))
+theorem overlap_graph (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) (H K : freeAlgebra (n+1))
     (hk : overlapLeft r p q (Presentation.projection (Presentation.relations r (equation p)) H) =
       Presentation.projection (Presentation.relations r (equation (p*q))) K)
     (x : Fin n → ℝ) (hx : (p*q).val x ≠ 0) :
     LocalIdeal.Mem r (fun y => graphValue p H y-graphValue (p*q) K y) x := by
-  have he := congrArg (fun h : Hom (Free (n+1)) (Carrier r (p*q)) => h H) (overlap_substitute r p q)
+  have he := congrArg (fun h : Hom (freeAlgebra (n+1)) (Carrier r (p*q)) => h H) (overlap_substitute r p q)
   change overlapLeft r p q (Presentation.projection _ H) = Presentation.projection _ (overlapSubstitute q H) at he
   have hz : Presentation.projection (Presentation.relations r (equation (p*q))) (overlapSubstitute q H-K)=0 := by
     change (Presentation.projection (Presentation.relations r (equation (p*q)))).toAlgHom (overlapSubstitute q H-K)=0
@@ -120,7 +120,7 @@ theorem overlap_graph (r : Fin m → Free n) (p q : Free n) (H K : Free (n+1))
   rw [substitute_graph p q H y hy]
 
 /-- Compatibility on the actual algebra overlap gives equality of local ideal classes. -/
-theorem overlap_compatible_local (r : Fin m → Free n) (p q : Free n) (H K : Free (n+1))
+theorem overlap_compatible_local (r : Fin m → freeAlgebra n) (p q : freeAlgebra n) (H K : freeAlgebra (n+1))
     (hk : overlapLeft r p q (Presentation.projection (Presentation.relations r (equation p)) H) =
       overlapRight r p q (Presentation.projection (Presentation.relations r (equation q)) K))
     (x : Fin n → ℝ) (hp : p.val x ≠ 0) (hq : q.val x ≠ 0) :
@@ -128,7 +128,7 @@ theorem overlap_compatible_local (r : Fin m → Free n) (p q : Free n) (H K : Fr
   have hr : Hom.comp (overlapRight r p q) (Presentation.projection (Presentation.relations r (equation q))) =
       Hom.comp (Presentation.projection (Presentation.relations r (equation (p*q)))) (overlapSubstitute p) := by
     exact overlap_right_substitute r p q
-  have hkr := congrArg (fun h : Hom (Free (n+1)) (Carrier r (p*q)) => h K) hr
+  have hkr := congrArg (fun h : Hom (freeAlgebra (n+1)) (Carrier r (p*q)) => h K) hr
   change overlapRight r p q (Presentation.projection _ K) = Presentation.projection _ (overlapSubstitute p K) at hkr
   have hm := overlap_graph r p q H (overlapSubstitute p K) (hk.trans hkr) x (mul_ne_zero hp hq)
   apply LocalIdeal.congr hm

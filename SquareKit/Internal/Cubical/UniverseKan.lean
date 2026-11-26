@@ -145,13 +145,13 @@ theorem fillTerm_cap : (fillTerm b).reindex (endpointSub Δ false) = b.base := b
   rw [chart_generic]
 
 theorem fillTerm_tube (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).full x) :
+    (hx : (φ.reindex (projection (interval Δ))).Full x) :
     (fillTerm b).val x = b.tube.val x hx := by
   let σ := chart (intervalBase x)
   let y : (total (interval (representable.{u} x.obj.unop))).obj x.obj := (chartPoint x).down
-  have hy : ((chartFace φ σ).reindex (projection (interval _))).full
+  have hy : ((chartFace φ σ).reindex (projection (interval _))).Full
       ((total (interval (representable.{u} x.obj.unop))).elementsMk x.obj y) := by
-    change (φ.reindex (projection (interval Δ))).full
+    change (φ.reindex (projection (interval Δ))).Full
       ((total (interval Δ)).elementsMk x.obj ((chartInterval σ).app x.obj (chartPoint x)))
     rw [chartInterval_generic]
     exact hx

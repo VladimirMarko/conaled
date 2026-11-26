@@ -13,7 +13,7 @@ open Internal.DependentStructural.SheafSem (evalBase)
 open Examples.SheafImage Examples.SheafImage.Diamond Examples.SheafBaseChange Examples.SheafFamilies
 open DependentFunctionSource
 
-abbrev naturalFunctions := SplitSheaf.Ext SplitDependentFunctionEdges.eFunctions
+abbrev naturalFunctions := SplitSheaf.extension SplitDependentFunctionEdges.eFunctions
 abbrev naturalDisplay := SheafRelation.snd naturalFunctions D
 abbrev naturalFamily := SplitSheaf.ofDisplay naturalDisplay
 
@@ -100,7 +100,7 @@ theorem no_pointwise_equivalence :
   rintro ⟨e⟩
   apply source_names_distinct
   apply e.injective
-  exact (SheafFunctions.unique_pointwise.uniq _).trans (SheafFunctions.unique_pointwise.uniq _).symm
+  exact (SheafFunctions.pointwiseUnique.uniq _).trans (SheafFunctions.pointwiseUnique.uniq _).symm
 
 /-- An ordinary client may use the existing counit directly beside the opt-in
 source theorem. No syntax wrapper is required by the ordinary interface. -/

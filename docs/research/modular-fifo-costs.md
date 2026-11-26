@@ -45,7 +45,7 @@ not reproduce the telescoping induction. `Accounting` exposes the existence
 and obligations of a potential; it does not expose the implementation's chosen
 formula as a client parameter. The symmetric witness is a private definition,
 but this is proof-interface abstraction, not protection against arbitrary Lean
-reflection or an AFAT sealing modality. `symmetricInitialized` is a public
+reflection or an AFAT sealing modality. `SymmetricInitialized` is a public
 predicate, and `symmetric_empty_initialized` supplies its zero-credit empty case.
 
 `abstractBudget_append` and `sequential_bound` use the existing budget and

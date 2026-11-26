@@ -21,9 +21,9 @@ The only constructor at that index carries the child-output block. -/
 def signature : EquationTranspose.Signature (Sigma S.Op) where
   Constructor _ := PUnit
   Observer p := Observer B p.1
-  fields {p} _ := ULift.{max i o b a} (Outputs S B p.2)
-  arguments _ := PUnit
-  result {p} obs := match obs with
+  Fields {p} _ := ULift.{max i o b a} (Outputs S B p.2)
+  Arguments _ := PUnit
+  Result {p} obs := match obs with
     | .output => ULift.{max i o b a} (B.Output p.1)
     | .next r => ULift.{max i o b a} (Term S (Slot S B p.2) (B.next p.1 r))
 

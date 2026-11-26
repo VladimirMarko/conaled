@@ -13,7 +13,7 @@ open Assembly
 /-- A realizer is a code for the entire partial computation. -/
 def computationAssembly : Assembly where
   Carrier := Computation
-  realizes n p := (ofNat Code n).eval = p.val
+  Realizes n p := (ofNat Code n).eval = p.val
   inhabited p := by
     obtain ⟨c, hc⟩ := represented_surjective p
     exact ⟨encode c, by simpa [represented] using congrArg Subtype.val hc⟩
@@ -111,7 +111,7 @@ theorem evaluation_admissible : Admissible
 /-- The partial map retains its domain witness rather than deciding termination. -/
 def computationPartialMap : PartialMap
     (prod computationAssembly (encoded Nat)) (encoded Nat) where
-  domain x := (x.1.val x.2).Dom
+  Domain x := (x.1.val x.2).Dom
   admissible := evaluation_admissible
   map := ⟨fun x => (x.val.1.val x.val.2).get x.property, by
     refine ⟨fun z => (ofNat Code z.unpair.1).eval z.unpair.2, ?_, ?_⟩

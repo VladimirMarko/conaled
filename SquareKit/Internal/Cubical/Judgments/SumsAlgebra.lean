@@ -47,16 +47,16 @@ noncomputable def algebra : Algebra signature where
   operation
     | .inl op => Products.algebra.operation op
     | .inr op => extraOperation op
-  predicate
-    | .inl p => Products.algebra.predicate p
+  Predicate
+    | .inl p => Products.algebra.Predicate p
     | .inr p => nomatch p
 
 theorem formationSchema_valid (out : Judgment (Fin 3))
     (valid : ∀ (Γ : Context.{u}) (A : Family Γ) (B : Family (total A)),
-      out.eval algebra ![.context Γ,.family Γ A,.family (total A) B]) :
+      out.Eval algebra ![.context Γ,.family Γ A,.family (total A) B]) :
     Satisfies algebra.{u} (formationSchema out) := by
   intro ρ h
-  have hp : ∀ i, (Products.formationRule.premise i).eval Products.algebra ρ := by
+  have hp : ∀ i, (Products.formationRule.premise i).Eval Products.algebra ρ := by
     intro i
     simpa only [formationSchema, Atom.eval_inl, algebra, Algebra.restrictLeft, Products.algebra] using h i
   rcases Products.formationSchema_inputs _ ρ hp with ⟨Γ,A,B,rfl⟩
@@ -64,10 +64,10 @@ theorem formationSchema_valid (out : Judgment (Fin 3))
 
 theorem substitutionSchema_valid (out : Judgment (Fin 5))
     (valid : ∀ (Γ Δ : Context.{u}) (A : Family Γ) (B : Family (total A)) (σ : Δ ⟶ Γ),
-      out.eval algebra ![.context Γ,.context Δ,.family Γ A,.family (total A) B,.substitution Δ Γ σ]) :
+      out.Eval algebra ![.context Γ,.context Δ,.family Γ A,.family (total A) B,.substitution Δ Γ σ]) :
     Satisfies algebra.{u} (substitutionSchema out) := by
   intro ρ h
-  have hp : ∀ i, (Products.piSubRule.premise i).eval Products.algebra ρ := by
+  have hp : ∀ i, (Products.piSubRule.premise i).Eval Products.algebra ρ := by
     intro i
     simpa only [substitutionSchema, Atom.eval_inl, algebra, Algebra.restrictLeft,
       Products.algebra] using h i
@@ -83,11 +83,11 @@ theorem lifted_eval (Γ Δ : Context.{u}) (A : Family Γ) (B : Family (total A))
 theorem eliminationSchema_valid (out : Judgment (Fin 5))
     (valid : ∀ (Γ : Context.{u}) (A : Family Γ) (B : Family (total A))
       (C : Family (total (Presheaf.sigma A B))) (b : Presheaf.Term (reindex C (sigmaPack A B))),
-      out.eval algebra ![.context Γ,.family Γ A,.family (total A) B,
+      out.Eval algebra ![.context Γ,.family Γ A,.family (total A) B,
         .family (total (Presheaf.sigma A B)) C,.term (total B) (reindex C (sigmaPack A B)) b]) :
     Satisfies algebra.{u} (eliminationSchema out) := by
   intro ρ h
-  have hf : ∀ i, (Products.formationRule.premise i).eval Products.algebra (fun j => ρ (j.castAdd 2)) := by
+  have hf : ∀ i, (Products.formationRule.premise i).Eval Products.algebra (fun j => ρ (j.castAdd 2)) := by
     intro i
     fin_cases i
     · exact h 0
@@ -104,7 +104,7 @@ theorem eliminationSchema_valid (out : Judgment (Fin 5))
   have he := Value.context.inj eΔ
   subst Δ
   have hb := h 3
-  change Source.predicate .term ![Source.operation .extend ![Source.operation .extend ![ρ 0,ρ 1],ρ 2],
+  change Source.Predicate .term ![Source.operation .extend ![Source.operation .extend ![ρ 0,ρ 1],ρ 2],
     Source.operation .subTy ![ρ 3,extraOperation .pack ![ρ 1,ρ 2]],ρ 4] at hb
   rw [hΓ,hA,hB,hC,extra_pack] at hb
   simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.familyAt_family] at hb

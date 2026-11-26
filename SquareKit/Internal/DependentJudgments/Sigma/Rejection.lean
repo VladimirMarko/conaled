@@ -25,8 +25,8 @@ theorem no_collapse_equivalence : ¬ Nonempty (((_ : Unit) × Bool) ≃ Unit) :=
 
 /-- The endpoints of the rejected equation are valid in the same environment. -/
 theorem collapse_boundary :
-    (family (.var 0) (sigma (.var 1) (.var 2))).eval (algebra counterModel counterCapability) collapseEnvironment ∧
-    (family (.var 0) (.var 1)).eval (algebra counterModel counterCapability) collapseEnvironment := by
+    (family (.var 0) (sigma (.var 1) (.var 2))).Eval (algebra counterModel counterCapability) collapseEnvironment ∧
+    (family (.var 0) (.var 1)).Eval (algebra counterModel counterCapability) collapseEnvironment := by
   constructor
   · refine ⟨Unit, fun _ => (_ : Unit) × Bool, rfl, ?_⟩
     simp [Term.eval, algebra, operation, collapseEnvironment, Native.capability, inputs, Value.familyAt, counterModel, NativeType.model, NativeType.structuralModel]

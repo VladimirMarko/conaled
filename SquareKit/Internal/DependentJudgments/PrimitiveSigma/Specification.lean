@@ -90,8 +90,8 @@ theorem no_reverse_view : ¬ Nonempty (RuleInterpretation etaTheory Reindexing.t
 /-- Stability's extra rules do not invalidate the shared derivation. -/
 theorem weak_interpretation (ρ : Fin 5 → Value Separation.M.toStructuralModel)
     (h : ∀ p ∈ List.ofFn splitBetaRule.premise,
-      p.eval (algebra Separation.M Separation.S) ρ) :
-    splitBetaRule.conclusion.eval (algebra Separation.M Separation.S) ρ :=
+      p.Eval (algebra Separation.M Separation.S) ρ) :
+    splitBetaRule.conclusion.Eval (algebra Separation.M Separation.S) ρ :=
   (stableView.transport sharedArgument).sound
     (Reindexing.model Separation.M (ConstantFamilies.stable PUnit)) ρ h
 
@@ -101,7 +101,7 @@ theorem eta_valid (M : PathTransport.Typed.Model) (S : Sigma.Capability M.toStru
     Satisfies (algebra M (ofStrong S)) splitEtaRule := by
   intro ρ h
   let ρ₀ : Fin 3 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
-  have h₀ : ∀ i, (formationRule.premise i).eval (algebra M (ofStrong S)) ρ₀ := by
+  have h₀ : ∀ i, (formationRule.premise i).Eval (algebra M (ofStrong S)) ρ₀ := by
     intro i
     fin_cases i <;> first | exact h 0 | exact h 1
   rcases formationSchema_inputs M (ofStrong S) _ ρ₀ h₀ with ⟨Γ, A, B, e⟩

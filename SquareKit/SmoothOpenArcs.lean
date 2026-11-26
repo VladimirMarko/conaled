@@ -17,7 +17,7 @@ def residue : Hom (DualNumber B) B where
 
 /-- Localization in dual numbers requires exactly that the zero coefficient
 lie in the localized open. This holds for any smooth coefficient algebra. -/
-def localizationCoefficients (f : Free n) :
+def localizationCoefficients (f : freeAlgebra n) :
     Hom (Localization.Principal f) (DualNumber B) ≃
       Hom (Localization.Principal f) B × (Fin n → B) where
   toFun h := (Hom.comp residue h, fun i => (h (Localization.principalBase f (generator i))).snd)

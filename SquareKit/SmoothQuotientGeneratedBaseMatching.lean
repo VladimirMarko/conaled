@@ -33,7 +33,7 @@ theorem liftedRestriction_id (Y : Sheaf topology Type) :
   rfl
 
 def baseDiagram : CechMatching.StrictDiagram.{1,1} where
-  localCategory := Grpd.of (AsSmall.{0} (Object a (SplitSheaf.Ext A)))
+  localCategory := Grpd.of (AsSmall.{0} (Object a (SplitSheaf.extension A)))
   doubleCategory := Grpd.of (AsSmall.{0} (Object a (SplitSheaf.Cech.double A)))
   tripleCategory := Grpd.of (AsSmall.{0} (Object a (SplitSheaf.Cech.triple A)))
   first := liftedRestriction a (SplitSheaf.Cech.first A)

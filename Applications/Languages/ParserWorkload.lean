@@ -30,7 +30,7 @@ def session {P : Language Bool} (policy : Policy) (p : Parser P) (depth : Nat) :
   if policy.retains then
     let tree := (build p' depth).1
     fun q => query tree q.1 q.2
-  else fun q => if admissible depth q then some (p'.parse q.2) else none
+  else fun q => if Admissible depth q then some (p'.parse q.2) else none
 
 theorem prepare_exact {P : Language Bool} (policy) (p : Parser P) (w) :
     (prepare policy p).parse w = p.parse w := by
@@ -41,7 +41,7 @@ theorem prepare_exact {P : Language Bool} (policy) (p : Parser P) (w) :
 
 theorem session_exact {P : Language Bool} (policy) (p : Parser P) (depth) (q) :
     session policy p depth q =
-      if admissible depth q then some (p.parse q.2) else none := by
+      if Admissible depth q then some (p.parse q.2) else none := by
   unfold session
   split
   · dsimp only
@@ -231,27 +231,27 @@ Naturals/comparisons are unit primitives; this is not bit complexity. -/
 def validation (q : Request) : Trace := charge .validation (q.2.length + 2)
 
 def directQuery (p : Spine) (m : Nat) (q : Request) : Option (Decision Payload) × Trace :=
-  if admissible m q then
+  if Admissible m q then
     let r := p.parseRun q.2
     (some (.yes r.1), validation q ++ r.2 ++ alloc 1)
   else (none, validation q ++ alloc 1)
 
 def retainedQuery {m} (t : Tree L m) (q : Request) : Option (Decision Payload) × Trace :=
-  if h : admissible m q then
+  if h : Admissible m q then
     let r := t.lookupCounted q.2 (Nat.le_trans h.2 h.1)
     (some r.1, validation q ++ charge .traversal r.2 ++ alloc 1)
   else (none, validation q ++ alloc 1)
 
 theorem directQuery_result (p : Spine) (m q) :
-    (directQuery p m q).1 = if admissible m q then some (p.native.parse q.2) else none := by
+    (directQuery p m q).1 = if Admissible m q then some (p.native.parse q.2) else none := by
   unfold directQuery
   split <;> simp_all [Spine.parseRun_result]
 
 theorem retainedQuery_result {m} (t : Tree L m) (q) :
     (retainedQuery t q).1 = query t q.1 q.2 := by
   by_cases h : q.1 ≤ m ∧ q.2.length ≤ q.1
-  · simp [retainedQuery, query, admissible, h, Tree.lookupCounted_correct]
-  · simp [retainedQuery, query, admissible, h]
+  · simp [retainedQuery, query, Admissible, h, Tree.lookupCounted_correct]
+  · simp [retainedQuery, query, Admissible, h]
 
 structure Setup (m : Nat) where
   parser : Spine
@@ -304,7 +304,7 @@ def execute (policy : Policy) (p : Spine) (m : Nat) (qs : List Request) : Run :=
 
 theorem execute_exact (policy : Policy) (p : Spine) (m qs) :
     (execute policy p m qs).answers =
-      qs.map (fun q => if admissible m q then some (p.native.parse q.2) else none) := by
+      qs.map (fun q => if Admissible m q then some (p.native.parse q.2) else none) := by
   simp only [execute, List.map_map]
   apply List.map_congr_left
   intro q _

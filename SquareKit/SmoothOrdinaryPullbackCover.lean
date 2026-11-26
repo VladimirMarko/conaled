@@ -15,7 +15,7 @@ theorem map_continuous {U V : Domain} (f : U ⟶ V) : Continuous (show Map U V f
   exact h.congr (fun x => OpenFunctions.Map.representative_mem _ x)
 
 /-- Every ambient open subset has a globally smooth defining function. -/
-def openDefining {n : ℕ} (s : Set (Fin n → ℝ)) (hs : IsOpen s) : Free n :=
+def openDefining {n : ℕ} (s : Set (Fin n → ℝ)) (hs : IsOpen s) : freeAlgebra n :=
   ⟨(hs.exists_contDiff_support_eq (n := ⊤)).choose,
     (hs.exists_contDiff_support_eq (n := ⊤)).choose_spec.2.1⟩
 
@@ -23,7 +23,7 @@ theorem openDefining_locus {n : ℕ} (s : Set (Fin n → ℝ)) (hs : IsOpen s) :
     Localization.locus (openDefining s hs) = s :=
   (hs.exists_contDiff_support_eq (n := ⊤)).choose_spec.1
 
-variable {U V : Domain} (f : U ⟶ V) (q : Free V.dimension)
+variable {U V : Domain} (f : U ⟶ V) (q : freeAlgebra V.dimension)
 
 def inverseOpen : Set (Fin U.dimension → ℝ) :=
   Subtype.val '' {x : Points U | q.val ((show Map U V from f) x).val ≠ 0}
@@ -32,7 +32,7 @@ theorem inverseOpen_open : IsOpen (inverseOpen f q) :=
   (domain_open U).isOpenMap_subtype_val _
     (isOpen_ne_fun ((show ContDiff ℝ ∞ q.val from q.property).continuous.comp (continuous_subtype_val.comp (map_continuous f))) continuous_const)
 
-def inverseDefining : Free U.dimension := openDefining (inverseOpen f q) (inverseOpen_open f q)
+def inverseDefining : freeAlgebra U.dimension := openDefining (inverseOpen f q) (inverseOpen_open f q)
 
 theorem inverseDefining_iff (x : Points U) :
     (inverseDefining f q).val x.val ≠ 0 ↔ q.val ((show Map U V from f) x).val ≠ 0 := by
@@ -61,7 +61,7 @@ theorem inverseRestriction_square :
     inverseRestriction f q ≫ subInclusion V q = subInclusion U (inverseDefining f q) ≫ f :=
   OpenFunctions.Map.ext (fun _ => rfl)
 
-theorem inverse_covers {ι : Type*} (g : ι → Free V.dimension) (hg : Covers V g) :
+theorem inverse_covers {ι : Type*} (g : ι → freeAlgebra V.dimension) (hg : Covers V g) :
     Covers U (fun i => inverseDefining f (g i)) := by
   intro x
   obtain ⟨i,hi⟩ := hg ((show Map U V from f) x)

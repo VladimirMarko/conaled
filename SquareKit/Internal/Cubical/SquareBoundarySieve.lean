@@ -23,7 +23,7 @@ theorem squareFaceData_refines {X Y : Over (⟨2⟩ : Cube)} (f : X ⟶ Y) :
   exact ⟨h 0,h 1⟩
 
 def squareBoundarySieve : SieveObjects (Over (⟨2⟩ : Cube)) where
-  contains X := (squareFaceData X).1 ≠ none ∨ (squareFaceData X).2 ≠ none
+  Contains X := (squareFaceData X).1 ≠ none ∨ (squareFaceData X).2 ≠ none
   downward f p := by
     have h := squareFaceData_refines f
     rcases p with p | p
@@ -36,14 +36,14 @@ def squareBoundarySieve : SieveObjects (Over (⟨2⟩ : Cube)) where
       · exact (p q).elim
       · exact q ▸ p
 
-def squareLabel (X : Over (⟨2⟩ : Cube)) (p : squareBoundarySieve.contains X) : SquareFaceLabel :=
+def squareLabel (X : Over (⟨2⟩ : Cube)) (p : squareBoundarySieve.Contains X) : SquareFaceLabel :=
   ⟨squareFaceData X,p⟩
 
 def partialSquareCochain : PartialCochain1 squareBoundarySieve := fun {X Y} f p =>
   squareEdgeValue (squareLabel X (squareBoundarySieve.downward f p)) (squareLabel Y p)
 
 theorem partialSquareCochain_closed {X Y Z : Over (⟨2⟩ : Cube)}
-    (f : X ⟶ Y) (g : Y ⟶ Z) (p : squareBoundarySieve.contains Z) :
+    (f : X ⟶ Y) (g : Y ⟶ Z) (p : squareBoundarySieve.Contains Z) :
     partialSquareCochain g p - partialSquareCochain (f ≫ g) p +
       partialSquareCochain f (squareBoundarySieve.downward g p) = 0 := by
   let LZ := squareLabel Z p
@@ -56,7 +56,7 @@ theorem partialSquareCochain_closed {X Y Z : Over (⟨2⟩ : Cube)}
 noncomputable def squareCocycle : CubeCocycle (⟨2⟩ : Cube) := coboundary (extendZero partialSquareCochain)
 
 theorem squareCocycle_boundary {X Y Z : Over (⟨2⟩ : Cube)}
-    (f : X ⟶ Y) (g : Y ⟶ Z) (p : squareBoundarySieve.contains Z) :
+    (f : X ⟶ Y) (g : Y ⟶ Z) (p : squareBoundarySieve.Contains Z) :
     squareCocycle.cochain f g = 0 :=
   (δ1_extendZero_inside partialSquareCochain f g p).trans (partialSquareCochain_closed f g p)
 

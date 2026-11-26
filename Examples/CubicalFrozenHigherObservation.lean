@@ -8,14 +8,14 @@ open SquareKit.Cubical.CategoryCocycles
 open Examples.FrozenMemoStages
 
 theorem retainedHomotopy :
-    HEq ((selectedHomotopy CM cocycleBase cocycleRootedFamily).down.reindex assignInput)
+    HEq ((selectedHomotopy cocycleStructuralModel cocycleBase cocycleRootedFamily).down.reindex assignInput)
       (secondIdentity terminal.{0}) :=
   Term.convert_heq homotopy_at_assignment.symm (secondIdentity terminal)
 
 /-- Only the retained type equality is transported; the interpreted source value is used. -/
-def selectedNormalizedHomotopy : Term (SecondIdentityFamily terminal.{0}) :=
+def selectedNormalizedHomotopy : Term (secondIdentityFamily terminal.{0}) :=
   cast (type_eq_of_heq retainedHomotopy)
-    ((selectedHomotopy CM cocycleBase cocycleRootedFamily).down.reindex assignInput)
+    ((selectedHomotopy cocycleStructuralModel cocycleBase cocycleRootedFamily).down.reindex assignInput)
 
 theorem selectedNormalizedHomotopy_eq : selectedNormalizedHomotopy = secondIdentity terminal.{0} :=
   eq_of_heq ((cast_heq _ _).trans retainedHomotopy)

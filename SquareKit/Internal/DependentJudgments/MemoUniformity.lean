@@ -9,7 +9,7 @@ set_option backward.isDefEq.respectTransparency false
 universe u v
 variable {V : Type} {Ω : List (Judgment V)}
 variable {M : Model.{u}} {N : Model.{v}} (map : ModelMap M N)
-variable (ρ : V → Value M.toStructuralModel) (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ)
+variable (ρ : V → Value M.toStructuralModel) (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ)
 include hΩ
 
 namespace Parameters

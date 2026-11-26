@@ -5,14 +5,14 @@ namespace Orbifold.Kinetic
 open DiskConnection
 
 /-- The sign convention comes from the two actual partial derivatives. -/
-def discreteEL (h : ℝ) (x y z : ℂ) : Prop := d2 h x y + d1 h y z = 0
+def DiscreteEL (h : ℝ) (x y z : ℂ) : Prop := d2 h x y + d1 h y z = 0
 
 theorem midpoint_rational_residual :
     (d2 1 0 (1/2) + d1 1 (1/2) (4/5)).re = 301663232/1540798875 := by
   norm_num [d1,d2,midpoint,gap,Complex.normSq_apply,Complex.add_re,Complex.add_im,
     Complex.sub_re,Complex.sub_im,scalar_re,scalar_im]
 
-theorem midpoint_rational_not_DEL : ¬ discreteEL 1 0 (1/2) (4/5) := by
+theorem midpoint_rational_not_DEL : ¬ DiscreteEL 1 0 (1/2) (4/5) := by
   intro h
   have H := congrArg Complex.re h
   rw [midpoint_rational_residual] at H

@@ -109,7 +109,7 @@ noncomputable def operation (op : Operation)
       | none => .invalid
     | _, _ => .invalid
 
-def predicate (p : Predicate) (args : Fin p.arity → Value.{u}) : Prop :=
+def Predicate (p : Predicate) (args : Fin p.arity → Value.{u}) : Prop :=
   match p with
   | .context => ∃ Γ, args 0 = .context Γ
   | .family => ∃ Γ A, args 0 = .context Γ ∧ args 1 = .family Γ A
@@ -120,7 +120,7 @@ def predicate (p : Predicate) (args : Fin p.arity → Value.{u}) : Prop :=
 noncomputable def algebra : Algebra signature where
   Carrier := Value.{u}
   operation := operation
-  predicate := predicate
+  Predicate := Predicate
 
 theorem Value.term_eq {Γ : Semantics.Context.{u}} {A B : Semantics.Family Γ}
     {s : Semantics.Section Γ A} {t : Semantics.Section Γ B} (hA : A = B) (ht : HEq s t) :
@@ -135,17 +135,17 @@ def pairingEnvironment (Γ Δ : Semantics.Context.{u})
 /-- Inverting the source guards recovers actual dependent input data. -/
 theorem pairing_inputs :
     ∀ ρ : Fin 5 → Value.{u},
-    (∀ i, (variablePairRule.premise i).eval algebra.{u} ρ) →
+    (∀ i, (variablePairRule.premise i).Eval algebra.{u} ρ) →
     ∃ (Γ Δ : Semantics.Context.{u}) (A : Semantics.Family Γ) (σ : Semantics.Substitution Δ Γ)
       (t : Semantics.Section Δ (Semantics.subTy A σ)), ρ = pairingEnvironment  Γ Δ A σ t := by
   intro ρ h
   have h0 := h 0
   have h1 := h 1
   have h2 := h 2
-  change predicate  .family ![ρ 0, ρ 2] at h0
-  change predicate  .substitution ![ρ 1, ρ 0, ρ 3] at h1
-  change predicate  .term ![ρ 1, operation  .subTy ![ρ 2, ρ 3], ρ 4] at h2
-  simp only [predicate] at h0 h1 h2
+  change Predicate  .family ![ρ 0, ρ 2] at h0
+  change Predicate  .substitution ![ρ 1, ρ 0, ρ 3] at h1
+  change Predicate  .term ![ρ 1, operation  .subTy ![ρ 2, ρ 3], ρ 4] at h2
+  simp only [Predicate] at h0 h1 h2
   rcases h0 with ⟨Γ, A, hΓ, hA⟩
   change ρ 0 = .context Γ at hΓ
   change ρ 2 = .family Γ A at hA
@@ -210,11 +210,11 @@ theorem weakenPair_valid : Satisfies algebra.{u} weakenPairRule := by
 
 theorem familySchema_valid (out : Judgment (Fin 2))
     (h : ∀ (Γ : Semantics.Context.{u}) (A : Semantics.Family Γ),
-      out.eval algebra.{u} ![.context Γ, .family Γ A]) :
+      out.Eval algebra.{u} ![.context Γ, .family Γ A]) :
     Satisfies algebra.{u} (familySchema out) := by
   intro ρ hp
   have h0 := hp 0
-  change predicate  .family ![ρ 0, ρ 1] at h0
+  change Predicate  .family ![ρ 0, ρ 1] at h0
   rcases h0 with ⟨Γ, A, hΓ, hA⟩
   have e : ρ = ![.context Γ, .family Γ A] := by
     funext i
@@ -271,7 +271,7 @@ noncomputable def comprehensionModel :
 
 
 theorem Value.term_input (Γ : Semantics.Context.{u}) (A : Semantics.Family Γ) (v : Value.{u})
-    (h : predicate .term ![.context Γ,.family Γ A,v]) :
+    (h : Predicate .term ![.context Γ,.family Γ A,v]) :
     ∃ t : Semantics.Section Γ A, v = .term Γ A t := by
   rcases h with ⟨Δ,B,t,hΓ,hA,ht⟩
   have eΓ := Value.context.inj hΓ

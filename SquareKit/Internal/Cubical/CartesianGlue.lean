@@ -16,10 +16,10 @@ attribute [local instance] Classical.propDecidable
 namespace Glue
 variable {Γ : Context.{u}} (φ : Subcontext Γ)
 
-def faceObj (x : Γ.Elements) (h : φ.holds x) : (restrictContext φ).Elements :=
+def faceObj (x : Γ.Elements) (h : φ.Holds x) : (restrictContext φ).Elements :=
   (restrictContext φ).elementsMk x.obj ⟨x.val,h⟩
 
-def faceHom {x y : Γ.Elements} (f : x ⟶ y) (h : φ.holds x) :
+def faceHom {x y : Γ.Elements} (f : x ⟶ y) (h : φ.Holds x) :
     faceObj φ x h ⟶ faceObj φ y (φ.natural f h) :=
   Functor.Elements.homMk f.hom (Subtype.ext f.map_val)
 
@@ -29,10 +29,10 @@ variable (A : Family Γ) (T : Family (restrictContext φ))
 /-- Face data is coherent after every restriction, including newly full faces. -/
 structure CompatibleElement (x : Γ.Elements) where
   ambient : A.obj x
-  face : ∀ {y : Γ.Elements} (_f : x ⟶ y) (h : φ.holds y), T.obj (faceObj φ y h)
-  naturality : ∀ {y z : Γ.Elements} (f : x ⟶ y) (g : y ⟶ z) (h : φ.holds y),
+  face : ∀ {y : Γ.Elements} (_f : x ⟶ y) (h : φ.Holds y), T.obj (faceObj φ y h)
+  naturality : ∀ {y z : Γ.Elements} (f : x ⟶ y) (g : y ⟶ z) (h : φ.Holds y),
     T.map (faceHom φ g h) (face f h) = face (f ≫ g) (φ.natural g h)
-  compatible : ∀ {y : Γ.Elements} (f : x ⟶ y) (h : φ.holds y),
+  compatible : ∀ {y : Γ.Elements} (f : x ⟶ y) (h : φ.Holds y),
     e.app (faceObj φ y h) (face f h) = A.map f ambient
 
 @[ext] theorem CompatibleElement.ext {x : Γ.Elements} {s t : CompatibleElement φ A T e x}
@@ -77,7 +77,7 @@ def compatibleUnglue : compatibleFamily φ A T e ⟶ A where
   naturality _ _ _ := rfl
 
 /-- On a full face the ambient component is determined by the face element. -/
-def fromFace {x : Γ.Elements} (h : φ.holds x) (t : T.obj (faceObj φ x h)) :
+def fromFace {x : Γ.Elements} (h : φ.Holds x) (t : T.obj (faceObj φ x h)) :
     CompatibleElement φ A T e x where
   ambient := e.app (faceObj φ x h) t
   face f _ := T.map (faceHom φ f h) t
@@ -86,11 +86,11 @@ def fromFace {x : Γ.Elements} (h : φ.holds x) (t : T.obj (faceObj φ x h)) :
       (faceHom φ g (φ.natural f h))) t).symm
   compatible f _ := ConcreteCategory.congr_hom (e.naturality (faceHom φ f h)) t
 
-theorem fromFace_read {x : Γ.Elements} (h : φ.holds x)
+theorem fromFace_read {x : Γ.Elements} (h : φ.Holds x)
     (t : T.obj (faceObj φ x h)) : (fromFace φ A T e h t).face (𝟙 x) h = t :=
   ConcreteCategory.congr_hom (T.map_id (faceObj φ x h)) t
 
-theorem read_fromFace {x : Γ.Elements} (h : φ.holds x)
+theorem read_fromFace {x : Γ.Elements} (h : φ.Holds x)
     (s : CompatibleElement φ A T e x) : fromFace φ A T e h (s.face (𝟙 x) h) = s := by
   apply CompatibleElement.ext
   · exact (s.compatible (𝟙 x) h).trans
@@ -99,7 +99,7 @@ theorem read_fromFace {x : Γ.Elements} (h : φ.holds x)
     change T.map (faceHom φ f h) (s.face (𝟙 x) h) = s.face f hy
     simpa only [Category.id_comp] using s.naturality (𝟙 x) f h
 
-def fullFaceEquiv {x : Γ.Elements} (h : φ.holds x) :
+def fullFaceEquiv {x : Γ.Elements} (h : φ.Holds x) :
     T.obj (faceObj φ x h) ≃ CompatibleElement φ A T e x where
   toFun := fromFace φ A T e h
   invFun s := s.face (𝟙 x) h
@@ -107,22 +107,22 @@ def fullFaceEquiv {x : Γ.Elements} (h : φ.holds x) :
   right_inv := read_fromFace φ A T e h
 
 /-- The strict carrier uses the supplied face type whenever the face is full. -/
-def fiber (x : Γ.Elements) : Type u :=
-  if h : φ.holds x then T.obj (faceObj φ x h) else CompatibleElement φ A T e x
+def Fiber (x : Γ.Elements) : Type u :=
+  if h : φ.Holds x then T.obj (faceObj φ x h) else CompatibleElement φ A T e x
 
-def fiberEquiv (x : Γ.Elements) : fiber φ A T e x ≃ CompatibleElement φ A T e x :=
-  if h : φ.holds x then
-    (Equiv.cast (show fiber φ A T e x = T.obj (faceObj φ x h) from dite_eq_left h)).trans
+def fiberEquiv (x : Γ.Elements) : Fiber φ A T e x ≃ CompatibleElement φ A T e x :=
+  if h : φ.Holds x then
+    (Equiv.cast (show Fiber φ A T e x = T.obj (faceObj φ x h) from dite_eq_left h)).trans
       (fullFaceEquiv φ A T e h)
-  else Equiv.cast (show fiber φ A T e x = CompatibleElement φ A T e x from dite_eq_right h)
+  else Equiv.cast (show Fiber φ A T e x = CompatibleElement φ A T e x from dite_eq_right h)
 
 /-- Restrictions use compatible data also when a face becomes full later. -/
 def family : Family Γ :=
-  (compatibleFamily φ A T e).copyObj (fiber φ A T e)
+  (compatibleFamily φ A T e).copyObj (Fiber φ A T e)
     (fun x => (fiberEquiv φ A T e x).symm.toIso)
 
 def familyIso : family φ A T e ≅ compatibleFamily φ A T e :=
-  ((compatibleFamily φ A T e).isoCopyObj (fiber φ A T e)
+  ((compatibleFamily φ A T e).isoCopyObj (Fiber φ A T e)
     (fun x => (fiberEquiv φ A T e x).symm.toIso)).symm
 
 def unglue : family φ A T e ⟶ A :=
@@ -192,8 +192,8 @@ theorem compatible_eta (s : Term (compatibleFamily φ A T e)) :
     rw [Category.comp_id] at hs
     exact hs.symm
 
-theorem fiber_full (x : Γ.Elements) (h : φ.holds x) :
-    fiber φ A T e x = T.obj (faceObj φ x h) := dite_eq_left h
+theorem fiber_full (x : Γ.Elements) (h : φ.Holds x) :
+    Fiber φ A T e x = T.obj (faceObj φ x h) := dite_eq_left h
 
 def compatibleFullFaceIso : reindex (compatibleFamily φ A T e) (restrictInclusion φ) ≅ T :=
   NatIso.ofComponents (fun x =>
@@ -213,14 +213,14 @@ def fullFaceIso : reindex (family φ A T e) (restrictInclusion φ) ≅ T :=
   (Functor.isoWhiskerLeft (restrictInclusion φ).mapElements (familyIso φ A T e)) ≪≫
     compatibleFullFaceIso φ A T e
 
-theorem fiberEquiv_full {x : Γ.Elements} (h : φ.holds x)
-    (a : fiber φ A T e x) (t : T.obj (faceObj φ x h)) (ha : HEq a t) :
+theorem fiberEquiv_full {x : Γ.Elements} (h : φ.Holds x)
+    (a : Fiber φ A T e x) (t : T.obj (faceObj φ x h)) (ha : HEq a t) :
     (fiberEquiv φ A T e x) a = fromFace φ A T e h t := by
   simp only [fiberEquiv, dite_eq_left h]
   apply congrArg (fromFace φ A T e h)
   exact eq_of_heq ((cast_heq _ a).trans ha)
 
-theorem fiberEquiv_symm_full {x : Γ.Elements} (h : φ.holds x)
+theorem fiberEquiv_symm_full {x : Γ.Elements} (h : φ.Holds x)
     (s : CompatibleElement φ A T e x) :
     HEq ((fiberEquiv φ A T e x).symm s) (s.face (𝟙 x) h) := by
   simp only [fiberEquiv, dite_eq_left h]
@@ -293,20 +293,20 @@ def inverseFace {x : Δ.Elements}
     (s : CompatibleElement (φ.reindex σ) (reindex A σ)
       (reindex T (restrictSubstitution φ σ))
       (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e) x)
-    {y : Γ.Elements} (f : σ.mapElements.obj x ⟶ y) (h : φ.holds y) : T.obj (faceObj φ y h) :=
+    {y : Γ.Elements} (f : σ.mapElements.obj x ⟶ y) (h : φ.Holds y) : T.obj (faceObj φ y h) :=
   Equiv.piCongrLeft (P := fun z : Σ y, σ.mapElements.obj x ⟶ y =>
-    ∀ h : φ.holds z.1, T.obj (faceObj φ z.1 h)) (substitutionArrowEquiv σ x)
+    ∀ h : φ.Holds z.1, T.obj (faceObj φ z.1 h)) (substitutionArrowEquiv σ x)
       (fun z h => s.face z.2 h) ⟨y,f⟩ h
 
 theorem inverseFace_map {x y : Δ.Elements}
     (s : CompatibleElement (φ.reindex σ) (reindex A σ)
       (reindex T (restrictSubstitution φ σ))
       (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e) x)
-    (f : x ⟶ y) (h : φ.holds (σ.mapElements.obj y)) :
+    (f : x ⟶ y) (h : φ.Holds (σ.mapElements.obj y)) :
     inverseFace φ A T e σ s (σ.mapElements.map f) h = s.face f h :=
   congrFun (Equiv.piCongrLeft_apply_apply
     (P := fun z : Σ y, σ.mapElements.obj x ⟶ y =>
-      ∀ h : φ.holds z.1, T.obj (faceObj φ z.1 h))
+      ∀ h : φ.Holds z.1, T.obj (faceObj φ z.1 h))
     (e := substitutionArrowEquiv σ x) (fun z h => s.face z.2 h) ⟨y,f⟩) h
 
 def inverseElement {x : Δ.Elements}
@@ -415,50 +415,50 @@ theorem Datum.local_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) : (D.reindex σ).local x = D.local (σ.mapElements.obj x) :=
   congrArg D.reindex (represented_naturality σ x).symm
 
-def Datum.localCarrier {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
+def Datum.LocalCarrier {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
   (D.local x).compatible.obj (representableGeneric.{u} x.obj.unop)
 
 theorem Datum.localCarrier_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) :
-    (D.reindex σ).localCarrier x = D.localCarrier (σ.mapElements.obj x) :=
+    (D.reindex σ).LocalCarrier x = D.LocalCarrier (σ.mapElements.obj x) :=
   congrArg (fun L => L.compatible.obj (representableGeneric.{u} x.obj.unop))
     (D.local_substitution σ x)
 
 def Datum.localCarrierEquiv {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) :
-    D.localCarrier x ≃ D.compatible.obj x :=
+    D.LocalCarrier x ≃ D.compatible.obj x :=
   (((compatibleReindexIso D.face D.ambient D.faceFamily D.map (represented x)).app
     (representableGeneric.{u} x.obj.unop)).symm.toEquiv).trans
       (D.compatible.mapIso (eqToIso (represented_generic_source x))).toEquiv
 
 /-- Full faces retain the given carrier; other cubes use a local presentation. -/
-def Datum.smallFiber {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
-  if h : D.face.holds x then D.faceFamily.obj (faceObj D.face x h) else D.localCarrier x
+def Datum.SmallFiber {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) : Type u :=
+  if h : D.face.Holds x then D.faceFamily.obj (faceObj D.face x h) else D.LocalCarrier x
 
 def Datum.smallFiberEquiv {Γ : Context.{u}} (D : Datum Γ) (x : Γ.Elements) :
-    D.smallFiber x ≃ D.compatible.obj x :=
-  if h : D.face.holds x then
-    (Equiv.cast (show D.smallFiber x = D.faceFamily.obj (faceObj D.face x h) from dite_eq_left h)).trans
+    D.SmallFiber x ≃ D.compatible.obj x :=
+  if h : D.face.Holds x then
+    (Equiv.cast (show D.SmallFiber x = D.faceFamily.obj (faceObj D.face x h) from dite_eq_left h)).trans
       (fullFaceEquiv D.face D.ambient D.faceFamily D.map h)
   else
-    (Equiv.cast (show D.smallFiber x = D.localCarrier x from dite_eq_right h)).trans
+    (Equiv.cast (show D.SmallFiber x = D.LocalCarrier x from dite_eq_right h)).trans
       (D.localCarrierEquiv x)
 
 theorem Datum.smallFiber_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) :
-    (D.reindex σ).smallFiber x = D.smallFiber (σ.mapElements.obj x) := by
-  unfold smallFiber
-  change (if h : D.face.holds (σ.mapElements.obj x) then
-    D.faceFamily.obj (faceObj D.face (σ.mapElements.obj x) h) else (D.reindex σ).localCarrier x) = _
-  by_cases h : D.face.holds (σ.mapElements.obj x)
+    (D.reindex σ).SmallFiber x = D.SmallFiber (σ.mapElements.obj x) := by
+  unfold SmallFiber
+  change (if h : D.face.Holds (σ.mapElements.obj x) then
+    D.faceFamily.obj (faceObj D.face (σ.mapElements.obj x) h) else (D.reindex σ).LocalCarrier x) = _
+  by_cases h : D.face.Holds (σ.mapElements.obj x)
   · rw [dite_eq_left h, dite_eq_left h]
   · rw [dite_eq_right h, dite_eq_right h]
     exact D.localCarrier_substitution σ x
 
 def Datum.smallFamily {Γ : Context.{u}} (D : Datum Γ) : Family Γ :=
-  D.compatible.copyObj D.smallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)
+  D.compatible.copyObj D.SmallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)
 
 def Datum.smallFamilyIso {Γ : Context.{u}} (D : Datum Γ) : D.smallFamily ≅ D.compatible :=
-  (D.compatible.isoCopyObj D.smallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)).symm
+  (D.compatible.isoCopyObj D.SmallFiber (fun x => (D.smallFiberEquiv x).symm.toIso)).symm
 
 def Datum.chartMap {Γ : Context.{u}} (D : Datum Γ) {I : Cube}
     (q : representable.{u} I ⟶ Γ) (x : Γ.Elements)
@@ -506,11 +506,11 @@ theorem Datum.smallToLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     HEq ((D.smallFiberEquiv (σ.mapElements.obj x)).symm s)
       (((D.reindex σ).smallFiberEquiv x).symm
         ((compatibleReindexMap D.face D.ambient D.faceFamily D.map σ).app x s)) := by
-  by_cases h : D.face.holds (σ.mapElements.obj x)
-  · have h' : (D.reindex σ).face.holds x := h
+  by_cases h : D.face.Holds (σ.mapElements.obj x)
+  · have h' : (D.reindex σ).face.Holds x := h
     simp only [smallFiberEquiv, dite_eq_left h, dite_eq_left h']
     exact (cast_heq _ _).trans (cast_heq _ _).symm
-  · have h' : ¬(D.reindex σ).face.holds x := h
+  · have h' : ¬(D.reindex σ).face.Holds x := h
     simp only [smallFiberEquiv, dite_eq_right h, dite_eq_right h']
     exact (cast_heq _ _).trans ((D.toLocal_substitution σ x s).trans (cast_heq _ _).symm)
 
@@ -545,14 +545,14 @@ theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ 
               (D.smallFiberEquiv (σ.mapElements.obj x) s)))).symm)
 
 theorem Datum.smallFiberEquiv_full {Γ : Context.{u}} (D : Datum Γ) {x : Γ.Elements}
-    (h : D.face.holds x) (a : D.smallFiber x) (t : D.faceFamily.obj (faceObj D.face x h))
+    (h : D.face.Holds x) (a : D.SmallFiber x) (t : D.faceFamily.obj (faceObj D.face x h))
     (ha : HEq a t) : D.smallFiberEquiv x a = fromFace D.face D.ambient D.faceFamily D.map h t := by
   simp only [smallFiberEquiv, dite_eq_left h]
   apply congrArg (fromFace D.face D.ambient D.faceFamily D.map h)
   exact eq_of_heq ((cast_heq _ a).trans ha)
 
 theorem Datum.smallFiberEquiv_symm_full {Γ : Context.{u}} (D : Datum Γ) {x : Γ.Elements}
-    (h : D.face.holds x) (s : D.compatible.obj x) :
+    (h : D.face.Holds x) (s : D.compatible.obj x) :
     HEq ((D.smallFiberEquiv x).symm s) (s.face (𝟙 x) h) := by
   simp only [smallFiberEquiv, dite_eq_left h]
   exact cast_heq _ _

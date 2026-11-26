@@ -37,7 +37,7 @@ example : (prepare (initial (both .fused)) (both .checked) (both .split) roomy t
 
 /-- Passing target steady-state selection does not discharge migration controls. -/
 theorem steady_not_transfer :
-    eligible roomy (both .split) ∧
+    Eligible roomy (both .split) ∧
     (prepare ⟨(initial (both .fused)).active,none,false⟩ (both .fused) (both .split)
       roomy true true).status = .throttled := by decide
 

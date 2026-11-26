@@ -23,7 +23,7 @@ theorem derivative_square : derivative square = twice := by
   rw [AlgebraicScalar.square_expansion A x d.val d.property]
   ring
 
-theorem derivative_square_apply (A : Stage) (x : Carrier A) :
+theorem derivative_square_apply (A : Stage) (x : carrierAlgebra A) :
     (derivative square).hom.app (atStage A) x = 2*x := by
   rw [derivative_square]
   change x+x = 2*x
@@ -32,7 +32,7 @@ theorem derivative_square_apply (A : Stage) (x : Carrier A) :
 abbrev dualIntegers := AlgebraicScalar.dualIntegers
 
 /-- Nonzero universal epsilon is consumed by the synthetic Taylor theorem. -/
-theorem square_at_epsilon (x : Carrier dualIntegers) :
+theorem square_at_epsilon (x : carrierAlgebra dualIntegers) :
     square.hom.app (atStage dualIntegers) (x+(eps .integers).val) =
       x*x + (2*x)*(eps .integers).val := by
   have h := taylor square dualIntegers x (eps .integers)
@@ -44,7 +44,7 @@ abbrev flip : dualIntegers ⟶ dualIntegers :=
   dualLift .integers dualIntegers
     (ringMap (inl .integers), ⟨-(eps .integers).val, by rw [neg_mul_neg]; exact (eps .integers).property⟩)
 
-theorem flip_epsilon : ringMap flip DualNumber.eps = -(DualNumber.eps : Carrier dualIntegers) :=
+theorem flip_epsilon : ringMap flip DualNumber.eps = -(DualNumber.eps : carrierAlgebra dualIntegers) :=
   dualLift_eps _ _ _ _
 
 theorem flip_not_identity : flip ≠ 𝟙 dualIntegers := by
@@ -56,7 +56,7 @@ theorem flip_not_identity : flip ≠ 𝟙 dualIntegers := by
   norm_num at hs
 
 /-- Derivative preservation along a proved nonidentity algebra map. -/
-theorem derivative_flip (x : Carrier dualIntegers) :
+theorem derivative_flip (x : carrierAlgebra dualIntegers) :
     (derivative square).hom.app (atStage dualIntegers) (ringMap flip x) =
       ringMap flip ((derivative square).hom.app (atStage dualIntegers) x) :=
   congrArg (fun k : scalar.obj.obj (atStage dualIntegers) ⟶ scalar.obj.obj (atStage dualIntegers) => k x)
@@ -87,7 +87,7 @@ theorem internal_slopes_distinct :
   have h01 := (hi (0, 0)).symm.trans (he.trans (hi (0, 1)))
   exact Int.zero_ne_one (congrArg Prod.snd h01)
 
-abbrev observeSlope (b : ℤ) : Carrier dualIntegers :=
+abbrev observeSlope (b : ℤ) : carrierAlgebra dualIntegers :=
   (evaluation infinitesimal scalar).hom.app (atStage dualIntegers)
     (eps .integers, functions.obj.map (stageMap (inl .integers))
       (affine.hom.app (atStage .integers) (0, b)))
@@ -115,14 +115,14 @@ theorem slope_observations_distinct : observeSlope 0 ≠ observeSlope 1 := by
 /-- Integer polynomial corresponding to the natural squaring map. -/
 def polynomial : Polynomial ℤ := Polynomial.X ^ 2
 
-theorem square_polynomial (A : Stage) (x : Carrier A) :
-    square.hom.app (atStage A) x = polynomial.eval₂ (Int.castRingHom (Carrier A)) x := by
+theorem square_polynomial (A : Stage) (x : carrierAlgebra A) :
+    square.hom.app (atStage A) x = polynomial.eval₂ (Int.castRingHom (carrierAlgebra A)) x := by
   change x*x = _
   simp [polynomial, pow_two]
 
-theorem coefficient_polynomial (A : Stage) (x : Carrier A) :
+theorem coefficient_polynomial (A : Stage) (x : carrierAlgebra A) :
     (derivative square).hom.app (atStage A) x =
-      polynomial.derivative.eval₂ (Int.castRingHom (Carrier A)) x := by
+      polynomial.derivative.eval₂ (Int.castRingHom (carrierAlgebra A)) x := by
   rw [derivative_square_apply]
   simp [polynomial]
 
@@ -134,7 +134,7 @@ theorem modelSlope_eq : modelSlope = polynomial.derivative := by
   have h : (2 : Polynomial ℤ) * (Polynomial.X : Polynomial ℤ) = polynomial.derivative := by
     simp [polynomial]
   exact (derivative_square_apply (.polynomial .integers)
-    (show Carrier (.polynomial .integers) from (Polynomial.X : Polynomial ℤ))).trans h
+    (show carrierAlgebra (.polynomial .integers) from (Polynomial.X : Polynomial ℤ))).trans h
 
 /-- Real numbers are external evaluation targets, not objects of this site.
 The analytic derivative coefficient is the polynomial obtained from KL. -/

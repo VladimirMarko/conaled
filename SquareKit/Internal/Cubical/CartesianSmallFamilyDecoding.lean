@@ -13,14 +13,14 @@ def representableGenericHom {I J : Cube} (f : J ⟶ I) :
       (representableMap f).mapElements.obj (representableGeneric.{u} J) :=
   RepresentableClassification.representableGenericHom f
 
-def codeFiber {I : Cube} (A : SmallFamilyCode.{u} I) : Type u :=
+def CodeFiber {I : Cube} (A : SmallFamilyCode.{u} I) : Type u :=
   A.family.obj (representableGeneric I)
 
-def decodeMap {x y : smallFamilyCodes.{u}.Elements} (f : x ⟶ y) : codeFiber x.val → codeFiber y.val :=
-  fun a => cast (congrArg (fun A : SmallFamilyCode.{u} y.obj.unop => codeFiber A) f.map_val)
+def decodeMap {x y : smallFamilyCodes.{u}.Elements} (f : x ⟶ y) : CodeFiber x.val → CodeFiber y.val :=
+  fun a => cast (congrArg (fun A : SmallFamilyCode.{u} y.obj.unop => CodeFiber A) f.map_val)
     (x.val.family.map (representableGenericHom f.hom.unop) a)
 
-theorem decodeMap_id (x : smallFamilyCodes.{u}.Elements) (a : codeFiber x.val) :
+theorem decodeMap_id (x : smallFamilyCodes.{u}.Elements) (a : CodeFiber x.val) :
     decodeMap (𝟙 x) a = a := by
   unfold decodeMap
   apply eq_of_heq
@@ -34,7 +34,7 @@ theorem decodeMap_id (x : smallFamilyCodes.{u}.Elements) (a : codeFiber x.val) :
     e.symm HEq.rfl a
 
 theorem decodeMap_comp {x y z : smallFamilyCodes.{u}.Elements} (f : x ⟶ y) (g : y ⟶ z)
-    (a : codeFiber x.val) : decodeMap (f ≫ g) a = decodeMap g (decodeMap f a) := by
+    (a : CodeFiber x.val) : decodeMap (f ≫ g) a = decodeMap g (decodeMap f a) := by
   rcases x with @⟨I,A⟩
   rcases y with @⟨J,B⟩
   rcases z with @⟨K,C⟩
@@ -68,7 +68,7 @@ theorem decodeMap_comp {x y z : smallFamilyCodes.{u}.Elements} (f : x ⟶ y) (g 
 /-- The universal small decoding family uses small fibers over the larger code
 context. It is an ordinary functor, without changing the native Family API. -/
 def universalDecode : smallFamilyCodes.{u}.Elements ⥤ Type u where
-  obj x := codeFiber x.val
+  obj x := CodeFiber x.val
   map f := TypeCat.ofHom (decodeMap f)
   map_id x := by
     apply ConcreteCategory.hom_ext

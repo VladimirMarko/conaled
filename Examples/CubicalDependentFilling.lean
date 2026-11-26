@@ -24,7 +24,7 @@ theorem computed_at_two :
   exact varying_result_at_two
 
 theorem entire_tube (x : (total (interval naturals)).Elements)
-    (h : ((Cofibration.top naturals).reindex (projection (interval naturals))).full x) :
+    (h : ((Cofibration.top naturals).reindex (projection (interval naturals))).Full x) :
     (filling.fill (projection (interval naturals)) (Cofibration.top naturals) generalBox).val x =
       generalBox.tube.val x h :=
   ((discreteFilling_lawful index (fun n => Fin (n+1))).fills _ _ generalBox).2 x h

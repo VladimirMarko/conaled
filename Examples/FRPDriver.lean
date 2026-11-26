@@ -41,7 +41,7 @@ example : decodeAggregate (encodeAggregate (1,15)) = some (1,15) := decodeAggreg
 example (tokens : List Nat) (c : Command) (h : decodeBounded tokens = .ok c) :
     supported c = true := decodeBounded_supported tokens c h
 example (s : State) (xs : List (Except DecodeError Command)) :
-    (replay s xs).1 = (Lifecycle.Pipeline.run Consumer s (acceptedCommands xs)).1 :=
+    (replay s xs).1 = (Lifecycle.Pipeline.run consumer s (acceptedCommands xs)).1 :=
   replay_state s xs
 example (s : State) (c : Command) :
     ((step s c).1,(step s c).2.event) =

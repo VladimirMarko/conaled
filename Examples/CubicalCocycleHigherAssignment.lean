@@ -24,22 +24,22 @@ private theorem normalizedIdentity_congr {Γ : Context.{0}} {A B : Family Γ} (e
 theorem selected_p : HEq (parallelPoints.p.down.reindex assignParallel)
     (normalizedIdentityRefl (zeroTerm terminal.{0})) := by
   have h₁ := cast_section_reindex
-    (CM.identity_sub onePath.family onePath.x onePath.y (CM.weaken onePath.context onePath.path))
-    (CM.subTm onePath.p (CM.weaken onePath.context onePath.path)) assignParallel
+    (cocycleStructuralModel.identity_sub onePath.family onePath.x onePath.y (cocycleStructuralModel.weaken onePath.context onePath.path))
+    (cocycleStructuralModel.subTm onePath.p (cocycleStructuralModel.weaken onePath.context onePath.path)) assignParallel
   have h₂ := cast_section_reindex
-    (CM.identity_sub points.family points.x points.y (CM.weaken points.context points.path))
-    (CM.genericVariable points.context points.path) assignP
+    (cocycleStructuralModel.identity_sub points.family points.x points.y (cocycleStructuralModel.weaken points.context points.path))
+    (cocycleStructuralModel.genericVariable points.context points.path) assignP
   exact h₁.trans (h₂.trans (Term.convert_heq path_at_assignment.symm (normalizedIdentityRefl (zeroTerm terminal))))
 
 theorem selected_parallel_p : HEq (parallelPoints.p'.down.reindex assignParallel)
     (normalizedIdentityRefl (zeroTerm terminal.{0})) := by
   have h := cast_section_reindex
-    (CM.identity_sub onePath.family onePath.x onePath.y (CM.weaken onePath.context onePath.path))
-    (CM.genericVariable onePath.context onePath.path) assignParallel
+    (cocycleStructuralModel.identity_sub onePath.family onePath.x onePath.y (cocycleStructuralModel.weaken onePath.context onePath.path))
+    (cocycleStructuralModel.genericVariable onePath.context onePath.path) assignParallel
   exact h.trans (Term.convert_heq parallel_path_at_assignment.symm (normalizedIdentityRefl (zeroTerm terminal)))
 
 theorem homotopy_at_assignment : reindex parallelPoints.identity.family assignParallel =
-    SecondIdentityFamily terminal.{0} := by
+    secondIdentityFamily terminal.{0} := by
   have hi := normalizedIdentity_reindex parallelPoints.family.family parallelPoints.x.down parallelPoints.y.down assignParallel
   have ho := normalizedIdentity_reindex parallelPoints.path.family parallelPoints.p.down parallelPoints.p'.down assignParallel
   exact ho.trans (normalizedIdentity_congr hi selected_p selected_parallel_p)
@@ -47,7 +47,7 @@ theorem homotopy_at_assignment : reindex parallelPoints.identity.family assignPa
 def assignedHomotopy : Term (reindex parallelPoints.identity.family assignParallel) :=
   (secondIdentity terminal).convert homotopy_at_assignment.symm
 
-def assignHomotopy : terminal.{0} ⟶ homotopyContext CM cocycleBase cocycleRootedFamily :=
+def assignHomotopy : terminal.{0} ⟶ homotopyContext cocycleStructuralModel cocycleBase cocycleRootedFamily :=
   pair assignParallel assignedHomotopy
 
 end Examples.CubicalCocycleAssignment

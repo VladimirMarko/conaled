@@ -14,7 +14,7 @@ def pulledValue {A B C : Assembly.{u}} (p : Hom A B) (f : Hom C B) :
 P1's admissible domain of the optional observation. -/
 noncomputable def baseChangePartial {A B C : Assembly.{u}} (p : Hom A B) (f : Hom C B) :
     PartialMap (pullback f (sliceBase p)) (pullback f p) where
-  domain := definedDomain (pulledValue p f)
+  Domain := DefinedDomain (pulledValue p f)
   admissible := definedDomain_admissible (pulledValue p f)
   map := pullbackLift f p
     ((inclusion _ _).comp (pullbackFst f (sliceBase p)))

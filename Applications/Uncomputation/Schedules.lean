@@ -14,10 +14,10 @@ structure Gate (n : Nat) where
 def Gate.support {n} (g : Gate n) : Finset (Fin n) :=
   insert g.target g.controls.toFinset
 
-def Gate.valid {n} (g : Gate n) : Prop :=
+def Gate.Valid {n} (g : Gate n) : Prop :=
   (g.controls.length = 1 ∨ g.controls.length = 2) ∧
   g.controls.Nodup ∧ g.target ∉ g.controls
-instance {n} (g : Gate n) : Decidable g.valid := inferInstanceAs (Decidable (_ ∧ _ ∧ _))
+instance {n} (g : Gate n) : Decidable g.Valid := inferInstanceAs (Decidable (_ ∧ _ ∧ _))
 
 def Gate.run {n} (g : Gate n) (v : Fin n → Bool) : Fin n → Bool :=
   Function.update v g.target (xor (v g.target) (g.controls.all v))
@@ -25,10 +25,10 @@ def Gate.run {n} (g : Gate n) (v : Fin n → Bool) : Fin n → Bool :=
 def run {n} (layers : List (List (Gate n))) (v : Fin n → Bool) : Fin n → Bool :=
   layers.flatten.foldl (fun s g => g.run s) v
 
-def valid {n} (layers : List (List (Gate n))) : Prop :=
-  ∀ layer ∈ layers, (∀ g ∈ layer, g.valid) ∧
+def Valid {n} (layers : List (List (Gate n))) : Prop :=
+  ∀ layer ∈ layers, (∀ g ∈ layer, g.Valid) ∧
     layer.Pairwise (fun g h => Disjoint g.support h.support)
-instance {n} (layers : List (List (Gate n))) : Decidable (valid layers) :=
+instance {n} (layers : List (List (Gate n))) : Decidable (Valid layers) :=
   inferInstanceAs (Decidable (∀ layer ∈ layers, _))
 
 def work {n} (layers : List (List (Gate n))) := layers.flatten.length
@@ -53,7 +53,7 @@ def c5b : Gate 5 := ⟨[4],3⟩
 def retain : List (List (Gate 5)) := [[t5],[c5a],[c5b],[t5]]
 def recompute : List (List (Gate 5)) := [[t5],[c5a],[t5],[t5],[c5b],[t5]]
 
-theorem layers_disjoint : valid parallel ∧ valid serial ∧ valid retain ∧ valid recompute := by
+theorem layers_disjoint : Valid parallel ∧ Valid serial ∧ Valid retain ∧ Valid recompute := by
   decide
 
 theorem gate_costs : (work parallel, depth parallel) = (6,3) ∧
@@ -61,7 +61,7 @@ theorem gate_costs : (work parallel, depth parallel) = (6,3) ∧
     (work retain, depth retain) = (4,4) ∧
     (work recompute, depth recompute) = (6,6) := by decide
 
-theorem Gate.involutive {n} (g : Gate n) (h : g.valid) : Function.Involutive g.run := by
+theorem Gate.involutive {n} (g : Gate n) (h : g.Valid) : Function.Involutive g.run := by
   intro v
   have hc : g.controls.all (g.run v) = g.controls.all v := by
     rw [List.all_eq, List.all_eq]
@@ -81,20 +81,20 @@ theorem Gate.involutive {n} (g : Gate n) (h : g.valid) : Function.Involutive g.r
     cases v g.target <;> cases g.controls.all v <;> rfl
   · simp [Gate.run, Function.update_of_ne hi]
 
-def Gate.perm {n} (g : Gate n) (h : g.valid) : (Fin n → Bool) ≃ (Fin n → Bool) where
+def Gate.perm {n} (g : Gate n) (h : g.Valid) : (Fin n → Bool) ≃ (Fin n → Bool) where
   toFun := g.run
   invFun := g.run
   left_inv := g.involutive h
   right_inv := g.involutive h
 
-def gatesPerm {n} (gs : List (Gate n)) (h : ∀ g ∈ gs, g.valid) :
+def gatesPerm {n} (gs : List (Gate n)) (h : ∀ g ∈ gs, g.Valid) :
     (Fin n → Bool) ≃ (Fin n → Bool) :=
   match gs with
   | [] => Equiv.refl _
   | g :: rest => (g.perm (h g (by simp))).trans
       (gatesPerm rest (fun k hk => h k (by simp [hk])))
 
-theorem gatesPerm_apply {n} (gs : List (Gate n)) (h : ∀ g ∈ gs, g.valid) (v) :
+theorem gatesPerm_apply {n} (gs : List (Gate n)) (h : ∀ g ∈ gs, g.Valid) (v) :
     gatesPerm gs h v = gs.foldl (fun s g => g.run s) v := by
   induction gs generalizing v with
   | nil => rfl
@@ -169,7 +169,7 @@ def eventStep {n} (caller : Finset (Fin n)) (e : Event n)
       then some (s.1, s.2 ∪ ws) else none
   | .release ws => if ws ⊆ s.2 ∧ Disjoint ws caller ∧ (∀ i ∈ ws, s.1 i = false)
       then some (s.1, s.2 \ ws) else none
-  | .layer gs => if valid [gs] ∧ (∀ g ∈ gs, g.support ⊆ s.2)
+  | .layer gs => if Valid [gs] ∧ (∀ g ∈ gs, g.support ⊆ s.2)
       then some (run [gs] s.1, s.2) else none
 
 def execute {n} (caller : Finset (Fin n)) (es : List (Event n))

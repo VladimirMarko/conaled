@@ -46,7 +46,7 @@ def main : IO Unit := do
     bill (installation roomy "fixture" (some epoch)).2)
   reportCheck "fallback-cost" (bill (installation roomy "fixture" none []).2 <
     bill (installationFallback roomy "fixture" none [] fusedSites).2)
-  let ctx := admittedContext catalog (eligible roomy) Sites.name (context roomy "fixture")
+  let ctx := admittedContext catalog (Eligible roomy) Sites.name (context roomy "fixture")
   let duplicate := {epoch with samples := epoch.samples.headD ⟨"missing",0,0,false,ctx⟩ :: epoch.samples.headD ⟨"missing",0,0,false,ctx⟩ :: epoch.samples.drop 2}
   reportCheck "duplicate-epoch" (!duplicate.complete ctx 1 && chosen (some duplicate) == fixed)
   reportCheck "mismatched-sample" (chosen (some {epoch with samples := epoch.samples.map fun s =>

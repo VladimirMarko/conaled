@@ -13,7 +13,7 @@ def twoPoint (P : Bool → Prop := fun _ => False) : Model where
   inhabitedA := ⟨false⟩
   inhabitedB := ⟨()⟩
   relation := ⟨fun _ _ => True, ⟨fun _ => trivial, fun _ => trivial, fun _ _ => trivial⟩⟩
-  predicate := P
+  Predicate := P
 
 def swap : Hom twoPoint twoPoint where
   onA := Bool.not
@@ -48,13 +48,13 @@ theorem noncanonical_section :
 
 structure BadExtension (M : Model) where
   c : M.A
-  selected : M.predicate c
+  selected : M.Predicate c
 
 theorem empty_predicate_no_expansion : ¬ Nonempty (BadExtension twoPoint) := by
   rintro ⟨N⟩
   exact N.selected
 
-def selected_success : BadExtension (twoPoint (fun a => a = false)) := ⟨false,rfl⟩
+def selectedSuccess : BadExtension (twoPoint (fun a => a = false)) := ⟨false,rfl⟩
 
 /-- A forward homomorphism may destroy an old negated observation. -/
 def predicateEnlargement : Hom twoPoint (twoPoint (fun _ => True)) :=
@@ -139,7 +139,7 @@ abbrev naturals : Model where
   inhabitedA := ⟨0⟩
   inhabitedB := ⟨0⟩
   relation := ⟨Eq, ⟨Eq.refl,Eq.symm,Eq.trans⟩⟩
-  predicate := fun _ => True
+  Predicate := fun _ => True
 
 def increment : Hom naturals naturals :=
   ⟨fun n => n+1, id, fun h => congrArg (fun n => n+1) h, fun _ => trivial⟩
@@ -231,7 +231,7 @@ def model (n : Nat) : Model where
   inhabitedA := ⟨left⟩
   inhabitedB := ⟨⟨⟩⟩
   relation := exact n
-  predicate := fun _ => True
+  Predicate := fun _ => True
 
 /-- This also works for a noncanonical quotient presentation satisfying the axioms. -/
 noncomputable def parse (n : Nat) (S : QuotientSort (model n))

@@ -17,7 +17,7 @@ structure Laws (ops : AbstractSet.DeleteOps κ S)
     (observe : S → Set κ) (Valid : S → Prop) : Prop
     extends AbstractSet.DeleteLaws ops observe Valid where
   overlap : ∀ s, Valid s → ∀ query,
-    overlapSearch s query = true ↔ hasOverlap (iv '' observe s) query
+    overlapSearch s query = true ↔ HasOverlap (iv '' observe s) query
 
 /-- Compose the new observation with the existing mixed-update semantics. -/
 theorem Laws.search_execute {ops : AbstractSet.DeleteOps κ S}
@@ -27,7 +27,7 @@ theorem Laws.search_execute {ops : AbstractSet.DeleteOps κ S}
     (updates : List (AbstractSet.Update κ)) {s : S} (valid : Valid s)
     (query : IntervalKey α) :
     overlapSearch (AbstractSet.execute ops updates s) query = true ↔
-      hasOverlap (iv '' (updates.foldl AbstractSet.meaningStep (observe s))) query := by
+      HasOverlap (iv '' (updates.foldl AbstractSet.meaningStep (observe s))) query := by
   rw [laws.overlap _ (laws.toDeleteLaws.execute_valid updates valid) query,
     laws.toDeleteLaws.execute_observe updates valid]
   rfl

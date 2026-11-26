@@ -28,7 +28,7 @@ def contractionBranchSubstitution := familySubstitution (reindex i E) σ₀
   (retractionBranch_family i i' σ σ₀ hi E).symm
 
 include hi in
-omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] [∀ (x : Γ), IsLocallyGroupoid (E.obj x).carrier] in
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] [∀ (x : Γ), IsLocallyGroupoid (E.obj x).Carrier] in
 theorem contractionInclusion_reindex :
     (reindexHigher (reindex σ E) i').comp (reindexHigher E σ) =
       (contractionBranchSubstitution i i' σ σ₀ hi E).comp (reindexHigher E i) := by
@@ -38,7 +38,7 @@ theorem contractionInclusion_reindex :
   exact familySubstitution_congr E hi _ _
 
 include hi hr hη in
-omit [∀ (x : Γ), IsLocallyGroupoid (E.obj x).carrier] [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
+omit [∀ (x : Γ), IsLocallyGroupoid (E.obj x).Carrier] [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem contractionRetraction_reindex :
     (contractionRetraction i' r' η' (reindex σ E)).comp
       (contractionBranchSubstitution i i' σ σ₀ hi E) =

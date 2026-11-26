@@ -15,21 +15,21 @@ inductive Observer (n : Nat) : Type
   | at
   | size
 
-def fields : Constructor n → Type
+def Fields : Constructor n → Type
   | .nil => Unit
   | .cons n => Nat × (Fin n → Nat)
   | .repeat _ => Nat
 
-def arguments : Observer n → Type
+def Arguments : Observer n → Type
   | .at => Fin n
   | .size => Unit
 
 abbrev signature : Signature Nat where
   Constructor := Constructor
   Observer := Observer
-  fields := fields
-  arguments := arguments
-  result := fun _ => Nat
+  Fields := Fields
+  Arguments := Arguments
+  Result := fun _ => Nat
 
 inductive Prim : Type → Type → Type 1
   | empty : Prim Unit (Fin 0 → Nat)
@@ -45,7 +45,7 @@ def meaning : Prim A B → A → B
   | .at _, (xs,i) => xs i
   | .size n, _ => n
 
-def construction (c : Constructor n) : Expr Prim (Slot (fields c) A) (Fin n → Nat) :=
+def construction (c : Constructor n) : Expr Prim (Slot (Fields c) A) (Fin n → Nat) :=
   match c with
   | .nil => .prim .empty (.var .first)
   | .cons n => .prim (.cons n) (.var .first)
@@ -76,7 +76,7 @@ example (n x : Nat) : (transpose equations).construct meaning (.repeat n) x .siz
   rfl
 
 /-- No well-typed lookup argument exists at the empty index. -/
-theorem empty_lookup_impossible (i : arguments (Observer.at (n := 0))) : False :=
+theorem empty_lookup_impossible (i : Arguments (Observer.at (n := 0))) : False :=
   Fin.elim0 i
 
 /-- A constructor-only subset recovers its original equations after transposition. -/

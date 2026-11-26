@@ -8,7 +8,7 @@ open scoped ContDiff Topology
 namespace SquareKit.EuclideanOpen
 open CategoryTheory SmoothAlgebra
 open OpenFunctions
-variable (U V : Domain) {ι : Type*} (g : ι → Free U.dimension)
+variable (U V : Domain) {ι : Type*} (g : ι → freeAlgebra U.dimension)
 
 abbrev localPoint (x : Points U) {i : ι} (hi : (g i).val x.val ≠ 0) : Points (subdomain U (g i)) :=
   ⟨x.val,mul_ne_zero x.property hi⟩

@@ -10,17 +10,17 @@ open SquareKit.Internal.PathTransport
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
 
-def concat_endpoints_congr (hΓ : CtxDeriv Γ γ) {x y z : BasePoint Γ γ}
+def concatEndpointsCongr (hΓ : CtxDeriv Γ γ) {x y z : BasePoint Γ γ}
     (p p' : Path x y) (q : Path y z)
     (ep : TmEqDeriv Γ γ (.identity .base x.raw y.raw)
       (identityCode (baseCode γ) x.code y.code) p.raw p.code p'.raw p'.code) := by
-  let e0 := endpoint_congr hΓ x y p p' ep
+  let e0 := endpointCongr hΓ x y p p' ep
   let ez := SubEqDeriv.pairingConverted (ConcatFrame.zType hΓ x) e0 rfl
     (baseSub_code _) (baseSub_code _) (.refl z.deriv)
   exact SubEqDeriv.pairingConverted (ConcatFrame.qType hΓ x) ez rfl
     (ConcatApplication.q_type_at hΓ x y z p)
     (ConcatApplication.q_type_at hΓ x y z p') (.refl q.deriv)
-def concat_congr_first (hΓ : CtxDeriv Γ γ) {x y z : BasePoint Γ γ}
+def concatCongrFirst (hΓ : CtxDeriv Γ γ) {x y z : BasePoint Γ γ}
     (p p' : Path x y) (q : Path y z)
     (ep : TmEqDeriv Γ γ (.identity .base x.raw y.raw)
       (identityCode (baseCode γ) x.code y.code) p.raw p.code p'.raw p'.code) :
@@ -28,7 +28,7 @@ def concat_congr_first (hΓ : CtxDeriv Γ γ) {x y z : BasePoint Γ γ}
       (concat hΓ p q).raw (concat hΓ p q).code
       (concat hΓ p' q).raw (concat hΓ p' q).code := by
   let cmd := ConcatFrame.command hΓ x
-  have es := concat_endpoints_congr hΓ p p' q ep
+  have es := concatEndpointsCongr hΓ p p' q ep
   have hraw : cmd.motive.raw.sub
       (eliminationSub y.raw p.raw (ConcatApplication.arguments y z q)) = .identity .base x.raw z.raw := by
     rw [ConcatApplication.endpoint_raw x y z p q]

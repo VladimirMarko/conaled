@@ -142,8 +142,8 @@ responsible for bounded transport queues and caller-retained copies.
 `reachable_resources` also preserves `MetaBound`; scan and recovery counters
 are at most `W`, descriptor and delayed positions at most `K`, and the copy
 program counter is a finite phase with index below `W`. With `W ≤ K`, each
-changing numeric metadata field encodes in `0..K`. `durableAddress` is
-`Bool × Fin W`; `boundedPosition` is `Fin (K+1)`. The fixed incarnation has a
+changing numeric metadata field encodes in `0..K`. `DurableAddress` is
+`Bool × Fin W`; `BoundedPosition` is `Fin (K+1)`. The fixed incarnation has a
 fixed finite encoding. Proof histories, ghost ownership names and execution
 indices are outside the runtime layout.
 

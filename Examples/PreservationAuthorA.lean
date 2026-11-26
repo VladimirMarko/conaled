@@ -66,12 +66,12 @@ def twice {Γ Δ Ξ : Type u} {RΓ : CtxRep Γ} {RΔ : CtxRep Δ} {RΞ : CtxRep 
 
 def R : CtxRep Nat := ⟨Nat × Bool, Prod.fst⟩
 def F : Ty Nat := fun n => Fin (n+1)
-def RF : TyRep R F where
+def familyRepresentation : TyRep R F where
   Carrier := fun ρ => Fin (ρ.1+1)
   meaning := fun _ i => i
 
 def zero : Tm F := fun n => ⟨0, Nat.zero_lt_succ n⟩
-def zeroCert : TermCert R RF zero where
+def zeroCert : TermCert R familyRepresentation zero where
   code := fun ρ => ⟨0, Nat.zero_lt_succ ρ.1⟩
   commutes := fun _ => rfl
 
@@ -86,7 +86,7 @@ def double : SubCert R R (fun n => n*2) where
 def result := twice zeroCert plusOne double
 example (ρ : R.Carrier) : Fin (ρ.1*2+1+1) := result.code ρ
 example (ρ : R.Carrier) :
-    (reindexRep RF (plusOne.compose double)).meaning ρ (result.code ρ) =
+    (reindexRep familyRepresentation (plusOne.compose double)).meaning ρ (result.code ρ) =
       (⟨0, Nat.zero_lt_succ (ρ.1*2+1)⟩ : Fin (ρ.1*2+1+1)) := result.commutes ρ
 example : R.meaning (3, true) = R.meaning (3, false) := rfl
 example : (3, true) ≠ (3, false) := by decide
@@ -103,12 +103,12 @@ def twice {Γ Δ Ξ : Type u} {RΓ : CtxRep Γ} {RΔ : CtxRep Δ} {RΞ : CtxRep 
 
 def R : CtxRep Nat := ⟨Nat × Bool, Prod.fst⟩
 def F : Ty Nat := fun n => Fin (n+1)
-def RF : TyRep R F where
+def familyRepresentation : TyRep R F where
   Carrier := fun ρ => Fin (ρ.1+1)
   meaning := fun _ i => i
 
 def zero : Tm F := fun n => ⟨0, Nat.zero_lt_succ n⟩
-def zeroCert : TermCert R RF zero where
+def zeroCert : TermCert R familyRepresentation zero where
   code := fun ρ => ⟨0, Nat.zero_lt_succ ρ.1⟩
   commutes := fun _ => rfl
 
@@ -123,7 +123,7 @@ def double : SubCert R R (fun n => n*2) where
 def result := twice zeroCert plusOne double
 example (ρ : R.Carrier) : Fin (ρ.1*2+1+1) := result.code ρ
 example (ρ : R.Carrier) :
-    (reindexRep RF (plusOne.compose double)).meaning ρ (result.code ρ) =
+    (reindexRep familyRepresentation (plusOne.compose double)).meaning ρ (result.code ρ) =
       (⟨0, Nat.zero_lt_succ (ρ.1*2+1)⟩ : Fin (ρ.1*2+1+1)) := result.commutes ρ
 example : R.meaning (3, true) = R.meaning (3, false) := rfl
 example : (3, true) ≠ (3, false) := by decide

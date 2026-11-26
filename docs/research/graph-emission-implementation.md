@@ -57,7 +57,7 @@ explicit interpretation and assignment. The existential rule interprets its
 new bound variable and shifts outer expressions. They are open relational
 interpretations; an arbitrary aliased assignment is not claimed to define a
 functional evaluator. `formula_toLean_denotes` establishes that the actual
-emitted proposition syntax denotes `Formula.eval`. Complete declarations use
+emitted proposition syntax denotes `Formula.Eval`. Complete declarations use
 the explicitly constructed parameter and binder assignments.
 
 [`GraphEmissionProof`](../../SquareKit/Internal/GraphEmissionProof.lean)

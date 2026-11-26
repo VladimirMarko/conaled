@@ -9,8 +9,8 @@ universe u
 
 namespace DisjointCover
 variable {Γ : Context.{u}} (φ ψ : Cofibration Γ)
-  (cover : ∀ x : Γ.Elements, φ.full x ∨ ψ.full x)
-  (disjoint : ∀ x : Γ.Elements, φ.full x → ψ.full x → False)
+  (cover : ∀ x : Γ.Elements, φ.Full x ∨ ψ.Full x)
+  (disjoint : ∀ x : Γ.Elements, φ.Full x → ψ.Full x → False)
 
 noncomputable def assemble {A : Family Γ} (a : PartialSection A φ) (b : PartialSection A ψ) : Term A where
   val x := (a.glue b (fun x h k => (disjoint x h k).elim)).val x
@@ -18,11 +18,11 @@ noncomputable def assemble {A : Family Γ} (a : PartialSection A φ) (b : Partia
   property f := (a.glue b (fun x h k => (disjoint x h k).elim)).property f _
 
 theorem section_left {A : Family Γ} (a : PartialSection A φ) (b : PartialSection A ψ)
-    (x : Γ.Elements) (hx : φ.full x) : (assemble φ ψ cover disjoint a b).val x = a.val x hx :=
+    (x : Γ.Elements) (hx : φ.Full x) : (assemble φ ψ cover disjoint a b).val x = a.val x hx :=
   glueValue_left a b x ((Cofibration.full_join φ ψ x).mpr (cover x)) hx
 
 theorem section_right {A : Family Γ} (a : PartialSection A φ) (b : PartialSection A ψ)
-    (x : Γ.Elements) (hx : ψ.full x) : (assemble φ ψ cover disjoint a b).val x = b.val x hx :=
+    (x : Γ.Elements) (hx : ψ.Full x) : (assemble φ ψ cover disjoint a b).val x = b.val x hx :=
   glueValue_right a b (fun x h k => (disjoint x h k).elim) x
     ((Cofibration.full_join φ ψ x).mpr (cover x)) hx
 
@@ -44,13 +44,13 @@ def contractionPartial : PartialSection
     (φ.reindex (projection (interval (total A)) ≫ projection A)) :=
   PartialSection.ofRestricted ((pathApp a.contraction).reindex (contractionRestriction φ))
 
-theorem contractionPartial_zero (x : (total A).Elements) (hx : (φ.reindex (projection A)).full x) :
+theorem contractionPartial_zero (x : (total A).Elements) (hx : (φ.reindex (projection A)).Full x) :
     (contractionPartial φ a).val ((endpointSub (total A) false).mapElements.obj x) hx =
     a.center.val ((restrictContext φ).elementsMk x.obj ⟨x.val.1,hx⟩) :=
   congrArg (fun t => t.val ((total (reindex A (restrictInclusion φ))).elementsMk x.obj
     ⟨⟨x.val.1,hx⟩,x.val.2⟩)) (pathApp_zero a.contraction)
 
-theorem contractionPartial_one (x : (total A).Elements) (hx : (φ.reindex (projection A)).full x) :
+theorem contractionPartial_one (x : (total A).Elements) (hx : (φ.reindex (projection A)).Full x) :
     (contractionPartial φ a).val ((endpointSub (total A) true).mapElements.obj x) hx = x.val.2 :=
   congrArg (fun t => t.val ((total (reindex A (restrictInclusion φ))).elementsMk x.obj
     ⟨⟨x.val.1,hx⟩,x.val.2⟩)) (pathApp_one a.contraction)
@@ -63,12 +63,12 @@ noncomputable def contractionSection :=
     (contractionPartial φ a) (contractionPartial ψ b)
 
 theorem contractionSection_left (x : (total (interval (total A))).Elements)
-    (hx : (φ.reindex (projection (interval (total A)) ≫ projection A)).full x) :
+    (hx : (φ.reindex (projection (interval (total A)) ≫ projection A)).Full x) :
     (contractionSection φ ψ cover disjoint a b).val x = (contractionPartial φ a).val x hx :=
   section_left _ _ _ _ _ _ x hx
 
 theorem contractionSection_right (x : (total (interval (total A))).Elements)
-    (hx : (ψ.reindex (projection (interval (total A)) ≫ projection A)).full x) :
+    (hx : (ψ.reindex (projection (interval (total A)) ≫ projection A)).Full x) :
     (contractionSection φ ψ cover disjoint a b).val x = (contractionPartial ψ b).val x hx :=
   section_right _ _ _ _ _ _ x hx
 
@@ -150,7 +150,7 @@ variable {Γ : Context.{u}} {φ ψ : Cofibration Γ}
   {A B : Family (restrictContext (φ.join ψ))}
   (a : reindex A (includeLeft φ ψ) ⟶ reindex B (includeLeft φ ψ))
   (b : reindex A (includeRight φ ψ) ⟶ reindex B (includeRight φ ψ))
-  (disjoint : ∀ x : Γ.Elements, φ.full x → ψ.full x → False)
+  (disjoint : ∀ x : Γ.Elements, φ.Full x → ψ.Full x → False)
 
 include disjoint in
 theorem disjointCompatible : Compatible a b := fun x h k _ => (disjoint (original x) h k).elim

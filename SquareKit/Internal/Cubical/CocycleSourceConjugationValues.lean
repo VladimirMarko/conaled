@@ -6,11 +6,11 @@ noncomputable section
 namespace SquareKit.Cubical.CategoryCocycles
 open CategoryTheory Presheaf
 variable {Γ : Context.{0}}
-variable {t : Term (reindex (FirstIdentityFamily Γ) (projection (FirstIdentityFamily Γ)))}
-variable (β : Term (normalizedIdentity (reindex (FirstIdentityFamily Γ) (projection (FirstIdentityFamily Γ)))
-  t (generic (FirstIdentityFamily Γ))))
-variable (h : Term (SecondIdentityFamily Γ)) (a : Term (LoopSquareFamily (mappedPoint t)))
-variable (H : Term (normalizedIdentity (LoopSquareFamily (mappedPoint t)) a (mappedHigher t h)))
+variable {t : Term (reindex (firstIdentityFamily Γ) (projection (firstIdentityFamily Γ)))}
+variable (β : Term (normalizedIdentity (reindex (firstIdentityFamily Γ) (projection (firstIdentityFamily Γ)))
+  t (generic (firstIdentityFamily Γ))))
+variable (h : Term (secondIdentityFamily Γ)) (a : Term (loopSquareFamily (mappedPoint t)))
+variable (H : Term (normalizedIdentity (loopSquareFamily (mappedPoint t)) a (mappedHigher t h)))
 
 def sourceConjugationValue (x : Γ.Elements) (r s z : (interval Γ).obj x) : CubeCocycle x.obj.unop :=
   pasteCocycle (bridgeValue H x r s z) (comparisonValue β h x r s z)

@@ -72,7 +72,7 @@ structure Validated (s : SourceProgram) (name : Name) (environment : List Consta
   theorem_record : ∃ t : TheoremVal, actual = .thmInfo t ∧ t.name = name ∧
     t.levelParams = [`v] ∧ t.all = [name] ∧
     CoreSyntax.Expr.ofLean t.type = some (emitCore s.target).1 ∧
-    ArtifactTyped (t.type, t.value) ∧ ArtifactDenotes.{v} (t.type, t.value) s.denote.{v}
+    ArtifactTyped (t.type, t.value) ∧ ArtifactDenotes.{v} (t.type, t.value) s.Denote.{v}
 
 theorem check_sound (h : check limit s name environment actual c = .ok ()) :
     Validated.{v} s name environment actual := by
@@ -95,13 +95,13 @@ theorem check_sound (h : check limit s name environment actual c = .ok ()) :
       · exact ⟨_, _, ht.trans (congrArg some c.type_eq.symm), hb, emitCore_typed c.target⟩
       · refine ⟨_, _, ht.trans (congrArg some c.type_eq.symm), hb, ?_⟩
         have hd := emitCore_denotes.{v} c.target
-        have eqDenote : c.target.denote.{v} = s.denote.{v} := propext s.target_denote
+        have eqDenote : c.target.Denote.{v} = s.Denote.{v} := propext s.target_denote
         exact eqDenote ▸ hd
   · contradiction
 
 /-- Success implies the source-to-core preservation claim without a semantic
 premise on the certificate. -/
-theorem Validated.source (h : Validated.{v} s name environment actual) : s.denote.{v} := by
+theorem Validated.source (h : Validated.{v} s name environment actual) : s.Denote.{v} := by
   obtain ⟨t, _, _, _, _, _, _, hd⟩ := h.theorem_record
   exact hd.sound
 
@@ -123,7 +123,7 @@ theorem check_payload (c : Certificate s) (hv : c.version = 1)
 def checkedRep : Relational.RelRep where
   R := Σ _s : SourceProgram, Σ _name : Name, List ConstantInfo × ConstantInfo
   S := Prop
-  Rel x P := Validated.{v} x.1 x.2.1 x.2.2.1 x.2.2.2 ∧ x.1.denote.{v} = P
+  Rel x P := Validated.{v} x.1 x.2.1 x.2.2.1 x.2.2.2 ∧ x.1.Denote.{v} = P
 
 def validatedSquare : Relational.RelSquare checkedRep.{v} sourceRep.{v} where
   impl := Sigma.fst
@@ -158,7 +158,7 @@ theorem compose_preserves {Γ : List Ty} {p q r : SourceFormula Γ}
     {a : Code (translateFormula p) (translateFormula q)}
     {b : Code (translateFormula q) (translateFormula r)}
     (ha : Validated.{v} ⟨Γ, p, q, a⟩ na ea aa)
-    (hb : Validated.{v} ⟨Γ, q, r, b⟩ nb eb ab) : (composeSource a b).denote.{v} :=
+    (hb : Validated.{v} ⟨Γ, q, r, b⟩ nb eb ab) : (composeSource a b).Denote.{v} :=
   fun M ρ hp => hb.source M ρ (ha.source M ρ hp)
 
 end SquareKit.Internal.GraphTranslationValidator

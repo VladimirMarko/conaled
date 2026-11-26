@@ -16,7 +16,7 @@ theorem cutArrow_values_agree {Γ : Assembly}
 theorem cutSearch_mem {Γ : Assembly}
     {h : Hom (prod Γ iterationCuts) (programLift (encoded Nat))}
     {p : Code} (hp : Tracks (prod Γ iterationCuts) (programLift (encoded Nat)) p.eval h.toFun)
-    {γ : Γ.Carrier} {r : Nat} (hr : Γ.realizes r γ) (e v : Nat) :
+    {γ : Γ.Carrier} {r : Nat} (hr : Γ.Realizes r γ) (e v : Nat) :
     v ∈ run (encode (searchCode (encode (observerCode p r)) e)) ↔
       ∃ n, CutAccessible e n ∧ h.toFun (γ, ⟨n⟩) = some v := by
   have hg (w : Nat) : (∃ z, w ∈ cutSearchStep (encode (observerCode p r)) e z) ↔
@@ -35,7 +35,7 @@ theorem cutSearch_mem {Γ : Assembly}
   obtain ⟨m, _, hm⟩ := (hg z).mp ⟨j, hz⟩
   exact cutArrow_values_agree h γ hn hm
 
-theorem accessible_final {e n : Nat} {t : Option Nat} (he : finalCuts.{0}.realizes e ⟨t⟩) :
+theorem accessible_final {e n : Nat} {t : Option Nat} (he : finalCuts.{0}.Realizes e ⟨t⟩) :
     CutAccessible e n ↔ match t with | none => True | some m => n ≤ m := by
   cases t with
   | none => exact ⟨fun _ => trivial, fun _ => Or.inr (he (n-1))⟩

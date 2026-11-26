@@ -55,7 +55,7 @@ def termType : Ty (Ω := assumptions) empty (subTy A (identitySub empty)) :=
 def assignment : Fin 2 → Value M.toStructuralModel :=
   ![.family () (), .term () () ()]
 
-theorem satisfied : ∀ p ∈ assumptions, p.eval (algebra M) assignment := by
+theorem satisfied : ∀ p ∈ assumptions, p.Eval (algebra M) assignment := by
   intro p hp
   rcases List.mem_cons.mp hp with h | h
   · subst p
@@ -87,7 +87,7 @@ def assumptions : List (Judgment Unit) := [substitution empty empty arrow]
 
 def assignment (_ : Unit) : Value M.toStructuralModel := .substitution () () true
 
-theorem satisfied : ∀ p ∈ assumptions, p.eval (algebra M) assignment := by
+theorem satisfied : ∀ p ∈ assumptions, p.Eval (algebra M) assignment := by
   intro p hp
   have h : p = substitution empty empty arrow := List.mem_singleton.mp hp
   subst p

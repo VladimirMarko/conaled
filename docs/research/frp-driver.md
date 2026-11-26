@@ -132,7 +132,7 @@ separate investigation under [#236](https://github.com/VladimirMarko/conaled/iss
 Both sources start at frontier 0 with empty logs. A packet closing a window
 from the old frontier to the new frontier asserts *all* source observations
 in that half-open interval. Omitted timestamps assert empty batches. The
-existing `windowValid`/`advance` decision checks nondecreasing frontiers and
+existing `WindowValid`/`advance` decision checks nondecreasing frontiers and
 fragment containment. It cannot check whether an external producer omitted
 an actual event. `Trace.Honest` and `State.Completes` express the additional
 truth obligations used by the existing response soundness theorems. Silence

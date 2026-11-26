@@ -118,8 +118,8 @@ theorem Step.simulation {P : Type} {s t : Machine P} {a : Abstract P} {ev}
 /-- Existing finite-script simulation supplies the composition proof. -/
 theorem script_simulation {P : Type} (events : List (Event P))
     {s t : Machine P} {a : Abstract P} (rel : Related s a)
-    (run : Interaction.Events.interpret Step events s t) :
-    ∃ b, Interaction.Events.interpret SpecStep events a b ∧ Related t b :=
+    (run : Interaction.Events.Interpret Step events s t) :
+    ∃ b, Interaction.Events.Interpret SpecStep events a b ∧ Related t b :=
   Interaction.Events.interpret_simulation Step SpecStep Related
     (fun _ _ _ _ h step => step.simulation h) events rel run
 

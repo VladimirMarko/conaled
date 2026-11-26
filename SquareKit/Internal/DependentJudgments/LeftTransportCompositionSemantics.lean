@@ -13,7 +13,7 @@ variable {V : Type} {Ω : List (Judgment V)} {Γ : Expression V}
 namespace LeftTransportComposition.Inputs
 variable (C : Inputs Ω Γ) (M : PathTransport.Typed.Model.{u})
   (ρ : V → Value M.toStructuralModel)
-  (hρ : ∀ a ∈ Ω, a.eval (model M).toAlgebra ρ)
+  (hρ : ∀ a ∈ Ω, a.Eval (model M).toAlgebra ρ)
 
 include hρ
 /-- After identifying the interpreted endpoints, soundness retains the value

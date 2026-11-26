@@ -14,16 +14,16 @@ open Examples.GroupoidRoutes
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
 
-abbrev UnitContext := @Grpd.of (Discrete PUnit.{1}) (Groupoid.ofIsGroupoid (C := Discrete PUnit.{1}))
-abbrev LoopContext := Grpd.of C4
+abbrev unitContext := @Grpd.of (Discrete PUnit.{1}) (Groupoid.ofIsGroupoid (C := Discrete PUnit.{1}))
+abbrev loopContext := Grpd.of C4
 
-def pointSub : UnitContext ⥤ LoopContext := (Functor.const _).obj point
+def pointSub : unitContext ⥤ loopContext := (Functor.const _).obj point
 
 def generatorComparison : pointSub ≅ pointSub :=
   NatIso.ofComponents (fun _ => asIso (label 1)) (by intros; simp [pointSub])
 
-abbrev binaryGroupoid : LoopContext ⥤ Grpd := setFamily binary
-abbrev pulledBinary : UnitContext ⥤ Grpd := pointSub ⋙ binaryGroupoid
+abbrev binaryGroupoid : loopContext ⥤ Grpd := setFamily binary
+abbrev pulledBinary : unitContext ⥤ Grpd := pointSub ⋙ binaryGroupoid
 
 def zeroSection : Section pulledBinary where
   obj _ := ⟨0⟩
@@ -74,7 +74,7 @@ def familyComparison : binary ≅ wrappedBinary :=
       ULift.up (parity (Multiplicative.toAdd p) + (b + 1))
     rw [add_assoc])
 
-abbrev wrappedGroupoid : LoopContext ⥤ Grpd := setFamily wrappedBinary
+abbrev wrappedGroupoid : loopContext ⥤ Grpd := setFamily wrappedBinary
 
 def wrappedDisplay : DisplayMap pulledBinary (pointSub ⋙ wrappedGroupoid) :=
   DisplayMap.reindex (whiskerRight familyComparison.hom discrete) pointSub
@@ -111,8 +111,8 @@ local instance : CategoryTheory.Groupoid (ULift.{0} C4) where
   inv_comp {X Y} f := @CategoryTheory.Groupoid.inv_comp C4 inferInstance X.down Y.down f
   comp_inv {X Y} f := @CategoryTheory.Groupoid.comp_inv C4 inferInstance X.down Y.down f
 
-abbrev A : LoopContext ⥤ Grpd := constant C4
-abbrev B : LoopContext ⥤ Grpd := constant (ULift.{0} C4)
+abbrev A : loopContext ⥤ Grpd := constant C4
+abbrev B : loopContext ⥤ Grpd := constant (ULift.{0} C4)
 
 def wrap : A ⟶ B where
   app _ := (show C4 ⥤ ULift.{0} C4 from CategoryTheory.ULift.upFunctor)
@@ -162,8 +162,8 @@ theorem projection_nontrivial :
   have hh : (1 : ZMod 4) = 0 := congrArg Multiplicative.toAdd h
   exact (by decide : (1 : ZMod 4) ≠ 0) hh
 
-abbrev WrappedContext := Grpd.of (ULift.{0} C4)
-abbrev wrappedContextFamily : WrappedContext ⥤ Grpd := constant (ULift.{0} C4)
+abbrev wrappedContext := Grpd.of (ULift.{0} C4)
+abbrev wrappedContextFamily : wrappedContext ⥤ Grpd := constant (ULift.{0} C4)
 
 def contextChange : DisplayMap B wrappedContextFamily :=
   DisplayMap.changeBase CategoryTheory.ULift.equivalence wrappedContextFamily
@@ -186,7 +186,7 @@ theorem different_context_loop (n : ZMod 4) :
 
 /-- Sequential and composed transport compare along the retained normalization
 arrows, including after an arbitrary substitution. -/
-example {Ξ : Grpd} (σ : Ξ ⥤ WrappedContext) :
+example {Ξ : Grpd} (σ : Ξ ⥤ wrappedContext) :
     isoWhiskerLeft σ sequentialComparison ≪≫ completeComparison.termSubstitution diagonal σ =
       isoWhiskerLeft σ (contextChange.termComparison (coherentWrap.term diagonal) ≪≫
         isoWhiskerLeft contextChange.context.inverse
@@ -217,16 +217,16 @@ example :
     DisplayMap.termIdentity (coherentWrap.term diagonal) :=
   DisplayMap.termCompose_rightUnit coherentWrap diagonal
 
-abbrev PathBase := @Grpd.of (PathComparison.PathCtx A diagonal) Groupoid.ofIsGroupoid
+abbrev pathBase := @Grpd.of (PathComparison.PathCtx A diagonal) Groupoid.ofIsGroupoid
 
-def root : ContextualElimination.NormalizedEquivalence (Cat.of LoopContext)
-    (Cat.of PathBase) where
+def root : ContextualElimination.NormalizedEquivalence (Cat.of loopContext)
+    (Cat.of pathBase) where
   equiv := PathComparison.pathEquivalence A diagonal
   unit_obj _ := rfl
   unit_hom _ := rfl
 
-abbrev motive : PathBase ⥤ Grpd := constant C4
-abbrev wrappedMotive : PathBase ⥤ Grpd := constant (ULift.{0} C4)
+abbrev motive : pathBase ⥤ Grpd := constant C4
+abbrev wrappedMotive : pathBase ⥤ Grpd := constant (ULift.{0} C4)
 
 def motiveMap : motive ⟶ wrappedMotive where
   app _ := (show C4 ⥤ ULift.{0} C4 from CategoryTheory.ULift.upFunctor)
@@ -268,7 +268,7 @@ theorem chosenJ_selected_loop (n : ZMod 4) :
 
 
 /-- The comparison of chosen J terms is natural on every path-context arrow. -/
-theorem chosenJ_arrow {a b : PathBase} (p : a ⟶ b) :
+theorem chosenJ_arrow {a b : pathBase} (p : a ⟶ b) :
     mappedJ.lift.map p ≫ chosenJComparison.hom.app b =
       chosenJComparison.hom.app a ≫ targetJ.lift.map p :=
   chosenJComparison.hom.naturality p

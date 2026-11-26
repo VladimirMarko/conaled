@@ -35,7 +35,7 @@ structure Object (X : Sheaf J (Type w)) where
 
 variable {a}
 
-def Object.totalMap (P : Object a X) : SplitSheaf.Ext P.torsor.family ⟶ M := ⟨{
+def Object.totalMap (P : Object a X) : SplitSheaf.extension P.torsor.family ⟶ M := ⟨{
   app U := ↾fun p => P.value (X.obj.elementsMk U p.1) p.2
   naturality {U V} f := by
     apply ConcreteCategory.hom_ext

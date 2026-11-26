@@ -44,11 +44,11 @@ def concatSection {G : Grpd.{u,u}}
     Section (motive M (constant C)
       ((M).toStructuralModel.pathFamily (constant C) ⟨x⟩) ⟨y⟩) :=
   PathTransport.GroupoidModel.DerivedSemantics.composePaths (constant C)
-    (x.reindex (PathTransport.GroupoidModel.weaken (PathFamily (constant C) y) ⋙ PathTransport.GroupoidModel.weaken (constant C)))
-    (y.reindex (PathTransport.GroupoidModel.weaken (PathFamily (constant C) y) ⋙ PathTransport.GroupoidModel.weaken (constant C)))
+    (x.reindex (PathTransport.GroupoidModel.weaken (pathComparisonFamily (constant C) y) ⋙ PathTransport.GroupoidModel.weaken (constant C)))
+    (y.reindex (PathTransport.GroupoidModel.weaken (pathComparisonFamily (constant C) y) ⋙ PathTransport.GroupoidModel.weaken (constant C)))
     (PathTransport.GroupoidModel.DerivedSemantics.endpoint y)
-    (p.reindex (PathTransport.GroupoidModel.weaken (PathFamily (constant C) y) ⋙ PathTransport.GroupoidModel.weaken (constant C)))
-    («variable» (PathFamily (constant C) y))
+    (p.reindex (PathTransport.GroupoidModel.weaken (pathComparisonFamily (constant C) y) ⋙ PathTransport.GroupoidModel.weaken (constant C)))
+    («variable» (pathComparisonFamily (constant C) y))
 
 /-- Discrete identity fibers identify right-path J with actual composition.
 The frozen left-path recipe is identified with this same operation elsewhere. -/

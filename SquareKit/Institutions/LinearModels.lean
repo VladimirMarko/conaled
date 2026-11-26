@@ -134,7 +134,7 @@ def resourceModel (v : α → Int) : Model α where
   laws := by constructor <;> intros <;> rfl
 
 def cartesianModel (v : α → Type) : Model α where
-  Hom A B := (linearFormula A).denote v → (linearFormula B).denote v
+  Hom A B := (linearFormula A).Denote v → (linearFormula B).Denote v
   identity _ := id
   compose g f := g ∘ f
   tensor f g := fun (x,y) => (f x,g y)

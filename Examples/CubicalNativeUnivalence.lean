@@ -14,7 +14,7 @@ noncomputable def booleanUnivalence :=
 
 /-- The path produced by decoding the full actual transport equivalence is
 natively homotopic to the original nonidentity Boolean universe loop. -/
-noncomputable def recoveredBooleanLoop_path : Term (homogeneousPath
+noncomputable def recoveredBooleanLoopPath : Term (homogeneousPath
     (paths (constantLocal terminal Bool).code (constantLocal terminal Bool).code)
     recoveredBooleanLoop booleanUniverseLoop) := by
   let a := (constantLocal terminal Bool).code
@@ -23,7 +23,7 @@ noncomputable def recoveredBooleanLoop_path : Term (homogeneousPath
     ((pathApp_zero p).trans booleanReverse_full) (pathApp_one p)
 
 /-- The right inverse retains the entire chosen internal transport witness. -/
-noncomputable def booleanEquivalence_roundtrip :=
+noncomputable def booleanEquivalenceRoundtrip :=
   rightInverseAt (constantLocal terminal Bool).code (constantLocal terminal Bool).code
     (𝟙 (raisedContext terminal)) booleanInternalEquivalence
 

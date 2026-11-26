@@ -21,12 +21,12 @@ open CategoryTheory CategoryTheory.Limits Opposite ManifoldRealization
 open scoped Manifold ContDiff
 
 variable {m n p : ℕ} {M N P : Type}
-  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (Model m) ∞ M]
-  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (Model n) ∞ N]
-  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (Model p) ∞ P]
+  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (modelWithCorners m) ∞ M]
+  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (modelWithCorners n) ∞ N]
+  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (modelWithCorners p) ∞ P]
   {f : M → P} {g : N → P}
-  (hf : ContMDiff (Model m) (Model p) ∞ f)
-  (hg : ContMDiff (Model n) (Model p) ∞ g)
+  (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)
+  (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
   (ht : Transverse (m := m) (n := n) (p := p) f g)
 
 abbrev source :=
@@ -119,12 +119,12 @@ open CategoryTheory Opposite ManifoldRealization EuclideanOpen SmoothAlgebra
 open SmoothAlgebra.Localization SmoothPresentationSite
 open scoped Manifold ContDiff
 variable {m n p : ℕ} {M N P : Type}
-  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (Model m) ∞ M]
-  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (Model n) ∞ N]
-  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (Model p) ∞ P]
+  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (modelWithCorners m) ∞ M]
+  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (modelWithCorners n) ∞ N]
+  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (modelWithCorners p) ∞ P]
   {f : M → P} {g : N → P}
-  (hf : ContMDiff (Model m) (Model p) ∞ f)
-  (hg : ContMDiff (Model n) (Model p) ∞ g)
+  (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)
+  (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
   (ht : Transverse (m := m) (n := n) (p := p) f g)
 
 abbrev pairDomain (i : M) (j : N) :=
@@ -135,7 +135,7 @@ def pairPoint (i : M) (j : N) (x : Points (pairDomain (m := m) (n := n) i j)) : 
   (chartPoint (chartAt (Space m) i) ((EuclideanOpen.Product.fst _ _).toFun x),
    chartPoint (chartAt (Space n) j) ((EuclideanOpen.Product.snd _ _).toFun x))
 
-omit [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N] in
+omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N] in
 theorem pairPoint_continuous (i : M) (j : N) : Continuous (pairPoint (m := m) (n := n) i j) :=
   ((chartPoint_openEmbedding _).continuous.comp (map_continuous (EuclideanOpen.Product.fst _ _))).prodMk
     ((chartPoint_openEmbedding _).continuous.comp (map_continuous (EuclideanOpen.Product.snd _ _)))
@@ -148,11 +148,11 @@ theorem normalOpen_open (q : Pullback f g) : IsOpen (normalOpen hf hg ht q) :=
   (localModel hf hg ht q).ambientChart.isOpen_inter_preimage
     (localModel hf hg ht q).normal.chart.open_source
 
-def pairSupport (i : M) (j : N) (q : Pullback f g) : Free (m+n) :=
+def pairSupport (i : M) (j : N) (q : Pullback f g) : freeAlgebra (m+n) :=
   relativeSupport (pairDomain (m := m) (n := n) i j) ((pairPoint (m := m) (n := n) i j) ⁻¹' normalOpen hf hg ht q)
     ((normalOpen_open hf hg ht q).preimage (pairPoint_continuous (m := m) (n := n) i j))
 
-omit [IsManifold (Model m) ∞ M] [IsManifold (Model n) ∞ N] in
+omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N] in
 set_option backward.isDefEq.respectTransparency false in
 theorem pairPoint_real (i : M) (j : N) (B : Code)
     (a : Hom (Principal (chartDomain (chartAt (Space m) i)).defining) (Carrier B))
@@ -244,7 +244,7 @@ theorem ambientStage_first :
   change A.ambientStage B a b ha (Localization.pullback A.ambientFirst
     (principalBase _ (generator i))) = _
   rw [A.ambientFirst_base]
-  have he := congrArg (fun k : Hom (Free (m+n)) (Carrier B) => k (generator (Fin.castAdd n i)))
+  have he := congrArg (fun k : Hom (freeAlgebra (m+n)) (Carrier B) => k (generator (Fin.castAdd n i)))
     (A.ambientStage_base B a b ha)
   simpa only [Hom.comp, Function.comp_apply, EuclideanOpen.Product.coordinates,
     SmoothAlgebra.Coordinates.pair, evaluate_generator, Fin.addCases_left] using he
@@ -257,7 +257,7 @@ theorem ambientStage_second :
   change A.ambientStage B a b ha (Localization.pullback A.ambientSecond
     (principalBase _ (generator i))) = _
   rw [A.ambientSecond_base]
-  have he := congrArg (fun k : Hom (Free (m+n)) (Carrier B) => k (generator (Fin.natAdd m i)))
+  have he := congrArg (fun k : Hom (freeAlgebra (m+n)) (Carrier B) => k (generator (Fin.natAdd m i)))
     (A.ambientStage_base B a b ha)
   simpa only [Hom.comp, Function.comp_apply, EuclideanOpen.Product.coordinates,
     SmoothAlgebra.Coordinates.pair, evaluate_generator, Fin.addCases_right] using he
@@ -269,12 +269,12 @@ open CategoryTheory CategoryTheory.Limits Opposite ManifoldRealization Euclidean
 open SmoothAlgebra.Localization SmoothPresentationSite
 open scoped Manifold ContDiff
 variable {m n p : ℕ} {M N P : Type}
-  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (Model m) ∞ M]
-  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (Model n) ∞ N]
-  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (Model p) ∞ P]
+  [TopologicalSpace M] [ChartedSpace (Space m) M] [IsManifold (modelWithCorners m) ∞ M]
+  [TopologicalSpace N] [ChartedSpace (Space n) N] [IsManifold (modelWithCorners n) ∞ N]
+  [TopologicalSpace P] [ChartedSpace (Space p) P] [IsManifold (modelWithCorners p) ∞ P]
   {f : M → P} {g : N → P}
-  (hf : ContMDiff (Model m) (Model p) ∞ f)
-  (hg : ContMDiff (Model n) (Model p) ∞ g)
+  (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)
+  (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
   (ht : Transverse (m := m) (n := n) (p := p) f g)
 
 theorem comparison_projections_eq (V : Site) (x y : (source hf hg ht).obj.obj (op V))
@@ -658,12 +658,12 @@ theorem lift_precomp {T S : Sheaf SmoothOpenSite.topology Type} (r : S ⟶ T)
 
 open SmoothPresentationSite
 
-abbrev stagePairs (V : Site) :=
+abbrev StagePairs (V : Site) :=
   {ab : (object m M).obj.obj (op V) × (object n N).obj.obj (op V) //
     (ManifoldRealization.map f hf).hom.app (op V) ab.1 =
       (ManifoldRealization.map g hg).hom.app (op V) ab.2}
 
-def stageEquiv (V : Site) : (source hf hg ht).obj.obj (op V) ≃ stagePairs hf hg V :=
+def stageEquiv (V : Site) : (source hf hg ht).obj.obj (op V) ≃ StagePairs hf hg V :=
   PullbackCone.IsLimit.equivPullbackObj
     (((sheafToPresheaf SmoothOpenSite.topology Type) ⋙ (evaluation _ Type).obj (op V)).map_isPullback (isPullback hf hg ht)).isLimit
 
@@ -675,22 +675,22 @@ def stageEquiv (V : Site) : (source hf hg ht).obj.obj (op V) ≃ stagePairs hf h
     (stageEquiv hf hg ht V x).val.2 = (second hf hg ht).hom.app (op V) x :=
   PullbackCone.IsLimit.equivPullbackObj_apply_snd _ _
 
-def stageLift (V : Site) (ab : stagePairs hf hg V) : (source hf hg ht).obj.obj (op V) :=
+def stageLift (V : Site) (ab : StagePairs hf hg V) : (source hf hg ht).obj.obj (op V) :=
   (stageEquiv hf hg ht V).symm ab
 
-@[simp] theorem stageLift_first (V : Site) (ab : stagePairs hf hg V) :
+@[simp] theorem stageLift_first (V : Site) (ab : StagePairs hf hg V) :
     (first hf hg ht).hom.app (op V) (stageLift hf hg ht V ab) = ab.val.1 :=
   by
     obtain ⟨x, rfl⟩ := (stageEquiv hf hg ht V).surjective ab
     simp only [stageLift, Equiv.symm_apply_apply, stageEquiv_first]
 
-@[simp] theorem stageLift_second (V : Site) (ab : stagePairs hf hg V) :
+@[simp] theorem stageLift_second (V : Site) (ab : StagePairs hf hg V) :
     (second hf hg ht).hom.app (op V) (stageLift hf hg ht V ab) = ab.val.2 :=
   by
     obtain ⟨x, rfl⟩ := (stageEquiv hf hg ht V).surjective ab
     simp only [stageLift, Equiv.symm_apply_apply, stageEquiv_second]
 
-theorem stageLift_unique (V : Site) (ab : stagePairs hf hg V)
+theorem stageLift_unique (V : Site) (ab : StagePairs hf hg V)
     (x : (source hf hg ht).obj.obj (op V))
     (hx : (first hf hg ht).hom.app (op V) x = ab.val.1)
     (hy : (second hf hg ht).hom.app (op V) x = ab.val.2) :
@@ -701,40 +701,40 @@ theorem stageLift_unique (V : Site) (ab : stagePairs hf hg V)
   · simpa only [stageEquiv_first, stageLift_first] using hx
   · simpa only [stageEquiv_second, stageLift_second] using hy
 
-def stagePairs_restrict {V W : Site} (r : W ⟶ V) (ab : stagePairs hf hg V) : stagePairs hf hg W :=
+def stagePairsRestrict {V W : Site} (r : W ⟶ V) (ab : StagePairs hf hg V) : StagePairs hf hg W :=
   ⟨((object m M).obj.map r.op ab.val.1, (object n N).obj.map r.op ab.val.2), by
     rw [NatTrans.naturality_apply, NatTrans.naturality_apply, ab.property]⟩
 
-theorem stageLift_restrict {V W : Site} (r : W ⟶ V) (ab : stagePairs hf hg V) :
+theorem stageLift_restrict {V W : Site} (r : W ⟶ V) (ab : StagePairs hf hg V) :
     (source hf hg ht).obj.map r.op (stageLift hf hg ht V ab) =
-      stageLift hf hg ht W (stagePairs_restrict hf hg r ab) := by
+      stageLift hf hg ht W (stagePairsRestrict hf hg r ab) := by
   apply stageLift_unique
   · rw [NatTrans.naturality_apply, stageLift_first]
     rfl
   · rw [NatTrans.naturality_apply, stageLift_second]
     rfl
 
-@[simp] theorem stagePairs_restrict_id {V : Site} (ab : stagePairs hf hg V) :
-    stagePairs_restrict hf hg (𝟙 V) ab = ab := by
+@[simp] theorem stagePairsRestrict_id {V : Site} (ab : StagePairs hf hg V) :
+    stagePairsRestrict hf hg (𝟙 V) ab = ab := by
   apply Subtype.ext
-  simp [stagePairs_restrict]
+  simp [stagePairsRestrict]
 
-theorem stagePairs_restrict_comp {V W X : Site} (r : W ⟶ V) (s : X ⟶ W)
-    (ab : stagePairs hf hg V) :
-    stagePairs_restrict hf hg (s ≫ r) ab =
-      stagePairs_restrict hf hg s (stagePairs_restrict hf hg r ab) := by
+theorem stagePairsRestrict_comp {V W X : Site} (r : W ⟶ V) (s : X ⟶ W)
+    (ab : StagePairs hf hg V) :
+    stagePairsRestrict hf hg (s ≫ r) ab =
+      stagePairsRestrict hf hg s (stagePairsRestrict hf hg r ab) := by
   apply Subtype.ext
-  simp [stagePairs_restrict]
+  simp [stagePairsRestrict]
 
-@[simp] theorem stageLift_restrict_id {V : Site} (ab : stagePairs hf hg V) :
-    stageLift hf hg ht V (stagePairs_restrict hf hg (𝟙 V) ab) =
-      stageLift hf hg ht V ab := by rw [stagePairs_restrict_id]
+@[simp] theorem stageLift_restrict_id {V : Site} (ab : StagePairs hf hg V) :
+    stageLift hf hg ht V (stagePairsRestrict hf hg (𝟙 V) ab) =
+      stageLift hf hg ht V ab := by rw [stagePairsRestrict_id]
 
 theorem stageLift_restrict_comp {V W X : Site} (r : W ⟶ V) (s : X ⟶ W)
-    (ab : stagePairs hf hg V) :
+    (ab : StagePairs hf hg V) :
     (source hf hg ht).obj.map (s ≫ r).op (stageLift hf hg ht V ab) =
-      stageLift hf hg ht X (stagePairs_restrict hf hg s (stagePairs_restrict hf hg r ab)) := by
-  rw [stageLift_restrict, stagePairs_restrict_comp]
+      stageLift hf hg ht X (stagePairsRestrict hf hg s (stagePairsRestrict hf hg r ab)) := by
+  rw [stageLift_restrict, stagePairsRestrict_comp]
 
 /-- Every choice of covering smooth atlases gives the same pullback square,
 through the existing common-refinement comparisons. -/

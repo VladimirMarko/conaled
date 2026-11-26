@@ -33,10 +33,10 @@ ordered-map and maximum-cache interfaces. Mathlib is pinned at
 | --- | --- | --- |
 | FDSA-5-66: annotations do not select equality-membership branches | `OrderedMap.containsKey`, its empty/node equations, `containsKey_eq_member_erase`, `containsKey_congr_erase`, `containsKey_eq_true_iff_mem_inorder`, `containsKey_eq_true_iff_mem_setTree`, strict-inorder adapter | Higher-universe function annotations; numeric replacement annotations; equal-low keys and cache corruption; unordered lookup counterexample |
 | FDSA-5-67: valid interval endpoints and ascending lexicographic order | `IntervalKey`, `ofBounds`, `low`, `high`, `low_le_high`, `ext`, `endpoints_injective`, linear-order instance, `lt_iff`, `le_iff`, `low_le_of_le` | Containment versus key order; Mathlib's different interval Lex order; proof-independent endpoints; equal-low high tie breaker |
-| FDSA-5-68: closed overlap and common-point semantics | `IntervalKey.overlap`, `overlap_comm`, `overlap_self`, `toSet`, `overlap_iff_nonempty_inter` | Negative touching intervals; singleton intersection; a genuine gap; reversed endpoint countermodel |
-| FDSA-5-69: independent abstract overlap observation | `IntervalSet.hasOverlap`, empty/insert/singleton laws, monotonicity, `hasOverlap_image_iff` | Two directly specified intervals; an unrestricted predicate-defined set; noninjective complete-key images |
+| FDSA-5-68: closed overlap and common-point semantics | `IntervalKey.Overlap`, `overlap_comm`, `overlap_self`, `toSet`, `overlap_iff_nonempty_inter` | Negative touching intervals; singleton intersection; a genuine gap; reversed endpoint countermodel |
+| FDSA-5-69: independent abstract overlap observation | `IntervalSet.HasOverlap`, empty/insert/singleton laws, monotonicity, `hasOverlap_image_iff` | Two directly specified intervals; an unrestricted predicate-defined set; noninjective complete-key images |
 | FDSA-5-70: literal augmented representation and root reader | `IntervalTree.maxHi`, `maxHi_nil`, `maxHi_node`, `combine`, `max3`, `max3_eq` | Empty/bottom singleton; each max3 contribution; negative finite endpoints above a true bottom; malformed raw readers |
-| FDSA-5-71: recursive exact cache equations | `IntervalTree.CacheValid`, `cacheValid_nil`, `cacheValid_node`, `cacheValid_iff_invarMx` | Valid ordered and unordered trees; separate upper-bound, attainment and root-only countermodels |
+| FDSA-5-71: recursive exact cache equations | `IntervalTree.CacheValid`, `cacheValid_nil`, `cacheValid_node`, `cacheValid_iff_valid_highTree` | Valid ordered and unordered trees; separate upper-bound, attainment and root-only countermodels |
 | FDSA-5-72: every stored high is bounded | `IntervalTree.maxHi_spec`, `high_le_maxHi` | Maximum high on the least key; unordered valid tree; negative endpoints; both independent universe specializations |
 | FDSA-5-73: an actual stored key attains the reader | `IntervalTree.maxHi_spec`, `maxHi_attained` | Bottom singleton; greatest-high witness; nonunique tied witnesses; indexed noninjective projection; explicit failure under upper bounds alone |
 | FDSA-5-74: local smart construction and erasure/cache laws | `IntervalTree.node`, `node_eq`, `maxHi_node_smart`, `erase_node`, `node_cacheValid_iff`, `node_cacheValid` | Valid children; repaired malformed leaf; unchanged malformed children under smart reconstruction |
@@ -97,7 +97,7 @@ cross inequalities with `[0,6]` both hold, but its closed set is empty.
 `reversed_pair_uninhabited` proves that no `IntervalKey Int` has those endpoints,
 and `reversed_pair_counterexample` proves the failed raw-pair interpretation.
 
-`hasOverlap` is an existential observation on a `Set (IntervalKey α)`, with no
+`HasOverlap` is an existential observation on a `Set (IntervalKey α)`, with no
 tree, enumeration or finiteness assumption. Its image adapter returns an original
 complete-key witness. The larger-key-universe example uses two distinct indexed
 keys with the same interval `[2,8]`; a query at 8 overlaps and a query at 9 does
@@ -129,7 +129,7 @@ including multiplicity, although distinct keys can acquire equal labels.
 and list maps. `setTree_erase_highTree` is their set-image observation; that
 observation forgets occurrence multiplicity. No injectivity premise is used.
 
-A small compatibility induction proves `cacheValid_iff_invarMx`. Its local
+A small compatibility induction proves `cacheValid_iff_valid_highTree`. Its local
 equation reconciles the bottom-valued empty reader with the existing
 `MaximumCache` optional reader. Bottom laws and max associativity justify the
 four empty/nonempty child combinations. The semantic proof then uses the

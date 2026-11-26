@@ -16,7 +16,7 @@ suffix. The frozen worked case starts from `(false,false)` and produces
 
 ## Admission and evidence
 
-`eligible` checks the enclosing plan's supported boundary protocol, ordering,
+`Eligible` checks the enclosing plan's supported boundary protocol, ordering,
 finite-wait declaration, analysis availability and storage bound before scoring.
 Typed construction prevents a missing conversion from becoming a valid plan.
 The existing admission interface reports incompatible ports and unsupported

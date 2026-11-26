@@ -15,7 +15,7 @@ variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 
 /-- Forget the matching equation while retaining the supplied local deformation. -/
 def localFiber : SmoothQuotientDeformations.Cech.family (a := a) (A := A) ⟶
-    SheafActionQuotient.Cech.localFunctor ⋙ family a (SplitSheaf.Ext A) where
+    SheafActionQuotient.Cech.localFunctor ⋙ family a (SplitSheaf.extension A) where
   app _ := ↾Subtype.val
   naturality {_ _} _ := rfl
 
@@ -23,7 +23,7 @@ def localFiber : SmoothQuotientDeformations.Cech.family (a := a) (A := A) ⟶
 def signature := GroupoidModel.Comparison.alignedUniverseSignature
   (SheafActionQuotient.Cech.localFunctor (a := a) (A := A))
   (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
-  (family a (SplitSheaf.Ext A)) (localFiber a A)
+  (family a (SplitSheaf.extension A)) (localFiber a A)
 
 abbrev model := GroupoidModel.Instance.universeModel
   (SheafActionQuotient.Cech.Datum (a := a) A)

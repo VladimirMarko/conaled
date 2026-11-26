@@ -57,7 +57,7 @@ theorem signOpen_open (b : Bool) : IsOpen (signOpen b) := by
   · exact isOpen_lt (continuous_apply 0) continuous_const
   · exact isOpen_lt continuous_const (continuous_apply 0)
 
-def signDefining (b : Bool) : Free 1 := openDefining (signOpen b) (signOpen_open b)
+def signDefining (b : Bool) : freeAlgebra 1 := openDefining (signOpen b) (signOpen_open b)
 
 theorem signDefining_iff (b : Bool) (x : Fin 1 → ℝ) :
     (signDefining b).val x ≠ 0 ↔ x ∈ signOpen b := by

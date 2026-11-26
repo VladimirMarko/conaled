@@ -29,7 +29,7 @@ def substitution (n : Nat) : Sub (Ω := assumptions n) (.var 6) (.var 0) (.var 7
 theorem inputs (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
     (p : Problem M.toStructuralModel) (Δ : M.Context) (σ : M.Substitution Δ p.context) :
     ∀ a ∈ assumptions p.length,
-      a.eval (Contextual.algebra M) (substitutedEnvironment M.toStructuralModel p Δ σ) := by
+      a.Eval (Contextual.algebra M) (substitutedEnvironment M.toStructuralModel p Δ σ) := by
   intro a ha
   rcases List.mem_ofFn.mp ha with ⟨i, rfl⟩
   rcases p with ⟨⟨⟨Γ, A, x⟩, n, T⟩, D, d⟩

@@ -144,7 +144,7 @@ private def environment : Fin 6 → Value native.toStructuralModel :=
 
 /-- All hypotheses have actual native values, including the three dependent
 tail binders. None is a requested equality or a selected-output assumption. -/
-theorem assumptions_valid : ∀ j ∈ assumptions, j.eval (Contextual.algebra native) environment := by
+theorem assumptions_valid : ∀ j ∈ assumptions, j.Eval (Contextual.algebra native) environment := by
   intro j hj
   rcases List.mem_ofFn.mp hj with ⟨i, rfl⟩
   fin_cases i

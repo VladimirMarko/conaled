@@ -32,7 +32,7 @@ theorem euler_hierarchy (h : ℝ) (s : (ℝ × ℝ) × ℝ) (u : One → ℝ) :
 /-- Discretization distributes through the existing two-stage wiring hierarchy. -/
 theorem discretize_components (h : ℝ) : euler h right =
     ((euler h A).parallel (((euler h B).parallel (euler h C)).wire bc.toRouting)).wire close.toRouting := by
-  rw [right, euler_wire, euler_parallel, BC, euler_wire, euler_parallel]
+  rw [right, euler_wire, euler_parallel, wiredBC, euler_wire, euler_parallel]
 
 theorem discretize_rewire {S I O J P K Q : Type} [Add S] [SMul ℝ S]
     (h : ℝ) (f : System S I O) (w : Routing I O J P) (v : Routing J P K Q) :
@@ -67,7 +67,7 @@ theorem transformedA_derivative (x : ℝ) (i : Two → ℝ) :
   rw [(Cubic.derivative x).deriv]
   simp [transformedA, A]
 
-def transformed := (transformedA.parallel BC).wire close.toRouting
+def transformed := (transformedA.parallel wiredBC).wire close.toRouting
 
 def target (h : ℝ) (s : State) : State := (euler h transformed).field s (fun _ => 0)
 

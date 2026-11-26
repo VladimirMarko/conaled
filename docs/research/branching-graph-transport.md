@@ -17,8 +17,8 @@ w. The index does not represent a universe of internal models.
 
 A route `r : J → I` selects models by `reindex M r`. Its syntax translation is
 the identity, including typed substitutions and derivations. `Context`, `term`
-and `formula` expose interpretation at a component. `context_route`,
-`term_route`, `formula_route` and `existential_route` compare interpretation
+and `FormulaHolds` expose interpretation at a component. `context_route`,
+`term_route`, `formulaHolds_route` and `existential_route` compare interpretation
 after selection with selection after interpretation. These comparisons reduce
 definitionally; the formula API states them as logical equivalences.
 Existential witnesses are the same carrier elements on both sides, in Lean

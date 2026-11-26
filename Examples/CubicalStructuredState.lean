@@ -36,7 +36,7 @@ theorem readOut_injective (A : LocalFamily Γ) (s t : Term (package A).family)
       intro y f a
       have hs := congrArg (fun z => z.val (𝟙 y) a) ((invariantSection s).property f)
       have ht := congrArg (fun z => z.val (𝟙 y) a) ((invariantSection t).property f)
-      have he := congrArg (fun z : StatePackage (A.family.obj y) => z.invariant a) (h y)
+      have he := congrArg (fun z : StatePackage (A.family.obj y) => z.Invariant a) (h y)
       change ((invariantSection s).val x).val (f ≫ 𝟙 y) a = _ at hs
       change ((invariantSection t).val x).val (f ≫ 𝟙 y) a = _ at ht
       have hc : f ≫ 𝟙 y = f := Category.comp_id f
@@ -93,7 +93,7 @@ Those fields are discrete PLift propositions in the admitted native package. -/
 structure Preserves (e : S ≃ T) (p : StatePackage S) (q : StatePackage T) : Prop where
   initial : (p.conjugate e).initial = q.initial
   step : (p.conjugate e).step = q.step
-  invariant : (p.conjugate e).invariant = q.invariant
+  invariant : (p.conjugate e).Invariant = q.Invariant
   initial_valid : HEq (p.conjugate e).initial_valid q.initial_valid
   preserves : HEq (p.conjugate e).preserves q.preserves
 

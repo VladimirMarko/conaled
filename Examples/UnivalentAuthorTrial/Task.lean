@@ -21,14 +21,14 @@ def reverseJournals : Journals ≃ Journals where
 def sourceLength : StatePackage Journals where
   initial := ([], [])
   step s := (s.1 ++ [1], s.2 ++ [1])
-  invariant s := s.1.length = s.2.length
+  Invariant s := s.1.length = s.2.length
   initial_valid := rfl
   preserves s h := by simpa using h
 
 def targetLength : StatePackage Journals where
   initial := ([], [])
   step s := (1 :: s.1, 1 :: s.2)
-  invariant s := s.1.length = s.2.length
+  Invariant s := s.1.length = s.2.length
   initial_valid := rfl
   preserves s h := by simpa using h
 
@@ -36,14 +36,14 @@ def targetLength : StatePackage Journals where
 def sourceSum : StatePackage Journals where
   initial := ([], [])
   step s := (s.1 ++ [1], s.2 ++ [1])
-  invariant s := s.1.sum = s.2.sum
+  Invariant s := s.1.sum = s.2.sum
   initial_valid := rfl
   preserves s h := by simpa using h
 
 def targetSum : StatePackage Journals where
   initial := ([], [])
   step s := (1 :: s.1, 1 :: s.2)
-  invariant s := s.1.sum = s.2.sum
+  Invariant s := s.1.sum = s.2.sum
   initial_valid := rfl
   preserves s h := by simpa using h
 
@@ -51,7 +51,7 @@ def targetSum : StatePackage Journals where
 def badTarget : StatePackage Journals where
   initial := ([], [])
   step s := (1 :: s.1, 1 :: s.2)
-  invariant _ := True
+  Invariant _ := True
   initial_valid := trivial
   preserves _ _ := trivial
 

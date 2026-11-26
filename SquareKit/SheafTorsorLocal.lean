@@ -28,20 +28,20 @@ def ofDisplay {B : Sheaf J (Type w)} (d : B ⟶ X)
 
 variable (Q : Action G X)
 
-def totalAct (U : Cᵒᵖ) (g : G.obj.obj U) (p : (SplitSheaf.Ext Q.family).obj.obj U) :
-    (SplitSheaf.Ext Q.family).obj.obj U :=
+def totalAct (U : Cᵒᵖ) (g : G.obj.obj U) (p : (SplitSheaf.extension Q.family).obj.obj U) :
+    (SplitSheaf.extension Q.family).obj.obj U :=
   ⟨p.1, Q.act (X.obj.elementsMk U p.1) g p.2⟩
 
 theorem totalAct_natural {U V : Cᵒᵖ} (k : U ⟶ V) (g : G.obj.obj U)
-    (p : (SplitSheaf.Ext Q.family).obj.obj U) :
-    (SplitSheaf.Ext Q.family).obj.map k (Q.totalAct U g p) =
-      Q.totalAct V (G.obj.map k g) ((SplitSheaf.Ext Q.family).obj.map k p) := by
+    (p : (SplitSheaf.extension Q.family).obj.obj U) :
+    (SplitSheaf.extension Q.family).obj.map k (Q.totalAct U g p) =
+      Q.totalAct V (G.obj.map k g) ((SplitSheaf.extension Q.family).obj.map k p) := by
   exact congrArg (Sigma.mk _) (Q.natural (ElementFamilies.along X.obj k p.1) g p.2)
 
 theorem principal_at_lift (f : Y ⟶ X)
     (hp : ∀ (y : Y.obj.Elements) (p q : (Q.reindex f).family.family.obj y),
       ∃! g : G.obj.obj y.obj, (Q.reindex f).act y g p = q)
-    (U : Cᵒᵖ) (p q : (SplitSheaf.Ext Q.family).obj.obj U) (hb : p.1 = q.1)
+    (U : Cᵒᵖ) (p q : (SplitSheaf.extension Q.family).obj.obj U) (hb : p.1 = q.1)
     (y : Y.obj.obj U) (hy : f.hom.app U y = p.1) :
     ∃! g : G.obj.obj U, Q.totalAct U g p = q := by
   rcases p with ⟨x,p⟩
@@ -54,14 +54,14 @@ theorem principal_at_lift (f : Y ⟶ X)
   intro h hh
   exact hu h (eq_of_heq (Sigma.mk.inj_iff.mp hh).2)
 
-theorem total_principal_of_sieve (U : C) (p q : (SplitSheaf.Ext Q.family).obj.obj (op U))
+theorem total_principal_of_sieve (U : C) (p q : (SplitSheaf.extension Q.family).obj.obj (op U))
     (S : Sieve U) (hS : S ∈ J U)
     (hp : ∀ (V : C) (k : V ⟶ U), S k →
       ∃! g : G.obj.obj (op V),
-        Q.totalAct (op V) g ((SplitSheaf.Ext Q.family).obj.map k.op p) =
-          (SplitSheaf.Ext Q.family).obj.map k.op q) :
+        Q.totalAct (op V) g ((SplitSheaf.extension Q.family).obj.map k.op p) =
+          (SplitSheaf.extension Q.family).obj.map k.op q) :
     ∃! g : G.obj.obj (op U), Q.totalAct (op U) g p = q := by
-  let F := SplitSheaf.Ext Q.family
+  let F := SplitSheaf.extension Q.family
   let c : Presieve.FamilyOfElements (groupSheaf G).obj S.arrows :=
     fun V k hk => (hp V k hk).choose
   have hc (V : C) (k : V ⟶ U) (hk : S k) :
@@ -93,7 +93,7 @@ theorem total_principal_of_sieve (U : C) (p q : (SplitSheaf.Ext Q.family).obj.ob
     intro V k hk
     apply (hp V k hk).choose_spec.2
     change Q.totalAct (op V) (G.obj.map k.op h)
-      ((SplitSheaf.Ext Q.family).obj.map k.op p) = _
+      ((SplitSheaf.extension Q.family).obj.map k.op p) = _
     rw [← Q.totalAct_natural, hh]
 
 theorem principal_of_reindex (f : Y ⟶ X)

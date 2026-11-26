@@ -6,7 +6,7 @@ open GuardedTheory Presheaf CategoryTheory
 universe u
 
 theorem hcompSchema_inputs (out : Judgment (Fin 6)) (ρ : Fin 6 → Value.{u})
-    (h : ∀ i, ((hcompSchema out).premise i).eval algebra ρ) :
+    (h : ∀ i, ((hcompSchema out).premise i).Eval algebra ρ) :
     ∃ (Γ : Context.{u}) (A : Family Γ) (F : Filling A) (φ : Cofibration Γ)
       (b : OpenBox (reindex A (Presheaf.projection (Presheaf.interval Γ))) φ), F.Lawful ∧
       ρ = ![.context Γ,.family Γ A,.filling Γ A F,.cofibration Γ φ,
@@ -32,7 +32,7 @@ theorem hcompSchema_inputs (out : Judgment (Fin 6)) (ρ : Fin 6 → Value.{u})
     _ _ _ hI hB hface (h 2)
   change ρ 4 = .term _ _ u at hu
   have ha := h 3
-  change Source.predicate .term ![ρ 0,ρ 1,ρ 5] at ha
+  change Source.Predicate .term ![ρ 0,ρ 1,ρ 5] at ha
   rw [hΓ,hA] at ha
   obtain ⟨a,ha⟩ := Value.term_input Γ A _ ha
   have hzero := tubeEndpoint_eval (.var (0 : Fin 6)) (.var 3) (.var 4) ρ Γ

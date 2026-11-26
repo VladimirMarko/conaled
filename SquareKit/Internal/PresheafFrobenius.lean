@@ -26,8 +26,8 @@ theorem frobenius_semantic_comparison :
 
 /-- Obtain the fiber equivalence by evaluating model validity. -/
 theorem frobenius_evaluation (j : Jᵒᵖ) (ρ : Env (M.fiber j) Γ) :
-    (h.eval (M.fiber j) ρ ∧ ∃ x, p.eval (M.fiber j) (ρ.extend x)) ↔
-      ∃ x, h.shift.eval (M.fiber j) (ρ.extend x) ∧ p.eval (M.fiber j) (ρ.extend x) := by
+    (h.Eval (M.fiber j) ρ ∧ ∃ x, p.Eval (M.fiber j) (ρ.extend x)) ↔
+      ∃ x, h.shift.Eval (M.fiber j) (ρ.extend x) ∧ p.Eval (M.fiber j) (ρ.extend x) := by
   have e := congrArg (fun Q => Q.obj j ρ) (frobenius_valid M h p)
   exact (M.evaluation (.conj h (.ex p)) j ρ).symm.trans
     ((iff_of_eq e).trans (M.evaluation (.ex (.conj h.shift p)) j ρ))

@@ -143,7 +143,7 @@ def drive (limits : Limits) (tolerance : ℚ) : List Event → Packet → Nat �
     let rest := drive limits tolerance es (q.rotate k.val) (fuel-1) (index+1)
     { prepend (.relabel k q) rest with charged := 1+rest.charged }
   | .command c :: es, q, fuel, index =>
-    if ¬ Numerical.Driver.supported c then stopped q (.command c :: es) .unsupported else
+    if ¬ Numerical.Driver.Supported c then stopped q (.command c :: es) .unsupported else
     let a := searchInterval limits tolerance fuel c q
     match a.accepted with
     | none => { stopped q (.command c :: es) a.failure with
@@ -216,7 +216,7 @@ theorem drive_success (limits : Limits) (tolerance : ℚ) (es : List Event)
       · simp only [drive,ite_eq_right hf] at h ⊢
         exact ih _ _ _ h
     | command c =>
-      by_cases hc : Numerical.Driver.supported c
+      by_cases hc : Numerical.Driver.Supported c
       · simp only [drive,hc,not_true_eq_false,ite_false] at h ⊢
         cases ha : (searchInterval limits tolerance fuel c q).accepted with
         | none => simp [ha,stopped] at h
@@ -276,19 +276,19 @@ theorem success_sound (limits : Limits) (tolerance : ℚ) (es : List Event)
 
 
 /-- Import is an exact boundary, including explicit domain and representation admission. -/
-def packetWithinRange (q : Numerical.Packet) : Prop :=
+def PacketWithinRange (q : Numerical.Packet) : Prop :=
   |q.state.position.1| ≤ 256 ∧ |q.state.position.2| ≤ 256 ∧
   |q.state.frame.1| ≤ 256 ∧ |q.state.frame.2| ≤ 256 ∧ |q.error| ≤ 256
-instance (q : Numerical.Packet) : Decidable (packetWithinRange q) := by
-  unfold packetWithinRange
+instance (q : Numerical.Packet) : Decidable (PacketWithinRange q) := by
+  unfold PacketWithinRange
   infer_instance
 
 def start (limits : Limits) (tolerance : ℚ) (events : List Event)
     (q : Numerical.Packet) (fuel : Nat) : Except Failure Report :=
   match importPacket q with
-  | none => .error (if packetWithinRange q then .precision else .range)
+  | none => .error (if PacketWithinRange q then .precision else .range)
   | some input =>
-    if input.state.admitted ∧ 0 ≤ input.error.ticks then
+    if input.state.Admitted ∧ 0 ≤ input.error.ticks then
       .ok (drive limits tolerance events input fuel 0)
     else .error .domain
 

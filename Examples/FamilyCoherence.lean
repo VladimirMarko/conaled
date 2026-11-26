@@ -56,45 +56,45 @@ theorem sheaf_left_unit :
 open SquareKit.TypeFamily
 
 /-- Native dependent values with fibers of increasing finite size. -/
-def finiteFamily (n : Nat) := Fin (n + 1)
-def zeroTerm : DependentSquares.Tm finiteFamily := fun _ => ⟨0, Nat.zero_lt_succ _⟩
+def FiniteFamily (n : Nat) := Fin (n + 1)
+def zeroTerm : DependentSquares.Tm FiniteFamily := fun _ => ⟨0, Nat.zero_lt_succ _⟩
 
 /-- Two successor substitutions use the actual split/categorical comparison square. -/
 theorem finite_comparison :
-    (pullbackIso (DependentSquares.tySub finiteFamily Nat.succ) Nat.succ).hom ≫
-      SquareKit.Family.map (display (DependentSquares.tySub finiteFamily Nat.succ))
-        (reindex (display finiteFamily) (↾Nat.succ)) (↾Nat.succ)
-        (pullbackIso finiteFamily Nat.succ).hom (pullbackIso_display finiteFamily Nat.succ) ≫
-          (compositionIso (display finiteFamily) (↾Nat.succ) (↾Nat.succ)).hom =
-      (splitComposition finiteFamily Nat.succ Nat.succ).hom ≫
-        (pullbackIso finiteFamily (DependentSquares.compSub Nat.succ Nat.succ)).hom :=
+    (pullbackIso (DependentSquares.tySub FiniteFamily Nat.succ) Nat.succ).hom ≫
+      SquareKit.Family.map (display (DependentSquares.tySub FiniteFamily Nat.succ))
+        (reindex (display FiniteFamily) (↾Nat.succ)) (↾Nat.succ)
+        (pullbackIso FiniteFamily Nat.succ).hom (pullbackIso_display FiniteFamily Nat.succ) ≫
+          (compositionIso (display FiniteFamily) (↾Nat.succ) (↾Nat.succ)).hom =
+      (splitComposition FiniteFamily Nat.succ Nat.succ).hom ≫
+        (pullbackIso FiniteFamily (DependentSquares.compSub Nat.succ Nat.succ)).hom :=
   composition_comparison _ _ _
 
 /-- Term comparison uses the public split substitution theorem, then native zero. -/
 theorem finite_term :
-    (asSection (DependentSquares.tySub (DependentSquares.tySub finiteFamily Nat.succ) Nat.succ)
+    (asSection (DependentSquares.tySub (DependentSquares.tySub FiniteFamily Nat.succ) Nat.succ)
       (DependentSquares.tmSub (DependentSquares.tmSub zeroTerm Nat.succ) Nat.succ)).val ≫
-      (splitComposition finiteFamily Nat.succ Nat.succ).hom ≫
-        (pullbackIso finiteFamily (DependentSquares.compSub Nat.succ Nat.succ)).hom =
-          (termSub (display finiteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ))
-            (asSection finiteFamily zeroTerm)).val :=
+      (splitComposition FiniteFamily Nat.succ Nat.succ).hom ≫
+        (pullbackIso FiniteFamily (DependentSquares.compSub Nat.succ Nat.succ)).hom =
+          (termSub (display FiniteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ))
+            (asSection FiniteFamily zeroTerm)).val :=
   split_composition_term _ _ _ _
 
 theorem finite_value (n : Nat) :
-    ((comparison (display finiteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ)))
-      ((termSub (display finiteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ))
-        (asSection finiteFamily zeroTerm)).val n)).2.val = 0 := by
-  have h := termSub_comparison (display finiteFamily)
-    (↾(DependentSquares.compSub Nat.succ Nat.succ)) (asSection finiteFamily zeroTerm)
-  have hn := congrArg (fun f : Nat ⟶ DependentSquares.Ext Nat finiteFamily => f n) h
-  exact congrArg (fun z : DependentSquares.Ext Nat finiteFamily => z.2.val) hn
+    ((comparison (display FiniteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ)))
+      ((termSub (display FiniteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ))
+        (asSection FiniteFamily zeroTerm)).val n)).2.val = 0 := by
+  have h := termSub_comparison (display FiniteFamily)
+    (↾(DependentSquares.compSub Nat.succ Nat.succ)) (asSection FiniteFamily zeroTerm)
+  have hn := congrArg (fun f : Nat ⟶ DependentSquares.Ext Nat FiniteFamily => f n) h
+  exact congrArg (fun z : DependentSquares.Ext Nat FiniteFamily => z.2.val) hn
 /-- The iterated split route also computes zero, by its public comparison. -/
 theorem finite_route_value (n : Nat) :
-    ((comparison (display finiteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ)))
-      (((asSection (DependentSquares.tySub (DependentSquares.tySub finiteFamily Nat.succ) Nat.succ)
+    ((comparison (display FiniteFamily) (↾(DependentSquares.compSub Nat.succ Nat.succ)))
+      (((asSection (DependentSquares.tySub (DependentSquares.tySub FiniteFamily Nat.succ) Nat.succ)
         (DependentSquares.tmSub (DependentSquares.tmSub zeroTerm Nat.succ) Nat.succ)).val ≫
-        (splitComposition finiteFamily Nat.succ Nat.succ).hom ≫
-          (pullbackIso finiteFamily (DependentSquares.compSub Nat.succ Nat.succ)).hom) n)).2.val = 0 := by
+        (splitComposition FiniteFamily Nat.succ Nat.succ).hom ≫
+          (pullbackIso FiniteFamily (DependentSquares.compSub Nat.succ Nat.succ)).hom) n)).2.val = 0 := by
   rw [finite_term]
   exact finite_value n
 end Examples.FamilyCoherence

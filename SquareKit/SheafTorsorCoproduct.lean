@@ -14,20 +14,20 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {I : Type (max u v)} {G : Sheaf J GrpCat.{max u v}}
 variable {Y : I → Sheaf J (Type (max u v))} (P : ∀ i, Torsor G (Y i))
 
-abbrev total : Sheaf J (Type (max u v)) := ∐ (fun i => SplitSheaf.Ext (P i).family)
+abbrev total : Sheaf J (Type (max u v)) := ∐ (fun i => SplitSheaf.extension (P i).family)
 abbrev base : Sheaf J (Type (max u v)) := ∐ Y
 
 def projection : total P ⟶ base (Y := Y) :=
   Sigma.desc (fun i => SplitSheaf.p (P i).family ≫ Sigma.ι Y i)
 
 @[simp, reassoc] lemma inclusion_projection (i : I) :
-    Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i ≫ projection P =
+    Sigma.ι (fun i => SplitSheaf.extension (P i).family) i ≫ projection P =
       SplitSheaf.p (P i).family ≫ Sigma.ι Y i := Sigma.ι_comp_desc _ _
 
 /-- The local action is an actual map of sheaves. -/
 def localAction (i : I) :
-    SheafRelation.product (groupSheaf G) (SplitSheaf.Ext (P i).family) ⟶
-      SplitSheaf.Ext (P i).family := ⟨{
+    SheafRelation.product (groupSheaf G) (SplitSheaf.extension (P i).family) ⟶
+      SplitSheaf.extension (P i).family := ⟨{
   app U := TypeCat.ofHom (fun x => (P i).toAction.totalAct U x.1 x.2)
   naturality U V k := by
     apply ConcreteCategory.hom_ext
@@ -37,20 +37,20 @@ def localAction (i : I) :
 /-- Currying lets the coproduct universal property assemble the action. -/
 def actionMap : SheafRelation.product (groupSheaf G) (total P) ⟶ total P :=
   SheafFunction.uncurry (Sigma.desc (fun i => SheafFunction.curry
-    (localAction P i ≫ Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i)))
+    (localAction P i ≫ Sigma.ι (fun i => SplitSheaf.extension (P i).family) i)))
 
 lemma actionMap_inclusion (i : I) :
     SheafFunction.parameterMap (groupSheaf G)
-        (Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i) ≫ actionMap P =
-      localAction P i ≫ Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i := by
+        (Sigma.ι (fun i => SplitSheaf.extension (P i).family) i) ≫ actionMap P =
+      localAction P i ≫ Sigma.ι (fun i => SplitSheaf.extension (P i).family) i := by
   apply (Function.LeftInverse.injective (fun f => SheafFunction.beta f))
   rw [SheafFunction.curry_parameter, actionMap, SheafFunction.eta, Sigma.ι_comp_desc]
 
 lemma actionMap_apply_inclusion (i : I) (U : Cᵒᵖ) (g : G.obj.obj U)
-    (p : (SplitSheaf.Ext (P i).family).obj.obj U) :
+    (p : (SplitSheaf.extension (P i).family).obj.obj U) :
     (actionMap P).hom.app U
-      (g, (Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i).hom.app U p) =
-    (Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i).hom.app U
+      (g, (Sigma.ι (fun i => SplitSheaf.extension (P i).family) i).hom.app U p) =
+    (Sigma.ι (fun i => SplitSheaf.extension (P i).family) i).hom.app U
       ((P i).toAction.totalAct U g p) :=
   congrArg (fun f => f.hom.app U (g,p)) (actionMap_inclusion P i)
 
@@ -58,11 +58,11 @@ lemma actionMap_apply_inclusion (i : I) (U : Cᵒᵖ) (g : G.obj.obj U)
 lemma section_ext {N : Sheaf J (Type (max u v))} {U : C} (x : (total P).obj.obj (op U))
     (s t : N.obj.obj (op U))
     (h : ∀ (V : C) (k : V ⟶ U) (i : I)
-      (p : (SplitSheaf.Ext (P i).family).obj.obj (op V)),
-      (Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i).hom.app _ p =
+      (p : (SplitSheaf.extension (P i).family).obj.obj (op V)),
+      (Sigma.ι (fun i => SplitSheaf.extension (P i).family) i).hom.app _ p =
         (total P).obj.map k.op x → N.obj.map k.op s = N.obj.map k.op t) : s = t := by
   apply (((isSheaf_iff_isSheaf_of_type _ _).mp N.property)
-    _ (SheafCoproductLocal.liftSieve_cover (fun i => SplitSheaf.Ext (P i).family) x)).isSeparatedFor.ext
+    _ (SheafCoproductLocal.liftSieve_cover (fun i => SplitSheaf.extension (P i).family) x)).isSeparatedFor.ext
   rintro V k ⟨i, p, hp⟩
   exact h V k i p hp
 
@@ -77,7 +77,7 @@ lemma action_over (U : Cᵒᵖ) (g : G.obj.obj U) (p : (total P).obj.obj U) :
     (G.obj.map k.op g, (total P).obj.map k.op p)) = _
   rw [← hq, actionMap_apply_inclusion]
   have h := inclusion_projection P i
-  have h' (r : (SplitSheaf.Ext (P i).family).obj.obj (op V)) :=
+  have h' (r : (SplitSheaf.extension (P i).family).obj.obj (op V)) :=
     ConcreteCategory.congr_hom (NatTrans.congr_app (congrArg (fun f => f.hom) h) (op V)) r
   exact (h' _).trans (h' q).symm
 
@@ -128,7 +128,7 @@ def componentEquiv (i : I) (x : (Y i).obj.Elements) :
 @[simp] lemma componentEquiv_val (i : I) (x : (Y i).obj.Elements)
     (p : (P i).family.family.obj x) :
     (componentEquiv P i x p).val =
-      (Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i).hom.app x.obj ⟨x.val,p⟩ := rfl
+      (Sigma.ι (fun i => SplitSheaf.extension (P i).family) i).hom.app x.obj ⟨x.val,p⟩ := rfl
 
 lemma componentEquiv_action (i : I) (x : (Y i).obj.Elements)
     (g : G.obj.obj x.obj) (p : (P i).family.family.obj x) :
@@ -171,7 +171,7 @@ lemma projection_locallySurjective : Presheaf.IsLocallySurjective J (projection 
     apply J.superset_covering _
       (Presheaf.imageSieve_mem J (SplitSheaf.p (P i).family).hom y)
     rintro W l ⟨p,hp⟩
-    refine ⟨(Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i).hom.app _ p, ?_⟩
+    refine ⟨(Sigma.ι (fun i => SplitSheaf.extension (P i).family) i).hom.app _ p, ?_⟩
     have hf := congrArg (fun f => f.hom.app (op W) p) (inclusion_projection P i)
     change (projection P).hom.app _ _ = (Sigma.ι Y i).hom.app _ p.1 at hf
     change p.1 = (Y i).obj.map l.op y at hp
@@ -204,7 +204,7 @@ def component (i : I) : P i ≅ reindex (torsor P) (Sigma.ι Y i) :=
       change (Y i).obj.map k x.val = y at hk
       subst y
       exact NatTrans.naturality_apply
-        (Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i).hom k ⟨x.val,p⟩)
+        (Sigma.ι (fun i => SplitSheaf.extension (P i).family) i).hom k ⟨x.val,p⟩)
     equivariant := componentEquiv_action P i }
 
 variable {P}
@@ -212,12 +212,12 @@ variable (Q : Torsor G (base (Y := Y)))
 variable (h : ∀ i, P i ⟶ reindex Q (Sigma.ι Y i))
 
 /-- Compatible maps out of the assembled torsor are induced by the coproduct. -/
-def descTotal : total P ⟶ SplitSheaf.Ext Q.family :=
+def descTotal : total P ⟶ SplitSheaf.extension Q.family :=
   Sigma.desc (fun i => (equivariantArrowEquiv.symm (h i)).totalMap ≫
     SplitSheaf.lift Q.family (Sigma.ι Y i))
 
 lemma inclusion_descTotal (i : I) :
-    Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i ≫ descTotal Q h =
+    Sigma.ι (fun i => SplitSheaf.extension (P i).family) i ≫ descTotal Q h =
       (equivariantArrowEquiv.symm (h i)).totalMap ≫ SplitSheaf.lift Q.family (Sigma.ι Y i) :=
   Sigma.ι_comp_desc _ _
 
@@ -228,9 +228,9 @@ lemma descTotal_projection : descTotal Q h ≫ SplitSheaf.p Q.family = projectio
   rfl
 
 lemma descTotal_inclusion_apply (i : I) (U : Cᵒᵖ)
-    (p : (SplitSheaf.Ext (P i).family).obj.obj U) :
+    (p : (SplitSheaf.extension (P i).family).obj.obj U) :
     (descTotal Q h).hom.app U
-      ((Sigma.ι (fun i => SplitSheaf.Ext (P i).family) i).hom.app U p) =
+      ((Sigma.ι (fun i => SplitSheaf.extension (P i).family) i).hom.app U p) =
       ⟨(Sigma.ι Y i).hom.app U p.1, (h i).iso.hom.app _ p.2⟩ :=
   congrArg (fun f => f.hom.app U p) (inclusion_descTotal Q h i)
 
@@ -269,7 +269,7 @@ lemma descFamily_component (i : I) (x : (Y i).obj.Elements)
 
 lemma descFamily_total (x : (base (Y := Y)).obj.Elements)
     (p : (torsor P).family.family.obj x) :
-    (⟨x.val, (descFamily Q h).app x p⟩ : (SplitSheaf.Ext Q.family).obj.obj x.obj) =
+    (⟨x.val, (descFamily Q h).app x p⟩ : (SplitSheaf.extension Q.family).obj.obj x.obj) =
       (descTotal Q h).hom.app x.obj p.val := by
   exact congrArg Subtype.val ((ElementFamilies.fiberTotalEquiv
     (base (Y := Y)).obj Q.family.family x).symm_apply_apply

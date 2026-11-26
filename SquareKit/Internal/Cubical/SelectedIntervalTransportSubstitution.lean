@@ -282,7 +282,7 @@ end Endpoint
 section Backward
 variable (φ : Cofibration Γ) (t : PartialSection A (φ.reindex (projection (interval Γ))))
   (b : Term (reindex A (endpointSub Γ true)))
-  (hb : ∀ x (hx : φ.full x), t.val ((endpointSub Γ true).mapElements.obj x) hx = b.val x)
+  (hb : ∀ x (hx : φ.Full x), t.val ((endpointSub Γ true).mapElements.obj x) hx = b.val x)
 
 theorem backwardBox_map :
     IntervalTransport.backwardBox φ (t.map e.hom) (Term.map (atEndpoint e true).hom b)
@@ -453,8 +453,8 @@ private theorem backwardRelative_congr {Ω : Context.{u}} {C : Family (total (in
     (G : Filling C) (ψ : Cofibration Ω)
     (t t' : PartialSection C (ψ.reindex (projection (interval Ω)))) (ht : t = t')
     (b b' : Term (reindex C (endpointSub Ω true))) (hb : b = b')
-    (h : ∀ x (hx : ψ.full x), t.val ((endpointSub Ω true).mapElements.obj x) hx = b.val x)
-    (h' : ∀ x (hx : ψ.full x), t'.val ((endpointSub Ω true).mapElements.obj x) hx = b'.val x) :
+    (h : ∀ x (hx : ψ.Full x), t.val ((endpointSub Ω true).mapElements.obj x) hx = b.val x)
+    (h' : ∀ x (hx : ψ.Full x), t'.val ((endpointSub Ω true).mapElements.obj x) hx = b'.val x) :
     backwardRelative G ψ t b h = backwardRelative G ψ t' b' h' := by
   cases ht
   cases hb

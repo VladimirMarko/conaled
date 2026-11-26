@@ -20,8 +20,8 @@ def stopped (q : Packet) (es : List Event) (why : Failure) : Report :=
 def prepend (o : Observation) (r : Report) : Report :=
   { r with observations := o::r.observations, elapsed := o.elapsed+r.elapsed }
 
-def supported (c : Tick) : Prop := c.control.velocity.normSq ≤ 1 ∧ |c.control.angular| ≤ 1
-instance (c : Tick) : Decidable (supported c) := by unfold supported; infer_instance
+def Supported (c : Tick) : Prop := c.control.velocity.normSq ≤ 1 ∧ |c.control.angular| ≤ 1
+instance (c : Tick) : Decidable (Supported c) := by unfold Supported; infer_instance
 
 /-- Committed observations come only from accepted intervals; retries receive the same q. -/
 def drive (limits : Limits) (tolerance : ℚ) : List Event → Packet → Nat → Nat → Report
@@ -32,7 +32,7 @@ def drive (limits : Limits) (tolerance : ℚ) : List Event → Packet → Nat �
     let rest := drive limits tolerance es (q.rotate k.val) (fuel-1) (index+1)
     { prepend (.relabel k q) rest with charged := 1+rest.charged }
   | .command c::es, q, fuel, index =>
-    if ¬ supported c then stopped q (.command c::es) .unsupported else
+    if ¬ Supported c then stopped q (.command c::es) .unsupported else
     let a := searchInterval limits tolerance fuel c q
     match a.accepted with
     | none => { stopped q (.command c::es) a.failure with
@@ -106,7 +106,7 @@ theorem drive_success (limits : Limits) (tolerance : ℚ) (es : List Event)
       · simp only [drive,ite_eq_right hf] at h ⊢
         exact ih _ _ _ h
     | command c =>
-      by_cases hc : supported c
+      by_cases hc : Supported c
       · simp only [drive,hc,not_true_eq_false,ite_false] at h ⊢
         cases ha : (searchInterval limits tolerance fuel c q).accepted with
         | none => simp [ha,stopped] at h

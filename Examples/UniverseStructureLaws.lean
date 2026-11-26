@@ -32,10 +32,10 @@ def stateModelEquiv (P X : Type u) [PropositionCarrier P] :
   toFun s := {
     initial := s.val.1
     step := s.val.2.1
-    invariant := fun x => (PropositionCarrier.decode (P := P)) (s.val.2.2 x)
+    Invariant := fun x => (PropositionCarrier.decode (P := P)) (s.val.2.2 x)
     initial_valid := s.property.1
     preserves := s.property.2 }
-  invFun s := ⟨(s.initial, s.step, fun x => (PropositionCarrier.decode (P := P)).symm (s.invariant x)),
+  invFun s := ⟨(s.initial, s.step, fun x => (PropositionCarrier.decode (P := P)).symm (s.Invariant x)),
     by simpa [state, invariant, Formula.Eval, Expression.eval, Description.Data, Equiv.apply_symm_apply] using
       And.intro s.initial_valid s.preserves⟩
   left_inv s := by
@@ -63,8 +63,8 @@ def source : higherState.Model Carrier :=
 def target : higherState.Model Carrier := higherState.transport complement source
 
 example : (stateModelEquiv _ _ target).initial = ⟨true⟩ := rfl
-example : (stateModelEquiv _ _ target).invariant ⟨true⟩ := rfl
-example : ¬ (stateModelEquiv _ _ target).invariant ⟨false⟩ := Bool.noConfusion
+example : (stateModelEquiv _ _ target).Invariant ⟨true⟩ := rfl
+example : ¬ (stateModelEquiv _ _ target).Invariant ⟨false⟩ := Bool.noConfusion
 example : ¬ higherState.Preserves complement source source := by
   intro h
   have eq := (higherState.preserves_iff complement source source).mp h
@@ -97,7 +97,7 @@ theorem moved_recovery (x : Γ.Elements) :
 
 example (x : Γ.Elements) :
     (stateModelEquiv _ _
-      (presentedModelsEquiv higherState (Iso.refl _) x (moved.val x)).down).invariant ⟨true⟩ := by
+      (presentedModelsEquiv higherState (Iso.refl _) x (moved.val x)).down).Invariant ⟨true⟩ := by
   rw [moved_recovery]
   rfl
 
@@ -146,7 +146,7 @@ theorem moved_recovery (x : Γ.Elements) :
 
 example (x : Γ.Elements) :
     (stateModelEquiv _ _
-      (presentedModelsEquiv higherState (Iso.refl _) x (moved.val x)).down).invariant ⟨true⟩ := by
+      (presentedModelsEquiv higherState (Iso.refl _) x (moved.val x)).down).Invariant ⟨true⟩ := by
   rw [moved_recovery]
   rfl
 

@@ -107,7 +107,7 @@ theorem no_section : ¬ Nonempty (SplitSheaf.Tm (associated P (regularAction _))
     (congrArg (recovery.hom.app y) (s.natural f))
 
 /-- Independently specified nontrivial cocycle transitions recover the same associated display. -/
-def cocycle_recovery := cocycleComparison (regularAction _) c
+def cocycleRecovery := cocycleComparison (regularAction _) c
 
 end Nontrivial
 namespace EdgeCases
@@ -117,7 +117,7 @@ abbrev P := SheafTorsor.trivial finiteGroup (constant Bool)
 abbrev emptyAction := trivialAction finiteGroup (constant Empty)
 
 /-- On this bottom-topology site the empty fiber gives an actual initial total sheaf. -/
-def emptyFiberInitial : Limits.IsInitial (SplitSheaf.Ext (associated P emptyAction)) :=
+def emptyFiberInitial : Limits.IsInitial (SplitSheaf.extension (associated P emptyAction)) :=
   Limits.IsInitial.ofUniqueHom
     (fun F => ⟨{
       app U := ↾fun z => Empty.elim
@@ -135,7 +135,7 @@ def emptyFiberInitial : Limits.IsInitial (SplitSheaf.Ext (associated P emptyActi
 /-- Empty bases are handled without choosing any section or cover index. -/
 def emptyBaseInitial (T : SheafTorsor.Torsor finiteGroup (constant Empty))
     {M : Sheaf Examples.SheafFamilyCover.topology Type} (a : SheafActionQuotient.Action finiteGroup M) :
-    Limits.IsInitial (SplitSheaf.Ext (associated T a)) :=
+    Limits.IsInitial (SplitSheaf.extension (associated T a)) :=
   Limits.IsInitial.ofUniqueHom (fun F => ⟨{
     app U := ↾fun z => Empty.elim z.1
     naturality := by intros; ext z; exact Empty.elim z.1 }⟩)

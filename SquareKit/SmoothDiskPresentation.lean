@@ -119,13 +119,13 @@ theorem arrow_inverse (f : Family U m n) (x : Points U) :
 
 /-- The comparison produces smooth maps into the actual arrow manifold. -/
 theorem arrow_smooth (f : Family U m n) :
-    ContMDiff (ManifoldRealization.Model U.dimension) DiskPresentation.arrowModel ∞
+    ContMDiff (ManifoldRealization.modelWithCorners U.dimension) DiskPresentation.arrowModel ∞
       (show ManifoldRealization.ordinaryOpen U → DiskPresentation.Arrow from f.arrow) := by
-  have hl : ContMDiff (ManifoldRealization.Model U.dimension) 𝓘(ℝ, Fin 0 → ℝ) ∞
+  have hl : ContMDiff (ManifoldRealization.modelWithCorners U.dimension) 𝓘(ℝ, Fin 0 → ℝ) ∞
       (show ManifoldRealization.ordinaryOpen U → C4 from f.val) := by
     intro x
     exact contMDiffAt_const.congr_of_eventuallyEq (f.val.isLocallyConstant.eventually_eq x)
-  have hd : ContMDiff (ManifoldRealization.Model diskDomain.dimension) 𝓘(ℝ, ℂ) ∞
+  have hd : ContMDiff (ManifoldRealization.modelWithCorners diskDomain.dimension) 𝓘(ℝ, ℂ) ∞
       (show ManifoldRealization.ordinaryOpen diskDomain → Disk from diskPoints) := by
     apply (ContMDiff.subtypeVal_comp_iff disk _).mp
     exact complexCoordinates.contDiff.contMDiff.comp contMDiff_subtype_val
@@ -205,7 +205,7 @@ theorem chartEquiv_restriction {U V : Domain} (r : U ⟶ V) (m n : V ⟶ diskDom
 /-- Smooth arrow maps with specified source and target, independently of labels. -/
 def SmoothFamily (U : Domain) (m n : U ⟶ diskDomain) :=
   {f : ManifoldRealization.ordinaryOpen U → DiskPresentation.Arrow //
-    ContMDiff (ManifoldRealization.Model U.dimension) DiskPresentation.arrowModel ∞ f ∧
+    ContMDiff (ManifoldRealization.modelWithCorners U.dimension) DiskPresentation.arrowModel ∞ f ∧
     (∀ x, DiskPresentation.source (f x) = diskValue m x) ∧
     (∀ x, DiskPresentation.target (f x) = diskValue n x)}
 

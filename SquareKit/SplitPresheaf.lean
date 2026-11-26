@@ -36,11 +36,11 @@ def transport {A B : Ty F} (h : A = B) (t : Tm A) : Tm B := h ▸ t
 theorem transport_trans {A B D : Ty F} (h : A = B) (k : B = D) (t : Tm A) :
     transport k (transport h t) = transport (h.trans k) t := by cases h; cases k; rfl
 
-abbrev Ext (A : Ty F) := total F A
-abbrev p (A : Ty F) : Ext A ⟶ F := display F A
+abbrev extension (A : Ty F) := total F A
+abbrev p (A : Ty F) : extension A ⟶ F := display F A
 
 /-- A dependent pairing into the actual total functor. -/
-def pair (A : Ty F) (σ : G ⟶ F) (t : Tm (tySub A σ)) : G ⟶ Ext A where
+def pair (A : Ty F) (σ : G ⟶ F) (t : Tm (tySub A σ)) : G ⟶ extension A where
   app U := ↾fun x => ⟨σ.app U x, t.val (G.elementsMk U x)⟩
   naturality {U V} f := by
     ext x
@@ -75,16 +75,16 @@ def q (A : Ty F) : Tm (tySub A (p A)) where
 @[simp] theorem pair_q (A : Ty F) (σ : G ⟶ F) (t : Tm (tySub A σ)) :
     tmSub (q A) (pair A σ t) = t := rfl
 
-theorem pair_eta (A : Ty F) (k : G ⟶ Ext A) : pair A (k ≫ p A) (tmSub (q A) k) = k := rfl
+theorem pair_eta (A : Ty F) (k : G ⟶ extension A) : pair A (k ≫ p A) (tmSub (q A) k) = k := rfl
 
 theorem pair_natural (A : Ty F) (σ : G ⟶ F) (t : Tm (tySub A σ)) (τ : H ⟶ G) :
     pair A (τ ≫ σ) (tmSub t τ) = τ ≫ pair A σ t := rfl
 
-def lift (A : Ty F) (σ : G ⟶ F) : Ext (tySub A σ) ⟶ Ext A :=
+def lift (A : Ty F) (σ : G ⟶ F) : extension (tySub A σ) ⟶ extension A :=
   pair A (p (tySub A σ) ≫ σ) (q (tySub A σ))
 
 @[simp] theorem lift_p (A : Ty F) (σ : G ⟶ F) : lift A σ ≫ p A = p (tySub A σ) ≫ σ := rfl
-@[simp] theorem lift_id (A : Ty F) : lift A (𝟙 F) = 𝟙 (Ext A) := rfl
+@[simp] theorem lift_id (A : Ty F) : lift A (𝟙 F) = 𝟙 (extension A) := rfl
 @[simp] theorem lift_comp (A : Ty F) (σ : G ⟶ F) (τ : H ⟶ G) :
     lift (tySub A σ) τ ≫ lift A σ = lift A (τ ≫ σ) := rfl
 

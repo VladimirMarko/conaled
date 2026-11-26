@@ -43,7 +43,7 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation theory Ω a) (ρ : V → Value.{u})
-    (h : ∀ p ∈ Ω, p.eval algebra ρ) : a.eval algebra ρ :=
+    (h : ∀ p ∈ Ω, p.Eval algebra ρ) : a.Eval algebra ρ :=
   d.sound model ρ h
 
 end SquareKit.Cubical.Source.Naturals

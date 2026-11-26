@@ -76,7 +76,7 @@ theorem constants_distinct_at_X :
   exact Bool.noConfusion impossible
 
 /-- The external function type at X has exactly one function. -/
-abbrev unique_pointwise : Unique (E.obj.obj (op X) → D.obj.obj (op X)) where
+abbrev pointwiseUnique : Unique (E.obj.obj (op X) → D.obj.obj (op X)) where
   default x := nomatch x
   uniq f := by funext x; exact nomatch x
 
@@ -86,5 +86,5 @@ theorem no_pointwise_equivalence :
   rintro ⟨e⟩
   apply constants_distinct_at_X
   apply e.injective
-  exact (unique_pointwise.uniq _).trans (unique_pointwise.uniq _).symm
+  exact (pointwiseUnique.uniq _).trans (pointwiseUnique.uniq _).symm
 end Examples.SheafFunctions

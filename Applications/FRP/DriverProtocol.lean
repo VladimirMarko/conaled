@@ -6,12 +6,12 @@ module concern numeric token lists, not Lean's decimal parser or byte IO. -/
 namespace FRPSpec.Frontier.Driver
 open Trace
 
-abbrev Consumer := Reactive.batches Reactive.jointMachine
+abbrev consumer := Reactive.batches Reactive.jointMachine
 abbrev State := Lifecycle.Pipeline.State Nat Nat (Nat × Nat)
 abbrev Command := Lifecycle.Command Nat Nat
 abbrev Event := Lifecycle.Pipeline.Event Nat Nat (Nat × Nat)
 
-def initial : State := Lifecycle.Pipeline.init (fun _ => Frontier.initial 0) Consumer
+def initial : State := Lifecycle.Pipeline.init (fun _ => Frontier.initial 0) consumer
 
 def encodePacket : Log Nat Nat → List Nat
   | [] => []
@@ -120,21 +120,21 @@ structure Output where
 /-- Report the existing validator's decision, including rejection, separately
 from lifecycle statuses. Both use the same pre-command source state. -/
 def packetStatus (s : State) : Command → Option Bool
-  | .source r m => some (decide (windowValid (s.lifecycle.engine.sources r) m.frontier m.packet))
+  | .source r m => some (decide (WindowValid (s.lifecycle.engine.sources r) m.frontier m.packet))
   | _ => none
 
 def step (s : State) (c : Command) : State × Output :=
-  let next := Lifecycle.Pipeline.step Consumer s c
+  let next := Lifecycle.Pipeline.step consumer s c
   (next.1,⟨packetStatus s c,next.2⟩)
 
 @[simp] theorem step_lifecycle (s : State) (c : Command) :
-    (step s c).1 = (Lifecycle.Pipeline.step Consumer s c).1 ∧
-    (step s c).2.event = (Lifecycle.Pipeline.step Consumer s c).2 := ⟨rfl,rfl⟩
+    (step s c).1 = (Lifecycle.Pipeline.step consumer s c).1 ∧
+    (step s c).2.event = (Lifecycle.Pipeline.step consumer s c).2 := ⟨rfl,rfl⟩
 
 theorem step_compiled (s : State) (c : Command) :
     ((step s c).1,(step s c).2.event) =
       Lifecycle.Pipeline.step (Reactive.batches Reactive.jointSpec) s c := by
-  simp [step,Consumer,Reactive.joint_correct]
+  simp [step,consumer,Reactive.joint_correct]
 
 /-- The published packet status is exactly the decision used by the source update. -/
 theorem packet_status_agrees (s : State) (r : Source) (m : Message Nat Nat) :
@@ -145,7 +145,7 @@ theorem packet_status_agrees (s : State) (r : Source) (m : Message Nat Nat) :
 
 /-- Structurally rejected packets leave both source and consumer state intact. -/
 theorem rejected_stutters (s : State) (r : Source) (m : Message Nat Nat)
-    (h : ¬ windowValid (s.lifecycle.engine.sources r) m.frontier m.packet) :
+    (h : ¬ WindowValid (s.lifecycle.engine.sources r) m.frontier m.packet) :
     (step s (.source r m)).1 = s := by
   rcases s with ⟨⟨⟨l,q,request⟩,last⟩,consumer⟩
   cases r <;> cases request <;>

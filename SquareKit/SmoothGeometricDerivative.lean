@@ -108,7 +108,7 @@ theorem derivative_interpret (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) :
   have h := nilsquare_taylor (unaryOperation f hf) (fun _ => x) (fun _ => (1 : Carrier A)) d.val d.property
   simpa only [one_mul, mul_one, Fin.sum_univ_one, unary_derivative, mul_comm] using h
 
-/-- The real presentation is Free(0); this map observes its scalar section in ℝ. -/
+/-- The real presentation is freeAlgebra(0); this map observes its scalar section in ℝ. -/
 def realValue : Hom (Carrier (free 0)) ℝ :=
   Hom.comp (evaluate (fun i : Fin 0 => Fin.elim0 i)) (PresentedLocalization.freeValue 0)
 

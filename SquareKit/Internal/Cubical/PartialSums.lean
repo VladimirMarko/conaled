@@ -33,7 +33,7 @@ def PartialSection.sigmaSnd {Γ : Context.{u}} {A : Family Γ} {B : Family (tota
 
 theorem PartialSection.sigmaSnd_val {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     {φ : Cofibration Γ} (s : PartialSection (sigma A B) φ) (a : Term A)
-    (h : ∀ x p, a.val x = (s.val x p).1) (x : Γ.Elements) (p : φ.full x) :
+    (h : ∀ x p, a.val x = (s.val x p).1) (x : Γ.Elements) (p : φ.Full x) :
     HEq ((s.sigmaSnd a h).val x p) (s.val x p).2 := by
   dsimp only [PartialSection.sigmaSnd, PartialSection.ofRestricted]
   exact Term.sigmaSndOver_val (B := Presheaf.reindex B (liftSub A (restrictInclusion φ))) s.toRestricted (a.reindex (restrictInclusion φ)) _

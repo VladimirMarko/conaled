@@ -25,36 +25,36 @@ attribute [local instance] Classical.propDecidable
 /-- An initial segment of the natural numbers, with a value at every live index.
 This admits finite lists, the empty list, and infinite lists. -/
 structure CoList (A : Type) where
-  live : ℕ → Prop
-  initial : ∀ {i j : ℕ}, i ≤ j → live j → live i
-  value : {i : ℕ // live i} → A
+  Live : ℕ → Prop
+  initial : ∀ {i j : ℕ}, i ≤ j → Live j → Live i
+  value : {i : ℕ // Live i} → A
 
 namespace CoList
-abbrev Pos {A : Type} (s : CoList A) := {i : ℕ // s.live i}
+abbrev Pos {A : Type} (s : CoList A) := {i : ℕ // s.Live i}
 
 /-- An extensional observation. `none` means END, not unknown or divergence. -/
 def get? {A : Type} (s : CoList A) (n : ℕ) : Option A :=
-  if h : s.live n then some (s.value ⟨n, h⟩) else none
+  if h : s.Live n then some (s.value ⟨n, h⟩) else none
 
 def nil {A : Type} : CoList A where
-  live := fun _ => False
+  Live := fun _ => False
   initial := by intros; assumption
   value := fun i => False.elim i.property
 
 def ofStream {A : Type} (f : ℕ → A) : CoList A where
-  live := fun _ => True
+  Live := fun _ => True
   initial := by intros; trivial
   value := fun i => f i.val
 
 def map {A B : Type} (f : A → B) (s : CoList A) : CoList B where
-  live := s.live
+  Live := s.Live
   initial := s.initial
   value := f ∘ s.value
 
 /-- No coinductive primitive is required: equality is equality at all indices. -/
 theorem ext {A : Type} (s t : CoList A)
-    (hdom : ∀ n, s.live n ↔ t.live n)
-    (hval : ∀ n (hs : s.live n) (ht : t.live n),
+    (hdom : ∀ n, s.Live n ↔ t.Live n)
+    (hval : ∀ n (hs : s.Live n) (ht : t.Live n),
       s.value ⟨n, hs⟩ = t.value ⟨n, ht⟩) : s = t := by
   cases s with
   | mk p hp f =>
@@ -188,7 +188,7 @@ theorem rank_iso (hX : FinitePred X) (hY : FinitePred Y)
 
 /-- Canonically turn a labelled finite-predecessor order into a co-list. -/
 def linearize {A : Type} (h : FinitePred X) (v : X → A) : CoList A where
-  live := fun n => ∃ x : X, rank h x = n
+  Live := fun n => ∃ x : X, rank h x = n
   initial := by
     intro i j hij hj
     rcases hj with ⟨y, hy⟩
@@ -257,7 +257,7 @@ theorem iso_index (s : CoList A) (t : CoList B)
 /-- Two co-lists with order-isomorphic, equally-labelled positions are equal. -/
 theorem eq_of_iso (s t : CoList A) (e : s.Pos ≃o t.Pos)
     (hv : ∀ i, t.value (e i) = s.value i) : s = t := by
-  have hd : ∀ n, s.live n ↔ t.live n := by
+  have hd : ∀ n, s.Live n ↔ t.Live n := by
     intro n
     constructor
     · intro hn
@@ -318,7 +318,7 @@ variable {T A : Type} [LinearOrder T]
 /-- The occurrences, not just the support times.  Lexicographic order retains
 both temporal order and the order of simultaneous occurrences. -/
 abbrev Occ (b : Batch T A) :=
-  {p : T ×ₗ ℕ // (b (ofLex p).1).live (ofLex p).2}
+  {p : T ×ₗ ℕ // (b (ofLex p).1).Live (ofLex p).2}
 
 namespace Occ
 omit [LinearOrder T] in
@@ -439,7 +439,7 @@ def fiberIso {e : OldEvent T A} {b : Batch T A}
     ⟨(r.iso i.val).index, by
       have ht : (r.iso i.val).time = t := (r.time_eq i.val).trans i.property
       have hp := (r.iso i.val).property
-      change (b (r.iso i.val).time).live (r.iso i.val).index at hp
+      change (b (r.iso i.val).time).Live (r.iso i.val).index at hp
       simpa only [ht] using hp⟩
   invFun := fun j =>
     ⟨r.iso.symm (Batch.Occ.mk b t j), by
@@ -474,7 +474,7 @@ theorem fiber_value {e : OldEvent T A} {b : Batch T A}
   have h := r.value_eq i.val
   unfold Batch.Occ.value Batch.Occ.localPos at h
   have transport : ∀ (u v : T) (huv : u = v) (n : ℕ)
-      (hu : (b u).live n) (hv : (b v).live n),
+      (hu : (b u).Live n) (hv : (b v).Live n),
       (b v).value ⟨n, hv⟩ = (b u).value ⟨n, hu⟩ := by
     intro u v huv n hu hv
     subst v
@@ -1116,18 +1116,18 @@ namespace CoList
 /-- This representation has precisely finite and omega-long shapes, not
 transfinite lists such as omega+1. -/
 theorem finite_or_infinite {A : Type} (s : CoList A) :
-    (∃ n : ℕ, ∀ i : ℕ, s.live i ↔ i < n) ∨ (∀ i : ℕ, s.live i) := by
-  by_cases hall : ∀ i : ℕ, s.live i
+    (∃ n : ℕ, ∀ i : ℕ, s.Live i ↔ i < n) ∨ (∀ i : ℕ, s.Live i) := by
+  by_cases hall : ∀ i : ℕ, s.Live i
   · exact Or.inr hall
   · left
-    have hex : ∃ i : ℕ, ¬ s.live i := by
+    have hex : ∃ i : ℕ, ¬ s.Live i := by
       by_contra hn
       apply hall
       intro i
       by_contra hi
       exact hn ⟨i, hi⟩
     let n := Nat.find hex
-    have hn : ¬ s.live n := Nat.find_spec hex
+    have hn : ¬ s.Live n := Nat.find_spec hex
     refine ⟨n, ?_⟩
     intro i
     constructor

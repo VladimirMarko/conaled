@@ -39,11 +39,11 @@ inductive Term (P : Signature) : {m : Mode} → Ty m → Ty m → Type
 
 /-- U meanings are ordinary sets; L meanings have a conserved resource degree. -/
 structure Atoms where
-  unrestricted : Type
+  Unrestricted : Type
   linear : Resource
 
 def Ty.meaning (v : Atoms) : {m : Mode} → Ty m → Resource
-  | _, .atom .unrestricted => AdjointModes.down v.unrestricted
+  | _, .atom .unrestricted => AdjointModes.down v.Unrestricted
   | _, .atom .linear => v.linear
   | _, .one _ => AdjointModes.one
   | _, .times A B => tensor (A.meaning v) (B.meaning v)
@@ -67,7 +67,7 @@ abbrev PrimitiveMeaning (v : Atoms) (P : Signature) :=
 
 /-- Forget the resource restriction, retaining the entire selected payload. -/
 def Ty.Payload (v : Atoms) : {m : Mode} → Ty m → Type
-  | _, .atom .unrestricted => v.unrestricted
+  | _, .atom .unrestricted => v.Unrestricted
   | _, .atom .linear => v.linear.Carrier
   | _, .one _ => Unit
   | _, .times A B => A.Payload v × B.Payload v

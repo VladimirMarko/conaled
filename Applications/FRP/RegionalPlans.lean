@@ -48,7 +48,7 @@ theorem lowered_correct (x : Input) :
 end Rich
 
 abbrev Input := Rich.Input
-abbrev Redundant := {p : Bool × Bool // MigrationPair.valid p}
+abbrev Redundant := {p : Bool × Bool // MigrationPair.Valid p}
 def encode (b : Bool) : Redundant := ⟨MigrationPair.forward b, MigrationPair.forward_valid b⟩
 def decode (p : Redundant) : Bool :=
   (MigrationPair.reverse p.val).getD false

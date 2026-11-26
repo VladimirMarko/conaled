@@ -18,20 +18,20 @@ theorem complete_packages : (DirectAuthor.mainDecoded E) = targetLength ∧ (Dir
 theorem all_observations (a b : List Nat) :
     (DirectAuthor.mainDecoded E).initial = ([], []) ∧
     (DirectAuthor.mainDecoded E).step (a,b) = (1::a,1::b) ∧
-    ((DirectAuthor.mainDecoded E).invariant (a,b) ↔ a.length = b.length) ∧
+    ((DirectAuthor.mainDecoded E).Invariant (a,b) ↔ a.length = b.length) ∧
     (DirectAuthor.variationDecoded E).initial = ([], []) ∧
     (DirectAuthor.variationDecoded E).step (a,b) = (1::a,1::b) ∧
-    ((DirectAuthor.variationDecoded E).invariant (a,b) ↔ a.sum = b.sum) := by
+    ((DirectAuthor.variationDecoded E).Invariant (a,b) ↔ a.sum = b.sum) := by
   rw [(DirectAuthor.mainDecoded_target E), (DirectAuthor.variationDecoded_target E)]
   exact ⟨rfl, rfl, Iff.rfl, rfl, rfl, Iff.rfl⟩
 
 /-- The step check distinguishes prepend from append away from the initial orbit. -/
 theorem separating_observations :
     (DirectAuthor.mainDecoded E).step ([2,3],[5]) = ([1,2,3],[1,5]) ∧
-    ¬ (DirectAuthor.mainDecoded E).invariant ([2,3],[5]) ∧
-    (DirectAuthor.variationDecoded E).invariant ([2,3],[5]) ∧
-    (DirectAuthor.mainDecoded E).invariant ([2],[3]) ∧
-    ¬ (DirectAuthor.variationDecoded E).invariant ([2],[3]) := by
+    ¬ (DirectAuthor.mainDecoded E).Invariant ([2,3],[5]) ∧
+    (DirectAuthor.variationDecoded E).Invariant ([2,3],[5]) ∧
+    (DirectAuthor.mainDecoded E).Invariant ([2],[3]) ∧
+    ¬ (DirectAuthor.variationDecoded E).Invariant ([2],[3]) := by
   rw [(DirectAuthor.mainDecoded_target E), (DirectAuthor.variationDecoded_target E)]
   simp [targetLength, targetSum]
 

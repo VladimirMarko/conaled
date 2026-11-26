@@ -65,7 +65,7 @@ actual original canonical restriction, and `descentSquare` compares chosen
 gluing along arbitrary commuting cover squares by a selected natural iso.
 Neither square map is assumed invertible. `descentRecovery_natural` retains
 every matching arrow in the chosen counit recovery.
-`gluedSectionLift_natural` applies the selected extended-context descent square
+`gluedSectionLiftNaturalityIso` applies the selected extended-context descent square
 to complete supplied matching-section lifts and their local comparison. It
 compares whole gluings before normalization of their matching base; normalized
 section reconstruction is separately supplied by `sectionDescent`.
@@ -94,7 +94,7 @@ hypothesis because presentation change itself is an equivalence.
 
 `relativeSquareMap` and `familySquare` act on independent relative matching
 under arbitrary parameter-cover squares. `relativeSquare_projection` supplies
-the actual base square; `familySquare_recovery` and its arrow naturality retain
+the actual base square; `familySquareRecoveryIso` and its arrow naturality retain
 the full total comparison. Identity/composition are strict at the total matching
 functor level, while fixed-fiber normalization uses selected isomorphisms.
 `relativeMatchingEquivalence_square` connects this family action to the original

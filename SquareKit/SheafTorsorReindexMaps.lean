@@ -13,19 +13,19 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
   {X Y : Sheaf J (Type w)} {A : Ty Y} {B : Ty X}
 
 /-- Factor a map over a base arrow through the reindexed family. -/
-def mapAlong (f : Y ⟶ X) (k : Ext A ⟶ Ext B) (hk : k ≫ p B = p A ≫ f) :
+def mapAlong (f : Y ⟶ X) (k : extension A ⟶ extension B) (hk : k ≫ p B = p A ≫ f) :
     A.family ⟶ (tySub B f).family :=
   mapOfTotal ((extension_pullback B f).lift k (p A) hk)
     ((extension_pullback B f).lift_snd k (p A) hk)
 
-theorem mapAlong_total (f : Y ⟶ X) (k : Ext A ⟶ Ext B) (hk : k ≫ p B = p A ≫ f) :
+theorem mapAlong_total (f : Y ⟶ X) (k : extension A ⟶ extension B) (hk : k ≫ p B = p A ≫ f) :
     totalMap (mapAlong f k hk) ≫ lift B f = k := by
   rw [mapAlong, totalMap_mapOfTotal]
   exact (extension_pullback B f).lift_fst k (p A) hk
 
-theorem mapAlong_value (f : Y ⟶ X) (k : Ext A ⟶ Ext B) (hk : k ≫ p B = p A ≫ f)
+theorem mapAlong_value (f : Y ⟶ X) (k : extension A ⟶ extension B) (hk : k ≫ p B = p A ≫ f)
     (x : Y.obj.Elements) (a : A.family.obj x) :
-    (⟨f.hom.app x.obj x.val, (mapAlong f k hk).app x a⟩ : (Ext B).obj.obj x.obj) =
+    (⟨f.hom.app x.obj x.val, (mapAlong f k hk).app x a⟩ : (extension B).obj.obj x.obj) =
       k.hom.app x.obj ⟨x.val, a⟩ :=
   congrArg (fun h => h.hom.app x.obj ⟨x.val, a⟩) (mapAlong_total f k hk)
 
@@ -37,8 +37,8 @@ universe u v w
 variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
   {X Y Z W : Sheaf J (Type w)} {A : Ty Y} {B : Ty X}
 
-theorem mapAlong_value_of_comp (f : Y ⟶ X) (k : Ext A ⟶ Ext B)
-    (hk : k ≫ p B = p A ≫ f) (u : Ext A ⟶ W) (v : W ⟶ Z) (t : Ext B ⟶ Z)
+theorem mapAlong_value_of_comp (f : Y ⟶ X) (k : extension A ⟶ extension B)
+    (hk : k ≫ p B = p A ≫ f) (u : extension A ⟶ W) (v : W ⟶ Z) (t : extension B ⟶ Z)
     (he : k ≫ t = u ≫ v) (x : Y.obj.Elements) (a : A.family.obj x) :
     t.hom.app x.obj ⟨f.hom.app x.obj x.val, (mapAlong f k hk).app x a⟩ =
       v.hom.app x.obj (u.hom.app x.obj ⟨x.val, a⟩) := by
@@ -54,7 +54,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
   {X Y : Sheaf J (Type w)} {A : Ty Y} {B D : Ty X}
 
 /-- The induced isomorphism on total spaces of isomorphic families. -/
-def totalIso {T : Sheaf J (Type w)} {A B : Ty T} (e : A.family ≅ B.family) : Ext A ≅ Ext B :=
+def totalIso {T : Sheaf J (Type w)} {A B : Ty T} (e : A.family ≅ B.family) : extension A ≅ extension B :=
   (toOver ⋙ Over.forget T).mapIso (isoMk e)
 
 theorem reindex_map_ext (f : Y ⟶ X) (h k : A.family ⟶ (tySub B f).family)

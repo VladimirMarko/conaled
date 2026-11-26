@@ -25,7 +25,7 @@ theorem Signature.horizontal_baseSubstitution_middle (S T : Signature.{u})
   exact heq_of_eq (congrArg baseFunctor (eq_of_heq hx))
 
 /-- The composed base point retains its two given endpoint sections. -/
-def Signature.horizontal_point (S T : Signature.{u})
+def Signature.horizontalPoint (S T : Signature.{u})
     (h : S.base.right = T.base.left) (hB : HEq S.rightFiber T.leftFiber)
     {Γ Δ : Context.{u}} (hΓ : Γ.right = Δ.left)
     (x : Section (S.baseFamily Γ)) (y : Section (T.baseFamily Δ))
@@ -37,7 +37,7 @@ theorem Signature.horizontal_baseSubstitution (S T : Signature.{u})
     (h : S.base.right = T.base.left) (hB : HEq S.rightFiber T.leftFiber)
     {Γ Δ : Context.{u}} (hΓ : Γ.right = Δ.left)
     (x : Section (S.baseFamily Γ)) (y : Section (T.baseFamily Δ)) (hx : HEq x.right y.left) :
-    HEq ((S.horizontal T h hB).baseSubstitution (S.horizontal_point T h hB hΓ x y hx))
+    HEq ((S.horizontal T h hB).baseSubstitution (S.horizontalPoint T h hB hΓ x y hx))
       ((S.baseSubstitution x).horizontal (T.baseSubstitution y) h hΓ
         (S.horizontal_baseSubstitution_middle T h hΓ x y hx)) := by
   rcases S with ⟨⟨C₀, C₁, R⟩, B₀, B₁, α⟩
@@ -69,7 +69,7 @@ theorem Signature.horizontal_fiber (S T : Signature.{u})
     (h : S.base.right = T.base.left) (hB : HEq S.rightFiber T.leftFiber)
     {Γ Δ : Context.{u}} (hΓ : Γ.right = Δ.left)
     (x : Section (S.baseFamily Γ)) (y : Section (T.baseFamily Δ)) (hx : HEq x.right y.left) :
-    (S.horizontal T h hB).fiber (S.horizontal_point T h hB hΓ x y hx) =
+    (S.horizontal T h hB).fiber (S.horizontalPoint T h hB hΓ x y hx) =
       (S.fiber x).horizontal (T.fiber y) hΓ (S.horizontal_fiber_middle T h hB hΓ x y hx) := by
   apply eq_of_heq
   apply (Family.reindex_heq (S.horizontal_base T h hB) rfl

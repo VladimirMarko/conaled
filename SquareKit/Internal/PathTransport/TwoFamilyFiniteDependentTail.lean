@@ -23,7 +23,7 @@ theorem locallyGroupoid {n} (tail : FiniteDependentTail Γ n Δ) : IsLocallyGrou
     let : ∀x, IsLocallyGroupoid (E.obj x) := cells
     exact inferInstanceAs (IsLocallyGroupoid (Total E))
 
-omit [IsLocallyGroupoid Γ.carrier] in
+omit [IsLocallyGroupoid Γ.Carrier] in
 theorem groupoid [IsGroupoid Γ] {n} (tail : FiniteDependentTail Γ n Δ) : IsGroupoid Δ := by
   induction tail with
   | nil => infer_instance

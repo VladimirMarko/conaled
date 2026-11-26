@@ -18,7 +18,7 @@ theorem DiscreteBox.fill_zero {Γ : Context.{u}} {S : Type u} {φ : Cofibration 
     b.fill.reindex (endpointSub Γ false) = b.base := rfl
 
 theorem DiscreteBox.fill_tube {Γ : Context.{u}} {S : Type u} {φ : Cofibration Γ} (b : DiscreteBox Γ S φ)
-    (x : (total (interval Γ)).Elements) (h : (φ.reindex (projection (interval Γ))).full x) :
+    (x : (total (interval Γ)).Elements) (h : (φ.reindex (projection (interval Γ))).Full x) :
     b.fill.val x = b.tube.val x h := by
   rcases x with @⟨I,⟨γ,r⟩⟩
   let y := Γ.elementsMk I γ
@@ -29,7 +29,7 @@ def DiscreteBox.hcomp {Γ : Context.{u}} {S : Type u} {φ : Cofibration Γ} (b :
     Term (constantFamily Γ S) := b.fill.reindex (endpointSub Γ true)
 
 theorem DiscreteBox.hcomp_on_face {Γ : Context.{u}} {S : Type u} {φ : Cofibration Γ}
-    (b : DiscreteBox Γ S φ) (x : Γ.Elements) (h : φ.full x) :
+    (b : DiscreteBox Γ S φ) (x : Γ.Elements) (h : φ.Full x) :
     b.hcomp.val x = b.tube.val (extendObj (interval Γ) x ((endpoint Γ true).val x)) h :=
   b.fill_tube (extendObj (interval Γ) x ((endpoint Γ true).val x)) h
 

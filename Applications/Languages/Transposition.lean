@@ -20,7 +20,7 @@ inductive Constructor : Language α → Type 1
   | concat (P Q : Language α) : Constructor (Concat P Q)
   | star (P : Language α) : Constructor (Star P)
 
-def fields : Constructor (α := α) P → Type 1
+def Fields : Constructor (α := α) P → Type 1
   | .zero | .universal | .epsilon | .atom _ => PUnit
   | .intersection P Q => Parser P × Parser Q
   | .scale A P => ULift.{1} (Decision A) × Parser P
@@ -34,7 +34,7 @@ inductive Observer (P : Language α) : Type 1
   | derive (a : α)
   | snapshot (n : Nat)
 
-def result : Observer (α := α) P → Type 1
+def Result : Observer (α := α) P → Type 1
   | .nullable => ULift.{1} (Decision (P []))
   | .derive a => Parser (derivative P a)
   | .snapshot n => WitnessTrie P n
@@ -42,9 +42,9 @@ def result : Observer (α := α) P → Type 1
 abbrev signature (α : Type) : Signature (Language α) where
   Constructor := Constructor
   Observer := Observer
-  fields := fields
-  arguments := fun _ => PUnit
-  result := result
+  Fields := Fields
+  Arguments := fun _ => PUnit
+  Result := Result
 
 inductive Prim : Type 1 → Type 1 → Type 2
   | zero : Prim PUnit (Parser (α := α) (fun _ => PEmpty))
@@ -95,7 +95,7 @@ def meaning : Prim (α := α) A B → A → B
   | .transport e, p => .transport e p
   | .unfold n, p => WitnessTrie.unfold p n
 
-def symbolic (c : Constructor (α := α) P) : fields c → Parser P :=
+def symbolic (c : Constructor (α := α) P) : Fields c → Parser P :=
   match c with
   | .zero => fun _ => .zero
   | .universal => fun _ => .universal
@@ -109,7 +109,7 @@ def symbolic (c : Constructor (α := α) P) : fields c → Parser P :=
   | .star _ => fun p => .star p
 
 def construction (c : Constructor (α := α) P) :
-    Expr (Prim (α := α)) (Slot (fields c) PUnit) (Parser P) :=
+    Expr (Prim (α := α)) (Slot (Fields c) PUnit) (Parser P) :=
   match c with
   | .zero => .prim .zero (.var .first)
   | .universal => .prim .universal (.var .first)
@@ -160,32 +160,32 @@ def equations : DataProgram (signature α) (Prim (α := α)) where
           (.pair (.prim (.derive a) (.var .first)) (.prim .star (.var .first)))))
     | .snapshot n, c => .prim (.unfold n) (construction c)
 
-def observeParser (d : Observer (α := α) P) (p : Parser P) : result d :=
+def observeParser (d : Observer (α := α) P) (p : Parser P) : Result d :=
   match d with
   | .nullable => ⟨p.nullable⟩
   | .derive a => p.derive a
   | .snapshot n => WitnessTrie.unfold p n
 
-theorem equations_correct (c : Constructor (α := α) P) (x : fields c) (d : Observer P) :
+theorem equations_correct (c : Constructor (α := α) P) (x : Fields c) (d : Observer P) :
     equations.observe meaning d ⟨c,x⟩ PUnit.unit = observeParser d (symbolic c x) := by
   cases d <;> cases c <;> rfl
 
 /-- This is generated syntax, not a second handwritten interpreter. -/
 def methods : CodataProgram (signature α) (Prim (α := α)) := transpose equations
 
-theorem methods_correct (c : Constructor (α := α) P) (x : fields c) (d : Observer P) :
+theorem methods_correct (c : Constructor (α := α) P) (x : Fields c) (d : Observer P) :
     methods.construct meaning c x d PUnit.unit = observeParser d (symbolic c x) :=
   (transpose_preserves equations meaning c x d PUnit.unit).trans (equations_correct c x d)
 
-theorem recovered_nullable (c : Constructor (α := α) P) (x : fields c) :
+theorem recovered_nullable (c : Constructor (α := α) P) (x : Fields c) :
     (methods.construct meaning c x .nullable PUnit.unit).down = (symbolic c x).nullable :=
   congrArg ULift.down (methods_correct c x .nullable)
 
-theorem recovered_derive (c : Constructor (α := α) P) (x : fields c) (a : α) :
+theorem recovered_derive (c : Constructor (α := α) P) (x : Fields c) (a : α) :
     methods.construct meaning c x (.derive a) PUnit.unit = (symbolic c x).derive a :=
   methods_correct c x (.derive a)
 
-theorem recovered_snapshot (c : Constructor (α := α) P) (x : fields c) (n : Nat)
+theorem recovered_snapshot (c : Constructor (α := α) P) (x : Fields c) (n : Nat)
     (w : List α) (h : w.length ≤ n) :
     (methods.construct meaning c x (.snapshot n) PUnit.unit).lookup w h =
       (symbolic c x).parse w := by

@@ -19,7 +19,7 @@ variable (B : C ⥤ Type w) (x : Section (constant (Γ := Γ) C))
 
 /-- The varying endpoint in the actual endpoint-and-path comprehension. -/
 def endpoint : Section (constant (Γ := PathCtx (constant C) x) C) :=
-  («variable» (constant C)).reindex (weaken (PathFamily (constant C) x))
+  («variable» (constant C)).reindex (weaken (pathComparisonFamily (constant C) x))
 
 variable (b : Section (primitiveFiber B x))
 

@@ -9,19 +9,19 @@ open CategoryTheory ManifoldRealization SmoothOpenSite
 open scoped Manifold ContDiff
 variable {n m k : ℕ} {G B B' B'' : Type} [Group G]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace B] [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
-  [TopologicalSpace B'] [ChartedSpace (Space m) B'] [IsManifold (Model m) ∞ B']
-  [TopologicalSpace B''] [ChartedSpace (Space k) B''] [IsManifold (Model k) ∞ B'']
+  [TopologicalSpace B] [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
+  [TopologicalSpace B'] [ChartedSpace (Space m) B'] [IsManifold (modelWithCorners m) ∞ B']
+  [TopologicalSpace B''] [ChartedSpace (Space k) B''] [IsManifold (modelWithCorners k) ∞ B'']
 
 /-- The total space is the actual equality subtype, with the sheet-derived atlas. -/
-def pulledBack (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+def pulledBack (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (P : Ordinary n G B) : Ordinary m G B' := by
   letI := Pullback.chartedSpace (m := m) P.bundle f hf.continuous
   letI := Pullback.isManifold (m := m) P.bundle f hf.continuous
   exact ofBundle (Pullback.bundle (m := m) P.bundle f hf.continuous)
 
 set_option backward.isDefEq.respectTransparency false in
-def pullbackFunctor (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
+def pullbackFunctor (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) :
     Ordinary n G B ⥤ Ordinary m G B' where
   obj := pulledBack f hf
   map {P _Q} a := Pullback.map P.bundle f hf.continuous a
@@ -29,7 +29,7 @@ def pullbackFunctor (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
   map_comp a b := Pullback.map_comp _ f hf.continuous a b
 
 set_option backward.isDefEq.respectTransparency false in
-def pullbackRealization (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
+def pullbackRealization (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) :
     pullbackFunctor (G := G) f hf ⋙ realization ≅
       realization ⋙ SheafTorsor.restriction (ManifoldRealization.map f hf) :=
   NatIso.ofComponents (fun P => (Pullback.realizationComparison P.bundle f hf).toIso)
@@ -50,8 +50,8 @@ def pullbackIdentity : pullbackFunctor (n := n) (m := n) (G := G) (id : B → B)
     exact (Pullback.identityMap_natural P.bundle a).symm)
 
 set_option backward.isDefEq.respectTransparency false in
-def pullbackCompositionComponent (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-    (g : B'' → B') (hg : ContMDiff (Model k) (Model m) ∞ g) (P : Ordinary n G B) :
+def pullbackCompositionComponent (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+    (g : B'' → B') (hg : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ g) (P : Ordinary n G B) :
     pulledBack g hg (pulledBack f hf P) ≅ pulledBack (f ∘ g) (hf.comp hg) P where
   hom := Pullback.compositionMap P.bundle f hf.continuous g hg.continuous
   inv := Pullback.compositionInverseMap P.bundle f hf.continuous g hg.continuous
@@ -59,8 +59,8 @@ def pullbackCompositionComponent (f : B' → B) (hf : ContMDiff (Model m) (Model
   inv_hom_id := Pullback.compositionInverseMap_inverse P.bundle f hf.continuous g hg.continuous
 
 set_option backward.isDefEq.respectTransparency false in
-def pullbackComposition (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-    (g : B'' → B') (hg : ContMDiff (Model k) (Model m) ∞ g) :
+def pullbackComposition (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+    (g : B'' → B') (hg : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ g) :
     pullbackFunctor (G := G) f hf ⋙ pullbackFunctor (n := m) (m := k) g hg ≅
       pullbackFunctor (n := n) (m := k) (f ∘ g) (hf.comp hg) :=
   NatIso.ofComponents (pullbackCompositionComponent f hf g hg) (by
@@ -75,8 +75,8 @@ theorem pullbackRealization_id (P : Ordinary n G B) :
   Pullback.realizationComparison_id P.bundle
 
 set_option backward.isDefEq.respectTransparency false in
-theorem pullbackRealization_comp (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
-    (g : B'' → B') (hg : ContMDiff (Model k) (Model m) ∞ g) (P : Ordinary n G B) :
+theorem pullbackRealization_comp (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
+    (g : B'' → B') (hg : ContMDiff (modelWithCorners k) (modelWithCorners m) ∞ g) (P : Ordinary n G B) :
     (pullbackRealization g hg).hom.app (pulledBack f hf P) ≫
       (SheafTorsor.restriction (ManifoldRealization.map g hg)).map
         ((pullbackRealization f hf).hom.app P) ≫
@@ -90,7 +90,7 @@ theorem pullbackRealization_comp (f : B' → B) (hf : ContMDiff (Model m) (Model
   exact Pullback.realizationComparison_comp P.bundle f hf g hg
 
 /-- The pulled back chosen total manifold realizes the restricted original torsor. -/
-def pulledBackRecovery (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
+def pulledBackRecovery (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (P : Torsors (n := n) (G := G) (B := B)) :
     realization.obj (pulledBack f hf (reconstructed P)) ≅
       (SheafTorsor.restriction (ManifoldRealization.map f hf)).obj P :=
@@ -100,14 +100,14 @@ def pulledBackRecovery (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f)
 /-- Reconstruction after restriction agrees by an ordinary smooth bundle isomorphism
 with the actual pullback of the chosen reconstruction. -/
 def reconstructionPullbackComponent (f : B' → B)
-    (hf : ContMDiff (Model m) (Model n) ∞ f)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (P : Torsors (n := n) (G := G) (B := B)) :
     reconstructed ((SheafTorsor.restriction (ManifoldRealization.map f hf)).obj P) ≅
       pulledBack f hf (reconstructed P) :=
   recoveryComparison _ _ (pulledBackRecovery f hf P)
 
 @[simp] theorem realization_reconstructionPullbackComponent (f : B' → B)
-    (hf : ContMDiff (Model m) (Model n) ∞ f)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     (P : Torsors (n := n) (G := G) (B := B)) :
     realization.map (reconstructionPullbackComponent f hf P).hom =
       (recovery ((SheafTorsor.restriction (ManifoldRealization.map f hf)).obj P)).hom ≫
@@ -116,7 +116,7 @@ def reconstructionPullbackComponent (f : B' → B)
 
 set_option backward.isDefEq.respectTransparency false in
 theorem pulledBackRecovery_natural (f : B' → B)
-    (hf : ContMDiff (Model m) (Model n) ∞ f)
+    (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f)
     {P Q : Torsors (n := n) (G := G) (B := B)} (a : P ⟶ Q) :
     realization.map ((pullbackFunctor f hf).map (reconstruction.map a)) ≫
       (pulledBackRecovery f hf Q).hom =
@@ -137,7 +137,7 @@ theorem pulledBackRecovery_natural (f : B' → B)
   simp [Category.assoc]
 
 set_option backward.isDefEq.respectTransparency false in
-def reconstructionPullback (f : B' → B) (hf : ContMDiff (Model m) (Model n) ∞ f) :
+def reconstructionPullback (f : B' → B) (hf : ContMDiff (modelWithCorners m) (modelWithCorners n) ∞ f) :
     SheafTorsor.restriction (G := locallyConstantGroup G) (ManifoldRealization.map f hf) ⋙
       reconstruction ≅ reconstruction ⋙ pullbackFunctor f hf :=
   NatIso.ofComponents (reconstructionPullbackComponent f hf) (by

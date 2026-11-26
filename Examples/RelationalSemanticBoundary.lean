@@ -8,14 +8,14 @@ inductive Poss where
   | left | both | right | dead
   deriving DecidableEq
 
-def accepts : Poss → Bool → Prop
+def Accepts : Poss → Bool → Prop
   | .left, b => b = false
   | .both, _ => True
   | .right, b => b = true
   | .dead, _ => False
 
-def direct : RelRep := ⟨Poss, Bool, accepts⟩
-def redundant : RelRep := ⟨Poss × Bool, Bool, fun r b => accepts r.1 b⟩
+def direct : RelRep := ⟨Poss, Bool, Accepts⟩
+def redundant : RelRep := ⟨Poss × Bool, Bool, fun r b => Accepts r.1 b⟩
 
 def strip : RelSquare redundant direct := ⟨Prod.fst, id, id⟩
 def decorate : RelSquare direct redundant := ⟨fun p => (p, true), id, id⟩
@@ -28,7 +28,7 @@ def swap : Poss → Poss
 def flip : RelSquare redundant redundant where
   impl r := (swap r.1, !r.2)
   spec := Bool.not
-  preserves := by rintro ⟨p, f⟩ b h; cases p <;> cases b <;> simp_all [redundant, accepts, swap]
+  preserves := by rintro ⟨p, f⟩ b h; cases p <;> cases b <;> simp_all [redundant, Accepts, swap]
 
 /-- A second local operation may hide possibilities while retaining the selected witness. -/
 def widen : RelSquare redundant redundant where
@@ -36,10 +36,10 @@ def widen : RelSquare redundant redundant where
   spec := id
   preserves _ := trivial
 
-def selected (p : Poss) (b flag : Bool) (h : accepts p b) : Selected redundant :=
+def selected (p : Poss) (b flag : Bool) (h : Accepts p b) : Selected redundant :=
   pack (⟨((p, flag), b), h⟩ : (witness redundant).R)
 
-theorem selected_client (p : Poss) (b flag : Bool) (h : accepts p b) :
+theorem selected_client (p : Poss) (b flag : Bool) (h : Accepts p b) :
     meaning (selectedMap (Relational.compose widen flip) (selected p b flag h)) = !b := by
   rw [selectedMap_meaning]
   rfl
@@ -66,27 +66,27 @@ theorem selections_distinct : selected .both false false trivial ≠ selected .b
   change false = true at this
   cases this
 
-def shares (p q : Poss) := ∃ b, accepts p b ∧ accepts q b
+def Shares (p q : Poss) := ∃ b, Accepts p b ∧ Accepts q b
 
-example : shares .left .both ∧ shares .both .right ∧ ¬ shares .left .right := by
+example : Shares .left .both ∧ Shares .both .right ∧ ¬ Shares .left .right := by
   refine ⟨⟨false, rfl, trivial⟩, ⟨true, trivial, rfl⟩, ?_⟩
   rintro ⟨b, hb, hc⟩
-  cases b <;> simp_all [accepts]
+  cases b <;> simp_all [Accepts]
 
 /-- No single decoder preserves every possible meaning of an ambiguous input. -/
-example : ¬ ∃ decode : Poss → Bool, ∀ p b, accepts p b → decode p = b := by
+example : ¬ ∃ decode : Poss → Bool, ∀ p b, Accepts p b → decode p = b := by
   rintro ⟨d, h⟩
   have := (h .both false trivial).symm.trans (h .both true trivial)
   cases this
 
-example : ¬ ∃ b, accepts .dead b := by simp [accepts]
+example : ¬ ∃ b, Accepts .dead b := by simp [Accepts]
 
 /-- Forward simulation alone cannot justify descent to possible-set observations. -/
 def fixedFalse : RelRep := ⟨Bool, Bool, fun _ b => b = false⟩
 def forwardOnly : RelSquare fixedFalse direct where
   impl := fun (b : Bool) => if b then .both else .left
   spec := id
-  preserves := by intro r s h; cases r <;> simp_all [direct, fixedFalse, accepts]
+  preserves := by intro r s h; cases r <;> simp_all [direct, fixedFalse, Accepts]
 
 theorem no_possibility_descent : ¬ ∃ f : Handle fixedFalse → Handle direct,
     ∀ r, f (pack r) = pack (forwardOnly.impl r) := by
@@ -95,9 +95,9 @@ theorem no_possibility_descent : ¬ ∃ f : Handle fixedFalse → Handle direct,
   have he := congrArg f hs
   rw [h false, h true] at he
   have hm := congrArg meaning he
-  change ({b | accepts .left b} : Set Bool) = {b | accepts .both b} at hm
-  have ht : true ∈ ({b | accepts .both b} : Set Bool) := trivial
-  have hf : true ∈ ({b | accepts .left b} : Set Bool) := hm ▸ ht
+  change ({b | Accepts .left b} : Set Bool) = {b | Accepts .both b} at hm
+  have ht : true ∈ ({b | Accepts .both b} : Set Bool) := trivial
+  have hf : true ∈ ({b | Accepts .left b} : Set Bool) := hm ▸ ht
   cases hf
 
 end Relational.SemanticBoundary.Examples

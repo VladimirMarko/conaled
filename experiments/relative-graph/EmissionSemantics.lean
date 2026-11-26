@@ -155,7 +155,7 @@ theorem formula_denotes {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
     (ha : AssignmentCompatible (m := m) S L ρ a η)
     (p : GraphTarget.Formula Γ) (r : ConLeche.Expr)
     (he : encode (GraphEmissionPure.formula em a p) = some r) :
-    Denotes m.cval env φ ρ r (truthVal (p.eval (interpretation S L) η)) := by
+    Denotes m.cval env φ ρ r (truthVal (p.Eval (interpretation S L) η)) := by
   induction p generalizing em ρ r with
   | eq t v =>
     have h := Holds.eq pr hu (hm.carrier _) (term_denotes hm ha t) (term_denotes hm ha v)
@@ -184,11 +184,11 @@ theorem formula_denotes {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
     simp only [Option.bind_eq_some_iff, Option.some.injEq] at he
     obtain ⟨_, ⟨br, hbr, rfl⟩, rfl⟩ := he
     let P : V → Prop := fun x => ∃ hx : x ∈ˢ S.carrier s,
-      p.eval (interpretation S L) (η.extend (⟨x, hx⟩ : (interpretation S L).Carrier s))
+      p.Eval (interpretation S L) (η.extend (⟨x, hx⟩ : (interpretation S L).Carrier s))
     have hb (x : V) (hx : x ∈ˢ S.carrier s) :
         Denotes m.cval env φ (push x ρ) br (truthVal (P x)) := by
       have h := ih (em := em.shift) hu (hm.shift x) (assignment_extend ha ⟨x, hx⟩) br hbr
-      have heq : P x = p.eval (interpretation S L) (η.extend (⟨x, hx⟩ : (interpretation S L).Carrier s)) :=
+      have heq : P x = p.Eval (interpretation S L) (η.extend (⟨x, hx⟩ : (interpretation S L).Carrier s)) :=
         propext ⟨fun ⟨_, hp⟩ => hp, fun hp => ⟨hx, hp⟩⟩
       rw [heq]
       exact h
@@ -197,7 +197,7 @@ theorem formula_denotes {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
         pr.exists_lookup (by simpa using pr.exists_levels.symm)) hAr)
       (Denotes.lam hAr hb)
     rw [pr.exists_law _ P (L.carrier_mem s)] at h
-    have heq : (GraphTarget.Formula.ex p).eval (interpretation S L) η =
+    have heq : (GraphTarget.Formula.ex p).Eval (interpretation S L) η =
         (∃ x, x ∈ˢ S.carrier s ∧ P x) := by
       apply propext
       constructor
@@ -217,7 +217,7 @@ theorem formula_comparison {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
     (p : GraphTarget.Formula Γ) (r : ConLeche.Expr) (P : V)
     (he : encode (GraphEmissionPure.formula em a p) = some r)
     (hd : Denotes m.cval env φ ρ r P) :
-    (pt : V) ∈ˢ P ↔ p.eval (interpretation S L) η := by
+    (pt : V) ∈ˢ P ↔ p.Eval (interpretation S L) η := by
   obtain rfl := Denotes_functional hd (formula_denotes pr hu hm ha p r he)
   simp only [mem_truthVal, and_true]
 
@@ -246,7 +246,7 @@ theorem source_comparison {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
     (p : GraphTarget.SourceFormula Γ) (r : ConLeche.Expr) (P : V)
     (he : encode (GraphEmissionPure.formula em a (GraphTarget.translateFormula p)) = some r)
     (hd : Denotes m.cval env φ ρ r P) :
-    (pt : V) ∈ˢ P ↔ p.eval (interpretation S L) η :=
+    (pt : V) ∈ˢ P ↔ p.Eval (interpretation S L) η :=
   (formula_comparison pr hu hm ha _ r P he hd).trans
     (GraphTarget.formula_comparison (interpretation S L) η p)
 
@@ -266,7 +266,7 @@ theorem emission_comparison {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
     (heq : encode (GraphEmissionPure.formula em a d.conclusion) = some rq)
     (hp : Denotes m.cval env φ ρ rp P) (hq : Denotes m.cval env φ ρ rq Q) :
     (GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit d) ∧
-      GraphEmissionPure.ArtifactDenotes.{w} (GraphEmissionPure.emit d) (GraphTarget.Declaration.denote.{w} d)) ∧
+      GraphEmissionPure.ArtifactDenotes.{w} (GraphEmissionPure.emit d) (GraphTarget.Declaration.Denote.{w} d)) ∧
     ((decode ty).map CoreSyntax.Expr.toLean = some (GraphEmissionPure.emit d).1 ∧
       (decode body).map CoreSyntax.Expr.toLean = some (GraphEmissionPure.emit d).2) ∧
     ((pt : V) ∈ˢ P → (pt : V) ∈ˢ Q) :=

@@ -18,15 +18,15 @@ def Acyclic (h : History N) : Prop := ∀ v, ¬ Reach h v v
 /-- Finite exhaustive recomputation. Intersect all transitive relations that
 contain the edge relation. This deliberately favors a short correctness
 argument over an efficient closure algorithm. -/
-def closed (s : Finset (Edge N)) : Prop :=
+def Closed (s : Finset (Edge N)) : Prop :=
   ∀ u v w : Fin N, (u,v) ∈ s → (v,w) ∈ s → (u,w) ∈ s
-def contains (h : History N) (s : Finset (Edge N)) : Prop :=
+def Contains (h : History N) (s : Finset (Edge N)) : Prop :=
   ∀ u v : Fin N, Edges h u v → (u,v) ∈ s
-instance (s : Finset (Edge N)) : Decidable (closed s) := by unfold closed; infer_instance
-instance (h : History N) (s : Finset (Edge N)) : Decidable (contains h s) := by
-  unfold contains Edges; infer_instance
+instance (s : Finset (Edge N)) : Decidable (Closed s) := by unfold Closed; infer_instance
+instance (h : History N) (s : Finset (Edge N)) : Decidable (Contains h s) := by
+  unfold Contains Edges; infer_instance
 def closure (h : History N) : Finset (Edge N) :=
-  Finset.univ.filter fun p => ∀ s : Finset (Edge N), contains h s → closed s → p ∈ s
+  Finset.univ.filter fun p => ∀ s : Finset (Edge N), Contains h s → Closed s → p ∈ s
 
 theorem closure_correct (h : History N) (u v : Fin N) :
     (u,v) ∈ closure h ↔ Reach h u v := by
@@ -35,10 +35,10 @@ theorem closure_correct (h : History N) (u v : Fin N) :
   · intro all
     classical
     let s : Finset (Edge N) := Finset.univ.filter fun p => Reach h p.1 p.2
-    have hc : contains h s := by
+    have hc : Contains h s := by
       intro a b edge
       exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, Relation.TransGen.single edge⟩
-    have ht : closed s := by
+    have ht : Closed s := by
       intro a b c ab bc
       exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,
         (Finset.mem_filter.mp ab).2.trans (Finset.mem_filter.mp bc).2⟩
@@ -122,8 +122,8 @@ theorem empty_acyclic : Acyclic ([] : History N) := by
 
 theorem admitted_script_safe (events : List (Event (Edge N))) {s t a}
     (rel : Related s a) (safe : Acyclic a.history)
-    (run : Interaction.Events.interpret AdmittedStep events s t) :
-    ∃ b, Interaction.Events.interpret SpecStep events a b ∧ Related t b ∧ Acyclic b.history := by
+    (run : Interaction.Events.Interpret AdmittedStep events s t) :
+    ∃ b, Interaction.Events.Interpret SpecStep events a b ∧ Related t b ∧ Acyclic b.history := by
   induction events generalizing s a with
   | nil => cases run; exact ⟨a,rfl,rel,safe⟩
   | cons ev events ih =>
@@ -144,9 +144,9 @@ theorem acyclic_prefix {h tail : History N} (safe : Acyclic (h ++ tail)) : Acycl
 This lemma connects existing concrete storage executions to the admission
 adapter; it does not change the adapter's current-cache check. -/
 theorem admit_execution (events : List (Event (Edge N))) {s t a}
-    (rel : Related s a) (run : Interaction.Events.interpret Step events s t)
+    (rel : Related s a) (run : Interaction.Events.Interpret Step events s t)
     (safe : ∀ h, Represents t.disk t.root h → Acyclic h) :
-    Interaction.Events.interpret AdmittedStep events s t := by
+    Interaction.Events.Interpret AdmittedStep events s t := by
   induction events generalizing s a with
   | nil => exact run
   | cons ev events ih =>

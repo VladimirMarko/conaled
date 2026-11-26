@@ -11,12 +11,12 @@ theorem transpSubSchema_valid (out : Judgment (Fin 7))
     (valid : ∀ (Γ Δ : Context.{u}) (B : Family (total (Presheaf.interval Γ))) (F : Filling B)
       (φ : Cofibration Γ) (a : Presheaf.Term (reindex B (Presheaf.endpointSub Γ false))) (σ : Δ ⟶ Γ),
       F.Lawful → RestrictedConstancy B φ →
-      out.eval algebra ![.context Γ,.context Δ,.family (total (Presheaf.interval Γ)) B,
+      out.Eval algebra ![.context Γ,.context Δ,.family (total (Presheaf.interval Γ)) B,
         .filling (total (Presheaf.interval Γ)) B F,.cofibration Γ φ,
         .term Γ (reindex B (Presheaf.endpointSub Γ false)) a,.substitution Δ Γ σ]) :
     Satisfies algebra.{u} (transpSubSchema out) := by
   intro ρ h
-  have hp : ∀ i, (transpRule.premise i).eval algebra (fun j => ρ (![0,2,3,4,5] j)) := by
+  have hp : ∀ i, (transpRule.premise i).Eval algebra (fun j => ρ (![0,2,3,4,5] j)) := by
     intro i
     have hi := h ⟨i.val,Nat.lt_trans i.isLt (by decide : 4 < 5)⟩
     simpa only [transpSubSchema,dite_eq_left i.isLt,Atom.eval_subst,GuardedTheory.Term.eval,FinitaryTerm.fold] using hi
@@ -27,7 +27,7 @@ theorem transpSubSchema_valid (out : Judgment (Fin 7))
   have hφ : ρ 4 = .cofibration Γ φ := congrFun e 3
   have ha : ρ 5 = .term Γ (reindex B (Presheaf.endpointSub Γ false)) a := congrFun e 4
   have hσ := h 4
-  change Source.predicate .substitution ![ρ 1,ρ 0,ρ 6] at hσ
+  change Source.Predicate .substitution ![ρ 1,ρ 0,ρ 6] at hσ
   obtain ⟨Δ,Γ',σ,hΔ,hΓ',hσ⟩ := hσ
   have he := Value.context.inj (hΓ'.symm.trans hΓ)
   subst Γ'
@@ -42,14 +42,14 @@ theorem transpSubSchema_valid (out : Judgment (Fin 7))
 theorem hcompSubSchema_valid (out : Judgment (Fin 8))
     (valid : ∀ (Γ Δ : Context.{u}) (A : Family Γ) (F : Filling A) (φ : Cofibration Γ)
       (b : OpenBox (reindex A (Presheaf.projection (Presheaf.interval Γ))) φ) (σ : Δ ⟶ Γ), F.Lawful →
-      out.eval algebra ![.context Γ,.context Δ,.family Γ A,.filling Γ A F,.cofibration Γ φ,
+      out.Eval algebra ![.context Γ,.context Δ,.family Γ A,.filling Γ A F,.cofibration Γ φ,
         .term (restrictContext (φ.reindex (Presheaf.projection (Presheaf.interval Γ))))
           (reindex (reindex A (Presheaf.projection (Presheaf.interval Γ)))
             (restrictInclusion (φ.reindex (Presheaf.projection (Presheaf.interval Γ))))) b.tube.toRestricted,
         .term Γ A b.base,.substitution Δ Γ σ]) :
     Satisfies algebra.{u} (hcompSubSchema out) := by
   intro ρ h
-  have hp : ∀ i, (hcompRule.premise i).eval algebra (fun j => ρ (![0,2,3,4,5,6] j)) := by
+  have hp : ∀ i, (hcompRule.premise i).Eval algebra (fun j => ρ (![0,2,3,4,5,6] j)) := by
     intro i
     have hi := h ⟨i.val,Nat.lt_trans i.isLt (by decide : 5 < 6)⟩
     simpa only [hcompSubSchema,dite_eq_left i.isLt,Atom.eval_subst,GuardedTheory.Term.eval,FinitaryTerm.fold] using hi
@@ -61,7 +61,7 @@ theorem hcompSubSchema_valid (out : Judgment (Fin 8))
   have hu := congrFun e 4
   have ha := congrFun e 5
   have hσ := h 5
-  change Source.predicate .substitution ![ρ 1,ρ 0,ρ 7] at hσ
+  change Source.Predicate .substitution ![ρ 1,ρ 0,ρ 7] at hσ
   obtain ⟨Δ,Γ',σ,hΔ,hΓ',hσ⟩ := hσ
   have he := Value.context.inj (hΓ'.symm.trans hΓ)
   subst Γ'

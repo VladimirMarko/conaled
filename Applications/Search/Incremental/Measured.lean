@@ -187,8 +187,8 @@ def active (goal : Fin n) (h : Fin n → ℚ) (s : State n) : Accounting.Measure
     (!equal.1, top.2 ++ target.2 ++ before.2 ++ [.branch,.read,.read] ++ equal.2)
 
 @[simp] theorem active_value (goal : Fin n) (h : Fin n → ℚ) (s : State n) :
-    (active goal h s).1 = decide (Search.Incremental.active goal h s) := by
+    (active goal h s).1 = decide (Search.Incremental.Active goal h s) := by
   by_cases hb : Search.Incremental.topKey h s < labelKey h s.g s.rhs goal <;>
-    simp [active, Search.Incremental.active, hb]
+    simp [active, Search.Incremental.Active, hb]
 
 end Search.Incremental.Measured

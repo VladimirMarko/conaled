@@ -16,14 +16,14 @@ def system : System.{u} C where
 
 abbrev Code (I : C) := Family (representable.{u} I)
 
-def codeFiber {I : C} (A : Code.{u} I) : Type (max u w) :=
+def CodeFiber {I : C} (A : Code.{u} I) : Type (max u w) :=
   A.obj (representableGeneric I)
 
-def decodeMap {x y : (system.{u} (C := C)).codes.Elements} (f : x ⟶ y) : codeFiber x.val → codeFiber y.val :=
-  fun a => cast (congrArg (fun A : Code.{u} y.obj.unop => codeFiber A) f.map_val)
+def decodeMap {x y : (system.{u} (C := C)).codes.Elements} (f : x ⟶ y) : CodeFiber x.val → CodeFiber y.val :=
+  fun a => cast (congrArg (fun A : Code.{u} y.obj.unop => CodeFiber A) f.map_val)
     (x.val.map (representableGenericHom f.hom.unop) a)
 
-theorem decodeMap_id (x : (system.{u} (C := C)).codes.Elements) (a : codeFiber x.val) :
+theorem decodeMap_id (x : (system.{u} (C := C)).codes.Elements) (a : CodeFiber x.val) :
     decodeMap (𝟙 x) a = a := by
   unfold decodeMap
   apply eq_of_heq
@@ -37,7 +37,7 @@ theorem decodeMap_id (x : (system.{u} (C := C)).codes.Elements) (a : codeFiber x
     e.symm HEq.rfl a
 
 theorem decodeMap_comp {x y z : (system.{u} (C := C)).codes.Elements} (f : x ⟶ y) (g : y ⟶ z)
-    (a : codeFiber x.val) : decodeMap (f ≫ g) a = decodeMap g (decodeMap f a) := by
+    (a : CodeFiber x.val) : decodeMap (f ≫ g) a = decodeMap g (decodeMap f a) := by
   rcases x with @⟨I, A⟩
   rcases y with @⟨J, B⟩
   rcases z with @⟨K, C⟩
@@ -71,7 +71,7 @@ theorem decodeMap_comp {x y z : (system.{u} (C := C)).codes.Elements} (f : x ⟶
 /-- Universal decoding evaluates each represented family at its generic element.
 The fibers stay in the original universe over the larger code context. -/
 def universalDecode : (system.{u} (C := C)).codes.Elements ⥤ Type (max u w) where
-  obj x := codeFiber x.val
+  obj x := CodeFiber x.val
   map f := TypeCat.ofHom (decodeMap f)
   map_id x := by
     apply ConcreteCategory.hom_ext

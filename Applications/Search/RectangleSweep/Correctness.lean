@@ -28,7 +28,7 @@ theorem event_y_le_of_position_le (rs : List (Rectangle α β))
 /-- An active occurrence at an insertion is different and overlaps it in y. -/
 theorem active_at_insert (rs : List (Rectangle α β)) (i j : Fin rs.length)
     (active : Active rs (position rs .insert j).val i) :
-    i ≠ j ∧ (rs.get i).y.overlap (rs.get j).y := by
+    i ≠ j ∧ (rs.get i).y.Overlap (rs.get j).y := by
   obtain ⟨hi, hd⟩ := (active_iff_positions rs _ i).mp active
   have distinct : i ≠ j := by
     rintro rfl

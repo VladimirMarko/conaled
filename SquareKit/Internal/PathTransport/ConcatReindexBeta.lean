@@ -235,7 +235,7 @@ theorem concat_root_type :
   rw [identityBaseSub_code, identityBaseSub_code]
   exact congrArg (fun a => identityCode (baseCode _) a _ ) (moving_root_code hΓ x)
 
-def concat_root_beta := ConcatReindexBeta.beta (context hΓ x)
+def concatRootBeta := ConcatReindexBeta.beta (context hΓ x)
   (fixed hΓ x) (moving hΓ x) (last hΓ x) (first hΓ x) (second hΓ x)
   (root hΓ x) (concat_root_endpoint hΓ x) (moving_root_raw hΓ x)
   (first_root_raw hΓ x) (concat_root_type hΓ x)
@@ -264,8 +264,8 @@ theorem concat_root_right_annotation :
 
 /-- A source conversion between the actual reindexed concatenation and retained
 second path, with both endpoints normalized in the reflexive branch. -/
-def concat_root_normalized :=
-  ((concat_root_beta hΓ x).annotateType
+def concatRootNormalized :=
+  ((concatRootBeta hΓ x).annotateType
     (identityBaseSub_code (fixed hΓ x).code (last hΓ x).code (substitutionCode (root hΓ x)))).annotate
       (concat_root_left_annotation hΓ x) (concat_root_right_annotation hΓ x)
 

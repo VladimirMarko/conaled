@@ -26,7 +26,7 @@ theorem pathFillingBody_zero :
   have hp := pathBoundaryFace_endpoint φ false y
   have h := ht.2 z hp
   let s := b.tube.map (pathReindex B a₀ a₁ p)
-  have hz : (intervalFace (total (interval Δ)) false).full ((swapIntervals Δ).mapElements.obj z) :=
+  have hz : (intervalFace (total (interval Δ)) false).Full ((swapIntervals Δ).mapElements.obj z) :=
     (Cofibration.full_endpoint (generic (interval (total (interval Δ)))) false _).mpr rfl
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_zero ((swapIntervals Δ).mapElements.obj z) hp hz))
 
@@ -41,11 +41,11 @@ theorem pathFillingBody_one :
   have hp := pathBoundaryFace_endpoint φ true y
   have h := ht.2 z hp
   let s := b.tube.map (pathReindex B a₀ a₁ p)
-  have hz : (intervalFace (total (interval Δ)) true).full ((swapIntervals Δ).mapElements.obj z) :=
+  have hz : (intervalFace (total (interval Δ)) true).Full ((swapIntervals Δ).mapElements.obj z) :=
     (Cofibration.full_endpoint (generic (interval (total (interval Δ)))) true _).mpr rfl
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_one ((swapIntervals Δ).mapElements.obj z) hp hz))
 
-def pathFillingBody_path : Term (path (reindex B (liftSub (interval Γ) p)) (a₀.reindex p) (a₁.reindex p)) :=
+def pathFillingBodyPath : Term (path (reindex B (liftSub (interval Γ) p)) (a₀.reindex p) (a₁.reindex p)) :=
   pathLam (t.reindex (swapIntervals Δ)) (pathFillingBody_zero p φ b t ht) (pathFillingBody_one p φ b t ht)
 
 end

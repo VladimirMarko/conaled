@@ -115,7 +115,7 @@ interval-only inverse, not every richer analysis.
 
 **Open constraints.**
 [Network](../../SquareKit/OpenConstraint.lean) retains internal solutions and an
-acceptance relation; `behavior` hides them existentially. Composition retains
+acceptance relation; `Behavior` hides them existentially. Composition retains
 intermediate witnesses before hiding. The core module proves `same_behavior`,
 `one_unambiguous`, `two_ambiguous` and `no_ambiguity_factor`. History `74a921f9`
 (#364) intentionally contrasts feasibility with interaction and multiplicity.

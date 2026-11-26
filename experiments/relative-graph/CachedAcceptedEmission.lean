@@ -26,7 +26,7 @@ theorem source_comparison {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
     (p : GraphTarget.SourceFormula Γ) (r : ConLeche.Expr) (P : V)
     (he : encode (GraphEmissionPure.formula em a (GraphTarget.translateFormula p)) = some r)
     (hd : Denotes (model (V := V)).cval EmittedEnvironment.environment φ ρ r P) :
-    (pt : V) ∈ˢ P ↔ p.eval (interpretation S L) η :=
+    (pt : V) ∈ˢ P ↔ p.Eval (interpretation S L) η :=
   EmissionSemantics.source_comparison (EmittedComparison.primitives (model (V := V)) u φ) hu hm ha p r P he hd
 
 theorem emission_comparison {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
@@ -43,7 +43,7 @@ theorem emission_comparison {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
     (heq : encode (GraphEmissionPure.formula em a d.conclusion) = some rq)
     (hp : Denotes (model (V := V)).cval EmittedEnvironment.environment φ ρ rp P) (hq : Denotes (model (V := V)).cval EmittedEnvironment.environment φ ρ rq Q) :
     (GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit d) ∧
-      GraphEmissionPure.ArtifactDenotes.{w} (GraphEmissionPure.emit d) (GraphTarget.Declaration.denote.{w} d)) ∧
+      GraphEmissionPure.ArtifactDenotes.{w} (GraphEmissionPure.emit d) (GraphTarget.Declaration.Denote.{w} d)) ∧
     ((decode ty).map CoreSyntax.Expr.toLean = some (GraphEmissionPure.emit d).1 ∧
       (decode body).map CoreSyntax.Expr.toLean = some (GraphEmissionPure.emit d).2) ∧
     ((pt : V) ∈ˢ P → (pt : V) ∈ˢ Q) :=

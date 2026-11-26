@@ -6,9 +6,9 @@ open CategoryTheory Presheaf
 
 theorem cocycleSection_partial {Γ : Context.{0}} {φ : Cofibration Γ}
     (z : Cocycle2 Γ.Elementsᵒᵖ) (t : PartialSection (cocycleFamily Γ) φ)
-    (hz : ∀ {X Y Z : Γ.Elementsᵒᵖ} (f : X ⟶ Y) (g : Y ⟶ Z) (p : (faceSieve φ).contains Z),
+    (hz : ∀ {X Y Z : Γ.Elementsᵒᵖ} (f : X ⟶ Y) (g : Y ⟶ Z) (p : (faceSieve φ).Contains Z),
       z.cochain f g = (partialSectionCocycle t).cochain f g p)
-    (x : Γ.Elements) (p : φ.full x) : (cocycleSection z).val x = t.val x p := by
+    (x : Γ.Elements) (p : φ.Full x) : (cocycleSection z).val x = t.val x p := by
   apply Cocycle2.ext
   funext X Y Z f g
   let k : x ⟶ Γ.elementsMk (Opposite.op Z.left) (Γ.map Z.hom.op x.val) :=

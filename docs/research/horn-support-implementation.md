@@ -54,9 +54,9 @@ makes it a commuting square, not an equality or recovery of trees.
 
 ## Checked cases and statement review
 
-[Support examples](../../Examples/HornSupport.lean) retain the complete B0/B1/B2
-truth table, including strict inclusions and the implication `p → q` at B0
-where no atom is derivable. The refutation of `q → r` at B0 uses B1 as a future
+[Support examples](../../Examples/HornSupport.lean) retain the complete ruleBase/factBase/chainBase
+truth table, including strict inclusions and the implication `p → q` at ruleBase
+where no atom is derivable. The refutation of `q → r` at ruleBase uses factBase as a future
 base. Singleton-basis vacuity and failure under a larger basis keep the current
 empty base and formula unchanged. Nested and curried implication cases consume
 `introduction`, `application`, `empty_agreement`, and `persistence`; the curried
@@ -64,17 +64,17 @@ case applies introduction with a nonempty retained context.
 
 [Selected-tree examples](../../Examples/HornDerivations.lean) check postorder
 traces, minimum node counts, and a minimum-proof reselection that changes the
-trace. Every minimum at L3 has trace `[d]`, so tie breaking cannot retain
-the copied trace. At the same L3, two actual trees erase to the same atomic proposition
+trace. Every minimum at shortcutLabels has trace `[d]`, so tie breaking cannot retain
+the copied trace. At the same shortcutLabels, two actual trees erase to the same atomic proposition
 but have unequal traces. `no_trace_recovery` rules out a function of that
 proposition's proof recovering every selected trace. It does not rule out
 finding some proof or choosing a canonical one.
 
-Lminus derives only `p`; both `q` and `p → q` fail. The `repairMap` supplies local certificates to the existing `TheoryMap`
-transport. Its recursive `repair` translates every L1 tree, replacing a `b` use
+replacedLabels derives only `p`; both `q` and `p → q` fail. The `repairMap` supplies local certificates to the existing `TheoryMap`
+transport. Its recursive `repair` translates every initialLabels tree, replacing a `b` use
 by `bprime` with an added `e` child.
 The selected q tree changes from `[a,b]` to `[a,a,e,bprime]`, with four nodes.
-`repair_support` proves `p → q` directly at every future extension of Lrepair.
+`repair_support` proves `p → q` directly at every future extension of repairedLabels.
 Neither this implication proof nor the tree translation invokes inclusion
 between the old and replacement bases.
 

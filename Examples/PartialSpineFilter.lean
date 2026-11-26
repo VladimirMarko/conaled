@@ -23,7 +23,7 @@ universe u
 variable {α S A : Type u}
 
 theorem first_filter (q : α → Prop) (p : α → Option Bool) (I : Observations α) :
-    first q (Observations.filter p I) =
+    First q (Observations.filter p I) =
       Observations.foldr (Observations.filteredStep (fun a (_ : Prop) => q a) p) False I :=
   Observations.foldr_filter (fun a (_ : Prop) => q a) False
     (fun a => ScottContinuous.const (q a)) p I
@@ -31,7 +31,7 @@ theorem first_filter (q : α → Prop) (p : α → Option Bool) (I : Observation
 /-- The first consumer reaches a kept constructor through the public fused fold. -/
 theorem first_filter_cons_accept (q : α → Prop) (p : α → Option Bool) (a : α)
     (I : Observations α) (accepted : p a = some true) :
-    first q (Observations.filter p (Observations.cons a I)) = q a := by
+    First q (Observations.filter p (Observations.cons a I)) = q a := by
   rw [first_filter]
   let f : α → Prop → Prop := fun a _ => q a
   have continuous : ∀ b, ScottContinuous (Observations.filteredStep f p b) :=
@@ -42,7 +42,7 @@ theorem first_filter_cons_accept (q : α → Prop) (p : α → Option Bool) (a :
   simp only [Observations.filteredStep, accepted, f]
 
 theorem first_filtered_producer (q : A → Prop) (p : A → Bool) (c : Coalgebra S A) (s : S) :
-    first q (observations (filterProducer p c) s) =
+    First q (observations (filterProducer p c) s) =
       Observations.foldr
         (Observations.filteredStep (fun a (_ : Prop) => q a) (fun a => some (p a))) False
         (observations (guarded c) s) := by
@@ -57,7 +57,7 @@ theorem head_map_filtered_producer (q : A → Prop) (p : A → Bool) (c : Coalge
 
 theorem first_filter_guarded_accept (q : A → Prop) (p : A → Bool)
     (c : Coalgebra S A) (s : S) (accepted : p (c s).1 = true) :
-    first q (observations (filterProducer p c) s) = q (c s).1 := by
+    First q (observations (filterProducer p c) s) = q (c s).1 := by
   rw [observations_filterProducer, observations_guarded, Observations.stream_cons]
   apply first_filter_cons_accept
   change some (p (c s).1) = some true

@@ -10,9 +10,9 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRe
 open scoped Manifold ContDiff
 variable {d n : ℕ} {G M N : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (A : ChartFamily n N)
   (P : SheafActionQuotient.Object (representation smoothAction).action A.realization)
 
@@ -32,7 +32,7 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
 /-- The ordinary bundle determines its smooth Čech datum before interpretation. -/
@@ -83,9 +83,9 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRe
 open scoped Manifold ContDiff
 variable {d n : ℕ} {G M N : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (A : ChartFamily n N)
   (P Q : SheafActionQuotient.Object (representation smoothAction).action A.realization)
 
@@ -126,12 +126,12 @@ namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRealization
 open scoped Manifold ContDiff
 variable {d n m : ℕ} {G M N L : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
   [TopologicalSpace L] [ChartedSpace (Space m) L]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (A : ChartFamily n N) (B : ChartFamily m L)
-  (f : N → L) (hf : ContMDiff (Model n) (Model m) ∞ f)
+  (f : N → L) (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f)
   (p : Datum (d := d) (G := G) (M := M) B.representedAtlas)
 
 /-- Base change through the represented atlas of actual chart inverse images. -/
@@ -155,11 +155,11 @@ open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 open scoped Manifold ContDiff
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
-def displayChart (i : I) : embedding.obj (A.domain i) ⟶ SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover) :=
+def displayChart (i : I) : embedding.obj (A.domain i) ⟶ SplitSheaf.extension (SplitSheaf.ofDisplay A.cover) :=
   A.inclusion i ≫ (SplitSheaf.displayIso A.cover).inv
 theorem displayChart_projection (i : I) :
     displayChart (A := A) i ≫ SplitSheaf.p (SplitSheaf.ofDisplay A.cover) = A.chart i := by
@@ -190,12 +190,12 @@ open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 open scoped Manifold ContDiff
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 def interpretedLift (i : I) (g : embedding.obj (A.domain i) ⟶ locallyConstantGroupSheaf G) :
-    embedding.obj (A.domain i) ⟶ SplitSheaf.Ext (p.interpreted smoothAction).torsor.family :=
+    embedding.obj (A.domain i) ⟶ SplitSheaf.extension (p.interpreted smoothAction).torsor.family :=
   SplitSheaf.pair _ (A.chart i) (SheafTorsor.sectionOfArrow
     ((SheafTorsor.regularArrow g).comp (p.interpretedLocalArrow smoothAction i).torsorArrow))
 
@@ -257,8 +257,8 @@ namespace SquareKit.SmoothManifoldAction
 open CategoryTheory Opposite SmoothOpenSite ManifoldRealization
 open scoped Manifold ContDiff
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- Ordinary freeness lifts to every stage. Only locally constant group labels
 are detected at real points; manifold-valued infinitesimal sections are retained. -/
@@ -313,9 +313,9 @@ open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 open scoped Manifold ContDiff
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- Descent retains an invariant ordinary projection as an equality of sheaf maps. -/
 theorem interpreted_projection (q : object d M ⟶ X)
@@ -344,7 +344,7 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
 def projectionMap : object n E ⟶ P.baseCharts.realization :=
@@ -388,8 +388,8 @@ namespace SquareKit.SmoothCech
 open CategoryTheory Opposite SmoothOpenSite SmoothManifoldAction ManifoldRealization SheafActionQuotient
 open scoped Manifold ContDiff
 variable {X : Sheaf topology Type} {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 /-- A projection-preserving equivariant map into a free ordinary action is
 injective at every stage, including stages with no real points. -/
@@ -428,7 +428,7 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
 theorem interpretedLift_sheet (b : B) (g : G) :
@@ -445,7 +445,7 @@ theorem interpretedLift_sheet (b : B) (g : G) :
       (congrArg (fun h => ((P.localAt b).sheet h).symm (chartPoint (P.baseChart b) x)) (mul_one g))
 
 def totalChartLift (bg : B × G) : embedding.obj (P.totalCharts.charts.domain bg) ⟶
-    SplitSheaf.Ext P.descendedObject.torsor.family :=
+    SplitSheaf.extension P.descendedObject.torsor.family :=
   embedding.map (P.sheetDomainIso bg.1 bg.2).hom ≫
     P.ordinaryDatum.interpretedLift P.smooth_action bg.1 (constantSection _ bg.2)
 
@@ -465,7 +465,7 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
 instance totalMap_locallySurjective : Presheaf.IsLocallySurjective topology P.descendedObject.totalMap.hom where
@@ -483,7 +483,7 @@ instance totalMap_mono : Mono P.descendedObject.totalMap :=
 
 /-- The ordinary total space is recovered from the derived bundle cocycle.
 The inverse is supplied by the proved mono and local-surjectivity results. -/
-def totalSpaceIso : SplitSheaf.Ext P.descendedObject.torsor.family ≅ object n E := by
+def totalSpaceIso : SplitSheaf.extension P.descendedObject.torsor.family ≅ object n E := by
   letI : IsIso P.descendedObject.totalMap := isIso_of_mono_of_epi _
   exact asIso P.descendedObject.totalMap
 
@@ -522,13 +522,13 @@ variable {n d : ℕ} {G B E M : Type} [Group G] [MulAction G E] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model d) ∞ M]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners d) ∞ M]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
-variable (F : E → M) (hF : ContMDiff (Model n) (Model d) ∞ F)
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
+variable (F : E → M) (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F)
   (hG : ∀ (g : G) (e : E), F (g • e) = g • F e)
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model n) ∞ B] in
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (modelWithCorners n) ∞ B] in
 include hG in
 theorem target_intertwines (g : G) :
     (representation P.smooth_action).map g ≫ ManifoldRealization.map F hF =
@@ -568,9 +568,9 @@ namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRealization
 open scoped Manifold ContDiff
 variable {d n : ℕ} {G M N : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (A : ChartFamily n N)
   (P Q : SheafActionQuotient.Object (representation smoothAction).action A.realization)
 
@@ -616,9 +616,9 @@ namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRealization
 open scoped Manifold ContDiff
 variable {d n : ℕ} {G M N J : Type} [Group G] [MulAction G M] [Fintype J]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (A : ChartFamily n N)
   (P : J → SheafActionQuotient.Object (representation smoothAction).action A.realization)
 
@@ -642,9 +642,9 @@ namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRealization
 open scoped Manifold ContDiff
 variable {d n : ℕ} {G M N : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (A : ChartFamily n N) (p : Datum (d := d) (G := G) (M := M) A.representedAtlas)
 
 /-- Two chart choices on the actual intersection cover give isomorphic selected
@@ -665,7 +665,7 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
 /-- The comparison retains the full group-sheaf action, not only constant labels. -/
@@ -680,9 +680,9 @@ namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction ManifoldRealization
 open scoped Manifold ContDiff
 variable {d n : ℕ} {G M N : Type} [Group G] [MulAction G M]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
   [TopologicalSpace N] [ChartedSpace (Space n) N]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (A : ChartFamily n N)
   (P : SheafActionQuotient.Object (representation smoothAction).action A.realization)
 

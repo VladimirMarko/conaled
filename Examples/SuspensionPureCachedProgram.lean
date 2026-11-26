@@ -33,14 +33,14 @@ def parameters : Machine.Parameters Empty where
   matchException := 20
   bindException := 21
 
-def operations : Empty → Prop := fun _ => False
+def Operations : Empty → Prop := fun _ => False
 
-private theorem compatible : ParametersCompatible operations rawParameters parameters where
+private theorem compatible : ParametersCompatible Operations rawParameters parameters where
   primitive impossible := nomatch impossible
   matchException := rfl
   bindException := rfl
 
-private theorem preserve : ParametersPreserve operations parameters := by
+private theorem preserve : ParametersPreserve Operations parameters := by
   intro impossible
   cases impossible
 
@@ -55,7 +55,7 @@ def sourceAnswer : Core.Machine.Answer Empty := ⟨finalMemory, .value (.address
 def meaning : Meaning Empty := ⟨literal, [], none⟩
 def returnedSuspension : Value Empty := .suspension literal [] none
 
-theorem program_allowed : CodeAllowed operations program := by
+theorem program_allowed : CodeAllowed Operations program := by
   apply (CodeAllowed.bind_iff _ _ _).mpr
   refine ⟨.variable 0, (CodeAllowed.delay_iff _).mpr (CodeAllowed.atom (.integer 7)), ?_⟩
   apply (CodeAllowed.bind_iff _ _ _).mpr
@@ -80,7 +80,7 @@ actual source execution. The returned address identifies its exact original
 meaning, including the capture made before binding variable0. -/
 theorem source_recovers_cached_suspension :
     ∃ world,
-      Durability.Extends (fun _ => none) world ∧ WorldAllowed operations world ∧
+      Durability.Extends (fun _ => none) world ∧ WorldAllowed Operations world ∧
       StateRep parameters world finalMemory ∧ world 0 = some meaning ∧
       ResultRep world sourceAnswer.result (.value returnedSuspension) ∧
       Progress.Evaluates (Core.Machine.step rawParameters)

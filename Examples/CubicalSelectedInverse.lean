@@ -57,7 +57,7 @@ theorem recovered_ambient (x : Γ.Elements) (b : Bool) :
 
 /-- Every face observation is the opposite Boolean, including faces exposed
 only after restricting the generalized point. -/
-theorem recovered_face (x y : Γ.Elements) (k : x ⟶ y) (hy : φ.full y) (b : Bool) :
+theorem recovered_face (x y : Γ.Elements) (k : x ⟶ y) (hy : φ.Full y) (b : Bool) :
     ((Glue.familyIso φ _ _ (faceFlip φ).hom).hom.app x ((recover φ).app x b)).face k hy = !b := by
   let z := (Glue.familyIso φ _ _ (faceFlip φ).hom).hom.app x ((recover φ).app x b)
   have h := z.compatible k hy
@@ -69,7 +69,7 @@ theorem recovered_face (x y : Γ.Elements) (k : x ⟶ y) (hy : φ.full y) (b : B
   cases hz : z.face k hy <;> cases b <;> simp_all <;> rfl
 
 /-- Actual face data is recovered, not merely its ambient image. -/
-theorem recovered_true_face (x y : Γ.Elements) (k : x ⟶ y) (hy : φ.full y) :
+theorem recovered_true_face (x y : Γ.Elements) (k : x ⟶ y) (hy : φ.Full y) :
     ((Glue.familyIso φ _ _ (faceFlip φ).hom).hom.app x ((recover φ).app x true)).face k hy = false :=
   recovered_face φ x y k hy true
 
@@ -99,10 +99,10 @@ def onePoint : (total (interval terminal.{0})).Elements :=
   (total (interval terminal)).elementsMk (Opposite.op ⟨0⟩)
     ⟨PUnit.unit, (endpoint terminal true).val (terminal.elementsMk (Opposite.op ⟨0⟩) PUnit.unit)⟩
 
-theorem zero_on_face : (intervalFace terminal false).full zeroPoint :=
+theorem zero_on_face : (intervalFace terminal false).Full zeroPoint :=
   (Cofibration.full_endpoint _ _ _).mpr rfl
 
-theorem one_off_face : ¬ (intervalFace terminal false).full onePoint := by
+theorem one_off_face : ¬ (intervalFace terminal false).Full onePoint := by
   intro h
   exact intervalFace_disjoint onePoint h ((Cofibration.full_endpoint _ _ _).mpr rfl)
 

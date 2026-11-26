@@ -34,7 +34,7 @@ def model {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
     (T : C → D → Prop) (H : D → Prop) : Interpretation Arrow Relation where
   Carrier | .input => A | .first => B | .second => C | .output => D
   arrow f := nomatch f
-  relation | .first => R | .second => S | .third => T | .condition => fun d _ => H d
+  Relation | .first => R | .second => S | .third => T | .condition => fun d _ => H d
 
 def condition : Formula Arrow [.input, .output] Relation :=
   .atom .condition (.var (.succ .zero)) (.var (.succ .zero))

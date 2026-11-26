@@ -33,17 +33,17 @@ def constantFamily (Γ : Type u) [Bicategory.{u,u} Γ] [Strict Γ] (C : StrictTw
 }
 
 structure Context extends StrictTwoCategory.{u,u,u} where
-  [groupoid : IsGroupoid carrier]
-  [locallyGroupoid : IsLocallyGroupoid carrier]
+  [groupoid : IsGroupoid Carrier]
+  [locallyGroupoid : IsLocallyGroupoid Carrier]
 attribute [instance] Context.groupoid Context.locallyGroupoid
-instance : CoeSort Context (Type u) := ⟨fun Γ => Γ.carrier⟩
+instance : CoeSort Context (Type u) := ⟨fun Γ => Γ.Carrier⟩
 instance (Γ : Context) : Bicategory Γ := Γ.bicategory
 instance (Γ : Context) : Strict Γ := Γ.strict
 instance (Γ : Context) : IsGroupoid Γ := Γ.groupoid
 instance (Γ : Context) : IsLocallyGroupoid Γ := Γ.locallyGroupoid
 
 def Context.empty : Context.{u} where
-  carrier := LocallyDiscrete (Discrete PUnit.{u+1})
+  Carrier := LocallyDiscrete (Discrete PUnit.{u+1})
   bicategory := inferInstance
   strict := inferInstance
   groupoid := by
@@ -68,7 +68,7 @@ def reindex (A : Family Γ) (σ : StrictPseudofunctor Δ Γ) : Family Δ where
   locallyGroupoid := fun δ => A.locallyGroupoid (σ.obj δ)
 
 def total (A : Family Γ) : Context where
-  carrier := TwoFamily.Total A.data
+  Carrier := TwoFamily.Total A.data
   bicategory := inferInstance
   strict := inferInstance
   groupoid := inferInstance

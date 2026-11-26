@@ -10,8 +10,8 @@ universe u
 private theorem familyMapTo_base {Γ : Type u} [Category.{u} Γ]
     {A B : Γ ⥤ Grpd.{u,u}} (α : A ⟶ B) (x : GroupoidModel.Section A)
     (y : GroupoidModel.Section B) (h : x.familyImage α = y) :
-    PathComparison.familyMapTo α x y h ⋙ weaken (PathFamily B y) =
-      weaken (PathFamily A x) ⋙ Grothendieck.map (whiskerRight α Grpd.forgetToCat) := by
+    PathComparison.familyMapTo α x y h ⋙ weaken (pathComparisonFamily B y) =
+      weaken (pathComparisonFamily A x) ⋙ Grothendieck.map (whiskerRight α Grpd.forgetToCat) := by
   cases h
   rfl
 
@@ -42,10 +42,10 @@ theorem path_map {Γ : Context.{u}} (A : Family Γ) (x : Section A) :
         PathComparison.substitution A.right x.right Γ.map := by
   have hb : (PathComparison.familyMapTo A.map x.left (x.right.reindex Γ.map) x.commutes ⋙
         PathComparison.substitution A.right x.right Γ.map) ⋙
-      weaken (PathFamily A.right x.right) =
-        weaken (PathFamily A.left x.left) ⋙ A.extend.map := by
+      weaken (pathComparisonFamily A.right x.right) =
+        weaken (pathComparisonFamily A.left x.left) ⋙ A.extend.map := by
     change (PathComparison.familyMapTo A.map x.left (x.right.reindex Γ.map) x.commutes ⋙
-      weaken (PathFamily (Γ.map ⋙ A.right) (x.right.reindex Γ.map))) ⋙
+      weaken (pathComparisonFamily (Γ.map ⋙ A.right) (x.right.reindex Γ.map))) ⋙
         Grothendieck.pre (A.right ⋙ Grpd.forgetToCat) Γ.map = _
     rw [familyMapTo_base]
     rfl
@@ -59,10 +59,10 @@ theorem path_map {Γ : Context.{u}} (A : Family Γ) (x : Section A) :
     simp only [Family.identity, NatTrans.comp_app, Grpd.comp_eq_comp, CategoryTheory.Functor.comp_obj]
     exact family_transport_obj _ _ _
   · intro p q f
-    apply (weaken (PathFamily A.right x.right)).map_injective
-    have ht : (Typed.StructuralModel.pathContext M A x).map ⋙ weaken (PathFamily A.right x.right) =
+    apply (weaken (pathComparisonFamily A.right x.right)).map_injective
+    have ht : (Typed.StructuralModel.pathContext M A x).map ⋙ weaken (pathComparisonFamily A.right x.right) =
         (PathComparison.familyMapTo A.map x.left (x.right.reindex Γ.map) x.commutes ⋙
-          PathComparison.substitution A.right x.right Γ.map) ⋙ weaken (PathFamily A.right x.right) := hb.symm
+          PathComparison.substitution A.right x.right Γ.map) ⋙ weaken (pathComparisonFamily A.right x.right) := hb.symm
     have hm := CategoryTheory.Functor.congr_hom ht f
     simpa only [CategoryTheory.Functor.comp_map, CategoryTheory.Functor.map_comp, eqToHom_map] using hm
 

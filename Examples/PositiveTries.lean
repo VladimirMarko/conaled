@@ -19,27 +19,27 @@ open Numerals.PositiveKeys
 
 universe u
 
-def three_ten : Table Bool := insert 3 true (insert 10 true (empty false))
+def threeTenTable : Table Bool := insert 3 true (insert 10 true (empty false))
 
-theorem three_ten_constructor : three_ten =
+theorem threeTenTable_constructor : threeTenTable =
     (false, BinaryTree.node false
       (.node false .nil (.node false (.node true .nil .nil) .nil))
       (.node true .nil .nil)) := rfl
 
-theorem three_ten_queries : [3, 1, 4, 1, 5].map (fun key : PosNum => lookup key three_ten) =
+theorem threeTenTable_queries : [3, 1, 4, 1, 5].map (fun key : PosNum => lookup key threeTenTable) =
     [true, false, false, false, false] := rfl
 
-theorem three_ten_lookup_ten : lookup 10 three_ten = true := by
+theorem threeTenTable_lookup_ten : lookup 10 threeTenTable = true := by
   calc
-    lookup 10 three_ten = lookup 10 (insert 10 true (empty false)) :=
+    lookup 10 threeTenTable = lookup 10 (insert 10 true (empty false)) :=
       lookup_insert_other 3 10 true _ (by decide)
     _ = true := lookup_insert_same 10 true _
 
-theorem three_ten_lookup_three : lookup 3 three_ten = true :=
+theorem threeTenTable_lookup_three : lookup 3 threeTenTable = true :=
   lookup_insert_same 3 true _
 
 /-- Complete the source sanity check using its two relation-preserving writes. -/
-theorem Abs_three_ten : Abs three_ten
+theorem abs_threeTenTable : Abs threeTenTable
     (Function.update (Function.update (fun _ : Nat => false) 9 true) 2 true) := by
   have ten := insert_relate (10 : PosNum) true (empty false) (fun _ : Nat => false)
     (empty_isTrie false) (empty_relate false)
@@ -48,32 +48,32 @@ theorem Abs_three_ten : Abs three_ten
     (insert_isTrie 10 true (empty false) (empty_isTrie false)) ten
   exact both
 
-theorem three_ten_nat_queries : [0, 1, 2, 3, 9, 10].map (abstract three_ten) =
+theorem threeTenTable_nat_queries : [0, 1, 2, 3, 9, 10].map (abstract threeTenTable) =
     [false, false, true, false, true, false] := rfl
 
-theorem three_ten_relate_query : lookup 10 three_ten =
+theorem threeTenTable_relate_query : lookup 10 threeTenTable =
     (Function.update (Function.update (fun _ : Nat => false) 9 true) 2 true) 9 :=
-  lookup_relate 10 three_ten _ trivial Abs_three_ten
+  lookup_relate 10 threeTenTable _ trivial abs_threeTenTable
 
 /-- Existing square composition executes the same two writes from empty. -/
-theorem three_ten_composed_squares : abstract three_ten =
+theorem threeTenTable_composed_squares : abstract threeTenTable =
     Function.update (Function.update (fun _ : Nat => false) 9 true) 2 true :=
   (Squares.compose (insertSquare 3 true)
     (Squares.compose (insertSquare 10 true) (emptySquare false))).commutes PUnit.unit
 
-theorem lookup_after_composed_squares : lookup 10 three_ten = true :=
+theorem lookup_after_composed_squares : lookup 10 threeTenTable = true :=
   (Squares.compose (lookupSquare 10)
     (Squares.compose (insertSquare 3 true)
       (Squares.compose (insertSquare 10 true) (emptySquare false)))).commutes PUnit.unit
 
 theorem overwrite_ten_preserves_three :
-    lookup 10 (insert 10 false three_ten) = false ∧
-      lookup 3 (insert 10 false three_ten) = true :=
-  ⟨lookup_insert_same 10 false three_ten,
-    (lookup_insert_other 10 3 false three_ten (by decide)).trans three_ten_lookup_three⟩
+    lookup 10 (insert 10 false threeTenTable) = false ∧
+      lookup 3 (insert 10 false threeTenTable) = true :=
+  ⟨lookup_insert_same 10 false threeTenTable,
+    (lookup_insert_other 10 3 false threeTenTable (by decide)).trans threeTenTable_lookup_three⟩
 
 theorem root_overwrite_keeps_children :
-    insert 1 true three_ten =
+    insert 1 true threeTenTable =
       (false, BinaryTree.node true
         (.node false .nil (.node false (.node true .nil .nil) .nil))
         (.node true .nil .nil)) := rfl
@@ -110,8 +110,8 @@ theorem repeated_write_meaning :
   rw [abstract_insert_shadow, abstract_insert, abstract_empty]
   rfl
 
-theorem self_write_meaning : abstract (insert 10 (lookup 10 three_ten) three_ten) =
-    abstract three_ten := abstract_insert_self 10 three_ten
+theorem self_write_meaning : abstract (insert 10 (lookup 10 threeTenTable) threeTenTable) =
+    abstract threeTenTable := abstract_insert_self 10 threeTenTable
 
 theorem distinct_writes_commute :
     abstract (insert 3 "three" (insert 10 "ten" (empty "missing"))) =
@@ -168,30 +168,30 @@ theorem ten_constructor : (10 : PosNum) = .bit0 (.bit1 (.bit0 .one)) := rfl
 theorem ten_word : word (10 : PosNum) = [false, true, false] := rfl
 
 theorem one_stops_at_root : word (1 : PosNum) = [] ∧
-    SquareKit.WordCoalgebra.run (coalgebra false) three_ten.2 [] = false := ⟨rfl, rfl⟩
+    SquareKit.WordCoalgebra.run (coalgebra false) threeTenTable.2 [] = false := ⟨rfl, rfl⟩
 
 theorem ten_word_lookup :
-    SquareKit.WordCoalgebra.run (coalgebra false) three_ten.2 [false, true, false] = true :=
-  (run_word false 10 three_ten.2).trans three_ten_lookup_ten
+    SquareKit.WordCoalgebra.run (coalgebra false) threeTenTable.2 [false, true, false] = true :=
+  (run_word false 10 threeTenTable.2).trans threeTenTable_lookup_ten
 
 theorem nil_absorbs_unused_suffix :
     SquareKit.WordCoalgebra.run (coalgebra "missing") .nil
       [true, false, true, true, false] = "missing" := run_leaf _ _
 
 theorem snapshot_ten :
-    (SquareKit.WordCoalgebra.unfold (coalgebra false) three_ten.2 3).lookup
+    (SquareKit.WordCoalgebra.unfold (coalgebra false) threeTenTable.2 3).lookup
       [false, true, false] = some true := by
-  exact (lookup_unfold_word false 10 three_ten.2 3 (by decide)).trans
-    (congrArg some three_ten_lookup_ten)
+  exact (lookup_unfold_word false 10 threeTenTable.2 3 (by decide)).trans
+    (congrArg some threeTenTable_lookup_ten)
 
 theorem source_tree_reachable_finite :
-    (Set.range (fun bits : List Bool => bits.foldl next three_ten.2)).Finite :=
-  reachable_finite three_ten.2
+    (Set.range (fun bits : List Bool => bits.foldl next threeTenTable.2)).Finite :=
+  reachable_finite threeTenTable.2
 
 theorem ten_reaches_written_node :
-    [false, true, false].foldl next three_ten.2 = BinaryTree.node true .nil .nil := rfl
+    [false, true, false].foldl next threeTenTable.2 = BinaryTree.node true .nil .nil := rfl
 
 theorem beyond_ten_reaches_nil :
-    [false, true, false, true, false].foldl next three_ten.2 = .nil := rfl
+    [false, true, false, true, false].foldl next threeTenTable.2 = .nil := rfl
 
 end Examples.PositiveTries

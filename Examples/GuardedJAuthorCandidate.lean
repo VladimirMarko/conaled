@@ -90,9 +90,9 @@ def comparison : TypedEquality Ω Δ (selectedFamily (σ := σ) hx hT hp)
 include hσ in
 theorem comparisonSound (M : Internal.PathTransport.Typed.Model.{u})
     (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ) :
-    (term Δ (selectedFamily (σ := σ) hx hT hp) (selectedLeft (σ := σ) hx hT hp)).eval (algebra M) ρ ∧
-    (term Δ (selectedFamily (σ := σ) hx hT hp) (selectedRight (σ := σ) hx hT hp)).eval (algebra M) ρ ∧
+    (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ) :
+    (term Δ (selectedFamily (σ := σ) hx hT hp) (selectedLeft (σ := σ) hx hT hp)).Eval (algebra M) ρ ∧
+    (term Δ (selectedFamily (σ := σ) hx hT hp) (selectedRight (σ := σ) hx hT hp)).Eval (algebra M) ρ ∧
     (selectedLeft (σ := σ) hx hT hp).eval (algebra M) ρ =
       (selectedRight (σ := σ) hx hT hp).eval (algebra M) ρ :=
   ⟨interpret (substitutedLeft hx hT hp hσ) M ρ hΩ,
@@ -117,8 +117,8 @@ noncomputable def extensionBeta : Derivation Internal.DependentJudgments.Sigma.t
 
 theorem extensionAssumptions (M : Internal.PathTransport.Typed.Model.{u})
     (S : Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ) :
-    ∀ a ∈ Ω.map (Atom.inl Internal.DependentJudgments.Sigma.extraSignature), a.eval (Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
+    (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ) :
+    ∀ a ∈ Ω.map (Atom.inl Internal.DependentJudgments.Sigma.extraSignature), a.Eval (Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
   intro a ha
   rcases List.mem_map.mp ha with ⟨b, hb, rfl⟩
   rw [Internal.DependentJudgments.Sigma.eval_old_judgment]
@@ -127,12 +127,12 @@ theorem extensionAssumptions (M : Internal.PathTransport.Typed.Model.{u})
 include hσ in
 theorem extensionSelected (M : Internal.PathTransport.Typed.Model.{u})
     (S : Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) (ρ : V → Value M.toStructuralModel)
-    (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ) :
+    (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ) :
     ((term Δ (selectedFamily (σ := σ) hx hT hp)
-      (selectedLeft (σ := σ) hx hT hp)).inl Internal.DependentJudgments.Sigma.extraSignature).eval
+      (selectedLeft (σ := σ) hx hT hp)).inl Internal.DependentJudgments.Sigma.extraSignature).Eval
         (Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((term Δ (selectedFamily (σ := σ) hx hT hp)
-      (selectedRight (σ := σ) hx hT hp)).inl Internal.DependentJudgments.Sigma.extraSignature).eval
+      (selectedRight (σ := σ) hx hT hp)).inl Internal.DependentJudgments.Sigma.extraSignature).Eval
         (Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((selectedLeft (σ := σ) hx hT hp).inl Internal.DependentJudgments.Sigma.extraSignature).eval
       (Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =

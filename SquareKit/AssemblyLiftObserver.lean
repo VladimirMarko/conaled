@@ -6,7 +6,7 @@ open Encodable Denumerable
 open Nat.Partrec (Code)
 
 theorem liftNat_realizes_iff {e : Nat} {x : Option Nat} :
-    (programLift (encoded Nat)).realizes e x ↔ ∀ v, v ∈ run e ↔ x = some v := by
+    (programLift (encoded Nat)).Realizes e x ↔ ∀ v, v ∈ run e ↔ x = some v := by
   cases x with
   | none =>
     change ¬ (run e).Dom ↔ ∀ v, v ∈ run e ↔ none = some v
@@ -31,8 +31,8 @@ theorem liftObserver_partrec (p : Code) : Partrec₂ (liftObserver p) :=
 
 theorem liftObserver_mem {Γ A : Assembly} {h : Hom (prod Γ A) (programLift (encoded Nat))}
     {p : Code} (hp : Tracks (prod Γ A) (programLift (encoded Nat)) p.eval h.toFun)
-    {γ : Γ.Carrier} {r : Nat} (hr : Γ.realizes r γ)
-    {a : A.Carrier} {e : Nat} (he : A.realizes e a) (v : Nat) :
+    {γ : Γ.Carrier} {r : Nat} (hr : Γ.Realizes r γ)
+    {a : A.Carrier} {e : Nat} (he : A.Realizes e a) (v : Nat) :
     v ∈ liftObserver p r e ↔ h.toFun (γ,a) = some v := by
   obtain ⟨m, hm, hx⟩ := hp (γ,a) (Nat.pair r e) (by simpa [prod] using And.intro hr he)
   rw [liftObserver, Part.mem_bind_iff]

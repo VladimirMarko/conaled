@@ -95,13 +95,13 @@ theorem familyMapSquare : EquivalenceSquare.Square
   counitInv := by
     apply NatTrans.ext
     funext a
-    apply (weaken (PathFamily B (x.familyImage α))).map_injective
+    apply (weaken (pathComparisonFamily B (x.familyImage α))).map_injective
     simp only [NatTrans.comp_app, whiskerRight_app, whiskerLeft_app, eqToHom_app]
     simp only [weaken, Grothendieck.forget_map,
       Grothendieck.comp_base, Grothendieck.base_eqToHom, eqToHom_refl, Category.comp_id]
-    change ((weaken (PathFamily B (x.familyImage α))).mapIso
+    change ((weaken (pathComparisonFamily B (x.familyImage α))).mapIso
       ((familyMap α x).mapIso ((contraction A x).app a))).inv =
-      ((weaken (PathFamily B (x.familyImage α))).mapIso
+      ((weaken (pathComparisonFamily B (x.familyImage α))).mapIso
         ((contraction B (x.familyImage α)).app ((familyMap α x).obj a))).inv
     apply (Iso.inv_eq_inv _ _).mpr
     exact familyMap_arrow α x a

@@ -16,14 +16,14 @@ local notation "hf" => ContMDiff.continuous (scale_smooth 2)
 local notation "hg" => ContMDiff.continuous (scale_smooth 3)
 
 local instance : ChartedSpace (Space 1) (Pullback P f) := Pullback.chartedSpace (m := 1) P f hf
-local instance : IsManifold (Model 1) ∞ (Pullback P f) := Pullback.isManifold (m := 1) P f hf
+local instance : IsManifold (modelWithCorners 1) ∞ (Pullback P f) := Pullback.isManifold (m := 1) P f hf
 
 abbrev scaleTwoBundle := Pullback.bundle (m := 1) P f hf
 
 theorem scaleTwo_projection (z : Pullback P f) : scaleTwoBundle.projection z = z.val.1 := rfl
 
 theorem scaleTwo_total_smooth :
-    ContMDiff (Model 1) (Model 1) ∞ (Pullback.snd P f) :=
+    ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ (Pullback.snd P f) :=
   Pullback.smooth_snd P f hf (scale_smooth 2)
 
 local instance : ChartedSpace (Space 1) (Pullback scaleTwoBundle g) :=
@@ -55,16 +55,16 @@ example :
 /-- The new base dimension need not equal the old total-space dimension. -/
 def coordinate (x : Space 2) : Space 1 := fun _ => x 0
 
-theorem coordinate_smooth : ContMDiff (Model 2) (Model 1) ∞ coordinate := by
+theorem coordinate_smooth : ContMDiff (modelWithCorners 2) (modelWithCorners 1) ∞ coordinate := by
   apply ContDiff.contMDiff
   exact contDiff_pi.mpr fun _ => contDiff_apply ℝ (fun _ : Fin 2 => ℝ) 0
 
 local instance : ChartedSpace (Space 2) (Pullback P coordinate) := Pullback.chartedSpace (m := 2) P coordinate coordinate_smooth.continuous
-local instance : IsManifold (Model 2) ∞ (Pullback P coordinate) := Pullback.isManifold (m := 2) P coordinate coordinate_smooth.continuous
+local instance : IsManifold (modelWithCorners 2) ∞ (Pullback P coordinate) := Pullback.isManifold (m := 2) P coordinate coordinate_smooth.continuous
 
 def planeBundle := Pullback.bundle (m := 2) P coordinate coordinate_smooth.continuous
 
-example : ContMDiff (Model 2) (Model 1) ∞ (Pullback.snd P coordinate) :=
+example : ContMDiff (modelWithCorners 2) (modelWithCorners 1) ∞ (Pullback.snd P coordinate) :=
   Pullback.smooth_snd P coordinate coordinate_smooth.continuous coordinate_smooth
 
 /-- The actual dimension-changing pullback realizes to the sheaf universal property. -/
@@ -83,14 +83,14 @@ local notation "S" => Examples.SmoothFiniteCover.SquareBundle.bundle
 local notation "sq" => Examples.SmoothFiniteCover.square
 local notation "hsq" => ContMDiff.continuous Examples.SmoothFiniteCover.SquareBundle.square_smooth
 local instance : ChartedSpace (Space 2) (Pullback S sq) := Pullback.chartedSpace (m := 2) S sq hsq
-local instance : IsManifold (Model 2) ∞ (Pullback S sq) := Pullback.isManifold (m := 2) S sq hsq
+local instance : IsManifold (modelWithCorners 2) ∞ (Pullback S sq) := Pullback.isManifold (m := 2) S sq hsq
 
 /-- Pull back the square covering along its own nonidentity projection. -/
 def squarePullback := Pullback.bundle (m := 2) S sq hsq
 
 example (z : Pullback S sq) : sq z.val.1 = sq z.val.2 := z.property
 
-example : ContMDiff (Model 2) (Model 2) ∞ (Pullback.snd S sq) :=
+example : ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ (Pullback.snd S sq) :=
   Pullback.smooth_snd S sq hsq Examples.SmoothFiniteCover.SquareBundle.square_smooth
 
 end Examples.SmoothBundlePullback
@@ -102,10 +102,10 @@ open scoped Manifold ContDiff
 local instance : TopologicalSpace G := ⊥
 local instance : DiscreteTopology G := ⟨rfl⟩
 local instance : ChartedSpace (Space 2) E := manifoldCharts
-local instance : IsManifold (Model 2) ∞ E := manifoldSmooth
+local instance : IsManifold (modelWithCorners 2) ∞ E := manifoldSmooth
 local instance : MulAction G E := rootAction
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 local instance : MulAction G PUnit where
   smul _ x := x
   one_smul _ := rfl

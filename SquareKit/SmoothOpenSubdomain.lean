@@ -5,14 +5,14 @@ localization of its source presentation. Universal maps range over all smooth
 algebras, including nonreduced stages. -/
 noncomputable section
 namespace SquareKit.SmoothAlgebra.Localization
-variable {n : ℕ} (f g : Free n)
+variable {n : ℕ} (f g : freeAlgebra n)
 variable {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
 
 theorem nested_unit : IsUnit (nestedMap f g (principalBase f g)) := by
   have hu := base_isUnit (fun _ : Fin 1 => f*g) 0
   change IsUnit (principalBase (f*g) (f*g)) at hu
   rw [(principalBase (f*g)).map_mul,IsUnit.mul_iff] at hu
-  have he := congrArg (fun h : Hom (Free n) (Principal (f*g)) => h g) (nestedMap_base f g)
+  have he := congrArg (fun h : Hom (freeAlgebra n) (Principal (f*g)) => h g) (nestedMap_base f g)
   change nestedMap f g (principalBase f g) = principalBase (f*g) g at he
   rw [he]
   exact hu.2
@@ -39,7 +39,7 @@ theorem sub_unique (h k : Hom (Principal (f*g)) B)
 end SquareKit.SmoothAlgebra.Localization
 namespace SquareKit.EuclideanOpen
 open CategoryTheory Opposite SmoothAlgebra SmoothPresentationSite Localization PresentedLocalization
-variable (U : Domain) (g : Free U.dimension)
+variable (U : Domain) (g : freeAlgebra U.dimension)
 
 abbrev subdomain : Domain := ⟨U.dimension,U.defining*g⟩
 abbrev subInclusion : subdomain U g ⟶ U := nested U.defining g

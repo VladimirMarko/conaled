@@ -61,7 +61,7 @@ universe parameter v is fixed per instantiation. Carriers are `Sort (v+1)`;
 carrier-parameter binder types live in `Sort (v+2)`. Formulas and the closed
 sequent are in `Sort 0`, using the proposition-valued `imax` case. K contains
 no object-language universe quantifier, type-valued term or arbitrary Prop
-parameter. `Declaration.denote` packages the telescope semantically via the
+parameter. `Declaration.Denote` packages the telescope semantically via the
 model interface; it is not a model of Lean's universe formation rules.
 
 The intended primitive environment contains Eq and reflexivity/equality

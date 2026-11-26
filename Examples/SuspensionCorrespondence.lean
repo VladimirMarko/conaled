@@ -88,7 +88,7 @@ def ordered : List (Pattern × Expr Unit) :=
 /-- The second pattern changes the counter before failing, so the third
 pattern now fails too. Standalone ordered matching returns bare mismatch. -/
 theorem first_three_execution :
-    clauses parameters initial caller pair (ordered.take 3) (.ok none) finalMemory :=
+    Clauses parameters initial caller pair (ordered.take 3) (.ok none) finalMemory :=
   ⟨_, Progress.search_sound (fuel := 100) (by rfl)⟩
 
 theorem first_three_source_rules :
@@ -99,7 +99,7 @@ theorem first_three_source_rules :
 
 /-- The fourth pattern observes the changed counter and becomes selectable. -/
 theorem fourth_execution :
-    clauses parameters initial caller pair ordered (.ok (some (intValue 40))) finalMemory :=
+    Clauses parameters initial caller pair ordered (.ok (some (intValue 40))) finalMemory :=
   ⟨_, Progress.search_sound (fuel := 120) (by rfl)⟩
 
 theorem fourth_source_rules :

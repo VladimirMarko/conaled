@@ -19,10 +19,10 @@ abbrev intervalFace (Γ : Context.{u}) (b : Bool) : Subcontext (total (interval 
   Subcontext.intervalEq (generic (interval Γ)) (endpoint (total (interval Γ)) b)
 
 theorem Subcontext.full_join {Γ : Context.{u}} (φ ψ : Subcontext Γ) (x : Γ.Elements) :
-    (φ.join ψ).holds x ↔ φ.holds x ∨ ψ.holds x := Iff.rfl
+    (φ.join ψ).Holds x ↔ φ.Holds x ∨ ψ.Holds x := Iff.rfl
 
 theorem intervalFace_iff {Γ : Context.{u}} (b : Bool) (x : (total (interval Γ)).Elements) :
-    (intervalFace Γ b).holds x ↔ x.val.2 = (endpoint Γ b).val ((projection (interval Γ)).mapElements.obj x) := Iff.rfl
+    (intervalFace Γ b).Holds x ↔ x.val.2 = (endpoint Γ b).val ((projection (interval Γ)).mapElements.obj x) := Iff.rfl
 
 
 def swapIntervals (Γ : Context.{u}) :
@@ -59,12 +59,12 @@ def endpointSection {Γ : Context.{u}} (B : Family (total (interval Γ))) (b : B
 
 theorem endpointSection_val {Γ : Context.{u}} (B : Family (total (interval Γ))) (b : Bool)
     (a : Term (reindex B (endpointSub Γ b))) (x : (total (interval Γ)).Elements)
-    (h : (intervalFace Γ b).holds x) :
+    (h : (intervalFace Γ b).Holds x) :
     HEq ((endpointSection B b a).val x h) (a.val ((projection (interval Γ)).mapElements.obj x)) :=
   Term.convert_val_heq _ _ ((restrictContext (intervalFace Γ b)).elementsMk x.obj ⟨x.val,h⟩)
 
 theorem intervalFace_disjoint {Γ : Context.{u}} (x : (total (interval Γ)).Elements)
-    (h₀ : (intervalFace Γ false).holds x) (h₁ : (intervalFace Γ true).holds x) : False := by
+    (h₀ : (intervalFace Γ false).Holds x) (h₁ : (intervalFace Γ true).Holds x) : False := by
   have h := ((intervalFace_iff false x).mp h₀).symm.trans
     ((intervalFace_iff true x).mp h₁)
   have hd := congrArg (fun q => q.down 0) h
@@ -94,7 +94,7 @@ theorem PartialSection.pathApp_val {Γ : Context.{u}} {B : Family (total (interv
     {a₀ : Term (Cartesian.reindex B (endpointSub Γ false))}
     {a₁ : Term (Cartesian.reindex B (endpointSub Γ true))} {φ : Subcontext Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (h : (φ.reindex (projection (interval Γ))).holds x) :
+    (h : (φ.reindex (projection (interval Γ))).Holds x) :
     s.pathApp.val x h =
       (s.val ((projection (interval Γ)).mapElements.obj x) h).val.val (𝟙 _) x.val.2 := rfl
 
@@ -109,7 +109,7 @@ theorem PartialSection.pathApp_zero {Γ : Context.{u}} {B : Family (total (inter
     {a₀ : Term (Cartesian.reindex B (endpointSub Γ false))}
     {a₁ : Term (Cartesian.reindex B (endpointSub Γ true))} {φ : Subcontext Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (h : (φ.reindex (projection (interval Γ))).holds x) (h₀ : (intervalFace Γ false).holds x) :
+    (h : (φ.reindex (projection (interval Γ))).Holds x) (h₀ : (intervalFace Γ false).Holds x) :
     HEq (s.pathApp.val x h) (a₀.val ((projection (interval Γ)).mapElements.obj x)) := by
   rcases x with @⟨I,⟨γ,r⟩⟩
   have hr := (intervalFace_iff false
@@ -122,7 +122,7 @@ theorem PartialSection.pathApp_one {Γ : Context.{u}} {B : Family (total (interv
     {a₀ : Term (Cartesian.reindex B (endpointSub Γ false))}
     {a₁ : Term (Cartesian.reindex B (endpointSub Γ true))} {φ : Subcontext Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (h : (φ.reindex (projection (interval Γ))).holds x) (h₁ : (intervalFace Γ true).holds x) :
+    (h : (φ.reindex (projection (interval Γ))).Holds x) (h₁ : (intervalFace Γ true).Holds x) :
     HEq (s.pathApp.val x h) (a₁.val ((projection (interval Γ)).mapElements.obj x)) := by
   rcases x with @⟨I,⟨γ,r⟩⟩
   have hr := (intervalFace_iff true
@@ -143,16 +143,16 @@ noncomputable def endpointBoundary {Γ : Context.{u}} (B : Family (total (interv
 theorem endpointBoundary_zero {Γ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))
     (a₁ : Term (reindex B (endpointSub Γ true))) (x : (total (interval Γ)).Elements)
-    (h : ((intervalFace Γ false).join (intervalFace Γ true)).holds x)
-    (h₀ : (intervalFace Γ false).holds x) :
+    (h : ((intervalFace Γ false).join (intervalFace Γ true)).Holds x)
+    (h₀ : (intervalFace Γ false).Holds x) :
     (endpointBoundary B a₀ a₁).val x h = (endpointSection B false a₀).val x h₀ :=
   glueValue_left _ _ x h h₀
 
 theorem endpointBoundary_one {Γ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))
     (a₁ : Term (reindex B (endpointSub Γ true))) (x : (total (interval Γ)).Elements)
-    (h : ((intervalFace Γ false).join (intervalFace Γ true)).holds x)
-    (h₁ : (intervalFace Γ true).holds x) :
+    (h : ((intervalFace Γ false).join (intervalFace Γ true)).Holds x)
+    (h₁ : (intervalFace Γ true).Holds x) :
     (endpointBoundary B a₀ a₁).val x h = (endpointSection B true a₁).val x h₁ :=
   glueValue_right _ _ (fun x h₀ h₁ => (intervalFace_disjoint x h₀ h₁).elim) x h h₁
 
@@ -183,7 +183,7 @@ theorem PartialSection.pathBoundary_old {Γ : Context.{u}}
     {a₀ : Term (Cartesian.reindex B (endpointSub Γ false))}
     {a₁ : Term (Cartesian.reindex B (endpointSub Γ true))} {φ : Subcontext Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (p : (pathBoundaryFace φ).holds x) (h : (φ.reindex (projection (interval Γ))).holds x) :
+    (p : (pathBoundaryFace φ).Holds x) (h : (φ.reindex (projection (interval Γ))).Holds x) :
     s.pathBoundary.val x p = s.pathApp.val x h := glueValue_left _ _ x p h
 
 theorem PartialSection.pathBoundary_zero {Γ : Context.{u}}
@@ -191,7 +191,7 @@ theorem PartialSection.pathBoundary_zero {Γ : Context.{u}}
     {a₀ : Term (Cartesian.reindex B (endpointSub Γ false))}
     {a₁ : Term (Cartesian.reindex B (endpointSub Γ true))} {φ : Subcontext Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (p : (pathBoundaryFace φ).holds x) (h₀ : (intervalFace Γ false).holds x) :
+    (p : (pathBoundaryFace φ).Holds x) (h₀ : (intervalFace Γ false).Holds x) :
     HEq (s.pathBoundary.val x p) (a₀.val ((projection (interval Γ)).mapElements.obj x)) := by
   have h := (Subcontext.full_join (intervalFace Γ false) (intervalFace Γ true) x).mpr (Or.inl h₀)
   exact (heq_of_eq (glueValue_right _ _ s.pathApp_boundary_compatible x p h)).trans
@@ -202,7 +202,7 @@ theorem PartialSection.pathBoundary_one {Γ : Context.{u}}
     {a₀ : Term (Cartesian.reindex B (endpointSub Γ false))}
     {a₁ : Term (Cartesian.reindex B (endpointSub Γ true))} {φ : Subcontext Γ}
     (s : PartialSection (path B a₀ a₁) φ) (x : (total (interval Γ)).Elements)
-    (p : (pathBoundaryFace φ).holds x) (h₁ : (intervalFace Γ true).holds x) :
+    (p : (pathBoundaryFace φ).Holds x) (h₁ : (intervalFace Γ true).Holds x) :
     HEq (s.pathBoundary.val x p) (a₁.val ((projection (interval Γ)).mapElements.obj x)) := by
   have h := (Subcontext.full_join (intervalFace Γ false) (intervalFace Γ true) x).mpr (Or.inr h₁)
   exact (heq_of_eq (glueValue_right _ _ s.pathApp_boundary_compatible x p h)).trans
@@ -229,7 +229,7 @@ theorem PartialSection.pathBoundary_reindex {Γ Δ : Context.{u}}
       (endpointBoundary_reindex B a₀ a₁ σ) _ _)
 
 theorem pathBoundaryFace_endpoint {Γ : Context.{u}} (φ : Subcontext Γ) (b : Bool)
-    (x : Γ.Elements) : (pathBoundaryFace φ).holds ((endpointSub Γ b).mapElements.obj x) := by
+    (x : Γ.Elements) : (pathBoundaryFace φ).Holds ((endpointSub Γ b).mapElements.obj x) := by
   apply (Subcontext.full_join _ _ _).mpr
   apply Or.inr
   apply (Subcontext.full_join _ _ _).mpr
@@ -258,7 +258,7 @@ noncomputable def pathFillingBox {Γ Δ : Context.{u}} {B : Family (total (inter
     let s := b.tube.map (pathReindex B a₀ a₁ p)
     let z := (total (interval (total (interval Δ)))).elementsMk I
       ⟨⟨δ,r.val y⟩,j⟩
-    have hp : (pathBoundaryFace (φ.reindex (projection (interval Δ)))).holds z := h
+    have hp : (pathBoundaryFace (φ.reindex (projection (interval Δ)))).Holds z := h
     rcases (Subcontext.full_join _ _ ((total (interval Δ)).elementsMk I ⟨δ,j⟩)).mp h with hφ | he
     · have hv := s.pathBoundary_old z hp hφ
       exact hv.trans (congrArg (fun v => v.val.val (𝟙 _) j) (b.boundary y hφ))
@@ -314,7 +314,7 @@ theorem pathFillingBody_zero :
   have hp := pathBoundaryFace_endpoint φ false y
   have h := ht.2 z hp
   let s := b.tube.map (pathReindex B a₀ a₁ p)
-  have hz : (intervalFace (total (interval Δ)) false).holds ((swapIntervals Δ).mapElements.obj z) :=
+  have hz : (intervalFace (total (interval Δ)) false).Holds ((swapIntervals Δ).mapElements.obj z) :=
     (intervalFace_iff false _).mpr rfl
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_zero ((swapIntervals Δ).mapElements.obj z) hp hz))
 
@@ -329,11 +329,11 @@ theorem pathFillingBody_one :
   have hp := pathBoundaryFace_endpoint φ true y
   have h := ht.2 z hp
   let s := b.tube.map (pathReindex B a₀ a₁ p)
-  have hz : (intervalFace (total (interval Δ)) true).holds ((swapIntervals Δ).mapElements.obj z) :=
+  have hz : (intervalFace (total (interval Δ)) true).Holds ((swapIntervals Δ).mapElements.obj z) :=
     (intervalFace_iff true _).mpr rfl
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_one ((swapIntervals Δ).mapElements.obj z) hp hz))
 
-def pathFillingBody_path : Term (path (reindex B (liftSub (interval Γ) p)) ((Term.reindex a₀ p)) ((Term.reindex a₁ p))) :=
+def pathFillingBodyPath : Term (path (reindex B (liftSub (interval Γ) p)) ((Term.reindex a₀ p)) ((Term.reindex a₁ p))) :=
   pathLam ((Term.reindex t (swapIntervals Δ))) (pathFillingBody_zero p φ r b t ht) (pathFillingBody_one p φ r b t ht)
 
 end
@@ -350,11 +350,11 @@ variable {Γ Δ : Context.{u}} {B : Family (total (interval Γ))}
   (ht : (pathFillingBox p φ r b).Fills t)
 
 def pathFillingResult : Term (reindex (path B a₀ a₁) p) :=
-  Term.map (pathReindexIso B a₀ a₁ p).inv (pathFillingBody_path p φ r b t ht)
+  Term.map (pathReindexIso B a₀ a₁ p).inv (pathFillingBodyPath p φ r b t ht)
 
 theorem pathFillingResult_normalize :
     Term.map (pathReindex B a₀ a₁ p) (pathFillingResult p φ r b t ht) =
-      pathFillingBody_path p φ r b t ht :=
+      pathFillingBodyPath p φ r b t ht :=
   Term.map_iso_roundtrip (pathReindexIso B a₀ a₁ p).symm _
 
 theorem pathFillingResult_cap :
@@ -368,13 +368,13 @@ theorem pathFillingResult_cap :
   exact hn.trans ht.1
 
 theorem pathFillingResult_tube (x : (total (interval Δ)).Elements)
-    (hx : (φ.reindex (projection (interval Δ))).holds x) :
+    (hx : (φ.reindex (projection (interval Δ))).Holds x) :
     (pathFillingResult p φ r b t ht).val x = b.tube.val x hx := by
   apply ((pathReindexIso B a₀ a₁ p).app x).toEquiv.injective
   let s := b.tube.map (pathReindex B a₀ a₁ p)
   change (Term.map (pathReindex B a₀ a₁ p) (pathFillingResult p φ r b t ht)).val x = s.val x hx
   calc
-    _ = (pathFillingBody_path p φ r b t ht).val x :=
+    _ = (pathFillingBodyPath p φ r b t ht).val x :=
       congrArg (fun v => v.val x) (pathFillingResult_normalize p φ r b t ht)
     _ = _ := by
       apply Subtype.ext
@@ -382,7 +382,7 @@ theorem pathFillingResult_tube (x : (total (interval Δ)).Elements)
       intro y f j
       have hy := (φ.reindex (projection (interval Δ))).natural f hx
       let z := extendObj (interval (total (interval Δ))) y j
-      have hz : (pathBoundaryFace φ).holds
+      have hz : (pathBoundaryFace φ).Holds
           ((projection (interval (total (interval Δ)))).mapElements.obj
             ((swapIntervals Δ).mapElements.obj z)) :=
         (Subcontext.full_join _ _ _).mpr (Or.inl hy)

@@ -52,7 +52,7 @@ def Valid (depth : Nat) (c : Policy) (p : Spine) (r : State depth) : Prop :=
   r.source = p ∧ r.prepared = setup c p depth
 
 def spec (depth : Nat) (p : Spine) (q : Request views words) : Option (Decision Payload) :=
-  if admissible depth q.raw then some (p.native.parse q.raw.2) else none
+  if Admissible depth q.raw then some (p.native.parse q.raw.2) else none
 
 theorem laws (d v w : Nat) (t : Tariff) (c : Policy) :
     Laws (spec d) (ops d v w t c) (Valid d c) where
@@ -114,7 +114,7 @@ def rawOps (d v w : Nat) (t : Tariff) (c : Policy) :
   answer r q := let a := r.prepared.query q.val; (a.1, cost t a.2)
 
 theorem raw_laws (d v w : Nat) (t : Tariff) (c : Policy) :
-    Laws (fun p q => if admissible d q.val then some (p.native.parse q.val.2) else none)
+    Laws (fun p q => if Admissible d q.val then some (p.native.parse q.val.2) else none)
       (rawOps d v w t c) (Valid d c) where
   prepare _ := ⟨rfl,rfl⟩
   answer p r h q := by
@@ -155,7 +155,7 @@ theorem chosen_deadline {d v w t req p objective c}
 theorem chosen_raw_correct {d v w t req p objective c}
     (h : choose d v w t req p objective = some c) (q : AdmittedRequest v w) :
     ((rawOps d v w t c).answer ((rawOps d v w t c).prepare p).1 q).1 =
-      if admissible d q.val then some (p.native.parse q.val.2) else none :=
+      if Admissible d q.val then some (p.native.parse q.val.2) else none :=
   selected_agreement (rawOps d v w t) (Valid d) (fun c _ => raw_laws d v w t c) h q
 
 /-- Constraints apply to actual prepared work and live arenas, not just the
@@ -193,7 +193,7 @@ def semanticAnswer {P : Language Bool} (c : Policy) (p : Parser P) (d : Nat)
 
 theorem semanticAnswer_exact {P : Language Bool} (c : Policy) (p : Parser P) (d q) :
     semanticAnswer c p d q =
-      ⟨q.2, if admissible d q then some (p.parse q.2) else none⟩ := by
+      ⟨q.2, if Admissible d q then some (p.parse q.2) else none⟩ := by
   simp [semanticAnswer, session_exact]
 
 /-- Full feasibility and minimality are inherited from the shared selector. -/

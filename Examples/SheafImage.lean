@@ -72,12 +72,12 @@ theorem covering_elsewhere {a : Diamond} (ha : a ≠ X) (S : Sieve a) :
       intro hb; subst b; cases f; exact ha rfl)
   · rintro rfl; exact topology.top_mem _
 
-def sections : Diamond → Type
+def Sections : Diamond → Type
   | W => Bool
   | U | V => Unit
   | X => Empty
 
-def restriction : Arrow a b → sections b → sections a
+def restriction : Arrow a b → Sections b → Sections a
   | .id _, x => x
   | .wu, _ => false
   | .wv, _ => true
@@ -85,12 +85,12 @@ def restriction : Arrow a b → sections b → sections a
   | .vx, x => nomatch x
   | .wx, x => nomatch x
 
-theorem restriction_comp (f : Arrow a b) (g : Arrow b c) (x : sections c) :
+theorem restriction_comp (f : Arrow a b) (g : Arrow b c) (x : Sections c) :
     restriction (compose f g) x = restriction f (restriction g x) := by
   cases f <;> cases g <;> first | rfl | exact Empty.elim x
 
 def data : Diamondᵒᵖ ⥤ Type where
-  obj a := sections a.unop
+  obj a := Sections a.unop
   map f := ↾restriction f.unop
   map_id _ := rfl
   map_comp f g := by
@@ -280,7 +280,7 @@ theorem presheaf_exists_false :
 
 /-- The existing evaluation theorem still reports objectwise existence. -/
 theorem evaluated_exists_false :
-    ¬ existsSection.eval (underlyingModel.fiber (op X)) (emptyEnv (op X)) := by
+    ¬ existsSection.Eval (underlyingModel.fiber (op X)) (emptyEnv (op X)) := by
   intro h
   exact presheaf_exists_false ((underlyingModel.evaluation _ _ _).mpr h)
 

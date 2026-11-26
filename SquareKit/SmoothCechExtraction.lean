@@ -9,8 +9,8 @@ open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafAction
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
-  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 abbrev assembledMap (m : ∀ i, External.SmoothMap (A.domain i) d M) :=
   SheafCoproductLocal.desc A.family (fun i => hat (m i).val (m i).property)
@@ -102,10 +102,10 @@ def fromCech (c : SheafActionQuotient.Cech.Datum
       SplitSheaf.Cech.first (SplitSheaf.ofDisplay A.cover) ≫
         ((SplitSheaf.displayIso A.cover).hom ≫ assembledMap m) := arrowLabel_relation e.hom
   have hid : SplitSheaf.Cech.diagonal (SplitSheaf.ofDisplay A.cover) ≫ r =
-      labelOne (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)) := by
+      labelOne (SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)) := by
     ext U x
     exact congrArg (fun a => a.torsorArrow.iso.hom.app
-      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U x)
+      ((SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U x)
       (1 : (locallyConstantGroup G).obj.obj U)) hd
   have hcomp : SplitSheaf.Cech.firstThird (SplitSheaf.ofDisplay A.cover) ≫ r =
       labelMul (SplitSheaf.Cech.firstSecond (SplitSheaf.ofDisplay A.cover) ≫ r)

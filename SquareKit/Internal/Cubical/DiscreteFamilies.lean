@@ -32,7 +32,7 @@ theorem discrete_partial_interval {Γ : Context.{u}} {T : Type u} {q : Term (con
     {S : T → Type u} {φ : Cofibration Γ}
     (a : PartialSection (reindex (discreteFamily q S) (projection (interval Γ)))
       (φ.reindex (projection (interval Γ))))
-    (x : Γ.Elements) (h : φ.full x) (r s : (interval Γ).obj x) :
+    (x : Γ.Elements) (h : φ.Full x) (r s : (interval Γ).obj x) :
     a.val (extendObj (interval Γ) x r) h = a.val (extendObj (interval Γ) x s) h := by
   have he := constant_partial_interval (PartialSection.totalize (q := q.reindex (projection (interval Γ))) (S := S) a) x h r s
   exact eq_of_heq (Sigma.mk.inj he).2
@@ -54,7 +54,7 @@ theorem DiscreteDependentBox.fill_zero {Γ : Context.{u}} {T : Type u} {q : Term
 
 theorem DiscreteDependentBox.fill_tube {Γ : Context.{u}} {T : Type u} {q : Term (constantFamily Γ T)}
     {S : T → Type u} {φ : Cofibration Γ} (b : DiscreteDependentBox q S φ)
-    (x : (total (interval Γ)).Elements) (h : (φ.reindex (projection (interval Γ))).full x) :
+    (x : (total (interval Γ)).Elements) (h : (φ.reindex (projection (interval Γ))).Full x) :
     b.fill.val x = b.tube.val x h := by
   rcases x with @⟨I,⟨γ,r⟩⟩
   let y := Γ.elementsMk I γ
@@ -76,7 +76,7 @@ def DiscreteDependentBox.hcomp {Γ : Context.{u}} {T : Type u} {q : Term (consta
     Term (discreteFamily q S) := b.fill.reindex (endpointSub Γ true)
 
 theorem DiscreteDependentBox.hcomp_on_face {Γ : Context.{u}} {T : Type u} {q : Term (constantFamily Γ T)}
-    {S : T → Type u} {φ : Cofibration Γ} (b : DiscreteDependentBox q S φ) (x : Γ.Elements) (h : φ.full x) :
+    {S : T → Type u} {φ : Cofibration Γ} (b : DiscreteDependentBox q S φ) (x : Γ.Elements) (h : φ.Full x) :
     b.hcomp.val x = b.tube.val (extendObj (interval Γ) x ((endpoint Γ true).val x)) h :=
   b.fill_tube (extendObj (interval Γ) x ((endpoint Γ true).val x)) h
 

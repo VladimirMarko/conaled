@@ -45,12 +45,12 @@ def endpointSection {Γ : Context.{u}} (B : Family (total (interval Γ))) (b : B
 
 theorem endpointSection_val {Γ : Context.{u}} (B : Family (total (interval Γ))) (b : Bool)
     (a : Term (reindex B (endpointSub Γ b))) (x : (total (interval Γ)).Elements)
-    (h : (intervalFace Γ b).full x) :
+    (h : (intervalFace Γ b).Full x) :
     HEq ((endpointSection B b a).val x h) (a.val ((projection (interval Γ)).mapElements.obj x)) :=
   Term.convert_val_heq _ _ ((restrictContext (intervalFace Γ b)).elementsMk x.obj ⟨x.val,h⟩)
 
 theorem intervalFace_disjoint {Γ : Context.{u}} (x : (total (interval Γ)).Elements)
-    (h₀ : (intervalFace Γ false).full x) (h₁ : (intervalFace Γ true).full x) : False := by
+    (h₀ : (intervalFace Γ false).Full x) (h₁ : (intervalFace Γ true).Full x) : False := by
   have h := ((Cofibration.full_endpoint (generic (interval Γ)) false x).mp h₀).symm.trans
     ((Cofibration.full_endpoint (generic (interval Γ)) true x).mp h₁)
   have hd := congrArg ULift.down h

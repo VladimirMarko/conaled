@@ -15,13 +15,13 @@ variable {n d : ℕ} {G B E E' M : Type} [Group G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace E'] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space n) E']
   [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E]
-  [IsManifold (Model n) ∞ E'] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
+  [IsManifold (modelWithCorners n) ∞ E'] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 
 namespace Bundle
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
-  (F : E → M) (hF : ContMDiff (Model n) (Model d) ∞ F)
+  (F : E → M) (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F)
   (hG : ∀ (g : G) e, F (g • e) = g • F e)
 
 /-- Normalize the existing quotient object onto the preferred base realization. -/
@@ -59,8 +59,8 @@ end Bundle
 variable {P : Bundle (n := n) (G := G) (B := B) (E := E)}
   {Q : Bundle (n := n) (G := G) (B := B) (E := E')}
   {F : E → M} {F' : E' → M}
-  (hF : ContMDiff (Model n) (Model d) ∞ F)
-  (hF' : ContMDiff (Model n) (Model d) ∞ F')
+  (hF : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F)
+  (hF' : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F')
   (hG : ∀ (g : G) e, F (g • e) = g • F e)
   (hG' : ∀ (g : G) e, F' (g • e) = g • F' e)
 
@@ -110,11 +110,11 @@ theorem realizedArrow_ident :
   exact Map.realizedArrow_ident
 
 variable {E'' : Type} [MulAction G E''] [TopologicalSpace E'']
-  [ChartedSpace (Space n) E''] [IsManifold (Model n) ∞ E'']
+  [ChartedSpace (Space n) E''] [IsManifold (modelWithCorners n) ∞ E'']
   {R : Bundle (n := n) (G := G) (B := B) (E := E'')}
   {F'' : E'' → M}
 
-theorem realizedArrow_comp (hF'' : ContMDiff (Model n) (Model d) ∞ F'')
+theorem realizedArrow_comp (hF'' : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F'')
     (hG'' : ∀ (g : G) e, F'' (g • e) = g • F'' e) (g : TargetMap Q R F' F'') :
     (f.comp g).realizedArrow smoothAction hF hF'' hG hG'' =
       (f.realizedArrow smoothAction hF hF' hG hG').comp
@@ -202,12 +202,12 @@ theorem targetMapChartEquiv_inverse (A : ChartFamily n B) (k : TargetMap P Q F F
     (Q.realizedQuotient_chart smoothAction F' hF' hG' A)
 
 variable {E'' : Type} [MulAction G E''] [TopologicalSpace E'']
-  [ChartedSpace (Space n) E''] [IsManifold (Model n) ∞ E'']
+  [ChartedSpace (Space n) E''] [IsManifold (modelWithCorners n) ∞ E'']
   {R : Bundle (n := n) (G := G) (B := B) (E := E'')}
   {F'' : E'' → M}
 
 theorem targetMapChartEquiv_comp (A : ChartFamily n B)
-    (hF'' : ContMDiff (Model n) (Model d) ∞ F'')
+    (hF'' : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ F'')
     (hG'' : ∀ (g : G) e, F'' (g • e) = g • F'' e)
     (k : TargetMap P Q F F') (l : TargetMap Q R F' F'') :
     targetMapChartEquiv smoothAction hF hF'' hG hG'' A (k.comp l) =

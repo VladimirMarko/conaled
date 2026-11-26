@@ -34,10 +34,10 @@ def axioms : Fin 3 → Sequent
 
 /-- Any type is an admissible parameter context; any predicate is admissible. -/
 structure Presentation (X : Type u) where
-  parameter : X → Prop
+  Parameter : X → Prop
 
 def Presentation.subst {X : Type u} {Y : Type v}
-    (T : Presentation X) (σ : Y → X) : Presentation Y := ⟨T.parameter ∘ σ⟩
+    (T : Presentation X) (σ : Y → X) : Presentation Y := ⟨T.Parameter ∘ σ⟩
 
 @[simp] theorem Presentation.subst_id {X : Type u} (T : Presentation X) :
     T.subst id = T := rfl
@@ -47,27 +47,27 @@ def Presentation.subst {X : Type u} {Y : Type v}
     (T.subst σ).subst τ = T.subst (σ ∘ τ) := rfl
 
 /-- Interpretation is separate from syntax and from satisfaction. -/
-def Formula.eval {X : Type u} (r P Q : X → Prop) (x : X) : Formula → Prop
+def Formula.Eval {X : Type u} (r P Q : X → Prop) (x : X) : Formula → Prop
   | .p => P x
   | .q => Q x
   | .parameter => r x
   | .top => True
   | .bottom => False
-  | .and a b => a.eval r P Q x ∧ b.eval r P Q x
-  | .or a b => a.eval r P Q x ∨ b.eval r P Q x
+  | .and a b => a.Eval r P Q x ∧ b.Eval r P Q x
+  | .or a b => a.Eval r P Q x ∨ b.Eval r P Q x
 
 def Satisfies {X : Type u} (T : Presentation X) (P Q : X → Prop) : Prop :=
-  ∀ (i : Fin 3) (x : X), (axioms i).premise.eval T.parameter P Q x →
-    (axioms i).conclusion.eval T.parameter P Q x
+  ∀ (i : Fin 3) (x : X), (axioms i).premise.Eval T.Parameter P Q x →
+    (axioms i).conclusion.Eval T.Parameter P Q x
 
 theorem satisfies_iff {X : Type u} (T : Presentation X) (P Q : X → Prop) :
     Satisfies T P Q ↔
-      (∀ x, P x ∨ Q x) ∧ (∀ x, ¬ (P x ∧ Q x)) ∧ (∀ x, P x → T.parameter x) := by
+      (∀ x, P x ∨ Q x) ∧ (∀ x, ¬ (P x ∧ Q x)) ∧ (∀ x, P x → T.Parameter x) := by
   constructor
   · intro h
     exact ⟨fun x => h 0 x trivial, fun x => h 1 x, fun x => h 2 x⟩
   · rintro ⟨hc, hd, hr⟩ i x
-    fin_cases i <;> simp only [axioms, Formula.eval]
+    fin_cases i <;> simp only [axioms, Formula.Eval]
     · exact fun _ => hc x
     · exact hd x
     · exact hr x
@@ -83,8 +83,8 @@ structure Model {X : Type u} (T : Presentation X) where
 
 theorem Formula.eval_subst {X : Type u} {Y : Type v} (f : Formula)
     (r P Q : X → Prop) (σ : Y → X) (y : Y) :
-    f.eval (r ∘ σ) (P ∘ σ) (Q ∘ σ) y = f.eval r P Q (σ y) := by
-  induction f <;> simp_all [Formula.eval, Function.comp_def]
+    f.Eval (r ∘ σ) (P ∘ σ) (Q ∘ σ) y = f.Eval r P Q (σ y) := by
+  induction f <;> simp_all [Formula.Eval, Function.comp_def]
 
 def Model.subst {X : Type u} {Y : Type v} {T : Presentation X}
     (M : Model T) (σ : Y → X) : Model (T.subst σ) where
@@ -101,7 +101,7 @@ def Model.subst {X : Type u} {Y : Type v} {T : Presentation X}
     (M.subst σ).subst τ = M.subst (σ ∘ τ) := rfl
 
 /-- `PLift` makes the proposition's proof type a summand in `Type`. -/
-def Fiber {X : Type u} (T : Presentation X) (x : X) := PLift (T.parameter x) ⊕ Unit
+def Fiber {X : Type u} (T : Presentation X) (x : X) := PLift (T.Parameter x) ⊕ Unit
 
 def Section {X : Type u} (T : Presentation X) := (x : X) → Fiber T x
 

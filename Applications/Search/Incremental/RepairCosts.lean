@@ -89,13 +89,13 @@ theorem run_value (w : Graph n) (start goal : Fin n) (h : Fin n → ℚ) (fuel :
     (run w start goal h fuel s).1 = Search.Incremental.run w start goal h fuel s := by
   induction fuel generalizing s with
   | zero =>
-    change _ = runWith w start h (Search.Incremental.active goal h) 0 s
+    change _ = runWith w start h (Search.Incremental.Active goal h) 0 s
     rw [runWith.eq_def]
     simp [run]
   | succ k ih =>
-    change _ = runWith w start h (Search.Incremental.active goal h) (k+1) s
+    change _ = runWith w start h (Search.Incremental.Active goal h) (k+1) s
     rw [runWith.eq_def]
-    by_cases hc : Search.Incremental.active goal h s
+    by_cases hc : Search.Incremental.Active goal h s
     · simp only [run, active_value, decide_eq_true hc, ite_true, ite_eq_left hc, select_value]
       cases hu : Search.Incremental.select h s <;> simp [ih, expand_value, Search.Incremental.run]
     · simp [run, hc]

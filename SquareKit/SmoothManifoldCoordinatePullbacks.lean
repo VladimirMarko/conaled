@@ -40,7 +40,7 @@ theorem zeroFiber_isPullback (n k : ℕ) :
       (realize (EuclideanOpen.Coordinates.last n k)) (realize (EuclideanOpen.Coordinates.zero k)) :=
   realized_isPullback _ _ _ _ (EuclideanOpen.Coordinates.zeroFiber_isPullback n k)
 
-theorem restricted_zeroFiber_isPullback (n k : ℕ) (q : Free (n+k)) :
+theorem restricted_zeroFiber_isPullback (n k : ℕ) (q : freeAlgebra (n+k)) :
     IsPullback (realize (inverseRestriction (EuclideanOpen.Coordinates.insertZero n k) q))
       (realize (subInclusion (full n) (inverseDefining (EuclideanOpen.Coordinates.insertZero n k) q) ≫
         EuclideanOpen.Coordinates.toPoint n))

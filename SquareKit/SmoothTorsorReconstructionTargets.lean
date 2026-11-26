@@ -12,8 +12,8 @@ variable {n d : ℕ} {G B E M : Type} [Group G] [MulAction G E] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace E] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space n) E] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model n) ∞ E] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (Q : SmoothPrincipalBundle.Bundle (n := n) (G := G) (B := B) (E := E))
 variable (R : SheafActionQuotient.Object (representation smoothAction).action (object n B))
 variable (e : SheafTorsor.Arrow Q.realizedTorsor R.torsor)
@@ -55,7 +55,7 @@ theorem targetRecoveryMap_intertwines (g : G) :
 
 def recoveredTarget : E → M := reconstruct (targetRecoveryMap smoothAction Q R e)
 
-theorem recoveredTarget_smooth : ContMDiff (Model n) (Model d) ∞ (recoveredTarget smoothAction Q R e) :=
+theorem recoveredTarget_smooth : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ (recoveredTarget smoothAction Q R e) :=
   reconstruct_smooth _
 
 theorem recoveredTarget_map :
@@ -96,16 +96,16 @@ variable {n d : ℕ} {G B M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace B] [TopologicalSpace M]
   [ChartedSpace (Space n) B] [ChartedSpace (Space d) M]
-  [IsManifold (Model n) ∞ B] [IsManifold (Model d) ∞ M]
-variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+  [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x))
 variable (R : SheafActionQuotient.Object (representation smoothAction).action (object n B))
 local instance : ChartedSpace (Space n) (Total R.torsor) := chartedSpace R.torsor
-local instance : IsManifold (Model n) ∞ (Total R.torsor) := isManifold R.torsor
+local instance : IsManifold (modelWithCorners n) ∞ (Total R.torsor) := isManifold R.torsor
 
 /-- The target function is reconstructed from the supplied sheaf quotient object. -/
 def reconstructedTarget : Total R.torsor → M :=
   recoveredTarget smoothAction (bundle R.torsor) R (reconstructedArrow R.torsor)
-theorem reconstructedTarget_smooth : ContMDiff (Model n) (Model d) ∞ (reconstructedTarget smoothAction R) :=
+theorem reconstructedTarget_smooth : ContMDiff (modelWithCorners n) (modelWithCorners d) ∞ (reconstructedTarget smoothAction R) :=
   recoveredTarget_smooth _ _ _ _
 theorem reconstructedTarget_equivariant (g : G) (z : Total R.torsor) :
     reconstructedTarget smoothAction R (g • z) = g • reconstructedTarget smoothAction R z :=

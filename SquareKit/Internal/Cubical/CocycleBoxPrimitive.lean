@@ -16,7 +16,7 @@ def boxDifference : PartialCocycle2 (tubeSieve φ) :=
   partialDifference (partialSectionCocycle b.tube) (boxBaseCocycle b)
 
 theorem boxDifference_cap {X Y Z : (total (interval Γ)).Elementsᵒᵖ}
-    (f : X ⟶ Y) (g : Y ⟶ Z) (p : (tubeSieve φ).contains Z) :
+    (f : X ⟶ Y) (g : Y ⟶ Z) (p : (tubeSieve φ).Contains Z) :
     (boxDifference b).cochain ((intervalCap Γ false).mapElements.op.map f)
       ((intervalCap Γ false).mapElements.op.map g) p = 0 := by
   change CubeCocycle.eval (b.tube.val ((intervalCap Γ false).mapElements.obj Z.unop) p)
@@ -30,7 +30,7 @@ theorem boxDifference_cap {X Y Z : (total (interval Γ)).Elementsᵒᵖ}
 def boxPrimitive : PartialCochain1 (tubeSieve φ) := tubePrimitive φ (boxDifference b)
 
 theorem boxPrimitive_boundary {X Y Z : (total (interval Γ)).Elementsᵒᵖ}
-    (f : X ⟶ Y) (g : Y ⟶ Z) (p : (tubeSieve φ).contains Z) :
+    (f : X ⟶ Y) (g : Y ⟶ Z) (p : (tubeSieve φ).Contains Z) :
     boxPrimitive b g p - boxPrimitive b (f ≫ g) p +
       boxPrimitive b f ((tubeSieve φ).downward g p) =
       (partialSectionCocycle b.tube).cochain f g p - (boxBaseCocycle b).cochain f g := by
@@ -42,7 +42,7 @@ noncomputable def boxCocycle : Cocycle2 (total (interval Γ)).Elementsᵒᵖ :=
   relativeExtension (boxBaseCocycle b) (boxPrimitive b)
 
 theorem boxCocycle_tube {X Y Z : (total (interval Γ)).Elementsᵒᵖ}
-    (f : X ⟶ Y) (g : Y ⟶ Z) (p : (tubeSieve φ).contains Z) :
+    (f : X ⟶ Y) (g : Y ⟶ Z) (p : (tubeSieve φ).Contains Z) :
     (boxCocycle b).cochain f g = (partialSectionCocycle b.tube).cochain f g p :=
   relativeExtension_inside _ _ _ (boxPrimitive_boundary b) f g p
 

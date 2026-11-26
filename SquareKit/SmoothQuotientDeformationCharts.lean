@@ -18,7 +18,7 @@ def toArc {m : X ⟶ M} (h : Deformation (chart a m)) : QuotientFixedArcs.Arcs (
       naturality {U V} f := by
         apply ConcreteCategory.hom_ext
         intro y
-        have hn := NatTrans.naturality_apply h.map.hom f (show (product D (SplitSheaf.Ext (chart a m).torsor.family)).obj.obj U from (y.1, ⟨y.2,(1 : (locallyConstantGroup H).obj.obj U)⟩))
+        have hn := NatTrans.naturality_apply h.map.hom f (show (product D (SplitSheaf.extension (chart a m).torsor.family)).obj.obj U from (y.1, ⟨y.2,(1 : (locallyConstantGroup H).obj.obj U)⟩))
         change h.map.hom.app V ((D).obj.map f y.1,
           ⟨X.obj.map f y.2, (locallyConstantGroup H).obj.map f 1⟩) = _ at hn
         change h.map.hom.app V ((D).obj.map f y.1,⟨X.obj.map f y.2,(1 : (locallyConstantGroup H).obj.obj V)⟩) =

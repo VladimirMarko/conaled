@@ -107,7 +107,7 @@ def ofSubsingleton {Γ : Context.{u}} (A : Family Γ)
 private def smallReindex {Γ Δ : Context.{u+1}} {A : Family Γ}
     (P : SmallUniverse.SmallPresentation.Data A) (σ : Δ ⟶ Γ) :
     SmallUniverse.SmallPresentation.Data (reindex A σ) where
-  fiber x := P.fiber (σ.mapElements.obj x)
+  Fiber x := P.Fiber (σ.mapElements.obj x)
   equiv x := P.equiv (σ.mapElements.obj x)
 
 noncomputable def pathsPresentation {Γ : Context.{u+1}} {A : Family Γ}

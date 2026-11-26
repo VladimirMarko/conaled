@@ -36,7 +36,7 @@ theorem changed_policy_runs :
     Runs (.run (.last L₀ 0 none []) (.out L₀)) (.deliver L₀ (.found 2 4 2 [])) := by
   simpa [lastResult, finish] using last_terminates L₀ [] none []
 
-theorem changed_policy_good : Pgood.holds (.run (.last L₀ 0 none []) (.out L₀)) :=
+theorem changed_policy_good : goodPole.Holds (.run (.last L₀ 0 none []) (.out L₀)) :=
   ⟨.found 2 4 2 [], by simp [Weak], changed_policy_runs⟩
 
 theorem changed_policy_differs : direct L₀ ≠ Value.found 2 4 2 [] := by

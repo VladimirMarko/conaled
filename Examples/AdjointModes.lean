@@ -10,18 +10,18 @@ set_option backward.isDefEq.respectTransparency false
 
 abbrev U : Ty .unrestricted := .atom .unrestricted
 abbrev L : Ty .linear := .atom .linear
-abbrev Input : Ty .linear := .times (.down U) L
+abbrev inputType : Ty .linear := .times (.down U) L
 
 inductive Source : Signature
-  | addDouble : Source Input L
+  | addDouble : Source inputType L
   | finish : Source L L
 inductive Middle : Signature
   | double : Middle U U
-  | add : Middle Input L
+  | add : Middle inputType L
   | finish : Middle L L
 inductive Target : Signature
   | addU : Target (.times U U) U
-  | addL : Target Input L
+  | addL : Target inputType L
   | successor : Target L L
 
 def sourceMeaning : PayloadMeaning tokenAtoms Source
@@ -62,9 +62,9 @@ theorem target_local {m} {A B : Ty m} (a : Target A B) x :
     B.forget tokenAtoms ((targetResources a).run x) = targetMeaning a (A.forget tokenAtoms x) := by
   cases a <;> rfl
 
-def client : Term Source Input L := .comp (.prim .finish) (.prim .addDouble)
+def client : Term Source inputType L := .comp (.prim .finish) (.prim .addDouble)
 
-def compiledClient : Term Target Input L := client.translate (secondPass.comp firstPass)
+def compiledClient : Term Target inputType L := client.translate (secondPass.comp firstPass)
 
 /-- Whole-program preservation is derived from the local primitive certificates,
 including both nontrivial expansion passes and final resource interpretation. -/
@@ -94,7 +94,7 @@ example : Nonempty (Term EmptySignature U (.one .unrestricted)) := ⟨.discard�
 example : ¬Nonempty (Term EmptySignature L (.times L L)) := no_generic_linear_copy
 example : ¬Nonempty (Term EmptySignature L (.one .linear)) := no_generic_linear_discard
 example : ¬Above .linear .unrestricted := no_linear_dependency
-example : ¬PolicyValid (fun _ _ => True) permits := reverse_order_invalid
+example : ¬PolicyValid (fun _ _ => True) Permits := reverse_order_invalid
 
 /-- Both shifts are exercised, with selected U data retained through unit and counit. -/
 def shiftedRoundTrip : Term EmptySignature (.down U) (.down U) :=
@@ -116,7 +116,7 @@ theorem selected_evaluation : Eval tokenAtoms targetMeaning compiledClient ((3 :
   exact h
 
 /-- The direct resource-contract baseline for the same client. -/
-def directClient : Map (Input.meaning tokenAtoms) (L.meaning tokenAtoms) :=
+def directClient : Map (inputType.meaning tokenAtoms) (L.meaning tokenAtoms) :=
   ⟨fun ((n,x) : Nat × Nat) => (n+n)+x+1, fun _ => rfl⟩
 
 theorem compiler_agrees_direct : compiledClient.compile tokenAtoms targetResources = directClient := by

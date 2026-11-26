@@ -21,13 +21,13 @@ theorem cap_ne_endpoint (b : Bool) : cap ≠ endpoint ctx b := by
   have hh := congrArg (fun t => (t.val (representableGeneric ⟨3⟩)).down (0 : Fin 1)) h
   cases hh
 
-theorem face_proper : ¬ face.holds (representableGeneric ⟨3⟩) := by
+theorem face_proper : ¬ face.Holds (representableGeneric ⟨3⟩) := by
   intro h
   change Dim.var (1 : Fin 3) = Dim.endpoint false at h
   cases h
 
 def zeroPoint : ctx.Elements := ctx.elementsMk (.op ⟨0⟩) ⟨fun _ => .endpoint false⟩
-theorem face_inhabited : face.holds zeroPoint := rfl
+theorem face_inhabited : face.Holds zeroPoint := rfl
 
 def selected (b : Bool) (n : Fin (if b then 2 else 1)) :
     Term (sigma (ClassifierExamples.tags ctx) (ClassifierExamples.branch ctx)) where

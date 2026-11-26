@@ -70,14 +70,14 @@ example (suffix : Observations Nat) :
 
 /-- The fold/append law passes the interpreted suffix to the existing first consumer. -/
 theorem first_append (p : α → Prop) (xs ys : Observations α) :
-    first p (Observations.append xs ys) =
-      Observations.foldr (fun a _ => p a) (first p ys) xs :=
+    First p (Observations.append xs ys) =
+      Observations.foldr (fun a _ => p a) (First p ys) xs :=
   Observations.foldr_append (fun a _ => p a) False (fun a => ScottContinuous.const (p a)) xs ys
 
 theorem counting_first (p : Nat → Prop) (s : Nat) (suffix : Observations Nat) :
-    first p (Observations.append (observations (guarded PartialSpineProgress.count) s) suffix) =
+    First p (Observations.append (observations (guarded PartialSpineProgress.count) s) suffix) =
         p s ∧
-      first p (Observations.append
+      First p (Observations.append
         (observations (paused PartialSpineProgress.count) (false, s)) suffix) = p s := by
   rw [append_guarded, append_paused, first_guarded, first_paused]
   exact ⟨rfl, rfl⟩
@@ -107,11 +107,11 @@ example :
   exact ⟨rfl, rfl⟩
 
 example (p : Nat → Prop) :
-    first p (Observations.append (Ideal.principal .nil)
+    First p (Observations.append (Ideal.principal .nil)
       (observations (paused PartialSpineProgress.count) (false, 4))) = p 4 := by
   rw [first_append]
   exact (Observations.foldr_nil (fun a (_ : Prop) => p a)
-    (first p (observations (paused PartialSpineProgress.count) (false, 4)))
+    (First p (observations (paused PartialSpineProgress.count) (false, 4)))
     (fun a => (ScottContinuous.const (p a)).monotone)).trans
       (first_paused p PartialSpineProgress.count 4)
 

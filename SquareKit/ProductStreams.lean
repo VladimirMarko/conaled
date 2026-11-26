@@ -58,7 +58,7 @@ def final : IsTerminal (coalgebra A) := IsTerminal.ofUniqueHom (unfold A) (by
 
 /-- An invertible structure-preserving comparison suffices, without claiming
 that an arbitrary functor preserves final coalgebras. -/
-def final_of_comparison {S : Coalgebra (step A)} (f : S ⟶ coalgebra A) [IsIso f.f] :
+def finalOfComparison {S : Coalgebra (step A)} (f : S ⟶ coalgebra A) [IsIso f.f] :
     IsTerminal S :=
   (final A).ofIso (Coalgebra.isoMk (asIso f.f) f.h).symm
 
@@ -93,13 +93,13 @@ def functionComparison : functionCoalgebra B ⟶ coalgebra B where
 def functionFinal : IsTerminal (functionCoalgebra B) := by
   letI : IsIso (functionComparison B).f :=
     inferInstanceAs (IsIso (Types.productIso (fun _ : Nat => B)).inv)
-  exact final_of_comparison B (functionComparison B)
+  exact finalOfComparison B (functionComparison B)
 end Types
 
 /-- Preserving the one countable power, together with the checked coalgebra
 comparison law, suffices for this route. No preservation of arbitrary limits
 or arbitrary final coalgebras is asserted. -/
-def final_of_preservesPower (F : Type ⥤ C) (B : Type)
+def finalOfPreservesPower (F : Type ⥤ C) (B : Type)
     [HasProduct (fun _ : Nat => F.obj B)]
     [PreservesLimit (Discrete.functor (fun _ : Nat => B)) F]
     (str : F.obj (Nat → B) ⟶ (step (F.obj B)).obj (F.obj (Nat → B)))
@@ -108,7 +108,7 @@ def final_of_preservesPower (F : Type ⥤ C) (B : Type)
       (F.map (Types.productIso (fun _ : Nat => B)).inv ≫ piComparison F (fun _ : Nat => B)) ≫
         (coalgebra (F.obj B)).str) :
     IsTerminal (show Coalgebra (step (F.obj B)) from ⟨F.obj (Nat → B), str⟩) :=
-  final_of_comparison (F.obj B)
+  finalOfComparison (F.obj B)
     ⟨F.map (Types.productIso (fun _ : Nat => B)).inv ≫ piComparison F (fun _ : Nat => B), law⟩
 
 end SquareKit.ProductStreams

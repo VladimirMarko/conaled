@@ -16,17 +16,17 @@ namespace Applications.Probability.QuasiBorel
 
 structure Space where
   Carrier : Type
-  random : (ℝ → Carrier) → Prop
-  constant : ∀ x, random (fun _ => x)
-  reparam : ∀ {a}, random a → ∀ {r : ℝ → ℝ}, Measurable r → random (a ∘ r)
-  select : ∀ {a : ℕ → ℝ → Carrier}, (∀ n, random (a n)) →
-    ∀ {i : ℝ → ℕ}, Measurable i → random (fun r => a (i r) r)
+  Random : (ℝ → Carrier) → Prop
+  constant : ∀ x, Random (fun _ => x)
+  reparam : ∀ {a}, Random a → ∀ {r : ℝ → ℝ}, Measurable r → Random (a ∘ r)
+  select : ∀ {a : ℕ → ℝ → Carrier}, (∀ n, Random (a n)) →
+    ∀ {i : ℝ → ℕ}, Measurable i → Random (fun r => a (i r) r)
 
 instance : CoeSort Space Type := ⟨Space.Carrier⟩
 
 structure Hom (X Y : Space) where
   toFun : X → Y
-  preserves : ∀ {a}, X.random a → Y.random (toFun ∘ a)
+  preserves : ∀ {a}, X.Random a → Y.Random (toFun ∘ a)
 
 instance {X Y : Space} : CoeFun (Hom X Y) (fun _ => X → Y) := ⟨Hom.toFun⟩
 
@@ -41,7 +41,7 @@ def Hom.comp {X Y Z : Space} (g : Hom Y Z) (f : Hom X Y) : Hom X Z :=
 
 abbrev ofMeasurable (A : Type) [MeasurableSpace A] : Space where
   Carrier := A
-  random := Measurable
+  Random := Measurable
   constant _ := measurable_const
   reparam {_a} ha {_r} hr := ha.comp hr
   select {a} ha {_i} hi := by
@@ -54,7 +54,7 @@ def measurableHom {A B : Type} [MeasurableSpace A] [MeasurableSpace B]
 
 abbrev prod (X Y : Space) : Space where
   Carrier := X × Y
-  random a := X.random (fun r => (a r).1) ∧ Y.random (fun r => (a r).2)
+  Random a := X.Random (fun r => (a r).1) ∧ Y.Random (fun r => (a r).2)
   constant p := ⟨X.constant p.1, Y.constant p.2⟩
   reparam {_a} ha {_r} hr := ⟨X.reparam ha.1 hr, Y.reparam ha.2 hr⟩
   select {_a} ha {_i} hi := ⟨X.select (fun n => (ha n).1) hi, Y.select (fun n => (ha n).2) hi⟩
@@ -67,8 +67,8 @@ def pair {W X Y : Space} (f : Hom W X) (g : Hom W Y) : Hom W (prod X Y) :=
 /-- The exponential condition tests joint randomness, including reparameterizations. -/
 abbrev exp (X Y : Space) : Space where
   Carrier := Hom X Y
-  random a := ∀ (r : ℝ → ℝ), Measurable r → ∀ b, X.random b →
-    Y.random (fun t => a (r t) (b t))
+  Random a := ∀ (r : ℝ → ℝ), Measurable r → ∀ b, X.Random b →
+    Y.Random (fun t => a (r t) (b t))
   constant f := fun _ _ _ hb => f.preserves hb
   reparam {_a} ha {_s} hs := fun r hr b hb => ha (_ ∘ r) (hs.comp hr) b hb
   select {_a} ha {_i} hi := fun r hr b hb =>
@@ -96,14 +96,14 @@ def uncurry {W X Y : Space} (f : Hom W (exp X Y)) : Hom (prod W X) Y :=
 /-- The measurable sets tested by all real random elements. This is not asserted
     to preserve products. -/
 abbrev sigma (X : Space) : MeasurableSpace X where
-  MeasurableSet' s := ∀ a, X.random a → MeasurableSet (a ⁻¹' s)
+  MeasurableSet' s := ∀ a, X.Random a → MeasurableSet (a ⁻¹' s)
   measurableSet_empty := by intro a ha; simp
   measurableSet_compl := by intro s hs a ha; exact (hs a ha).compl
   measurableSet_iUnion := by
     intro s hs a ha
     simpa only [Set.preimage_iUnion] using MeasurableSet.iUnion (fun n => hs n a ha)
 
-theorem random_measurable {X : Space} {a : ℝ → X} (ha : X.random a) :
+theorem random_measurable {X : Space} {a : ℝ → X} (ha : X.Random a) :
     @Measurable _ _ inferInstance (sigma X) a := fun _ hs => hs a ha
 
 theorem Hom.measurable {X Y : Space} (f : Hom X Y) :

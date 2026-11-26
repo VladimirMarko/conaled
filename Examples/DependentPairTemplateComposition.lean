@@ -9,22 +9,22 @@ open DependentTheoryMaps
 
 /-- Identity followed by the actual G expansion is constructed as finite
 closed templates and interpreted through the generic composition theorem. -/
-def FGtemplate : TemplateMap projectionSignature eliminationSignature :=
-  TemplateMap.comp (TemplateMap.identity projectionSignature) Gtemplate
+def fgTemplate : TemplateMap projectionSignature eliminationSignature :=
+  TemplateMap.comp (TemplateMap.identity projectionSignature) gTemplate
 
-theorem FGtemplate_act (e : PExpr V) :
-    (TemplateMap.toSyntax FGtemplate).act e = G.act e := by
-  rw [FGtemplate, TemplateMap.identity_comp_act, Gtemplate_act]
+theorem fgTemplate_act (e : PExpr V) :
+    (TemplateMap.toSyntax fgTemplate).act e = G.act e := by
+  rw [fgTemplate, TemplateMap.identity_comp_act, gTemplate_act]
 
 /-- The selected expression after both substitutions uses that same composed
 finite-template action, rather than an unrelated raw translation. -/
 theorem selected_template_action :
-    (TemplateMap.toSyntax FGtemplate).act
+    (TemplateMap.toSyntax fgTemplate).act
       (DependentPairTheoryTransport.u (DependentPairTheoryTransport.d
         (.var DependentPairTheoryTransport.m))) =
       DependentPairDeclarations.Elimination.u (DependentPairDeclarations.Elimination.d
         (.var DependentPairTheoryTransport.m)) := by
-  rw [FGtemplate_act]
+  rw [fgTemplate_act]
   exact DependentPairCompilation.target_expression
 
 end SquareKit.DependentPairPresentations.Templates

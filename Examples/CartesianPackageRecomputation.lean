@@ -32,19 +32,19 @@ def fromConstant (e : A ≅ constantFamily Γ S) (x : Γ.Elements) (p : StatePac
       rw [← e.inv.naturality_apply, e.hom.naturality_apply]
       rfl }
   invariant := {
-    val := fun {y} _ a => p.invariant (e.hom.app y a)
+    val := fun {y} _ a => p.Invariant (e.hom.app y a)
     naturality := by
       intro y z f g a
-      change p.invariant (e.hom.app y a) = p.invariant (e.hom.app z (A.map g a))
+      change p.Invariant (e.hom.app y a) = p.Invariant (e.hom.app z (A.map g a))
       rw [e.hom.naturality_apply]
       rfl }
-  initial_valid := ⟨by
-    change p.invariant (e.hom.app x (e.inv.app x p.initial))
+  initialInvariantWitness := ⟨by
+    change p.Invariant (e.hom.app x (e.inv.app x p.initial))
     rw [e.inv_hom_id_app_apply]
     exact p.initial_valid⟩
   preserves := fun {y} _ a => ⟨by
-    change p.invariant (e.hom.app y a) →
-      p.invariant (e.hom.app y (e.inv.app y (p.step (e.hom.app y a))))
+    change p.Invariant (e.hom.app y a) →
+      p.Invariant (e.hom.app y (e.inv.app y (p.step (e.hom.app y a))))
     rw [e.inv_hom_id_app_apply]
     exact p.preserves _⟩
 
@@ -59,7 +59,7 @@ theorem to_from (e : A ≅ constantFamily Γ S) (x : Γ.Elements) (p : StatePack
     change e.hom.app x (e.inv.app x (p.step (e.hom.app x (e.inv.app x a)))) = p.step a
     rw [e.inv_hom_id_app_apply, e.inv_hom_id_app_apply]
   · funext a
-    change p.invariant (e.hom.app x (e.inv.app x a)) = p.invariant a
+    change p.Invariant (e.hom.app x (e.inv.app x a)) = p.Invariant a
     rw [e.inv_hom_id_app_apply]
 
 theorem from_to (e : A ≅ constantFamily Γ S) (x : Γ.Elements) (p : TargetPackage A x) :
@@ -94,14 +94,14 @@ def packageRestrict {x y : Γ.Elements} (f : x ⟶ y) (p : TargetPackage A x) :
   initial := A.map f p.initial
   step := p.step.restrict f
   invariant := p.invariant.restrict f
-  initial_valid := ⟨by
+  initialInvariantWitness := ⟨by
     have h := p.invariant.naturality (𝟙 x) f p.initial
     change p.invariant.val (𝟙 x) p.initial =
       p.invariant.val ((𝟙 x) ≫ f) (A.map f p.initial) at h
     change p.invariant.val (f ≫ 𝟙 y) (A.map f p.initial)
     rw [Category.id_comp] at h
     rw [Category.comp_id, ← h]
-    exact p.initial_valid.down⟩
+    exact p.initialInvariantWitness.down⟩
   preserves := fun g a => p.preserves (f ≫ g) a
 
 def packageFamily (A : Cartesian.Family Γ) : Cartesian.Family Γ where
@@ -157,7 +157,7 @@ def pullTargetPackage (e : A ≅ constantFamily Γ S) (p : StatePackage S) :
   Cartesian.Term.map (packagePresentation e).inv ⟨fun _ => p, fun _ => rfl⟩
 
 def emptySubcontext (Γ : Cartesian.Context.{0}) : Subcontext Γ where
-  holds _ := False
+  Holds _ := False
   natural _ := False.elim
 
 def packageBox {A : Cartesian.Family (Cartesian.total (Cartesian.interval Γ))}
@@ -300,7 +300,7 @@ theorem recomputed_observation : observer (recomputedFinish.step recomputedFinis
   rw [recomputedFinish_eq]
   exact transported_observation
 
-theorem recomputed_invariant : recomputedFinish.invariant .ready ∧ ¬ recomputedFinish.invariant .failed := by
+theorem recomputed_invariant : recomputedFinish.Invariant .ready ∧ ¬ recomputedFinish.Invariant .failed := by
   rw [recomputedFinish_eq]
   exact transported_invariant
 

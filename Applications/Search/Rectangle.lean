@@ -24,7 +24,7 @@ variable {α : Type u} {β : Type v}
 section Endpoints
 variable [LE α] [LE β]
 
-def Overlap (r s : Rectangle α β) : Prop := r.x.overlap s.x ∧ r.y.overlap s.y
+def Overlap (r s : Rectangle α β) : Prop := r.x.Overlap s.x ∧ r.y.Overlap s.y
 
 theorem overlap_comm (r s : Rectangle α β) : Overlap r s ↔ Overlap s r := by
   rw [Overlap, Overlap, IntervalKey.overlap_comm r.x, IntervalKey.overlap_comm r.y]

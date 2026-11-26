@@ -35,11 +35,11 @@ def checkedSites : Sites := ⟨.checked,.checked⟩
 /-- Synthetic timings distinguish policy correctness, not empirical speed. -/
 def synthetic (r : Requirements) (w : String) (winner : Sites)
     (cs : List Sites := catalog) : Epoch :=
-  let ctx := admittedContext cs (eligible r) Sites.name (context r w)
+  let ctx := admittedContext cs (Eligible r) Sites.name (context r w)
   ⟨ctx,1,ctx.catalog.map fun name => ⟨name,0,if name = winner.name then 1 else 100,true,ctx⟩⟩
 
 example : (synthetic roomy "fixture" checkedSites).complete
-    (admittedContext catalog (eligible roomy) Sites.name (context roomy "fixture")) 1 = true := by decide
+    (admittedContext catalog (Eligible roomy) Sites.name (context roomy "fixture")) 1 = true := by decide
 example : select roomy "fixture" (some (synthetic roomy "fixture" checkedSites)) = some checkedSites := by decide
 example : select roomy "fixture" (some (synthetic roomy "fixture" splitSites)) = some splitSites := by decide
 example : select {capacity := 0} "fixture" none = none := by decide
@@ -66,7 +66,7 @@ example (b : Bool) (x : Input) : preprocess b x = Rich.oracle x := by
 
 example : (Sites.plan ⟨.split,.checked⟩).storage = 144 ∧
     (Sites.plan ⟨.checked,.split⟩).storage = 147 := by decide
-example : eligible {capacity := 145} ⟨.split,.checked⟩ ∧
-    ¬ eligible {capacity := 145} ⟨.checked,.split⟩ := by decide
+example : Eligible {capacity := 145} ⟨.split,.checked⟩ ∧
+    ¬ Eligible {capacity := 145} ⟨.checked,.split⟩ := by decide
 
 end FRPSpec.Regional.Selection

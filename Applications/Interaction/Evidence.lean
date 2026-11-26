@@ -120,13 +120,13 @@ theorem recovery_can_finish : Recover unknownEffect ⟨1, true, true⟩ :=
 
 /-- Source and target worlds can have matching effect counts while differing
 on whether evidence was published. This deliberately coarse relation loses it. -/
-def countObservation (s t : State) : Prop := s.effects = t.effects
+def CountObservation (s t : State) : Prop := s.effects = t.effects
 
 def recorded : State := ⟨1, true, true⟩
 def unrecorded : State := ⟨1, false, false⟩
 
 theorem coarse_refinement :
-    Refines countObservation {recorded} {unrecorded} := by
+    Refines CountObservation {recorded} {unrecorded} := by
   intro t ht
   have ht : t = unrecorded := ht
   subst t

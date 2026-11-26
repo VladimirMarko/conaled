@@ -58,27 +58,27 @@ theorem false_product_no_global :
 namespace Native
 open SquareKit.TypeTerminalProduct
 
-def values (n : Nat) := Fin (n+1)
-def body : DependentSquares.Tm (valueFamily values) := fun z => ⟨z.2, Nat.lt_succ_self _⟩
-def last : object values := lambda values (fun n => body ⟨PUnit.unit,n⟩)
+def Values (n : Nat) := Fin (n+1)
+def body : DependentSquares.Tm (valueFamily Values) := fun z => ⟨z.2, Nat.lt_succ_self _⟩
+def last : object Values := lambda Values (fun n => body ⟨PUnit.unit,n⟩)
 
-theorem last_native : piTyEquiv values last = DependentSquares.lam body PUnit.unit :=
-  lambda_lam values body
+theorem last_native : piTyEquiv Values last = DependentSquares.lam body PUnit.unit :=
+  lambda_lam Values body
 
-theorem last_component (n : Nat) : (evaluate values last n).val = n := by
-  rw [show last = lambda values (fun n => body ⟨PUnit.unit,n⟩) from rfl, beta]
+theorem last_component (n : Nat) : (evaluate Values last n).val = n := by
+  rw [show last = lambda Values (fun n => body ⟨PUnit.unit,n⟩) from rfl, beta]
   rfl
 
 /-- This component is also the value of the actual pullback counit. -/
 theorem last_counit (n : Nat) :
-    ((SquareKit.TerminalProduct.adjunction Nat).counit.app (family values)).left
+    ((SquareKit.TerminalProduct.adjunction Nat).counit.app (family Values)).left
       (((SquareKit.TerminalProduct.pullbackComparison Nat).inv.app
-        ((SquareKit.TerminalProduct.pi Nat).obj (family values))).left (last,n)) =
-      (⟨n, ⟨n, Nat.lt_succ_self _⟩⟩ : Sigma values) := by
+        ((SquareKit.TerminalProduct.pi Nat).obj (family Values))).left (last,n)) =
+      (⟨n, ⟨n, Nat.lt_succ_self _⟩⟩ : Sigma Values) := by
   rw [evaluate_counit]
   congr 1
   exact Fin.ext (last_component n)
 
-theorem last_eta : lambda values (evaluate values last) = last := eta values last
+theorem last_eta : lambda Values (evaluate Values last) = last := eta Values last
 end Native
 end Examples.TerminalProducts

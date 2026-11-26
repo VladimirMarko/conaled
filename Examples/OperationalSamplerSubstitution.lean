@@ -95,13 +95,13 @@ theorem nativeLaw_apply (s : ℕ) (B : Set (Bool × Bool × Bool × Bool))
     obtain ⟨a,ha,rfl⟩ := Progress.mapReturn_evaluates_inv h
     exact ⟨a,k,ha,hB⟩
 
-abbrev FunctionObservation := QuasiBorel.prod
+abbrev functionObservation := QuasiBorel.prod
   (QuasiBorel.prod SamplerSubstitution.functions SamplerSubstitution.bit)
   SamplerSubstitution.bit
 
 /-- Interpret an explicit finite function code; no representation is selected
 by classical choice. The complete function remains in the result. -/
-def interpret (z : Bool × Bool × Bool × Bool) : FunctionObservation :=
+def interpret (z : Bool × Bool × Bool × Bool) : functionObservation :=
   ((SamplerSubstitution.sampled z.1,z.2.2.1),z.2.2.2)
 
 theorem interpret_selected (b t u : Bool) :
@@ -110,12 +110,12 @@ theorem interpret_selected (b t u : Bool) :
         SamplerSubstitution.next ((b,t),u) := rfl
 
 theorem whole_function_law (s : ℕ) :
-    @Measure.map _ FunctionObservation _ (QuasiBorel.sigma FunctionObservation)
+    @Measure.map _ functionObservation _ (QuasiBorel.sigma functionObservation)
       interpret (nativeLaw s) =
       QuasiBorel.law ((SamplerClient.fair.prod SamplerClient.fair).prod SamplerClient.fair)
         (QuasiBorel.retainedTwo SamplerSubstitution.sampled SamplerSubstitution.query
           SamplerSubstitution.next) := by
-  let : MeasurableSpace FunctionObservation := QuasiBorel.sigma FunctionObservation
+  let : MeasurableSpace functionObservation := QuasiBorel.sigma functionObservation
   rw [nativeLaw,Measure.map_map (measurable_of_countable _) (measurable_of_countable _),
     seedLaw_eq]
   rfl
@@ -123,7 +123,7 @@ theorem whole_function_law (s : ℕ) :
 /-- Reuse the public represented substitution theorem for the whole function
 observation. No seed, tape, cursor or work equality is asserted. -/
 theorem whole_function_replacement (s : ℕ) :
-    @Measure.map _ FunctionObservation _ (QuasiBorel.sigma FunctionObservation)
+    @Measure.map _ functionObservation _ (QuasiBorel.sigma functionObservation)
       interpret (nativeLaw s) =
       QuasiBorel.law ((SamplerClient.fair.prod SamplerClient.fair).prod SamplerClient.fair)
         (QuasiBorel.retainedTwo SamplerSubstitution.recodedTwice SamplerSubstitution.query

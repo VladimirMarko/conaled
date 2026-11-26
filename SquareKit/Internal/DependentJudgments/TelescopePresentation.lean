@@ -24,7 +24,7 @@ abbrev projectionConsRule (n : Nat) := consSchema n
 theorem consSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat)
     (out : Judgment (Fin 3))
     (valid : ∀ Γ A (T : Telescope M.toStructuralModel (M.extend Γ A) n),
-      out.eval (algebra M) ![.context Γ, .family Γ A, .telescope (M.extend Γ A) n T]) :
+      out.Eval (algebra M) ![.context Γ, .family Γ A, .telescope (M.extend Γ A) n T]) :
     Satisfies (algebra M) (consSchema n out) := by
   intro ρ h
   rcases h 0 with ⟨Γ, A, hΓ, hA⟩
@@ -46,13 +46,13 @@ theorem totalCons_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (totalConsRule n) := by
   apply consSchema_valid
   intro Γ A T
-  simp [Atom.eval, Term.eval, algebra, operation, Telescope.total]
+  simp [Atom.Eval, Term.eval, algebra, operation, Telescope.total]
 
 theorem projectionCons_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (projectionConsRule n) := by
   apply consSchema_valid
   intro Γ A T
-  simp [Atom.eval, Term.eval, algebra, operation, DependentJudgments.operation,
+  simp [Atom.Eval, Term.eval, algebra, operation, DependentJudgments.operation,
     Telescope.total, Telescope.projection]
 
 
@@ -77,7 +77,7 @@ theorem consSubSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat)
     (out : Judgment (Fin 5))
     (valid : ∀ Γ Δ A (T : Telescope M.toStructuralModel (M.extend Γ A) n)
       (σ : M.Substitution Δ Γ),
-      out.eval (algebra M) ![.context Γ, .context Δ, .family Γ A,
+      out.Eval (algebra M) ![.context Γ, .context Δ, .family Γ A,
         .telescope (M.extend Γ A) n T, .substitution Δ Γ σ]) :
     Satisfies (algebra M) (consSubSchema n out) := by
   intro ρ h
@@ -145,14 +145,14 @@ theorem tailMapNil_valid (M : PathTransport.Typed.Model.{u}) :
     Satisfies (algebra M) tailMapNilRule := by
   apply subSchema_valid
   intro Γ Δ σ
-  simp [Atom.eval, Term.eval, FinitaryTerm.fold, algebra, operation,
+  simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation,
     Telescope.liftSub, Telescope.reindex, Telescope.pullback, Telescope.total]
 
 theorem rootTailDef_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (rootTailDefRule n) := by
   apply tailSchema_valid
   intro Γ A x T
-  simp [Atom.eval, Term.eval, algebra, operation, StructuralModel.rootTail]
+  simp [Atom.Eval, Term.eval, algebra, operation, StructuralModel.rootTail]
 
 abbrev pathTailDefRule (n : Nat) := tailSubSchema n
   (.eq (pathTail (.var 1) (.var 2) (.var 3) (.var 5))
@@ -173,20 +173,20 @@ theorem pathTailDef_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (pathTailDefRule n) := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
-  simp [Atom.eval, Term.eval, algebra, operation, StructuralModel.pathTail]
+  simp [Atom.Eval, Term.eval, algebra, operation, StructuralModel.pathTail]
 
 theorem pathTailMapDef_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (pathTailMapDefRule n) := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
-  simp [Atom.eval, Term.eval, algebra, operation, StructuralModel.pathTailMap,
+  simp [Atom.Eval, Term.eval, algebra, operation, StructuralModel.pathTailMap,
     StructuralModel.pathTail]
 
 theorem branchSquare_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (branchSquareRule n) := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
-  simp [Atom.eval, Term.eval, algebra, operation, DependentJudgments.operation]
+  simp [Atom.Eval, Term.eval, algebra, operation, DependentJudgments.operation]
   exact M.toStructuralModel.branchMap_square A x T σ
 
 abbrev reindexBranchDefRule (n : Nat) := jSubSchema n

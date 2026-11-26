@@ -11,9 +11,9 @@ open SquareKit.SmoothAlgebra
 open PresentedLocalization PrincipalCover
 attribute [local instance] DualExtension.smoothStructure
 
-abbrev r : Fin 0 → Free 1 := noRelations 1
-abbrev x : Free 1 := generator 0
-def p : Fin 2 → Free 1 := ![x,1-x]
+abbrev r : Fin 0 → freeAlgebra 1 := noRelations 1
+abbrev x : freeAlgebra 1 := generator 0
+def p : Fin 2 → freeAlgebra 1 := ![x,1-x]
 abbrev A := Presentation.Carrier r
 
 theorem cover : Covers (fun i => Presentation.projection r (p i)) := by
@@ -103,8 +103,8 @@ theorem failed_cover : ¬ Covers (fun _ : Fin 1 => (0 : A)) := by
   simp [hz] at hc
 
 theorem failed_separatedness : ∃ a b : A, a≠b ∧ base r 0 a=base r 0 b := by
-  have hn : IsNilpotent (Presentation.projection r (0 : Free 1)) := by
-    have hz : Presentation.projection r (0 : Free 1)=0 := (Presentation.projection r).toAlgHom.map_zero
+  have hn : IsNilpotent (Presentation.projection r (0 : freeAlgebra 1)) := by
+    have hz : Presentation.projection r (0 : freeAlgebra 1)=0 := (Presentation.projection r).toAlgHom.map_zero
     rw [hz]
     exact ⟨1,zero_pow (by decide)⟩
   have := nilpotent_subsingleton r 0 hn
@@ -114,11 +114,11 @@ theorem failed_separatedness : ∃ a b : A, a≠b ∧ base r 0 a=base r 0 b := b
   exact zero_ne_one (by simpa only [map_zero,map_one] using h)
 
 /-- The empty descent equivalence exists exactly for a trivial base algebra. -/
-theorem empty_trivial (r₀ : Fin 1 → Free 0) (h : Subsingleton (Presentation.Carrier r₀)) :
+theorem empty_trivial (r₀ : Fin 1 → freeAlgebra 0) (h : Subsingleton (Presentation.Carrier r₀)) :
     Nonempty (Presentation.Carrier r₀ ≃ AtSections r₀ (Fin.elim0 : Fin 0 → Presentation.Carrier r₀)) :=
   ⟨atDescentEquiv r₀ Fin.elim0 ((empty_iff _).mpr h)⟩
 
-def improper : Fin 1 → Free 0 := ![1]
+def improper : Fin 1 → freeAlgebra 0 := ![1]
 
 theorem improper_trivial : Subsingleton (Presentation.Carrier improper) := by
   apply subsingleton_of_zero_eq_one

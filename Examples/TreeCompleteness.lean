@@ -45,7 +45,7 @@ theorem incomplete_sample_checked :
 def sampleCached : BinaryTree (Nat × (Bool × Nat)) :=
   annotate TreeBasicObservationsExamples.sample
 
-theorem sampleCached_valid : invarCh sampleCached :=
+theorem sampleCached_valid : Valid sampleCached :=
   annotate_valid TreeBasicObservationsExamples.sample
 
 theorem sampleCached_erases : Cached.erase sampleCached = TreeBasicObservationsExamples.sample :=
@@ -65,20 +65,20 @@ def forgedRoot : BinaryTree (Nat × (Bool × Nat)) := .node (4, (false, 1)) .nil
 theorem forged_root_complete : Complete (Cached.erase forgedRoot) :=
   ⟨rfl, complete_nil, complete_nil⟩
 
-theorem forged_root_invalid : ¬ invarCh forgedRoot := by
+theorem forged_root_invalid : ¬ Valid forgedRoot := by
   intro h
   have hflag := (ch_complete forgedRoot h).mpr forged_root_complete
   change false = true at hflag
   cases hflag
 
 theorem forged_root_boundary :
-    ch forgedRoot = (false, 1) ∧ Complete (Cached.erase forgedRoot) ∧ ¬ invarCh forgedRoot :=
+    ch forgedRoot = (false, 1) ∧ Complete (Cached.erase forgedRoot) ∧ ¬ Valid forgedRoot :=
   ⟨rfl, forged_root_complete, forged_root_invalid⟩
 
 /-- This child's completeness flag is correct, but its stored height is not. -/
 def forgedLeaf : BinaryTree (Nat × (Bool × Nat)) := .node (7, (true, 0)) .nil .nil
 
-theorem forged_leaf_invalid : ¬ invarCh forgedLeaf := by
+theorem forged_leaf_invalid : ¬ Valid forgedLeaf := by
   intro h
   have hheight := ch_height forgedLeaf h
   change (0 : Nat) = 1 at hheight
@@ -92,7 +92,7 @@ theorem forged_parent_local_root :
       (ch (.nil : BinaryTree (Nat × (Bool × Nat)))) :=
   ch_nodeCh forgedLeaf 9 .nil
 
-theorem forged_parent_invalid : ¬ invarCh forgedParent := by
+theorem forged_parent_invalid : ¬ Valid forgedParent := by
   intro h
   exact forged_leaf_invalid ((nodeCh_valid_iff forgedLeaf 9 .nil).mp h).1
 
@@ -104,7 +104,7 @@ theorem forged_parent_incomplete : ¬ Complete (Cached.erase forgedParent) := by
 /-- A correct root computation cannot repair the forged descendant it reads. -/
 theorem forged_descendant_boundary :
     (ch forgedParent).1 = true ∧ ¬ Complete (Cached.erase forgedParent) ∧
-      (ch forgedParent).2 ≠ (Cached.erase forgedParent).height ∧ ¬ invarCh forgedParent :=
+      (ch forgedParent).2 ≠ (Cached.erase forgedParent).height ∧ ¬ Valid forgedParent :=
   ⟨rfl, forged_parent_incomplete, by decide, forged_parent_invalid⟩
 
 theorem reader_needs_validity :
@@ -134,17 +134,17 @@ theorem local_node_cost (charge : Nat) (l : BinaryTree (α × (Bool × Nat))) (a
   Resources.TreeCache.nodeRun_cost Completeness.empty (combineRun charge) l a r
 
 theorem local_node_valid (charge : Nat) (l : BinaryTree (α × (Bool × Nat))) (a : α)
-    (r : BinaryTree (α × (Bool × Nat))) (hl : invarCh l) (hr : invarCh r) :
-    invarCh (localNodeRun charge l a r).1 :=
+    (r : BinaryTree (α × (Bool × Nat))) (hl : Valid l) (hr : Valid r) :
+    Valid (localNodeRun charge l a r).1 :=
   Resources.TreeCache.nodeRun_valid Completeness.empty Completeness.combine
     (combineRun charge) l a r hl hr rfl
 
 theorem measured_sample :
     (localNodeRun 1 (nodeCh .nil 3 .nil) 9 (nodeCh .nil 7 .nil)).1 = sampleCached ∧
       (localNodeRun 1 (nodeCh .nil 3 .nil) 9 (nodeCh .nil 7 .nil)).2 = 4 ∧
-      invarCh (localNodeRun 1 (nodeCh .nil 3 .nil) 9 (nodeCh .nil 7 .nil)).1 :=
+      Valid (localNodeRun 1 (nodeCh .nil 3 .nil) 9 (nodeCh .nil 7 .nil)).1 :=
   ⟨(local_node_value 1 _ _ _).trans rfl, local_node_cost 1 _ _ _,
-    local_node_valid 1 _ _ _ (nodeCh_valid .nil 3 .nil invarCh_nil invarCh_nil)
-      (nodeCh_valid .nil 7 .nil invarCh_nil invarCh_nil)⟩
+    local_node_valid 1 _ _ _ (nodeCh_valid .nil 3 .nil valid_nil valid_nil)
+      (nodeCh_valid .nil 7 .nil valid_nil valid_nil)⟩
 
 end Examples.TreeCompleteness

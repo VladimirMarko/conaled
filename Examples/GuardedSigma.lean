@@ -24,7 +24,7 @@ private def ρ : Fin 5 → Value M.toStructuralModel :=
     .term (M.extend (M.extend Unit A) B) (M.subTy C (cap.pack A B)) branch]
 
 /-- The model-specific work supplies only the four stated source assumptions. -/
-theorem branch_assumptions : ∀ p ∈ List.ofFn Sigma.splitRule.premise, p.eval (Sigma.algebra M cap) ρ := by
+theorem branch_assumptions : ∀ p ∈ List.ofFn Sigma.splitRule.premise, p.Eval (Sigma.algebra M cap) ρ := by
   intro p hp
   rcases List.mem_ofFn.mp hp with ⟨i, rfl⟩
   change Fin 4 at i
@@ -39,7 +39,7 @@ theorem branch_assumptions : ∀ p ∈ List.ofFn Sigma.splitRule.premise, p.eval
 
 /-- An ordinary author reuses the generic interpretation theorem. -/
 theorem dependent_elimination_admitted :
-    Sigma.splitRule.conclusion.eval (Sigma.algebra M cap) ρ :=
+    Sigma.splitRule.conclusion.Eval (Sigma.algebra M cap) ρ :=
   Sigma.interpret Sigma.splitDerivation M cap ρ branch_assumptions
 
 /-- The branch computes in Fin(n+1), including the smallest fiber. -/

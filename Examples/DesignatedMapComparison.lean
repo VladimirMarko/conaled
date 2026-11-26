@@ -48,7 +48,7 @@ example : ((((family ∘ (fun m => m + 1)) ∘ (fun k => 2 * k)) 2).selected id)
 
 /-- The small code closures admit a dependent function and an actual fiber;
 these native constructions do not encode quantification over the code object. -/
-def lastFamily : (Represented.pi ⟨Nat⟩ (fun n => ⟨Fin (n + 1)⟩)).carrier := Fin.last
+def lastFamily : (Represented.pi ⟨Nat⟩ (fun n => ⟨Fin (n + 1)⟩)).Carrier := Fin.last
 
 example : (Represented.applyPi lastFamily 6).val = 6 := rfl
 

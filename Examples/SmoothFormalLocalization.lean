@@ -11,8 +11,8 @@ open SquareKit.SmoothAlgebra
 open PresentedLocalization
 attribute [local instance] DualExtension.smoothStructure
 
-abbrev x : Free 1 := generator 0
-def relations : Fin 1 → Free 1 := ![x^2]
+abbrev x : freeAlgebra 1 := generator 0
+def relations : Fin 1 → freeAlgebra 1 := ![x^2]
 abbrev A := Presentation.Carrier relations
 def epsilon : A := Presentation.projection relations x
 
@@ -45,7 +45,7 @@ theorem epsilon_nonzero : epsilon ≠ 0 := by
   rw [value_epsilon,map_zero] at he
   exact one_ne_zero (show (1 : ℝ)=0 from he)
 
-def unitPolynomial : Free 1 := 1+x
+def unitPolynomial : freeAlgebra 1 := 1+x
 
 theorem unit_value : IsUnit (Presentation.projection relations unitPolynomial) := by
   change IsUnit ((Presentation.projection relations).toAlgHom (1+x))
@@ -91,7 +91,7 @@ theorem scaling_nonidentity : scaling ≠ Hom.ident := by
   change (1 : ℝ)+1=1 at hs
   norm_num at hs
 
-def exponential : Free 1 := ⟨fun z => Real.exp (z 0), by
+def exponential : freeAlgebra 1 := ⟨fun z => Real.exp (z 0), by
   change ContDiff ℝ ∞ (fun z : Fin 1 → ℝ => Real.exp (z 0))
   exact Real.contDiff_exp.comp (contDiff_apply ℝ _ 0)⟩
 
@@ -146,16 +146,16 @@ theorem dual_generator_comparison :
 theorem ordinary_open_specialization : Hom.comp (freeToOpen exponential) (openToFree exponential) = Hom.ident :=
   open_free_inverse exponential
 
-theorem zero_localization : Subsingleton (Carrier relations (0 : Free 1)) := by
+theorem zero_localization : Subsingleton (Carrier relations (0 : freeAlgebra 1)) := by
   apply nilpotent_subsingleton
   change IsNilpotent ((Presentation.projection relations).toAlgHom 0)
   rw [map_zero]
   exact ⟨1,by simp⟩
 
-theorem improper_presentation : Subsingleton (Presentation.Carrier (fun _ : Fin 1 => (1 : Free 0))) := by
+theorem improper_presentation : Subsingleton (Presentation.Carrier (fun _ : Fin 1 => (1 : freeAlgebra 0))) := by
   apply subsingleton_of_zero_eq_one
-  have h := Presentation.relation_zero (fun _ : Fin 1 => (1 : Free 0)) 0
-  change (Presentation.projection (fun _ : Fin 1 => (1 : Free 0))).toAlgHom 1 = 0 at h
+  have h := Presentation.relation_zero (fun _ : Fin 1 => (1 : freeAlgebra 0)) 0
+  change (Presentation.projection (fun _ : Fin 1 => (1 : freeAlgebra 0))).toAlgHom 1 = 0 at h
   rw [map_one] at h
   exact h.symm
 

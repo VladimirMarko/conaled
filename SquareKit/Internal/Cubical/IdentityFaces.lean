@@ -7,14 +7,14 @@ open CategoryTheory
 universe u
 
 theorem identity_full_endpoints {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
-    (p : Term (identity A a b)) (h : ∀ x, (identityFace p).full x) : b = a := by
+    (p : Term (identity A a b)) (h : ∀ x, (identityFace p).Full x) : b = a := by
   apply Term.ext
   intro x
   exact ((p.val x).path.property (𝟙 _)).2.symm.trans
     ((p.val x).constant (𝟙 _) (h x) ((endpoint Γ true).val x))
 
 theorem identity_full_refl {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
-    (p : Term (identity A a b)) (h : ∀ x, (identityFace p).full x) :
+    (p : Term (identity A a b)) (h : ∀ x, (identityFace p).Full x) :
     p.convert (congrArg (identity A a) (identity_full_endpoints p h)) = identityRefl a := by
   apply Term.convert_eq
   apply Term.hext (congrArg (identity A a) (identity_full_endpoints p h))
@@ -28,6 +28,6 @@ theorem identity_full_refl {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
 theorem identity_restricted_full {Γ : Context.{u}} {A : Family Γ} {a b : Term A}
     (p : Term (identity A a b)) (x : (restrictContext (identityFace p)).Elements) :
     (identityFace (Term.map (identityReindex A a b (restrictInclusion (identityFace p)))
-      (p.reindex (restrictInclusion (identityFace p))))).full x := x.val.property
+      (p.reindex (restrictInclusion (identityFace p))))).Full x := x.val.property
 
 end SquareKit.Cubical.Presheaf

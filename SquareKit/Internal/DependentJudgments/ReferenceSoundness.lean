@@ -10,18 +10,18 @@ variable {V : Type} {Ξ : List (Declaration V)}
 
 def Claim.Valid (M : PathTransport.Typed.Model.{u})
     (ρ : V → Value M.toStructuralModel) : Claim V → Prop
-  | .has b t => (b.encode t).eval (algebra M) ρ
-  | .eq b s t => (b.encode s).eval (algebra M) ρ ∧
-      (b.encode t).eval (algebra M) ρ ∧ s.eval (algebra M) ρ = t.eval (algebra M) ρ
-  | .tail Γ T => (telescope T.length Γ (T.code Γ)).eval (algebra M) ρ
+  | .has b t => (b.encode t).Eval (algebra M) ρ
+  | .eq b s t => (b.encode s).Eval (algebra M) ρ ∧
+      (b.encode t).Eval (algebra M) ρ ∧ s.eval (algebra M) ρ = t.eval (algebra M) ρ
+  | .tail Γ T => (telescope T.length Γ (T.code Γ)).Eval (algebra M) ρ
 
 /-- The declaration interpretation must validate every supplied declaration.
 The calculus separately checks their syntactic presuppositions at each use. -/
 theorem sound (M : PathTransport.Typed.Model.{u}) (ρ : V → Value M.toStructuralModel)
-    (hΞ : ∀ d ∈ Ξ, d.encode.eval (algebra M) ρ) {c : Claim V} (h : Derives Ξ c) :
+    (hΞ : ∀ d ∈ Ξ, d.encode.Eval (algebra M) ρ) {c : Claim V} (h : Derives Ξ c) :
     c.Valid M ρ := by
   have hs : ∀ p ∈ Ξ.map Declaration.encode,
-      p.eval (TelescopePresentation.model M).toAlgebra ρ := by
+      p.Eval (TelescopePresentation.model M).toAlgebra ρ := by
     intro p hp
     rcases List.mem_map.mp hp with ⟨d, hd, rfl⟩
     exact hΞ d hd
@@ -37,7 +37,7 @@ theorem sound (M : PathTransport.Typed.Model.{u}) (ρ : V → Value M.toStructur
 even when the raw engine proves its reflexive equation. -/
 theorem not_term_of_invalid (M : PathTransport.Typed.Model.{u})
     (ρ : V → Value M.toStructuralModel)
-    (hΞ : ∀ d ∈ Ξ, d.encode.eval (algebra M) ρ)
+    (hΞ : ∀ d ∈ Ξ, d.encode.Eval (algebra M) ρ)
     {Γ A t : Expression V} (ht : t.eval (algebra M) ρ = .invalid) :
     ¬ Nonempty (Derives Ξ (.has (.tm Γ A) t)) := by
   intro ⟨h⟩

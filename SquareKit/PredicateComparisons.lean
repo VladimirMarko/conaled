@@ -6,7 +6,7 @@ namespace SquareKit.PredicateCategory
 universe u w
 /-- The unary predicate is erased to existence when placed in a Prop-valued relation. -/
 def toRelation : RawMap ops.{u,w} RelationalCategory.ops.{u} where
-  obj A := ⟨A.Carrier,PUnit,fun x _ => Nonempty (A.pred x)⟩
+  obj A := ⟨A.Carrier,PUnit,fun x _ => Nonempty (A.Family x)⟩
   map f := ⟨f.toFun,id,fun ⟨h⟩ => ⟨f.imp _ h⟩⟩
 theorem toRelation_laws : MapLaws toRelation.{u,w} equiv (equality _) := by
   constructor
@@ -26,7 +26,7 @@ theorem ofRelation_laws : MapLaws ofRelation.{u} (equality _) equiv := by
 
 /-- An assembly provides a predicate of existence of realizers. No tracker is retained. -/
 def ofAssembly : RawMap (ofCategory Realizability.Assembly.{u}) ops.{u,0} where
-  obj A := ⟨A.Carrier,fun x => PLift (∃ n, A.realizes n x)⟩
+  obj A := ⟨A.Carrier,fun x => PLift (∃ n, A.Realizes n x)⟩
   map f := ⟨f.toFun,fun x h => ⟨by
     obtain ⟨n,hn⟩ := h.down
     obtain ⟨φ,_,ht⟩ := f.tracked

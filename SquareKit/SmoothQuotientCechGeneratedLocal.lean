@@ -16,28 +16,28 @@ variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 /-- Evaluate generated syntax at the supplied local quotient and deformation. -/
 def localMap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (show Grpd.{1,1} from γ (model a A)) ⥤
-      SmoothQuotientGeneratedMatching.context a hΓ (SplitSheaf.Ext A) :=
+      SmoothQuotientGeneratedMatching.context a hΓ (SplitSheaf.extension A) :=
   generatedContextMap (signature a A) hΓ
 
-def parameterFiber (f : Y ⟶ SplitSheaf.Ext A) :
+def parameterFiber (f : Y ⟶ SplitSheaf.extension A) :
     SmoothQuotientDeformations.Cech.family (a := a) (A := A) ⟶
       (SheafActionQuotient.Cech.localFunctor ⋙ restriction f) ⋙ family a Y :=
   localFiber a A ≫ whiskerLeft SheafActionQuotient.Cech.localFunctor (restrictionFamily f)
 
-def parameterSignature (f : Y ⟶ SplitSheaf.Ext A) :=
+def parameterSignature (f : Y ⟶ SplitSheaf.extension A) :=
   alignedUniverseSignature (SheafActionQuotient.Cech.localFunctor ⋙ restriction f)
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
     (family a Y) (parameterFiber a A f)
 
 /-- A named direct endpoint keeps the interpreted context independent of the
 presentation of a composite primitive restriction. -/
-def parameterMap (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.Ext A) :
+def parameterMap (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.extension A) :
     (show Grpd.{1,1} from γ (model a A)) ⥤
       SmoothQuotientGeneratedMatching.context a hΓ Y :=
   generatedContextMap (parameterSignature a A f) hΓ
 
 /-- Restriction after local evaluation is the generated composite signature. -/
-theorem localMap_restriction (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.Ext A) :
+theorem localMap_restriction (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.extension A) :
     localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f =
       generatedContextMap (parameterSignature a A f) hΓ :=
   Context.relabel_composition

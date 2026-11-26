@@ -24,16 +24,16 @@ universe u v
 abbrev split {α : Type u} := SourceMergeSort.split (α := α)
 abbrev merge := sourceMerge (α := Nat)
 abbrev mergesort := SourceMergeSort.sortOn (α := Nat) id
-abbrev sorted := InsertionSorting.sorted
-abbrev isASortingAlgorithm := InsertionSorting.isASortingAlgorithm
+abbrev Sorted := InsertionSorting.Sorted
+abbrev IsSortingAlgorithm := InsertionSorting.IsSortingAlgorithm
 
 /-- The exact source schema, independently of a particular list predicate. -/
-def list_ind2_principle : Prop :=
+def TwoStepListInduction : Prop :=
   ∀ (α : Type u) (P : List α → Prop), P [] → (∀ a, P [a]) →
     (∀ a b xs, P xs → P (a :: b :: xs)) → ∀ xs, P xs
 
 /-- This conditional proof consumes its supplied two-step induction principle. -/
-theorem split_len' (IP : list_ind2_principle.{u}) {α : Type u}
+theorem split_len' (IP : TwoStepListInduction.{u}) {α : Type u}
     (l l1 l2 : List α) (h : split l = (l1, l2)) :
     l1.length ≤ l.length ∧ l2.length ≤ l.length := by
   refine IP α (fun xs => ∀ ys zs, split xs = (ys, zs) →
@@ -54,7 +54,7 @@ theorem split_len' (IP : list_ind2_principle.{u}) {α : Type u}
     omega
 
 /-- The source's explicit recursive proof term is constructive in Lean too. -/
-theorem list_ind2 : list_ind2_principle.{u} := by
+theorem list_ind2 : TwoStepListInduction.{u} := by
   intro α P h0 h1 hs xs
   exact SourceMergeSort.listInductionTwo P h0 h1 hs xs
 
@@ -133,24 +133,24 @@ theorem mergesort_ind (P : List Nat → List Nat → Prop)
 /-- No sortedness of either input is assumed by this source exercise. -/
 theorem sorted_merge1 (x x1 : Nat) (l1 : List Nat) (x2 : Nat) (l2 : List Nat)
     (hx1 : x ≤ x1) (hx2 : x ≤ x2)
-    (hs : sorted (merge (x1 :: l1) (x2 :: l2))) :
-    sorted (x :: merge (x1 :: l1) (x2 :: l2)) := by
+    (hs : Sorted (merge (x1 :: l1) (x2 :: l2))) :
+    Sorted (x :: merge (x1 :: l1) (x2 :: l2)) := by
   by_cases h : x1 ≤ x2
   · rw [merge2 x1 x2 l1 l2 h] at hs ⊢
     exact InsertionSorting.sorted_cons x x1 _ hx1 hs
   · rw [merge_right_branch x1 x2 l1 l2 h] at hs ⊢
     exact InsertionSorting.sorted_cons x x2 _ hx2 hs
 
-theorem sorted_merge (l1 : List Nat) (h1 : sorted l1)
-    (l2 : List Nat) (h2 : sorted l2) : sorted (merge l1 l2) := by
+theorem sorted_merge (l1 : List Nat) (h1 : Sorted l1)
+    (l2 : List Nat) (h2 : Sorted l2) : Sorted (merge l1 l2) := by
   apply List.isChain_iff_pairwise.mpr
   rw [merge_equation]
   exact mergeBy_sorted id l1 l2 (List.isChain_iff_pairwise.mp h1)
     (List.isChain_iff_pairwise.mp h2)
 
 /-- A checked consumer of the source input/output induction interface. -/
-theorem mergesort_sorts (l : List Nat) : sorted (mergesort l) := by
-  refine mergesort_ind (fun _ ys => sorted ys) ?_ ?_ ?_ l
+theorem mergesort_sorts (l : List Nat) : Sorted (mergesort l) := by
+  refine mergesort_ind (fun _ ys => Sorted ys) ?_ ?_ ?_ l
   · intro _ _; exact InsertionSorting.sorted_nil
   · intro _ x _; exact InsertionSorting.sorted_1 x
   · intro _ _ _ _ l1 l2 _ ih1 ih2
@@ -170,7 +170,7 @@ theorem mergesort_perm (l : List Nat) : l.Perm (mergesort l) := by
     exact (split_perm xs l1 l2 hsplit).trans
       ((ih1.append ih2).trans (merge_perm (mergesort l1) (mergesort l2)))
 
-theorem mergesort_correct : isASortingAlgorithm mergesort :=
+theorem mergesort_correct : IsSortingAlgorithm mergesort :=
   fun l => ⟨mergesort_perm l, mergesort_sorts l⟩
 
 /-! Split distinctions and public-equation clients. -/
@@ -222,9 +222,9 @@ theorem merge_tie (x : Nat) (xs ys : List Nat) :
     merge (x :: xs) (x :: ys) = x :: merge xs (x :: ys) := merge2 x x xs ys le_rfl
 
 theorem comparator_laws_matter :
-    ¬ sorted (SourceMergeSort.sortBy (fun _ _ : Nat => false) [1, 2]) := by
+    ¬ Sorted (SourceMergeSort.sortBy (fun _ _ : Nat => false) [1, 2]) := by
   rw [source_pair]
-  simp [sorted, InsertionSorting.sorted]
+  simp [Sorted, InsertionSorting.Sorted]
 
 /-! Output uniqueness uses antisymmetry of values, or only of observed keys. -/
 
@@ -240,10 +240,10 @@ theorem agrees_with_stable_sort (xs : List Nat) : mergesort xs = sortOn id xs :=
     (sortOn_correct id xs)
 
 theorem agrees_with_selection (xs : List Nat) :
-    mergesort xs = SelectionSorting.selection_sort xs :=
+    mergesort xs = SelectionSorting.selectionSort xs :=
   (agrees_with_insertion xs).trans (SelectionSorting.agrees_with_insertion xs).symm
 
-theorem sorted_fixed (xs : List Nat) (h : sorted xs) : mergesort xs = xs :=
+theorem sorted_fixed (xs : List Nat) (h : Sorted xs) : mergesort xs = xs :=
   (agrees_with_insertion xs).trans (InsertionSorting.sorted_fixed xs h)
 
 theorem mergesort_idempotent (xs : List Nat) : mergesort (mergesort xs) = mergesort xs :=
@@ -255,7 +255,7 @@ theorem sort_pi : mergesort [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] =
 
 theorem pi_contract :
     ([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] : List Nat).Perm
-      [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] ∧ sorted [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
+      [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] ∧ Sorted [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9] := by
   simpa only [sort_pi] using mergesort_correct [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
 
 theorem keyed_correct {α : Type u} {κ : Type v} [LE κ] [DecidableLE κ]
@@ -410,7 +410,7 @@ theorem measured_pi_via_square :
 
 theorem measured_sorting_contract (xs : List Nat) :
     xs.Perm (Resources.SourceMergeSort.run natCmp xs).1 ∧
-      sorted (Resources.SourceMergeSort.run natCmp xs).1 := by
+      Sorted (Resources.SourceMergeSort.run natCmp xs).1 := by
   simpa only [Resources.SourceMergeSort.run_value, mergesort, SourceMergeSort.sortOn,
     natCmp, id_eq] using mergesort_correct xs
 

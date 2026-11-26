@@ -122,39 +122,39 @@ example (a : α) : ScottContinuous (Observations.cons a) ∧ Observations.cons a
 example : sSup (∅ : Set (Observations α)) = ⊥ := Observations.sSup_empty
 
 /-- A continuous tail-ignoring step observes the first output, even with an unknown end. -/
-def first (p : α → Prop) (I : Observations α) : Prop :=
+def First (p : α → Prop) (I : Observations α) : Prop :=
   Observations.foldr (fun a _ => p a) False I
 
 theorem first_cons (p : α → Prop) (a : α) (I : Observations α) :
-    first p (Observations.cons a I) = p a :=
+    First p (Observations.cons a I) = p a :=
   Observations.foldr_cons _ False (fun a => (ScottContinuous.const (p a)).monotone)
     a (ScottContinuous.const (p a)) I
 
-theorem first_stream (p : α → Prop) (σ : Stream' α) : first p (stream σ) = p (σ 0) := by
+theorem first_stream (p : α → Prop) (σ : Stream' α) : First p (stream σ) = p (σ 0) := by
   rw [Observations.stream_cons, first_cons]
 
 theorem first_guarded (p : α → Prop) (c : Coalgebra S α) (s : S) :
-    first p (observations (guarded c) s) = p (c s).1 := by
+    First p (observations (guarded c) s) = p (c s).1 := by
   rw [observations_guarded, first_stream, Stream'.corec'_eq]
   rfl
 
 theorem first_paused (p : α → Prop) (c : Coalgebra S α) (s : S) :
-    first p (observations (paused c) (false, s)) = p (c s).1 := by
+    First p (observations (paused c) (false, s)) = p (c s).1 := by
   rw [← guarded_paused_observations]
   exact first_guarded p c s
 
 theorem first_once (p : α → Prop) (a : α) :
-    first p (observations PartialSpineProgress.once (some a)) = p a := by
+    First p (observations PartialSpineProgress.once (some a)) = p a := by
   rw [PartialSpineProgress.once_observations, ← Observations.cons_principal, first_cons]
 
 theorem first_silent (p : α → Prop) (next : S → S) (s : S) :
-    first p (observations (fun x => .inr (next x) : Producer S α) s) = False := by
+    First p (observations (fun x => .inr (next x) : Producer S α) s) = False := by
   rw [observations_silent]
   exact Observations.foldr_bottom _ False (fun a => (ScottContinuous.const (p a)).monotone)
 
 example (p : Nat → Prop) :
-    first p (observations (guarded PartialSpineProgress.count) 4) = p 4 ∧
-    first p (observations (paused PartialSpineProgress.count) (false, 4)) = p 4 :=
+    First p (observations (guarded PartialSpineProgress.count) 4) = p 4 ∧
+    First p (observations (paused PartialSpineProgress.count) (false, 4)) = p 4 :=
   ⟨first_guarded p _ 4, first_paused p _ 4⟩
 
 example (a : α) :
@@ -177,7 +177,7 @@ theorem and_scottContinuous (Q : Prop) : ScottContinuous (fun P : Prop => P ∧ 
 
 /-- The fusion client retains the transformed seed before any propositional simplification. -/
 theorem first_fusion (p : α → Prop) (Q : Prop) (I : Observations α) :
-    (first p I ∧ Q) = Observations.foldr (fun a _ => p a ∧ Q) (False ∧ Q) I := by
+    (First p I ∧ Q) = Observations.foldr (fun a _ => p a ∧ Q) (False ∧ Q) I := by
   exact Observations.foldr_fusion _ _ False
     (fun a => (ScottContinuous.const (p a)).monotone)
     (fun a => (ScottContinuous.const (p a ∧ Q)).monotone)
@@ -193,32 +193,32 @@ theorem first_combined_paused (p : α → Prop) (Q : Prop) (c : Coalgebra S α) 
       (p (c s).1 ∧ Q) := by
   rw [← first_fusion, first_paused]
 
-private def truthStep (_ : Unit) (_ : Prop) : Prop := True
-private def truthObserver (_ : Prop) : Prop := True
+private def TruthStep (_ : Unit) (_ : Prop) : Prop := True
+private def TruthObserver (_ : Prop) : Prop := True
 
 /-- Continuity and commutation do not replace strictness at the bottom ideal. -/
 theorem nonstrict_counterexample :
-    ScottContinuous truthObserver ∧
-    (∀ a P, truthObserver (truthStep a P) = truthStep a (truthObserver P)) ∧
-    truthObserver False ≠ False ∧
-    truthObserver (Observations.foldr truthStep False (⊥ : Observations Unit)) ≠
-      Observations.foldr truthStep (truthObserver False) (⊥ : Observations Unit) := by
+    ScottContinuous TruthObserver ∧
+    (∀ a P, TruthObserver (TruthStep a P) = TruthStep a (TruthObserver P)) ∧
+    TruthObserver False ≠ False ∧
+    TruthObserver (Observations.foldr TruthStep False (⊥ : Observations Unit)) ≠
+      Observations.foldr TruthStep (TruthObserver False) (⊥ : Observations Unit) := by
   refine ⟨ScottContinuous.const True, fun _ _ => rfl, ?_, ?_⟩
   · intro same
     exact Eq.mp same True.intro
-  · rw [Observations.foldr_bottom truthStep (truthObserver False)
+  · rw [Observations.foldr_bottom TruthStep (TruthObserver False)
       (fun _ => (ScottContinuous.const True).monotone)]
     change True ≠ False
     intro same
     exact Eq.mp same True.intro
 
 theorem nonstrict_total_finite_fusion (xs : List Unit) :
-    truthObserver (Observations.foldr truthStep False (Ideal.principal (ofList xs))) =
-      Observations.foldr truthStep (truthObserver False) (Ideal.principal (ofList xs)) := by
-  rw [Observations.foldr_principal truthStep False (fun _ => (ScottContinuous.const True).monotone),
-    Observations.foldr_principal truthStep (truthObserver False)
+    TruthObserver (Observations.foldr TruthStep False (Ideal.principal (ofList xs))) =
+      Observations.foldr TruthStep (TruthObserver False) (Ideal.principal (ofList xs)) := by
+  rw [Observations.foldr_principal TruthStep False (fun _ => (ScottContinuous.const True).monotone),
+    Observations.foldr_principal TruthStep (TruthObserver False)
       (fun _ => (ScottContinuous.const True).monotone)]
-  exact PartialSpine.foldr_fusion_ofList False False truthStep truthStep truthObserver False
+  exact PartialSpine.foldr_fusion_ofList False False TruthStep TruthStep TruthObserver False
     nonstrict_counterexample.2.1 xs
 
 /-- One full function-space result contains every finite constructor-budget observation. -/

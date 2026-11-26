@@ -13,37 +13,37 @@ set_option warningAsError true
 
 namespace Examples.MultisetSorting
 
-abbrev value := Nat
-abbrev multiset := Sequences.Multiplicity.Counts value
-abbrev empty : multiset := Sequences.Multiplicity.empty
-abbrev singleton (a : value) : multiset := Sequences.Multiplicity.singleton a
-abbrev union (a b : multiset) : multiset := Sequences.Multiplicity.union a b
-abbrev contents (xs : List value) : multiset := Sequences.Multiplicity.contents xs
+abbrev Value := Nat
+abbrev Multiset := Sequences.Multiplicity.Counts Value
+abbrev empty : Multiset := Sequences.Multiplicity.empty
+abbrev singleton (a : Value) : Multiset := Sequences.Multiplicity.singleton a
+abbrev union (a b : Multiset) : Multiset := Sequences.Multiplicity.union a b
+abbrev contents (xs : List Value) : Multiset := Sequences.Multiplicity.contents xs
 
-theorem union_assoc (a b c : multiset) : union a (union b c) = union (union a b) c :=
+theorem union_assoc (a b c : Multiset) : union a (union b c) = union (union a b) c :=
   Sequences.Multiplicity.union_assoc a b c
 
-theorem union_comm (a b : multiset) : union a b = union b a :=
+theorem union_comm (a b : Multiset) : union a b = union b a :=
   Sequences.Multiplicity.union_comm a b
 
-theorem union_swap (a b c : multiset) : union a (union b c) = union b (union a c) :=
+theorem union_swap (a b c : Multiset) : union a (union b c) = union b (union a c) :=
   Sequences.Multiplicity.union_swap a b c
 
 theorem contents_nil : contents [] = empty := rfl
 
-theorem contents_cons (a : value) (xs : List value) :
+theorem contents_cons (a : Value) (xs : List Value) :
     contents (a :: xs) = union (singleton a) (contents xs) :=
   Sequences.Multiplicity.contents_cons_union a xs
 
 /-- All-input correspondence with the source's recursive empty/union definition. -/
-theorem contents_eq_foldr (xs : List value) :
+theorem contents_eq_foldr (xs : List Value) :
     contents xs = xs.foldr (fun a rest => union (singleton a) rest) empty := by
   induction xs with
   | nil => rfl
   | cons a xs ih => simp only [List.foldr_cons, contents_cons, ih]
 
-def isASortingAlgorithm (f : List Nat → List Nat) : Prop :=
-  ∀ xs, contents xs = contents (f xs) ∧ InsertionSorting.sorted (f xs)
+def IsSortingAlgorithm (f : List Nat → List Nat) : Prop :=
+  ∀ xs, contents xs = contents (f xs) ∧ InsertionSorting.Sorted (f xs)
 
 /-- Source-directed induction uses union laws, without extensionality per branch. -/
 theorem insert_contents (a : Nat) (xs : List Nat) :
@@ -66,7 +66,7 @@ theorem sort_contents (xs : List Nat) :
     rw [InsertionSorting.sort_cons, insert_contents]
     simp only [contents_cons, ih]
 
-theorem insertion_sort_correct : isASortingAlgorithm InsertionSorting.sort :=
+theorem insertion_sort_correct : IsSortingAlgorithm InsertionSorting.sort :=
   fun xs => ⟨sort_contents xs, InsertionSorting.sort_sorted xs⟩
 
 /-- The source's eleven-element example preserves all three occurrences of 5. -/
@@ -104,8 +104,8 @@ theorem same_contents_iff_perm (xs ys : List Nat) :
   ⟨contents_perm xs ys, perm_contents xs ys⟩
 
 theorem sort_specifications_equivalent (f : List Nat → List Nat) :
-    InsertionSorting.isASortingAlgorithm f ↔ isASortingAlgorithm f :=
-  Applications.Sorting.Multiplicity.contract_equivalent InsertionSorting.sorted f
+    InsertionSorting.IsSortingAlgorithm f ↔ IsSortingAlgorithm f :=
+  Applications.Sorting.Multiplicity.contract_equivalent InsertionSorting.Sorted f
 
 /-- The source's unrestricted carrier contains functions no finite list represents. -/
 theorem infinite_support_boundary (xs : List Nat) : contents xs ≠ fun _ => 1 :=

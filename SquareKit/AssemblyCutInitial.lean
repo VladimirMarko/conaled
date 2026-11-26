@@ -61,7 +61,7 @@ open CategoryTheory
 noncomputable def cutAlgebra : Endofunctor.Algebra programLiftFunctor.{u} :=
   ⟨iterationCuts, cutRoll⟩
 
-noncomputable def cutAlgebra_initial : Limits.IsInitial cutAlgebra.{u} :=
+noncomputable def cutAlgebraInitial : Limits.IsInitial cutAlgebra.{u} :=
   Limits.IsInitial.ofUniqueHom
     (fun X => ⟨cutIter X.str, (cutIter_square X.str).symm⟩)
     (fun X h => Endofunctor.Algebra.Hom.ext (cutIter_unique X.str h.f h.h.symm))

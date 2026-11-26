@@ -200,7 +200,7 @@ def equivalence : SheafTorsor.Torsor G ((J.yoneda).obj U) ≌ Torsor J U G :=
 
 /-- Reconstruction is an isomorphism over the original represented base. -/
 def displayComparison (P : SheafTorsor.Torsor G ((J.yoneda).obj U)) :
-    SplitSheaf.Ext P.family ≅ SplitSheaf.Ext ((backward J U).obj ((forward J U).obj P)).family :=
+    SplitSheaf.extension P.family ≅ SplitSheaf.extension ((backward J U).obj ((forward J U).obj P)).family :=
   ObjectProperty.isoMk _ (ElementFamilies.totalFunctor _ |>.mapIso (unitComponent J U P).hom.iso |>
     (Over.forget _).mapIso)
 

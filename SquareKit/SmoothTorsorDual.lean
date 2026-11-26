@@ -23,7 +23,7 @@ abbrev dualElements (X : Sheaf topology Type) : (dualSheaf X).obj.Elements ⥤ X
 original total space. Its sheaf certificate comes from exponential comparison. -/
 abbrev dualTorsorFamily (P : Torsor G X) : SplitSheaf.Ty (dualSheaf X) where
   family := dualElements X ⋙ P.family.family
-  isSheaf := (dualSheaf (SplitSheaf.Ext P.family)).property
+  isSheaf := (dualSheaf (SplitSheaf.extension P.family)).property
 
 /-- A locally constant group acts on the dual family through its proved
 infinitesimal pullback isomorphism. -/

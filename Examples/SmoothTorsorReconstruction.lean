@@ -16,15 +16,15 @@ open SmoothFiniteCover.SquareBundle
 local instance : TopologicalSpace G := ⊥
 local instance : DiscreteTopology G := ⟨rfl⟩
 local instance : ChartedSpace (Space 2) E := manifoldCharts
-local instance : IsManifold (Model 2) ∞ E := manifoldSmooth
+local instance : IsManifold (modelWithCorners 2) ∞ E := manifoldSmooth
 local instance : MulAction G E := rootAction
 
 abbrev torsor := bundle.realizedTorsor
 local instance : ChartedSpace (Space 2) (Total torsor) := chartedSpace torsor
-local instance : IsManifold (Model 2) ∞ (Total torsor) := isManifold torsor
+local instance : IsManifold (modelWithCorners 2) ∞ (Total torsor) := isManifold torsor
 
 /-- Recovery is an isomorphism on the full smooth site. -/
-def totalRecovery : object 2 (Total torsor) ≅ SplitSheaf.Ext torsor.family :=
+def totalRecovery : object 2 (Total torsor) ≅ SplitSheaf.extension torsor.family :=
   reconstructedTotalIso torsor
 
 /-- Full faithfulness recovers the original nontrivial ordinary square cover. -/
@@ -34,7 +34,7 @@ def comparison : SmoothPrincipalBundle.Map (SquareKit.SmoothTorsorReconstruction
 theorem comparison_realized : comparison.realizedArrow = reconstructedArrow torsor :=
   SmoothPrincipalBundle.mapEquiv.apply_symm_apply _
 
-def recoveredDiffeomorph : Total torsor ≃ₘ⟮Model 2, Model 2⟯ E :=
+def recoveredDiffeomorph : Total torsor ≃ₘ⟮modelWithCorners 2, modelWithCorners 2⟯ E :=
   comparison.diffeomorph
 
 theorem comparison_projection (z : Total torsor) :
@@ -64,25 +64,25 @@ theorem totalRecovery_equivariant (U : SmoothPresentationSite.Siteᵒᵖ)
   reconstructedTotalIso_equivariant torsor U g z
 
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 local instance : MulAction G PUnit where
   smul _ x := x
   one_smul _ := rfl
   mul_smul _ _ _ := rfl
 
 /-- The independent target has dimension zero while the square cover has dimension two. -/
-def quotient := bundle.realizedQuotient (fun _ => contMDiff_id (I := Model 0))
+def quotient := bundle.realizedQuotient (fun _ => contMDiff_id (I := modelWithCorners 0))
   (fun _ => PUnit.unit) contMDiff_const (fun _ _ => rfl)
 
 local instance : ChartedSpace (Space 2) (Total quotient.torsor) := chartedSpace quotient.torsor
-local instance : IsManifold (Model 2) ∞ (Total quotient.torsor) := isManifold quotient.torsor
+local instance : IsManifold (modelWithCorners 2) ∞ (Total quotient.torsor) := isManifold quotient.torsor
 
-def targetRecovery := reconstructedQuotientArrow (fun _ => contMDiff_id (I := Model 0)) quotient
+def targetRecovery := reconstructedQuotientArrow (fun _ => contMDiff_id (I := modelWithCorners 0)) quotient
 
 theorem targetRecovery_map :
     ManifoldRealization.map
-      (reconstructedTarget (fun _ => contMDiff_id (I := Model 0)) quotient)
-      (reconstructedTarget_smooth (fun _ => contMDiff_id (I := Model 0)) quotient) =
+      (reconstructedTarget (fun _ => contMDiff_id (I := modelWithCorners 0)) quotient)
+      (reconstructedTarget_smooth (fun _ => contMDiff_id (I := modelWithCorners 0)) quotient) =
     (reconstructedTotalIso quotient.torsor).hom ≫ quotient.totalMap :=
   reconstructedTarget_map _ _
 
@@ -101,11 +101,11 @@ def chartTorsor (i : Bool) := SheafTorsor.reindex
 
 local instance (i : Bool) : ChartedSpace (Space 1) (Total (chartTorsor i)) :=
   chartedSpace (chartTorsor i)
-local instance (i : Bool) : IsManifold (Model 1) ∞ (Total (chartTorsor i)) :=
+local instance (i : Bool) : IsManifold (modelWithCorners 1) ∞ (Total (chartTorsor i)) :=
   isManifold (chartTorsor i)
 
 def chartRecovery (i : Bool) :
-    object 1 (Total (chartTorsor i)) ≅ SplitSheaf.Ext (chartTorsor i).family :=
+    object 1 (Total (chartTorsor i)) ≅ SplitSheaf.extension (chartTorsor i).family :=
   reconstructedTotalIso (chartTorsor i)
 
 def chartArrow (i : Bool) :
@@ -132,18 +132,18 @@ local instance : TopologicalSpace C4 := ⊥
 local instance : DiscreteTopology C4 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) C4 := ChartedSpace.ofDiscreteTopology
 local instance : ChartedSpace (Space 0) PUnit := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ C4 := IsManifold.of_discreteTopology _
-local instance : IsManifold (Model 0) ∞ PUnit := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ C4 := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ PUnit := IsManifold.of_discreteTopology _
 
 abbrev torsor := SmoothFiniteCover.C4Bundle.bundle.realizedTorsor
 local instance : ChartedSpace (Space 0) (Total torsor) := chartedSpace torsor
-local instance : IsManifold (Model 0) ∞ (Total torsor) := isManifold torsor
+local instance : IsManifold (modelWithCorners 0) ∞ (Total torsor) := isManifold torsor
 
 def comparison : SmoothPrincipalBundle.Map
     (SquareKit.SmoothTorsorReconstruction.bundle torsor) SmoothFiniteCover.C4Bundle.bundle :=
   SmoothPrincipalBundle.mapEquiv.symm (reconstructedArrow torsor)
 
-def totalRecovery : object 0 (Total torsor) ≅ SplitSheaf.Ext torsor.family :=
+def totalRecovery : object 0 (Total torsor) ≅ SplitSheaf.extension torsor.family :=
   reconstructedTotalIso torsor
 
 theorem total_card : Nat.card (Total torsor) = 4 :=
@@ -159,15 +159,15 @@ open Orbifolds.QuarterTurn
 local instance : TopologicalSpace C4 := ⊥
 local instance : DiscreteTopology C4 := ⟨rfl⟩
 local instance : ChartedSpace (Space 0) Empty := ChartedSpace.ofDiscreteTopology
-local instance : IsManifold (Model 0) ∞ Empty := IsManifold.of_discreteTopology _
+local instance : IsManifold (modelWithCorners 0) ∞ Empty := IsManifold.of_discreteTopology _
 
 def torsor := SheafTorsor.trivial (locallyConstantGroup C4) (object 0 Empty)
 local instance : ChartedSpace (Space 0) (Total torsor) := chartedSpace torsor
-local instance : IsManifold (Model 0) ∞ (Total torsor) := isManifold torsor
+local instance : IsManifold (modelWithCorners 0) ∞ (Total torsor) := isManifold torsor
 
 theorem total_empty : IsEmpty (Total torsor) := ⟨fun z => z.proj.elim⟩
 
-def totalRecovery : object 0 (Total torsor) ≅ SplitSheaf.Ext torsor.family :=
+def totalRecovery : object 0 (Total torsor) ≅ SplitSheaf.extension torsor.family :=
   reconstructedTotalIso torsor
 
 def recoveryArrow :

@@ -26,7 +26,7 @@ variable (u : X' ⟶ X) (v : Y' ⟶ Y) (square : v ≫ f = k ≫ u)
 /-- Compatibility of supplied local sections gives compatibility of complete
 chosen gluings, naturally on all matching arrows. The input comparison lives
 entirely on local matching data, before either global gluing is constructed. -/
-def gluedSectionLift_natural
+def gluedSectionLiftNaturalityIso
     (s : Section (relativeMatchingFamily a hΓ hB f))
     (t : Section (relativeMatchingFamily a hΓ hB k))
     (localComparison :

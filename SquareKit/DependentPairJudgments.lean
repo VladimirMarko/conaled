@@ -146,7 +146,7 @@ end ProjectionRule
 def projectionBetaRules := rulesOf (ProjectionRule.schema (hasEta := false))
 def projectionEtaRules := rulesOf (ProjectionRule.schema (hasEta := true))
 
-def Fprimitive : TheoryMap projectionBetaRules projectionEtaRules id where
+def fPrimitive : TheoryMap projectionBetaRules projectionEtaRules id where
   certificate r := by
     cases r with
     | formation Γ A B => exact Derivation.rule (R := projectionEtaRules) (ProjectionRule.formation Γ A B) (fun i => .hyp ⟨i, rfl⟩)

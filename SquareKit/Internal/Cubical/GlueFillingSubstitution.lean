@@ -82,7 +82,7 @@ theorem selectedFaceTube_compatible (F : Filling T) (hF : F.Lawful) (ψ : Cofibr
 
 theorem selectedFaceTube_zero (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ)
-    (x : Δ.Elements) (hx : (intervalAll (φ.reindex p)).full x) :
+    (x : Δ.Elements) (hx : (intervalAll (φ.reindex p)).Full x) :
     (selectedFaceTube φ A T e p F ψ b).val ((endpointSub Δ false).mapElements.obj x) hx =
       b.base.val x := by
   exact congrArg (fun t => t.val
@@ -109,7 +109,7 @@ theorem preserveSelectedFace_fills (F : Filling T) (hF : F.Lawful)
   constructor
   · exact hf.1
   · intro x hx
-    have hu : ((ψ.join (intervalAll (φ.reindex p))).reindex (projection (interval Δ))).full x :=
+    have hu : ((ψ.join (intervalAll (φ.reindex p))).reindex (projection (interval Δ))).Full x :=
       (Cofibration.full_join ψ (intervalAll (φ.reindex p))
         ((projection (interval Δ)).mapElements.obj x)).mpr (Or.inl hx)
     exact (hf.2 x hu).trans (glueValue_left b.tube t x hu hx)
@@ -118,7 +118,7 @@ theorem preserveSelectedFace_whole (F : Filling T) (hF : F.Lawful)
     (H : Filling (family φ A T e)) (hH : H.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ)
     (x : (total (interval Δ)).Elements)
-    (hx : ((intervalAll (φ.reindex p)).reindex (projection (interval Δ))).full x) :
+    (hx : ((intervalAll (φ.reindex p)).reindex (projection (interval Δ))).Full x) :
     (preserveSelectedFace φ A T e p F hF H ψ b).val x =
       (selectedFaceTube φ A T e p F ψ b).val x hx :=
   addTube_preserves_whole H hH p b (selectedFaceTube φ A T e p F ψ b)
@@ -156,13 +156,13 @@ theorem fills_of_boxPartial {Θ : Context.{u}} {B : Family (total (interval Θ))
   · apply Term.ext
     intro x
     let y := (endpointSub Θ false).mapElements.obj x
-    have hz : (intervalFace Θ false).full y :=
+    have hz : (intervalFace Θ false).Full y :=
       (Cofibration.full_endpoint (generic (interval Θ)) false y).mpr rfl
-    have hu : (scaledFace ψ).full y := (Cofibration.full_join _ _ y).mpr (Or.inr hz)
+    have hu : (scaledFace ψ).Full y := (Cofibration.full_join _ _ y).mpr (Or.inr hz)
     exact (h y hu).trans ((glueValue_right b.tube (endpointSection B false b.base)
       b.endpoint_compatible y hu hz).trans (eq_of_heq (endpointSection_val B false b.base y hz)))
   · intro x hx
-    have hu : (scaledFace ψ).full x := (Cofibration.full_join _ _ x).mpr (Or.inl hx)
+    have hu : (scaledFace ψ).Full x := (Cofibration.full_join _ _ x).mpr (Or.inl hx)
     exact (h x hu).trans (glueValue_left b.tube (endpointSection B false b.base) x hu hx)
 
 theorem partialGlue_map {Θ : Context.{u}} {B C : Family Θ} (η : B ⟶ C)
@@ -316,8 +316,8 @@ theorem preliminaryFilling_lawful (E : HomotopyEquivalence e)
 
 section FlexibleFace
 variable (δ : Cofibration Δ)
-  (hδ : ∀ (x : Δ.Elements), δ.full x → ∀ r : (interval Δ).obj x,
-    (φ.reindex p).full (extendObj (interval Δ) x r))
+  (hδ : ∀ (x : Δ.Elements), δ.Full x → ∀ r : (interval Δ).obj x,
+    (φ.reindex p).Full (extendObj (interval Δ) x r))
 
 /-- A supplied face whose lines stay inside the gluing face. -/
 def wholeFaceLineOn : total (interval (restrictContext δ)) ⟶
@@ -386,7 +386,7 @@ theorem selectedFaceTube_compatibleOn (F : Filling T) (hF : F.Lawful) (ψ : Cofi
 
 theorem selectedFaceTube_zeroOn (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ)
-    (x : Δ.Elements) (hx : δ.full x) :
+    (x : Δ.Elements) (hx : δ.Full x) :
     (selectedFaceTubeOn φ A T e p δ hδ F ψ b).val ((endpointSub Δ false).mapElements.obj x) hx =
       b.base.val x := by
   exact congrArg (fun t => t.val
@@ -413,7 +413,7 @@ theorem preserveSelectedFace_fillsOn (F : Filling T) (hF : F.Lawful)
   constructor
   · exact hf.1
   · intro x hx
-    have hu : ((ψ.join δ).reindex (projection (interval Δ))).full x :=
+    have hu : ((ψ.join δ).reindex (projection (interval Δ))).Full x :=
       (Cofibration.full_join ψ δ
         ((projection (interval Δ)).mapElements.obj x)).mpr (Or.inl hx)
     exact (hf.2 x hu).trans (glueValue_left b.tube t x hu hx)
@@ -422,7 +422,7 @@ theorem preserveSelectedFace_wholeOn (F : Filling T) (hF : F.Lawful)
     (H : Filling (family φ A T e)) (hH : H.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ)
     (x : (total (interval Δ)).Elements)
-    (hx : (δ.reindex (projection (interval Δ))).full x) :
+    (hx : (δ.reindex (projection (interval Δ))).Full x) :
     (preserveSelectedFaceOn φ A T e p δ hδ F hF H ψ b).val x =
       (selectedFaceTubeOn φ A T e p δ hδ F ψ b).val x hx :=
   addTube_preserves_whole H hH p b (selectedFaceTubeOn φ A T e p δ hδ F ψ b)
@@ -520,8 +520,8 @@ theorem preserveSelectedFaceOn_reindex (F : Filling T) (hF : F.Lawful)
     (hH.uniform p (ψ.join δ) (addTube b t hc hz) σ)
 
 theorem preserveSelectedFaceOn_congr (δ' : Cofibration Δ)
-    (hδ' : ∀ (x : Δ.Elements), δ'.full x → ∀ r : (interval Δ).obj x,
-      (φ.reindex p).full (extendObj (interval Δ) x r)) (he : δ = δ')
+    (hδ' : ∀ (x : Δ.Elements), δ'.Full x → ∀ r : (interval Δ).obj x,
+      (φ.reindex p).Full (extendObj (interval Δ) x r)) (he : δ = δ')
     (F : Filling T) (hF : F.Lawful) (H : Filling (family φ A T e)) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ) :
     preserveSelectedFaceOn φ A T e p δ hδ F hF H ψ b =
@@ -562,7 +562,7 @@ theorem filling_selected_whole (E : HomotopyEquivalence e)
     (F : Filling T) (hF : F.Lawful) (G : Filling A) (hG : G.Lawful)
     (ψ : Cofibration Δ) (b : OpenBox (reindex (family φ A T e) p) ψ)
     (x : (total (interval Δ)).Elements)
-    (hx : ((intervalAll (φ.reindex p)).reindex (projection (interval Δ))).full x) :
+    (hx : ((intervalAll (φ.reindex p)).reindex (projection (interval Δ))).Full x) :
     ((filling φ A T e E F hF G hG).fill p ψ b).val x =
       (selectedFaceTube φ A T e p F ψ b).val x hx :=
   preserveSelectedFace_whole φ A T e p F hF _ (preliminaryFilling_lawful φ A T e E F hF G hG) ψ b x hx

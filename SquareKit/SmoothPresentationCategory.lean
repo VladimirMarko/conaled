@@ -13,7 +13,7 @@ attribute [local instance] DualExtension.smoothStructure
 structure Code where
   arity : ℕ
   relations : ℕ
-  equations : Fin relations → Free arity
+  equations : Fin relations → freeAlgebra arity
 
 abbrev Carrier (A : Code) := Presentation.Carrier A.equations
 instance (A : Code) : CommRing (Carrier A) := inferInstance

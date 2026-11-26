@@ -114,10 +114,10 @@ def firstCong {Γ : Context eliminationSignature V} {A A' p p' : EExpr V}
 end EFullCertificate
 
 /-- The source first-congruence rule uses precisely its ten translated premises. -/
-def GFirstCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
+def gFirstCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
     (B B' : PExpr (Fin 1 ⊕ V)) (p p' : PExpr V) :
     GCongruenceCertificate (.first Γ A A' B B' p p') := by
-  let premise := GCongruencePremises (.first Γ A A' B B' p p')
+  let premise := gCongruencePremises (.first Γ A A' B B' p p')
   have hΓ : EFullCertificate.Cert (premise := premise) (ctx (Γ.map G)) := .hyp (0 : Fin 10)
   have hA : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A)) := .hyp (1 : Fin 10)
   have hA' : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A')) := .hyp (2 : Fin 10)

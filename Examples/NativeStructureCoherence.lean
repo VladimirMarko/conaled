@@ -111,7 +111,7 @@ noncomputable def substitutionComparisonData
     (G : {F : Filling (SmallUniverse.liftedDecode
       (projection (interval Γ) ≫ admitted.code)) // F.Lawful}) :=
   Examples.NativeLatticeTransport.Presheaf.PathData.ofPath
-    (Coded.composition_reindex
+    (Coded.compositionReindex
       (a := admitted.code) (b := admitted.code) (c := admitted.code)
       (s := system admitted 0) (t := system admitted 1) (v := system admitted 3)
       (move admitted 0 1) (move admitted 1 2) (composite admitted).witness
@@ -246,7 +246,7 @@ noncomputable def substitutionComparisonData
     (G : {F : Filling (SmallUniverse.liftedDecode
       (projection (interval Γ) ≫ admitted.code)) // F.Lawful}) :=
   Examples.NativeLatticeTransport.Cartesian.PathData.ofPath
-    (Coded.composition_reindex
+    (Coded.compositionReindex
       (a := admitted.code) (b := admitted.code) (c := admitted.code)
       (s := system admitted 0) (t := system admitted 1) (v := system admitted 3)
       (move admitted 0 1) (move admitted 1 2) (composite admitted).witness

@@ -6,7 +6,7 @@ noncomputable section
 open CategoryTheory CategoryTheory.Limits SquareKit.SmoothAlgebra
 namespace SquareKit.EuclideanOpen.Charts
 variable {M : Type} (A : Charts M)
-    (K : A.Relation → Type) (g : ∀ r, K r → Free r.domain.dimension)
+    (K : A.Relation → Type) (g : ∀ r, K r → freeAlgebra r.domain.dimension)
     (hc : ∀ r, Covers r.domain (g r))
 
 abbrev refinedShape : MultispanShape :=

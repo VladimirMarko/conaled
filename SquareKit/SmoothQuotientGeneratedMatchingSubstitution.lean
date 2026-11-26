@@ -18,7 +18,7 @@ variable (hs : Typed.SubDeriv.{2} Δ δ Γ γ σ s)
 actual parameter maps. No matching-data functor is an assumed field. -/
 def substitutionDiagram (A : SplitSheaf.Ty X) :
     CechMatching.StrictMap (strictDiagram a hΔ A) (strictDiagram a hΓ A) where
-  localMap := (s (SmoothQuotientSource.model a (SplitSheaf.Ext A))).down
+  localMap := (s (SmoothQuotientSource.model a (SplitSheaf.extension A))).down
   doubleMap := (s (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down
   tripleMap := (s (SmoothQuotientSource.model a (SplitSheaf.Cech.triple A))).down
   first := generatedSubstitution_commutes
@@ -42,7 +42,7 @@ def substitution (A : SplitSheaf.Ty X) : Datum a hΔ A ⥤ Datum a hΓ A :=
 theorem substitution_local (A : SplitSheaf.Ty X) :
     substitution a hΓ hΔ hs A ⋙ CechMatching.Datum.localFunctor =
       CechMatching.Datum.localFunctor ⋙
-        (s (SmoothQuotientSource.model a (SplitSheaf.Ext A))).down := rfl
+        (s (SmoothQuotientSource.model a (SplitSheaf.extension A))).down := rfl
 
 /-- The base projection of matching comprehension is the actual generated
 weakening functor applied to the independently supplied local datum. -/

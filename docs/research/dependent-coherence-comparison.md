@@ -61,7 +61,7 @@ w = (v, η).
 
 ## Generated source and higher witnesses
 
-The old generated transport proof is separately retained under two arbitrary source substitutions by `Source.transport_twice`, using `TmEqDeriv.subComp`. `Source.dependent_tail_twice` composes the existing generated dependent substitution conversion twice. These maintain the current annotation discipline. They do not claim to translate the new Type-family proof into generated syntax, or identify a fixed substituted command with a freshly reconstructed command. The historical failure remains pinned in the [fixture](dependent-coherence-fixture.md).
+The old generated transport proof is separately retained under two arbitrary source substitutions by `Source.transportTwice`, using `TmEqDeriv.subComp`. `Source.dependentTailTwice` composes the existing generated dependent substitution conversion twice. These maintain the current annotation discipline. They do not claim to translate the new Type-family proof into generated syntax, or identify a fixed substituted command with a freshly reconstructed command. The historical failure remains pinned in the [fixture](dependent-coherence-fixture.md).
 
 `PresentationFailure.decoded_equal` and `presentation_ne` give a checked rejection test: the constant Nat family over Bool, represented by reindexing a family named by Unit, decodes exactly like a fresh family named by Bool. Equality of their records would imply Unit=Bool, contradicting subsingletonness. Decoding therefore does not reflect presentation equality. This refutes an automatic annotation-equality shortcut. A translation with explicit comparisons or a different author boundary remains possible.
 

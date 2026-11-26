@@ -26,7 +26,7 @@ namespace SquareKit.SmoothTorsorReconstruction
 open Topology ManifoldRealization SmoothOpenSite SmoothManifoldAction
 open scoped Manifold ContDiff
 variable {n : ℕ} {G B : Type} [Group G] [TopologicalSpace B]
-  [ChartedSpace (Space n) B] [IsManifold (Model n) ∞ B]
+  [ChartedSpace (Space n) B] [IsManifold (modelWithCorners n) ∞ B]
 variable (P : SheafTorsor.Torsor (locallyConstantGroup G) (object n B))
 variable [TopologicalSpace G] [DiscreteTopology G]
 instance totalTopology : TopologicalSpace (Total P) := (prebundle P).totalSpaceTopology
@@ -50,7 +50,7 @@ def projectionSheets : SmoothLocalHomeomorph.ProjectionSheets
 def chartedSpace : ChartedSpace (Space n) (Total P) :=
   (projectionSheets P).chartedSpace (n := n)
 
-theorem isManifold : letI := chartedSpace P; IsManifold (Model n) ∞ (Total P) :=
+theorem isManifold : letI := chartedSpace P; IsManifold (modelWithCorners n) ∞ (Total P) :=
   (projectionSheets P).isManifold
 
 omit [TopologicalSpace G] [DiscreteTopology G] in
@@ -91,13 +91,13 @@ theorem localSheet_inverse_projection (i : (sectionCharts P).Index) (g : G) (b :
     ((localSheet P i g).symm b).proj = b := rfl
 theorem smooth_localSheet_inverse (i : (sectionCharts P).Index) (g : G) :
     letI := chartedSpace P
-    ContMDiffOn (Model n) (Model n) ∞ (localSheet P i g).symm
+    ContMDiffOn (modelWithCorners n) (modelWithCorners n) ∞ (localSheet P i g).symm
       ((sectionCharts P).chart i).source := by
   let := chartedSpace P
   intro b hb
   exact ((projectionSheets P).smooth_of_proj_at (localSheet P i g).symm b
     ((localSheet P i g).continuousAt_symm ((localSheet_target P i g).symm ▸ hb))
-    (show ContMDiffAt (Model n) (Model n) ∞ id b from contMDiff_id b)).contMDiffWithinAt
+    (show ContMDiffAt (modelWithCorners n) (modelWithCorners n) ∞ id b from contMDiff_id b)).contMDiffWithinAt
 def localTrivialization (i : (sectionCharts P).Index) :
     letI := chartedSpace P
     SmoothPrincipalBundle.LocalTrivialization (n := n) (G := G)

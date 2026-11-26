@@ -262,8 +262,8 @@ def equivariantArrowEquiv {P Q : SheafSliceTorsor.Torsor J U G} :
 
 /-- The category equivalence recovers the total display over the sheafified base. -/
 def displayComparison (P : SheafTorsor.Torsor G (context J U)) :
-    SplitSheaf.Ext P.family ≅
-      SplitSheaf.Ext (((equivalence J U).functor ⋙ (equivalence J U).inverse).obj P).family :=
+    SplitSheaf.extension P.family ≅
+      SplitSheaf.extension (((equivalence J U).functor ⋙ (equivalence J U).inverse).obj P).family :=
   ObjectProperty.isoMk _ (ElementFamilies.totalFunctor _ |>.mapIso
     ((equivalence J U).unitIso.app P).hom.iso |> (Over.forget _).mapIso)
 

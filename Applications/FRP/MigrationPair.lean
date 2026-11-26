@@ -12,27 +12,27 @@ def redundant : Program .base .base (.prod .base .base) where
     (.pair .first (.compose Circuit.not .first))
 
 def forward (b : Bool) : Bool × Bool := (b,!b)
-def valid (p : Bool × Bool) : Prop := p.2 = !p.1
+def Valid (p : Bool × Bool) : Prop := p.2 = !p.1
 def validate (p : Bool × Bool) : Bool := p.2 == !p.1
 def reverse (p : Bool × Bool) : Option Bool := if validate p then some p.1 else none
 
-def related (x : Bool) (y : Bool × Bool) := y = (x,!x)
+def Related (x : Bool) (y : Bool × Bool) := y = (x,!x)
 
-theorem validate_iff (p : Bool × Bool) : validate p = true ↔ valid p := by
-  simp [validate, valid]
+theorem validate_iff (p : Bool × Bool) : validate p = true ↔ Valid p := by
+  simp [validate, Valid]
 
-theorem forward_valid (b : Bool) : valid (forward b) := rfl
+theorem forward_valid (b : Bool) : Valid (forward b) := rfl
 
 theorem reverse_forward (b : Bool) : reverse (forward b) = some b := by
   cases b <;> rfl
 
-theorem reverse_valid (p : Bool × Bool) (h : valid p) : reverse p = some p.1 := by
+theorem reverse_valid (p : Bool × Bool) (h : Valid p) : reverse p = some p.1 := by
   simp [reverse, (validate_iff p).2 h]
 
-theorem forward_reverse (p : Bool × Bool) (h : valid p) : forward p.1 = p := by
+theorem forward_reverse (p : Bool × Bool) (h : Valid p) : forward p.1 = p := by
   exact Prod.ext rfl h.symm
 
-theorem related_valid {b : Bool} {p : Bool × Bool} (h : related b p) : valid p := by
+theorem related_valid {b : Bool} {p : Bool × Bool} (h : Related b p) : Valid p := by
   subst p
   rfl
 
@@ -41,9 +41,9 @@ theorem delay_step (x b : Bool) : delay.machine.step (x,b) = (b,x) := rfl
 theorem redundant_step (x : Bool) (p : Bool × Bool) :
     redundant.machine.step (x,p) = (p.1,forward x) := rfl
 
-theorem related_step (x u : Bool) (v : Bool × Bool) (h : related u v) :
+theorem related_step (x u : Bool) (v : Bool × Bool) (h : Related u v) :
     (delay.machine.step (x,u)).1 = (redundant.machine.step (x,v)).1 ∧
-      related (delay.machine.step (x,u)).2 (redundant.machine.step (x,v)).2 := by
+      Related (delay.machine.step (x,u)).2 (redundant.machine.step (x,v)).2 := by
   rcases h with rfl
   exact ⟨rfl,rfl⟩
 
@@ -52,16 +52,16 @@ theorem delay_reachable (b : Bool) :
     ∃ xs, (run delay.machine.mealy delay.initial xs).2 = b := ⟨[b],rfl⟩
 
 /-- All finite suffixes, including the empty suffix, preserve both observations. -/
-theorem finite_suffix (b : Bool) (p : Bool × Bool) (h : related b p) (xs : List Bool) :
+theorem finite_suffix (b : Bool) (p : Bool × Bool) (h : Related b p) (xs : List Bool) :
     (run delay.machine.mealy b xs).1 = (run redundant.machine.mealy p xs).1 ∧
-    related (run delay.machine.mealy b xs).2 (run redundant.machine.mealy p xs).2 := by
+    Related (run delay.machine.mealy b xs).2 (run redundant.machine.mealy p xs).2 := by
   have hx : List.Forall₂ Eq xs xs := List.forall₂_same.mpr (fun _ _ => rfl)
-  have hr := run_related delay.machine.mealy redundant.machine.mealy Eq related Eq
+  have hr := run_related delay.machine.mealy redundant.machine.mealy Eq Related Eq
     (by intro x y u v hxy huv; subst y; exact related_step x u v huv) hx h
   exact ⟨by simpa only [List.forall₂_eq_eq_eq] using hr.1,hr.2⟩
 
 theorem redundant_reachable (p : Bool × Bool) :
-    (∃ xs, (run redundant.machine.mealy redundant.initial xs).2 = p) ↔ valid p := by
+    (∃ xs, (run redundant.machine.mealy redundant.initial xs).2 = p) ↔ Valid p := by
   constructor
   · rintro ⟨xs,rfl⟩
     exact related_valid (finite_suffix false (false,true) rfl xs).2
@@ -70,21 +70,21 @@ theorem redundant_reachable (p : Bool × Bool) :
     exact forward_reverse p h
 
 /-- Reverse conversion exposes the same suffix theorem after validation. -/
-theorem reverse_suffix (p : Bool × Bool) (h : valid p) (xs : List Bool) :
+theorem reverse_suffix (p : Bool × Bool) (h : Valid p) (xs : List Bool) :
     (run redundant.machine.mealy p xs).1 = (run delay.machine.mealy p.1 xs).1 ∧
-    related (run delay.machine.mealy p.1 xs).2 (run redundant.machine.mealy p xs).2 := by
+    Related (run delay.machine.mealy p.1 xs).2 (run redundant.machine.mealy p xs).2 := by
   have hr := finite_suffix p.1 p (forward_reverse p h).symm xs
   exact ⟨hr.1.symm,hr.2⟩
 
 /-- Rebase initialization to the live states before applying stream transport. -/
-theorem infinite_suffix (b : Bool) (p : Bool × Bool) (h : related b p)
+theorem infinite_suffix (b : Bool) (p : Bool × Bool) (h : Related b p)
     (input : Stream Bool) :
-    (∀ n, related (state ⟨delay.machine.step,b⟩ input n)
+    (∀ n, Related (state ⟨delay.machine.step,b⟩ input n)
       (state ⟨redundant.machine.step,p⟩ input n)) ∧
     ∀ n, output ⟨delay.machine.step,b⟩ input n =
       output ⟨redundant.machine.step,p⟩ input n :=
   Progress.Feedback.transport ⟨delay.machine.step,b⟩ ⟨redundant.machine.step,p⟩
-    Eq related Eq h
+    Eq Related Eq h
     (by intro x y u v hxy huv; subst y; exact related_step x u v huv)
     input input (fun _ => rfl)
 
@@ -93,7 +93,7 @@ theorem prefix_migration (b : Bool) (pre suffix : List Bool) :
     (run delay.machine.mealy b (pre ++ suffix)).1 =
       (run delay.machine.mealy b pre).1 ++
         (run redundant.machine.mealy (forward (run delay.machine.mealy b pre).2) suffix).1 ∧
-    related (run delay.machine.mealy b (pre ++ suffix)).2
+    Related (run delay.machine.mealy b (pre ++ suffix)).2
       (run redundant.machine.mealy (forward (run delay.machine.mealy b pre).2) suffix).2 := by
   rw [run_append]
   have h := finite_suffix (run delay.machine.mealy b pre).2
@@ -115,7 +115,7 @@ example : (run redundant.machine.mealy (forward true) [false]).1 = [true] :=
 example : (run redundant.machine.mealy (forward false) [true,false,true,true,false]).1 =
     [false,true,false,true,true] :=
   (finite_suffix false (forward false) rfl _).1.symm
-example : related (run delay.machine.mealy false ([true] ++ [false])).2
+example : Related (run delay.machine.mealy false ([true] ++ [false])).2
     (run redundant.machine.mealy (forward (run delay.machine.mealy false [true]).2) [false]).2 :=
   (prefix_migration false [true] [false]).2
 

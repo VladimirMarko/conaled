@@ -98,7 +98,7 @@ client interface and its exact contracts.
 
 | Law | Existing scope |
 | --- | --- |
-| Small `sigmaCode_reindex`, `piCode_reindex`, `pathCode_reindex` | Decoded-family isomorphisms over `Γ, Δ : Context.{u}`; dependent display substitutions retained |
+| Small `sigmaCodeReindexIso`, `piCodeReindexIso`, `pathCodeReindexIso` | Decoded-family isomorphisms over `Γ, Δ : Context.{u}`; dependent display substitutions retained |
 | Small selected operations | `LocalFamily.sigma_reindex` is equality; Π and Path have explicit filler-preservation equations through their reindexing maps |
 | Large `sigmaSubstitution`, `piSubstitution`, `pathSubstitution` | Decoded-family isomorphisms with independently rebuilt constructors for every `σ : Ω ⟶ Ξ`, where both contexts have level `u+1` |
 | Large `*_Substitution_filling` | Equality of complete returned filling records after transport through those isomorphisms |

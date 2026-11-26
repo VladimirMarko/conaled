@@ -25,7 +25,7 @@ noncomputable def extend : Term (reindex (pi A B) σ) :=
   Term.map (piReindexIso A B σ).inv (lam (body c F σ φ s))
 
 include hF in
-theorem boundary (x : Δ.Elements) (hx : φ.full x) :
+theorem boundary (x : Δ.Elements) (hx : φ.Full x) :
     (extend c F σ φ s).val x = s.val x hx := by
   let i := piReindexIso A B σ
   let p := s.map i.hom

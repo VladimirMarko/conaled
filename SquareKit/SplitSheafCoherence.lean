@@ -33,7 +33,7 @@ theorem transport_triple {A : Ty Γ} (t : Tm A) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ
 /-- This route sends a split iterated extension to the ordinary iterated
 pullback, retaining the inner substitution comparison. -/
 def doubleComparison (A : Ty Γ) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) :
-    Ext (tySub (tySub A σ) τ) ⟶ pullback (Family.reindex (p A) σ) τ :=
+    extension (tySub (tySub A σ) τ) ⟶ pullback (Family.reindex (p A) σ) τ :=
   (substitutionIso (tySub A σ) τ).hom ≫
     Family.map (p (tySub A σ)) (Family.reindex (p A) σ) τ
       (substitutionIso A σ).hom (substitution_display A σ)
@@ -45,7 +45,7 @@ theorem double_display (A : Ty Γ) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) :
   exact substitution_display (tySub A σ) τ
 
 def tripleComparison (A : Ty Γ) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) (υ : Ω ⟶ Ξ) :
-    Ext (tySub (tySub (tySub A σ) τ) υ) ⟶ pullback (Family.reindex (Family.reindex (p A) σ) τ) υ :=
+    extension (tySub (tySub (tySub A σ) τ) υ) ⟶ pullback (Family.reindex (Family.reindex (p A) σ) τ) υ :=
   (substitutionIso (tySub (tySub A σ) τ) υ).hom ≫
     Family.map (p (tySub (tySub A σ) τ)) (Family.reindex (Family.reindex (p A) σ) τ) υ
       (doubleComparison A σ τ) (double_display A σ τ)

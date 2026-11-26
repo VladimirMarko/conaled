@@ -110,10 +110,10 @@ theorem counting_undefined :
   exact result
 
 theorem counting_first (p : Nat → Prop) :
-    first p (Observations.takeWhile belowSeven
+    First p (Observations.takeWhile belowSeven
       (observations (guarded PartialSpineProgress.count) 4)) = p 4 := by
   rw [counting_false.1]
-  change first p (Ideal.principal (.cons 4 (ofList [5, 6]))) = p 4
+  change First p (Ideal.principal (.cons 4 (ofList [5, 6]))) = p 4
   rw [← Observations.cons_principal, first_cons]
 
 /-- A budget reaching the end distinguishes the two semantic results. -/

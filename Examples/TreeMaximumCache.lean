@@ -27,8 +27,8 @@ theorem erased_key_occurrences (t : BinaryTree (α × β)) :
 
 theorem singleton_value [Max α] (a : α) : mx (nodeMx .nil a .nil) = some a := rfl
 
-theorem singleton_valid [Max α] (a : α) : invarMx (nodeMx .nil a .nil) :=
-  nodeMx_valid .nil a .nil invarMx_nil invarMx_nil
+theorem singleton_valid [Max α] (a : α) : Valid (nodeMx .nil a .nil) :=
+  nodeMx_valid .nil a .nil valid_nil valid_nil
 
 def negativeKeys : BinaryTree Int :=
   .node (-5) (.node (-2) .nil .nil) (.node (-9) .nil .nil)
@@ -36,7 +36,7 @@ def negativeKeys : BinaryTree Int :=
 def negativeCached : BinaryTree (Int × Int) :=
   nodeMx (nodeMx .nil (-2) .nil) (-5) (nodeMx .nil (-9) .nil)
 
-theorem negative_valid : invarMx negativeCached :=
+theorem negative_valid : Valid negativeCached :=
   nodeMx_valid _ (-5) _ (singleton_valid (-2)) (singleton_valid (-9))
 
 theorem negative_erases : Cached.erase negativeCached = negativeKeys := rfl
@@ -57,7 +57,7 @@ theorem negative_not_zero : mx negativeCached ≠ some 0 := by
   decide
 
 theorem negative_lift_valid : Cached.Valid none combine (lift negativeCached) :=
-  (invarMx_iff_valid_lift negativeCached).mp negative_valid
+  (valid_iff_valid_lift negativeCached).mp negative_valid
 
 theorem negative_lift_reader : Cached.read none (lift negativeCached) = some (-2) :=
   (read_lift negativeCached).trans negative_reads
@@ -78,7 +78,7 @@ theorem negative_optional_roundtrip :
 theorem negative_generic_annotation :
     project (Cached.annotate none combine negativeKeys) = negativeCached := by decide
 
-theorem negative_annotation_valid : invarMx (annotate negativeKeys) :=
+theorem negative_annotation_valid : Valid (annotate negativeKeys) :=
   annotate_valid negativeKeys
 
 theorem negative_annotation_erases : Cached.erase (annotate negativeKeys) = negativeKeys :=
@@ -91,7 +91,7 @@ theorem negative_annotation_reads : mx (annotate negativeKeys) = some (-2) :=
 def repeatedCached : BinaryTree (Nat × Nat) :=
   nodeMx (nodeMx .nil 4 .nil) 4 (nodeMx .nil 1 .nil)
 
-theorem repeated_valid : invarMx repeatedCached :=
+theorem repeated_valid : Valid repeatedCached :=
   nodeMx_valid _ 4 _ (singleton_valid 4) (singleton_valid 1)
 
 theorem repeated_occurrences : inorder (Cached.erase repeatedCached) = [4, 4, 1] := rfl
@@ -101,19 +101,19 @@ theorem repeated_maximum :
   ⟨by decide, (mx_eq_max?_inorder repeatedCached repeated_valid).symm.trans (by decide)⟩
 
 theorem asymmetric_left :
-    invarMx (nodeMx (nodeMx .nil (7 : Nat) .nil) 2 .nil) ∧
+    Valid (nodeMx (nodeMx .nil (7 : Nat) .nil) 2 .nil) ∧
       mx (nodeMx (nodeMx .nil (7 : Nat) .nil) 2 .nil) = some 7 :=
-  ⟨nodeMx_valid _ 2 _ (singleton_valid 7) invarMx_nil, by decide⟩
+  ⟨nodeMx_valid _ 2 _ (singleton_valid 7) valid_nil, by decide⟩
 
 theorem asymmetric_right :
-    invarMx (nodeMx .nil (2 : Nat) (nodeMx .nil 7 .nil)) ∧
+    Valid (nodeMx .nil (2 : Nat) (nodeMx .nil 7 .nil)) ∧
       mx (nodeMx .nil (2 : Nat) (nodeMx .nil 7 .nil)) = some 7 :=
-  ⟨nodeMx_valid _ 2 _ invarMx_nil (singleton_valid 7), by decide⟩
+  ⟨nodeMx_valid _ 2 _ valid_nil (singleton_valid 7), by decide⟩
 
 /-- This descendant falsely claims 100 as the maximum of its sole key -9. -/
 def forgedLeaf : BinaryTree (Int × Int) := .node (-9, 100) .nil .nil
 
-theorem forged_leaf_invalid : ¬ invarMx forgedLeaf := by
+theorem forged_leaf_invalid : ¬ Valid forgedLeaf := by
   change ¬ (True ∧ True ∧ (100 : Int) = -9)
   decide
 
@@ -127,7 +127,7 @@ theorem forged_parent_local_root :
 theorem forged_parent_root_correct :
     mx forgedParent = (inorder (Cached.erase forgedParent)).max? := by decide
 
-theorem forged_parent_invalid : ¬ invarMx forgedParent := by
+theorem forged_parent_invalid : ¬ Valid forgedParent := by
   intro h
   exact forged_leaf_invalid ((nodeMx_valid_iff forgedLeaf 100 .nil).mp h).1
 

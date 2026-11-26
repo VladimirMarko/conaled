@@ -10,12 +10,12 @@ open SmoothPresentationSite
 
 structure Domain where
   dimension : ℕ
-  defining : Free dimension
+  defining : freeAlgebra dimension
 
 abbrev Points (U : Domain) := Localization.locus U.defining
 theorem domain_open (U : Domain) : IsOpen (Points U) := Localization.locus_open U.defining
 
-abbrev Functions (U : Domain) := Localization.Functions U.defining
+abbrev functionAlgebra (U : Domain) := Localization.functionAlgebra U.defining
 abbrev Map (U V : Domain) := Localization.OpenMap U.defining V.defining
 
 instance : Category Domain where

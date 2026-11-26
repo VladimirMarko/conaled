@@ -70,7 +70,7 @@ theorem tupleDecoder_selected :
 
 /-- A proper endpoint face does not contain the whole interval line. -/
 theorem endpoint_not_whole {Γ : Context.{u}} (x : Γ.Elements) :
-    ¬ (Glue.intervalAll (intervalFace Γ true)).holds x := by
+    ¬ (Glue.intervalAll (intervalFace Γ true)).Holds x := by
   intro h
   have hx := Glue.intervalAll_specialize (intervalFace Γ true) x h ((endpoint Γ false).val x)
   change (endpoint Γ false).val x = (endpoint Γ true).val x at hx

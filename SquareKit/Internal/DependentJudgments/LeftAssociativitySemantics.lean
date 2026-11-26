@@ -48,7 +48,7 @@ theorem associativity_motive : S.motive.eval (algebra (Instance.fullModel C B)) 
 
 /-- Arbitrary ordinary-groupoid inputs interpret the source associator itself
 as a selected higher path between the two composite path sections. -/
-theorem associator_evaluates (hρ : ∀ a ∈ Ω, a.eval (model (Instance.fullModel C B)).toAlgebra ρ) :
+theorem associator_evaluates (hρ : ∀ a ∈ Ω, a.Eval (model (Instance.fullModel C B)).toAlgebra ρ) :
     ∃ selected : (Instance.fullModel C B).Section G (identityFamily (identityFamily (constant C) x w)
       (leftComposite C G x y z w p q r) (rightComposite C G x y z w p q r)),
       S.associator.eval (algebra (Instance.fullModel C B)) ρ = .term G _ selected :=

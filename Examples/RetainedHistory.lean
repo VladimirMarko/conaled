@@ -86,10 +86,10 @@ example : (command config (bankOps config) reacquired (.release true)).2.control
 
 def oldHandle : Handle := ⟨5, 10⟩
 def owner : Ownership := ⟨5, some 10, ∅⟩
-example : ¬({ owner with owner := some 11, consumed := insert 10 owner.consumed } : Ownership).admits oldHandle :=
+example : ¬({ owner with owner := some 11, consumed := insert 10 owner.consumed } : Ownership).Admits oldHandle :=
   reacquired_excludes_old owner oldHandle 11
-example : ({ owner with owner := some 11, consumed := insert 10 owner.consumed } : Ownership).admits ⟨5,11⟩ := by
-  simp [Ownership.admits, owner]
+example : ({ owner with owner := some 11, consumed := insert 10 owner.consumed } : Ownership).Admits ⟨5,11⟩ := by
+  simp [Ownership.Admits, owner]
 example : command config (bankOps config) reacquired
     (.release (currentConnection ⟨6, some 11, ∅⟩ oldHandle)) = (.invalidHandle, reacquired) := rfl
 

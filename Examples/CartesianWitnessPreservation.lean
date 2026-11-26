@@ -43,7 +43,7 @@ structure TargetPackage {Γ : Cartesian.Context.{0}} (A : Cartesian.Family Γ) (
   initial : A.obj x
   step : Cartesian.PiElement A ((Cartesian.projection A).mapElements ⋙ A) x
   invariant : Cartesian.PiElement A ((Functor.const (Cartesian.total A).Elements).obj Prop) x
-  initial_valid : PLift (invariant.val (𝟙 x) initial)
+  initialInvariantWitness : PLift (invariant.val (𝟙 x) initial)
   preserves : ∀ {y : Γ.Elements} (f : x ⟶ y) (a : A.obj y),
     PLift (invariant.val f a → invariant.val f (step.val f a))
 
@@ -53,7 +53,7 @@ noncomputable def packageComparison {Γ : Presheaf.Context.{0}} (A : Presheaf.Lo
   initial := z.1.1
   step := (Cartesian.piComparison A.family (Presheaf.reindex A.family (Presheaf.projection A.family))).app x z.1.2.1
   invariant := (Cartesian.piComparison A.family (Presheaf.constantFamily (Presheaf.total A.family) Prop)).app x z.1.2.2
-  initial_valid := z.2.1
+  initialInvariantWitness := z.2.1
   preserves {y} f a := by
     have h := z.2.2.val (Presheaf.extendHom (data A).family ((Cartesian.elements Γ).map f) z.1) a
     change PLift (z.1.2.2.val (((Cartesian.elements Γ).map f) ≫ 𝟙 _) a →
@@ -66,8 +66,8 @@ def TargetPackage.readOut {Γ : Cartesian.Context.{0}} {A : Cartesian.Family Γ}
     {x : Γ.Elements} (z : TargetPackage A x) : StatePackage (A.obj x) where
   initial := z.initial
   step a := z.step.val (𝟙 x) a
-  invariant a := z.invariant.val (𝟙 x) a
-  initial_valid := z.initial_valid.down
+  Invariant a := z.invariant.val (𝟙 x) a
+  initial_valid := z.initialInvariantWitness.down
   preserves a h := (z.preserves (𝟙 x) a).down h
 
 /-- Equality of the full five-field readout includes the dependent proof fields. -/
@@ -131,7 +131,7 @@ def TargetPackage.reindex {Γ Δ : Cartesian.Context.{0}} {A : Cartesian.Family 
   invariant := {
     val := fun f a => z.invariant.val (τ.mapElements.map f) a
     naturality := fun f g a => z.invariant.naturality (τ.mapElements.map f) (τ.mapElements.map g) a }
-  initial_valid := z.initial_valid
+  initialInvariantWitness := z.initialInvariantWitness
   preserves f a := z.preserves (τ.mapElements.map f) a
 
 theorem TargetPackage.reindex_readOut {Γ Δ : Cartesian.Context.{0}} {A : Cartesian.Family Γ}
@@ -182,7 +182,7 @@ theorem cartesianFinish_eq : cartesianFinish = machineTransported := rfl
 theorem cartesianFinish_observation : observer (cartesianFinish.step cartesianFinish.initial) = 1 :=
   transported_observation
 
-theorem cartesianFinish_invariant : cartesianFinish.invariant .ready ∧ ¬ cartesianFinish.invariant .failed :=
+theorem cartesianFinish_invariant : cartesianFinish.Invariant .ready ∧ ¬ cartesianFinish.Invariant .failed :=
   transported_invariant
 
 theorem cartesian_wrong_transition :

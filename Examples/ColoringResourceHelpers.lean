@@ -41,40 +41,40 @@ theorem old_fold_client (price : Nat) :
       ListExecution.foldr price (fun x state => 10 * state + x) 0 [1, 2, 3] :=
   MeasuredFold.pure_fold price (fun x state => 10 * state + x) [1, 2, 3] 0
 
-abbrev allowed (x : Nat) : Prop := x = 1 ∨ x = 2 ∨ x = 3
+abbrev Allowed (x : Nat) : Prop := x = 1 ∨ x = 2 ∨ x = 3
 
 def saturated (x state : Nat) : Measured Nat Nat :=
   if x = 1 ∨ x = 2 ∨ x = 3 then (min (state + x) 10, state + 1) else (11, 100)
 
-theorem saturated_closed (x state : Nat) (input : allowed x) (_initial : state ≤ 10) :
+theorem saturated_closed (x state : Nat) (input : Allowed x) (_initial : state ≤ 10) :
     (saturated x state).1 ≤ 10 := by
-  change (if allowed x then (min (state + x) 10, state + 1) else (11, 100)).1 ≤ 10
+  change (if Allowed x then (min (state + x) 10, state + 1) else (11, 100)).1 ≤ 10
   rw [ite_eq_left input]
   exact Nat.min_le_right _ _
 
-theorem saturated_bounded (x state : Nat) (input : allowed x) (initial : state ≤ 10) :
+theorem saturated_bounded (x state : Nat) (input : Allowed x) (initial : state ≤ 10) :
     (saturated x state).2 ≤ 11 := by
-  change (if allowed x then (min (state + x) 10, state + 1) else (11, 100)).2 ≤ 11
+  change (if Allowed x then (min (state + x) 10, state + 1) else (11, 100)).2 ≤ 11
   rw [ite_eq_left input]
   dsimp only
   omega
 
-theorem inputs_allowed : ∀ x ∈ ([1, 2, 3] : List Nat), allowed x := by
+theorem inputs_allowed : ∀ x ∈ ([1, 2, 3] : List Nat), Allowed x := by
   intro x member
-  simpa only [allowed, List.mem_cons, List.not_mem_nil, or_false] using member
+  simpa only [Allowed, List.mem_cons, List.not_mem_nil, or_false] using member
 
 theorem saturated_invariant : (MeasuredFold.run saturated [1, 2, 3] 0).1 ≤ 10 :=
-  MeasuredFold.run_invariant_on saturated allowed (· ≤ 10) saturated_closed [1, 2, 3]
+  MeasuredFold.run_invariant_on saturated Allowed (· ≤ 10) saturated_closed [1, 2, 3]
     inputs_allowed 0 (by decide)
 
 theorem saturated_work : (MeasuredFold.run saturated [1, 2, 3] 0).2.2 ≤ 33 :=
-  MeasuredFold.run_callback_work_le saturated allowed (· ≤ 10) 11 saturated_closed saturated_bounded
+  MeasuredFold.run_callback_work_le saturated Allowed (· ≤ 10) 11 saturated_closed saturated_bounded
     [1, 2, 3] inputs_allowed 0 (by decide)
 
 theorem saturated_result : MeasuredFold.run saturated [1, 2, 3] 0 = (6, ((4, 3), 11)) := by decide
 
 theorem restricted_boundary :
-    ¬ allowed 0 ∧ saturated 0 0 = (11, 100) ∧ (saturated 1 11).2 = 12 := by decide
+    ¬ Allowed 0 ∧ saturated 0 0 = (11, 100) ∧ (saturated 1 11).2 = 12 := by decide
 
 open Search.PositiveTrie Numerals.PositiveArithmetic Graphs.Coloring
 open Resources.Coloring Examples.ColoringSelection

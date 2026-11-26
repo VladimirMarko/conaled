@@ -17,9 +17,9 @@ abbrev pseudofunctor := SplitSheaf.pseudofunctor (C := C) (J := J)
 
 variable {X : Sheaf J (Type (max u v))}
 variable (A : SplitSheaf.Ty X)
-abbrev overlap := SplitSheaf.Ext (SplitSheaf.tySub A (SplitSheaf.p A))
-abbrev first : overlap A ⟶ SplitSheaf.Ext A := SplitSheaf.p (SplitSheaf.tySub A (SplitSheaf.p A))
-abbrev second : overlap A ⟶ SplitSheaf.Ext A := SplitSheaf.lift A (SplitSheaf.p A)
+abbrev overlap := SplitSheaf.extension (SplitSheaf.tySub A (SplitSheaf.p A))
+abbrev first : overlap A ⟶ SplitSheaf.extension A := SplitSheaf.p (SplitSheaf.tySub A (SplitSheaf.p A))
+abbrev second : overlap A ⟶ SplitSheaf.extension A := SplitSheaf.lift A (SplitSheaf.p A)
 abbrev base : overlap A ⟶ X := first A ≫ SplitSheaf.p A
 abbrev singleton := fun _ : Unit => SplitSheaf.p A
 abbrev Data := (pseudofunctor (J := J)).DescentData (singleton A)
@@ -45,7 +45,7 @@ theorem transition_reindex (D : Data A) {Y : Sheaf J (Type (max u v))}
   exact D.pullHom_hom k (base A) (k ≫ base A) rfl
     (first A) (second A) rfl rfl (k ≫ first A) (k ≫ second A) rfl rfl
 
-abbrev diagonal (A : SplitSheaf.Ty X) : SplitSheaf.Ext A ⟶ overlap A :=
+abbrev diagonal (A : SplitSheaf.Ty X) : SplitSheaf.extension A ⟶ overlap A :=
   SplitSheaf.pair (SplitSheaf.tySub A (SplitSheaf.p A)) (𝟙 _) (SplitSheaf.q A)
 
 theorem transport_identity (D : Data A) (x : X.obj.Elements) (a : A.family.obj x)
@@ -66,7 +66,7 @@ theorem transport_natural (D : Data A) {x y : X.obj.Elements} (f : x ⟶ y)
     (SplitFunctionDiagram.pairArrow (SplitSheaf.tySub A (SplitSheaf.p A)).family
       (SplitFunctionDiagram.pairArrow A.family f a) b) p).symm
 
-abbrev triple (A : SplitSheaf.Ty X) := SplitSheaf.Ext (SplitSheaf.tySub A (base A))
+abbrev triple (A : SplitSheaf.Ty X) := SplitSheaf.extension (SplitSheaf.tySub A (base A))
 abbrev pair12 (A : SplitSheaf.Ty X) : triple A ⟶ overlap A :=
   SplitSheaf.p (SplitSheaf.tySub A (base A))
 abbrev pair13 (A : SplitSheaf.Ty X) : triple A ⟶ overlap A :=
@@ -109,7 +109,7 @@ theorem datum_toDescentData (T : SplitSheaf.Ty X) :
 theorem comm_of_overlap {D E : Data A} (h : D.obj () ⟶ E.obj ())
     (hh : CategoryStruct.comp ((SplitSheaf.restriction (first A)).map h) (transition E) =
       CategoryStruct.comp (transition D) ((SplitSheaf.restriction (second A)).map h))
-    {Y : Sheaf J (Type (max u v))} (q : Y ⟶ X) (f₁ f₂ : Y ⟶ SplitSheaf.Ext A)
+    {Y : Sheaf J (Type (max u v))} (q : Y ⟶ X) (f₁ f₂ : Y ⟶ SplitSheaf.extension A)
     (hf₁ : f₁ ≫ SplitSheaf.p A = q) (hf₂ : f₂ ≫ SplitSheaf.p A = q) :
     ((pseudofunctor (J := J)).map f₁.op.toLoc).toFunctor.map h ≫ E.hom q f₁ f₂ hf₁ hf₂ =
       D.hom q f₁ f₂ hf₁ hf₂ ≫ ((pseudofunctor (J := J)).map f₂.op.toLoc).toFunctor.map h := by

@@ -81,11 +81,11 @@ def select (n : Nat) : Circuit (.prod .base (.prod (shape n) (shape n))) (shape 
   rw [select, FRPSpec.FiniteSum.mux_execute]
   cases tag <;> rfl
 
-abbrev AddInput (n : Nat) := Ty.prod (.prod (shape n) (shape n)) .base
-abbrev AddOutput (n : Nat) := Ty.prod (shape n) .base
+abbrev addInputType (n : Nat) := Ty.prod (.prod (shape n) (shape n)) .base
+abbrev addOutputType (n : Nat) := Ty.prod (shape n) .base
 
 /-- Calculate one full adder once, retaining both tails. -/
-def prepare (n : Nat) : Circuit (AddInput (n+1)) (.prod .base (AddInput n)) :=
+def prepare (n : Nat) : Circuit (addInputType (n+1)) (.prod .base (addInputType n)) :=
   .compose
     (.pair (.compose .first .first)
       (.pair .second (.compose .second .first)))
@@ -96,11 +96,11 @@ def prepare (n : Nat) : Circuit (AddInput (n+1)) (.prod .base (AddInput n)) :=
       (.pair (.compose .second (.compose .first .first))
              (.compose .second (.compose .second .first))))
 
-def finish (n : Nat) : Circuit (.prod .base (AddOutput n)) (AddOutput (n+1)) :=
+def finish (n : Nat) : Circuit (.prod .base (addOutputType n)) (addOutputType (n+1)) :=
   .pair (.pair .first (.compose .first .second)) (.compose .second .second)
 
 /-- The recursive circuit occurs once, after the low-bit carry is computed. -/
-def ripple : (n : Nat) → Circuit (AddInput n) (AddOutput n)
+def ripple : (n : Nat) → Circuit (addInputType n) (addOutputType n)
   | 0 => .pair .terminate .second
   | n+1 => .compose (finish n)
       (.compose (Circuit.productMap .identity (ripple n)) (prepare n))

@@ -66,12 +66,12 @@ theorem parameterOverlap_square {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.
   overlapRestriction_square a A f
 
 theorem parameterFunctor_eq {Y : Sheaf topology Type}
-    {f g : Y ⟶ SplitSheaf.Ext A} (h : f = g) :
+    {f g : Y ⟶ SplitSheaf.extension A} (h : f = g) :
     SheafActionQuotient.Cech.localFunctor ⋙ restriction (a := a) f =
       SheafActionQuotient.Cech.localFunctor ⋙ restriction g := by cases h; rfl
 
 theorem parameterFiber_heq {Y : Sheaf topology Type}
-    {f g : Y ⟶ SplitSheaf.Ext A} (h : f = g) :
+    {f g : Y ⟶ SplitSheaf.extension A} (h : f = g) :
     HEq (parameterFiber a A f) (parameterFiber a A g) := by cases h; rfl
 
 theorem parameterTriangle_cocycle :

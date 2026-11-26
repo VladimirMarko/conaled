@@ -50,7 +50,7 @@ def model {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
     (T : C → D → Prop) : Interpretation Arrow Relation where
   Carrier | .input => A | .first => B | .second => C | .output => D
   arrow f := nomatch f
-  relation | .first => R | .second => S | .third => T
+  Relation | .first => R | .second => S | .third => T
 
 def environment {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
     (T : C → D → Prop) (a : A) (d : D) : Env (model R S T) [.input, .output] :=

@@ -13,13 +13,13 @@ open Examples.CubicalCocycleAssignment Examples.FrozenMemoStages
 
 abbrev display := (tauData cocycleModel cocycleBase cocycleRootedFamily).display
 
-abbrev s0 := (CM.lift twoPoints.family (duplicate cocycleModel cocycleBase cocycleRootedFamily)).down
-abbrev t0 := (CM.sectionSub (CM.subTy twoPoints.family (duplicate cocycleModel cocycleBase cocycleRootedFamily))
+abbrev s0 := (cocycleStructuralModel.lift twoPoints.family (duplicate cocycleModel cocycleBase cocycleRootedFamily)).down
+abbrev t0 := (cocycleStructuralModel.sectionSub (cocycleStructuralModel.subTy twoPoints.family (duplicate cocycleModel cocycleBase cocycleRootedFamily))
    (deltaX cocycleModel cocycleBase cocycleRootedFamily)).down
 abbrev baseMap := t0 ≫ s0
 abbrev pFamily := (points.path.reindex s0).reindex t0
 
-theorem p_at_assignment : reindex pFamily.family assignX = FirstIdentityFamily terminal.{0} := by
+theorem p_at_assignment : reindex pFamily.family assignX = firstIdentityFamily terminal.{0} := by
   exact normalizedIdentity_reindex points.family.family points.x.down points.y.down (assignX ≫ baseMap)
 
 def assignedP : Term (reindex pFamily.family assignX) :=
@@ -31,7 +31,7 @@ abbrev t1 := liftSub (reindex points.path.family s0) t0
 abbrev pMap := t1 ≫ s1
 abbrev ppFamily := (onePath.path.reindex s1).reindex t1
 
-theorem pp_at_assignment : reindex ppFamily.family assignP = FirstIdentityFamily terminal.{0} := by
+theorem pp_at_assignment : reindex ppFamily.family assignP = firstIdentityFamily terminal.{0} := by
  exact normalizedIdentity_reindex onePath.family.family onePath.x.down onePath.y.down (assignP ≫ pMap)
 
 def assignedPP : Term (reindex ppFamily.family assignP) :=
@@ -45,7 +45,7 @@ abbrev hFamily := (parallelPoints.identity.reindex s2).reindex t2
 
 theorem prefix_eq : assignPP ≫ ppMap = Examples.CubicalCocycleAssignment.assignParallel := rfl
 
-theorem h_at_assignment : reindex hFamily.family assignPP = SecondIdentityFamily terminal.{0} :=
+theorem h_at_assignment : reindex hFamily.family assignPP = secondIdentityFamily terminal.{0} :=
   (congrArg (reindex parallelPoints.identity.family) prefix_eq).trans homotopy_at_assignment
 
 def assignedH : Term (reindex hFamily.family assignPP) :=
@@ -55,7 +55,7 @@ def assignH : terminal.{0} ⟶ total hFamily.family := pair assignPP assignedH
 abbrev s3 := liftSub parallelPoints.identity.family s2
 abbrev t3 := liftSub (reindex parallelPoints.identity.family s2) t2
 abbrev hMap := t3 ≫ s3
-abbrev qFamily := ((Examples.FrozenMemoStages.qFamily CM cocycleBase cocycleRootedFamily).reindex s3).reindex t3
+abbrev qFamily := ((Examples.FrozenMemoStages.qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).reindex s3).reindex t3
 
 theorem pair_heq {Γ Δ : Context.{0}} {A : Family Γ} {σ τ : Δ ⟶ Γ}
  (h : σ = τ) {a : Term (reindex A σ)} {b : Term (reindex A τ)} (hv : HEq a b) :
@@ -70,28 +70,28 @@ theorem h_prefix_eq : assignH ≫ hMap = assignHomotopy :=
  (pair_heq (A := parallelPoints.identity.family) (a := assignedH) (b := assignedHomotopy) prefix_eq ((Term.convert_heq h_at_assignment.symm (secondIdentity terminal)).trans
     (Term.convert_heq homotopy_at_assignment.symm (secondIdentity terminal)).symm))
 
-theorem q_at_assignment : reindex qFamily.family assignH = FirstIdentityFamily terminal.{0} :=
- (congrArg (reindex (Examples.FrozenMemoStages.qFamily CM cocycleBase cocycleRootedFamily).family) h_prefix_eq).trans
+theorem q_at_assignment : reindex qFamily.family assignH = firstIdentityFamily terminal.{0} :=
+ (congrArg (reindex (Examples.FrozenMemoStages.qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family) h_prefix_eq).trans
  Examples.CubicalCocycleAssignment.q_at_assignment
 
 def assignedQ : Term (reindex qFamily.family assignH) :=
  (normalizedIdentityRefl (zeroTerm terminal)).convert q_at_assignment.symm
 
 def assignQ : terminal.{0} ⟶ total qFamily.family := pair assignH assignedQ
-abbrev s4 := liftSub (Examples.FrozenMemoStages.qFamily CM cocycleBase cocycleRootedFamily).family s3
-abbrev t4 := liftSub (reindex (Examples.FrozenMemoStages.qFamily CM cocycleBase cocycleRootedFamily).family s3) t3
+abbrev s4 := liftSub (Examples.FrozenMemoStages.qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family s3
+abbrev t4 := liftSub (reindex (Examples.FrozenMemoStages.qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family s3) t3
 abbrev qMap := t4 ≫ s4
-abbrev uFamily := ((Examples.FrozenMemoStages.uFamily CM cocycleBase cocycleRootedFamily).reindex s4).reindex t4
+abbrev uFamily := ((Examples.FrozenMemoStages.uFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).reindex s4).reindex t4
 
 theorem q_prefix_eq : assignQ ≫ qMap = Examples.CubicalCocycleAssignment.assignQ :=
- (pair_lift (Examples.FrozenMemoStages.qFamily CM cocycleBase cocycleRootedFamily).family hMap assignH assignedQ).trans
- (pair_heq (A := (Examples.FrozenMemoStages.qFamily CM cocycleBase cocycleRootedFamily).family)
+ (pair_lift (Examples.FrozenMemoStages.qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family hMap assignH assignedQ).trans
+ (pair_heq (A := (Examples.FrozenMemoStages.qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family)
  (a := assignedQ) (b := Examples.CubicalCocycleAssignment.assignedQ) h_prefix_eq
  ((Term.convert_heq q_at_assignment.symm _).trans
  (Term.convert_heq Examples.CubicalCocycleAssignment.q_at_assignment.symm _).symm))
 
-theorem u_at_assignment : reindex uFamily.family assignQ = FirstIdentityFamily terminal.{0} :=
- (congrArg (reindex (Examples.FrozenMemoStages.uFamily CM cocycleBase cocycleRootedFamily).family) q_prefix_eq).trans
+theorem u_at_assignment : reindex uFamily.family assignQ = firstIdentityFamily terminal.{0} :=
+ (congrArg (reindex (Examples.FrozenMemoStages.uFamily cocycleStructuralModel cocycleBase cocycleRootedFamily).family) q_prefix_eq).trans
  Examples.CubicalCocycleAssignment.u_at_assignment
 
 def assignedU : Term (reindex uFamily.family assignQ) :=
@@ -107,7 +107,7 @@ theorem retainedTauHomotopy :
  Term.convert_heq h_at_assignment.symm (secondIdentity terminal)
 
 /-- Normalize only the proved family equality; retain the interpreted selected value. -/
-def normalizedTauHomotopy : Term (SecondIdentityFamily terminal.{0}) :=
+def normalizedTauHomotopy : Term (secondIdentityFamily terminal.{0}) :=
  cast (type_eq_of_heq retainedTauHomotopy)
   ((tauHomotopy cocycleModel cocycleBase cocycleRootedFamily).value.down.reindex assignFinal)
 

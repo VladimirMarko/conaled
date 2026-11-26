@@ -20,7 +20,7 @@ private def setSection {Γ : Type*} [Category* Γ] (F : Γ ⥤ Type*)
   map_comp _ _ := Subsingleton.elim _ _
 
 /-- Constant deformation is a section on all objects over the cover. -/
-def localConstant : Section (setFamily (family a (SplitSheaf.Ext A))) :=
+def localConstant : Section (setFamily (family a (SplitSheaf.extension A))) :=
   setSection _ SmoothQuotientDeformations.constant (fun f =>
     GlobalSectionDescent.transport_constant f)
 

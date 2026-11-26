@@ -329,7 +329,7 @@ Let p be the exact source ua of the actual `compositeEquivalence`, and q the
 exact selected source concatenation in `swapComposition`. They have the same
 permutation, by `loopPermutation_ua`, the actual composite-map equation, and
 `loopPermutation_concat`. Use the existing constructor
-`FiniteUniverseLoops.samePermutation_path` to choose
+`FiniteUniverseLoops.samePermutationPath` to choose
 
     δp:p→P,   δq:q→Q.
 
@@ -412,7 +412,7 @@ Real is natural, and W commutes with reindexing by the native concatenation
 laws. The boundary paths are the exact frozen source p,q and their documented
 whole-body reindexings. Choose δp_at and δq_at as reindexings of the fixed
 closed δp and δq; do not claim an arbitrary independent invocation of an
-unproved naturality law for `samePermutation_path` makes the same choice.
+unproved naturality law for `samePermutationPath` makes the same choice.
 Likewise take c_at and F_Z_at by reindexing their fixed selected data.
 
 This is an explicit chosen comparison operation on the client's entire

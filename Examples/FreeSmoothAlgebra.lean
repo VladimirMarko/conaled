@@ -7,10 +7,10 @@ namespace Examples.FreeSmoothAlgebra
 open SquareKit.SmoothAlgebra
 open Applications.AD.SmoothAlgebras
 
-abbrev exponential : Free 1 := SmoothDual.exponential
+abbrev exponential : freeAlgebra 1 := SmoothDual.exponential
 
 /-- Any interpretation with the specified generator has the analytic dual coefficients. -/
-theorem dual_universal_exp (h : Hom (Free 1) (DualNumber ℝ)) (x v : ℝ)
+theorem dual_universal_exp (h : Hom (freeAlgebra 1) (DualNumber ℝ)) (x v : ℝ)
     (hx : h (generator 0) = (⟨x,v⟩ : DualNumber ℝ)) :
     h exponential = (⟨Real.exp x, Real.exp x*v⟩ : DualNumber ℝ) := by
   have he := evaluate_unique h
@@ -26,7 +26,7 @@ theorem dual_universal_exp (h : Hom (Free 1) (DualNumber ℝ)) (x v : ℝ)
 
 /-- Universal second-order evaluation agrees with the analytic Hessian coefficient. -/
 theorem second_universal_exp
-    (h : Hom (Free 1) Applications.AD.SecondStage.Stage) (x v w : ℝ)
+    (h : Hom (freeAlgebra 1) Applications.AD.SecondStage.stageAlgebra) (x v w : ℝ)
     (hx : h (generator 0) = Applications.AD.SecondStage.ofCoeff x v w) :
     Applications.AD.SecondStage.coeff (h exponential) =
       (Real.exp x,Real.exp x*v,Real.exp x*(w+v^2/2)) := by
@@ -51,17 +51,17 @@ theorem evaluate_second_exp :
 
 /-- The nullary free algebra has exactly one smooth interpretation into any target. -/
 theorem nullary_unique {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A]
-    (h k : Hom (Free 0) A) : h = k := hom_ext_generators h k (fun i => Fin.elim0 i)
+    (h k : Hom (freeAlgebra 0) A) : h = k := hom_ext_generators h k (fun i => Fin.elim0 i)
 
 theorem nullary_constant {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A]
-    (a : ℝ) : evaluate (A := A) (n := 0) Fin.elim0 (show Free 0 from constant 0 a) =
+    (a : ℝ) : evaluate (A := A) (n := 0) Fin.elim0 (show freeAlgebra 0 from constant 0 a) =
       algebraMap ℝ A a := Structure.constant _ _ _
 
 /-- Pullback by the nonidentity coordinate map x ↦ exp x. -/
 theorem exponential_pullback_nonidentity :
-    pullback (fun _ : Fin 1 => SmoothDual.exponential) ≠ (Hom.ident : Hom (Free 1) (Free 1)) := by
+    pullback (fun _ : Fin 1 => SmoothDual.exponential) ≠ (Hom.ident : Hom (freeAlgebra 1) (freeAlgebra 1)) := by
   intro h
-  have hh := congrArg (fun k : Hom (Free 1) (Free 1) => (k (generator 0)).val (fun _ => 0)) h
+  have hh := congrArg (fun k : Hom (freeAlgebra 1) (freeAlgebra 1) => (k (generator 0)).val (fun _ => 0)) h
   rw [pullback_generator] at hh
   norm_num [exponential, SmoothDual.exponential, Hom.ident, generator, projection] at hh
   change (1 : ℝ) = 0 at hh
@@ -69,10 +69,10 @@ theorem exponential_pullback_nonidentity :
 
 /-- Coordinate substitution and interpretation commute even for nonpolynomial coordinates. -/
 theorem exponential_pullback_evaluation {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A]
-    (a : Fin 1 → A) (f : Free 1) :
+    (a : Fin 1 → A) (f : freeAlgebra 1) :
     evaluate a (pullback (fun _ : Fin 1 => SmoothDual.exponential) f) =
       evaluate (fun _ : Fin 1 => act SmoothDual.exponential a) f :=
-  congrArg (fun h : Hom (Free 1) A => h f)
+  congrArg (fun h : Hom (freeAlgebra 1) A => h f)
     (evaluate_pullback (fun _ : Fin 1 => SmoothDual.exponential) a)
 
 end Examples.FreeSmoothAlgebra

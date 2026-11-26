@@ -29,7 +29,7 @@ def bc : Wiring (One ⊕ One) (One ⊕ Two) One Two where
     unfold Routing.Admissible Function.Bijective Function.Injective Function.Surjective
     decide
 
-/-- The four outer connections for (AB,C) and (A,BC). -/
+/-- The four outer connections for (wiredAB,C) and (A,wiredBC). -/
 def close : Wiring (Two ⊕ One) (One ⊕ Two) One One where
   input := Sum.elim (fun i => if i = 0 then .inr 0 else .inl (.inr 0))
     (fun _ => .inl (.inl 0))
@@ -38,10 +38,10 @@ def close : Wiring (Two ⊕ One) (One ⊕ Two) One One where
     unfold Routing.Admissible Function.Bijective Function.Injective Function.Surjective
     decide
 
-def AB := (A.parallel B).wire ab.toRouting
-def BC := (B.parallel C).wire bc.toRouting
-def left := (AB.parallel C).wire close.toRouting
-def right := (A.parallel BC).wire close.toRouting
+def wiredAB := (A.parallel B).wire ab.toRouting
+def wiredBC := (B.parallel C).wire bc.toRouting
+def left := (wiredAB.parallel C).wire close.toRouting
+def right := (A.parallel wiredBC).wire close.toRouting
 
 /-- Native product functions fixed independently in the report. -/
 def nativeField (s : ℝ × ℝ × ℝ) (u : ℝ) : ℝ × ℝ × ℝ :=
@@ -133,11 +133,11 @@ theorem abSwap_admissible : abSwap.Admissible := (ab.comp swapPorts).admissible
 
 /-- Rewiring composition is obtained from the local substitution theorem. -/
 theorem swapped_composition :
-    AB.wire swapPorts.toRouting = (A.parallel B).wire abSwap :=
+    wiredAB.wire swapPorts.toRouting = (A.parallel B).wire abSwap :=
   System.wire_comp (A.parallel B) ab.toRouting swapPorts.toRouting
 
 theorem swapped_field (s : ℝ × ℝ) (u : Two → ℝ) :
-    (AB.wire swapPorts.toRouting).field s u = (-s.1 + u 1 + u 0, -2*s.2 + s.1) := by
+    (wiredAB.wire swapPorts.toRouting).field s u = (-s.1 + u 1 + u 0, -2*s.2 + s.1) := by
   rw [swapped_composition]
   rfl
 
@@ -150,7 +150,7 @@ def closeSwap : Wiring (Two ⊕ One) (One ⊕ Two) One One where
     unfold Routing.Admissible Function.Bijective Function.Injective Function.Surjective
     decide
 
-def second := ((AB.wire swapPorts.toRouting).parallel C).wire closeSwap.toRouting
+def second := ((wiredAB.wire swapPorts.toRouting).parallel C).wire closeSwap.toRouting
 
 theorem second_hierarchy (s : (ℝ × ℝ) × ℝ) (u : One → ℝ) :
     second.field s u = left.field s u ∧ second.readout s = left.readout s := by

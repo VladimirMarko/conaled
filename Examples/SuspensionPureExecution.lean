@@ -29,14 +29,14 @@ private def pureParameters : Machine.Parameters Empty where
   matchException := 20
   bindException := 21
 
-private def operations : Empty → Prop := fun _ => False
+private def Operations : Empty → Prop := fun _ => False
 
-private theorem compatible : ParametersCompatible operations rawParameters pureParameters where
+private theorem compatible : ParametersCompatible Operations rawParameters pureParameters where
   primitive impossible := nomatch impossible
   matchException := rfl
   bindException := rfl
 
-private theorem preserve : ParametersPreserve operations pureParameters := by
+private theorem preserve : ParametersPreserve Operations pureParameters := by
   intro impossible
   cases impossible
 
@@ -50,7 +50,7 @@ private def finalMemory : Core.Machine.Memory Empty :=
   Suspensions.memoize allocated 0 (.atom (.integer 42))
 private def answer : Core.Machine.Answer Empty := ⟨finalMemory, .value (.atom (.integer 9))⟩
 
-private theorem program_allowed : CodeAllowed operations program := by
+private theorem program_allowed : CodeAllowed Operations program := by
   apply (CodeAllowed.bind_iff _ _ _).mpr
   refine ⟨.variable 0, (CodeAllowed.delay_iff _).mpr (CodeAllowed.atom (.integer 42)), ?_⟩
   apply (CodeAllowed.bind_iff _ _ _).mpr
@@ -72,7 +72,7 @@ theorem cached_run_has_pure_interpretation :
     Progress.Evaluates (Core.Machine.step rawParameters)
       (Core.Machine.start Suspensions.empty [] program) answer 21 ∧
     ∃ world,
-      Durability.Extends (fun _ => none) world ∧ WorldAllowed operations world ∧
+      Durability.Extends (fun _ => none) world ∧ WorldAllowed Operations world ∧
       Memory.StateRep pureParameters world finalMemory ∧
       ResultRep world answer.result (.value (.atom (.integer 9))) ∧
       Progress.Evaluates (Machine.step pureParameters)
@@ -89,7 +89,7 @@ theorem cached_run_has_pure_interpretation :
 private def malformed : Core.Expr Empty := .apply (.atom (.integer 1)) (.atom (.integer 2))
 private def faultAnswer : Core.Machine.Answer Empty := ⟨Suspensions.empty, .stuck .expectedFunction⟩
 
-private theorem malformed_allowed : CodeAllowed operations malformed :=
+private theorem malformed_allowed : CodeAllowed Operations malformed :=
   (CodeAllowed.apply_iff _ _).mpr ⟨CodeAllowed.atom (.integer 1), CodeAllowed.atom (.integer 2)⟩
 
 private theorem raw_fault : Progress.Evaluates (Core.Machine.step rawParameters)

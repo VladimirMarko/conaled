@@ -16,7 +16,7 @@ abbrev hcompEnvironment (Γ : Context.{u}) (A : Family Γ) (F : Filling A) (φ :
 theorem hcompEnvironment_valid (Γ : Context.{u}) (A : Family Γ) (F : Filling A) (φ : Cofibration Γ)
     (b : OpenBox (reindex A (Presheaf.projection (Presheaf.interval Γ))) φ)
     (hF : F.Lawful) (i : Fin 5) :
-    (hcompRule.premise i).eval algebra (hcompEnvironment Γ A F φ b) := by
+    (hcompRule.premise i).Eval algebra (hcompEnvironment Γ A F φ b) := by
   let ρ := hcompEnvironment Γ A F φ b
   have hI := intervalContext_eval (.var (0 : Fin 6)) ρ Γ rfl
   have hp := projection_eval (.var (0 : Fin 6)) ρ Γ rfl

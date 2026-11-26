@@ -22,7 +22,7 @@ def algebra (U : Set (Fin n → ℝ)) : Subalgebra ℝ (U → ℝ) where
   mul_mem' {f g} hf hg := (hf.mul hg).congr (by intro x hx; simp [extendZero,hx])
   algebraMap_mem' r := (contDiffOn_const (c := r)).congr (by intro x hx; simp [extendZero,hx])
 
-abbrev Carrier (U : Set (Fin n → ℝ)) := algebra U
+abbrev carrierAlgebra (U : Set (Fin n → ℝ)) := algebra U
 
 /-- For an open domain this is exactly ordinary local smoothness at each point. -/
 theorem smooth_iff {U : Set (Fin n → ℝ)} (hU : IsOpen U) (g : U → ℝ) :
@@ -39,7 +39,7 @@ theorem representative_iff {U : Set (Fin n → ℝ)} (g : U → ℝ) (q : (Fin n
   · exact h.congr (fun x hx => (hq ⟨x,hx⟩).trans (extendZero_mem g ⟨x,hx⟩).symm)
   · exact h.congr (fun x hx => (extendZero_mem g ⟨x,hx⟩).trans (hq ⟨x,hx⟩).symm)
 
-instance (U : Set (Fin n → ℝ)) : Structure (Carrier U) where
+instance (U : Set (Fin n → ℝ)) : Structure (carrierAlgebra U) where
   act f g := ⟨fun x => f.val (fun i => (g i).val x), by
     apply (f.property.contDiffOn.comp (contDiffOn_pi.mpr (fun i => (show ContDiffOn ℝ ∞ (extendZero U (g i).val) U from (g i).property))) (fun _ _ => Set.mem_univ _)).congr
     intro x hx
@@ -50,10 +50,10 @@ instance (U : Set (Fin n → ℝ)) : Structure (Carrier U) where
   addition _ := rfl
   multiplication _ := rfl
 
-@[ext] theorem ext {U : Set (Fin n → ℝ)} {g h : Carrier U} (he : ∀ x, g.val x = h.val x) : g=h :=
+@[ext] theorem ext {U : Set (Fin n → ℝ)} {g h : carrierAlgebra U} (he : ∀ x, g.val x = h.val x) : g=h :=
   Subtype.ext (funext he)
 
-def restrict {U V : Set (Fin n → ℝ)} (h : V ⊆ U) : Hom (Carrier U) (Carrier V) where
+def restrict {U V : Set (Fin n → ℝ)} (h : V ⊆ U) : Hom (carrierAlgebra U) (carrierAlgebra V) where
   toFun g := ⟨fun x => g.val ⟨x.val,h x.property⟩, by
     exact ((show ContDiffOn ℝ ∞ (extendZero U g.val) U from g.property).mono h).congr (by intro x hx; simp [extendZero,hx,h hx])⟩
   map_act _ _ := rfl

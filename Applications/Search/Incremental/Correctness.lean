@@ -9,7 +9,7 @@ namespace Search.Incremental
 variable {n : Nat}
 
 theorem stopped_frozen (w : Graph n) (start goal : Fin n) (h : Fin n → ℚ)
-    (s : State n) (hs : Valid w start s) (hn : ¬ active goal h s) : Frozen w start h s.g goal := by
+    (s : State n) (hs : Valid w start s) (hn : ¬ Active goal h s) : Frozen w start h s.g goal := by
   have hc : s.g goal = s.rhs goal := by
     by_contra he
     exact hn (Or.inr he)
@@ -49,7 +49,7 @@ theorem run_correct (w : Graph n) (hw : Positive w) (start goal : Fin n)
     (fuel : Nat) (s out : State n) (hs : Valid w start s)
     (he : run w start goal h fuel s = .stopped out) :
     Valid w start out ∧ DistanceResult w start goal (out.g goal) := by
-  obtain ⟨_, _, ho, hn⟩ := runWith_stopped w hw start h (active goal h) fuel s out hs he
+  obtain ⟨_, _, ho, hn⟩ := runWith_stopped w hw start h (Active goal h) fuel s out hs he
   exact ⟨ho, frozen_correct w hw start h hh out ho goal (stopped_frozen w start goal h out ho hn)⟩
 
 def Outcome.getStopped (out : Outcome n) (he : ∃ s, out = .stopped s) : State n :=

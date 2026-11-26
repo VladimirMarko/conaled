@@ -230,7 +230,7 @@ theorem query_stateAfter_take_iff {ops : AbstractSet.DeleteOps (Key α) S}
     (laws : IntervalSet.Laws ops query keyInterval observe Valid)
     (rs : List (Rectangle α β)) (k : Nat) (q : IntervalKey α) :
     query (stateAfter ops ops.empty ((events rs).take k)) q = true ↔
-      ∃ i : Fin rs.length, Active rs k i ∧ (rs.get i).x.overlap q := by
+      ∃ i : Fin rs.length, Active rs k i ∧ (rs.get i).x.Overlap q := by
   rw [laws.overlap _ (stateAfter_take_valid laws.toDeleteLaws rs k) q,
     stateAfter_take_observe laws.toDeleteLaws rs k, IntervalSet.hasOverlap_image_iff]
   constructor

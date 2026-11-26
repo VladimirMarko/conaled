@@ -12,7 +12,7 @@ namespace SquareKit.ManifoldRealization
 open EuclideanOpen SmoothAlgebra
 
 abbrev Space (n : ℕ) := Fin n → ℝ
-abbrev Model (n : ℕ) := 𝓘(ℝ, Space n)
+abbrev modelWithCorners (n : ℕ) := 𝓘(ℝ, Space n)
 
 variable {n m : ℕ} {M N : Type} [TopologicalSpace M] [TopologicalSpace N]
 
@@ -20,14 +20,14 @@ variable {n m : ℕ} {M N : Type} [TopologicalSpace M] [TopologicalSpace N]
 structure ChartFamily (n : ℕ) (M : Type) [TopologicalSpace M] [ChartedSpace (Space n) M] where
   Index : Type
   chart : Index → OpenPartialHomeomorph M (Space n)
-  smooth : ∀ i, chart i ∈ maximalAtlas (Model n) ∞ M
+  smooth : ∀ i, chart i ∈ maximalAtlas (modelWithCorners n) ∞ M
   covers : ∀ x, ∃ i, x ∈ (chart i).source
 
 namespace ChartFamily
 
 variable [ChartedSpace (Space n) M]
 
-abbrev preferred [IsManifold (Model n) ∞ M] : ChartFamily n M where
+abbrev preferred [IsManifold (modelWithCorners n) ∞ M] : ChartFamily n M where
   Index := M
   chart := chartAt (Space n)
   smooth := chart_mem_maximalAtlas
@@ -60,7 +60,7 @@ include hf in
 theorem coordinateOpen_open : IsOpen (coordinateOpen (e := e) d f) :=
   e.isOpen_inter_preimage_symm (d.open_source.preimage hf)
 
-def coordinateDefining : Free n :=
+def coordinateDefining : freeAlgebra n :=
   openDefining (coordinateOpen (e := e) d f) (coordinateOpen_open d f hf)
 
 theorem coordinateDefining_iff (x : Space n) :
@@ -71,8 +71,8 @@ theorem coordinateDefining_iff (x : Space n) :
 
 variable [ChartedSpace (Space n) M] [ChartedSpace (Space m) N]
 
-variable (he : e ∈ maximalAtlas (Model n) ∞ M) (hd : d ∈ maximalAtlas (Model m) ∞ N)
-    (hs : ContMDiff (Model n) (Model m) ∞ f)
+variable (he : e ∈ maximalAtlas (modelWithCorners n) ∞ M) (hd : d ∈ maximalAtlas (modelWithCorners m) ∞ N)
+    (hs : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f)
 
 def coordinateMap : subdomain (chartDomain e) (coordinateDefining (e := e) d f hs.continuous) ⟶ chartDomain d where
   toFun x := ⟨d (f (e.symm x.val)), by
@@ -113,7 +113,7 @@ abbrev atlas : EuclideanOpen.Atlas M where
     rw [chartDomain_locus]
     exact (A.chart i).map_source hi
   transition i j x y h := by
-    have hs : ContMDiff (Model n) (Model n) ∞ (id : M → M) := contMDiff_id
+    have hs : ContMDiff (modelWithCorners n) (modelWithCorners n) ∞ (id : M → M) := contMDiff_id
     refine ⟨coordinateDefining (A.chart j) id hs.continuous,?_,
       coordinateMap (A.chart j) id (A.smooth i) (A.smooth j) hs,?_⟩
     · apply (coordinateDefining_iff (A.chart j) id hs.continuous x.val).mpr
@@ -126,7 +126,7 @@ abbrev atlas : EuclideanOpen.Atlas M where
 
 /-- Every Mathlib smooth map supplies local ordinary coordinates, with a cover
 indexed by target charts. No source chart needs a single target chart. -/
-def localMap (B : ChartFamily m N) (f : M → N) (hs : ContMDiff (Model n) (Model m) ∞ f) :
+def localMap (B : ChartFamily m N) (f : M → N) (hs : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) :
     EuclideanOpen.Charts.LocalMap A.charts B.charts f where
   Cover _ := B.Index
   defining i j := coordinateDefining (e := A.chart i) (B.chart j) f hs.continuous

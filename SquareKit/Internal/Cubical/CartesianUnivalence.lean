@@ -15,7 +15,7 @@ variable {Γ : Context.{u}} {φ ψ : Subcontext Γ}
   {A B : Family (restrictContext (φ.join ψ))} (f : A ⟶ B)
   (a : HomotopyEquivalence (Functor.whiskerLeft (includeLeft φ ψ).mapElements f))
   (b : HomotopyEquivalence (Functor.whiskerLeft (includeRight φ ψ).mapElements f))
-  (d : ∀ x, φ.holds x → ψ.holds x → False)
+  (d : ∀ x, φ.Holds x → ψ.Holds x → False)
 
 def disjointGlue : HomotopyEquivalence f := decodeIsEquiv
   (Sections.glue (isEquivReindexSections f (includeLeft φ ψ) a)
@@ -329,7 +329,7 @@ theorem disjointGlue_cast {Ξ : Context.{u}} {φ ψ : Subcontext Ξ}
     (b : HomotopyEquivalence (Functor.whiskerLeft (CodeSystem.includeRight φ ψ).mapElements f))
     (a' : HomotopyEquivalence (Functor.whiskerLeft (CodeSystem.includeLeft φ ψ).mapElements f'))
     (b' : HomotopyEquivalence (Functor.whiskerLeft (CodeSystem.includeRight φ ψ).mapElements f'))
-    (d : ∀ x, φ.holds x → ψ.holds x → False)
+    (d : ∀ x, φ.Holds x → ψ.Holds x → False)
     (ha : HEq (a.castFamilies (reindex C' (CodeSystem.includeLeft φ ψ)) _
       (congrArg (fun Z => reindex Z (CodeSystem.includeLeft φ ψ)) h) rfl) a')
     (hb : HEq (b.castFamilies (reindex C' (CodeSystem.includeRight φ ψ)) _
@@ -901,7 +901,7 @@ noncomputable def extend : Term (reindex (pi A B) σ) :=
   Term.map (piReindexIso A B σ).inv (lam (body c F σ φ s))
 
 include hF in
-theorem boundary (x : Δ.Elements) (hx : φ.holds x) :
+theorem boundary (x : Δ.Elements) (hx : φ.Holds x) :
     (extend c F σ φ s).val x = s.val x hx := by
   let i := piReindexIso A B σ
   let p := s.map i.hom

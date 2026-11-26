@@ -8,42 +8,42 @@ namespace SquareKit.Cubical.Presheaf
 open CategoryTheory
 universe u
 
-def sigmaCode_reindex {Γ Δ : Context.{u}}
+def sigmaCodeReindexIso {Γ Δ : Context.{u}}
     (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
     (b : raisedContext (total (decode a)) ⟶ smallFamilyCodes.{u}) (σ : Δ ⟶ Γ) :
     decode (raisedSub σ ≫ sigmaCode a b) ≅
       decode (sigmaCode (raisedSub σ ≫ a) (raisedSub (liftSub (decode a) σ) ≫ b)) :=
   eqToIso (decode_reindex (sigmaCode a b) σ) ≪≫
-    Functor.isoWhiskerLeft σ.mapElements (sigmaCode_decode a b) ≪≫
-    (sigmaCode_decode (raisedSub σ ≫ a) (raisedSub (liftSub (decode a) σ) ≫ b)).symm
+    Functor.isoWhiskerLeft σ.mapElements (sigmaCodeDecodeIso a b) ≪≫
+    (sigmaCodeDecodeIso (raisedSub σ ≫ a) (raisedSub (liftSub (decode a) σ) ≫ b)).symm
 
-noncomputable def piCode_reindex {Γ Δ : Context.{u}}
+noncomputable def piCodeReindexIso {Γ Δ : Context.{u}}
     (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
     (b : raisedContext (total (decode a)) ⟶ smallFamilyCodes.{u}) (σ : Δ ⟶ Γ) :
     decode (raisedSub σ ≫ piCode a b) ≅
       decode (piCode (raisedSub σ ≫ a) (raisedSub (liftSub (decode a) σ) ≫ b)) :=
   eqToIso (decode_reindex (piCode a b) σ) ≪≫
-    Functor.isoWhiskerLeft σ.mapElements (piCode_decode a b) ≪≫
+    Functor.isoWhiskerLeft σ.mapElements (piCodeDecodeIso a b) ≪≫
     piReindexIso (decode a) (decode b) σ ≪≫
-    (piCode_decode (raisedSub σ ≫ a) (raisedSub (liftSub (decode a) σ) ≫ b)).symm
+    (piCodeDecodeIso (raisedSub σ ≫ a) (raisedSub (liftSub (decode a) σ) ≫ b)).symm
 
-noncomputable def pathCode_reindex {Γ Δ : Context.{u}}
+noncomputable def pathCodeReindexIso {Γ Δ : Context.{u}}
     (b : raisedContext (total (interval Γ)) ⟶ smallFamilyCodes.{u})
     (a₀ : Term (Presheaf.reindex (decode b) (endpointSub Γ false)))
     (a₁ : Term (Presheaf.reindex (decode b) (endpointSub Γ true))) (σ : Δ ⟶ Γ) :
     decode (raisedSub σ ≫ pathCode b a₀ a₁) ≅
       decode (pathCode (raisedSub (liftSub (interval Γ) σ) ≫ b) (a₀.reindex σ) (a₁.reindex σ)) :=
   eqToIso (decode_reindex (pathCode b a₀ a₁) σ) ≪≫
-    Functor.isoWhiskerLeft σ.mapElements (pathCode_decode b a₀ a₁) ≪≫
+    Functor.isoWhiskerLeft σ.mapElements (pathCodeDecodeIso b a₀ a₁) ≪≫
     pathReindexIso (decode b) a₀ a₁ σ ≪≫
-    (pathCode_decode (raisedSub (liftSub (interval Γ) σ) ≫ b) (a₀.reindex σ) (a₁.reindex σ)).symm
+    (pathCodeDecodeIso (raisedSub (liftSub (interval Γ) σ) ≫ b) (a₀.reindex σ) (a₁.reindex σ)).symm
 
-def discreteCode_reindex {Γ Δ : Context.{u}} {T : Type u}
+def discreteCodeReindexIso {Γ Δ : Context.{u}} {T : Type u}
     (q : Term (constantFamily Γ T)) (S : T → Type u) (σ : Δ ⟶ Γ) :
     decode (raisedSub σ ≫ discreteCode q S) ≅ decode (discreteCode (q.reindex σ) S) :=
   eqToIso (decode_reindex (discreteCode q S) σ) ≪≫
-    Functor.isoWhiskerLeft σ.mapElements (discreteCode_decode q S) ≪≫
-    (discreteCode_decode (q.reindex σ) S).symm
+    Functor.isoWhiskerLeft σ.mapElements (discreteCodeDecodeIso q S) ≪≫
+    (discreteCodeDecodeIso (q.reindex σ) S).symm
 
 
 theorem LocalFamily.toNative_reindex {Γ Δ : Context.{u}} (A : LocalFamily Γ) (σ : Δ ⟶ Γ) :

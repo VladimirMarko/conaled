@@ -35,7 +35,7 @@ theorem empty_iff (s : Fin 0 → A) : Covers s ↔ Subsingleton A := by
 
 variable {n m : ℕ}
 
-def realPoint (r : Fin m → Free n) (x : Fin n → ℝ) (hx : ∀ j, (r j).val x = 0) :
+def realPoint (r : Fin m → freeAlgebra n) (x : Fin n → ℝ) (hx : ∀ j, (r j).val x = 0) :
     Hom (Presentation.Carrier r) ℝ := Quotient.lift (Presentation.ideal r) (evaluate x) (by
   have hi : Presentation.ideal r ≤ RingHom.ker (evaluate x).toAlgHom := by
     apply Ideal.span_le.mpr
@@ -44,7 +44,7 @@ def realPoint (r : Fin m → Free n) (x : Fin n → ℝ) (hx : ∀ j, (r j).val 
   exact fun f hf => hi hf)
 
 /-- Every real point of the ordinary relation locus lies in a covering principal open. -/
-theorem covers_zero_locus (r : Fin m → Free n) (p : Fin k → Free n)
+theorem covers_zero_locus (r : Fin m → freeAlgebra n) (p : Fin k → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i))) (x : Fin n → ℝ)
     (hx : ∀ j, (r j).val x = 0) : ∃ i, (p i).val x ≠ 0 := by
   obtain ⟨c,hc⟩ := map_covers (realPoint r x hx) _ hs
@@ -59,7 +59,7 @@ theorem covers_zero_locus (r : Fin m → Free n) (p : Fin k → Free n)
   exact zero_ne_one hc
 
 /-- No point of the ambient coordinate space can have all cover and relation generators zero. -/
-theorem ambient_cover (r : Fin m → Free n) (p : Fin k → Free n)
+theorem ambient_cover (r : Fin m → freeAlgebra n) (p : Fin k → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i))) (x : Fin n → ℝ) :
     (∃ i, (p i).val x ≠ 0) ∨ (∃ j, (r j).val x ≠ 0) := by
   by_cases hr : ∃ j, (r j).val x ≠ 0
@@ -69,14 +69,14 @@ theorem ambient_cover (r : Fin m → Free n) (p : Fin k → Free n)
 /-- For finite presentations this algebraic cover condition agrees with covering
 all real points of the ordinary zero locus. This does not identify quotient elements
 by their values at those points. -/
-theorem covers_iff_zero_locus (r : Fin m → Free n) (p : Fin k → Free n) :
+theorem covers_iff_zero_locus (r : Fin m → freeAlgebra n) (p : Fin k → freeAlgebra n) :
     Covers (fun i => Presentation.projection r (p i)) ↔
       ∀ x : Fin n → ℝ, (∀ j, (r j).val x=0) → ∃ i, (p i).val x ≠ 0 := by
   constructor
   · exact fun hs => covers_zero_locus r p hs
   · intro hc
-    let v : Fin (k+m) → Free n := Fin.append p r
-    have hi : (1 : Free n) ∈ Presentation.ideal v := by
+    let v : Fin (k+m) → freeAlgebra n := Fin.append p r
+    have hi : (1 : freeAlgebra n) ∈ Presentation.ideal v := by
       apply (LocalIdeal.global_iff v 1).mpr
       intro x
       by_cases hr : ∃ j, (r j).val x ≠ 0
@@ -95,7 +95,7 @@ theorem covers_iff_zero_locus (r : Fin m → Free n) (p : Fin k → Free n) :
     exact he
 
 /-- Separatedness follows from local coefficient equations, including nilpotent elements. -/
-theorem separated (r : Fin m → Free n) (p : Fin k → Free n)
+theorem separated (r : Fin m → freeAlgebra n) (p : Fin k → freeAlgebra n)
     (hs : Covers (fun i => Presentation.projection r (p i)))
     (a b : Presentation.Carrier r)
     (he : ∀ i, PresentedLocalization.base r (p i) a = PresentedLocalization.base r (p i) b) : a=b := by

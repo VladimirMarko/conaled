@@ -23,7 +23,7 @@ universe u
 classify every family and is not an object-language universe. -/
 structure Family (Γ : Type u) where
   Parameters : Type u
-  fiber : Parameters → Type u
+  Fiber : Parameters → Type u
   name : Γ → Parameters
 
 /- Input classification is independent of constructing a sum or product. -/
@@ -88,10 +88,10 @@ namespace Family
 
 variable {Γ Δ Θ : Type u}
 
-def decode (A : Family Γ) : Ty Γ := fun γ => A.fiber (A.name γ)
+def decode (A : Family Γ) : Ty Γ := fun γ => A.Fiber (A.name γ)
 
 def reindex (A : Family Γ) (σ : Sub Δ Γ) : Family Δ :=
-  ⟨A.Parameters, A.fiber, fun δ => A.name (σ δ)⟩
+  ⟨A.Parameters, A.Fiber, fun δ => A.name (σ δ)⟩
 
 def present (A : Ty Γ) : Family Γ := ⟨Γ, A, id⟩
 
@@ -126,8 +126,8 @@ def comprehensionEquiv (A : Family Γ) :
 
 /-- The shared dependent naming map used by both constructors. -/
 def dependentName (A : Family Γ) (B : Family A.Comprehension) :
-    Γ → DependentInput.Parameters (Q := B.Parameters) A.fiber :=
-  DependentInput.name A.fiber A.name (fun γ x => B.name ⟨γ, x⟩)
+    Γ → DependentInput.Parameters (Q := B.Parameters) A.Fiber :=
+  DependentInput.name A.Fiber A.name (fun γ x => B.name ⟨γ, x⟩)
 
 @[simp] theorem dependentName_fst (A : Family Γ) (B : Family A.Comprehension) (γ : Γ) :
     (dependentName A B γ).1 = A.name γ := rfl
@@ -139,15 +139,15 @@ theorem dependentName_reindex (A : Family Γ) (B : Family A.Comprehension)
     (σ : Sub Δ Γ) :
     dependentName (A.reindex σ) (B.reindex (lift (A := A.decode) σ)) =
       dependentName A B ∘ σ :=
-  DependentInput.name_natural A.fiber A.name (fun γ x => B.name ⟨γ, x⟩) σ
+  DependentInput.name_natural A.Fiber A.name (fun γ x => B.name ⟨γ, x⟩) σ
 
 /-- Specialize the constructed generic sum along the shared name. -/
 def sigma (A : Family Γ) (B : Family A.Comprehension) : Family Γ :=
-  (DependentInput.sigma A.fiber B.fiber).reindex (dependentName A B)
+  (DependentInput.sigma A.Fiber B.Fiber).reindex (dependentName A B)
 
 /-- Specialize the constructed generic product along the same name. -/
 def pi (A : Family Γ) (B : Family A.Comprehension) : Family Γ :=
-  (DependentInput.pi A.fiber B.fiber).reindex (dependentName A B)
+  (DependentInput.pi A.Fiber B.Fiber).reindex (dependentName A B)
 
 @[simp] theorem decode_pi (A : Family Γ) (B : Family A.Comprehension) :
     (A.pi B).decode = piTy A.decode B.decode := rfl
@@ -156,11 +156,11 @@ theorem pi_reindex (A : Family Γ) (B : Family A.Comprehension) (σ : Sub Δ Γ)
     (A.pi B).reindex σ = (A.reindex σ).pi (B.reindex (lift (A := A.decode) σ)) := rfl
 
 def lam {A : Family Γ} {B : Family A.Comprehension} (b : B.Term) :
-    (A.pi B).Term := DependentInput.lam A.fiber (dependentName A B) b
+    (A.pi B).Term := DependentInput.lam A.Fiber (dependentName A B) b
 
 def app {A : Family Γ} {B : Family A.Comprehension} (f : (A.pi B).Term)
     (a : A.Term) : (B.reindex (extend idSub a)).Term :=
-  DependentInput.app A.fiber (dependentName A B) f a
+  DependentInput.app A.Fiber (dependentName A B) f a
 
 theorem lam_native {A : Family Γ} {B : Family A.Comprehension} (b : B.Term) :
     lam b = DependentSquares.lam b := rfl

@@ -6,31 +6,31 @@ open scoped ContDiff
 namespace SquareKit.SmoothClutching.Refined
 open CategoryTheory CategoryTheory.Limits Opposite EuclideanOpen SmoothOpenSite SmoothAlgebra
 
-def principal (f : Free 1) : Domain := ⟨1, f⟩
+def principal (f : freeAlgebra 1) : Domain := ⟨1, f⟩
 
-def inclusionOf {f g : Free 1} (h : ∀ x, f.val x ≠ 0 → g.val x ≠ 0) :
+def inclusionOf {f g : freeAlgebra 1} (h : ∀ x, f.val x ≠ 0 → g.val x ≠ 0) :
     principal f ⟶ principal g where
   toFun x := ⟨x.val, h x.val x.property⟩
   smooth i := (OpenFunctions.representative_iff _ (fun x => x i) (fun _ => rfl)).mpr
     (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) i).contDiffOn
 
-def toLine (f : Free 1) : principal f ⟶ line :=
+def toLine (f : freeAlgebra 1) : principal f ⟶ line :=
   inclusionOf (fun _ _ => one_ne_zero)
 
-def intersectionLeft (f g : Free 1) : principal (f*g) ⟶ principal f :=
+def intersectionLeft (f g : freeAlgebra 1) : principal (f*g) ⟶ principal f :=
   inclusionOf (fun _ h => left_ne_zero_of_mul h)
 
-def intersectionRight (f g : Free 1) : principal (f*g) ⟶ principal g :=
+def intersectionRight (f g : freeAlgebra 1) : principal (f*g) ⟶ principal g :=
   inclusionOf (fun _ h => right_ne_zero_of_mul h)
 
-def locusIso (f g : Free 1) (h : ∀ x, f.val x ≠ 0 ↔ g.val x ≠ 0) :
+def locusIso (f g : freeAlgebra 1) (h : ∀ x, f.val x ≠ 0 ↔ g.val x ≠ 0) :
     principal f ≅ principal g where
   hom := inclusionOf (fun x => (h x).mp)
   inv := inclusionOf (fun x => (h x).mpr)
   hom_inv_id := OpenFunctions.Map.ext (fun _ => rfl)
   inv_hom_id := OpenFunctions.Map.ext (fun _ => rfl)
 
-theorem intersection_pullback (f g : Free 1) :
+theorem intersection_pullback (f g : freeAlgebra 1) :
     IsPullback (embedding.map (intersectionLeft f g)) (embedding.map (intersectionRight f g))
       (embedding.map (toLine f)) (embedding.map (toLine g)) := by
   let e₁ : EuclideanOpen.overlap line f g ≅ principal (f*g) := locusIso ((1*f)*g) (f*g) (fun x => by simp)
@@ -61,10 +61,10 @@ theorem mixed_origin_pullback : IsPullback (embedding.map (toLine (generator 0))
   · simp
   · simp
 
-def mixedLeft (f g : Free 1) : principal ((f * generator 0) * g) ⟶ principal f :=
+def mixedLeft (f g : freeAlgebra 1) : principal ((f * generator 0) * g) ⟶ principal f :=
   intersectionLeft (f * generator 0) g ≫ intersectionLeft f (generator 0)
 
-theorem mixed_pullback_of (f g : Free 1) (a b : lineSheaf ⟶ base)
+theorem mixed_pullback_of (f g : freeAlgebra 1) (a b : lineSheaf ⟶ base)
     (hab : IsPullback (embedding.map (toLine (generator 0)))
       (embedding.map (toLine (generator 0))) a b) :
     IsPullback (embedding.map (mixedLeft f g))
@@ -77,19 +77,19 @@ theorem mixed_pullback_of (f g : Free 1) (a b : lineSheaf ⟶ base)
   simpa only [mixedLeft, Functor.map_comp] using
     (intersection_pullback (f * generator 0) g).paste_horiz h
 
-theorem same_origin_pullback (f g : Free 1) (j : lineSheaf ⟶ base) [Mono j] :
+theorem same_origin_pullback (f g : freeAlgebra 1) (j : lineSheaf ⟶ base) [Mono j] :
     IsPullback (embedding.map (intersectionLeft f g)) (embedding.map (intersectionRight f g))
       (embedding.map (toLine f) ≫ j) (embedding.map (toLine g) ≫ j) := by
   have h : IsPullback (embedding.map (toLine g)) (𝟙 _) j (embedding.map (toLine g) ≫ j) :=
     IsPullback.of_vert_isIso_mono ⟨by simp⟩
   simpa only [Category.comp_id] using (intersection_pullback f g).paste_vert h
 
-def product : Bool → Bool → Free 1 → Free 1 → Free 1
+def product : Bool → Bool → freeAlgebra 1 → freeAlgebra 1 → freeAlgebra 1
   | false, false, f, g => f*g
   | true, true, f, g => f*g
   | _, _, f, g => (f * generator 0) * g
 
-def productLeft (i j : Bool) (f g : Free 1) : principal (product i j f g) ⟶ principal f :=
+def productLeft (i j : Bool) (f g : freeAlgebra 1) : principal (product i j f g) ⟶ principal f :=
   inclusionOf (by
     intro x hx
     cases i <;> cases j
@@ -98,10 +98,10 @@ def productLeft (i j : Bool) (f g : Free 1) : principal (product i j f g) ⟶ pr
     · exact left_ne_zero_of_mul (left_ne_zero_of_mul hx)
     · exact left_ne_zero_of_mul hx)
 
-def productRight (i j : Bool) (f g : Free 1) : principal (product i j f g) ⟶ principal g :=
+def productRight (i j : Bool) (f g : freeAlgebra 1) : principal (product i j f g) ⟶ principal g :=
   inclusionOf (by intro x hx; cases i <;> cases j <;> exact right_ne_zero_of_mul hx)
 
-theorem product_pullback (i j : Bool) (f g : Free 1) :
+theorem product_pullback (i j : Bool) (f g : freeAlgebra 1) :
     IsPullback (embedding.map (productLeft i j f g)) (embedding.map (productRight i j f g))
       (embedding.map (toLine f) ≫ Represented.chart i)
       (embedding.map (toLine g) ≫ Represented.chart j) := by
@@ -123,7 +123,7 @@ theorem product_pullback (i j : Bool) (f g : Free 1) :
     rw [hl, hr]
     exact same_origin_pullback f g right
 
-theorem principal_covering {K : Type} (f : K → Free 1) (hf : Covers line f)
+theorem principal_covering {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f)
     {V : SmoothPresentationSite.Site} (y : lineSheaf.obj.obj (op V)) :
     SheafCoproductLocal.liftSieve (fun k => embedding.obj (principal (f k)))
       (fun k => embedding.map (toLine (f k))) y ∈ topology V := by
@@ -140,11 +140,11 @@ theorem principal_covering {K : Type} (f : K → Free 1) (hf : Covers line f)
   rw [eh]
   exact he
 
-def refinedChart {K : Type} (f : K → Free 1) (i : Bool × K) :
+def refinedChart {K : Type} (f : K → freeAlgebra 1) (i : Bool × K) :
     embedding.obj (principal (f i.2)) ⟶ base :=
   embedding.map (toLine (f i.2)) ≫ Represented.chart i.1
 
-theorem refined_covering {K : Type} (f : K → Free 1) (hf : Covers line f)
+theorem refined_covering {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f)
     (V : SmoothPresentationSite.Site) (x : base.obj.obj (op V)) :
     SheafCoproductLocal.liftSieve (fun i : Bool × K => embedding.obj (principal (f i.2)))
       (refinedChart f) x ∈ topology V := by
@@ -162,7 +162,7 @@ theorem refined_covering {K : Type} (f : K → Free 1) (hf : Covers line f)
   rw [hz, NatTrans.naturality_apply, hy]
   exact (ConcreteCategory.congr_hom (base.obj.map_comp r.op t.op) x).symm
 
-def atlas {K : Type} (f : K → Free 1) (hf : Covers line f) :
+def atlas {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f) :
     SmoothRepresentedCover.Atlas base (Bool × K) where
   domain i := principal (f i.2)
   chart := refinedChart f
@@ -181,15 +181,15 @@ def atlas {K : Type} (f : K → Free 1) (hf : Covers line f) :
     rw [← Category.assoc, ← Functor.map_comp, he]
     exact product_pullback i.1 k.1 (product i.1 j.1 (f i.2) (f j.2)) (f k.2)
 
-def refinement {K : Type} (f : K → Free 1) (hf : Covers line f) :
+def refinement {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f) :
     SmoothRepresentedCover.AtlasMap Represented.atlas (atlas f hf) (𝟙 base) where
   index := Prod.fst
   chart i := toLine (f i.2)
   commutes _ := by simp only [Category.comp_id]; rfl
 
-def hole (a : ℝ) : Free 1 := generator 0 - algebraMap ℝ (Free 1) a
+def hole (a : ℝ) : freeAlgebra 1 := generator 0 - algebraMap ℝ (freeAlgebra 1) a
 
-def punctures (a : ℝ) : Bool → Free 1
+def punctures (a : ℝ) : Bool → freeAlgebra 1
   | false => hole a
   | true => hole (-a)
 
@@ -207,7 +207,7 @@ theorem punctures_cover (a : ℝ) (ha : a ≠ 0) : Covers line (punctures a) := 
 def atlasOne := atlas (punctures 1) (punctures_cover 1 (by norm_num))
 def atlasTwo := atlas (punctures 2) (punctures_cover 2 (by norm_num))
 
-def commonFunctions (i : Bool × Bool) : Free 1 := punctures 1 i.1 * punctures 2 i.2
+def commonFunctions (i : Bool × Bool) : freeAlgebra 1 := punctures 1 i.1 * punctures 2 i.2
 
 theorem common_cover : Covers line commonFunctions := by
   intro x
@@ -245,25 +245,25 @@ theorem common_projection_two (i : Bool × (Bool × Bool)) :
     commonToTwo.chart i ≫ (refinement (punctures 2) (punctures_cover 2 (by norm_num))).chart (commonToTwo.index i) =
       (refinement commonFunctions common_cover).chart i := OpenFunctions.Map.ext (fun _ => rfl)
 
-def scaledFunction (r : ℝ) (f : Free 1) : Free 1 :=
+def scaledFunction (r : ℝ) (f : freeAlgebra 1) : freeAlgebra 1 :=
   ⟨fun x => f.val (fun i => r * x i), (show ContDiff ℝ ∞ f.val from f.property).comp
     (contDiff_pi.mpr (fun i => contDiff_const.mul (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) i)))⟩
 
 
-theorem scaledFunction_one (f : Free 1) : scaledFunction 1 f = f := by
+theorem scaledFunction_one (f : freeAlgebra 1) : scaledFunction 1 f = f := by
   apply Subtype.ext
   funext x
   change f.val (fun i => 1 * x i) = f.val x
   simp only [one_mul]
 
-theorem scaledFunction_comp (r s : ℝ) (f : Free 1) :
+theorem scaledFunction_comp (r s : ℝ) (f : freeAlgebra 1) :
     scaledFunction r (scaledFunction s f) = scaledFunction (s * r) f := by
   apply Subtype.ext
   funext x
   change f.val (fun i => s * (r * x i)) = f.val (fun i => (s * r) * x i)
   simp only [mul_assoc]
 
-def principalScalingIso (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
+def principalScalingIso (r : ℝ) (hr : r ≠ 0) (f : freeAlgebra 1) :
     principal (scaledFunction r f) ≅ principal f where
   hom := {
     toFun x := ⟨fun i => r * x.val i, x.property⟩
@@ -291,11 +291,11 @@ def principalScalingIso (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
     change r * (r⁻¹ * x.val i) = x.val i
     rw [← mul_assoc, mul_inv_cancel₀ hr, one_mul]
 
-theorem scaling_inclusion (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
+theorem scaling_inclusion (r : ℝ) (hr : r ≠ 0) (f : freeAlgebra 1) :
     (principalScalingIso r hr f).hom ≫ toLine f = toLine (scaledFunction r f) ≫ lineScale r :=
   OpenFunctions.Map.ext (fun _ => rfl)
 
-theorem scaling_pullback (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
+theorem scaling_pullback (r : ℝ) (hr : r ≠ 0) (f : freeAlgebra 1) :
     IsPullback (embedding.map (principalScalingIso r hr f).hom)
       (embedding.map (toLine (scaledFunction r f)))
       (embedding.map (toLine f)) (embedding.map (lineScale r)) := by
@@ -304,12 +304,12 @@ theorem scaling_pullback (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
   apply IsPullback.of_horiz_isIso
   exact ⟨by rw [← Functor.map_comp, ← Functor.map_comp, scaling_inclusion]⟩
 
-theorem scaled_cover {K : Type} (f : K → Free 1) (hf : Covers line f) (r : ℝ) :
+theorem scaled_cover {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f) (r : ℝ) :
     Covers line (fun k => scaledFunction r (f k)) := by
   intro x
   exact hf ((show EuclideanOpen.Map _ _ from lineScale r) x)
 
-def scaledAtlasMap {K : Type} (f : K → Free 1) (hf : Covers line f)
+def scaledAtlasMap {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f)
     (r : ℝ) (hr : r ≠ 0) :
     SmoothRepresentedCover.AtlasMap (atlas f hf)
       (atlas (fun k => scaledFunction r (f k)) (scaled_cover f hf r)) (baseScale r hr) where
@@ -324,7 +324,7 @@ def scaledAtlasMap {K : Type} (f : K → Free 1) (hf : Covers line f)
     · exact (left_baseScale r hr).symm
     · exact (right_baseScale r hr).symm
 
-theorem scaled_chart_pullback {K : Type} (f : K → Free 1) (hf : Covers line f)
+theorem scaled_chart_pullback {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f)
     (r : ℝ) (hr : r ≠ 0) (i : Bool × K) :
     IsPullback (embedding.map ((scaledAtlasMap f hf r hr).chart i))
       ((atlas (fun k => scaledFunction r (f k)) (scaled_cover f hf r)).chart i)

@@ -107,13 +107,13 @@ inductive Proof {α : Type} : Formula α → Formula α → Type
   | curry {A B C} : Proof (.product A B) C → Proof A (.function B C)
   | uncurry {A B C} : Proof A (.function B C) → Proof (.product A B) C
 
-def Formula.denote (v : α → Type) : Formula α → Type
+def Formula.Denote (v : α → Type) : Formula α → Type
   | .atom a => v a
   | .one => Unit
-  | .product A B => A.denote v × B.denote v
-  | .function A B => A.denote v → B.denote v
+  | .product A B => A.Denote v × B.Denote v
+  | .function A B => A.Denote v → B.Denote v
 
-def Proof.denote (v : α → Type) {A B} : Proof A B → A.denote v → B.denote v
+def Proof.denote (v : α → Type) {A B} : Proof A B → A.Denote v → B.Denote v
   | .id => fun x => x
   | .comp g f => g.denote v ∘ f.denote v
   | .pair f g => fun x => (f.denote v x, g.denote v x)
@@ -193,7 +193,7 @@ namespace SquareKit.Institutions
 /-- Independent evaluation of the source constructors in a cartesian model.
 The source type interpretation uses the stated tensor/product assignment. -/
 def linearMeaning (v : α → Type) {A B : Linear.Formula α} :
-    Linear.Proof A B → (linearFormula A).denote v → (linearFormula B).denote v
+    Linear.Proof A B → (linearFormula A).Denote v → (linearFormula B).Denote v
   | .id => fun x => x
   | .comp g f => linearMeaning v g ∘ linearMeaning v f
   | .tensor f g => fun (x,y) => (linearMeaning v f x, linearMeaning v g y)
@@ -222,13 +222,13 @@ theorem linearMeaning_translation (v : α → Type) {A B} (p : Linear.Proof A B)
 def cartesianSetting (α : Type) : Setting.{0,1,0} where
   Sentence := Cartesian.Formula α × Cartesian.Formula α
   Model := α → Type
-  Evidence v p := p.1.denote v → p.2.denote v
+  Evidence v p := p.1.Denote v → p.2.Denote v
 
 def cartesianProofs (α : Type) : Proofs (cartesianSetting α) :=
   ⟨fun p => Cartesian.Proof p.1 p.2, fun v _ => Cartesian.Proof.denote v⟩
 /-- Formula denotations under atom renaming are canonically equivalent. -/
 def Cartesian.Formula.renameEquiv (r : α → β) (v : β → Type) :
-    (A : Cartesian.Formula α) → Equiv (A.denote (v ∘ r)) ((A.rename r).denote v)
+    (A : Cartesian.Formula α) → Equiv (A.Denote (v ∘ r)) ((A.rename r).Denote v)
   | .atom _ => Equiv.refl _
   | .one => Equiv.refl _
   | .product A B => Equiv.prodCongr (A.renameEquiv r v) (B.renameEquiv r v)

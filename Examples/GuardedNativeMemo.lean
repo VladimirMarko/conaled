@@ -70,7 +70,7 @@ def environment : Fin 5 → Value M.toStructuralModel :=
   ![.context Γ, .family Γ A, .family (M.extend Γ A) B, .term Γ A x,
     .term Γ (M.subTy B (M.toStructuralModel.sectionSub A x)) b]
 
-theorem inputs : ∀ a ∈ premises, a.eval (Contextual.algebra M) (environment M Γ A B x b) := by
+theorem inputs : ∀ a ∈ premises, a.Eval (Contextual.algebra M) (environment M Γ A B x b) := by
   have hs := sectionSub_eval M (environment M Γ A B x b) gamma alpha point Γ A x rfl rfl rfl
   intro a ha
   simp only [premises, List.mem_cons, List.not_mem_nil, or_false] at ha
@@ -159,9 +159,9 @@ def targetInput : (M₀).Section FiniteOption.Base
 def sourceEnvironment := environment M₀ FiniteOption.Base FiniteOption.DirectFamily DependentFamily ⟨selected⟩ sourceInput
 def targetEnvironment := environment M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput
 
-theorem source_inputs : ∀ a ∈ premises, a.eval (Contextual.algebra M₀) sourceEnvironment :=
+theorem source_inputs : ∀ a ∈ premises, a.Eval (Contextual.algebra M₀) sourceEnvironment :=
   inputs M₀ FiniteOption.Base FiniteOption.DirectFamily DependentFamily ⟨selected⟩ sourceInput
-theorem target_inputs : ∀ a ∈ premises, a.eval (Contextual.algebra M₀) targetEnvironment :=
+theorem target_inputs : ∀ a ∈ premises, a.Eval (Contextual.algebra M₀) targetEnvironment :=
   inputs M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput
 
 def certificateComparison : FamilyComparison FiniteOption.flip

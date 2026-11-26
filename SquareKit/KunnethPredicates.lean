@@ -60,9 +60,9 @@ noncomputable def indexed (I : Type u) : Indexed (Type u) where
  push f := push I f
  adj f := adj I f
 
-instance (I X : Type u) : Preorder ((indexed I).Fiber X) :=
+instance (I X : Type u) : Preorder ((indexed I).fiberCategory X) :=
   inferInstanceAs (Preorder (Fiber I X))
-instance (I X : Type u) (A B : (indexed I).Fiber X) : Subsingleton (A ⟶ B) :=
+instance (I X : Type u) (A B : (indexed I).fiberCategory X) : Subsingleton (A ⟶ B) :=
   inferInstanceAs (Subsingleton (ULift (PLift _)))
 
 /-- The reverse PF map requires a point in each base fiber. -/
@@ -92,7 +92,7 @@ noncomputable def proper (I : Type u) : (indexed I).Proper where
  coherent := {
    composition := fun _ _ => { unit := Subsingleton.elim _ _, tensor := fun _ _ => Subsingleton.elim _ _ }
    identity := fun _ => { unit := Subsingleton.elim _ _, tensor := fun _ _ => Subsingleton.elim _ _ } }
- admissible f := Function.Surjective f
+ Admissible f := Function.Surjective f
  identity X := fun x => ⟨x,rfl⟩
  composition hf hg := hg.comp hf
  pullback := by

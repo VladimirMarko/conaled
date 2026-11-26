@@ -93,15 +93,15 @@ example : ((selected.subst σ).subst τ).eval (valuation false true bc) = native
 
 /-- A nonconstant identity family detects fiber changes, rather than only
 checking the reflexive diagonal selected by the frozen client. -/
-def trueFiber : Env Γ bc → Type := IdFamily (.var 0 κ) (.lit true)
+def TrueFiber : Env Γ bc → Type := IdFamily (.var 0 κ) (.lit true)
 
-example : trueFiber (valuation true false bc) := ⟨rfl⟩
+example : TrueFiber (valuation true false bc) := ⟨rfl⟩
 
-theorem false_fiber_empty : IsEmpty (trueFiber (valuation false true bc)) :=
+theorem false_fiber_empty : IsEmpty (TrueFiber (valuation false true bc)) :=
   ⟨fun p => Bool.noConfusion p.down⟩
 
 example : IdFamily ((Term.var 0 κ).subst τ) ((Term.lit true).subst τ) =
-    fun ρ => trueFiber (τ.eval ρ) := IdFamily.subst _ _ _
+    fun ρ => TrueFiber (τ.eval ρ) := IdFamily.subst _ _ _
 
 /-- The key action also transports the entire selected dependent package. -/
 example (x y : Bool) :
