@@ -27,7 +27,7 @@ class FreshVerification(unittest.TestCase):
         config = self.root / "lakefile.toml"
         policy = tomllib.loads((ROOT / "lakefile.toml").read_text()).get("weakLeanArgs", [])
         config.write_text('weakLeanArgs = ' + json.dumps(policy) + '\n' + config.read_text())
-        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/project_sources.py", "scripts/verification_status.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean", "scripts/lean-source-info.lean"):
+        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/project_sources.py", "scripts/verification_status.py", "scripts/lake_integrity.py", "scripts/LakeOutputHashes.lean", "scripts/LeanSourceInfo.lean"):
             shutil.copy2(ROOT / name, self.root / name)
         self.write("SquareApplications", "import Applications.A\nimport Applications.B\n")
         self.write("Applications.A", "def a : Nat := 1\n")

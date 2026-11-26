@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FOUNDATION = ("Squares", "Compiler", "SquareCompiler", "FirstOrder", "Dependent", "Verification")
 INPUTS = tuple(f"{m}.lean" for m in FOUNDATION) + (
     "check-foundation.sh", "ProofAudit.lean", "scripts/project_sources.py",
-    "scripts/lean-source-info.lean", "lean-toolchain")
+    "scripts/LeanSourceInfo.lean", "lean-toolchain")
 
 CLIENT = '''#check Squares.compose_assoc
 #check CategoricalCompiler.compile_sound
@@ -96,7 +96,7 @@ class Trial:
         manifest = root / "manifest.json"
         manifest.write_text(json.dumps(sources))
         return json.loads(self.run(root.name + "-preflight", ["lean", "--run",
-            "scripts/lean-source-info.lean", str(manifest)], root))
+            "scripts/LeanSourceInfo.lean", str(manifest)], root))
 
 
 def convert(source, *, public=True, exposed=True, meta=False):
@@ -210,7 +210,7 @@ def main():
     inventory = json.loads(trial.run("production-inventory", ["python3", "scripts/project_sources.py"], ROOT))
     manifest = output / "production-sources.json"
     manifest.write_text(json.dumps([name.replace(".", "/") + ".lean" for name in inventory] + ["ProofAudit.lean"]))
-    headers = json.loads(trial.run("production-preflight", ["lean", "--run", "scripts/lean-source-info.lean", str(manifest)], ROOT))
+    headers = json.loads(trial.run("production-preflight", ["lean", "--run", "scripts/LeanSourceInfo.lean", str(manifest)], ROOT))
     graph = dict(zip(inventory + ["ProofAudit"], headers, strict=True))
     closure = set()
     def visit(name):

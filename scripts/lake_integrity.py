@@ -84,7 +84,7 @@ def inspect_outputs(root, names, env):
             manifest = Path(directory) / "paths.json"
             manifest.write_text(json.dumps([str(path) for _, path, _ in entries]))
             result = subprocess.run(
-                ["lean", "--run", str(root / "scripts/lake-output-hashes.lean"), str(manifest)],
+                ["lean", "--run", str(root / "scripts/LakeOutputHashes.lean"), str(manifest)],
                 cwd=root, env=env, capture_output=True, text=True)
             if result.returncode:
                 raise RuntimeError("Integrity hashing failed:\n" + result.stdout + result.stderr)

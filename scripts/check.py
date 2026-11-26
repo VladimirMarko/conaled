@@ -200,7 +200,7 @@ def main() -> int:
     with tempfile.NamedTemporaryFile(mode="w", suffix=".json") as manifest:
         json.dump([str(path.relative_to(ROOT)) for path in modules.values()], manifest)
         manifest.flush()
-        result = subprocess.run([env.get("LEAN", "lean"), "--run", "scripts/lean-source-info.lean", manifest.name],
+        result = subprocess.run([env.get("LEAN", "lean"), "--run", "scripts/LeanSourceInfo.lean", manifest.name],
                                 cwd=ROOT, env=env, capture_output=True, text=True)
         if result.returncode:
             raise RuntimeError(result.stdout + result.stderr)

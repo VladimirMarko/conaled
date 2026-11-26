@@ -54,7 +54,7 @@ def execute(work, records):
     modules = inventory(ROOT)
     names = [str(path.relative_to(ROOT)) for path in modules.values()]
     names += ['scripts/benchmark-order-certificate.py', 'scripts/measurement.py',
-              'scripts/lean-source-info.lean', 'scripts/project_sources.py',
+              'scripts/LeanSourceInfo.lean', 'scripts/project_sources.py',
               'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'flake.lock']
     records['inputs'] = source_identity(ROOT, names)
     records['manifest_sha256'] = records['inputs']['lake-manifest.json']
@@ -93,7 +93,7 @@ def execute(work, records):
         raise RuntimeError('compiler differs from lean-toolchain')
     manifest = work/'source-manifest.json'
     manifest.write_text(json.dumps([str(path.relative_to(ROOT)) for path in modules.values()]))
-    imports = json.loads(command('source-preflight', ['lean', '--run', 'scripts/lean-source-info.lean',
+    imports = json.loads(command('source-preflight', ['lean', '--run', 'scripts/LeanSourceInfo.lean',
                                                      str(manifest)], 'source preflight', ROOT))
     if not isinstance(imports, list) or len(imports) != len(modules):
         raise ValueError('invalid native import response')

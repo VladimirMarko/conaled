@@ -109,7 +109,7 @@ a standalone reproduction and results on Lean 4.35.0 and
 4.37.0-nightly-2026-10-30. The local guard in
 [`scripts/lake_integrity.py`](../../scripts/lake_integrity.py) runs before and
 after incremental compilation through `check.sh`. Its
-[hashing helper](../../scripts/lake-output-hashes.lean) calls the pinned Lake
+[hashing helper](../../scripts/LakeOutputHashes.lean) calls the pinned Lake
 binary-file hash implementation directly; it does not trust `.hash` sidecars.
 The helper is executable tooling, outside the integrated mathematical library
 and its axiom audit, and is exercised by the command-level regression tests.

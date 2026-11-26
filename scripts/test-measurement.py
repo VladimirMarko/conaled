@@ -162,7 +162,7 @@ class PublicClients(unittest.TestCase):
         repository = Path(__file__).resolve().parents[1]
         for name in ['scripts/measurement.py', 'scripts/project_sources.py',
                      'scripts/benchmark-order-certificate.py', 'scripts/probes/run-disk-feasibility.py',
-                     'scripts/probes/DiskDriverFeasibility.lean', 'scripts/lean-source-info.lean',
+                     'scripts/probes/DiskDriverFeasibility.lean', 'scripts/LeanSourceInfo.lean',
                      'ProofAudit.lean', 'lean-toolchain', 'lake-manifest.json', 'lakefile.toml', 'flake.lock']:
             target = root/name
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -207,7 +207,7 @@ class PublicClients(unittest.TestCase):
                 'import json,os,sys\nfrom pathlib import Path\n'
                 'a=sys.argv[1:]\n'
                 'if "--version" in a: print("Lean (version 4.35.0, fixture)")\n'
-                'elif "scripts/lean-source-info.lean" in a:\n'
+                'elif "scripts/LeanSourceInfo.lean" in a:\n'
                 ' names=json.loads(Path(a[-1]).read_text()); print(json.dumps([["Foundation"] if n=="Examples/OrderCertificate.lean" else [] for n in names]))\n'
                 'elif a[-1]=="ProofAudit.lean":\n'
                 ' assert Path("scripts/project_sources.py").is_file(), "audit inventory missing"\n'

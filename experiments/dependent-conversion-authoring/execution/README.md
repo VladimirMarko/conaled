@@ -24,6 +24,30 @@ cohort. No paid API purchase is authorized.
 
 ## Prepare copies and validate them
 
+Current verifier entrypoints use `scripts/LeanSourceInfo.lean` and
+`scripts/LakeOutputHashes.lean`. This trial retains its original source paths
+and hashes, including `scripts/lean-source-info.lean` and the copied
+`tools/lean-source-info.lean`. To prepare the frozen trial after that rename,
+use commit `31c08c126952242843af1ac74411efb396743a0b`, which contains all 21
+hash-pinned inputs and the matching preparer. The freeze's earlier `source_base`
+does not contain every pinned input.
+
+From the current repository's development environment, choose new checkout and
+output paths and run:
+
+```sh
+git worktree add --detach /tmp/conaled-conversion-freeze-31c08c 31c08c126952242843af1ac74411efb396743a0b
+direnv exec . python3 /tmp/conaled-conversion-freeze-31c08c/experiments/dependent-conversion-authoring/execution/prepare_bundles.py \
+  --repo /tmp/conaled-conversion-freeze-31c08c \
+  --freeze /tmp/conaled-conversion-freeze-31c08c/experiments/dependent-conversion-authoring/execution/freeze.json \
+  --output /tmp/conaled-conversion-replay-prepared
+```
+
+The existing `--repo` option selects those exact frozen sources; the preparer,
+freeze, bundle tool paths, and historical logs remain unchanged. This prepares
+copies and sealed phases; it does not execute or repeat the author trial. The
+commands below retain the original preparation context.
+
 From the pinned repository development shell:
 
 ```sh

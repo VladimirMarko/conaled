@@ -8,7 +8,7 @@ The toolchain, proof-audit implementation and permitted axioms are unchanged.
 
 ## Source interpretation
 
-`scripts/lean-source-info.lean` uses the pinned Lean `Parser.parseHeader` and
+`scripts/LeanSourceInfo.lean` uses the pinned Lean `Parser.parseHeader` and
 `Elab.HeaderSyntax.imports`. Thus multiline, escaped, public and meta imports
 have the compiler's meaning. Python receives the import names as JSON and uses
 them for coverage and dependency ordering. The explicit inventory remains root

@@ -100,7 +100,7 @@ Both clients record SHA-256 identities of integrated project source files,
 runner/helper sources, toolchain declaration, Lake configuration/manifest and
 flake lock. The benchmark also captures and hashes its local import closure,
 generated proof/runtime/audit sources and private inventory helper. It calls the
-existing `lean-source-info.lean` parser/policy checker and resolves dependency
+existing `LeanSourceInfo.lean` parser/policy checker and resolves dependency
 paths through Lake. No Python code parses Lean source. The copied audit keeps
 its existing exhaustive implementation and uses the real `project_sources.py`
 in its private working directory.
