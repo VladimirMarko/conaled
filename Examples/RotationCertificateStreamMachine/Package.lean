@@ -140,11 +140,11 @@ theorem independentPackage_rotation_firstRun
 
 /-! ## Complete FrontEnd physical compatibility and explicit installed entries -/
 
-theorem frontEndStackEquiv_symbolEquiv_roundtrip
+theorem frontEndStackEquiv_frontEndSymbolEquiv_roundtrip
     {K : Type} {Γ : K → Type}
     (k : FrontEndMachine.StackId (NewBranchStores ⊕ K))
     (j : StackId (FrontEndProtected ⊕ K))
-    (symbol : FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k) :
+    (symbol : FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k) :
     frontEndStackEquiv.symm (frontEndStackEquiv k) = k ∧
       frontEndStackEquiv (frontEndStackEquiv.symm j) = j ∧
       (frontEndSymbolEquiv (Γ := Γ) k).symm (frontEndSymbolEquiv k symbol) = symbol :=
@@ -167,27 +167,27 @@ theorem frontEndRegisterEquiv_reset_fields
       (none, ((regs.2.2.1, (none, none)), (frontEndDecoderZero, regs.2.2.2))) :=
   frontEndRegisterEquiv_reset regs
 
-theorem frontEnd_card
+theorem front_end_card
     {K R : Type} [Fintype K] [Fintype R] :
     Fintype.card (FrontEndMachine.StackId (NewBranchStores ⊕ K)) = 16 + Fintype.card K ∧
       Fintype.card (StackId (FrontEndProtected ⊕ K)) = 16 + Fintype.card K ∧
       Fintype.card FrontEndDecoderComplement = 459 ∧
       Fintype.card (FrontEndMachine.Registers (Option Branch × R)) = 140454 * Fintype.card R ∧
       Fintype.card (Registers (FrontEndDecoderComplement × R)) = 140454 * Fintype.card R :=
-  ⟨frontEnd_source_stack_card, frontEnd_stack_card, frontEnd_decoder_complement_card,
-    frontEnd_source_register_card, frontEnd_register_card⟩
+  ⟨front_end_source_stack_card, front_end_stack_card, front_end_decoder_complement_card,
+    front_end_source_register_card, front_end_register_card⟩
 
 theorem frontEndStacks_total_length
     {K : Type} {Γ : K → Type} [Fintype K]
-    (allWords : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) :
+    (allWords : ∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k)) :
     ∑ k, (frontEndStacks allWords k).length = ∑ k, (allWords k).length :=
-  frontEnd_stack_cells allWords
+  front_end_stack_cells allWords
 
 def frontEndInstalledEntry {K Λ R : Type} {Γ : K → Type}
     (regs : FrontEndMachine.Registers (Option Branch × R))
     (B O : List Branch) (ctx : ∀ k, List (Γ k))
     (source target : BinaryTree Unit) (fuel : Bits) (certificate : Word) :
-    Cfg (frontEndProtectedAlphabet Γ) Λ (FrontEndDecoderComplement × R) :=
+    Cfg (FrontEndProtectedAlphabet Γ) Λ (FrontEndDecoderComplement × R) :=
   cfg (some (phaseLabel inspectPhase)) (frontEndRegisterEquiv (FrontEndMachine.reset regs))
     (frontEndSuccessData source target fuel certificate B O) (frontEndSuccessContext ctx)
 
@@ -200,14 +200,14 @@ theorem frontEndPhysicalData_success
       (frontEndAddedContext B O ctx) (.success source target fuel certificate)) =
       ((frontEndInstalledEntry (Λ := Λ) regs B O ctx source target fuel certificate).var,
         (frontEndInstalledEntry (Λ := Λ) regs B O ctx source target fuel certificate).stk) :=
-  frontEnd_success_physical_data regs B O ctx source target fuel certificate
+  front_end_success_physical_data regs B O ctx source target fuel certificate
 
 def staleFrontEndRegisters (flag : Bool) : FrontEndMachine.Registers (Option Branch × Bool) :=
   ((some 15, some ()),
     (⟨some true, some false, some true, some false, some 7⟩, (some .right, flag)))
 
 def frontEndDirtyEntry (flag : Bool) :
-    Cfg (frontEndProtectedAlphabet IndependentAlphabet) Unit (FrontEndDecoderComplement × Bool) :=
+    Cfg (FrontEndProtectedAlphabet IndependentAlphabet) Unit (FrontEndDecoderComplement × Bool) :=
   frontEndInstalledEntry (staleFrontEndRegisters flag) [.right] [.left] ordinaryContext
     rightTwo leftTwo [true] [6, 10]
 
@@ -218,7 +218,7 @@ theorem frontEndDirtyEntry_eq
       (frontEndSuccessContext ordinaryContext) := rfl
 
 theorem frontEndDirtyEntry_firstRun_exactPeak
-    (caller : External Unit → Statement (frontEndProtectedAlphabet IndependentAlphabet)
+    (caller : External Unit → Statement (FrontEndProtectedAlphabet IndependentAlphabet)
       Unit (FrontEndDecoderComplement × Bool)) (flag : Bool) :
     FirstRun (step caller) (frontEndDirtyEntry flag) 20
       (cfg (some (resultLabel false))
@@ -233,7 +233,7 @@ theorem frontEndDirtyEntry_firstRun_exactPeak
     (none, ((some .right, (none, none)), (frontEndDecoderZero, flag)))
     (frontEndSuccessContext ordinaryContext)
   have external : externalCells (frontEndSuccessContext ordinaryContext) = 5 := by
-    exact (frontEnd_success_context_cells ordinaryContext).trans
+    exact (front_end_success_context_cells ordinaryContext).trans
       ordinary_protected_context_has_five_physical_cells
   refine ⟨first, ?_⟩
   rw [frontEndDirtyEntry_eq]
@@ -244,7 +244,7 @@ theorem frontEndDirtyEntry_firstRun_exactPeak
   exact peak
 
 theorem frontEndDirtyEntry_boundaries
-    (caller : External Unit → Statement (frontEndProtectedAlphabet IndependentAlphabet)
+    (caller : External Unit → Statement (FrontEndProtectedAlphabet IndependentAlphabet)
       Unit (FrontEndDecoderComplement × Bool)) (flag : Bool) :
     ∀ b ∈ frontEndDirtyBoundaries,
       b.Expected (step caller) (frontEndDirtyEntry flag)
@@ -255,7 +255,7 @@ theorem frontEndDirtyEntry_boundaries
     (frontEndSuccessContext ordinaryContext)
 
 theorem frontEndInstalledEntry_empty_branches_firstRun
-    (caller : External Unit → Statement (frontEndProtectedAlphabet IndependentAlphabet)
+    (caller : External Unit → Statement (FrontEndProtectedAlphabet IndependentAlphabet)
       Unit (FrontEndDecoderComplement × Bool)) (flag : Bool) :
     FirstRun (step caller)
       (frontEndInstalledEntry (staleFrontEndRegisters flag) [] [] ordinaryContext
@@ -271,7 +271,7 @@ theorem frontEndInstalledEntry_empty_branches_firstRun
 
 section FurtherCompleteInstallation
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 
 theorem installedCfgEquiv_roundtrip

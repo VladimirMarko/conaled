@@ -340,8 +340,8 @@ theorem represented_tree_semantics (s t : BinaryTree Unit) (regs : Registers R)
       runSteps (treeCode s) (treeCode t) ≤ 2 * min s.numNodes t.numNodes + 2 ∧
       runSteps (treeCode s) (treeCode t) ≤ 2 * s.numNodes + 2 ∧
       runSteps (treeCode s) (treeCode t) ≤ 2 * t.numNodes + 2 :=
-  ⟨firstEqual_code_iff caller s t regs ctx,
-    firstDifferent_code_iff caller s t regs ctx, result_code_source s t,
+  ⟨first_equal_code_iff caller s t regs ctx,
+    first_different_code_iff caller s t regs ctx, result_code_source s t,
     runSteps_code_le s t, runSteps_code_source_le s t, runSteps_code_target_le s t⟩
 
 def representedTreeTime (s t : BinaryTree Unit) (regs : Registers R)

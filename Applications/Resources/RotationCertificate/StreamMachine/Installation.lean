@@ -11,7 +11,7 @@ set_option warningAsError true
 namespace Resources.RotationCertificate.StreamMachine
 
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable [DecidableEq K] [DecidableEq K']
 variable (caller : External Λ → Statement Γ Λ R)
@@ -31,7 +31,7 @@ theorem installed_owned_prefix_frame
       reached = installedCfg names symbols registers labels source ∧
       remainingSteps source = remainingSteps start - n ∧
       Relation.ReflTransGen (LocalStep caller) start source ∧
-      (n < remainingSteps start ↔ installedOwned labels reached.l) ∧
+      (n < remainingSteps start ↔ InstalledOwned labels reached.l) ∧
       (n = 0 → reached = installedCfg names symbols registers labels start) ∧
       reached.var = registers (registersAt start n) ∧
       source.var.2.2 = start.var.2.2 ∧

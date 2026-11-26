@@ -44,11 +44,11 @@ theorem every_indexed_cleanup_prefix_retains_all_nonactive_words
     (some (cfg (some (clearLabel i)) regs D ctx)) = _
   simpa only [cleanupPrefixCfg, registers] using run
 
-theorem clear_C00_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C00_boundaries,
-      point.Expected clear_C00.toClosedFixture (step caller) value ctx := by
+theorem cleanupC00Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC00Boundaries,
+      point.Expected cleanupC00.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C00_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC00Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -56,34 +56,34 @@ theorem clear_C00_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 0 clear_C00.before (clear_C00.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 0 cleanupC00.before (cleanupC00.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 0 clear_C00.before (clear_C00.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 0 cleanupC00.before (cleanupC00.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 0 15 clear_C00.before (clear_C00.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 0 15 clear_C00.before)
-          (boundaryRegisters 0 15 (clear_C00.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 0 15 cleanupC00.before (cleanupC00.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 0 15 cleanupC00.before)
+          (boundaryRegisters 0 15 (cleanupC00.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C00_actual_first_halt caller value ctx).1
+    · exact (cleanupC00_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C00E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C00E_boundaries,
-      point.Expected clear_C00E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC00EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC00EBoundaries,
+      point.Expected cleanupC00E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C00E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC00EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -91,29 +91,29 @@ theorem clear_C00E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 0 clear_C00E.before (clear_C00E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 0 cleanupC00E.before (cleanupC00E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 0 15 clear_C00E.before (clear_C00E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 0 15 clear_C00E.before)
-          (boundaryRegisters 0 15 (clear_C00E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 0 15 cleanupC00E.before (cleanupC00E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 0 15 cleanupC00E.before)
+          (boundaryRegisters 0 15 (cleanupC00E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C00E_actual_first_halt caller value ctx).1
+    · exact (cleanupC00E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C01_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C01_boundaries,
-      point.Expected clear_C01.toClosedFixture (step caller) value ctx := by
+theorem cleanupC01Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC01Boundaries,
+      point.Expected cleanupC01.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C01_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC01Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -121,34 +121,34 @@ theorem clear_C01_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 1 clear_C01.before (clear_C01.fields.withUser value) ctx 1 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 1 cleanupC01.before (cleanupC01.fields.withUser value) ctx 1 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 1 clear_C01.before (clear_C01.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 1 cleanupC01.before (cleanupC01.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 1 15 clear_C01.before (clear_C01.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 1 15 clear_C01.before)
-          (boundaryRegisters 1 15 (clear_C01.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 1 15 cleanupC01.before (cleanupC01.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 1 15 cleanupC01.before)
+          (boundaryRegisters 1 15 (cleanupC01.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C01_actual_first_halt caller value ctx).1
+    · exact (cleanupC01_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C01E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C01E_boundaries,
-      point.Expected clear_C01E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC01EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC01EBoundaries,
+      point.Expected cleanupC01E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C01E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC01EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -156,29 +156,29 @@ theorem clear_C01E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 1 clear_C01E.before (clear_C01E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 1 cleanupC01E.before (cleanupC01E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 1 15 clear_C01E.before (clear_C01E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 1 15 clear_C01E.before)
-          (boundaryRegisters 1 15 (clear_C01E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 1 15 cleanupC01E.before (cleanupC01E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 1 15 cleanupC01E.before)
+          (boundaryRegisters 1 15 (cleanupC01E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C01E_actual_first_halt caller value ctx).1
+    · exact (cleanupC01E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C02_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C02_boundaries,
-      point.Expected clear_C02.toClosedFixture (step caller) value ctx := by
+theorem cleanupC02Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC02Boundaries,
+      point.Expected cleanupC02.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C02_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC02Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -186,34 +186,34 @@ theorem clear_C02_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 2 clear_C02.before (clear_C02.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 2 cleanupC02.before (cleanupC02.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 2 clear_C02.before (clear_C02.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 2 cleanupC02.before (cleanupC02.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 2 15 clear_C02.before (clear_C02.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 2 15 clear_C02.before)
-          (boundaryRegisters 2 15 (clear_C02.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 2 15 cleanupC02.before (cleanupC02.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 2 15 cleanupC02.before)
+          (boundaryRegisters 2 15 (cleanupC02.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C02_actual_first_halt caller value ctx).1
+    · exact (cleanupC02_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C02E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C02E_boundaries,
-      point.Expected clear_C02E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC02EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC02EBoundaries,
+      point.Expected cleanupC02E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C02E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC02EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -221,29 +221,29 @@ theorem clear_C02E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 2 clear_C02E.before (clear_C02E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 2 cleanupC02E.before (cleanupC02E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 2 15 clear_C02E.before (clear_C02E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 2 15 clear_C02E.before)
-          (boundaryRegisters 2 15 (clear_C02E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 2 15 cleanupC02E.before (cleanupC02E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 2 15 cleanupC02E.before)
+          (boundaryRegisters 2 15 (cleanupC02E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C02E_actual_first_halt caller value ctx).1
+    · exact (cleanupC02E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C03_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C03_boundaries,
-      point.Expected clear_C03.toClosedFixture (step caller) value ctx := by
+theorem cleanupC03Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC03Boundaries,
+      point.Expected cleanupC03.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C03_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC03Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -251,34 +251,34 @@ theorem clear_C03_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 3 clear_C03.before (clear_C03.fields.withUser value) ctx 1 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 3 cleanupC03.before (cleanupC03.fields.withUser value) ctx 1 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 3 clear_C03.before (clear_C03.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 3 cleanupC03.before (cleanupC03.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 3 15 clear_C03.before (clear_C03.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 3 15 clear_C03.before)
-          (boundaryRegisters 3 15 (clear_C03.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 3 15 cleanupC03.before (cleanupC03.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 3 15 cleanupC03.before)
+          (boundaryRegisters 3 15 (cleanupC03.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C03_actual_first_halt caller value ctx).1
+    · exact (cleanupC03_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C03E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C03E_boundaries,
-      point.Expected clear_C03E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC03EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC03EBoundaries,
+      point.Expected cleanupC03E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C03E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC03EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -286,29 +286,29 @@ theorem clear_C03E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 3 clear_C03E.before (clear_C03E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 3 cleanupC03E.before (cleanupC03E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 3 15 clear_C03E.before (clear_C03E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 3 15 clear_C03E.before)
-          (boundaryRegisters 3 15 (clear_C03E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 3 15 cleanupC03E.before (cleanupC03E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 3 15 cleanupC03E.before)
+          (boundaryRegisters 3 15 (cleanupC03E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C03E_actual_first_halt caller value ctx).1
+    · exact (cleanupC03E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C04_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C04_boundaries,
-      point.Expected clear_C04.toClosedFixture (step caller) value ctx := by
+theorem cleanupC04Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC04Boundaries,
+      point.Expected cleanupC04.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C04_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC04Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -316,34 +316,34 @@ theorem clear_C04_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 4 clear_C04.before (clear_C04.fields.withUser value) ctx 3 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 4 cleanupC04.before (cleanupC04.fields.withUser value) ctx 3 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 4 clear_C04.before (clear_C04.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 4 cleanupC04.before (cleanupC04.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 4 15 clear_C04.before (clear_C04.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 4 15 clear_C04.before)
-          (boundaryRegisters 4 15 (clear_C04.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 4 15 cleanupC04.before (cleanupC04.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 4 15 cleanupC04.before)
+          (boundaryRegisters 4 15 (cleanupC04.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C04_actual_first_halt caller value ctx).1
+    · exact (cleanupC04_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C04E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C04E_boundaries,
-      point.Expected clear_C04E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC04EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC04EBoundaries,
+      point.Expected cleanupC04E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C04E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC04EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -351,29 +351,29 @@ theorem clear_C04E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 4 clear_C04E.before (clear_C04E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 4 cleanupC04E.before (cleanupC04E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 4 15 clear_C04E.before (clear_C04E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 4 15 clear_C04E.before)
-          (boundaryRegisters 4 15 (clear_C04E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 4 15 cleanupC04E.before (cleanupC04E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 4 15 cleanupC04E.before)
+          (boundaryRegisters 4 15 (cleanupC04E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C04E_actual_first_halt caller value ctx).1
+    · exact (cleanupC04E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C05_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C05_boundaries,
-      point.Expected clear_C05.toClosedFixture (step caller) value ctx := by
+theorem cleanupC05Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC05Boundaries,
+      point.Expected cleanupC05.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C05_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC05Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -381,34 +381,34 @@ theorem clear_C05_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 5 clear_C05.before (clear_C05.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 5 cleanupC05.before (cleanupC05.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 5 clear_C05.before (clear_C05.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 5 cleanupC05.before (cleanupC05.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 5 15 clear_C05.before (clear_C05.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 5 15 clear_C05.before)
-          (boundaryRegisters 5 15 (clear_C05.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 5 15 cleanupC05.before (cleanupC05.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 5 15 cleanupC05.before)
+          (boundaryRegisters 5 15 (cleanupC05.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C05_actual_first_halt caller value ctx).1
+    · exact (cleanupC05_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C05E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C05E_boundaries,
-      point.Expected clear_C05E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC05EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC05EBoundaries,
+      point.Expected cleanupC05E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C05E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC05EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -416,29 +416,29 @@ theorem clear_C05E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 5 clear_C05E.before (clear_C05E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 5 cleanupC05E.before (cleanupC05E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 5 15 clear_C05E.before (clear_C05E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 5 15 clear_C05E.before)
-          (boundaryRegisters 5 15 (clear_C05E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 5 15 cleanupC05E.before (cleanupC05E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 5 15 cleanupC05E.before)
+          (boundaryRegisters 5 15 (cleanupC05E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C05E_actual_first_halt caller value ctx).1
+    · exact (cleanupC05E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C06_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C06_boundaries,
-      point.Expected clear_C06.toClosedFixture (step caller) value ctx := by
+theorem cleanupC06Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC06Boundaries,
+      point.Expected cleanupC06.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C06_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC06Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -446,34 +446,34 @@ theorem clear_C06_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 6 clear_C06.before (clear_C06.fields.withUser value) ctx 1 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 6 cleanupC06.before (cleanupC06.fields.withUser value) ctx 1 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 6 clear_C06.before (clear_C06.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 6 cleanupC06.before (cleanupC06.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 6 15 clear_C06.before (clear_C06.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 6 15 clear_C06.before)
-          (boundaryRegisters 6 15 (clear_C06.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 6 15 cleanupC06.before (cleanupC06.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 6 15 cleanupC06.before)
+          (boundaryRegisters 6 15 (cleanupC06.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C06_actual_first_halt caller value ctx).1
+    · exact (cleanupC06_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C06E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C06E_boundaries,
-      point.Expected clear_C06E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC06EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC06EBoundaries,
+      point.Expected cleanupC06E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C06E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC06EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -481,29 +481,29 @@ theorem clear_C06E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 6 clear_C06E.before (clear_C06E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 6 cleanupC06E.before (cleanupC06E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 6 15 clear_C06E.before (clear_C06E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 6 15 clear_C06E.before)
-          (boundaryRegisters 6 15 (clear_C06E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 6 15 cleanupC06E.before (cleanupC06E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 6 15 cleanupC06E.before)
+          (boundaryRegisters 6 15 (cleanupC06E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C06E_actual_first_halt caller value ctx).1
+    · exact (cleanupC06E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C07_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C07_boundaries,
-      point.Expected clear_C07.toClosedFixture (step caller) value ctx := by
+theorem cleanupC07Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC07Boundaries,
+      point.Expected cleanupC07.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C07_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC07Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -511,34 +511,34 @@ theorem clear_C07_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 7 clear_C07.before (clear_C07.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 7 cleanupC07.before (cleanupC07.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 7 clear_C07.before (clear_C07.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 7 cleanupC07.before (cleanupC07.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 7 15 clear_C07.before (clear_C07.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 7 15 clear_C07.before)
-          (boundaryRegisters 7 15 (clear_C07.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 7 15 cleanupC07.before (cleanupC07.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 7 15 cleanupC07.before)
+          (boundaryRegisters 7 15 (cleanupC07.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C07_actual_first_halt caller value ctx).1
+    · exact (cleanupC07_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C07E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C07E_boundaries,
-      point.Expected clear_C07E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC07EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC07EBoundaries,
+      point.Expected cleanupC07E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C07E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC07EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -546,29 +546,29 @@ theorem clear_C07E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 7 clear_C07E.before (clear_C07E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 7 cleanupC07E.before (cleanupC07E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 7 15 clear_C07E.before (clear_C07E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 7 15 clear_C07E.before)
-          (boundaryRegisters 7 15 (clear_C07E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 7 15 cleanupC07E.before (cleanupC07E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 7 15 cleanupC07E.before)
+          (boundaryRegisters 7 15 (cleanupC07E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C07E_actual_first_halt caller value ctx).1
+    · exact (cleanupC07E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C08_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C08_boundaries,
-      point.Expected clear_C08.toClosedFixture (step caller) value ctx := by
+theorem cleanupC08Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC08Boundaries,
+      point.Expected cleanupC08.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C08_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC08Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -576,34 +576,34 @@ theorem clear_C08_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 8 clear_C08.before (clear_C08.fields.withUser value) ctx 3 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 8 cleanupC08.before (cleanupC08.fields.withUser value) ctx 3 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 8 clear_C08.before (clear_C08.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 8 cleanupC08.before (cleanupC08.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 8 15 clear_C08.before (clear_C08.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 8 15 clear_C08.before)
-          (boundaryRegisters 8 15 (clear_C08.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 8 15 cleanupC08.before (cleanupC08.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 8 15 cleanupC08.before)
+          (boundaryRegisters 8 15 (cleanupC08.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C08_actual_first_halt caller value ctx).1
+    · exact (cleanupC08_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C08E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C08E_boundaries,
-      point.Expected clear_C08E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC08EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC08EBoundaries,
+      point.Expected cleanupC08E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C08E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC08EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -611,29 +611,29 @@ theorem clear_C08E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 8 clear_C08E.before (clear_C08E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 8 cleanupC08E.before (cleanupC08E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 8 15 clear_C08E.before (clear_C08E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 8 15 clear_C08E.before)
-          (boundaryRegisters 8 15 (clear_C08E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 8 15 cleanupC08E.before (cleanupC08E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 8 15 cleanupC08E.before)
+          (boundaryRegisters 8 15 (cleanupC08E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C08E_actual_first_halt caller value ctx).1
+    · exact (cleanupC08E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C09_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C09_boundaries,
-      point.Expected clear_C09.toClosedFixture (step caller) value ctx := by
+theorem cleanupC09Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC09Boundaries,
+      point.Expected cleanupC09.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C09_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC09Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -641,34 +641,34 @@ theorem clear_C09_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 9 clear_C09.before (clear_C09.fields.withUser value) ctx 1 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 9 cleanupC09.before (cleanupC09.fields.withUser value) ctx 1 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 9 clear_C09.before (clear_C09.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 9 cleanupC09.before (cleanupC09.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 9 15 clear_C09.before (clear_C09.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 9 15 clear_C09.before)
-          (boundaryRegisters 9 15 (clear_C09.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 9 15 cleanupC09.before (cleanupC09.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 9 15 cleanupC09.before)
+          (boundaryRegisters 9 15 (cleanupC09.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C09_actual_first_halt caller value ctx).1
+    · exact (cleanupC09_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C09E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C09E_boundaries,
-      point.Expected clear_C09E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC09EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC09EBoundaries,
+      point.Expected cleanupC09E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C09E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC09EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -676,29 +676,29 @@ theorem clear_C09E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 9 clear_C09E.before (clear_C09E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 9 cleanupC09E.before (cleanupC09E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 9 15 clear_C09E.before (clear_C09E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 9 15 clear_C09E.before)
-          (boundaryRegisters 9 15 (clear_C09E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 9 15 cleanupC09E.before (cleanupC09E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 9 15 cleanupC09E.before)
+          (boundaryRegisters 9 15 (cleanupC09E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C09E_actual_first_halt caller value ctx).1
+    · exact (cleanupC09E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C10_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C10_boundaries,
-      point.Expected clear_C10.toClosedFixture (step caller) value ctx := by
+theorem cleanupC10Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC10Boundaries,
+      point.Expected cleanupC10.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C10_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC10Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -706,34 +706,34 @@ theorem clear_C10_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 10 clear_C10.before (clear_C10.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 10 cleanupC10.before (cleanupC10.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 10 clear_C10.before (clear_C10.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 10 cleanupC10.before (cleanupC10.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 10 15 clear_C10.before (clear_C10.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 10 15 clear_C10.before)
-          (boundaryRegisters 10 15 (clear_C10.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 10 15 cleanupC10.before (cleanupC10.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 10 15 cleanupC10.before)
+          (boundaryRegisters 10 15 (cleanupC10.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C10_actual_first_halt caller value ctx).1
+    · exact (cleanupC10_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C10E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C10E_boundaries,
-      point.Expected clear_C10E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC10EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC10EBoundaries,
+      point.Expected cleanupC10E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C10E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC10EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -741,29 +741,29 @@ theorem clear_C10E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 10 clear_C10E.before (clear_C10E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 10 cleanupC10E.before (cleanupC10E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 10 15 clear_C10E.before (clear_C10E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 10 15 clear_C10E.before)
-          (boundaryRegisters 10 15 (clear_C10E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 10 15 cleanupC10E.before (cleanupC10E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 10 15 cleanupC10E.before)
+          (boundaryRegisters 10 15 (cleanupC10E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C10E_actual_first_halt caller value ctx).1
+    · exact (cleanupC10E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C11_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C11_boundaries,
-      point.Expected clear_C11.toClosedFixture (step caller) value ctx := by
+theorem cleanupC11Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC11Boundaries,
+      point.Expected cleanupC11.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C11_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC11Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -771,34 +771,34 @@ theorem clear_C11_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 11 clear_C11.before (clear_C11.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 11 cleanupC11.before (cleanupC11.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 11 clear_C11.before (clear_C11.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 11 cleanupC11.before (cleanupC11.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 11 15 clear_C11.before (clear_C11.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 11 15 clear_C11.before)
-          (boundaryRegisters 11 15 (clear_C11.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 11 15 cleanupC11.before (cleanupC11.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 11 15 cleanupC11.before)
+          (boundaryRegisters 11 15 (cleanupC11.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C11_actual_first_halt caller value ctx).1
+    · exact (cleanupC11_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C11E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C11E_boundaries,
-      point.Expected clear_C11E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC11EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC11EBoundaries,
+      point.Expected cleanupC11E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C11E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC11EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -806,29 +806,29 @@ theorem clear_C11E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 11 clear_C11E.before (clear_C11E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 11 cleanupC11E.before (cleanupC11E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 11 15 clear_C11E.before (clear_C11E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 11 15 clear_C11E.before)
-          (boundaryRegisters 11 15 (clear_C11E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 11 15 cleanupC11E.before (cleanupC11E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 11 15 cleanupC11E.before)
+          (boundaryRegisters 11 15 (cleanupC11E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C11E_actual_first_halt caller value ctx).1
+    · exact (cleanupC11E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C12_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C12_boundaries,
-      point.Expected clear_C12.toClosedFixture (step caller) value ctx := by
+theorem cleanupC12Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC12Boundaries,
+      point.Expected cleanupC12.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C12_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC12Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -836,34 +836,34 @@ theorem clear_C12_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 12 clear_C12.before (clear_C12.fields.withUser value) ctx 3 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 12 cleanupC12.before (cleanupC12.fields.withUser value) ctx 3 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 12 clear_C12.before (clear_C12.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 12 cleanupC12.before (cleanupC12.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 12 15 clear_C12.before (clear_C12.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 12 15 clear_C12.before)
-          (boundaryRegisters 12 15 (clear_C12.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 12 15 cleanupC12.before (cleanupC12.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 12 15 cleanupC12.before)
+          (boundaryRegisters 12 15 (cleanupC12.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C12_actual_first_halt caller value ctx).1
+    · exact (cleanupC12_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C12E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C12E_boundaries,
-      point.Expected clear_C12E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC12EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC12EBoundaries,
+      point.Expected cleanupC12E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C12E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC12EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -871,29 +871,29 @@ theorem clear_C12E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 12 clear_C12E.before (clear_C12E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 12 cleanupC12E.before (cleanupC12E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 12 15 clear_C12E.before (clear_C12E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 12 15 clear_C12E.before)
-          (boundaryRegisters 12 15 (clear_C12E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 12 15 cleanupC12E.before (cleanupC12E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 12 15 cleanupC12E.before)
+          (boundaryRegisters 12 15 (cleanupC12E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C12E_actual_first_halt caller value ctx).1
+    · exact (cleanupC12E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C13_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C13_boundaries,
-      point.Expected clear_C13.toClosedFixture (step caller) value ctx := by
+theorem cleanupC13Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC13Boundaries,
+      point.Expected cleanupC13.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C13_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC13Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -901,34 +901,34 @@ theorem clear_C13_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 13 clear_C13.before (clear_C13.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 13 cleanupC13.before (cleanupC13.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 13 clear_C13.before (clear_C13.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 13 cleanupC13.before (cleanupC13.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 13 15 clear_C13.before (clear_C13.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 13 15 clear_C13.before)
-          (boundaryRegisters 13 15 (clear_C13.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 13 15 cleanupC13.before (cleanupC13.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 13 15 cleanupC13.before)
+          (boundaryRegisters 13 15 (cleanupC13.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C13_actual_first_halt caller value ctx).1
+    · exact (cleanupC13_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C13E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C13E_boundaries,
-      point.Expected clear_C13E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC13EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC13EBoundaries,
+      point.Expected cleanupC13E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C13E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC13EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -936,29 +936,29 @@ theorem clear_C13E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 13 clear_C13E.before (clear_C13E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 13 cleanupC13E.before (cleanupC13E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 13 15 clear_C13E.before (clear_C13E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 13 15 clear_C13E.before)
-          (boundaryRegisters 13 15 (clear_C13E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 13 15 cleanupC13E.before (cleanupC13E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 13 15 cleanupC13E.before)
+          (boundaryRegisters 13 15 (cleanupC13E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C13E_actual_first_halt caller value ctx).1
+    · exact (cleanupC13E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C14_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C14_boundaries,
-      point.Expected clear_C14.toClosedFixture (step caller) value ctx := by
+theorem cleanupC14Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC14Boundaries,
+      point.Expected cleanupC14.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C14_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC14Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -966,34 +966,34 @@ theorem clear_C14_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 14 clear_C14.before (clear_C14.fields.withUser value) ctx 3 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 14 cleanupC14.before (cleanupC14.fields.withUser value) ctx 3 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 14 clear_C14.before (clear_C14.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 14 cleanupC14.before (cleanupC14.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 14 15 clear_C14.before (clear_C14.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 14 15 clear_C14.before)
-          (boundaryRegisters 14 15 (clear_C14.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 14 15 cleanupC14.before (cleanupC14.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 14 15 cleanupC14.before)
+          (boundaryRegisters 14 15 (cleanupC14.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C14_actual_first_halt caller value ctx).1
+    · exact (cleanupC14_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C14E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C14E_boundaries,
-      point.Expected clear_C14E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC14EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC14EBoundaries,
+      point.Expected cleanupC14E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C14E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC14EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -1001,29 +1001,29 @@ theorem clear_C14E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_slot_localRun caller 14 clear_C14E.before (clear_C14E.fields.withUser value) ctx).iterate caller
+    · exact (clear_slot_localRun caller 14 cleanupC14E.before (cleanupC14E.fields.withUser value) ctx).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 14 15 clear_C14E.before (clear_C14E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 14 15 clear_C14E.before)
-          (boundaryRegisters 14 15 (clear_C14E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 14 15 cleanupC14E.before (cleanupC14E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 14 15 cleanupC14E.before)
+          (boundaryRegisters 14 15 (cleanupC14E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C14E_actual_first_halt caller value ctx).1
+    · exact (cleanupC14E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C15_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C15_boundaries,
-      point.Expected clear_C15.toClosedFixture (step caller) value ctx := by
+theorem cleanupC15Boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC15Boundaries,
+      point.Expected cleanupC15.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C15_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC15Boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl
   · constructor
     · rfl
@@ -1031,29 +1031,29 @@ theorem clear_C15_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (drain_slot_localRun caller 15 clear_C15.before (clear_C15.fields.withUser value) ctx 2 (by decide)).iterate caller
+    · exact (drain_slot_localRun caller 15 cleanupC15.before (cleanupC15.fields.withUser value) ctx 2 (by decide)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 15 15 clear_C15.before (clear_C15.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 15 15 clear_C15.before)
-          (boundaryRegisters 15 15 (clear_C15.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 15 15 cleanupC15.before (cleanupC15.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 15 15 cleanupC15.before)
+          (boundaryRegisters 15 15 (cleanupC15.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C15_actual_first_halt caller value ctx).1
+    · exact (cleanupC15_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
 
-theorem clear_C15E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
-    ∀ point ∈ clear_C15E_boundaries,
-      point.Expected clear_C15E.toClosedFixture (step caller) value ctx := by
+theorem cleanupC15EBoundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) :
+    ∀ point ∈ cleanupC15EBoundaries,
+      point.Expected cleanupC15E.toClosedFixture (step caller) value ctx := by
   intro point member
-  simp only [clear_C15E_boundaries, List.mem_cons, List.not_mem_nil, or_false] at member
+  simp only [cleanupC15EBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl
   · constructor
     · rfl
@@ -1062,14 +1062,14 @@ theorem clear_C15E_boundaries_are_actual (value : R) (ctx : ∀ k, List (Γ k)) 
       rfl
   · constructor
     · exact (LocalRun.trans caller
-        (boundary_localRun caller 15 15 clear_C15E.before (clear_C15E.fields.withUser value) ctx (by decide))
-        (clear_slot_localRun caller 15 (boundaryData 15 15 clear_C15E.before)
-          (boundaryRegisters 15 15 (clear_C15E.fields.withUser value)) ctx)).iterate caller
+        (boundary_localRun caller 15 15 cleanupC15E.before (cleanupC15E.fields.withUser value) ctx (by decide))
+        (clear_slot_localRun caller 15 (boundaryData 15 15 cleanupC15E.before)
+          (boundaryRegisters 15 15 (cleanupC15E.fields.withUser value)) ctx)).iterate caller
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
   · constructor
-    · exact (clear_C15E_actual_first_halt caller value ctx).1
+    · exact (cleanupC15E_actual_first_halt caller value ctx).1
     · change physicalCells (cfg _ _ _ _) = _
       rw [actual_physical_cells_of_cfg]
       rfl
@@ -1080,38 +1080,38 @@ theorem all_partial_clear_boundaries_are_literal (value : R) (ctx : ∀ k, List 
   intro pair member
   simp only [partialClearBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-  · exact clear_C00_boundaries_are_actual caller value ctx
-  · exact clear_C00E_boundaries_are_actual caller value ctx
-  · exact clear_C01_boundaries_are_actual caller value ctx
-  · exact clear_C01E_boundaries_are_actual caller value ctx
-  · exact clear_C02_boundaries_are_actual caller value ctx
-  · exact clear_C02E_boundaries_are_actual caller value ctx
-  · exact clear_C03_boundaries_are_actual caller value ctx
-  · exact clear_C03E_boundaries_are_actual caller value ctx
-  · exact clear_C04_boundaries_are_actual caller value ctx
-  · exact clear_C04E_boundaries_are_actual caller value ctx
-  · exact clear_C05_boundaries_are_actual caller value ctx
-  · exact clear_C05E_boundaries_are_actual caller value ctx
-  · exact clear_C06_boundaries_are_actual caller value ctx
-  · exact clear_C06E_boundaries_are_actual caller value ctx
-  · exact clear_C07_boundaries_are_actual caller value ctx
-  · exact clear_C07E_boundaries_are_actual caller value ctx
-  · exact clear_C08_boundaries_are_actual caller value ctx
-  · exact clear_C08E_boundaries_are_actual caller value ctx
-  · exact clear_C09_boundaries_are_actual caller value ctx
-  · exact clear_C09E_boundaries_are_actual caller value ctx
-  · exact clear_C10_boundaries_are_actual caller value ctx
-  · exact clear_C10E_boundaries_are_actual caller value ctx
-  · exact clear_C11_boundaries_are_actual caller value ctx
-  · exact clear_C11E_boundaries_are_actual caller value ctx
-  · exact clear_C12_boundaries_are_actual caller value ctx
-  · exact clear_C12E_boundaries_are_actual caller value ctx
-  · exact clear_C13_boundaries_are_actual caller value ctx
-  · exact clear_C13E_boundaries_are_actual caller value ctx
-  · exact clear_C14_boundaries_are_actual caller value ctx
-  · exact clear_C14E_boundaries_are_actual caller value ctx
-  · exact clear_C15_boundaries_are_actual caller value ctx
-  · exact clear_C15E_boundaries_are_actual caller value ctx
+  · exact cleanupC00Boundaries_are_actual caller value ctx
+  · exact cleanupC00EBoundaries_are_actual caller value ctx
+  · exact cleanupC01Boundaries_are_actual caller value ctx
+  · exact cleanupC01EBoundaries_are_actual caller value ctx
+  · exact cleanupC02Boundaries_are_actual caller value ctx
+  · exact cleanupC02EBoundaries_are_actual caller value ctx
+  · exact cleanupC03Boundaries_are_actual caller value ctx
+  · exact cleanupC03EBoundaries_are_actual caller value ctx
+  · exact cleanupC04Boundaries_are_actual caller value ctx
+  · exact cleanupC04EBoundaries_are_actual caller value ctx
+  · exact cleanupC05Boundaries_are_actual caller value ctx
+  · exact cleanupC05EBoundaries_are_actual caller value ctx
+  · exact cleanupC06Boundaries_are_actual caller value ctx
+  · exact cleanupC06EBoundaries_are_actual caller value ctx
+  · exact cleanupC07Boundaries_are_actual caller value ctx
+  · exact cleanupC07EBoundaries_are_actual caller value ctx
+  · exact cleanupC08Boundaries_are_actual caller value ctx
+  · exact cleanupC08EBoundaries_are_actual caller value ctx
+  · exact cleanupC09Boundaries_are_actual caller value ctx
+  · exact cleanupC09EBoundaries_are_actual caller value ctx
+  · exact cleanupC10Boundaries_are_actual caller value ctx
+  · exact cleanupC10EBoundaries_are_actual caller value ctx
+  · exact cleanupC11Boundaries_are_actual caller value ctx
+  · exact cleanupC11EBoundaries_are_actual caller value ctx
+  · exact cleanupC12Boundaries_are_actual caller value ctx
+  · exact cleanupC12EBoundaries_are_actual caller value ctx
+  · exact cleanupC13Boundaries_are_actual caller value ctx
+  · exact cleanupC13EBoundaries_are_actual caller value ctx
+  · exact cleanupC14Boundaries_are_actual caller value ctx
+  · exact cleanupC14EBoundaries_are_actual caller value ctx
+  · exact cleanupC15Boundaries_are_actual caller value ctx
+  · exact cleanupC15EBoundaries_are_actual caller value ctx
 
 end CleanupBoundaryConnections
 

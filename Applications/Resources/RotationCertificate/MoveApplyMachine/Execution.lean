@@ -440,7 +440,7 @@ omit [DecidableEq K] in
     (ctx : ∀ k, List (Γ k)) : phaseResult q (resetMove regs) D ctx = phaseResult (Λ := Λ) q regs D ctx := rfl
 
 omit [DecidableEq K] in
-theorem positionFinish_transport (q : PositionedRotationMachine.Phase) (D : LocalData)
+theorem position_finish_transport (q : PositionedRotationMachine.Phase) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     positionCfg (Λ := Λ) (PositionedRotationMachine.phaseResult q regs (positionData D) (positionContext D ctx)) =
       phaseResult (positionPhase q) regs D ctx := by
@@ -457,7 +457,7 @@ theorem position_phase_localRun (q : PositionedRotationMachine.Phase) (D : Local
     LocalRun caller (PositionedRotationMachine.phaseSteps q (positionData D))
       (cfg (some (positionLabel q)) regs D ctx)
       (phaseResult (positionPhase q) regs D ctx) := by
-  rw [← positionFinish_transport]
+  rw [← position_finish_transport]
   exact position_phase_transport caller q D regs ctx
 
 theorem dispatch_phase_localRun (r : MoveParserMachine.Result) (D : LocalData)

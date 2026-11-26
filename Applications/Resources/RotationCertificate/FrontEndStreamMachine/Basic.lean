@@ -18,8 +18,8 @@ open Search.SharedTree (Branch)
 open Resources.BinaryCounter (Bits)
 
 abbrev StackId (K : Type) := FrontEndMachine.StackId (StreamMachine.NewBranchStores ⊕ K)
-abbrev alphabet {K : Type} (Γ : K → Type) :=
-  FrontEndMachine.alphabet (StreamMachine.frontEndAddedAlphabet Γ)
+abbrev Alphabet {K : Type} (Γ : K → Type) :=
+  FrontEndMachine.Alphabet (StreamMachine.FrontEndAddedAlphabet Γ)
 abbrev Registers (R : Type) := FrontEndMachine.Registers (Option Branch × R)
 abbrev Temporaries := TreeParserMachine.Temporaries ×
   (OpenDecoderMachine.Temporaries × Option Branch)
@@ -63,9 +63,9 @@ structure LocalData where
 variable {K Λ R : Type} {Γ : K → Type}
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def phaseLabel : Phase → Label Λ
   | .inl q => .inl q
@@ -201,11 +201,11 @@ def withStream (D : LocalData) (E : StreamMachine.LocalData) : LocalData :=
     targetTree := E.target }
 
 def frontEndContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (StreamMachine.frontEndAddedAlphabet Γ k) :=
+    ∀ k, List (StreamMachine.FrontEndAddedAlphabet Γ k) :=
   StreamMachine.frontEndAddedContext D.moveReverse D.path ctx
 
 def streamContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (StreamMachine.frontEndProtectedAlphabet Γ k)
+    ∀ k, List (StreamMachine.FrontEndProtectedAlphabet Γ k)
   | .inl .framedRaw => D.framedRaw
   | .inl .frameFirstReverse => D.frameFirstReverse
   | .inl .frameCertReverse => D.frameCertReverse
@@ -215,7 +215,7 @@ def streamContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
   | .inl .bitsReverse => D.bitsReverse
   | .inr k => ctx k
 
-def stores (D : LocalData) (ctx : ∀ k, List (Γ k)) : ∀ k, List (alphabet Γ k) :=
+def stores (D : LocalData) (ctx : ∀ k, List (Γ k)) : ∀ k, List (Alphabet Γ k) :=
   FrontEndMachine.stores (frontEndData D) (frontEndContext D ctx)
 
 def cfg (label : Option (Label Λ)) (regs : Registers R) (D : LocalData)
@@ -335,8 +335,8 @@ def streamStackEquiv : StreamMachine.StackId (StreamMachine.FrontEndProtected �
     StackId K := StreamMachine.frontEndStackEquiv.symm
 
 def streamSymbolEquiv (k : StreamMachine.StackId (StreamMachine.FrontEndProtected ⊕ K)) :
-    StreamMachine.alphabet (StreamMachine.frontEndProtectedAlphabet Γ) k ≃
-      alphabet Γ (streamStackEquiv k) := by
+    StreamMachine.Alphabet (StreamMachine.FrontEndProtectedAlphabet Γ) k ≃
+      Alphabet Γ (streamStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -347,16 +347,16 @@ def streamRegisterEquiv : StreamMachine.Registers (StreamMachine.FrontEndDecoder
     Registers R := StreamMachine.frontEndRegisterEquiv.symm
 
 abbrev FrontEndStatement (Γ : K → Type) (Λ R : Type) :=
-  FrontEndMachine.Statement (StreamMachine.frontEndAddedAlphabet Γ) (FrontEndCallerLabel Λ)
+  FrontEndMachine.Statement (StreamMachine.FrontEndAddedAlphabet Γ) (FrontEndCallerLabel Λ)
     (Option Branch × R)
 abbrev StreamStatement (Γ : K → Type) (Λ R : Type) :=
-  StreamMachine.Statement (StreamMachine.frontEndProtectedAlphabet Γ) (StreamCallerLabel Λ)
+  StreamMachine.Statement (StreamMachine.FrontEndProtectedAlphabet Γ) (StreamCallerLabel Λ)
     (StreamMachine.FrontEndDecoderComplement × R)
 abbrev FrontEndCfg (Γ : K → Type) (Λ R : Type) :=
-  FrontEndMachine.Cfg (StreamMachine.frontEndAddedAlphabet Γ) (FrontEndCallerLabel Λ)
+  FrontEndMachine.Cfg (StreamMachine.FrontEndAddedAlphabet Γ) (FrontEndCallerLabel Λ)
     (Option Branch × R)
 abbrev StreamCfg (Γ : K → Type) (Λ R : Type) :=
-  StreamMachine.Cfg (StreamMachine.frontEndProtectedAlphabet Γ) (StreamCallerLabel Λ)
+  StreamMachine.Cfg (StreamMachine.FrontEndProtectedAlphabet Γ) (StreamCallerLabel Λ)
     (StreamMachine.FrontEndDecoderComplement × R)
 
 def frontEndTranslate (body : FrontEndStatement Γ Λ R) : Statement Γ Λ R :=
@@ -985,11 +985,11 @@ theorem card_label [Fintype Λ] : Fintype.card (Label Λ) = 96 + Fintype.card Λ
 
 omit [DecidableEq K] caller in
 theorem card_stackId [Fintype K] : Fintype.card (StackId K) = 16 + Fintype.card K :=
-  StreamMachine.frontEnd_source_stack_card
+  StreamMachine.front_end_source_stack_card
 
 omit [DecidableEq K] caller in
 theorem card_registers [Fintype R] : Fintype.card (Registers R) = 140454 * Fintype.card R :=
-  StreamMachine.frontEnd_source_register_card
+  StreamMachine.front_end_source_register_card
 
 omit [DecidableEq K] caller in
 theorem card_temporaries : Fintype.card Temporaries = 140454 := by
@@ -1017,7 +1017,7 @@ theorem frontEndCfg_view (label : Option (FrontEndMachine.Label (FrontEndCallerL
   · rfl
   · funext k
     exact (FrontEndMachine.Transport.stackEquiv_apply (Equiv.refl _)
-      (fun j => Equiv.refl (alphabet Γ j)) (stores D ctx) k).trans (List.map_id _)
+      (fun j => Equiv.refl (Alphabet Γ j)) (stores D ctx) k).trans (List.map_id _)
 
 omit [DecidableEq K] caller in
 theorem streamCfg_view (label : Option (StreamMachine.Label (StreamCallerLabel Λ)))
@@ -1038,7 +1038,7 @@ theorem streamCfg_view (label : Option (StreamMachine.Label (StreamCallerLabel �
       | inr k => change List.map id _ = _; exact List.map_id _
 
 omit [DecidableEq K] in
-theorem frontEnd_body_agrees
+theorem front_end_body_agrees
     (localCaller : FrontEndMachine.External (FrontEndCallerLabel Λ) → FrontEndStatement Γ Λ R)
     (label : FrontEndMachine.Label (FrontEndCallerLabel Λ))
     (owned : FrontEndMachine.Owned (some label)) :
@@ -1116,14 +1116,14 @@ theorem owned_streamCfg (c : StreamCfg Γ Λ R) (h : StreamMachine.Owned c.l) :
       · trivial
       · cases h
 
-theorem frontEnd_step_of_step
+theorem front_end_step_of_step
     (localCaller : FrontEndMachine.External (FrontEndCallerLabel Λ) → FrontEndStatement Γ Λ R)
     (before after : FrontEndCfg Γ Λ R) (owned : FrontEndMachine.Owned before.l)
     (executed : FrontEndMachine.step localCaller before = some after) :
     step caller (frontEndCfg before) = some (frontEndCfg after) := by
   have transported := FrontEndMachine.Transport.step_owned (Equiv.refl _) (fun _ => Equiv.refl _)
     (Equiv.refl _) frontEndLabelEquiv (FrontEndMachine.program localCaller) (program caller)
-    FrontEndMachine.Owned (frontEnd_body_agrees caller localCaller) before owned
+    FrontEndMachine.Owned (front_end_body_agrees caller localCaller) before owned
   change step caller (frontEndCfg before) =
     (FrontEndMachine.step localCaller before).map frontEndCfg at transported
   rw [executed] at transported
@@ -1142,7 +1142,7 @@ theorem stream_step_of_step
   rw [executed] at transported
   exact transported
 
-theorem frontEnd_prefix_transport
+theorem front_end_prefix_transport
     (localCaller : FrontEndMachine.External (FrontEndCallerLabel Λ) → FrontEndStatement Γ Λ R)
     (n : Nat) (start : FrontEndCfg Γ Λ R)
     (earlier : ∀ j, j < n → ∃ reached,
@@ -1151,7 +1151,7 @@ theorem frontEnd_prefix_transport
       ((FrontEndMachine.next localCaller)^[n] (some start)).map frontEndCfg := by
   exact FrontEndMachine.Transport.iterate_owned (Equiv.refl _) (fun _ => Equiv.refl _)
     (Equiv.refl _) frontEndLabelEquiv (FrontEndMachine.program localCaller) (program caller)
-    FrontEndMachine.Owned (frontEnd_body_agrees caller localCaller) n start earlier
+    FrontEndMachine.Owned (front_end_body_agrees caller localCaller) n start earlier
 
 theorem stream_prefix_transport
     (localCaller : StreamMachine.External (StreamCallerLabel Λ) → StreamStatement Γ Λ R)
@@ -1355,7 +1355,7 @@ theorem stream_phase_localRun (q : StreamMachine.Phase) (D : LocalData) (regs : 
       (cfg (some (phaseLabel (resultPhase (StreamMachine.evaluate q (streamData D)).result)))
         (streamReset regs) (withStream D (StreamMachine.evaluate q (streamData D)).data) ctx) := by
   have localRun := StreamMachine.phase_localRun
-    (Γ := StreamMachine.frontEndProtectedAlphabet Γ) (Λ := StreamCallerLabel Λ)
+    (Γ := StreamMachine.FrontEndProtectedAlphabet Γ) (Λ := StreamCallerLabel Λ)
     (fun _ => .halt) q (streamData D) (StreamMachine.frontEndRegisterEquiv regs) (streamContext D ctx)
   have transported := stream_localRun caller (fun _ => .halt) localRun
   have start := streamCfg_view (Λ := Λ) (some (StreamMachine.phaseLabel q)) regs D ctx

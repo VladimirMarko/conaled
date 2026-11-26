@@ -115,26 +115,26 @@ theorem represented_acceptance_reaches_a_live_label_with_the_actual_remaining_fu
       finalFuel.length = fuel.length :=
   represented_accepting_endpoint caller regs fuel certificate source target ctx accepted
 
-def exact_raw_timing (fuel : Bits) (certificate source target : Word) :
+def exactRawTiming (fuel : Bits) (certificate source target : Word) :
     StateTransition.EvalsToInTime (step caller) (entry regs fuel certificate source target ctx)
       (some (runResult regs fuel certificate source target ctx))
       (runSteps fuel certificate source target) :=
   runInTimeExact caller regs fuel certificate source target ctx
 
-def bounded_raw_timing (fuel : Bits) (certificate source target : Word) :
+def boundedRawTiming (fuel : Bits) (certificate source target : Word) :
     StateTransition.EvalsToInTime (step caller) (entry regs fuel certificate source target ctx)
       (some (runResult regs fuel certificate source target ctx))
       ((2 * fuel.length + 3 * source.length + 7) * certificate.length + source.length + 4) :=
   runInPolynomialTime caller regs fuel certificate source target ctx
 
-def exact_represented_timing (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
+def exactRepresentedTiming (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
     StateTransition.EvalsToInTime (step caller)
       (entry regs fuel certificate (treeCode source) (treeCode target) ctx)
       (some (runResult regs fuel certificate (treeCode source) (treeCode target) ctx))
       (runSteps fuel certificate (treeCode source) (treeCode target)) :=
   representedInTimeExact caller regs fuel certificate source target ctx
 
-def bounded_represented_timing (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
+def boundedRepresentedTiming (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
     StateTransition.EvalsToInTime (step caller)
       (entry regs fuel certificate (treeCode source) (treeCode target) ctx)
       (some (runResult regs fuel certificate (treeCode source) (treeCode target) ctx))
@@ -143,16 +143,16 @@ def bounded_represented_timing (fuel : Bits) (certificate : Word) (source target
 
 theorem all_typed_clean_time_records_keep_the_actual_step_count
     (fuel : Bits) (certificate source target : Word) :
-    (exact_raw_timing caller regs ctx fuel certificate source target).steps =
+    (exactRawTiming caller regs ctx fuel certificate source target).steps =
         runSteps fuel certificate source target ∧
-      (bounded_raw_timing caller regs ctx fuel certificate source target).steps =
+      (boundedRawTiming caller regs ctx fuel certificate source target).steps =
         runSteps fuel certificate source target := ⟨rfl, rfl⟩
 
 theorem both_typed_represented_time_records_keep_machine_time
     (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
-    (exact_represented_timing caller regs ctx fuel certificate source target).steps =
+    (exactRepresentedTiming caller regs ctx fuel certificate source target).steps =
         runSteps fuel certificate (treeCode source) (treeCode target) ∧
-      (bounded_represented_timing caller regs ctx fuel certificate source target).steps =
+      (boundedRepresentedTiming caller regs ctx fuel certificate source target).steps =
         runSteps fuel certificate (treeCode source) (treeCode target) := ⟨rfl, rfl⟩
 
 end CleanActualRuns

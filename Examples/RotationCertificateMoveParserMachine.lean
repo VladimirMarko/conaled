@@ -56,7 +56,7 @@ theorem infinite_caller_still_has_seven_owned_labels :
     Fintype.card {label : Label Nat // Owned (some label)} = 7 := owned_card
 
 theorem all_physical_alphabets_are_finite (k : StackId Bool) :
-    Nonempty (Fintype (alphabet SmallAlphabet k)) := ⟨inferInstance⟩
+    Nonempty (Fintype (Alphabet SmallAlphabet k)) := ⟨inferInstance⟩
 
 theorem fixture_has_six_protected_cells : contextCells sampleContext = 6 := by
   decide

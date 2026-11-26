@@ -178,7 +178,7 @@ noncomputable def checking : PolynomialCheckingRelation CheckingRelation where
 /-- The exact criterion is inhabited by the current machine and the existing
 quadratic certificate completeness/raw soundness proofs. -/
 noncomputable def binaryYesCriterion : ConventionalVerifierCriterion BinaryYes where
-  relation := CheckingRelation
+  Relation := CheckingRelation
   checking := checking
   witnessExponent := 2
   witness_iff := by

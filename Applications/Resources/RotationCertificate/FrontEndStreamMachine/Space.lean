@@ -26,7 +26,7 @@ omit caller [DecidableEq K] in
 theorem stackCells_eq_sum (c : Cfg Γ Λ R) : stackCells c = ∑ k, (c.stk k).length := rfl
 
 omit caller [DecidableEq K] in
-theorem newBranch_sum (f : StreamMachine.NewBranchStores → Nat) :
+theorem newBranchStores_sum (f : StreamMachine.NewBranchStores → Nat) :
     ∑ k, f k = f .moveReverse + f .path := by
   change (∑ k ∈ ({.moveReverse, .path} : Finset StreamMachine.NewBranchStores), f k) = _
   simp
@@ -35,7 +35,7 @@ omit caller [DecidableEq K] in
 theorem stackCells_cfg (label : Option (Label Λ)) (regs : Registers R) (D : LocalData)
     (ctx : ∀ k, List (Γ k)) : stackCells (cfg label regs D ctx) = localCells D + contextCells ctx := by
   rw [stackCells, Fintype.sum_sum_type, FrontEndMachine.localStack_sum,
-    Fintype.sum_sum_type, newBranch_sum]
+    Fintype.sum_sum_type, newBranchStores_sum]
   dsimp only [cfg, stores, frontEndData, FrontEndMachine.stores, frontEndContext,
     StreamMachine.frontEndAddedContext, localCells, contextCells]
   omega
@@ -151,18 +151,18 @@ theorem emit_peak (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)
 
 end PhysicalSpace
 
-theorem frontEnd_trace_localRun
+theorem front_end_trace_localRun
     (localCaller : FrontEndMachine.External (FrontEndCallerLabel Λ) → FrontEndStatement Γ Λ R)
     {start finish : FrontEndCfg Γ Λ R} {ticks : Nat}
     (trace : FrontEndMachine.Trace localCaller start finish ticks) :
     LocalRun caller ticks (frontEndCfg start) (frontEndCfg finish) := by
   apply LocalRun.of_iterate caller
-  · have transported := frontEnd_prefix_transport caller localCaller ticks start trace.owned_prefix
+  · have transported := front_end_prefix_transport caller localCaller ticks start trace.owned_prefix
     rw [trace.run] at transported
     exact transported
   · intro n strict
     obtain ⟨reached, executed, owned⟩ := trace.owned_prefix n strict
-    have transported := frontEnd_prefix_transport caller localCaller n start
+    have transported := front_end_prefix_transport caller localCaller n start
       (fun j earlier => trace.owned_prefix j (by omega))
     rw [executed] at transported
     exact ⟨frontEndCfg reached, transported, owned_frontEndCfg reached owned⟩
@@ -236,13 +236,13 @@ theorem frontEndCfg_resultCfg (outcome : FrontEndMachine.Outcome) (regs : Regist
       exact frontEndCfg_view (some FrontEndMachine.dispatchLabel) (FrontEndMachine.reset regs)
         { sourceTree := treeCode source, targetTree := treeCode target, fuel := fuel, certificateWord := cert } ctx
 
-theorem frontEnd_clean_localRun (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
+theorem front_end_clean_localRun (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     LocalRun caller (FrontEndMachine.runSteps raw) (entry regs raw ctx)
       (frontEndOutcomeCfg (FrontEndMachine.sourceOutcome raw) regs ctx) := by
   have trace := FrontEndMachine.run_source_trace
-    (Γ := StreamMachine.frontEndAddedAlphabet Γ) (Λ := FrontEndCallerLabel Λ)
+    (Γ := StreamMachine.FrontEndAddedAlphabet Γ) (Λ := FrontEndCallerLabel Λ)
     (fun _ => .halt) regs raw (frontEndContext {} ctx)
-  have transported := frontEnd_trace_localRun caller (fun _ => .halt) trace
+  have transported := front_end_trace_localRun caller (fun _ => .halt) trace
   simpa only [frontEndCfg_entry, frontEndCfg_resultCfg] using transported
 
 omit caller [DecidableEq K] in
@@ -284,7 +284,7 @@ theorem outcomeContinuation_localRun (outcome : FrontEndMachine.Outcome) (regs :
 
 theorem run_localRun (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     LocalRun caller (runSteps raw) (entry regs raw ctx) (runResult regs raw ctx) :=
-  LocalRun.trans caller (frontEnd_clean_localRun caller regs raw ctx)
+  LocalRun.trans caller (front_end_clean_localRun caller regs raw ctx)
     (outcomeContinuation_localRun caller (FrontEndMachine.sourceOutcome raw) regs ctx)
 
 theorem run_iterate (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
@@ -405,7 +405,7 @@ theorem runSteps_code (source target : BinaryTree Unit) (fuel : Bits) (cert : Wo
 
 
 omit caller [DecidableEq K] in
-theorem frontEndOutcome_cells_le (raw : Bits) :
+theorem frontEndOutcomeData_cells_le (raw : Bits) :
     localCells (frontEndOutcomeData (FrontEndMachine.sourceOutcome raw)) ≤ raw.length := by
   let localCaller : FrontEndMachine.External Empty →
       FrontEndMachine.Statement (fun _ : Empty => Empty) Empty Unit := fun _ => .halt
@@ -463,7 +463,7 @@ theorem runSteps_failure_le (raw : Bits)
     runSteps raw ≤ 9 * raw.length + 31 := by
   rw [runSteps_failure raw failed]
   have front := FrontEndMachine.runSteps_le raw
-  have cells := frontEndOutcome_cells_le raw
+  have cells := frontEndOutcomeData_cells_le raw
   omega
 
 omit caller [DecidableEq K] in
@@ -507,7 +507,7 @@ omit caller [DecidableEq K] in
 theorem frontEndContext_cells (D : LocalData) (ctx : ∀ k, List (Γ k)) :
     FrontEndMachine.contextCells (frontEndContext D ctx) =
       D.moveReverse.length + D.path.length + contextCells ctx := by
-  rw [FrontEndMachine.contextCells, Fintype.sum_sum_type, newBranch_sum]
+  rw [FrontEndMachine.contextCells, Fintype.sum_sum_type, newBranchStores_sum]
   rfl
 
 theorem result_prefix_cells (b : Bool) (D : LocalData) (regs : Registers R)
@@ -605,7 +605,7 @@ theorem dispatch_prefix_cells (D : LocalData) (regs : Registers R)
     (dispatch_step caller D regs ctx) beforeBound startBound
   exact PrefixProperty.trans caller (dispatch_step caller D regs ctx) first after
 
-theorem frontEnd_clean_prefix_cells (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
+theorem front_end_clean_prefix_cells (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     PrefixProperty caller (fun c => stackCells c ≤ raw.length + contextCells ctx)
       (entry regs raw ctx) (FrontEndMachine.runSteps raw) := by
   intro n bound reached executed
@@ -613,7 +613,7 @@ theorem frontEnd_clean_prefix_cells (regs : Registers R) (raw : Bits) (ctx : ∀
   let oldContext := frontEndContext ({} : LocalData) ctx
   obtain ⟨localReached, localRun, _⟩ := FrontEndMachine.run_prefix localCaller regs raw oldContext n bound
   have trace := FrontEndMachine.run_source_trace localCaller regs raw oldContext
-  have transported := frontEnd_prefix_transport caller localCaller n (FrontEndMachine.entry regs raw oldContext)
+  have transported := front_end_prefix_transport caller localCaller n (FrontEndMachine.entry regs raw oldContext)
     (fun j earlier => trace.owned_prefix j (by omega))
   rw [localRun, frontEndCfg_entry] at transported
   have same : frontEndCfg localReached = reached := Option.some.inj (transported.symm.trans executed)
@@ -626,7 +626,7 @@ theorem outcomeContinuation_prefix_cells (raw : Bits) (regs : Registers R) (ctx 
     PrefixProperty caller (fun c => stackCells c ≤ max raw.length 1 + contextCells ctx)
       (frontEndOutcomeCfg (FrontEndMachine.sourceOutcome raw) regs ctx)
       (outcomeContinuation (FrontEndMachine.sourceOutcome raw)).steps := by
-  have frontMass := frontEndOutcome_cells_le raw
+  have frontMass := frontEndOutcomeData_cells_le raw
   cases outcome : FrontEndMachine.sourceOutcome raw with
   | frameFailure =>
       exact (reject_prefix_cells caller {} (FrontEndMachine.resetFramer regs) ctx).mono caller
@@ -659,11 +659,11 @@ theorem outcomeContinuation_prefix_cells (raw : Bits) (regs : Registers R) (ctx 
 theorem run_prefix_cells (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     PrefixProperty caller (fun c => stackCells c ≤ max raw.length 1 + contextCells ctx)
       (entry regs raw ctx) (runSteps raw) := by
-  have first := (frontEnd_clean_prefix_cells caller regs raw ctx).mono caller
+  have first := (front_end_clean_prefix_cells caller regs raw ctx).mono caller
     (Q := fun c => stackCells c ≤ max raw.length 1 + contextCells ctx)
     (fun _ h => h.trans (Nat.add_le_add_right (Nat.le_max_left _ _) _))
   have last := outcomeContinuation_prefix_cells caller raw regs ctx
-  exact PrefixProperty.trans caller ((frontEnd_clean_localRun caller regs raw ctx).iterate caller) first last
+  exact PrefixProperty.trans caller ((front_end_clean_localRun caller regs raw ctx).iterate caller) first last
 
 theorem run_peak (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     ExactPeak caller (entry regs raw ctx) (runSteps raw) (max raw.length 1 + contextCells ctx) := by

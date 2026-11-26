@@ -291,32 +291,32 @@ theorem installed_program_source_endpoint (ambient : Label Λ → Statement Γ �
       some (resultCfg (unpackWordRun raw).1 rev out regs ctx) :=
   ambient_scan_iterate ambient agrees raw rev out regs ctx
 
-def actual_dirty_scan_timed_data (raw : Bits) (rev out : Word) :
+def dirtyScanTiming (raw : Bits) (rev out : Word) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel .scan)) regs raw rev out ctx)
       (some (resultCfg (unpackWordRun raw).1 rev out regs ctx)) (runSteps raw + rev.length) :=
   scanInTime caller raw rev out regs ctx
 
-def actual_clean_scan_exact_timed_data (raw : Bits) :
+def cleanScanExactTiming (raw : Bits) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel .scan)) regs raw [] [] ctx)
       (some (resultCfg (unpackWordRun raw).1 [] [] regs ctx)) (runSteps raw) :=
   runInTimeExact caller raw regs ctx
 
-def actual_all_raw_linear_timed_data (raw : Bits) :
+def rawLinearTiming (raw : Bits) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel .scan)) regs raw [] [] ctx)
       (some (resultCfg (unpackWordRun raw).1 [] [] regs ctx)) (raw.length + 2) :=
   runInLinearTime caller raw regs ctx
 
-def actual_dirty_emit_timed_data (raw : Bits) (rev out : Word) :
+def dirtyEmitTiming (raw : Bits) (rev out : Word) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel .emit)) regs raw rev out ctx)
       (some (cfg (some (resultLabel .success)) (reset regs) raw [] (rev.reverse ++ out) ctx))
       (rev.length + 1) :=
   emitInTime caller rev raw out regs ctx
 
-def actual_dirty_clear_timed_data (raw : Bits) (rev out : Word) :
+def dirtyClearTiming (raw : Bits) (rev out : Word) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel .clear)) regs raw rev out ctx)
       (some (cfg (some (resultLabel .failure)) (reset regs) raw [] out ctx)) (rev.length + 1) :=
@@ -483,7 +483,7 @@ theorem fixed_finite_package_uses_direct_tag_output :
       fixedFiniteMachine.main = phaseLabel .scan :=
   ⟨rfl, rfl, rfl⟩
 
-def actual_finite_machine_uniform_time (raw : Bits) :
+def finiteMachineUniformTiming (raw : Bits) :
     StateTransition.EvalsToInTime fixedFiniteMachine.step
       (Turing.initList fixedFiniteMachine raw)
       (some (resultCfg (unpackWordRun raw).1 [] []

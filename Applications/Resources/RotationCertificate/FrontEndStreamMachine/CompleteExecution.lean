@@ -316,14 +316,14 @@ theorem frontEndCfg_phaseResult (q : FrontEndMachine.OwnedLabels) (D : LocalData
     DirtyFrontEnd.frontEndPhaseResult, DirtyFrontEnd.frontEndFinishCfg, frontEndFinishRegisters,
     Option.map_some, frontEndLabelEquiv_result, frontEndComponentCfg] using transported
 
-theorem frontEnd_phase_localRun (q : FrontEndMachine.OwnedLabels) (D : LocalData)
+theorem front_end_phase_localRun (q : FrontEndMachine.OwnedLabels) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     LocalRun caller (DirtyFrontEnd.frontEndPhaseSteps q (frontEndData D))
       (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx) (frontEndComponentCfg q D regs ctx) := by
-  have trace := DirtyFrontEnd.frontEnd_phase_trace
-    (Γ := StreamMachine.frontEndAddedAlphabet Γ) (Λ := FrontEndCallerLabel Λ)
+  have trace := DirtyFrontEnd.front_end_phase_trace
+    (Γ := StreamMachine.FrontEndAddedAlphabet Γ) (Λ := FrontEndCallerLabel Λ)
     (fun _ => .halt) q (frontEndData D) regs (frontEndContext D ctx)
-  have transported := frontEnd_trace_localRun caller (fun _ => .halt) trace
+  have transported := front_end_trace_localRun caller (fun _ => .halt) trace
   have start := frontEndCfg_view (Λ := Λ) (some (FrontEndMachine.ownedLabelEquiv q).val) regs D ctx
   simp only [Option.map_some, frontEndLabelEquiv_owned] at start
   change frontEndCfg (FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv q).val)
@@ -338,13 +338,13 @@ def frontEndEvaluation (q : FrontEndMachine.OwnedLabels) (D : LocalData) : Evalu
     | .success => dispatchEvaluation (withFrontEnd D finish.data)
     | .failure => answerEvaluation false (withFrontEnd D finish.data))
 
-theorem frontEnd_complete_localRun (q : FrontEndMachine.OwnedLabels) (D : LocalData)
+theorem front_end_complete_localRun (q : FrontEndMachine.OwnedLabels) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     LocalRun caller (frontEndEvaluation q D).steps
       (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx)
       (evaluationCfg regs (frontEndEvaluation q D) ctx) := by
   let finish := DirtyFrontEnd.frontEndPhaseFinish q (frontEndData D)
-  have first := frontEnd_phase_localRun caller q D regs ctx
+  have first := front_end_phase_localRun caller q D regs ctx
   change LocalRun caller finish.steps _
     (cfg (some (phaseLabel (frontEndResultPhase finish.result)))
       (DirtyFrontEnd.frontEndMaskRegs finish.masks regs) (withFrontEnd D finish.data) ctx) at first
@@ -407,7 +407,7 @@ theorem phase_localRun (q : Phase) (D : LocalData) (regs : Registers R)
           change LocalRun caller (frontEndEvaluation q D).steps
             (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx)
             (evaluationCfg regs (frontEndEvaluation q D) ctx)
-          exact frontEnd_complete_localRun caller q D regs ctx
+          exact front_end_complete_localRun caller q D regs ctx
       | inr b => cases b with
         | false => exact reject_complete_localRun caller D regs ctx
         | true => exact dispatch_complete_localRun caller D regs ctx
@@ -822,7 +822,7 @@ def haltNoneInTime (start : Cfg Γ Λ R) (halted : (finalCfg start).l = none) :
     (haltNoneInTime caller start halted).steps = remainingSteps start + 1 := rfl
 
 omit caller [DecidableEq K] in
-theorem evaluate_frontEnd (q : FrontEndMachine.OwnedLabels) (a : Bool) (D : LocalData) :
+theorem evaluate_frontEndPhase (q : FrontEndMachine.OwnedLabels) (a : Bool) (D : LocalData) :
     evaluate (frontEndPhase q) a D = frontEndEvaluation q D := by
   change (match frontEndClass (frontEndControl (.inl q)) with
     | .inl q => frontEndEvaluation q D
@@ -859,13 +859,13 @@ theorem evaluate_emit (a : Bool) (D : LocalData) :
     evaluate emitPhase a D = ⟨1, emitData a D⟩ := rfl
 
 omit caller [DecidableEq K] in
-theorem phaseSteps_frontEnd (q : FrontEndMachine.OwnedLabels) (D : LocalData) :
+theorem phaseSteps_frontEndPhase (q : FrontEndMachine.OwnedLabels) (D : LocalData) :
     phaseSteps (frontEndPhase q) D =
       (DirtyFrontEnd.frontEndPhaseFinish q (frontEndData D)).steps +
       (match (DirtyFrontEnd.frontEndPhaseFinish q (frontEndData D)).result with
         | .success => (dispatchEvaluation (frontEndFinishData q D)).steps
         | .failure => (answerEvaluation false (frontEndFinishData q D)).steps) := by
-  rw [phaseSteps, evaluate_frontEnd]
+  rw [phaseSteps, evaluate_frontEndPhase]
   unfold frontEndEvaluation
   dsimp only [addSteps]
   cases (DirtyFrontEnd.frontEndPhaseFinish q (frontEndData D)).result <;> rfl
@@ -905,11 +905,11 @@ omit caller [DecidableEq K] in
 theorem phaseSteps_emit (D : LocalData) : phaseSteps emitPhase D = 1 := rfl
 
 omit caller [DecidableEq K] in
-theorem phaseResult_frontEnd (q : FrontEndMachine.OwnedLabels) (regs : Registers R) (D : LocalData)
+theorem phaseResult_frontEndPhase (q : FrontEndMachine.OwnedLabels) (regs : Registers R) (D : LocalData)
     (ctx : ∀ k, List (Γ k)) :
     phaseResult (Λ := Λ) (frontEndPhase q) regs D ctx =
       cfg none (fullReset regs) (frontEndEvaluation q D).data ctx := by
-  rw [phaseResult, evaluate_frontEnd]
+  rw [phaseResult, evaluate_frontEndPhase]
   rfl
 
 omit caller [DecidableEq K] in
@@ -953,7 +953,7 @@ def frontEndInTime (q : FrontEndMachine.OwnedLabels) (D : LocalData) (regs : Reg
       (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx)
       (some (frontEndComponentCfg q D regs ctx)) (DirtyFrontEnd.frontEndPhaseSteps q (frontEndData D)) where
   steps := DirtyFrontEnd.frontEndPhaseSteps q (frontEndData D)
-  evals_in_steps := (frontEnd_phase_localRun caller q D regs ctx).iterate caller
+  evals_in_steps := (front_end_phase_localRun caller q D regs ctx).iterate caller
   steps_le_m := Nat.le_refl _
 
 @[simp] theorem frontEndInTime_steps (q : FrontEndMachine.OwnedLabels) (D : LocalData) (regs : Registers R)
@@ -1355,7 +1355,7 @@ theorem frontEndCfg_registers (c : FrontEndCfg Γ Λ R) : (frontEndCfg c).var = 
 omit caller [DecidableEq K] in
 theorem frontEndCfg_stores (c : FrontEndCfg Γ Λ R) (k : StackId K) :
     (frontEndCfg c).stk k = c.stk k :=
-  (FrontEndMachine.Transport.stackEquiv_apply (Equiv.refl _) (fun j => Equiv.refl (alphabet Γ j)) c.stk k).trans
+  (FrontEndMachine.Transport.stackEquiv_apply (Equiv.refl _) (fun j => Equiv.refl (Alphabet Γ j)) c.stk k).trans
     (List.map_id _)
 
 omit caller [DecidableEq K] in
@@ -1383,7 +1383,7 @@ theorem prefix_after_localRun {start middle reached : Cfg Γ Λ R} {ticks n : Na
   rw [count, Function.iterate_add_apply, segment.iterate caller] at executed
   exact executed
 
-theorem frontEnd_component_prefix_state (q : FrontEndMachine.OwnedLabels) (D : LocalData) (regs : Registers R)
+theorem front_end_component_prefix_state (q : FrontEndMachine.OwnedLabels) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ DirtyFrontEnd.frontEndPhaseSteps q (frontEndData D))
     (reached : Cfg Γ Λ R)
     (executed : (next caller)^[n] (some (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx)) = some reached) :
@@ -1392,7 +1392,7 @@ theorem frontEnd_component_prefix_state (q : FrontEndMachine.OwnedLabels) (D : L
   let localCaller : FrontEndMachine.External (FrontEndCallerLabel Λ) → FrontEndStatement Γ Λ R := fun _ => .halt
   let start := FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv (Λ := FrontEndCallerLabel Λ) q).val)
     regs (frontEndData D) (frontEndContext D ctx)
-  have trace := DirtyFrontEnd.frontEnd_phase_trace localCaller q (frontEndData D) regs (frontEndContext D ctx)
+  have trace := DirtyFrontEnd.front_end_phase_trace localCaller q (frontEndData D) regs (frontEndContext D ctx)
   have localReached : ∃ c, (FrontEndMachine.next localCaller)^[n] (some start) = some c := by
     by_cases strict : n < DirtyFrontEnd.frontEndPhaseSteps q (frontEndData D)
     · obtain ⟨c, run, _⟩ := trace.owned_prefix n strict
@@ -1401,7 +1401,7 @@ theorem frontEnd_component_prefix_state (q : FrontEndMachine.OwnedLabels) (D : L
       subst n
       exact ⟨_, trace.run⟩
   obtain ⟨localReached, localRun⟩ := localReached
-  have transported := frontEnd_prefix_transport caller localCaller n start
+  have transported := front_end_prefix_transport caller localCaller n start
     (fun j earlier => trace.owned_prefix j (by omega))
   have startEq := frontEndCfg_view (Λ := Λ) (some (FrontEndMachine.ownedLabelEquiv q).val) regs D ctx
   simp only [Option.map_some, frontEndLabelEquiv_owned] at startEq
@@ -1409,7 +1409,7 @@ theorem frontEnd_component_prefix_state (q : FrontEndMachine.OwnedLabels) (D : L
   rw [localRun, startEq] at transported
   have same := Option.some.inj (transported.symm.trans executed)
   subst reached
-  have state := DirtyFrontEnd.frontEnd_phase_prefix_state localCaller q (frontEndData D) regs
+  have state := DirtyFrontEnd.front_end_phase_prefix_state localCaller q (frontEndData D) regs
     (frontEndContext D ctx) n bound localReached localRun
   refine ⟨state.1, ?_, ?_⟩
   · rw [frontEndCfg_registers, state.1]
@@ -1524,7 +1524,7 @@ theorem dispatch_prefix_state (D : LocalData) (regs : Registers R)
       (n - 1) bounded reached later
     simpa only [dispatchRegistersAt, zero, ite_false, user_fullReset] using state
 
-theorem frontEnd_complete_prefix_state (q : FrontEndMachine.OwnedLabels) (D : LocalData) (regs : Registers R)
+theorem front_end_complete_prefix_state (q : FrontEndMachine.OwnedLabels) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ (frontEndEvaluation q D).steps)
     (reached : Cfg Γ Λ R)
     (executed : (next caller)^[n] (some (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx)) = some reached) :
@@ -1532,8 +1532,8 @@ theorem frontEnd_complete_prefix_state (q : FrontEndMachine.OwnedLabels) (D : Lo
       ∀ k, reached.stk (.inr (.inr k)) = ctx k := by
   by_cases early : n ≤ DirtyFrontEnd.frontEndPhaseSteps q (frontEndData D)
   · simpa only [frontEndCompleteRegistersAt, early, ite_true] using
-      frontEnd_component_prefix_state caller q D regs ctx n early reached executed
-  · have later := prefix_after_localRun caller (frontEnd_phase_localRun caller q D regs ctx) (by omega) executed
+      front_end_component_prefix_state caller q D regs ctx n early reached executed
+  · have later := prefix_after_localRun caller (front_end_phase_localRun caller q D regs ctx) (by omega) executed
     let finish := DirtyFrontEnd.frontEndPhaseFinish q (frontEndData D)
     have bounded : n - finish.steps ≤ (match finish.result with
         | .success => dispatchEvaluation (frontEndFinishData q D)
@@ -1571,7 +1571,7 @@ theorem phase_prefix_state (q : Phase) (D : LocalData) (regs : Registers R)
       | inl q =>
           simp only [phaseSteps, evaluate, frontEndControlEquiv_apply, frontEndClass_control] at bound
           simpa only [phaseRegistersAt, frontEndControlEquiv_apply, frontEndClass_control] using
-            frontEnd_complete_prefix_state caller q D regs ctx n bound reached executed
+            front_end_complete_prefix_state caller q D regs ctx n bound reached executed
       | inr b => cases b with
         | false => exact reject_prefix_state caller D regs ctx n bound reached executed
         | true => exact dispatch_prefix_state caller D regs ctx n bound reached executed
@@ -1723,7 +1723,7 @@ theorem localCells_frontEndData (D : LocalData) :
   simp only [localCells, FrontEndMachine.localCells, frontEndData]
   omega
 
-theorem frontEnd_component_prefix_cells (q : FrontEndMachine.OwnedLabels) (D : LocalData)
+theorem front_end_component_prefix_cells (q : FrontEndMachine.OwnedLabels) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     PrefixProperty caller (fun c => stackCells c ≤
       localCells D + DirtyFrontEnd.frontEndPhaseCredit q (frontEndData D) + contextCells ctx)
@@ -1733,7 +1733,7 @@ theorem frontEnd_component_prefix_cells (q : FrontEndMachine.OwnedLabels) (D : L
   let localCaller : FrontEndMachine.External (FrontEndCallerLabel Λ) → FrontEndStatement Γ Λ R := fun _ => .halt
   let start := FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv (Λ := FrontEndCallerLabel Λ) q).val)
     regs (frontEndData D) (frontEndContext D ctx)
-  have trace := DirtyFrontEnd.frontEnd_phase_trace localCaller q (frontEndData D) regs (frontEndContext D ctx)
+  have trace := DirtyFrontEnd.front_end_phase_trace localCaller q (frontEndData D) regs (frontEndContext D ctx)
   have someReached : ∃ c, (FrontEndMachine.next localCaller)^[n] (some start) = some c := by
     by_cases strict : n < DirtyFrontEnd.frontEndPhaseSteps q (frontEndData D)
     · obtain ⟨c, run, _⟩ := trace.owned_prefix n strict
@@ -1742,7 +1742,7 @@ theorem frontEnd_component_prefix_cells (q : FrontEndMachine.OwnedLabels) (D : L
       subst n
       exact ⟨_, trace.run⟩
   obtain ⟨localReached, localRun⟩ := someReached
-  have transported := frontEnd_prefix_transport caller localCaller n start
+  have transported := front_end_prefix_transport caller localCaller n start
     (fun j earlier => trace.owned_prefix j (Nat.lt_of_lt_of_le earlier bound))
   have startEq := frontEndCfg_view (Λ := Λ)
     (some (FrontEndMachine.ownedLabelEquiv (Λ := FrontEndCallerLabel Λ) q).val) regs D ctx
@@ -1752,21 +1752,21 @@ theorem frontEnd_component_prefix_cells (q : FrontEndMachine.OwnedLabels) (D : L
   have same : frontEndCfg localReached = reached := Option.some.inj (transported.symm.trans executed)
   subst reached
   rw [stackCells_frontEndCfg]
-  have physical := DirtyFrontEnd.frontEnd_phase_prefix_cells localCaller q (frontEndData D) regs
+  have physical := DirtyFrontEnd.front_end_phase_prefix_cells localCaller q (frontEndData D) regs
     (frontEndContext D ctx) n bound localReached localRun
   rw [frontEndContext_cells] at physical
   rw [localCells_frontEndData]
   omega
 
-theorem frontEnd_complete_prefix_cells (q : FrontEndMachine.OwnedLabels) (D : LocalData)
+theorem front_end_complete_prefix_cells (q : FrontEndMachine.OwnedLabels) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     PrefixProperty caller (fun c => stackCells c ≤ frontEndAllowance q D ctx)
       (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx) (frontEndEvaluation q D).steps := by
   let finish := DirtyFrontEnd.frontEndPhaseFinish q (frontEndData D)
   let out := withFrontEnd D finish.data
   let outRegs := DirtyFrontEnd.frontEndMaskRegs finish.masks regs
-  have firstRun := frontEnd_phase_localRun caller q D regs ctx
-  have first := (frontEnd_component_prefix_cells caller q D regs ctx).mono caller
+  have firstRun := front_end_phase_localRun caller q D regs ctx
+  have first := (front_end_component_prefix_cells caller q D regs ctx).mono caller
     (Q := fun c => stackCells c ≤ frontEndAllowance q D ctx)
     (fun _ bounded => bounded.trans (Nat.le_max_left _ _))
   change LocalRun caller finish.steps _
@@ -1813,7 +1813,7 @@ theorem phase_prefix_cells (q : Phase) (D : LocalData) (regs : Registers R)
           simp only [phaseSteps, evaluate, frontEndControlEquiv_apply, frontEndClass_control, phaseAllowance]
           change PrefixProperty caller (fun c => stackCells c ≤ frontEndAllowance q D ctx)
             (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx) (frontEndEvaluation q D).steps
-          exact frontEnd_complete_prefix_cells caller q D regs ctx
+          exact front_end_complete_prefix_cells caller q D regs ctx
       | inr b => cases b with
         | false => exact reject_prefix_cells caller D regs ctx
         | true => exact dispatch_prefix_cells caller D regs ctx

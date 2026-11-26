@@ -52,50 +52,50 @@ theorem halt_false_outer_none : cfgAt haltMachine falseStart 1 = none := rfl
 
 /-- The endpoint tape is blank again, but the genuine primitive trace has
 visited the adjacent right cell. A final-support observer would lose it. -/
-theorem rightLeft_positions :
+theorem rightLeftMachine_positions :
     (List.range 4).map (headPosition rightLeftMachine emptyStart 0) = [0, 1, 0, 0] := by decide
 
-theorem rightLeft_visits : visitedCells rightLeftMachine emptyStart 0 3 = {0, 1} := by decide
+theorem rightLeftMachine_visits : visitedCells rightLeftMachine emptyStart 0 3 = {0, 1} := by decide
 
-theorem rightLeft_interval :
+theorem rightLeftMachine_interval :
     visitedInterval rightLeftMachine emptyStart 0 0 3 = Finset.Icc 0 1 := by decide
 
-theorem rightLeft_live_halt :
+theorem rightLeftMachine_live_halt :
     cfgAt rightLeftMachine emptyStart 2 = some ⟨.stopped, emptyStart.Tape⟩ := by
   change some (⟨.stopped, (emptyStart.Tape.move Dir.right).move Dir.left⟩ : Cfg) = _
   rw [Tape.move_right_left]
 
-theorem rightLeft_outer_none : cfgAt rightLeftMachine emptyStart 3 = none := rfl
+theorem rightLeftMachine_outer_none : cfgAt rightLeftMachine emptyStart 3 = none := rfl
 
-theorem writeErase_positions :
+theorem writeEraseMachine_positions :
     (List.range 4).map (headPosition writeEraseMachine emptyStart 0) = [0, 0, 0, 0] := by decide
 
-theorem writeErase_visits : visitedCells writeEraseMachine emptyStart 0 3 = {0} := by decide
+theorem writeEraseMachine_visits : visitedCells writeEraseMachine emptyStart 0 3 = {0} := by decide
 
-theorem writeErase_live_halt :
+theorem writeEraseMachine_live_halt :
     cfgAt writeEraseMachine emptyStart 2 = some ⟨.stopped, emptyStart.Tape⟩ := rfl
 
-theorem twoLeft_positions :
+theorem twoLeftMachine_positions :
     (List.range 3).map (headPosition twoLeftMachine twoInputStart 0) = [0, -1, -2] := by decide
 
-theorem twoLeft_visits :
+theorem twoLeftMachine_visits :
     visitedCells twoLeftMachine twoInputStart 0 2 = {-2, -1, 0} := by decide
 
 /-- Cell 1 is declared input but has never been visited; the union is named
 explicitly so this stronger input-inclusive convention cannot be mistaken. -/
-theorem twoLeft_input_plus_visits :
+theorem twoLeftMachine_input_plus_visits :
     inputVisitedCells twoLeftMachine twoInputStart 0 2 2 = {-2, -1, 0, 1} := by decide
 
-theorem twoLeft_interval :
+theorem twoLeftMachine_interval :
     visitedInterval twoLeftMachine twoInputStart 0 2 2 = Finset.Icc (-2) 1 := by decide
 
-theorem twoLeft_attains_bound :
+theorem twoLeftMachine_attains_bound :
     (visitedInterval twoLeftMachine twoInputStart 0 2 2).card = max 2 1 + 2 := by decide
 
-theorem shifted_rightLeft_positions :
+theorem shifted_rightLeftMachine_positions :
     (List.range 4).map (headPosition rightLeftMachine emptyStart 7) = [7, 8, 7, 7] := by decide
 
-theorem shifted_rightLeft_visits :
+theorem shifted_rightLeftMachine_visits :
     visitedCells rightLeftMachine emptyStart 7 3 = {7, 8} := by decide
 
 /- Genuine native initialization of the actual two-stage empty-peek simulator.

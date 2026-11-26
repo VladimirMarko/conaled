@@ -49,21 +49,21 @@ abbrev External (Λ : Type) := TreeParserMachine.Result ⊕ Λ
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev extraAlphabet (Γ : K → Type) : ExtraStack ⊕ K → Type
+abbrev ExtraAlphabet (Γ : K → Type) : ExtraStack ⊕ K → Type
   | .inl _ => Bool
   | .inr k => Γ k
 
 instance extraAlphabetFintype [∀ k, Fintype (Γ k)] (k : ExtraStack ⊕ K) :
-    Fintype (extraAlphabet Γ k) := by
+    Fintype (ExtraAlphabet Γ k) := by
   cases k with
   | inl slot => exact inferInstance
   | inr k => exact inferInstance
 
-abbrev alphabet (Γ : K → Type) := TreeParserMachine.alphabet TreeSide (extraAlphabet Γ)
+abbrev Alphabet (Γ : K → Type) := TreeParserMachine.Alphabet TreeSide (ExtraAlphabet Γ)
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  TreeParserMachine.Statement TreeSide (extraAlphabet Γ) (Phase ⊕ (Unit ⊕ Λ)) R
+  TreeParserMachine.Statement TreeSide (ExtraAlphabet Γ) (Phase ⊕ (Unit ⊕ Λ)) R
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  TreeParserMachine.Cfg TreeSide (extraAlphabet Γ) (Phase ⊕ (Unit ⊕ Λ)) R
+  TreeParserMachine.Cfg TreeSide (ExtraAlphabet Γ) (Phase ⊕ (Unit ⊕ Λ)) R
 
 abbrev rawStack : StackId K := .inl .raw
 abbrev reverseStack : StackId K := .inl .reverse
@@ -89,7 +89,7 @@ def treeOutputs (source target : Word) : TreeSide → Word
   | .target => target
 
 def stores (fuel bitsReverse : Bits) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (extraAlphabet Γ k)
+    ∀ k, List (ExtraAlphabet Γ k)
   | .inl .fuel => fuel
   | .inl .bitsReverse => bitsReverse
   | .inr k => ctx k
@@ -215,7 +215,7 @@ def FullOwned : Option (Label Λ) → Prop
 @[simp] theorem not_fullOwned_result (result : TreeParserMachine.Result) :
     ¬ FullOwned (some (resultLabel (Λ := Λ) result)) := by cases result <;> exact id
 
-theorem treeOwned_fullOwned (label : Option (Label Λ)) (owned : TreeParserMachine.Owned label) :
+theorem fullOwned_of_treeParserMachineOwned (label : Option (Label Λ)) (owned : TreeParserMachine.Owned label) :
     FullOwned label := by
   cases label with
   | none => cases owned
@@ -461,7 +461,7 @@ theorem restoreSep1_step (raw rev : Word) (pending : List Unit) (regs : Register
   apply congrArg some
   apply cfg_ext <;> first | rfl | exact fun _ => rfl
 
-theorem targetFailure_step (raw rev : Word) (pending : List Unit) (regs : Registers R)
+theorem target_failure_step (raw rev : Word) (pending : List Unit) (regs : Registers R)
     (outputs : TreeSide → Word) (fuel bitsReverse : Bits) (ctx : ∀ k, List (Γ k)) :
     step caller (cfg (some (treeResultLabel .target .failure)) regs raw
         rev pending outputs fuel bitsReverse ctx) =
@@ -470,7 +470,7 @@ theorem targetFailure_step (raw rev : Word) (pending : List Unit) (regs : Regist
   apply congrArg some
   apply cfg_ext <;> first | rfl | exact fun _ => rfl
 
-theorem toReverse_step_cons (d : TreeSide) (tag : Tag) (raw rev remaining : Word)
+theorem toReversePhase_step_cons (d : TreeSide) (tag : Tag) (raw rev remaining : Word)
     (pending : List Unit) (regs : Registers R) (outputs : TreeSide → Word)
     (fuel bitsReverse : Bits) (ctx : ∀ k, List (Γ k)) :
     step caller (cfg (some (phaseLabel (toReversePhase d))) regs raw rev pending
@@ -480,7 +480,7 @@ theorem toReverse_step_cons (d : TreeSide) (tag : Tag) (raw rev remaining : Word
   cases d <;> apply congrArg some <;> apply cfg_ext <;>
     first | rfl | exact fun _ => rfl | intro side; cases side <;> rfl
 
-theorem toReverse_step_nil (d : TreeSide) (raw rev : Word) (pending : List Unit)
+theorem toReversePhase_step_nil (d : TreeSide) (raw rev : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) :
     step caller (cfg (some (phaseLabel (toReversePhase d))) regs raw rev pending
@@ -490,7 +490,7 @@ theorem toReverse_step_nil (d : TreeSide) (raw rev : Word) (pending : List Unit)
   cases d <;> apply congrArg some <;> apply cfg_ext <;>
     first | rfl | exact fun _ => rfl | intro side; cases side <;> rfl
 
-theorem toRaw_step_cons (d : TreeSide) (tag : Tag) (raw rev : Word) (pending : List Unit)
+theorem toRawPhase_step_cons (d : TreeSide) (tag : Tag) (raw rev : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) :
     step caller (cfg (some (phaseLabel (toRawPhase d))) regs raw (tag :: rev)
@@ -499,7 +499,7 @@ theorem toRaw_step_cons (d : TreeSide) (tag : Tag) (raw rev : Word) (pending : L
         pending outputs fuel bitsReverse ctx) := by
   cases d <;> apply congrArg some <;> apply cfg_ext <;> first | rfl | exact fun _ => rfl
 
-theorem toRaw_step_nil (d : TreeSide) (raw : Word) (pending : List Unit)
+theorem toRawPhase_step_nil (d : TreeSide) (raw : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) :
     step caller (cfg (some (phaseLabel (toRawPhase d))) regs raw []
@@ -556,7 +556,7 @@ theorem tree_phase_run (d : TreeSide) (phase : TreeParserMachine.Phase) (raw rev
   intro j bound
   obtain ⟨reached, prefixEq, _, _, owned, _⟩ := TreeParserMachine.phase_prefix
     (handler caller) d phase raw rev pending regs outputs (stores fuel bitsReverse ctx) j (by omega)
-  exact ⟨reached, prefixEq, treeOwned_fullOwned reached.l (owned.mp bound)⟩
+  exact ⟨reached, prefixEq, fullOwned_of_treeParserMachineOwned reached.l (owned.mp bound)⟩
 
 theorem tree_run_source (d : TreeSide) (raw : Word) (regs : Registers R)
     (outputs : TreeSide → Word) (fuel bitsReverse : Bits) (ctx : ∀ k, List (Γ k)) :
@@ -652,7 +652,7 @@ theorem bitsUndo_run (raw rev : Word) (pending : List Unit) (regs : Registers R)
       simpa only [List.length_cons, TreeParserMachine.reset_reset, List.reverse_cons,
         bitTags_append, bitTags_cons, bitTags_nil, List.append_assoc, List.singleton_append] using run
 
-theorem fuelBitsUndo_run (raw rev : Word) (pending : List Unit) (regs : Registers R)
+theorem fuel_bits_undo_run (raw rev : Word) (pending : List Unit) (regs : Registers R)
     (outputs : TreeSide → Word) (fuel bitsReverse : Bits) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * fuel.length + bitsReverse.length + 2)
       (cfg (some (phaseLabel .fuelUndo)) regs raw rev pending outputs fuel bitsReverse ctx)
@@ -667,7 +667,7 @@ theorem fuelBitsUndo_run (raw rev : Word) (pending : List Unit) (regs : Register
   rw [count] at combined
   simpa only [TreeParserMachine.reset_reset, List.reverse_append, List.reverse_reverse] using combined
 
-theorem toReverse_run (d : TreeSide) (word raw rev : Word) (pending : List Unit)
+theorem toReversePhase_run (d : TreeSide) (word raw rev : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) :
     Runs caller (word.length + 1)
@@ -676,26 +676,26 @@ theorem toReverse_run (d : TreeSide) (word raw rev : Word) (pending : List Unit)
       (cfg (some (phaseLabel (toRawPhase d))) (reset regs) raw (word.reverse ++ rev) pending
         (Function.update outputs d []) fuel bitsReverse ctx) := by
   induction word generalizing rev regs with
-  | nil => exact Runs.one caller (fullOwned_phase _) (toReverse_step_nil caller d raw rev pending regs outputs fuel bitsReverse ctx)
+  | nil => exact Runs.one caller (fullOwned_phase _) (toReversePhase_step_nil caller d raw rev pending regs outputs fuel bitsReverse ctx)
   | cons tag word ih =>
       have tailRun := ih (rev := tag :: rev) (regs := reset regs)
       have run := Runs.cons (fullOwned_phase _)
-        (toReverse_step_cons caller d tag raw rev word pending regs outputs fuel bitsReverse ctx) tailRun
+        (toReversePhase_step_cons caller d tag raw rev word pending regs outputs fuel bitsReverse ctx) tailRun
       simpa only [List.length_cons, TreeParserMachine.reset_reset, List.reverse_cons,
         List.append_assoc, List.singleton_append] using run
 
-theorem toRaw_run (d : TreeSide) (raw rev : Word) (pending : List Unit)
+theorem toRawPhase_run (d : TreeSide) (raw rev : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) :
     Runs caller (rev.length + 1)
       (cfg (some (phaseLabel (toRawPhase d))) regs raw rev pending outputs fuel bitsReverse ctx)
       (cfg (some (afterRollback d)) (reset regs) (rev.reverse ++ raw) [] pending outputs fuel bitsReverse ctx) := by
   induction rev generalizing raw regs with
-  | nil => exact Runs.one caller (fullOwned_phase _) (toRaw_step_nil caller d raw pending regs outputs fuel bitsReverse ctx)
+  | nil => exact Runs.one caller (fullOwned_phase _) (toRawPhase_step_nil caller d raw pending regs outputs fuel bitsReverse ctx)
   | cons tag rev ih =>
       have tailRun := ih (raw := tag :: raw) (regs := reset regs)
       have run := Runs.cons (fullOwned_phase _)
-        (toRaw_step_cons caller d tag raw rev pending regs outputs fuel bitsReverse ctx) tailRun
+        (toRawPhase_step_cons caller d tag raw rev pending regs outputs fuel bitsReverse ctx) tailRun
       simpa only [List.length_cons, TreeParserMachine.reset_reset, List.reverse_cons,
         List.append_assoc, List.singleton_append] using run
 
@@ -707,8 +707,8 @@ theorem rollback_run (d : TreeSide) (word raw rev : Word) (pending : List Unit)
         (Function.update outputs d word) fuel bitsReverse ctx)
       (cfg (some (afterRollback d)) (reset regs) (rev.reverse ++ word ++ raw) [] pending
         (Function.update outputs d []) fuel bitsReverse ctx) := by
-  have combined := (toReverse_run caller d word raw rev pending regs outputs fuel bitsReverse ctx).trans caller
-    (toRaw_run caller d raw (word.reverse ++ rev) pending (reset regs)
+  have combined := (toReversePhase_run caller d word raw rev pending regs outputs fuel bitsReverse ctx).trans caller
+    (toRawPhase_run caller d raw (word.reverse ++ rev) pending (reset regs)
       (Function.update outputs d []) fuel bitsReverse ctx)
   have count : word.length + 1 + ((word.reverse ++ rev).length + 1) =
       2 * word.length + rev.length + 2 := by
@@ -892,7 +892,7 @@ theorem bitsScan_blocked_run (bs : Bits) (raw rev : Word) (pending : List Unit)
 @[simp] theorem treeOutputs_target (source target : Word) :
     treeOutputs source target .target = target := rfl
 
-theorem sourceRollback_run (word raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+theorem source_rollback_run (word raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * word.length + 2)
       (cfg (some (phaseLabel .sourceToReverse)) regs raw [] [] (treeOutputs word []) [] [] ctx)
       (cfg (some (resultLabel .failure)) (reset regs) (word ++ raw) [] [] (treeOutputs [] []) [] [] ctx) := by
@@ -900,31 +900,31 @@ theorem sourceRollback_run (word raw : Word) (regs : Registers R) (ctx : ∀ k, 
     List.length_nil, Nat.add_zero, List.reverse_nil, List.nil_append] using
       rollback_run caller .source word raw [] [] regs (treeOutputs [] []) [] [] ctx
 
-theorem restoreSource_run (word raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+theorem restore_source_run (word raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * word.length + 3)
       (cfg (some (phaseLabel .restoreSep1)) regs raw [] [] (treeOutputs word []) [] [] ctx)
       (cfg (some (resultLabel .failure)) (reset regs) (word ++ separatorTag :: raw)
         [] [] (treeOutputs [] []) [] [] ctx) := by
   have combined := (Runs.one caller (fullOwned_phase _)
     (restoreSep1_step caller raw [] [] regs (treeOutputs word []) [] [] ctx)).trans caller
-      (sourceRollback_run caller word (separatorTag :: raw) (reset regs) ctx)
+      (source_rollback_run caller word (separatorTag :: raw) (reset regs) ctx)
   have count : 1 + (2 * word.length + 2) = 2 * word.length + 3 := by omega
   rw [count] at combined
   simpa only [TreeParserMachine.reset_reset] using combined
 
-theorem targetFailure_run (word raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+theorem target_failure_run (word raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * word.length + 3)
       (cfg (some (treeResultLabel .target .failure)) regs raw [] [] (treeOutputs word []) [] [] ctx)
       (cfg (some (resultLabel .failure)) (reset regs) (word ++ separatorTag :: raw)
         [] [] (treeOutputs [] []) [] [] ctx) := by
   have combined := (Runs.one caller (by trivial)
-    (targetFailure_step caller raw [] [] regs (treeOutputs word []) [] [] ctx)).trans caller
-      (sourceRollback_run caller word (separatorTag :: raw) (reset regs) ctx)
+    (target_failure_step caller raw [] [] regs (treeOutputs word []) [] [] ctx)).trans caller
+      (source_rollback_run caller word (separatorTag :: raw) (reset regs) ctx)
   have count : 1 + (2 * word.length + 2) = 2 * word.length + 3 := by omega
   rw [count] at combined
   simpa only [TreeParserMachine.reset_reset] using combined
 
-theorem targetRollback_run (source target raw : Word) (regs : Registers R)
+theorem target_rollback_run (source target raw : Word) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * source.length + 2 * target.length + 5)
       (cfg (some (phaseLabel .targetToReverse)) regs raw [] [] (treeOutputs source target) [] [] ctx)
@@ -936,13 +936,13 @@ theorem targetRollback_run (source target raw : Word) (regs : Registers R)
     simpa only [treeOutputs_update_target, toReversePhase, afterRollback,
       List.length_nil, Nat.add_zero, List.reverse_nil, List.nil_append] using
         rollback_run caller .target target raw [] [] regs (treeOutputs source []) [] [] ctx
-  have combined := first.trans caller (restoreSource_run caller source (target ++ raw) (reset regs) ctx)
+  have combined := first.trans caller (restore_source_run caller source (target ++ raw) (reset regs) ctx)
   have count : 2 * target.length + 2 + (2 * source.length + 3) =
       2 * source.length + 2 * target.length + 5 := by omega
   rw [count] at combined
   simpa only [TreeParserMachine.reset_reset] using combined
 
-theorem restoreTarget_run (source target raw : Word) (regs : Registers R)
+theorem restore_target_run (source target raw : Word) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * source.length + 2 * target.length + 6)
       (cfg (some (phaseLabel .restoreSep2)) regs raw [] [] (treeOutputs source target) [] [] ctx)
@@ -950,13 +950,13 @@ theorem restoreTarget_run (source target raw : Word) (regs : Registers R)
         (source ++ separatorTag :: (target ++ separatorTag :: raw)) [] [] (treeOutputs [] []) [] [] ctx) := by
   have combined := (Runs.one caller (fullOwned_phase _)
     (restoreSep2_step caller raw [] [] regs (treeOutputs source target) [] [] ctx)).trans caller
-      (targetRollback_run caller source target (separatorTag :: raw) (reset regs) ctx)
+      (target_rollback_run caller source target (separatorTag :: raw) (reset regs) ctx)
   have count : 1 + (2 * source.length + 2 * target.length + 5) =
       2 * source.length + 2 * target.length + 6 := by omega
   rw [count] at combined
   simpa only [TreeParserMachine.reset_reset] using combined
 
-theorem sourceSeparator_run (source : BinaryTree Unit) (raw : Word)
+theorem source_separator_run (source : BinaryTree Unit) (raw : Word)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * (treeCode source).length + 3)
       (entry regs (treeCode source ++ separatorTag :: raw) ctx)
@@ -975,7 +975,7 @@ theorem sourceSeparator_run (source : BinaryTree Unit) (raw : Word)
   rw [count] at combined
   simpa only [afterSeparator, TreeParserMachine.reset_reset] using combined
 
-theorem twoTrees_run (source target : BinaryTree Unit) (raw : Word)
+theorem two_trees_run (source target : BinaryTree Unit) (raw : Word)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * (treeCode source).length + 2 * (treeCode target).length + 5)
       (entry regs (treeCode source ++ separatorTag :: (treeCode target ++ raw)) ctx)
@@ -989,18 +989,18 @@ theorem twoTrees_run (source target : BinaryTree Unit) (raw : Word)
     simpa only [treeOutputs_target, List.append_nil, treeOutputs_update_target,
       TreeParserMachine.reset_reset] using
         tree_run_code caller .target target raw (reset regs) (treeOutputs (treeCode source) []) [] [] ctx
-  have combined := (sourceSeparator_run caller source (treeCode target ++ raw) regs ctx).trans caller second
+  have combined := (source_separator_run caller source (treeCode target ++ raw) regs ctx).trans caller second
   have count : 2 * (treeCode source).length + 3 + (2 * (treeCode target).length + 2) =
       2 * (treeCode source).length + 2 * (treeCode target).length + 5 := by omega
   rwa [count] at combined
 
-theorem beforeBits_run (source target : BinaryTree Unit) (raw : Word)
+theorem before_bits_run (source target : BinaryTree Unit) (raw : Word)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * (treeCode source).length + 2 * (treeCode target).length + 6)
       (entry regs (treeCode source ++ separatorTag :: (treeCode target ++ separatorTag :: raw)) ctx)
       (cfg (some (phaseLabel .bitsScan)) (reset regs) raw [] []
         (treeOutputs (treeCode source) (treeCode target)) [] [] ctx) := by
-  have combined := (twoTrees_run caller source target (separatorTag :: raw) regs ctx).trans caller
+  have combined := (two_trees_run caller source target (separatorTag :: raw) regs ctx).trans caller
     (Runs.one caller (by trivial) (separator_step_separator caller .target raw [] [] (reset regs)
       (treeOutputs (treeCode source) (treeCode target)) [] [] ctx))
   have count : 2 * (treeCode source).length + 2 * (treeCode target).length + 5 + 1 =
@@ -1029,7 +1029,7 @@ theorem run_tree_failure_trace (raw : Word) (regs : Registers R) (ctx : ∀ k, L
   simpa only [entry, resultCfg, resultLabel, treeResultLabel] using
     tree_run_of_none caller .source raw regs (treeOutputs [] []) [] [] ctx returned
 
-theorem run_firstSeparator_failure_trace (source : BinaryTree Unit) (raw : Word)
+theorem run_first_separator_failure_trace (source : BinaryTree Unit) (raw : Word)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) (returned : (parseSeparatorRun raw).1 = none) :
     Runs caller (4 * (treeCode source).length + 5)
       (entry regs (treeCode source ++ raw) ctx)
@@ -1044,7 +1044,7 @@ theorem run_firstSeparator_failure_trace (source : BinaryTree Unit) (raw : Word)
     (separator_failure_step caller .source raw [] [] (reset regs)
       (treeOutputs (treeCode source) []) [] [] ctx returned))
   simp only [TreeParserMachine.reset_reset, toReversePhase] at throughProbe
-  have combined := throughProbe.trans caller (sourceRollback_run caller (treeCode source) raw (reset regs) ctx)
+  have combined := throughProbe.trans caller (source_rollback_run caller (treeCode source) raw (reset regs) ctx)
   have count : (2 * (treeCode source).length + 2 + 1) + (2 * (treeCode source).length + 2) =
       4 * (treeCode source).length + 5 := by omega
   rw [count] at combined
@@ -1058,25 +1058,25 @@ theorem run_target_failure_trace (source : BinaryTree Unit) (raw : Word)
   have targetRun := tree_run_of_none caller .target raw (reset regs)
     (treeOutputs (treeCode source) []) [] [] ctx returned
   simp only [TreeParserMachine.reset_reset] at targetRun
-  have combined := ((sourceSeparator_run caller source raw regs ctx).trans caller targetRun).trans caller
-    (targetFailure_run caller (treeCode source) raw (reset regs) ctx)
+  have combined := ((source_separator_run caller source raw regs ctx).trans caller targetRun).trans caller
+    (target_failure_run caller (treeCode source) raw (reset regs) ctx)
   have count : (2 * (treeCode source).length + 3 + TreeParserMachine.runSteps raw) +
       (2 * (treeCode source).length + 3) =
       4 * (treeCode source).length + TreeParserMachine.runSteps raw + 6 := by omega
   rw [count] at combined
   simpa only [resultCfg, TreeParserMachine.reset_reset] using combined
 
-theorem run_secondSeparator_failure_trace (source target : BinaryTree Unit) (raw : Word)
+theorem run_second_separator_failure_trace (source target : BinaryTree Unit) (raw : Word)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) (returned : (parseSeparatorRun raw).1 = none) :
     Runs caller (4 * (treeCode source).length + 4 * (treeCode target).length + 11)
       (entry regs (treeCode source ++ separatorTag :: (treeCode target ++ raw)) ctx)
       (resultCfg regs (treeCode source ++ separatorTag :: (treeCode target ++ raw)) ctx none) := by
-  have throughProbe := (twoTrees_run caller source target raw regs ctx).trans caller
+  have throughProbe := (two_trees_run caller source target raw regs ctx).trans caller
     (Runs.one caller (by trivial) (separator_failure_step caller .target raw [] [] (reset regs)
       (treeOutputs (treeCode source) (treeCode target)) [] [] ctx returned))
   simp only [TreeParserMachine.reset_reset, toReversePhase] at throughProbe
   have combined := throughProbe.trans caller
-    (targetRollback_run caller (treeCode source) (treeCode target) raw (reset regs) ctx)
+    (target_rollback_run caller (treeCode source) (treeCode target) raw (reset regs) ctx)
   have count : (2 * (treeCode source).length + 2 * (treeCode target).length + 5 + 1) +
       (2 * (treeCode source).length + 2 * (treeCode target).length + 5) =
       4 * (treeCode source).length + 4 * (treeCode target).length + 11 := by omega
@@ -1094,15 +1094,15 @@ theorem run_bits_failure_trace (source target : BinaryTree Unit) (bs : Bits) (ra
   have undo := bitsUndo_run caller raw [] [] (reset regs)
     (treeOutputs (treeCode source) (treeCode target)) [] bs.reverse ctx
   simp only [List.length_reverse, List.reverse_reverse, TreeParserMachine.reset_reset] at undo
-  have combined := (((beforeBits_run caller source target (bitTags bs ++ raw) regs ctx).trans caller scan).trans caller undo).trans caller
-    (restoreTarget_run caller (treeCode source) (treeCode target) (bitTags bs ++ raw) (reset regs) ctx)
+  have combined := (((before_bits_run caller source target (bitTags bs ++ raw) regs ctx).trans caller scan).trans caller undo).trans caller
+    (restore_target_run caller (treeCode source) (treeCode target) (bitTags bs ++ raw) (reset regs) ctx)
   have count : ((2 * (treeCode source).length + 2 * (treeCode target).length + 6 + (bs.length + 1)) +
       (bs.length + 1)) + (2 * (treeCode source).length + 2 * (treeCode target).length + 6) =
       4 * (treeCode source).length + 4 * (treeCode target).length + 2 * bs.length + 14 := by omega
   rw [count] at combined
   simpa only [resultCfg, TreeParserMachine.reset_reset] using combined
 
-theorem beforeEOF_run (source target : BinaryTree Unit) (bs : Bits) (raw : Word)
+theorem before_eof_run (source target : BinaryTree Unit) (bs : Bits) (raw : Word)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     Runs caller (2 * (treeCode source).length + 2 * (treeCode target).length + 2 * bs.length + 8)
       (entry regs (treeCode source ++ separatorTag ::
@@ -1115,7 +1115,7 @@ theorem beforeEOF_run (source target : BinaryTree Unit) (bs : Bits) (raw : Word)
   have emit := bitsEmit_run caller raw [] [] (reset regs)
     (treeOutputs (treeCode source) (treeCode target)) [] bs.reverse ctx
   simp only [List.length_reverse, List.reverse_reverse, List.append_nil, TreeParserMachine.reset_reset] at emit
-  have combined := ((beforeBits_run caller source target (bitTags bs ++ endInputTag :: raw) regs ctx).trans caller scan).trans caller emit
+  have combined := ((before_bits_run caller source target (bitTags bs ++ endInputTag :: raw) regs ctx).trans caller scan).trans caller emit
   have count : (2 * (treeCode source).length + 2 * (treeCode target).length + 6 + (bs.length + 1)) +
       (bs.length + 1) =
       2 * (treeCode source).length + 2 * (treeCode target).length + 2 * bs.length + 8 := by omega
@@ -1126,7 +1126,7 @@ theorem run_code_trace (source target : BinaryTree Unit) (bs : Bits) (regs : Reg
     Runs caller (2 * (treeCode source).length + 2 * (treeCode target).length + 2 * bs.length + 9)
       (entry regs (inputCode source target bs) ctx)
       (resultCfg regs (inputCode source target bs) ctx (some (source, target, bs))) := by
-  have combined := (beforeEOF_run caller source target bs [] regs ctx).trans caller
+  have combined := (before_eof_run caller source target bs [] regs ctx).trans caller
     (Runs.one caller (fullOwned_phase _) (eof_step_nil caller [] [] (reset regs)
       (treeOutputs (treeCode source) (treeCode target)) bs [] ctx))
   have count : 2 * (treeCode source).length + 2 * (treeCode target).length + 2 * bs.length + 8 + 1 =
@@ -1144,7 +1144,7 @@ theorem eof_nonempty_step (raw rev : Word) (pending : List Unit) (regs : Registe
   | nil => exact False.elim (nonempty rfl)
   | cons tag raw => exact eof_step_cons caller tag raw rev pending regs outputs fuel bitsReverse ctx
 
-theorem eofFailure_run (source target raw : Word) (bs : Bits) (regs : Registers R)
+theorem eof_failure_run (source target raw : Word) (bs : Bits) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) (nonempty : raw ≠ []) :
     Runs caller (2 * source.length + 2 * target.length + 2 * bs.length + 10)
       (cfg (some (phaseLabel .eof)) regs raw [] [] (treeOutputs source target) bs [] ctx)
@@ -1156,11 +1156,11 @@ theorem eofFailure_run (source target raw : Word) (bs : Bits) (regs : Registers 
       (Runs.one caller (fullOwned_phase _)
         (restoreEnd_step caller raw [] [] (reset regs) (treeOutputs source target) bs [] ctx))
   simp only [TreeParserMachine.reset_reset] at first
-  have undo := fuelBitsUndo_run caller (endInputTag :: raw) [] [] (reset regs)
+  have undo := fuel_bits_undo_run caller (endInputTag :: raw) [] [] (reset regs)
     (treeOutputs source target) bs [] ctx
   simp only [List.length_nil, Nat.add_zero, List.reverse_nil, List.nil_append, TreeParserMachine.reset_reset] at undo
   have combined := (first.trans caller undo).trans caller
-    (restoreTarget_run caller source target (bitTags bs ++ endInputTag :: raw) (reset regs) ctx)
+    (restore_target_run caller source target (bitTags bs ++ endInputTag :: raw) (reset regs) ctx)
   have count : (1 + 1 + (2 * bs.length + 2)) + (2 * source.length + 2 * target.length + 6) =
       2 * source.length + 2 * target.length + 2 * bs.length + 10 := by omega
   rw [count] at combined
@@ -1171,8 +1171,8 @@ theorem run_trailing_trace (source target : BinaryTree Unit) (bs : Bits) (raw : 
     Runs caller (4 * (treeCode source).length + 4 * (treeCode target).length + 4 * bs.length + 18)
       (entry regs (inputCode source target bs ++ raw) ctx)
       (resultCfg regs (inputCode source target bs ++ raw) ctx none) := by
-  have combined := (beforeEOF_run caller source target bs raw regs ctx).trans caller
-    (eofFailure_run caller (treeCode source) (treeCode target) raw bs (reset regs) ctx nonempty)
+  have combined := (before_eof_run caller source target bs raw regs ctx).trans caller
+    (eof_failure_run caller (treeCode source) (treeCode target) raw bs (reset regs) ctx nonempty)
   have count : (2 * (treeCode source).length + 2 * (treeCode target).length + 2 * bs.length + 8) +
       (2 * (treeCode source).length + 2 * (treeCode target).length + 2 * bs.length + 10) =
       4 * (treeCode source).length + 4 * (treeCode target).length + 4 * bs.length + 18 := by omega
@@ -1215,7 +1215,7 @@ theorem run_source_trace (raw : Word) (regs : Registers R) (ctx : ∀ k, List (�
       cases firstSep : (parseSeparatorRun afterSource).1 with
       | none =>
           simpa only [rawEq] using
-            run_firstSeparator_failure_trace caller source afterSource regs ctx firstSep
+            run_first_separator_failure_trace caller source afterSource regs ctx firstSep
       | some beforeTarget =>
           dsimp only
           have firstSepEq := (parseSeparatorRun_iff afterSource beforeTarget).mp firstSep
@@ -1230,7 +1230,7 @@ theorem run_source_trace (raw : Word) (regs : Registers R) (ctx : ∀ k, List (�
               cases secondSep : (parseSeparatorRun afterTarget).1 with
               | none =>
                   simpa only [rawEq, firstSepEq, targetEq] using
-                    run_secondSeparator_failure_trace caller source target afterTarget regs ctx secondSep
+                    run_second_separator_failure_trace caller source target afterTarget regs ctx secondSep
               | some beforeBits =>
                   dsimp only
                   have secondSepEq := (parseSeparatorRun_iff afterTarget beforeBits).mp secondSep
@@ -1403,7 +1403,7 @@ theorem bitsUndo_prefix_run (moved rest : Bits) (raw rev : Word) (pending : List
         List.reverse_cons, bitTags_append, bitTags_cons, bitTags_nil,
         List.append_assoc, List.singleton_append] using run
 
-theorem toReverse_prefix_run (d : TreeSide) (moved rest raw rev : Word) (pending : List Unit)
+theorem toReversePhase_prefix_run (d : TreeSide) (moved rest raw rev : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) :
     Runs caller moved.length
@@ -1417,11 +1417,11 @@ theorem toReverse_prefix_run (d : TreeSide) (moved rest raw rev : Word) (pending
       rw [List.length_cons, List.cons_append]
       have tailRun := ih (regs := reset regs) (rev := tag :: rev)
       have run := Runs.cons (fullOwned_phase _)
-        (toReverse_step_cons caller d tag raw rev (moved ++ rest) pending regs outputs fuel bitsReverse ctx) tailRun
+        (toReversePhase_step_cons caller d tag raw rev (moved ++ rest) pending regs outputs fuel bitsReverse ctx) tailRun
       simpa only [List.cons_ne_nil, ite_false, TreeParserMachine.reset_reset, ite_self,
         List.reverse_cons, List.append_assoc, List.singleton_append] using run
 
-theorem toRaw_prefix_run (d : TreeSide) (moved rest raw : Word) (pending : List Unit)
+theorem toRawPhase_prefix_run (d : TreeSide) (moved rest raw : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) :
     Runs caller moved.length
@@ -1434,7 +1434,7 @@ theorem toRaw_prefix_run (d : TreeSide) (moved rest raw : Word) (pending : List 
       rw [List.length_cons, List.cons_append]
       have tailRun := ih (regs := reset regs) (raw := tag :: raw)
       have run := Runs.cons (fullOwned_phase _)
-        (toRaw_step_cons caller d tag raw (moved ++ rest) pending regs outputs fuel bitsReverse ctx) tailRun
+        (toRawPhase_step_cons caller d tag raw (moved ++ rest) pending regs outputs fuel bitsReverse ctx) tailRun
       simpa only [List.cons_ne_nil, ite_false, TreeParserMachine.reset_reset, ite_self,
         List.reverse_cons, List.append_assoc, List.singleton_append] using run
 
@@ -1706,12 +1706,12 @@ theorem missing_target_sharp_trace (source : BinaryTree Unit) (regs : Registers 
   rw [count] at trace
   exact trace
 
-theorem missing_secondSeparator_sharp_trace (source target : BinaryTree Unit) (regs : Registers R)
+theorem missing_second_separator_sharp_trace (source target : BinaryTree Unit) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     Runs caller (4 * (treeCode source ++ separatorTag :: treeCode target).length + 7)
       (entry regs (treeCode source ++ separatorTag :: treeCode target) ctx)
       (resultCfg regs (treeCode source ++ separatorTag :: treeCode target) ctx none) := by
-  have trace := run_secondSeparator_failure_trace caller source target [] regs ctx (by rfl)
+  have trace := run_second_separator_failure_trace caller source target [] regs ctx (by rfl)
   simp only [List.append_nil] at trace
   have count : 4 * (treeCode source).length + 4 * (treeCode target).length + 11 =
       4 * (treeCode source ++ separatorTag :: treeCode target).length + 7 := by
@@ -1747,20 +1747,20 @@ def debt : Option (Label Λ) → Nat
 
 @[simp] theorem debt_tree (d : TreeSide) (phase : TreeParserMachine.Phase) :
     debt (some (treeLabel (Λ := Λ) d phase)) = sideDebt d := rfl
-@[simp] theorem debt_treeResult (d : TreeSide) (result : TreeParserMachine.Result) :
+@[simp] theorem debt_treeResultLabel (d : TreeSide) (result : TreeParserMachine.Result) :
     debt (some (treeResultLabel (Λ := Λ) d result)) = sideDebt d := rfl
 @[simp] theorem debt_phase (phase : Phase) :
     debt (some (phaseLabel (Λ := Λ) phase)) = phaseDebt phase := rfl
 
 /-- The scan has one slot credit per unread symbol. Rollback needs only the absolute slot bound. -/
-def pendingCondition (M : Nat) (label : Option (Label Λ)) (rawLength : Nat) (pending : List Unit) : Prop :=
+def PendingCondition (M : Nat) (label : Option (Label Λ)) (rawLength : Nat) (pending : List Unit) : Prop :=
   match label with
   | some (.inl (_, .scan)) => pending.length + rawLength ≤ M + 1
   | some (.inl (_, .undo)) | some (.inl (_, .dropPending)) => pending.length ≤ M + 1
   | _ => pending = []
 
 def PendingControl (M : Nat) (c : Cfg Γ Λ R) : Prop :=
-  pendingCondition M c.l (c.stk rawStack).length (c.stk pendingStack)
+  PendingCondition M c.l (c.stk rawStack).length (c.stk pendingStack)
 
 omit [DecidableEq K] in
 @[simp] theorem baseCells_cfg (label : Option (Label Λ)) (regs : Registers R)
@@ -1774,7 +1774,7 @@ omit [DecidableEq K] in
     (raw rev : Word) (pending : List Unit) (outputs : TreeSide → Word)
     (fuel bitsReverse : Bits) (ctx : ∀ k, List (Γ k)) :
     PendingControl M (cfg label regs raw rev pending outputs fuel bitsReverse ctx) =
-      pendingCondition M label raw.length pending := rfl
+      PendingCondition M label raw.length pending := rfl
 
 theorem outputCells_update_cons (outputs : TreeSide → Word) (d : TreeSide) (tag : Tag) :
     outputCells (Function.update outputs d (tag :: outputs d)) = outputCells outputs + 1 := by
@@ -1803,8 +1803,8 @@ private theorem cfg_effect
         nextBitsReverse.length + debt nextLabel =
       raw.length + rev.length + outputCells outputs + fuel.length + bitsReverse.length + debt label)
     (slots : ∀ M, raw.length + rev.length + outputCells outputs + fuel.length + bitsReverse.length +
-        debt label = M → pendingCondition M label raw.length pending →
-      pendingCondition M nextLabel nextRaw.length nextPending) :
+        debt label = M → PendingCondition M label raw.length pending →
+      PendingCondition M nextLabel nextRaw.length nextPending) :
     Effect (cfg label regs raw rev pending outputs fuel bitsReverse ctx)
       (cfg nextLabel (reset regs) nextRaw nextRev nextPending nextOutputs nextFuel nextBitsReverse ctx) :=
   ⟨rfl, fun _ => rfl, mass, slots⟩
@@ -1842,7 +1842,7 @@ theorem tree_step_effect (d : TreeSide) (phase : TreeParserMachine.Phase)
           apply cfg_effect
           · rfl
           · intro M _ slots
-            simpa only [pendingCondition, treeLabel, TreeParserMachine.phaseLabel, List.length_nil, Nat.add_zero] using slots
+            simpa only [PendingCondition, treeLabel, TreeParserMachine.phaseLabel, List.length_nil, Nat.add_zero] using slots
       | cons tag raw =>
           by_cases node : tag = nodeTag
           · subst tag
@@ -1863,8 +1863,8 @@ theorem tree_step_effect (d : TreeSide) (phase : TreeParserMachine.Phase)
               · intro M _ slots
                 change pending.length + (raw.length + 1) ≤ M + 1 at slots
                 by_cases done : pending.tail = []
-                · simpa only [ite_eq_left done, pendingCondition, treeLabel, TreeParserMachine.phaseLabel] using done
-                · simp only [ite_eq_right done, pendingCondition, TreeParserMachine.phaseLabel]
+                · simpa only [ite_eq_left done, PendingCondition, treeLabel, TreeParserMachine.phaseLabel] using done
+                · simp only [ite_eq_right done, PendingCondition, TreeParserMachine.phaseLabel]
                   have length : pending.tail.length ≤ pending.length := by cases pending <;> simp
                   omega
             · apply effect_of_step_eq caller executed
@@ -1938,7 +1938,7 @@ private theorem toReverse_step_effect (d : TreeSide) (raw rev : Word) (pending :
   | nil =>
       have restored : Function.update outputs d [] = outputs := by
         rw [← selected, Function.update_eq_self]
-      have equation := toReverse_step_nil caller d raw rev pending regs outputs fuel bitsReverse ctx
+      have equation := toReversePhase_step_nil caller d raw rev pending regs outputs fuel bitsReverse ctx
       rw [restored] at equation
       apply effect_of_step_eq caller executed equation
       apply cfg_effect
@@ -1948,7 +1948,7 @@ private theorem toReverse_step_effect (d : TreeSide) (raw rev : Word) (pending :
   | cons tag word =>
       have restored : Function.update outputs d (tag :: word) = outputs := by
         rw [← selected, Function.update_eq_self]
-      have equation := toReverse_step_cons caller d tag raw rev word pending regs outputs fuel bitsReverse ctx
+      have equation := toReversePhase_step_cons caller d tag raw rev word pending regs outputs fuel bitsReverse ctx
       rw [restored] at equation
       apply effect_of_step_eq caller executed equation
       apply cfg_effect
@@ -1968,14 +1968,14 @@ private theorem toRaw_step_effect (d : TreeSide) (raw rev : Word) (pending : Lis
   cases rev with
   | nil =>
       apply effect_of_step_eq caller executed
-        (toRaw_step_nil caller d raw pending regs outputs fuel bitsReverse ctx)
+        (toRawPhase_step_nil caller d raw pending regs outputs fuel bitsReverse ctx)
       apply cfg_effect
       · cases d <;> rfl
       · intro M _ slots
         cases d <;> exact slots
   | cons tag rev =>
       apply effect_of_step_eq caller executed
-        (toRaw_step_cons caller d tag raw rev pending regs outputs fuel bitsReverse ctx)
+        (toRawPhase_step_cons caller d tag raw rev pending regs outputs fuel bitsReverse ctx)
       apply cfg_effect
       · simp only [List.length_cons]; omega
       · intro M _ slots
@@ -2158,7 +2158,7 @@ private theorem cfg_step_effect (label : Option (Label Λ)) (raw rev : Word) (pe
                   | source => cases owned
                   | target =>
                       apply effect_of_step_eq caller executed
-                        (targetFailure_step caller raw rev pending regs outputs fuel bitsReverse ctx)
+                        (target_failure_step caller raw rev pending regs outputs fuel bitsReverse ctx)
                       apply cfg_effect
                       · change (raw.length + 1) + rev.length + outputCells outputs + fuel.length +
                           bitsReverse.length + 0 =
@@ -2234,7 +2234,7 @@ theorem prefix_preserves (raw : Word) (regs : Registers R) (ctx : ∀ k, List (�
 omit [DecidableEq K] in
 theorem pendingControl_bound (M : Nat) (c : Cfg Γ Λ R) (slots : PendingControl M c) :
     (c.stk pendingStack).length ≤ M + 1 := by
-  unfold PendingControl pendingCondition at slots
+  unfold PendingControl PendingCondition at slots
   split at slots
   · omega
   · exact slots
@@ -2246,11 +2246,11 @@ omit [DecidableEq K] in
 theorem pendingControl_empty (M : Nat) (c : Cfg Γ Λ R) (slots : PendingControl M c)
     (outside : ¬ TreeParserMachine.Owned c.l) : c.stk pendingStack = [] := by
   cases labelEq : c.l with
-  | none => simpa only [PendingControl, pendingCondition, labelEq] using slots
+  | none => simpa only [PendingControl, PendingCondition, labelEq] using slots
   | some label =>
       cases label with
       | inl pair => exact False.elim (outside (by simp only [labelEq, TreeParserMachine.Owned]))
-      | inr external => simpa only [PendingControl, pendingCondition, labelEq] using slots
+      | inr external => simpa only [PendingControl, PendingCondition, labelEq] using slots
 
 theorem prefix_pending_empty (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k))
     (n : Nat) (bound : n ≤ inputSteps raw) (reached : Cfg Γ Λ R)
@@ -2385,7 +2385,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := rawStack
   k₁ := fuelStack
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := treeLabel .source .init
   σ := Registers R

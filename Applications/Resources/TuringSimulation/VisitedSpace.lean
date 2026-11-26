@@ -419,7 +419,7 @@ theorem write_nth_at_other_global_coordinate (T : Tape Γ) (a : Γ) (x p : ℤ)
 
 /-- Native list initialization is blank outside the declared input positions.
 This does not identify an empty input with an input containing a blank symbol. -/
-theorem initTape_nth_eq_default_of_not_mem_inputCells (input : List Γ)
+theorem mk₁_nth_eq_default_of_not_mem_inputCells (input : List Γ)
     (origin x : ℤ) (hx : x ∉ inputCells origin input.length) :
     (Tape.mk₁ input).nth (x - origin) = default := by
   cases hcoord : x - origin with
@@ -584,7 +584,7 @@ theorem init_nth_eq_default_of_not_inputVisitedCells (M : TM0.Machine Γ Q)
     finish.Tape.nth (x - headPosition M (TM0.init input) origin n) = default := by
   exact nth_eq_default_of_not_inputVisitedCells M (TM0.init input) finish origin x
     input.length n
-    (fun y hy => initTape_nth_eq_default_of_not_mem_inputCells input origin y hy) hcfg hx
+    (fun y hy => mk₁_nth_eq_default_of_not_mem_inputCells input origin y hy) hcfg hx
 
 /-- At every actual live prefix of an existing native initialized run, any
 nonblank global tape cell belongs to the same bounded interval as the visits. -/

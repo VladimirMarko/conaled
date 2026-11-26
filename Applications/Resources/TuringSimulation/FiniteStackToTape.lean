@@ -92,7 +92,7 @@ variable {K : Type*} {Γ : K → Type*} {Λ σ : Type*}
 
 /-- Every source statement is supported by all source labels, even when its
 goto computes a label from the current register. -/
-theorem sourceStmt_supports_univ [Fintype Λ] (q : TM2.Stmt Γ Λ σ) :
+theorem supportsStmt_univ [Fintype Λ] (q : TM2.Stmt Γ Λ σ) :
     TM2.SupportsStmt (Finset.univ : Finset Λ) q := by
   induction q with
   | push _ _ _ IH => exact IH
@@ -108,7 +108,7 @@ The `Inhabited` instance identifies its actual chosen starting label. -/
 theorem source_supports_univ [Fintype Λ] [Inhabited Λ]
     (M : Λ → TM2.Stmt Γ Λ σ) :
     TM2.Supports M (Finset.univ : Finset Λ) :=
-  ⟨Finset.mem_univ _, fun l _ => sourceStmt_supports_univ (M l)⟩
+  ⟨Finset.mem_univ _, fun l _ => supportsStmt_univ (M l)⟩
 
 /-- The native finite primitive-control support obtained by applying the two
 existing simulator support constructions to the fixed source programme. -/

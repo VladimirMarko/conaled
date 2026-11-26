@@ -49,7 +49,7 @@ structure LocalData where
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl .certificate | .inl .source | .inl .saved | .inl .scratch | .inl .target => Tag
   | .inl .moveReverse | .inl .path => Branch
   | .inl .units => Unit
@@ -57,15 +57,15 @@ abbrev alphabet (Γ : K → Type) : StackId K → Type
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId K) :
-    Fintype (alphabet Γ k) := by
+    Fintype (Alphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def inspectPhase : Phase := .inl FuelDispatchMachine.inspectLabel
 def counterPhase (q : Resources.BinaryCounter.FixedWidthMachine.Phase) : Phase := .inl (Resources.BinaryCounter.FixedWidthMachine.phaseLabel q)
@@ -235,7 +235,7 @@ instance : Fintype FuelProtected where
   elems := {.moveReverse, .path, .source, .saved, .scratch, .target}
   complete k := by cases k <;> decide
 
-abbrev fuelProtectedAlphabet (Γ : K → Type) : FuelProtected ⊕ K → Type
+abbrev FuelProtectedAlphabet (Γ : K → Type) : FuelProtected ⊕ K → Type
   | .inl .moveReverse => Branch
   | .inl .path => Branch
   | .inl .source => Tag
@@ -245,7 +245,7 @@ abbrev fuelProtectedAlphabet (Γ : K → Type) : FuelProtected ⊕ K → Type
   | .inr k => Γ k
 
 instance fuelProtectedFintype [∀ k, Fintype (Γ k)] (k : FuelProtected ⊕ K) :
-    Fintype (fuelProtectedAlphabet Γ k) := by
+    Fintype (FuelProtectedAlphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
@@ -257,13 +257,13 @@ instance : Fintype ApplyProtected where
   elems := {.fuel, .target}
   complete k := by cases k <;> decide
 
-abbrev applyProtectedAlphabet (Γ : K → Type) : ApplyProtected ⊕ K → Type
+abbrev ApplyProtectedAlphabet (Γ : K → Type) : ApplyProtected ⊕ K → Type
   | .inl .fuel => Bool
   | .inl .target => Tag
   | .inr k => Γ k
 
 instance applyProtectedFintype [∀ k, Fintype (Γ k)] (k : ApplyProtected ⊕ K) :
-    Fintype (applyProtectedAlphabet Γ k) := by
+    Fintype (ApplyProtectedAlphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
@@ -275,7 +275,7 @@ instance : Fintype EqualityProtected where
   elems := {.certificate, .moveReverse, .path, .saved, .scratch, .units, .fuel}
   complete k := by cases k <;> decide
 
-abbrev equalityProtectedAlphabet (Γ : K → Type) : EqualityProtected ⊕ K → Type
+abbrev EqualityProtectedAlphabet (Γ : K → Type) : EqualityProtected ⊕ K → Type
   | .inl .certificate => Tag
   | .inl .moveReverse => Branch
   | .inl .path => Branch
@@ -286,7 +286,7 @@ abbrev equalityProtectedAlphabet (Γ : K → Type) : EqualityProtected ⊕ K →
   | .inr k => Γ k
 
 instance equalityProtectedFintype [∀ k, Fintype (Γ k)] (k : EqualityProtected ⊕ K) :
-    Fintype (equalityProtectedAlphabet Γ k) := by
+    Fintype (EqualityProtectedAlphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
@@ -297,17 +297,17 @@ abbrev EqualityCallerLabel (Λ : Type) := FuelDispatchMachine.Label Empty ⊕ (M
 abbrev ApplyCallerRegister (R : Type) := Option Bool × R
 abbrev EqualityCallerRegister (R : Type) := Option Bool × (Option Branch × R)
 abbrev FuelCfg (Γ : K → Type) (Λ R : Type) :=
-  FuelDispatchMachine.Cfg (fuelProtectedAlphabet Γ) (FuelCallerLabel Λ) (MoveApplyMachine.Registers R)
+  FuelDispatchMachine.Cfg (FuelProtectedAlphabet Γ) (FuelCallerLabel Λ) (MoveApplyMachine.Registers R)
 abbrev FuelStatement (Γ : K → Type) (Λ R : Type) :=
-  FuelDispatchMachine.Statement (fuelProtectedAlphabet Γ) (FuelCallerLabel Λ) (MoveApplyMachine.Registers R)
+  FuelDispatchMachine.Statement (FuelProtectedAlphabet Γ) (FuelCallerLabel Λ) (MoveApplyMachine.Registers R)
 abbrev ApplyCfg (Γ : K → Type) (Λ R : Type) :=
-  MoveApplyMachine.Cfg (applyProtectedAlphabet Γ) (ApplyCallerLabel Λ) (ApplyCallerRegister R)
+  MoveApplyMachine.Cfg (ApplyProtectedAlphabet Γ) (ApplyCallerLabel Λ) (ApplyCallerRegister R)
 abbrev ApplyStatement (Γ : K → Type) (Λ R : Type) :=
-  MoveApplyMachine.Statement (applyProtectedAlphabet Γ) (ApplyCallerLabel Λ) (ApplyCallerRegister R)
+  MoveApplyMachine.Statement (ApplyProtectedAlphabet Γ) (ApplyCallerLabel Λ) (ApplyCallerRegister R)
 abbrev EqualityCfg (Γ : K → Type) (Λ R : Type) :=
-  TreeEqualityMachine.Cfg (equalityProtectedAlphabet Γ) (EqualityCallerLabel Λ) (EqualityCallerRegister R)
+  TreeEqualityMachine.Cfg (EqualityProtectedAlphabet Γ) (EqualityCallerLabel Λ) (EqualityCallerRegister R)
 abbrev EqualityStatement (Γ : K → Type) (Λ R : Type) :=
-  TreeEqualityMachine.Statement (equalityProtectedAlphabet Γ) (EqualityCallerLabel Λ) (EqualityCallerRegister R)
+  TreeEqualityMachine.Statement (EqualityProtectedAlphabet Γ) (EqualityCallerLabel Λ) (EqualityCallerRegister R)
 
 def fuelStackEquiv : Resources.BinaryCounter.FixedWidthMachine.StackId (FuelDispatchMachine.Protected (FuelProtected ⊕ K)) ≃ StackId K where
   toFun
@@ -346,7 +346,7 @@ def fuelStackEquiv : Resources.BinaryCounter.FixedWidthMachine.StackId (FuelDisp
     | inr k => rfl
 
 def fuelSymbolEquiv (k : Resources.BinaryCounter.FixedWidthMachine.StackId (FuelDispatchMachine.Protected (FuelProtected ⊕ K))) :
-    Resources.BinaryCounter.FixedWidthMachine.alphabet (FuelDispatchMachine.protectedAlphabet (fuelProtectedAlphabet Γ)) k ≃ alphabet Γ (fuelStackEquiv k) := by
+    Resources.BinaryCounter.FixedWidthMachine.Alphabet (FuelDispatchMachine.ProtectedAlphabet (FuelProtectedAlphabet Γ)) k ≃ Alphabet Γ (fuelStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -390,7 +390,7 @@ def applyStackEquiv : MoveApplyMachine.StackId (ApplyProtected ⊕ K) ≃ StackI
     | inr k => rfl
 
 def applySymbolEquiv (k : MoveApplyMachine.StackId (ApplyProtected ⊕ K)) :
-    MoveApplyMachine.alphabet (applyProtectedAlphabet Γ) k ≃ alphabet Γ (applyStackEquiv k) := by
+    MoveApplyMachine.Alphabet (ApplyProtectedAlphabet Γ) k ≃ Alphabet Γ (applyStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -432,7 +432,7 @@ def equalityStackEquiv : TreeEqualityMachine.StackId (EqualityProtected ⊕ K) �
     | inr k => rfl
 
 def equalitySymbolEquiv (k : TreeEqualityMachine.StackId (EqualityProtected ⊕ K)) :
-    TreeEqualityMachine.alphabet (equalityProtectedAlphabet Γ) k ≃ alphabet Γ (equalityStackEquiv k) := by
+    TreeEqualityMachine.Alphabet (EqualityProtectedAlphabet Γ) k ≃ Alphabet Γ (equalityStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -554,7 +554,7 @@ def equalityLabelEquiv : TreeEqualityMachine.Label (EqualityCallerLabel Λ) ≃ 
     equalityRegisterEquiv (TreeEqualityMachine.reset regs) = resetEquality (equalityRegisterEquiv regs) := rfl
 
 def fuelContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (fuelProtectedAlphabet Γ k)
+    ∀ k, List (FuelProtectedAlphabet Γ k)
   | .inl .moveReverse => D.moveReverse
   | .inl .path => D.path
   | .inl .source => D.source
@@ -564,13 +564,13 @@ def fuelContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
   | .inr k => ctx k
 
 def applyContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (applyProtectedAlphabet Γ k)
+    ∀ k, List (ApplyProtectedAlphabet Γ k)
   | .inl .fuel => D.fuel
   | .inl .target => D.target
   | .inr k => ctx k
 
 def equalityContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (equalityProtectedAlphabet Γ k)
+    ∀ k, List (EqualityProtectedAlphabet Γ k)
   | .inl .certificate => D.certificate
   | .inl .moveReverse => D.moveReverse
   | .inl .path => D.path
@@ -1608,7 +1608,7 @@ omit [DecidableEq K] in
     evaluate (counterPhase q) D = evaluateCounter q D := rfl
 
 omit [DecidableEq K] in
-@[simp] theorem evaluate_fuelJoin (r : FuelDispatchMachine.Exit) (D : LocalData) :
+@[simp] theorem evaluate_fuelJoinPhase (r : FuelDispatchMachine.Exit) (D : LocalData) :
     evaluate (fuelJoinPhase r) D = evaluateFuelJoin r D := by cases r <;> rfl
 
 omit [DecidableEq K] in
@@ -1619,14 +1619,14 @@ omit [DecidableEq K] in
   | inr q => cases q <;> rfl
 
 omit [DecidableEq K] in
-@[simp] theorem evaluate_applyJoin (r : MoveApplyMachine.FinalResult) (D : LocalData) :
+@[simp] theorem evaluate_applyJoinPhase (r : MoveApplyMachine.FinalResult) (D : LocalData) :
     evaluate (applyJoinPhase r) D = evaluateApplyJoin r D := rfl
 
 omit [DecidableEq K] in
 @[simp] theorem evaluate_compare (D : LocalData) : evaluate comparePhase D = evaluateEquality D := rfl
 
 omit [DecidableEq K] in
-@[simp] theorem evaluate_equalityJoin (r : TreeEqualityMachine.Result) (D : LocalData) :
+@[simp] theorem evaluate_equalityJoinPhase (r : TreeEqualityMachine.Result) (D : LocalData) :
     evaluate (equalityJoinPhase r) D = ⟨equalityResult r, D, 1⟩ := rfl
 
 omit [DecidableEq K] in

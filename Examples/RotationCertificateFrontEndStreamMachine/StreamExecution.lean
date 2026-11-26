@@ -160,467 +160,467 @@ section LiteralStreamConnections
 variable {K Λ R : Type} {Γ : K → Type} [DecidableEq K]
   (caller : Λ → Statement Γ Λ R)
 
-theorem raw_V01_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V01.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV01_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV01.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a03
-    raw_V01.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV01.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a03_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V01.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV01.frontEndAfter ctx))
 
-theorem raw_V01_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V01.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V01_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV01_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV01.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV01_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V02_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V02.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v02
-    raw_V02.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v02_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V02.frontEndAfter ctx))
+theorem rawV02_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV02.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV02
+    rawV02.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV02_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV02.frontEndAfter ctx))
 
-theorem raw_V02_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V02.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V02_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV02_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV02.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV02_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V03_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V03.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV03_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV03.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a12
-    raw_V03.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV03.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a12_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V03.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV03.frontEndAfter ctx))
 
-theorem raw_V03_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V03.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V03_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV03_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV03.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV03_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V04_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V04.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV04_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV04.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a13
-    raw_V04.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV04.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a13_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V04.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV04.frontEndAfter ctx))
 
-theorem raw_V04_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V04.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V04_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV04_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV04.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV04_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V05_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V05.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV05_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV05.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a18
-    raw_V05.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV05.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a18_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V05.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV05.frontEndAfter ctx))
 
-theorem raw_V05_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V05.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V05_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV05_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV05.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV05_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V06_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V06.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV06_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV06.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a19
-    raw_V06.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV06.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a19_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V06.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV06.frontEndAfter ctx))
 
-theorem raw_V06_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V06.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V06_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV06_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV06.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV06_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V07_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V07.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v07
-    raw_V07.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v07_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V07.frontEndAfter ctx))
+theorem rawV07_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV07.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV07
+    rawV07.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV07_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV07.frontEndAfter ctx))
 
-theorem raw_V07_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V07.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V07_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV07_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV07.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV07_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V08_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V08.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v08
-    raw_V08.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v08_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V08.frontEndAfter ctx))
+theorem rawV08_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV08.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV08
+    rawV08.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV08_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV08.frontEndAfter ctx))
 
-theorem raw_V08_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V08.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V08_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV08_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV08.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV08_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V09_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V09.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v09
-    raw_V09.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v09_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V09.frontEndAfter ctx))
+theorem rawV09_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV09.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV09
+    rawV09.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV09_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV09.frontEndAfter ctx))
 
-theorem raw_V09_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V09.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V09_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV09_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV09.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV09_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V10_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V10.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v10
-    raw_V10.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v10_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V10.frontEndAfter ctx))
+theorem rawV10_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV10.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV10
+    rawV10.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV10_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV10.frontEndAfter ctx))
 
-theorem raw_V10_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V10.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V10_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV10_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV10.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV10_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V11_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V11.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v11
-    raw_V11.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v11_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V11.frontEndAfter ctx))
+theorem rawV11_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV11.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV11
+    rawV11.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV11_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV11.frontEndAfter ctx))
 
-theorem raw_V11_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V11.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V11_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV11_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV11.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV11_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V12_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V12.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v12
-    raw_V12.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v12_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V12.frontEndAfter ctx))
+theorem rawV12_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV12.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV12
+    rawV12.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV12_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV12.frontEndAfter ctx))
 
-theorem raw_V12_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V12.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V12_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV12_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV12.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV12_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V13_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V13.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV13_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV13.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a17
-    raw_V13.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV13.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a17_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V13.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV13.frontEndAfter ctx))
 
-theorem raw_V13_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V13.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V13_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV13_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV13.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV13_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V14_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V14.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV14_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV14.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.r07
-    raw_V14.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV14.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.r07_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V14.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV14.frontEndAfter ctx))
 
-theorem raw_V14_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V14.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V14_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV14_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV14.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV14_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V15_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V15.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v15
-    raw_V15.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v15_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V15.frontEndAfter ctx))
+theorem rawV15_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV15.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV15
+    rawV15.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV15_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV15.frontEndAfter ctx))
 
-theorem raw_V15_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V15.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V15_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV15_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV15.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV15_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V16_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V16.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v16
-    raw_V16.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v16_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V16.frontEndAfter ctx))
+theorem rawV16_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV16.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV16
+    rawV16.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV16_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV16.frontEndAfter ctx))
 
-theorem raw_V16_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V16.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V16_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV16_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV16.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV16_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V17_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V17.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+theorem rawV17_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV17.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a14
-    raw_V17.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV17.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a14_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V17.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV17.frontEndAfter ctx))
 
-theorem raw_V17_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V17.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V17_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV17_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV17.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV17_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem raw_V18_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V18.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_v18
-    raw_V18.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v18_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V18.frontEndAfter ctx))
+theorem rawV18_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV18.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentV18
+    rawV18.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV18_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV18.frontEndAfter ctx))
 
-theorem raw_V18_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match raw_V18.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (raw_V18_stream_actual_local_run caller regs ctx).iterate caller
+theorem rawV18_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match rawV18.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (rawV18_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem dirty_D00_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D00.stream.LocalRunExpected caller regs ctx :=
+theorem dirtyD00_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD00.stream.LocalRunExpected caller regs ctx :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a18
-    dirty_D00.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    dirtyD00.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a18_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D00.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD00.stream.before ctx))
 
-theorem dirty_D00_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D00.stream.RunExpected (step caller) regs ctx :=
-  (dirty_D00_stream_actual_local_run caller regs ctx).iterate caller
+theorem dirtyD00_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD00.stream.RunExpected (step caller) regs ctx :=
+  (dirtyD00_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem dirty_D01_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D01.stream.LocalRunExpected caller regs ctx :=
+theorem dirtyD01_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD01.stream.LocalRunExpected caller regs ctx :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.r10
-    dirty_D01.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    dirtyD01.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.r10_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D01.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD01.stream.before ctx))
 
-theorem dirty_D01_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D01.stream.RunExpected (step caller) regs ctx :=
-  (dirty_D01_stream_actual_local_run caller regs ctx).iterate caller
+theorem dirtyD01_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD01.stream.RunExpected (step caller) regs ctx :=
+  (dirtyD01_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem dirty_D02_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D02.stream.LocalRunExpected caller regs ctx :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_d02
-    dirty_D02.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_d02_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D02.stream.before ctx))
+theorem dirtyD02_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD02.stream.LocalRunExpected caller regs ctx :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentD02
+    dirtyD02.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentD02_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD02.stream.before ctx))
 
-theorem dirty_D02_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D02.stream.RunExpected (step caller) regs ctx :=
-  (dirty_D02_stream_actual_local_run caller regs ctx).iterate caller
+theorem dirtyD02_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD02.stream.RunExpected (step caller) regs ctx :=
+  (dirtyD02_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem dirty_D03_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D03.stream.LocalRunExpected caller regs ctx :=
+theorem dirtyD03_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD03.stream.LocalRunExpected caller regs ctx :=
   an_existing_actual_stream_run_is_an_actual_common_carrier_run caller Examples.RotationCertificateStreamMachine.a12
-    dirty_D03.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    dirtyD03.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a12_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D03.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD03.stream.before ctx))
 
-theorem dirty_D03_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D03.stream.RunExpected (step caller) regs ctx :=
-  (dirty_D03_stream_actual_local_run caller regs ctx).iterate caller
+theorem dirtyD03_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD03.stream.RunExpected (step caller) regs ctx :=
+  (dirtyD03_stream_actual_local_run caller regs ctx).iterate caller
 
-theorem join_J03_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match join_J03.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
-  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segment_j03
-    join_J03.before (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_j03_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext join_J03.before ctx))
+theorem joinJ03_stream_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match joinJ03.stream with | none => True | some segment => segment.LocalRunExpected caller regs ctx) :=
+  an_existing_actual_stream_run_is_an_actual_common_carrier_run caller StreamCertificates.segmentJ03
+    joinJ03.before (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentJ03_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext joinJ03.before ctx))
 
-theorem join_J03_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match join_J03.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
-  (join_J03_stream_actual_local_run caller regs ctx).iterate caller
+theorem joinJ03_stream_actual_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match joinJ03.stream with | none => True | some segment => segment.RunExpected (step caller) regs ctx) :=
+  (joinJ03_stream_actual_local_run caller regs ctx).iterate caller
 
 variable [Fintype K]
 
-theorem raw_V01_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V01.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV01_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV01.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a03
-    raw_V01.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV01.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a03_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V01.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV01.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.a03_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V01.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV01.frontEndAfter ctx))
 
-theorem raw_V02_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V02.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v02
-    raw_V02.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v02_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V02.frontEndAfter ctx))
-    (StreamCertificates.segment_v02_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V02.frontEndAfter ctx))
+theorem rawV02_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV02.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV02
+    rawV02.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV02_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV02.frontEndAfter ctx))
+    (StreamCertificates.segmentV02_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV02.frontEndAfter ctx))
 
-theorem raw_V03_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V03.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV03_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV03.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a12
-    raw_V03.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV03.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a12_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V03.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV03.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.a12_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V03.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV03.frontEndAfter ctx))
 
-theorem raw_V04_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V04.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV04_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV04.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a13
-    raw_V04.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV04.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a13_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V04.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV04.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.a13_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V04.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV04.frontEndAfter ctx))
 
-theorem raw_V05_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V05.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV05_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV05.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a18
-    raw_V05.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV05.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a18_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V05.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV05.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.a18_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V05.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV05.frontEndAfter ctx))
 
-theorem raw_V06_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V06.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV06_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV06.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a19
-    raw_V06.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV06.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a19_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V06.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV06.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.a19_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V06.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV06.frontEndAfter ctx))
 
-theorem raw_V07_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V07.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v07
-    raw_V07.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v07_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V07.frontEndAfter ctx))
-    (StreamCertificates.segment_v07_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V07.frontEndAfter ctx))
+theorem rawV07_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV07.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV07
+    rawV07.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV07_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV07.frontEndAfter ctx))
+    (StreamCertificates.segmentV07_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV07.frontEndAfter ctx))
 
-theorem raw_V08_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V08.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v08
-    raw_V08.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v08_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V08.frontEndAfter ctx))
-    (StreamCertificates.segment_v08_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V08.frontEndAfter ctx))
+theorem rawV08_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV08.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV08
+    rawV08.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV08_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV08.frontEndAfter ctx))
+    (StreamCertificates.segmentV08_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV08.frontEndAfter ctx))
 
-theorem raw_V09_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V09.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v09
-    raw_V09.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v09_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V09.frontEndAfter ctx))
-    (StreamCertificates.segment_v09_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V09.frontEndAfter ctx))
+theorem rawV09_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV09.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV09
+    rawV09.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV09_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV09.frontEndAfter ctx))
+    (StreamCertificates.segmentV09_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV09.frontEndAfter ctx))
 
-theorem raw_V10_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V10.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v10
-    raw_V10.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v10_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V10.frontEndAfter ctx))
-    (StreamCertificates.segment_v10_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V10.frontEndAfter ctx))
+theorem rawV10_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV10.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV10
+    rawV10.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV10_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV10.frontEndAfter ctx))
+    (StreamCertificates.segmentV10_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV10.frontEndAfter ctx))
 
-theorem raw_V11_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V11.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v11
-    raw_V11.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v11_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V11.frontEndAfter ctx))
-    (StreamCertificates.segment_v11_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V11.frontEndAfter ctx))
+theorem rawV11_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV11.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV11
+    rawV11.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV11_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV11.frontEndAfter ctx))
+    (StreamCertificates.segmentV11_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV11.frontEndAfter ctx))
 
-theorem raw_V12_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V12.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v12
-    raw_V12.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v12_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V12.frontEndAfter ctx))
-    (StreamCertificates.segment_v12_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V12.frontEndAfter ctx))
+theorem rawV12_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV12.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV12
+    rawV12.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV12_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV12.frontEndAfter ctx))
+    (StreamCertificates.segmentV12_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV12.frontEndAfter ctx))
 
-theorem raw_V13_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V13.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV13_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV13.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a17
-    raw_V13.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV13.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a17_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V13.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV13.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.a17_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V13.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV13.frontEndAfter ctx))
 
-theorem raw_V14_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V14.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV14_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV14.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.r07
-    raw_V14.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV14.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.r07_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V14.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV14.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.r07_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V14.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV14.frontEndAfter ctx))
 
-theorem raw_V15_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V15.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v15
-    raw_V15.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v15_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V15.frontEndAfter ctx))
-    (StreamCertificates.segment_v15_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V15.frontEndAfter ctx))
+theorem rawV15_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV15.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV15
+    rawV15.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV15_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV15.frontEndAfter ctx))
+    (StreamCertificates.segmentV15_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV15.frontEndAfter ctx))
 
-theorem raw_V16_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V16.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v16
-    raw_V16.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v16_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V16.frontEndAfter ctx))
-    (StreamCertificates.segment_v16_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V16.frontEndAfter ctx))
+theorem rawV16_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV16.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV16
+    rawV16.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV16_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV16.frontEndAfter ctx))
+    (StreamCertificates.segmentV16_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV16.frontEndAfter ctx))
 
-theorem raw_V17_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V17.StreamPeakExpected (step caller) regs ctx :=
+theorem rawV17_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV17.StreamPeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a14
-    raw_V17.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    rawV17.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a14_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V17.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV17.frontEndAfter ctx))
     (Examples.RotationCertificateStreamMachine.a14_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V17.frontEndAfter ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV17.frontEndAfter ctx))
 
-theorem raw_V18_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V18.StreamPeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_v18
-    raw_V18.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_v18_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V18.frontEndAfter ctx))
-    (StreamCertificates.segment_v18_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext raw_V18.frontEndAfter ctx))
+theorem rawV18_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV18.StreamPeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentV18
+    rawV18.frontEndAfter (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentV18_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV18.frontEndAfter ctx))
+    (StreamCertificates.segmentV18_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext rawV18.frontEndAfter ctx))
 
-theorem dirty_D00_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D00.stream.PeakExpected (step caller) regs ctx :=
+theorem dirtyD00_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD00.stream.PeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a18
-    dirty_D00.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    dirtyD00.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a18_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D00.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD00.stream.before ctx))
     (Examples.RotationCertificateStreamMachine.a18_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D00.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD00.stream.before ctx))
 
-theorem dirty_D01_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D01.stream.PeakExpected (step caller) regs ctx :=
+theorem dirtyD01_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD01.stream.PeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.r10
-    dirty_D01.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    dirtyD01.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.r10_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D01.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD01.stream.before ctx))
     (Examples.RotationCertificateStreamMachine.r10_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D01.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD01.stream.before ctx))
 
-theorem dirty_D02_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D02.stream.PeakExpected (step caller) regs ctx :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_d02
-    dirty_D02.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_d02_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D02.stream.before ctx))
-    (StreamCertificates.segment_d02_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D02.stream.before ctx))
+theorem dirtyD02_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD02.stream.PeakExpected (step caller) regs ctx :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentD02
+    dirtyD02.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentD02_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD02.stream.before ctx))
+    (StreamCertificates.segmentD02_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD02.stream.before ctx))
 
-theorem dirty_D03_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    dirty_D03.stream.PeakExpected (step caller) regs ctx :=
+theorem dirtyD03_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    dirtyD03.stream.PeakExpected (step caller) regs ctx :=
   a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller Examples.RotationCertificateStreamMachine.a12
-    dirty_D03.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
+    dirtyD03.stream.before (fullReset regs) ctx (fun _ => .halt) rfl
     (Examples.RotationCertificateStreamMachine.a12_actual_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D03.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD03.stream.before ctx))
     (Examples.RotationCertificateStreamMachine.a12_actual_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirty_D03.stream.before ctx))
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext dirtyD03.stream.before ctx))
 
-theorem join_J03_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (match join_J03.stream with | none => True | some segment => segment.PeakExpected (step caller) regs ctx) :=
-  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segment_j03
-    join_J03.before (fullReset regs) ctx (fun _ => .halt) rfl
-    (StreamCertificates.segment_j03_first_run (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext join_J03.before ctx))
-    (StreamCertificates.segment_j03_exact_peak (fun _ => .halt)
-      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext join_J03.before ctx))
+theorem joinJ03_stream_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    (match joinJ03.stream with | none => True | some segment => segment.PeakExpected (step caller) regs ctx) :=
+  a_checked_stream_fixture_preserves_its_exact_peak_and_all_context_cells caller StreamCertificates.segmentJ03
+    joinJ03.before (fullReset regs) ctx (fun _ => .halt) rfl
+    (StreamCertificates.segmentJ03_first_run (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext joinJ03.before ctx))
+    (StreamCertificates.segmentJ03_exact_peak (fun _ => .halt)
+      (StreamMachine.frontEndRegisterEquiv (fullReset regs)) (streamContext joinJ03.before ctx))
 
 end LiteralStreamConnections
 

@@ -296,7 +296,7 @@ theorem emitted_tree_enters_the_actual_machine
   exact executed
 
 /-- Uniform timed evidence targets the actual first live configuration on every raw word. -/
-def actual_uniform_tree_time (d : D) (raw : Word) :
+def uniformTreeTiming (d : D) (raw : Word) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel d .init)) regs raw [] [] outputs ctx)
       (some (resultCfg d regs raw outputs ctx (parseTreeRun raw).1))
@@ -631,7 +631,7 @@ theorem all_nodes_before_a_foreign_tag_restore_without_reading_its_tail
   simpa only [runSteps_nodes_foreign count tag tail notNode notEmpty] using executed
 
 /-- A real caller continuation consumes the exact source-connected endpoint of this timed datum. -/
-def actual_tree_time_composes_with_a_continuation (d : D) (raw : Word)
+def treeThenContinuationTiming (d : D) (raw : Word)
     (budget : Nat) (finish : Option (Cfg D Γ Λ R))
     (continued : StateTransition.EvalsToInTime (step caller)
       (resultCfg d regs raw outputs ctx (parseTreeRun raw).1) finish budget) :
@@ -792,7 +792,7 @@ theorem old_output_is_distinct_from_corrupt_pending :
     (smallContext [] []) false []
 
 /-- The finite package uses the same blocks and actual initialized stack configuration. -/
-def actual_finite_machine_uniform_time (raw : Word) :
+def finiteMachineUniformTiming (raw : Word) :
     StateTransition.EvalsToInTime (machine haltCaller false true).step
       (Turing.initList (machine haltCaller false true) raw)
       (some (resultCfg false ((none, none), true) raw (fun _ => [])

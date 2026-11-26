@@ -47,21 +47,21 @@ theorem drain_input_witness (initial : R) (input cert : Bits) (tail : Raw)
     BoundaryWitness initial (literalPair input cert ++ none :: tail)
       (input.length + cert.length + 2 + n) := by
   exact ⟨_, repeated_input_prefix initial input cert tail n within,
-    PreludeInvariant.drainInput input cert tail n rfl within⟩
+    PreludeInvariant.drain_input input cert tail n rfl within⟩
 
 theorem drain_missing_witness (initial : R) (input : Bits) (n : Nat)
     (within : n ≤ (BitPairFraming.escapeBits input).length) :
     BoundaryWitness initial (input.map some) (input.length + 1 + n) := by
   refine ⟨_, missing_drain_prefix initial input n within, ?_⟩
   simpa only [List.length_map] using
-    (PreludeInvariant.drainMissing (initial := initial) (raw := input.map some) input n rfl within)
+    (PreludeInvariant.drain_missing (initial := initial) (raw := input.map some) input n rfl within)
 
 theorem drain_repeated_witness (initial : R) (input cert : Bits) (tail : Raw)
     (n : Nat) (within : n ≤ (BitPairFraming.frame input cert).length) :
     BoundaryWitness initial (literalPair input cert ++ none :: tail)
       ((literalPair input cert ++ none :: tail).length + 1 + n) := by
   exact ⟨_, repeated_work_prefix initial input cert tail n within,
-    PreludeInvariant.drainRepeated input cert tail n rfl within⟩
+    PreludeInvariant.drain_repeated input cert tail n rfl within⟩
 
 theorem handoff_invariant (initial : R) (raw : Raw) :
     PreludeInvariant initial raw (preludeSteps raw)
@@ -73,7 +73,7 @@ theorem handoff_invariant (initial : R) (raw : Raw) :
       omega
     have timed : PreludeInvariant initial (input.map some) (preludeSteps (input.map some))
         (Turing.initList (oldMachine initial) [] : Cfg R) :=
-      count ▸ (PreludeInvariant.handoffMissing (initial := initial)
+      count ▸ (PreludeInvariant.handoff_missing (initial := initial)
         (raw := input.map some) input rfl)
     have transported := congrArg
       (fun word : Bits => PreludeInvariant initial (input.map some)
@@ -84,7 +84,7 @@ theorem handoff_invariant (initial : R) (raw : Raw) :
         (preludeSteps (literalPair input cert))
         (Turing.initList (oldMachine initial) (BitPairFraming.frame input cert) : Cfg R) :=
       (preludeSteps_pair_frame input cert).symm ▸
-        (PreludeInvariant.handoffValid (initial := initial) (raw := literalPair input cert)
+        (PreludeInvariant.handoff_valid (initial := initial) (raw := literalPair input cert)
           input cert rfl)
     have transported := congrArg
       (fun word : Bits => PreludeInvariant initial (literalPair input cert)
@@ -95,7 +95,7 @@ theorem handoff_invariant (initial : R) (raw : Raw) :
         (preludeSteps (literalPair input cert ++ none :: tail))
         (Turing.initList (oldMachine initial) [] : Cfg R) :=
       (preludeSteps_repeated_frame input cert tail).symm ▸
-        (PreludeInvariant.handoffRepeated (initial := initial)
+        (PreludeInvariant.handoff_repeated (initial := initial)
           (raw := literalPair input cert ++ none :: tail) input cert tail rfl)
     have transported := congrArg
       (fun word : Bits => PreludeInvariant initial (literalPair input cert ++ none :: tail)
@@ -222,35 +222,35 @@ theorem invariant_stackCells (initial : R) (raw : Raw) (n : Nat) (reached : Cfg 
       simp only [state_stackCells, List.length_nil, List.length_reverse, List.length_drop,
         List.length_take, Nat.min_eq_left within]
       omega
-  | drainInput input cert tail j whole within =>
+  | drain_input input cert tail j whole within =>
       have hlength := congrArg List.length whole
       simp only [List.length_append, literalPair_length, List.length_cons] at hlength
       simp only [state_stackCells, List.length_drop, List.length_reverse,
         BitPairFraming.frame_length, List.length_nil]
       omega
-  | drainMissing input j whole within =>
+  | drain_missing input j whole within =>
       have hlength := congrArg List.length whole
       rw [List.length_map] at hlength
       simp only [state_stackCells, List.length_nil, List.length_drop, List.length_reverse,
         BitPairFraming.escapeBits_length]
       omega
-  | drainRepeated input cert tail j whole within =>
+  | drain_repeated input cert tail j whole within =>
       have hlength := congrArg List.length whole
       simp only [List.length_append, literalPair_length, List.length_cons] at hlength
       simp only [state_stackCells, List.length_nil, List.length_drop, List.length_reverse,
         BitPairFraming.frame_length]
       omega
-  | handoffValid input cert whole =>
+  | handoff_valid input cert whole =>
       have hlength := congrArg List.length whole
       rw [literalPair_length] at hlength
       rw [old_init_stackCells, BitPairFraming.frame_length]
       omega
-  | handoffMissing input whole =>
+  | handoff_missing input whole =>
       have emptyCells : FrontEndStreamMachine.stackCells
           (Turing.initList (oldMachine initial) ([] : Bits) : Cfg R) = 0 :=
         old_init_stackCells initial []
       exact emptyCells.le.trans (Nat.zero_le _)
-  | handoffRepeated input cert tail whole =>
+  | handoff_repeated input cert tail whole =>
       have emptyCells : FrontEndStreamMachine.stackCells
           (Turing.initList (oldMachine initial) ([] : Bits) : Cfg R) = 0 :=
         old_init_stackCells initial []

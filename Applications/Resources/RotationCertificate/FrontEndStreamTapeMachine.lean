@@ -51,8 +51,8 @@ theorem actionBound_le_tapeActionBound (l : Label Λ) :
 The source run and every source prefix come from the existing genuine-init
 controller theorems. The target input is explicitly the trInit encoded tape. -/
 theorem encoded_tape_run_bound (initial : R) (raw : Bits) :
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList (machine caller initial) [BitPairFraming.verifyFramed raw]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM1.step (tr (program caller)))
         (encodedInitial (machine caller initial) raw) (some target)
@@ -86,8 +86,8 @@ def encodedTapeTimeBound (A N : ℕ) : ℕ :=
 explicit polynomial expression. The endpoint is the related live halt with
 the computed Boolean answer on fuel; no extra outer-none transition is charged. -/
 theorem encoded_tape_run_polynomial (initial : R) (raw : Bits) :
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList (machine caller initial) [BitPairFraming.verifyFramed raw]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM1.step (tr (program caller)))
         (encodedInitial (machine caller initial) raw) (some target)
@@ -110,8 +110,8 @@ runSteps and prefix stack bound. The programme constant is fixed before raw. -/
 theorem encoded_primitive_run_bound (initial : R) (raw : Bits) :
     let tm := machine caller initial
     let : Inhabited (Package.AmbientControl tm) := Package.ambientInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [BitPairFraming.verifyFramed raw]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.ambientMachine tm))
         (Package.initial tm raw)
@@ -136,8 +136,8 @@ def encodedPrimitiveTimeBound (A N : ℕ) : ℕ :=
 theorem encoded_primitive_run_polynomial (initial : R) (raw : Bits) :
     let tm := machine caller initial
     let : Inhabited (Package.AmbientControl tm) := Package.ambientInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [BitPairFraming.verifyFramed raw]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.ambientMachine tm))
         (Package.initial tm raw)
@@ -204,8 +204,8 @@ run bound, with unchanged primitive count, whole tape and optional endpoint. -/
 theorem finite_encoded_primitive_run_bound (initial : R) (raw : Bits) :
     let tm := machine caller initial
     let : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [BitPairFraming.verifyFramed raw]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
         (TM0.init (trInit tm.k₀ raw))
@@ -228,8 +228,8 @@ bound. The complete output tape is retained on its separate fuel track. -/
 theorem finite_encoded_primitive_run_polynomial (initial : R) (raw : Bits) :
     let tm := machine caller initial
     let : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [BitPairFraming.verifyFramed raw]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
         (TM0.init (trInit tm.k₀ raw))
@@ -276,8 +276,8 @@ variable (caller : Λ → Statement Γ Λ R)
 halt exposes the actual control, registers, marker and two distinct tracks.
 The fuel word has one element, so its bottom observation is that answer. -/
 theorem related_controller_halt_observation (initial : R) (answer : Bool)
-    (target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-      (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R))
+    (target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+      (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R))
     (related : TrCfg (Turing.haltList (machine caller initial) [answer]) target) :
     target.l = none ∧ target.var = initialRegisters initial ∧
       target.Tape.head.1 = true ∧
@@ -298,8 +298,8 @@ theorem related_controller_halt_observation (initial : R) (answer : Bool)
 tape and therefore the same absent raw track and singleton fuel answer.
 This observes the mapped live configuration, not merely the source halt. -/
 theorem related_finite_primitive_halt_head (initial : R) (answer : Bool)
-    (target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-      (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R))
+    (target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+      (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R))
     (related : TrCfg (Turing.haltList (machine caller initial) [answer]) target) :
     let tm := machine caller initial
     let finish := Package.mapCfg tm (TM1to0.trCfg (tr (program caller)) target)
@@ -326,8 +326,8 @@ verbatim; no new source or target duration is postulated. -/
 theorem finite_encoded_primitive_run_observed (initial : R) (raw : Bits) :
     let tm := machine caller initial
     let : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [BitPairFraming.verifyFramed raw]) target ∧
       let finish := Package.mapCfg tm (TM1to0.trCfg (tr (program caller)) target)
       finish.Tape.head.1 = true ∧
@@ -421,8 +421,8 @@ theorem binaryYes_small_finite_primitive_run (initial : R) (input : Bits)
     let tm := machine caller initial
     let : Inhabited (Package.Control tm) := Package.controlInhabited tm
     ∃ (cert : Bits)
-      (target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R)),
+      (target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R)),
       cert.length ≤ input.length ^ 2 ∧
       (BitPairFraming.frame input cert).length ≤ (input.length + 1) ^ 2 ∧
       TrCfg (Turing.haltList tm [true]) target ∧
@@ -858,8 +858,8 @@ NP claim, or tighter height-only space estimate is included. -/
 theorem finite_encoded_primitive_visited_space (initial : R) (raw : Bits) :
     let tm := machine caller initial
     let : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [BitPairFraming.verifyFramed raw]) target ∧
       ∃ run : StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
           (TM0.init (trInit (Γ := tm.Γ) tm.k₀ raw))

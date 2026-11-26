@@ -66,9 +66,9 @@ theorem the_actual_package_uses_distinct_existing_boolean_input_and_output_store
     (machine caller initial).Γ (machine caller initial).k₁ = Bool ∧
     (machine caller initial).main = phaseLabel rawEntryPhase ∧
     (machine caller initial).initialState = initialRegisters initial :=
-  ⟨machine_inputIndex caller initial, machine_outputIndex caller initial,
+  ⟨machine_inputIndex caller initial, machine_output_index caller initial,
     machine_input_ne_output caller initial, machine_inputAlphabet caller initial,
-    machine_outputAlphabet caller initial, machine_main caller initial,
+    machine_output_alphabet caller initial, machine_main caller initial,
     machine_initialState caller initial⟩
 
 theorem every_actual_physical_alphabet_has_a_finite_type
@@ -188,7 +188,7 @@ theorem the_preserved_user_register_can_also_separate_a_cleaned_endpoint_from_ha
 
 theorem a_late_partial_clear_keeps_lower_slots_and_is_not_a_package_halt
     (caller : ExampleCaller) (initial : Bool) :
-    clear_C15.toClosedFixture.finish initial emptyContext ≠
+    cleanupC15.toClosedFixture.finish initial emptyContext ≠
       Turing.haltList (independentPackage caller initial) [true] := by
   intro equal
   have wordEqual := congrArg (fun c : ExampleCfg => c.stk (.inl .framedRaw)) equal
@@ -197,7 +197,7 @@ theorem a_late_partial_clear_keeps_lower_slots_and_is_not_a_package_halt
 
 theorem dirty_direct_emit_pushes_onto_old_fuel_and_is_not_a_singleton_package_halt
     (caller : ExampleCaller) (initial : Bool) :
-    emit_E02.toClosedFixture.finish initial emptyContext ≠
+    emitE02.toClosedFixture.finish initial emptyContext ≠
       Turing.haltList (independentPackage caller initial) [true] := by
   intro equal
   have wordEqual := congrArg (fun c : ExampleCfg => c.stk (.inl .fuel)) equal
@@ -206,7 +206,7 @@ theorem dirty_direct_emit_pushes_onto_old_fuel_and_is_not_a_singleton_package_ha
 
 theorem the_empty_direct_emit_fixture_has_the_package_output_without_using_its_initializer
     (caller : ExampleCaller) (initial : Bool) :
-    emit_E03.toClosedFixture.finish initial emptyContext =
+    emitE03.toClosedFixture.finish initial emptyContext =
       Turing.haltList (independentPackage caller initial) [false] := by
   exact (machine_haltList_eq caller initial [false]).symm
 
@@ -215,7 +215,7 @@ theorem the_empty_direct_emit_fixture_has_the_package_output_without_using_its_i
 section CompleteInstallationMaps
 
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 
 theorem complete_installation_reads_back_every_label_register_and_stack_word
@@ -242,7 +242,7 @@ section OwnedInstallationExecution
 
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
 variable [DecidableEq K] [DecidableEq K']
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (caller : Λ → Statement Γ Λ R)
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
@@ -276,7 +276,7 @@ theorem an_actual_owned_first_halt_transports_its_complete_endpoint_and_every_la
     (∀ n, n < ticks → ∃ reached,
       (FrontEndMachine.Transport.next ambient)^[n]
           (some (installedCfg names symbols registers labels start)) = some reached ∧
-      installedOwned labels reached.l) ∧
+      InstalledOwned labels reached.l) ∧
     ∀ extra, (FrontEndMachine.Transport.next ambient)^[ticks + 1 + extra]
         (some (installedCfg names symbols registers labels start)) = none := by
   have localRun : LocalRun caller ticks start finish :=
@@ -318,7 +318,7 @@ theorem every_literal_raw_case_has_the_same_installed_first_halt_and_halt_tail
     (∀ n, n < fixture.ticks → ∃ reached,
       (FrontEndMachine.Transport.next ambient)^[n]
           (some (installedCfg names symbols registers labels (fixture.start regs ctx))) = some reached ∧
-      installedOwned labels reached.l) ∧
+      InstalledOwned labels reached.l) ∧
     ∀ extra, (FrontEndMachine.Transport.next ambient)^[fixture.ticks + 1 + extra]
         (some (installedCfg names symbols registers labels (fixture.start regs ctx))) = none := by
   have actual := all_original_raw_rows_have_their_actual_first_halt caller regs ctx fixture member

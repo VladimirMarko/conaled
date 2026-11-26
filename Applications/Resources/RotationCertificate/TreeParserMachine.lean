@@ -45,21 +45,21 @@ abbrev Registers (R : Type) := Temporaries × R
 
 variable {D K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (D : Type) (Γ : K → Type) : StackId D K → Type
+abbrev Alphabet (D : Type) (Γ : K → Type) : StackId D K → Type
   | .inl .raw | .inl .reverse | .inl (.output _) => Tag
   | .inl .pending => Unit
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId D K) :
-    Fintype (alphabet D Γ k) := by
+    Fintype (Alphabet D Γ k) := by
   cases k with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
 
 abbrev Statement (D : Type) (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet D Γ) (Label D Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet D Γ) (Label D Λ) (Registers R)
 abbrev Cfg (D : Type) (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet D Γ) (Label D Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet D Γ) (Label D Λ) (Registers R)
 
 def phaseLabel (d : D) (phase : Phase) : Label D Λ := .inl (d, phase)
 def resultLabel (d : D) (result : Result) : Label D Λ := .inr (.inl (d, result))
@@ -1367,7 +1367,7 @@ def machine (d : D) (initial : R) : Turing.FinTM2 where
   K := StackId D K
   k₀ := .inl .raw
   k₁ := .inl (.output d)
-  Γ := alphabet D Γ
+  Γ := Alphabet D Γ
   Λ := Label D Λ
   main := phaseLabel d .init
   σ := Registers R

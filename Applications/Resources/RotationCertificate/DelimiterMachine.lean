@@ -167,7 +167,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := FrontEndStreamMachine.StackId CallerStore
   k₀ := inputIndex
   k₁ := fuelIndex
-  Γ := FrontEndStreamMachine.alphabet CallerAlphabet
+  Γ := FrontEndStreamMachine.Alphabet CallerAlphabet
   Λ := FrontEndStreamMachine.Label CallerPhase
   main := FrontEndStreamMachine.callerLabel .prefix
   σ := Registers R
@@ -183,7 +183,7 @@ def machineAlphabetFintype (initial : R) (k : (machine initial).K) :
 theorem machine_inputAlphabet (initial : R) :
     (machine initial).Γ (machine initial).k₀ = Option Bool := rfl
 
-theorem machine_outputAlphabet (initial : R) :
+theorem machine_output_alphabet (initial : R) :
     (machine initial).Γ (machine initial).k₁ = Bool := rfl
 
 theorem machine_program_eq_old (initial : R) :
@@ -567,33 +567,33 @@ inductive PreludeInvariant [Fintype R] (initial : R) (raw : Raw) : Nat → Cfg R
           (lastBitPop none ((BitPairFraming.frame input cert).reverse.take j)) []
           ((BitPairFraming.frame input cert).reverse.drop j)
           ((BitPairFraming.frame input cert).reverse.take j).reverse)
-  | drainInput (input cert : Bits) (tail : Raw) (j : Nat)
+  | drain_input (input cert : Bits) (tail : Raw) (j : Nat)
       (whole : raw = literalPair input cert ++ none :: tail)
       (within : j ≤ tail.length) :
       PreludeInvariant initial raw (input.length + cert.length + 2 + j)
         (state .drainInput initial (lastInputPop (some none) (tail.take j))
           (tail.drop j) (BitPairFraming.frame input cert).reverse [])
-  | drainMissing (input : Bits) (j : Nat)
+  | drain_missing (input : Bits) (j : Nat)
       (whole : raw = input.map some)
       (within : j ≤ (BitPairFraming.escapeBits input).length) :
       PreludeInvariant initial raw (raw.length + 1 + j)
         (state .drainWork initial
           (lastBitPop none ((BitPairFraming.escapeBits input).reverse.take j)) []
           ((BitPairFraming.escapeBits input).reverse.drop j) [])
-  | drainRepeated (input cert : Bits) (tail : Raw) (j : Nat)
+  | drain_repeated (input cert : Bits) (tail : Raw) (j : Nat)
       (whole : raw = literalPair input cert ++ none :: tail)
       (within : j ≤ (BitPairFraming.frame input cert).length) :
       PreludeInvariant initial raw (raw.length + 1 + j)
         (state .drainWork initial
           (lastBitPop none ((BitPairFraming.frame input cert).reverse.take j)) []
           ((BitPairFraming.frame input cert).reverse.drop j) [])
-  | handoffValid (input cert : Bits) (whole : raw = literalPair input cert) :
+  | handoff_valid (input cert : Bits) (whole : raw = literalPair input cert) :
       PreludeInvariant initial raw (raw.length + (BitPairFraming.frame input cert).length + 2)
         (Turing.initList (oldMachine initial) (BitPairFraming.frame input cert))
-  | handoffMissing (input : Bits) (whole : raw = input.map some) :
+  | handoff_missing (input : Bits) (whole : raw = input.map some) :
       PreludeInvariant initial raw (raw.length + 2 * input.length + 2)
         (Turing.initList (oldMachine initial) [])
-  | handoffRepeated (input cert : Bits) (tail : Raw)
+  | handoff_repeated (input cert : Bits) (tail : Raw)
       (whole : raw = literalPair input cert ++ none :: tail) :
       PreludeInvariant initial raw (raw.length + (BitPairFraming.frame input cert).length + 2)
         (Turing.initList (oldMachine initial) [])

@@ -29,14 +29,14 @@ variable [DecidableEq K] [Fintype K] [Fintype Λ] [Fintype R] [∀ k, Fintype (�
 variable (caller : Λ → Statement Γ Λ R) (initial : R)
 
 theorem empty_raw_rejects_on_tape :
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList (machine caller initial) [false]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM1.step (tr (program caller)))
         (encodedInitial (machine caller initial) []) (some target)
         (20 * (1 + tapeActionBound caller * (2 * (1 + tapeActionBound caller) + 2)))) := by
   have output : BitPairFraming.verifyFramed ([] : Bits) = false :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_F01_has_its_original_component_tariffs.2
+    Examples.RotationCertificateFrontEndStreamMachine.sourceF01_has_its_original_component_tariffs.2
   have clock : runSteps ([] : Bits) = 20 :=
     (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.emptyRawFixture
       (initialRegisters initial) (fun _ => [])
@@ -46,14 +46,14 @@ theorem empty_raw_rejects_on_tape :
   exact result
 
 theorem singleton_false_raw_rejects_on_tape :
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList (machine caller initial) [false]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM1.step (tr (program caller)))
         (encodedInitial (machine caller initial) [false]) (some target)
         (20 * (1 + tapeActionBound caller * (2 * (1 + tapeActionBound caller) + 2)))) := by
   have output : BitPairFraming.verifyFramed ([false] : Bits) = false :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_F02_has_its_original_component_tariffs.2
+    Examples.RotationCertificateFrontEndStreamMachine.sourceF02_has_its_original_component_tariffs.2
   have clock : runSteps ([false] : Bits) = 20 :=
     (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.truncatedPrefixFixture
       (initialRegisters initial) (fun _ => [])
@@ -63,34 +63,34 @@ theorem singleton_false_raw_rejects_on_tape :
   exact result
 
 theorem literal_equal_leaf_raw_accepts_on_tape :
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList (machine caller initial) [true]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM1.step (tr (program caller)))
-        (encodedInitial (machine caller initial) Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw) (some target)
+        (encodedInitial (machine caller initial) Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw) (some target)
         (95 * (1 + tapeActionBound caller * (2 * (41 + tapeActionBound caller) + 2)))) := by
-  have output : BitPairFraming.verifyFramed Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw = true :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_V01_has_its_original_component_tariffs.2
-  have clock : runSteps Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw = 95 :=
-    (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.raw_V01
+  have output : BitPairFraming.verifyFramed Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw = true :=
+    Examples.RotationCertificateFrontEndStreamMachine.sourceV01_has_its_original_component_tariffs.2
+  have clock : runSteps Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw = 95 :=
+    (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.rawV01
       (initialRegisters initial) (fun _ => [])
-      (Examples.RotationCertificateFrontEndStreamMachine.raw_V01_actual_first_halt caller (initialRegisters initial) (fun _ => []))).symm
-  have length : Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw.length = 41 := rfl
-  have result := encoded_tape_run_bound caller initial Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw
+      (Examples.RotationCertificateFrontEndStreamMachine.rawV01_actual_first_halt caller (initialRegisters initial) (fun _ => []))).symm
+  have length : Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw.length = 41 := rfl
+  have result := encoded_tape_run_bound caller initial Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw
   rw [output, clock, length] at result
   exact result
 
 theorem literal_equal_leaf_has_the_explicit_polynomial_bound :
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList (machine caller initial) [true]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM1.step (tr (program caller)))
-        (encodedInitial (machine caller initial) Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw) (some target)
+        (encodedInitial (machine caller initial) Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw) (some target)
         (2127 * (1 + tapeActionBound caller * (2 * (42 + tapeActionBound caller) + 2)))) := by
-  have output : BitPairFraming.verifyFramed Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw = true :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_V01_has_its_original_component_tariffs.2
-  have length : Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw.length = 41 := rfl
-  have result := encoded_tape_run_polynomial caller initial Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw
+  have output : BitPairFraming.verifyFramed Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw = true :=
+    Examples.RotationCertificateFrontEndStreamMachine.sourceV01_has_its_original_component_tariffs.2
+  have length : Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw.length = 41 := rfl
+  have result := encoded_tape_run_polynomial caller initial Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw
   rw [output, length] at result
   exact result
 
@@ -139,8 +139,8 @@ native-tape initialization cases. All source fixtures and clocks are retained.
 theorem empty_raw_rejects_on_finite_primitive :
     let tm := machine caller initial
     letI : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [false]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
         (TM0.init (trInit tm.k₀ []))
@@ -148,7 +148,7 @@ theorem empty_raw_rejects_on_finite_primitive :
         (3 * (20 * (1 + tapeActionBound caller *
           (2 * (1 + tapeActionBound caller) + 2))))) := by
   have output : BitPairFraming.verifyFramed ([] : Bits) = false :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_F01_has_its_original_component_tariffs.2
+    Examples.RotationCertificateFrontEndStreamMachine.sourceF01_has_its_original_component_tariffs.2
   have clock : runSteps ([] : Bits) = 20 :=
     (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock
       caller Examples.RotationCertificateFrontEndStreamMachine.emptyRawFixture
@@ -162,8 +162,8 @@ theorem empty_raw_rejects_on_finite_primitive :
 theorem singleton_false_raw_rejects_on_finite_primitive :
     let tm := machine caller initial
     letI : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [false]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
         (TM0.init (trInit tm.k₀ [false]))
@@ -171,7 +171,7 @@ theorem singleton_false_raw_rejects_on_finite_primitive :
         (3 * (20 * (1 + tapeActionBound caller *
           (2 * (1 + tapeActionBound caller) + 2))))) := by
   have output : BitPairFraming.verifyFramed ([false] : Bits) = false :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_F02_has_its_original_component_tariffs.2
+    Examples.RotationCertificateFrontEndStreamMachine.sourceF02_has_its_original_component_tariffs.2
   have clock : runSteps ([false] : Bits) = 20 :=
     (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock
       caller Examples.RotationCertificateFrontEndStreamMachine.truncatedPrefixFixture
@@ -185,48 +185,48 @@ theorem singleton_false_raw_rejects_on_finite_primitive :
 theorem literal_equal_leaf_raw_accepts_on_finite_primitive :
     let tm := machine caller initial
     letI : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [true]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
         (TM0.init (trInit tm.k₀
-          Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw))
+          Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw))
         (some (Package.mapCfg tm (TM1to0.trCfg (tr (program caller)) target)))
         (3 * (95 * (1 + tapeActionBound caller *
           (2 * (41 + tapeActionBound caller) + 2))))) := by
   have output : BitPairFraming.verifyFramed
-      Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw = true :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_V01_has_its_original_component_tariffs.2
-  have clock : runSteps Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw = 95 :=
+      Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw = true :=
+    Examples.RotationCertificateFrontEndStreamMachine.sourceV01_has_its_original_component_tariffs.2
+  have clock : runSteps Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw = 95 :=
     (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock
-      caller Examples.RotationCertificateFrontEndStreamMachine.raw_V01
+      caller Examples.RotationCertificateFrontEndStreamMachine.rawV01
       (initialRegisters initial) (fun _ => [])
-      (Examples.RotationCertificateFrontEndStreamMachine.raw_V01_actual_first_halt
+      (Examples.RotationCertificateFrontEndStreamMachine.rawV01_actual_first_halt
         caller (initialRegisters initial) (fun _ => []))).symm
-  have length : Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw.length = 41 := rfl
+  have length : Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw.length = 41 := rfl
   have result := finite_encoded_primitive_run_bound caller initial
-    Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw
+    Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw
   rw [output, clock, length] at result
   exact result
 
 theorem literal_equal_leaf_primitive_polynomial_bound :
     let tm := machine caller initial
     letI : Inhabited (Package.Control tm) := Package.controlInhabited tm
-    ∃ target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R),
+    ∃ target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R),
       TrCfg (Turing.haltList tm [true]) target ∧
       Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
         (TM0.init (trInit tm.k₀
-          Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw))
+          Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw))
         (some (Package.mapCfg tm (TM1to0.trCfg (tr (program caller)) target)))
         (3 * (2127 * (1 + tapeActionBound caller *
           (2 * (42 + tapeActionBound caller) + 2))))) := by
   have output : BitPairFraming.verifyFramed
-      Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw = true :=
-    Examples.RotationCertificateFrontEndStreamMachine.source_V01_has_its_original_component_tariffs.2
-  have length : Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw.length = 41 := rfl
+      Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw = true :=
+    Examples.RotationCertificateFrontEndStreamMachine.sourceV01_has_its_original_component_tariffs.2
+  have length : Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw.length = 41 := rfl
   have result := finite_encoded_primitive_run_polynomial caller initial
-    Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw
+    Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw
   rw [output, length] at result
   exact result
 
@@ -235,12 +235,12 @@ theorem literal_equal_leaf_primitive_outer_none_pays_one_more :
     letI : Inhabited (Package.Control tm) := Package.controlInhabited tm
     Nonempty (StateTransition.EvalsToInTime (TM0.step (Package.closedMachine tm))
       (TM0.init (trInit tm.k₀
-        Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw)) none
+        Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw)) none
       (3 * (2127 * (1 + tapeActionBound caller *
         (2 * (42 + tapeActionBound caller) + 2))) + 1)) := by
-  have length : Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw.length = 41 := rfl
+  have length : Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw.length = 41 := rfl
   have result := finite_encoded_primitive_outer_none caller initial
-    Examples.RotationCertificateFrontEndStreamMachine.raw_V01.raw
+    Examples.RotationCertificateFrontEndStreamMachine.rawV01.raw
   rw [length] at result
   exact result
 
@@ -350,8 +350,8 @@ theorem empty_instance_has_an_actual_finite_primitive_witness (initial : R) :
     let tm := machine caller initial
     let : Inhabited (Package.Control tm) := Package.controlInhabited tm
     ∃ (cert : Bits)
-      (target : TM1.Cfg (Γ' (StackId K) (alphabet Γ))
-        (Λ' (StackId K) (alphabet Γ) (Label Λ) (Registers R)) (Registers R)),
+      (target : TM1.Cfg (Γ' (StackId K) (Alphabet Γ))
+        (Λ' (StackId K) (Alphabet Γ) (Label Λ) (Registers R)) (Registers R)),
       cert.length ≤ 400 ∧
       (BitPairFraming.frame (wordBits (inputCode empty.val empty.val [])) cert).length ≤ 441 ∧
       TrCfg (Turing.haltList tm [true]) target ∧

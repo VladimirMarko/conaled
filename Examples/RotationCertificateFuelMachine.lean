@@ -221,7 +221,7 @@ theorem primitive_time_is_bounded_without_decoding_a_natural (fuel : Bits) :
     runSteps fuel ≤ 2 * fuel.length + 2 ∧ runSteps fuel ≤ (decFixedRun fuel).2 :=
   ⟨runSteps_le fuel, runSteps_le_source_cost fuel⟩
 
-def actual_uniform_borrow_time (fuel : Bits) :
+def uniformBorrowTiming (fuel : Bits) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel .borrow)) regs fuel [] ctx)
       (some (cfg (some (resultLabel (predSpec fuel).1))
@@ -336,7 +336,7 @@ theorem twelve_to_eleven_has_an_actual_two_token_restore_state
     3 _ (by decide) reached
 
 /-- A continuation premise is actual timed execution on the same returned configuration. -/
-def compose_with_actual_caller_time (fuel : Bits) (finish : Option (Cfg Γ Λ R)) (budget : Nat)
+def borrowThenContinuationTiming (fuel : Bits) (finish : Option (Cfg Γ Λ R)) (budget : Nat)
     (continued : StateTransition.EvalsToInTime (step caller)
       (cfg (some (resultLabel (predSpec fuel).1)) (reset regs) (predSpec fuel).2 [] ctx)
       finish budget) :
@@ -346,7 +346,7 @@ def compose_with_actual_caller_time (fuel : Bits) (finish : Option (Cfg Γ Λ R)
   StateTransition.EvalsToInTime.trans (step caller) (2 * fuel.length + 2) budget
     (cfg (some (phaseLabel .borrow)) regs fuel [] ctx)
     (cfg (some (resultLabel (predSpec fuel).1)) (reset regs) (predSpec fuel).2 [] ctx)
-    finish (actual_uniform_borrow_time caller regs ctx fuel) continued
+    finish (uniformBorrowTiming caller regs ctx fuel) continued
 
 end Context
 
@@ -590,7 +590,7 @@ theorem all_raw_words_have_a_linear_entry_bound (fuel : Bits) (cert : Word) :
     dispatchSteps fuel cert ≤ 2 * fuel.length + 3 :=
   dispatchSteps_le fuel cert
 
-def actual_uniform_dispatch_time (fuel : Bits) (cert : Word) :
+def uniformDispatchTiming (fuel : Bits) (cert : Word) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some inspectLabel) regs fuel [] cert ctx)
       (some (cfg (some (exitLabel (dispatchSpec fuel cert).1)) (FixedWidthMachine.reset regs)

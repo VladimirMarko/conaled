@@ -95,7 +95,7 @@ theorem target_failure_is_a_restore_step
         raw rev pending outputs fuel bitsReverse ctx) =
       some (cfg (some (phaseLabel .sourceToReverse)) (reset regs)
         (separatorTag :: raw) rev pending outputs fuel bitsReverse ctx) :=
-  targetFailure_step caller raw rev pending regs outputs fuel bitsReverse ctx
+  target_failure_step caller raw rev pending regs outputs fuel bitsReverse ctx
 
 /-- An invalid separator head and every following tag stay on raw during the failed probe. -/
 theorem separator_failure_does_not_consume_the_blocker
@@ -162,10 +162,10 @@ theorem missing_input_parts_have_the_fixed_failure_times
       (next caller)^[24]
         (some (entry regs [emptyTag, separatorTag, emptyTag, separatorTag, bitZeroTag] ctx)) =
         some (resultCfg regs [emptyTag, separatorTag, emptyTag, separatorTag, bitZeroTag] ctx none) :=
-  ⟨(run_firstSeparator_failure_trace caller empty.val [] regs ctx rfl).iterate caller,
+  ⟨(run_first_separator_failure_trace caller empty.val [] regs ctx rfl).iterate caller,
     (run_target_failure_trace caller empty.val [] regs ctx rfl).iterate caller,
     (run_target_failure_trace caller empty.val [nodeTag] regs ctx rfl).iterate caller,
-    (run_secondSeparator_failure_trace caller empty.val empty.val [] regs ctx rfl).iterate caller,
+    (run_second_separator_failure_trace caller empty.val empty.val [] regs ctx rfl).iterate caller,
     (run_bits_failure_trace caller empty.val empty.val [] [] regs ctx True.intro).iterate caller,
     (run_bits_failure_trace caller empty.val empty.val [false] [] regs ctx True.intro).iterate caller⟩
 
@@ -187,9 +187,9 @@ theorem foreign_boundary_failures_restore_the_whole_original_word
         (some (entry regs (emptyTag :: separatorTag :: emptyTag :: separatorTag :: endInputTag :: 15 :: tail) ctx)) =
         some (resultCfg regs
           (emptyTag :: separatorTag :: emptyTag :: separatorTag :: endInputTag :: 15 :: tail) ctx none) :=
-  ⟨(run_firstSeparator_failure_trace caller empty.val (15 :: tail) regs ctx rfl).iterate caller,
+  ⟨(run_first_separator_failure_trace caller empty.val (15 :: tail) regs ctx rfl).iterate caller,
     (run_target_failure_trace caller empty.val (15 :: tail) regs ctx rfl).iterate caller,
-    (run_secondSeparator_failure_trace caller empty.val empty.val (15 :: tail) regs ctx rfl).iterate caller,
+    (run_second_separator_failure_trace caller empty.val empty.val (15 :: tail) regs ctx rfl).iterate caller,
     (run_bits_failure_trace caller empty.val empty.val [false] (15 :: tail) regs ctx
       ⟨by decide, by decide, by decide⟩).iterate caller,
     (run_trailing_trace caller empty.val empty.val [] (15 :: tail) regs ctx (by simp)).iterate caller⟩
@@ -219,7 +219,7 @@ theorem dirty_fuel_rollback_preserves_the_accumulator
       some (cfg (some (phaseLabel .restoreSep2)) (reset regs)
         (bitTags (bitsReverse.reverse ++ fuel) ++ raw) rev pending outputs [] [] ctx) :=
   ⟨(fuelUndo_run caller raw rev pending regs outputs fuel bitsReverse ctx).iterate caller,
-    (fuelBitsUndo_run caller raw rev pending regs outputs fuel bitsReverse ctx).iterate caller⟩
+    (fuel_bits_undo_run caller raw rev pending regs outputs fuel bitsReverse ctx).iterate caller⟩
 
 /-- A dirty reverse accumulator contributes both real tags and two extra transfers here. -/
 theorem dirty_five_bit_rollback_takes_fourteen_steps
@@ -231,7 +231,7 @@ theorem dirty_five_bit_rollback_takes_fourteen_steps
       some (cfg (some (phaseLabel .restoreSep2)) (reset regs)
         ([bitZeroTag, bitOneTag, bitOneTag, bitZeroTag, bitZeroTag, bitOneTag, bitZeroTag] ++ raw)
         rev pending outputs [] [] ctx) :=
-  (fuelBitsUndo_run caller raw rev pending regs outputs
+  (fuel_bits_undo_run caller raw rev pending regs outputs
     [true, false, false, true, false] [true, false] ctx).iterate caller
 
 /-- Arbitrary old tree-reverse material is restored too; it cannot be silently discarded. -/
@@ -250,7 +250,7 @@ theorem completed_tree_rollback_retains_a_dirty_reverse_stack
       some (cfg (some (afterRollback d)) (reset regs)
         (rev.reverse ++ treeCode tree ++ raw) [] pending
         (Function.update outputs d []) fuel bitsReverse ctx) :=
-  ⟨(toReverse_run caller d (treeCode tree) raw rev pending regs outputs fuel bitsReverse ctx).iterate caller,
+  ⟨(toReversePhase_run caller d (treeCode tree) raw rev pending regs outputs fuel bitsReverse ctx).iterate caller,
     (rollback_run caller d (treeCode tree) raw rev pending regs outputs fuel bitsReverse ctx).iterate caller⟩
 
 
@@ -349,7 +349,7 @@ theorem missing_second_separator_attains_the_uniform_time_bound
     (next caller)^[4 * (treeCode source ++ separatorTag :: treeCode target).length + 7]
         (some (entry regs (treeCode source ++ separatorTag :: treeCode target) ctx)) =
       some (resultCfg regs (treeCode source ++ separatorTag :: treeCode target) ctx none) := by
-  have executed := (run_secondSeparator_failure_trace caller source target [] regs ctx rfl).iterate caller
+  have executed := (run_second_separator_failure_trace caller source target [] regs ctx rfl).iterate caller
   simp only [List.append_nil] at executed
   have count : 4 * (treeCode source).length + 4 * (treeCode target).length + 11 =
       4 * (treeCode source ++ separatorTag :: treeCode target).length + 7 := by
@@ -709,7 +709,7 @@ theorem clean_five_bit_rollback_takes_twelve_steps
       some (cfg (some (phaseLabel .restoreSep2)) (reset regs)
         ([bitOneTag, bitZeroTag, bitZeroTag, bitOneTag, bitZeroTag] ++ raw)
         rev pending outputs [] [] ctx) :=
-  (fuelBitsUndo_run caller raw rev pending regs outputs [true, false, false, true, false] [] ctx).iterate caller
+  (fuel_bits_undo_run caller raw rev pending regs outputs [true, false, false, true, false] [] ctx).iterate caller
 
 /-- Both destinations expose their distinct nonpalindromic reverse code before restoring raw. -/
 theorem nonpalindromic_tree_rollbacks_have_distinct_intermediate_orientations
@@ -732,13 +732,13 @@ theorem nonpalindromic_tree_rollbacks_have_distinct_intermediate_orientations
     have reversed : (treeCode leftTwo.val).reverse =
         [emptyTag, emptyTag, emptyTag, nodeTag, nodeTag] := rfl
     simpa only [treeOutputs_update_source, count, reversed, toReversePhase, toRawPhase] using
-      (toReverse_run caller .source (treeCode leftTwo.val) raw oldReverse pending regs
+      (toReversePhase_run caller .source (treeCode leftTwo.val) raw oldReverse pending regs
         (treeOutputs [] other) fuel bitsReverse ctx).iterate caller
   · have count : (treeCode rightTwo.val).length + 1 = 6 := rfl
     have reversed : (treeCode rightTwo.val).reverse =
         [emptyTag, emptyTag, nodeTag, emptyTag, nodeTag] := rfl
     simpa only [treeOutputs_update_target, count, reversed, toReversePhase, toRawPhase] using
-      (toReverse_run caller .target (treeCode rightTwo.val) raw oldReverse pending regs
+      (toReversePhase_run caller .target (treeCode rightTwo.val) raw oldReverse pending regs
         (treeOutputs other []) fuel bitsReverse ctx).iterate caller
 
 /-- Target rollback does not insert a separator until the following actual restore block. -/
@@ -811,14 +811,14 @@ theorem actual_failure_restores_raw_and_all_six_nonraw_owned_stacks
   run_of_none caller raw regs ctx returned
 
 /-- This is constructed timing data for the actual transition, including malformed raw inputs. -/
-def actual_full_parser_in_linear_time
+def parserLinearTiming
     [Fintype K] [Fintype Λ] [Fintype R] [∀ k, Fintype (Γ k)] (raw : Word) :
     StateTransition.EvalsToInTime (step caller) (entry regs raw ctx)
       (some (resultCfg regs raw ctx (parseInputRun raw).1)) (4 * raw.length + 7) :=
   runInLinearTime caller raw regs ctx
 
 /-- Composition uses this returned configuration as the next actual program input. -/
-def full_parser_then_actual_continuation
+def parserThenContinuationTiming
     [Fintype K] [Fintype Λ] [Fintype R] [∀ k, Fintype (Γ k)]
     (raw : Word) (final : Option (Cfg Γ Λ R)) (m : Nat)
     (continuation : StateTransition.EvalsToInTime (step caller)
@@ -877,7 +877,7 @@ theorem actual_emitted_nonpalindromic_high_zeros_have_source36_and_machine27
       [true, false, false, true, false, false, false]⟩
 
 /-- EOF rejection has source work fifteen but twenty-six actual machine transitions. -/
-theorem actual_nil_EOF_rollback_has_source15_and_machine26
+theorem actual_nil_eof_rollback_has_source15_and_machine26
     [Fintype K] [Fintype Λ] [Fintype R] [∀ k, Fintype (Γ k)] (tag : Tag) (tail : Word) :
     parseInputRun (inputCode empty.val empty.val [] ++ tag :: tail) = (none, 15) ∧
       (next caller)^[26] (some (entry regs (inputCode empty.val empty.val [] ++ tag :: tail) ctx)) =
@@ -1049,7 +1049,7 @@ theorem actual_restore_steps_conserve_mass_on_dirty_states
     debt (some (phaseLabel (Λ := Λ) .sourceToReverse)) = 0 :=
   ⟨step_effect caller (fullOwned_phase .restoreEnd)
       (restoreEnd_step caller raw rev pending regs outputs fuel bitsReverse ctx), rfl, rfl,
-    step_effect caller (by trivial) (targetFailure_step caller raw rev pending regs outputs fuel bitsReverse ctx),
+    step_effect caller (by trivial) (target_failure_step caller raw rev pending regs outputs fuel bitsReverse ctx),
     rfl, rfl⟩
 
 /-- The actual sharp space witness is strict, and its same complete run subsequently restores failure. -/
@@ -1078,7 +1078,7 @@ theorem sharp_failure_families_really_are_first_full_returns
         (next caller)^[n] (some (entry regs (treeCode source ++ separatorTag :: treeCode target) ctx)) = some reached ∧
         FullOwned reached.l) :=
   ⟨fun n strict => (missing_target_sharp_trace caller source regs ctx).owned_prefix caller n strict,
-    fun n strict => (missing_secondSeparator_sharp_trace caller source target regs ctx).owned_prefix caller n strict⟩
+    fun n strict => (missing_second_separator_sharp_trace caller source target regs ctx).owned_prefix caller n strict⟩
 
 end CompletePrefix
 
@@ -1157,7 +1157,7 @@ theorem actual_finite_machine_initialization_and_step
   ⟨initList_eq sentinelCaller true raw, machine_step_eq sentinelCaller true c⟩
 
 /-- The constructed finite machine has actual timing data from Mathlib's own initializer. -/
-def actual_finite_machine_in_linear_time (raw : Word) :
+def finiteMachineLinearTiming (raw : Word) :
     StateTransition.EvalsToInTime concreteInputMachine.step (Turing.initList concreteInputMachine raw)
       (some (resultCfg ((none, none), true) raw (fun _ : Bool => []) (parseInputRun raw).1))
       (4 * raw.length + 7) where
@@ -1181,7 +1181,7 @@ theorem actual_finite_machine_returns_live_before_any_output_cleanup (raw : Word
   have executed :
       (fun state : Option concreteInputMachine.Cfg => state.bind concreteInputMachine.step)^[inputSteps raw]
         (some (Turing.initList concreteInputMachine raw)) = some reached :=
-    (actual_finite_machine_in_linear_time raw).evals_in_steps
+    (finiteMachineLinearTiming raw).evals_in_steps
   have live : reached.l ≠ none := by
     dsimp only [reached]
     cases returned : (parseInputRun raw).1 with
@@ -1208,7 +1208,7 @@ theorem first_separator_failure_restores_an_arbitrary_completed_source
     (next caller)^[4 * (treeCode source).length + 5]
         (some (entry regs (treeCode source ++ tail) ctx)) =
       some (resultCfg regs (treeCode source ++ tail) ctx none) :=
-  (run_firstSeparator_failure_trace caller source tail regs ctx failed).iterate caller
+  (run_first_separator_failure_trace caller source tail regs ctx failed).iterate caller
 
 /-- Both literal tree codes return in order when their actual second separator fails. -/
 theorem second_separator_failure_restores_both_arbitrary_completed_trees
@@ -1217,7 +1217,7 @@ theorem second_separator_failure_restores_both_arbitrary_completed_trees
     (next caller)^[4 * (treeCode source).length + 4 * (treeCode target).length + 11]
         (some (entry regs (treeCode source ++ separatorTag :: (treeCode target ++ tail)) ctx)) =
       some (resultCfg regs (treeCode source ++ separatorTag :: (treeCode target ++ tail)) ctx none) :=
-  (run_secondSeparator_failure_trace caller source target tail regs ctx failed).iterate caller
+  (run_second_separator_failure_trace caller source target tail regs ctx failed).iterate caller
 
 /-- A genuine blocked bit suffix restores the accepted bit prefix and both earlier tree codes. -/
 theorem blocked_bits_restore_every_completed_prefix_in_order
@@ -1231,7 +1231,7 @@ theorem blocked_bits_restore_every_completed_prefix_in_order
   (run_bits_failure_trace caller source target bs tail regs ctx blocked).iterate caller
 
 /-- Every nonempty suffix selects the actual EOF rollback without traversing that suffix. -/
-theorem arbitrary_EOF_failure_keeps_its_entire_unread_tail
+theorem arbitrary_eof_failure_keeps_its_entire_unread_tail
     [Fintype K] [Fintype Λ] [Fintype R] [∀ k, Fintype (Γ k)]
     (source target : BinaryTree Unit) (bs : Bits) (tag : Tag) (tail : Word) :
     (next caller)^[4 * (treeCode source).length + 4 * (treeCode target).length + 4 * bs.length + 18]
@@ -1289,12 +1289,12 @@ theorem tree_rollback_empty_probes_are_actual_steps
         (some (cfg (some (phaseLabel (toRawPhase d))) regs raw rev pending outputs fuel bitsReverse ctx)) =
       some (cfg (some (afterRollback d)) (reset regs)
         (rev.reverse ++ raw) [] pending outputs fuel bitsReverse ctx) := by
-  refine ⟨?_, (toReverse_run caller d word raw rev pending regs outputs fuel bitsReverse ctx).iterate caller,
-    ?_, (toRaw_run caller d raw rev pending regs outputs fuel bitsReverse ctx).iterate caller⟩
+  refine ⟨?_, (toReversePhase_run caller d word raw rev pending regs outputs fuel bitsReverse ctx).iterate caller,
+    ?_, (toRawPhase_run caller d raw rev pending regs outputs fuel bitsReverse ctx).iterate caller⟩
   · simpa only [List.append_nil] using
-      (toReverse_prefix_run caller d word [] raw rev pending regs outputs fuel bitsReverse ctx).iterate caller
+      (toReversePhase_prefix_run caller d word [] raw rev pending regs outputs fuel bitsReverse ctx).iterate caller
   · simpa only [List.append_nil] using
-      (toRaw_prefix_run caller d rev [] raw pending regs outputs fuel bitsReverse ctx).iterate caller
+      (toRawPhase_prefix_run caller d rev [] raw pending regs outputs fuel bitsReverse ctx).iterate caller
 
 end RemainingFamilies
 

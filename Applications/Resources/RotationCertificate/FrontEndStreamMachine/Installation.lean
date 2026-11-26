@@ -14,7 +14,7 @@ variable {K Λ R : Type} {Γ : K → Type}
 section FurtherInstallation
 
 variable {K' Λ' R' : Type} {Γ' : K' → Type}
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 
 def installedCfg (c : Cfg Γ Λ R) : Turing.TM2.Cfg Γ' Λ' R' :=
@@ -63,12 +63,12 @@ theorem installedCfg_readback (c : Cfg Γ Λ R) :
       (installedCfg names symbols registers labels c) = c :=
   (installedCfgEquiv names symbols registers labels).symm_apply_apply c
 
-def installedOwned (label : Option Λ') : Prop := Owned (label.map labels.symm)
+def InstalledOwned (label : Option Λ') : Prop := Owned (label.map labels.symm)
 
 @[simp] theorem installedCfg_owned_iff (c : Cfg Γ Λ R) :
-    installedOwned labels (installedCfg names symbols registers labels c).l ↔ Owned c.l := by
+    InstalledOwned labels (installedCfg names symbols registers labels c).l ↔ Owned c.l := by
   cases label : c.l <;>
-    simp [installedOwned, installedCfg, FrontEndMachine.Transport.cfg, label]
+    simp [InstalledOwned, installedCfg, FrontEndMachine.Transport.cfg, label]
 
 theorem installedCfg_stack_readback (c : Cfg Γ Λ R) (k : StackId K) :
     ((installedCfg names symbols registers labels c).stk (names k)).map
@@ -133,7 +133,7 @@ theorem installed_localRun_owned_prefix
     (j : Nat) (strict : j < n) :
     ∃ reached, (FrontEndMachine.Transport.next ambient)^[j]
       (some (installedCfg names symbols registers labels start)) = some reached ∧
-      installedOwned labels reached.l := by
+      InstalledOwned labels reached.l := by
   obtain ⟨reached, executed, owned⟩ := LocalRun.owned_prefix caller run j strict
   refine ⟨installedCfg names symbols registers labels reached, ?_, ?_⟩
   · rw [installed_prefix_of_owned names symbols registers labels caller ambient installed j start
@@ -353,7 +353,7 @@ namespace Resources.RotationCertificate.FrontEndStreamMachine
 
 variable {K Λ R : Type} {Γ : K → Type}
 variable {K' Λ' R' : Type} {Γ' : K' → Type}
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable [DecidableEq K] [DecidableEq K']
 variable (caller : Λ → Statement Γ Λ R)
@@ -423,7 +423,7 @@ theorem installed_first_halt (start : Cfg Γ Λ R) (owned : Owned start.l) :
     ∀ j, j < remainingSteps start → ∃ reached,
       (FrontEndMachine.Transport.next ambient)^[j]
         (some (installedCfg names symbols registers labels start)) = some reached ∧
-      installedOwned labels reached.l := by
+      InstalledOwned labels reached.l := by
   refine ⟨installed_cfg_iterate names symbols registers labels caller ambient installed start, ?_, ?_⟩
   · rw [installedCfg_label, finalCfg_halted_of_owned start owned]
     rfl
@@ -439,7 +439,7 @@ theorem installed_first_halt_iff (start : Cfg Γ Λ R) (owned : Owned start.l)
       ∀ j, j < n → ∃ reached,
         (FrontEndMachine.Transport.next ambient)^[j]
           (some (installedCfg names symbols registers labels start)) = some reached ∧
-        installedOwned labels reached.l) ↔
+        InstalledOwned labels reached.l) ↔
       n = remainingSteps start ∧ finish = installedCfg names symbols registers labels (finalCfg start) := by
   constructor
   · rintro ⟨executed, halted, _⟩
@@ -456,7 +456,7 @@ theorem installed_first_halt_iff (start : Cfg Γ Λ R) (owned : Owned start.l)
           (cfg_localRun caller start) n (by omega)
       have same : middle = finish := Option.some.inj (before.symm.trans executed)
       subst middle
-      simp only [installedOwned, halted, Option.map_none, Owned] at middleOwned
+      simp only [InstalledOwned, halted, Option.map_none, Owned] at middleOwned
     subst n
     have endpoint := installed_cfg_iterate names symbols registers labels caller ambient installed start
     exact ⟨rfl, (Option.some.inj (endpoint.symm.trans executed)).symm⟩
@@ -471,7 +471,7 @@ theorem installed_owned_prefix_frame (start : Cfg Γ Λ R) (n : Nat) (bound : n 
         some (installedCfg names symbols registers labels reached) ∧
       remainingSteps reached = remainingSteps start - n ∧
       Relation.ReflTransGen (LocalStep caller) start reached ∧
-      (n < remainingSteps start ↔ installedOwned labels (installedCfg names symbols registers labels reached).l) ∧
+      (n < remainingSteps start ↔ InstalledOwned labels (installedCfg names symbols registers labels reached).l) ∧
       (n = 0 → reached = start) ∧
       (installedCfg names symbols registers labels reached).var = registers (registersAt start n) ∧
       user reached.var = user start.var ∧
@@ -540,7 +540,7 @@ theorem installed_owned_prefix_space (start : Cfg Γ Λ R) (n : Nat) (bound : n 
         some (installedCfg names symbols registers labels reached) ∧
       remainingSteps reached = remainingSteps start - n ∧
       Relation.ReflTransGen (LocalStep caller) start reached ∧
-      (n < remainingSteps start ↔ installedOwned labels (installedCfg names symbols registers labels reached).l) ∧
+      (n < remainingSteps start ↔ InstalledOwned labels (installedCfg names symbols registers labels reached).l) ∧
       (n = 0 → reached = start) ∧
       (installedCfg names symbols registers labels reached).var = registers (registersAt start n) ∧
       user reached.var = user start.var ∧

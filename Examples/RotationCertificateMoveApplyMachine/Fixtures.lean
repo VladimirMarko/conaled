@@ -586,10 +586,10 @@ theorem owned_control_stays_finite_for_nat_callers :
     Fintype.card (OwnedLabel Nat) = 26 := card_ownedLabel
 
 theorem every_independent_stack_alphabet_is_finite (k : StackId (Fin 2)) :
-    Nonempty (Fintype (alphabet IndependentAlphabet k)) := ⟨inferInstance⟩
+    Nonempty (Fintype (Alphabet IndependentAlphabet k)) := ⟨inferInstance⟩
 
 theorem every_author_stack_alphabet_is_finite (k : StackId (Fin 2)) :
-    Nonempty (Fintype (alphabet AuthorAlphabet k)) := ⟨inferInstance⟩
+    Nonempty (Fintype (Alphabet AuthorAlphabet k)) := ⟨inferInstance⟩
 
 theorem move_view_maps_every_local_physical_store {K : Type} :
     moveStackEquiv (K := K) (.inl .raw) = .inl .certificate ∧
@@ -1493,11 +1493,11 @@ theorem front_end_complete_index_map_has_both_inverse_laws
 
 theorem front_end_dependent_words_are_transported_without_losing_cells
     [Fintype K]
-    (stores : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) :
+    (stores : ∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k)) :
     (∀ k, frontEndStacks stores (frontEndStackEquiv k) =
       (stores k).map (frontEndSymbolEquiv k)) ∧
     (∑ k, (frontEndStacks stores k).length) = ∑ k, (stores k).length :=
-  ⟨frontEndStacks_apply stores, frontEnd_stack_cells stores⟩
+  ⟨frontEndStacks_apply stores, front_end_stack_cells stores⟩
 
 theorem front_end_register_permutation_preserves_every_field
     (tag : Option Tag) (unit : Option Unit) (decoder : OpenDecoderMachine.Temporaries)
@@ -1527,7 +1527,7 @@ theorem actual_front_end_success_has_the_complete_label_neutral_physical_data
         (cfg (Λ := Unit) none (frontEndRegisterEquiv (FrontEndMachine.reset regs))
           (data cert B O (treeCode s) [] [] [])
           (frontEndSuccessContext t fuel ctx)).stk) :=
-  frontEnd_success_physical_data regs B O ctx s t fuel cert
+  front_end_success_physical_data regs B O ctx s t fuel cert
 
 theorem front_end_keeps_target_fuel_and_the_external_context
     (t : BinaryTree Unit) (fuel : Bits) (ctx : ∀ k, List (Γ k)) :
@@ -1549,14 +1549,14 @@ theorem front_end_physical_dimensions_match_both_complete_presentations
       Fintype.card (StackId (FrontEndProtected ⊕ K)) = 16 + Fintype.card K ∧
       Fintype.card (FrontEndMachine.Registers (Option Branch × R)) = 140454 * Fintype.card R ∧
       Fintype.card (Registers (OpenDecoderMachine.Temporaries × R)) = 140454 * Fintype.card R :=
-  ⟨frontEnd_source_stack_card, frontEnd_stack_card,
-    frontEnd_source_register_card, frontEnd_register_card⟩
+  ⟨front_end_source_stack_card, front_end_stack_card,
+    front_end_source_register_card, front_end_register_card⟩
 
 theorem front_end_success_protected_cells_are_exact
     [Fintype K] (t : BinaryTree Unit) (fuel : Bits) (ctx : ∀ k, List (Γ k)) :
     (∑ k, (frontEndSuccessContext t fuel ctx k).length) =
       (treeCode t).length + fuel.length + ∑ k, (ctx k).length :=
-  frontEnd_success_context_cells t fuel ctx
+  front_end_success_context_cells t fuel ctx
 
 end FrontEndPhysicalCompatibility
 

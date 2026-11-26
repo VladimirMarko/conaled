@@ -40,18 +40,18 @@ abbrev Registers (R : Type) := FixedWidthMachine.Registers R
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev protectedAlphabet (Γ : K → Type) : Protected K → Type
+abbrev ProtectedAlphabet (Γ : K → Type) : Protected K → Type
   | .inl _ => Tag
   | .inr k => Γ k
 
 instance protectedAlphabetFintype [∀ k, Fintype (Γ k)] (k : Protected K) :
-    Fintype (protectedAlphabet Γ k) := by
+    Fintype (ProtectedAlphabet Γ k) := by
   cases k <;> exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  FixedWidthMachine.Statement (protectedAlphabet Γ) (ExtraLabel Λ) R
+  FixedWidthMachine.Statement (ProtectedAlphabet Γ) (ExtraLabel Λ) R
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  FixedWidthMachine.Cfg (protectedAlphabet Γ) (ExtraLabel Λ) R
+  FixedWidthMachine.Cfg (ProtectedAlphabet Γ) (ExtraLabel Λ) R
 
 def inspectLabel : Label Λ := FixedWidthMachine.callerLabel (.inl .inspectCertificate)
 def atEndLabel : Label Λ := FixedWidthMachine.callerLabel (.inl .atEnd)
@@ -111,7 +111,7 @@ theorem program_eq_of_agrees (ambient : Label Λ → Statement Γ Λ R)
       | inr label => rfl
 
 def stores (cert : Word) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (protectedAlphabet Γ k)
+    ∀ k, List (ProtectedAlphabet Γ k)
   | .inl _ => cert
   | .inr k => ctx k
 

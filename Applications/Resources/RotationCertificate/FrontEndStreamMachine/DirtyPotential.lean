@@ -163,7 +163,7 @@ def inputPotential (control : InputControl) (data : InputState) : Nat :=
 @[simp] theorem inputControlLabel_result (result : TreeParserMachine.Result) :
     inputControlLabel (Λ := Λ) (.inr result) = InputParserMachine.resultLabel result := rfl
 
-@[simp] theorem inputControlLabel_treeResult (side : InputParserMachine.TreeSide)
+@[simp] theorem inputControlLabel_inputTreeResultControl (side : InputParserMachine.TreeSide)
     (result : TreeParserMachine.Result) :
     inputControlLabel (Λ := Λ) (inputTreeResultControl side result) =
       InputParserMachine.treeResultLabel side result := by
@@ -208,7 +208,7 @@ theorem inputTreeAdvance_step (side : InputParserMachine.TreeSide) (phase : Tree
   | emit =>
       cases revEq : data.rev with
       | nil =>
-          simpa only [inputTreeAdvance, revEq, inputControlLabel_treeResult, InputParserMachine.treeResultLabel] using
+          simpa only [inputTreeAdvance, revEq, inputControlLabel_inputTreeResultControl, InputParserMachine.treeResultLabel] using
             TreeParserMachine.emit_step_nil (InputParserMachine.handler caller) side data.raw data.pending regs
               data.outputs (InputParserMachine.stores data.fuel data.bitsReverse ctx)
       | cons tag rev =>
@@ -228,7 +228,7 @@ theorem inputTreeAdvance_step (side : InputParserMachine.TreeSide) (phase : Tree
   | dropPending =>
       cases pendingEq : data.pending with
       | nil =>
-          simpa only [inputTreeAdvance, pendingEq, inputControlLabel_treeResult, InputParserMachine.treeResultLabel] using
+          simpa only [inputTreeAdvance, pendingEq, inputControlLabel_inputTreeResultControl, InputParserMachine.treeResultLabel] using
             TreeParserMachine.dropPending_step_nil (InputParserMachine.handler caller) side data.raw data.rev regs
               data.outputs (InputParserMachine.stores data.fuel data.bitsReverse ctx)
       | cons token pending =>
@@ -247,14 +247,14 @@ theorem inputToReverseAdvance_step (side : InputParserMachine.TreeSide) (data : 
   | nil =>
       have restored : Function.update data.outputs side [] = data.outputs := by
         rw [← selected, Function.update_eq_self]
-      have equation := InputParserMachine.toReverse_step_nil caller side data.raw data.rev data.pending
+      have equation := InputParserMachine.toReversePhase_step_nil caller side data.raw data.rev data.pending
         regs data.outputs data.fuel data.bitsReverse ctx
       rw [restored] at equation
       simpa only [inputCfg, inputToReverseAdvance, selected, inputControlLabel_local] using equation
   | cons tag word =>
       have restored : Function.update data.outputs side (tag :: word) = data.outputs := by
         rw [← selected, Function.update_eq_self]
-      have equation := InputParserMachine.toReverse_step_cons caller side tag data.raw data.rev word data.pending
+      have equation := InputParserMachine.toReversePhase_step_cons caller side tag data.raw data.rev word data.pending
         regs data.outputs data.fuel data.bitsReverse ctx
       rw [restored] at equation
       simpa only [inputCfg, inputToReverseAdvance, selected, inputControlLabel_local] using equation
@@ -267,14 +267,14 @@ theorem inputToRawAdvance_step (side : InputParserMachine.TreeSide) (data : Inpu
         (InputParserMachine.reset regs) (inputToRawAdvance side data).2 ctx) := by
   cases revEq : data.rev with
   | nil =>
-      have equation := InputParserMachine.toRaw_step_nil caller side data.raw data.pending
+      have equation := InputParserMachine.toRawPhase_step_nil caller side data.raw data.pending
         regs data.outputs data.fuel data.bitsReverse ctx
       cases side <;>
         simpa only [inputCfg, inputToRawAdvance, revEq, inputControlLabel_local,
           inputControlLabel_result, InputParserMachine.afterRollback] using equation
   | cons tag rev =>
       simpa only [inputCfg, inputToRawAdvance, revEq, inputControlLabel_local] using
-        InputParserMachine.toRaw_step_cons caller side tag data.raw rev data.pending
+        InputParserMachine.toRawPhase_step_cons caller side tag data.raw rev data.pending
           regs data.outputs data.fuel data.bitsReverse ctx
 
 
@@ -403,7 +403,7 @@ theorem inputAdvance_step (phase : InputParserMachine.OwnedLabels) (data : Input
       | inr phase =>
           cases phase with
           | inl token =>
-              exact InputParserMachine.targetFailure_step caller data.raw data.rev data.pending
+              exact InputParserMachine.target_failure_step caller data.raw data.rev data.pending
                 regs data.outputs data.fuel data.bitsReverse ctx
           | inr phase => exact inputLocalAdvance_step caller phase data regs ctx
 
@@ -511,7 +511,7 @@ end InputPotentialExecution
 theorem frontEndInputStage_masks (phase : InputParserMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) : (frontEndInputStage phase data).masks = [.input] := rfl
 
-theorem frontEndInputOwned_tree_label (side : InputParserMachine.TreeSide) (phase : TreeParserMachine.Phase) :
+theorem inputOwnedLabel_tree (side : InputParserMachine.TreeSide) (phase : TreeParserMachine.Phase) :
     FrontEndMachine.inputOwnedLabel (Λ := Λ) (.inl (side, phase)) = InputParserMachine.treeLabel side phase := rfl
 
 def frontEndComponentRegisters (mask : FrontEndMask) (regs : FrontEndMachine.Registers R) (n : Nat) :
@@ -590,7 +590,7 @@ section FrontEndPrefixExecution
 variable [DecidableEq K]
 variable (caller : FrontEndMachine.External Λ → FrontEndMachine.Statement Γ Λ R)
 
-theorem frontEnd_prefix_after {start middle reached : FrontEndMachine.Cfg Γ Λ R} {first n : Nat}
+theorem front_end_prefix_after {start middle reached : FrontEndMachine.Cfg Γ Λ R} {first n : Nat}
     (before : (FrontEndMachine.next caller)^[first] (some start) = some middle)
     (later : first ≤ n)
     (executed : (FrontEndMachine.next caller)^[n] (some start) = some reached) :
@@ -677,7 +677,7 @@ theorem frontEndInputStage_prefix_state (phase : InputParserMachine.OwnedLabels)
     (some (FrontEndMachine.inputView (some (InputParserMachine.ownedLabelEquiv phase).val) regs data ctx)) =
       some localReached at localEq
   rw [localEq, FrontEndMachine.inputCfg_view] at translated
-  simp only [Option.map_some, frontEndInputOwned_label, FrontEndMachine.inputRegisterEquiv,
+  simp only [Option.map_some, inputLabelEquiv_ownedLabelEquiv, FrontEndMachine.inputRegisterEquiv,
     Equiv.refl_apply] at translated
   have same : reached = FrontEndMachine.inputCfg localReached :=
     Option.some.inj (executed.symm.trans translated)
@@ -690,7 +690,7 @@ theorem frontEndInputStage_prefix_state (phase : InputParserMachine.OwnedLabels)
     exact headRun.frame localCaller (.inr k)
 
 
-theorem frontEndInputDecoderStage_prefix_state (phase : OpenDecoderMachine.Phase)
+theorem frontEndDecoderStage_input_prefix_state (phase : OpenDecoderMachine.Phase)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ (frontEndDecoderStage .input phase data).steps)
     (reached : FrontEndMachine.Cfg Γ Λ R)
@@ -723,7 +723,7 @@ theorem frontEndInputDecoderStage_prefix_state (phase : OpenDecoderMachine.Phase
           (frontEndDecoderRaw .input data) data.decodeReverse (frontEndDecoderOutput .input data)
           localRegs (FrontEndMachine.decoderContext .input data ctx) j (by omega)
         exact ⟨actual, eq, owned.mp (by omega)⟩
-      have translated := FrontEndMachine.inputDecoder_prefix_installed caller localCaller (n + 1)
+      have translated := FrontEndMachine.input_decoder_prefix_installed caller localCaller (n + 1)
         (FrontEndMachine.inputDecoderView (some (OpenDecoderMachine.phaseLabel phase)) localRegs data ctx) within
       change (OpenDecoderMachine.next localCaller)^[n + 1]
         (some (FrontEndMachine.inputDecoderView (some (OpenDecoderMachine.phaseLabel phase)) localRegs data ctx)) =
@@ -739,12 +739,12 @@ theorem frontEndInputDecoderStage_prefix_state (phase : OpenDecoderMachine.Phase
       refine ⟨?_, ?_⟩
       · change FrontEndMachine.decoderRegisterEquiv localReached.var = FrontEndMachine.afterInputDecoder regs
         rw [localReset]
-        exact frontEndDecoderRegister_reset regs
+        exact decoderRegisterEquiv_reset regs
       · intro k
         rw [FrontEndMachine.inputDecoderCfg_outside]
         exact preserved.2 (.inr k)
 
-theorem frontEndCertificateDecoderStage_prefix_state (phase : OpenDecoderMachine.Phase)
+theorem frontEndDecoderStage_certificate_prefix_state (phase : OpenDecoderMachine.Phase)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ (frontEndDecoderStage .certificate phase data).steps)
     (reached : FrontEndMachine.Cfg Γ Λ R)
@@ -777,7 +777,7 @@ theorem frontEndCertificateDecoderStage_prefix_state (phase : OpenDecoderMachine
           (frontEndDecoderRaw .certificate data) data.decodeReverse (frontEndDecoderOutput .certificate data)
           localRegs (FrontEndMachine.decoderContext .certificate data ctx) j (by omega)
         exact ⟨actual, eq, owned.mp (by omega)⟩
-      have translated := FrontEndMachine.certificateDecoder_prefix_installed caller localCaller (n + 1)
+      have translated := FrontEndMachine.certificate_decoder_prefix_installed caller localCaller (n + 1)
         (FrontEndMachine.certificateDecoderView (some (OpenDecoderMachine.phaseLabel phase)) localRegs data ctx) within
       change (OpenDecoderMachine.next localCaller)^[n + 1]
         (some (FrontEndMachine.certificateDecoderView (some (OpenDecoderMachine.phaseLabel phase)) localRegs data ctx)) =
@@ -793,7 +793,7 @@ theorem frontEndCertificateDecoderStage_prefix_state (phase : OpenDecoderMachine
       refine ⟨?_, ?_⟩
       · change FrontEndMachine.decoderRegisterEquiv localReached.var = FrontEndMachine.afterInputDecoder regs
         rw [localReset]
-        exact frontEndDecoderRegister_reset regs
+        exact decoderRegisterEquiv_reset regs
       · intro k
         rw [FrontEndMachine.certificateDecoderCfg_outside]
         exact preserved.2 (.inr k)
@@ -827,11 +827,11 @@ theorem frontEndInputFinish_prefix_state (phase : InputParserMachine.OwnedLabels
           simpa only [frontEndStageCfg, returned, frontEndInputStage_masks, frontEndMaskRegs,
             List.foldl_cons, List.foldl_nil] using
             (frontEndInputStage_trace caller phase data regs ctx).run
-        have later := frontEnd_prefix_after caller first (Nat.le_of_lt (Nat.lt_of_not_ge early)) executed
+        have later := front_end_prefix_after caller first (Nat.le_of_lt (Nat.lt_of_not_ge early)) executed
         have laterBound : n - (frontEndInputStage phase data).steps ≤ (frontEndCertificateFinish .scan (frontEndInputStage phase data).data).steps := by
           rw [count] at bound
           omega
-        have state := frontEndCertificateDecoderStage_prefix_state caller .scan (frontEndInputStage phase data).data
+        have state := frontEndDecoderStage_certificate_prefix_state caller .scan (frontEndInputStage phase data).data
           (FrontEndMask.input.apply regs) ctx (n - (frontEndInputStage phase data).steps) laterBound reached later
         simpa only [frontEndInputRegisters, ite_eq_right early, frontEndCertificateRegisters] using state
 
@@ -845,7 +845,7 @@ theorem frontEndInputDecoderFinish_prefix_state (phase : OpenDecoderMachine.Phas
       ∀ k, reached.stk (.inr k) = ctx k := by
   by_cases early : n ≤ (frontEndDecoderStage .input phase data).steps
   · simpa only [frontEndInputDecoderRegisters, ite_eq_left early] using
-      frontEndInputDecoderStage_prefix_state caller phase data regs ctx n early reached executed
+      frontEndDecoderStage_input_prefix_state caller phase data regs ctx n early reached executed
   · cases returned : (frontEndDecoderStage .input phase data).result with
     | failure =>
         have count : (frontEndInputDecoderFinish phase data).steps = (frontEndDecoderStage .input phase data).steps := by
@@ -861,9 +861,9 @@ theorem frontEndInputDecoderFinish_prefix_state (phase : OpenDecoderMachine.Phas
             some (FrontEndMachine.cfg (some (FrontEndMachine.inputOwnedLabel (.inl (.source, .init))))
               (FrontEndMask.decoder.apply regs) (frontEndDecoderStage .input phase data).data ctx) := by
           simpa only [frontEndStageCfg, returned, frontEndDecoderStage_masks, frontEndMaskRegs,
-            List.foldl_cons, List.foldl_nil, frontEndInputOwned_tree_label] using
-            (frontEndInputDecoderStage_trace caller phase data regs ctx).run
-        have later := frontEnd_prefix_after caller first (Nat.le_of_lt (Nat.lt_of_not_ge early)) executed
+            List.foldl_cons, List.foldl_nil, inputOwnedLabel_tree] using
+            (frontEndDecoderStage_input_trace caller phase data regs ctx).run
+        have later := front_end_prefix_after caller first (Nat.le_of_lt (Nat.lt_of_not_ge early)) executed
         have laterBound : n - (frontEndDecoderStage .input phase data).steps ≤ (frontEndInputFinish (.inl (.source, .init)) (frontEndDecoderStage .input phase data).data).steps := by
           rw [count] at bound
           omega
@@ -899,7 +899,7 @@ theorem frontEndFramerFinish_prefix_state (phase : OpenFramingMachine.Phase)
           simpa only [frontEndStageCfg, returned, frontEndFramerStage_masks, frontEndMaskRegs,
             List.foldl_cons, List.foldl_nil] using
             (frontEndFramerStage_trace caller phase data regs ctx).run
-        have later := frontEnd_prefix_after caller first (Nat.le_of_lt (Nat.lt_of_not_ge early)) executed
+        have later := front_end_prefix_after caller first (Nat.le_of_lt (Nat.lt_of_not_ge early)) executed
         have laterBound : n - (frontEndFramerStage phase data).steps ≤ (frontEndInputDecoderFinish .scan (frontEndFramerStage phase data).data).steps := by
           rw [count] at bound
           omega
@@ -907,7 +907,7 @@ theorem frontEndFramerFinish_prefix_state (phase : OpenFramingMachine.Phase)
           (FrontEndMask.framer.apply regs) ctx (n - (frontEndFramerStage phase data).steps) laterBound reached later
         simpa only [frontEndFramerRegisters, ite_eq_right early] using state
 
-theorem frontEnd_phase_prefix_state (phase : FrontEndMachine.OwnedLabels)
+theorem front_end_phase_prefix_state (phase : FrontEndMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ frontEndPhaseSteps phase data)
     (reached : FrontEndMachine.Cfg Γ Λ R)
@@ -925,9 +925,9 @@ theorem frontEnd_phase_prefix_state (phase : FrontEndMachine.OwnedLabels)
           | inl phase => exact frontEndInputDecoderFinish_prefix_state caller phase data regs ctx n bound reached executed
           | inr phase =>
               cases phase with
-              | scan => exact frontEndCertificateDecoderStage_prefix_state caller .scan data regs ctx n bound reached executed
-              | emit => exact frontEndCertificateDecoderStage_prefix_state caller .emit data regs ctx n bound reached executed
-              | clear => exact frontEndCertificateDecoderStage_prefix_state caller .clear data regs ctx n bound reached executed
+              | scan => exact frontEndDecoderStage_certificate_prefix_state caller .scan data regs ctx n bound reached executed
+              | emit => exact frontEndDecoderStage_certificate_prefix_state caller .emit data regs ctx n bound reached executed
+              | clear => exact frontEndDecoderStage_certificate_prefix_state caller .clear data regs ctx n bound reached executed
 
 end FrontEndPrefixExecution
 
@@ -1068,13 +1068,13 @@ def frontEndInputOutside (data : FrontEndMachine.LocalData) : Nat :=
   data.framedRaw.length + data.frameFirstReverse.length + data.frameCertReverse.length +
     data.inputBits.length + data.certificateBits.length + data.decodeReverse.length + data.certificateWord.length
 
-theorem frontEndLocalCells_input (data : FrontEndMachine.LocalData) :
+theorem frontEndMachineLocalCells_input (data : FrontEndMachine.LocalData) :
     FrontEndMachine.localCells data = inputLocalCells (frontEndInputData data) + frontEndInputOutside data := by
   simp only [FrontEndMachine.localCells, inputLocalCells, frontEndInputData,
     InputParserMachine.treeOutputs_source, InputParserMachine.treeOutputs_target, frontEndInputOutside]
   omega
 
-theorem frontEndLocalCells_withInput (data : FrontEndMachine.LocalData) (input : InputState) :
+theorem frontEndMachineLocalCells_frontEndWithInput (data : FrontEndMachine.LocalData) (input : InputState) :
     FrontEndMachine.localCells (frontEndWithInput data input) = inputLocalCells input + frontEndInputOutside data := by
   simp only [FrontEndMachine.localCells, inputLocalCells, frontEndWithInput, frontEndInputOutside]
   omega
@@ -1110,7 +1110,7 @@ section FrontEndPotentialExecution
 variable [DecidableEq K]
 variable (caller : FrontEndMachine.External Λ → FrontEndMachine.Statement Γ Λ R)
 
-theorem frontEndInputAdvance_step (phase : InputParserMachine.OwnedLabels)
+theorem front_end_inputAdvance_step (phase : InputParserMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) :
     FrontEndMachine.step caller
@@ -1133,7 +1133,7 @@ theorem frontEndInputAdvance_step (phase : InputParserMachine.OwnedLabels)
       (InputParserMachine.reset regs) advanced.2 (FrontEndMachine.inputContext data ctx) =
       FrontEndMachine.inputView (some (inputControlLabel advanced.1))
         (InputParserMachine.reset regs) (frontEndWithInput data advanced.2) ctx := by
-    simp only [inputCfg, FrontEndMachine.inputView, frontEndWithInput, frontEndInput_outputs]
+    simp only [inputCfg, FrontEndMachine.inputView, frontEndWithInput, front_end_input_outputs]
     rfl
   rw [endpoint] at run
   have translated := (input_trace_transport caller localCaller run).run
@@ -1141,21 +1141,21 @@ theorem frontEndInputAdvance_step (phase : InputParserMachine.OwnedLabels)
   have resetEq : InputParserMachine.reset regs = FrontEndMask.input.apply regs := rfl
   rw [resetEq] at translated
   simpa only [Function.iterate_one, FrontEndMachine.next, Option.bind_some, Option.map_some,
-    frontEndInputOwned_label, frontEndInputControl_label, FrontEndMachine.inputRegisterEquiv,
+    inputLabelEquiv_ownedLabelEquiv, frontEndInputControl_label, FrontEndMachine.inputRegisterEquiv,
     Equiv.refl_apply, FrontEndMask.apply, advanced] using translated
 
-theorem frontEndInputAdvance_potential (phase : InputParserMachine.OwnedLabels)
+theorem front_end_inputAdvance_potential (phase : InputParserMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) :
     frontEndLocalPotential (frontEndInputControl (inputAdvance phase (frontEndInputData data)).1)
         (frontEndWithInput data (inputAdvance phase (frontEndInputData data)).2) ≤
       frontEndLocalPotential (.inl (.inl phase)) data := by
   let localCaller : InputParserMachine.External Unit →
-    InputParserMachine.Statement (FrontEndMachine.inputProtectedAlphabet Γ) Unit (FrontEndMachine.InputRegisterCaller R) := fun _ => .halt
+    InputParserMachine.Statement (FrontEndMachine.InputProtectedAlphabet Γ) Unit (FrontEndMachine.InputRegisterCaller R) := fun _ => .halt
   have localBound := inputAdvance_potential localCaller phase (frontEndInputData data) regs
     (FrontEndMachine.inputContext data ctx)
   unfold frontEndLocalPotential
-  rw [frontEndLocalCells_withInput, frontEndInputControl_credit, frontEndLocalCells_input]
+  rw [frontEndMachineLocalCells_frontEndWithInput, frontEndInputControl_credit, frontEndMachineLocalCells_input]
   change inputLocalCells (inputAdvance phase (frontEndInputData data)).2 + frontEndInputOutside data +
       inputControlCredit (inputAdvance phase (frontEndInputData data)).1
         (inputAdvance phase (frontEndInputData data)).2 ≤
@@ -1164,7 +1164,7 @@ theorem frontEndInputAdvance_potential (phase : InputParserMachine.OwnedLabels)
   unfold inputPotential at localBound
   omega
 
-theorem frontEndFramer_transition (phase : OpenFramingMachine.Phase)
+theorem front_end_framer_transition (phase : OpenFramingMachine.Phase)
     (data afterData : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (afterLabel : OpenFramingMachine.Label (FrontEndMachine.FramerCaller Λ))
     (equation : OpenFramingMachine.step (fun _ => .halt)
@@ -1207,7 +1207,7 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
       cases rawEq : data.framedRaw with
       | nil =>
           simp only [frontEndFramerAdvance, rawEq, frontEndControlLabel_framer]
-          apply frontEndFramer_transition caller .scanPrefix data data regs ctx
+          apply front_end_framer_transition caller .scanPrefix data data regs ctx
             (OpenFramingMachine.phaseLabel .clearFirst)
           simpa only [FrontEndMachine.framerView, rawEq] using
             OpenFramingMachine.scanPrefix_step_nil (fun _ => .halt)
@@ -1219,7 +1219,7 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
               cases raw with
               | nil =>
                   simp only [frontEndFramerAdvance, rawEq, frontEndControlLabel_framer]
-                  apply frontEndFramer_transition caller .scanPrefix data { data with framedRaw := [] } regs ctx
+                  apply front_end_framer_transition caller .scanPrefix data { data with framedRaw := [] } regs ctx
                     (OpenFramingMachine.phaseLabel .clearFirst)
                   have contextEq : FrontEndMachine.framerContext ({ data with framedRaw := [] }) ctx =
                       FrontEndMachine.framerContext data ctx := rfl
@@ -1229,7 +1229,7 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
                       (FrontEndMachine.framerRegisterEquiv.symm regs) (FrontEndMachine.framerContext data ctx)
               | cons bit raw =>
                   simp only [frontEndFramerAdvance, rawEq, frontEndControlLabel_framer]
-                  apply frontEndFramer_transition caller .scanPrefix data
+                  apply front_end_framer_transition caller .scanPrefix data
                     { data with framedRaw := raw, frameFirstReverse := bit :: data.frameFirstReverse } regs ctx
                     (OpenFramingMachine.phaseLabel .scanPrefix)
                   have contextEq : FrontEndMachine.framerContext ({ data with framedRaw := raw, frameFirstReverse := bit :: data.frameFirstReverse }) ctx =
@@ -1240,7 +1240,7 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
                       (FrontEndMachine.framerRegisterEquiv.symm regs) (FrontEndMachine.framerContext data ctx)
           | true =>
               simp only [frontEndFramerAdvance, rawEq, frontEndControlLabel_framer]
-              apply frontEndFramer_transition caller .scanPrefix data { data with framedRaw := raw } regs ctx
+              apply front_end_framer_transition caller .scanPrefix data { data with framedRaw := raw } regs ctx
                 (OpenFramingMachine.phaseLabel .copyCert)
               have contextEq : FrontEndMachine.framerContext ({ data with framedRaw := raw }) ctx =
                   FrontEndMachine.framerContext data ctx := rfl
@@ -1252,13 +1252,13 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
       cases wordEq : data.framedRaw with
       | nil =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel_framer]
-          apply frontEndFramer_transition caller .copyCert data data regs ctx (OpenFramingMachine.phaseLabel .emitCert)
+          apply front_end_framer_transition caller .copyCert data data regs ctx (OpenFramingMachine.phaseLabel .emitCert)
           simpa only [FrontEndMachine.framerView, wordEq] using
             OpenFramingMachine.copyCert_step_nil (fun _ => .halt) data.frameFirstReverse data.frameCertReverse data.inputBits data.certificateBits
               (FrontEndMachine.framerRegisterEquiv.symm regs) (FrontEndMachine.framerContext data ctx)
       | cons bit raw =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel_framer]
-          apply frontEndFramer_transition caller .copyCert data { data with framedRaw := raw, frameCertReverse := bit :: data.frameCertReverse } regs ctx (OpenFramingMachine.phaseLabel .copyCert)
+          apply front_end_framer_transition caller .copyCert data { data with framedRaw := raw, frameCertReverse := bit :: data.frameCertReverse } regs ctx (OpenFramingMachine.phaseLabel .copyCert)
           have contextEq : FrontEndMachine.framerContext ({ data with framedRaw := raw, frameCertReverse := bit :: data.frameCertReverse }) ctx =
               FrontEndMachine.framerContext data ctx := rfl
           simpa only [FrontEndMachine.framerView, contextEq, wordEq] using
@@ -1268,13 +1268,13 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
       cases wordEq : data.frameCertReverse with
       | nil =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel_framer]
-          apply frontEndFramer_transition caller .emitCert data data regs ctx (OpenFramingMachine.phaseLabel .emitFirst)
+          apply front_end_framer_transition caller .emitCert data data regs ctx (OpenFramingMachine.phaseLabel .emitFirst)
           simpa only [FrontEndMachine.framerView, wordEq] using
             OpenFramingMachine.emitCert_step_nil (fun _ => .halt) data.framedRaw data.frameFirstReverse data.inputBits data.certificateBits
               (FrontEndMachine.framerRegisterEquiv.symm regs) (FrontEndMachine.framerContext data ctx)
       | cons bit rev =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel_framer]
-          apply frontEndFramer_transition caller .emitCert data { data with frameCertReverse := rev, certificateBits := bit :: data.certificateBits } regs ctx (OpenFramingMachine.phaseLabel .emitCert)
+          apply front_end_framer_transition caller .emitCert data { data with frameCertReverse := rev, certificateBits := bit :: data.certificateBits } regs ctx (OpenFramingMachine.phaseLabel .emitCert)
           have contextEq : FrontEndMachine.framerContext ({ data with frameCertReverse := rev, certificateBits := bit :: data.certificateBits }) ctx =
               FrontEndMachine.framerContext data ctx := rfl
           simpa only [FrontEndMachine.framerView, contextEq, wordEq] using
@@ -1284,13 +1284,13 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
       cases wordEq : data.frameFirstReverse with
       | nil =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel_decoder]
-          apply frontEndFramer_transition caller .emitFirst data data regs ctx (OpenFramingMachine.resultLabel .success)
+          apply front_end_framer_transition caller .emitFirst data data regs ctx (OpenFramingMachine.resultLabel .success)
           simpa only [FrontEndMachine.framerView, wordEq] using
             OpenFramingMachine.emitFirst_step_nil (fun _ => .halt) data.framedRaw data.frameCertReverse data.inputBits data.certificateBits
               (FrontEndMachine.framerRegisterEquiv.symm regs) (FrontEndMachine.framerContext data ctx)
       | cons bit rev =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel_framer]
-          apply frontEndFramer_transition caller .emitFirst data { data with frameFirstReverse := rev, inputBits := bit :: data.inputBits } regs ctx (OpenFramingMachine.phaseLabel .emitFirst)
+          apply front_end_framer_transition caller .emitFirst data { data with frameFirstReverse := rev, inputBits := bit :: data.inputBits } regs ctx (OpenFramingMachine.phaseLabel .emitFirst)
           have contextEq : FrontEndMachine.framerContext ({ data with frameFirstReverse := rev, inputBits := bit :: data.inputBits }) ctx =
               FrontEndMachine.framerContext data ctx := rfl
           simpa only [FrontEndMachine.framerView, contextEq, wordEq] using
@@ -1300,13 +1300,13 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
       cases wordEq : data.frameFirstReverse with
       | nil =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel, frontEndResultLabel]
-          apply frontEndFramer_transition caller .clearFirst data data regs ctx (OpenFramingMachine.resultLabel .failure)
+          apply front_end_framer_transition caller .clearFirst data data regs ctx (OpenFramingMachine.resultLabel .failure)
           simpa only [FrontEndMachine.framerView, wordEq] using
             OpenFramingMachine.clearFirst_step_nil (fun _ => .halt) data.framedRaw data.frameCertReverse data.inputBits data.certificateBits
               (FrontEndMachine.framerRegisterEquiv.symm regs) (FrontEndMachine.framerContext data ctx)
       | cons bit rev =>
           simp only [frontEndFramerAdvance, wordEq, frontEndControlLabel_framer]
-          apply frontEndFramer_transition caller .clearFirst data { data with frameFirstReverse := rev } regs ctx (OpenFramingMachine.phaseLabel .clearFirst)
+          apply front_end_framer_transition caller .clearFirst data { data with frameFirstReverse := rev } regs ctx (OpenFramingMachine.phaseLabel .clearFirst)
           have contextEq : FrontEndMachine.framerContext ({ data with frameFirstReverse := rev }) ctx =
               FrontEndMachine.framerContext data ctx := rfl
           simpa only [FrontEndMachine.framerView, contextEq, wordEq] using
@@ -1314,7 +1314,7 @@ theorem frontEndFramerAdvance_step (phase : OpenFramingMachine.Phase)
               (FrontEndMachine.framerRegisterEquiv.symm regs) (FrontEndMachine.framerContext data ctx)
 
 
-theorem frontEndInputDecoder_transition (phase : OpenDecoderMachine.Phase)
+theorem front_end_input_decoder_transition (phase : OpenDecoderMachine.Phase)
     (data afterData : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (afterLabel : OpenDecoderMachine.Label (FrontEndMachine.InputDecoderCaller Λ))
     (equation : OpenDecoderMachine.step (fun _ => .halt)
@@ -1335,16 +1335,16 @@ theorem frontEndInputDecoder_transition (phase : OpenDecoderMachine.Phase)
     have zero : j = 0 := by omega
     subst j
     exact ⟨_, rfl, True.intro⟩
-  have translated := FrontEndMachine.inputDecoder_prefix_installed caller (fun _ => .halt) 1
+  have translated := FrontEndMachine.input_decoder_prefix_installed caller (fun _ => .halt) 1
     (FrontEndMachine.inputDecoderView (Λ := Λ) (some (OpenDecoderMachine.phaseLabel phase))
       (FrontEndMachine.decoderRegisterEquiv.symm regs) data ctx) within
   simp only [Function.iterate_one, OpenDecoderMachine.next_some, equation, Option.map_some,
     FrontEndMachine.inputDecoderCfg_view, FrontEndMachine.inputDecoderLabelEquiv_phase,
-    frontEndDecoderRegister_reset, Equiv.apply_symm_apply,
+    decoderRegisterEquiv_reset, Equiv.apply_symm_apply,
     FrontEndMachine.next, Option.bind_some] at translated
   exact translated
 
-theorem frontEndCertificateDecoder_transition (phase : OpenDecoderMachine.Phase)
+theorem front_end_certificate_decoder_transition (phase : OpenDecoderMachine.Phase)
     (data afterData : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (afterLabel : OpenDecoderMachine.Label (FrontEndMachine.CertificateDecoderCaller Λ))
     (equation : OpenDecoderMachine.step (fun _ => .halt)
@@ -1365,12 +1365,12 @@ theorem frontEndCertificateDecoder_transition (phase : OpenDecoderMachine.Phase)
     have zero : j = 0 := by omega
     subst j
     exact ⟨_, rfl, True.intro⟩
-  have translated := FrontEndMachine.certificateDecoder_prefix_installed caller (fun _ => .halt) 1
+  have translated := FrontEndMachine.certificate_decoder_prefix_installed caller (fun _ => .halt) 1
     (FrontEndMachine.certificateDecoderView (Λ := Λ) (some (OpenDecoderMachine.phaseLabel phase))
       (FrontEndMachine.decoderRegisterEquiv.symm regs) data ctx) within
   simp only [Function.iterate_one, OpenDecoderMachine.next_some, equation, Option.map_some,
     FrontEndMachine.certificateDecoderCfg_view, FrontEndMachine.certificateDecoderLabelEquiv_phase,
-    frontEndDecoderRegister_reset, Equiv.apply_symm_apply,
+    decoderRegisterEquiv_reset, Equiv.apply_symm_apply,
     FrontEndMachine.next, Option.bind_some] at translated
   exact translated
 
@@ -1388,81 +1388,81 @@ theorem frontEndDecoderAdvance_step (call : FrontEndMachine.DecoderCall) (phase 
           cases wordEq : data.inputBits with
           | nil =>
               simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-              apply frontEndInputDecoder_transition caller .scan data data regs ctx (OpenDecoderMachine.phaseLabel .emit)
+              apply front_end_input_decoder_transition caller .scan data data regs ctx (OpenDecoderMachine.phaseLabel .emit)
               simpa only [FrontEndMachine.inputDecoderView, wordEq] using
                 OpenDecoderMachine.scan_step_nil (fun _ => .halt) data.decodeReverse data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
           | cons b0 rest =>
               cases rest with
               | nil =>
                   simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-                  apply frontEndInputDecoder_transition caller .scan data
+                  apply front_end_input_decoder_transition caller .scan data
                     (frontEndWithDecoder .input data [] data.decodeReverse data.inputRaw) regs ctx
                     (OpenDecoderMachine.phaseLabel .clear)
                   simp only [FrontEndMachine.inputDecoderView]
-                  rw [frontEndDecoderContext_with]
+                  rw [decoderContext_frontEndWithDecoder]
                   simpa only [frontEndWithDecoder, wordEq] using
                     OpenDecoderMachine.scan_step_one (fun _ => .halt) b0 data.decodeReverse data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
               | cons b1 rest =>
                   cases rest with
                   | nil =>
                       simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-                      apply frontEndInputDecoder_transition caller .scan data
+                      apply front_end_input_decoder_transition caller .scan data
                         (frontEndWithDecoder .input data [] data.decodeReverse data.inputRaw) regs ctx
                         (OpenDecoderMachine.phaseLabel .clear)
                       simp only [FrontEndMachine.inputDecoderView]
-                      rw [frontEndDecoderContext_with]
+                      rw [decoderContext_frontEndWithDecoder]
                       simpa only [frontEndWithDecoder, wordEq] using
                         OpenDecoderMachine.scan_step_two (fun _ => .halt) b0 b1 data.decodeReverse data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
                   | cons b2 rest =>
                       cases rest with
                       | nil =>
                           simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-                          apply frontEndInputDecoder_transition caller .scan data
+                          apply front_end_input_decoder_transition caller .scan data
                             (frontEndWithDecoder .input data [] data.decodeReverse data.inputRaw) regs ctx
                             (OpenDecoderMachine.phaseLabel .clear)
                           simp only [FrontEndMachine.inputDecoderView]
-                          rw [frontEndDecoderContext_with]
+                          rw [decoderContext_frontEndWithDecoder]
                           simpa only [frontEndWithDecoder, wordEq] using
                             OpenDecoderMachine.scan_step_three (fun _ => .halt) b0 b1 b2 data.decodeReverse data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
                       | cons b3 rest =>
                           simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndDecoderOutput, frontEndControlLabel_decoder, wordEq]
-                          apply frontEndInputDecoder_transition caller .scan data
+                          apply front_end_input_decoder_transition caller .scan data
                             (frontEndWithDecoder .input data rest ((decodeTagRun b0 b1 b2 b3).1 :: data.decodeReverse) data.inputRaw) regs ctx
                             (OpenDecoderMachine.phaseLabel .scan)
                           simp only [FrontEndMachine.inputDecoderView]
-                          rw [frontEndDecoderContext_with]
+                          rw [decoderContext_frontEndWithDecoder]
                           simpa only [frontEndWithDecoder, wordEq] using
                             OpenDecoderMachine.scan_step_block (fun _ => .halt) b0 b1 b2 b3 rest data.decodeReverse data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
       | emit =>
           cases revEq : data.decodeReverse with
           | nil =>
               simp only [frontEndDecoderAdvance, revEq, frontEndDecoderSuccess, frontEndControlLabel, frontEndResultLabel]
-              apply frontEndInputDecoder_transition caller .emit data data regs ctx (OpenDecoderMachine.resultLabel .success)
+              apply front_end_input_decoder_transition caller .emit data data regs ctx (OpenDecoderMachine.resultLabel .success)
               simpa only [FrontEndMachine.inputDecoderView, revEq] using
                 OpenDecoderMachine.emit_step_nil (fun _ => .halt) data.inputBits data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
           | cons tag rev =>
               simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndDecoderOutput, frontEndControlLabel_decoder, revEq]
-              apply frontEndInputDecoder_transition caller .emit data
+              apply front_end_input_decoder_transition caller .emit data
                 (frontEndWithDecoder .input data data.inputBits rev (tag :: data.inputRaw)) regs ctx
                 (OpenDecoderMachine.phaseLabel .emit)
               simp only [FrontEndMachine.inputDecoderView]
-              rw [frontEndDecoderContext_with]
+              rw [decoderContext_frontEndWithDecoder]
               simpa only [frontEndWithDecoder, revEq] using
                 OpenDecoderMachine.emit_step_cons (fun _ => .halt) tag rev data.inputBits data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
       | clear =>
           cases revEq : data.decodeReverse with
           | nil =>
               simp only [frontEndDecoderAdvance, revEq, frontEndControlLabel, frontEndResultLabel]
-              apply frontEndInputDecoder_transition caller .clear data data regs ctx (OpenDecoderMachine.resultLabel .failure)
+              apply front_end_input_decoder_transition caller .clear data data regs ctx (OpenDecoderMachine.resultLabel .failure)
               simpa only [FrontEndMachine.inputDecoderView, revEq] using
                 OpenDecoderMachine.clear_step_nil (fun _ => .halt) data.inputBits data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
           | cons tag rev =>
               simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndDecoderOutput, frontEndControlLabel_decoder, revEq]
-              apply frontEndInputDecoder_transition caller .clear data
+              apply front_end_input_decoder_transition caller .clear data
                 (frontEndWithDecoder .input data data.inputBits rev data.inputRaw) regs ctx
                 (OpenDecoderMachine.phaseLabel .clear)
               simp only [FrontEndMachine.inputDecoderView]
-              rw [frontEndDecoderContext_with]
+              rw [decoderContext_frontEndWithDecoder]
               simpa only [frontEndWithDecoder, revEq] using
                 OpenDecoderMachine.clear_step_cons (fun _ => .halt) tag rev data.inputBits data.inputRaw (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .input data ctx)
   | certificate =>
@@ -1471,81 +1471,81 @@ theorem frontEndDecoderAdvance_step (call : FrontEndMachine.DecoderCall) (phase 
           cases wordEq : data.certificateBits with
           | nil =>
               simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-              apply frontEndCertificateDecoder_transition caller .scan data data regs ctx (OpenDecoderMachine.phaseLabel .emit)
+              apply front_end_certificate_decoder_transition caller .scan data data regs ctx (OpenDecoderMachine.phaseLabel .emit)
               simpa only [FrontEndMachine.certificateDecoderView, wordEq] using
                 OpenDecoderMachine.scan_step_nil (fun _ => .halt) data.decodeReverse data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
           | cons b0 rest =>
               cases rest with
               | nil =>
                   simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-                  apply frontEndCertificateDecoder_transition caller .scan data
+                  apply front_end_certificate_decoder_transition caller .scan data
                     (frontEndWithDecoder .certificate data [] data.decodeReverse data.certificateWord) regs ctx
                     (OpenDecoderMachine.phaseLabel .clear)
                   simp only [FrontEndMachine.certificateDecoderView]
-                  rw [frontEndDecoderContext_with]
+                  rw [decoderContext_frontEndWithDecoder]
                   simpa only [frontEndWithDecoder, wordEq] using
                     OpenDecoderMachine.scan_step_one (fun _ => .halt) b0 data.decodeReverse data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
               | cons b1 rest =>
                   cases rest with
                   | nil =>
                       simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-                      apply frontEndCertificateDecoder_transition caller .scan data
+                      apply front_end_certificate_decoder_transition caller .scan data
                         (frontEndWithDecoder .certificate data [] data.decodeReverse data.certificateWord) regs ctx
                         (OpenDecoderMachine.phaseLabel .clear)
                       simp only [FrontEndMachine.certificateDecoderView]
-                      rw [frontEndDecoderContext_with]
+                      rw [decoderContext_frontEndWithDecoder]
                       simpa only [frontEndWithDecoder, wordEq] using
                         OpenDecoderMachine.scan_step_two (fun _ => .halt) b0 b1 data.decodeReverse data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
                   | cons b2 rest =>
                       cases rest with
                       | nil =>
                           simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndControlLabel_decoder, wordEq]
-                          apply frontEndCertificateDecoder_transition caller .scan data
+                          apply front_end_certificate_decoder_transition caller .scan data
                             (frontEndWithDecoder .certificate data [] data.decodeReverse data.certificateWord) regs ctx
                             (OpenDecoderMachine.phaseLabel .clear)
                           simp only [FrontEndMachine.certificateDecoderView]
-                          rw [frontEndDecoderContext_with]
+                          rw [decoderContext_frontEndWithDecoder]
                           simpa only [frontEndWithDecoder, wordEq] using
                             OpenDecoderMachine.scan_step_three (fun _ => .halt) b0 b1 b2 data.decodeReverse data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
                       | cons b3 rest =>
                           simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndDecoderOutput, frontEndControlLabel_decoder, wordEq]
-                          apply frontEndCertificateDecoder_transition caller .scan data
+                          apply front_end_certificate_decoder_transition caller .scan data
                             (frontEndWithDecoder .certificate data rest ((decodeTagRun b0 b1 b2 b3).1 :: data.decodeReverse) data.certificateWord) regs ctx
                             (OpenDecoderMachine.phaseLabel .scan)
                           simp only [FrontEndMachine.certificateDecoderView]
-                          rw [frontEndDecoderContext_with]
+                          rw [decoderContext_frontEndWithDecoder]
                           simpa only [frontEndWithDecoder, wordEq] using
                             OpenDecoderMachine.scan_step_block (fun _ => .halt) b0 b1 b2 b3 rest data.decodeReverse data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
       | emit =>
           cases revEq : data.decodeReverse with
           | nil =>
               simp only [frontEndDecoderAdvance, revEq, frontEndDecoderSuccess, frontEndControlLabel, frontEndResultLabel]
-              apply frontEndCertificateDecoder_transition caller .emit data data regs ctx (OpenDecoderMachine.resultLabel .success)
+              apply front_end_certificate_decoder_transition caller .emit data data regs ctx (OpenDecoderMachine.resultLabel .success)
               simpa only [FrontEndMachine.certificateDecoderView, revEq] using
                 OpenDecoderMachine.emit_step_nil (fun _ => .halt) data.certificateBits data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
           | cons tag rev =>
               simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndDecoderOutput, frontEndControlLabel_decoder, revEq]
-              apply frontEndCertificateDecoder_transition caller .emit data
+              apply front_end_certificate_decoder_transition caller .emit data
                 (frontEndWithDecoder .certificate data data.certificateBits rev (tag :: data.certificateWord)) regs ctx
                 (OpenDecoderMachine.phaseLabel .emit)
               simp only [FrontEndMachine.certificateDecoderView]
-              rw [frontEndDecoderContext_with]
+              rw [decoderContext_frontEndWithDecoder]
               simpa only [frontEndWithDecoder, revEq] using
                 OpenDecoderMachine.emit_step_cons (fun _ => .halt) tag rev data.certificateBits data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
       | clear =>
           cases revEq : data.decodeReverse with
           | nil =>
               simp only [frontEndDecoderAdvance, revEq, frontEndControlLabel, frontEndResultLabel]
-              apply frontEndCertificateDecoder_transition caller .clear data data regs ctx (OpenDecoderMachine.resultLabel .failure)
+              apply front_end_certificate_decoder_transition caller .clear data data regs ctx (OpenDecoderMachine.resultLabel .failure)
               simpa only [FrontEndMachine.certificateDecoderView, revEq] using
                 OpenDecoderMachine.clear_step_nil (fun _ => .halt) data.certificateBits data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
           | cons tag rev =>
               simp only [frontEndDecoderAdvance, frontEndDecoderRaw, frontEndDecoderOutput, frontEndControlLabel_decoder, revEq]
-              apply frontEndCertificateDecoder_transition caller .clear data
+              apply front_end_certificate_decoder_transition caller .clear data
                 (frontEndWithDecoder .certificate data data.certificateBits rev data.certificateWord) regs ctx
                 (OpenDecoderMachine.phaseLabel .clear)
               simp only [FrontEndMachine.certificateDecoderView]
-              rw [frontEndDecoderContext_with]
+              rw [decoderContext_frontEndWithDecoder]
               simpa only [frontEndWithDecoder, revEq] using
                 OpenDecoderMachine.clear_step_cons (fun _ => .halt) tag rev data.certificateBits data.certificateWord (FrontEndMachine.decoderRegisterEquiv.symm regs) (FrontEndMachine.decoderContext .certificate data ctx)
 
@@ -1557,7 +1557,7 @@ theorem frontEndAdvance_step (phase : FrontEndMachine.OwnedLabels)
       some (FrontEndMachine.cfg (some (frontEndControlLabel (frontEndAdvance phase data).1))
         ((frontEndPhaseMask phase).apply regs) (frontEndAdvance phase data).2 ctx) := by
   cases phase with
-  | inl phase => exact frontEndInputAdvance_step caller phase data regs ctx
+  | inl phase => exact front_end_inputAdvance_step caller phase data regs ctx
   | inr phase =>
       cases phase with
       | inl phase => exact frontEndFramerAdvance_step caller phase data regs ctx

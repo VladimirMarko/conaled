@@ -40,18 +40,18 @@ abbrev Registers (R : Type) := Option Bool × R
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl _ => Bool
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId K) :
-    Fintype (alphabet Γ k) := by
+    Fintype (Alphabet Γ k) := by
   cases k <;> exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def phaseLabel (phase : Phase) : Label Λ := .inl phase
 def resultLabel (result : Result) : Label Λ := .inr (.inl result)
@@ -954,7 +954,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .raw
   k₁ := .inl .inputBits
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := phaseLabel .scanPrefix
   σ := Registers R

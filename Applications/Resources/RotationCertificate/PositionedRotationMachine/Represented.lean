@@ -966,7 +966,7 @@ def representedInTime (d : RotationDirection) (p : List Branch) (s : BinaryTree 
   steps_le_m := Nat.le_refl _
 
 /-- A constructed failure segment excludes success at the canonical first live return. -/
-theorem LocalRun.not_phaseSuccess {q : Phase} {D E : LocalData} {regs outRegs : Registers R}
+theorem LocalRun.not_phase_success {q : Phase} {D E : LocalData} {regs outRegs : Registers R}
     {ctx outCtx : ∀ k, List (Γ k)} {n : Nat}
     (run : LocalRun caller n (cfg (some (phaseLabel q)) regs D ctx)
       (cfg (some (resultLabel .failure)) outRegs E outCtx)) :
@@ -985,7 +985,7 @@ theorem root_left_phaseResult_success_iff (caller : External Λ → Statement Γ
   · intro success
     cases w with
     | nil =>
-        have blocked := LocalRun.not_phaseSuccess caller
+        have blocked := LocalRun.not_phase_success caller
           (root_nonnode_localRun caller .left [] f True.intro regs ctx)
         exact (blocked success).elim
     | cons tag raw =>
@@ -995,7 +995,7 @@ theorem root_left_phaseResult_success_iff (caller : External Λ → Statement Γ
           | none =>
               obtain ⟨accepted, rest, p, word, opened, stopped⟩ :=
                 (TreeParserMachine.parseTreeRun_none_iff_openPrefix raw).mp parsed
-              have blocked := LocalRun.not_phaseSuccess caller
+              have blocked := LocalRun.not_phase_success caller
                 (root_blocked_localRun caller .left opened stopped f regs ctx)
               apply False.elim (blocked ?_)
               simpa [scratchFailure, markerWord, word, List.append_assoc] using success
@@ -1004,18 +1004,18 @@ theorem root_left_phaseResult_success_iff (caller : External Λ → Statement Γ
               have word := (parseTreeRun_iff raw A rest).mp parsed
               cases rest with
               | nil =>
-                  have blocked := LocalRun.not_phaseSuccess caller
+                  have blocked := LocalRun.not_phase_success caller
                     (root_left_after_nonnode_localRun caller A [] f True.intro regs ctx)
                   apply False.elim (blocked ?_)
                   simpa only [word] using success
               | cons required z =>
                   by_cases node : required = nodeTag
                   · exact ⟨A, z, by simp only [word, node]⟩
-                  · have blocked := LocalRun.not_phaseSuccess caller
+                  · have blocked := LocalRun.not_phase_success caller
                       (root_left_after_nonnode_localRun caller A (required :: z) f node regs ctx)
                     apply False.elim (blocked ?_)
                     simpa only [word] using success
-        · have blocked := LocalRun.not_phaseSuccess caller
+        · have blocked := LocalRun.not_phase_success caller
             (root_nonnode_localRun caller .left (tag :: raw) f node regs ctx)
           exact (blocked success).elim
   · rintro ⟨A, z, rfl⟩
@@ -1032,7 +1032,7 @@ theorem root_right_phaseResult_success_iff (caller : External Λ → Statement �
   · intro success
     cases w with
     | nil =>
-        have blocked := LocalRun.not_phaseSuccess caller
+        have blocked := LocalRun.not_phase_success caller
           (root_nonnode_localRun caller .right [] f True.intro regs ctx)
         exact (blocked success).elim
     | cons first raw =>
@@ -1040,7 +1040,7 @@ theorem root_right_phaseResult_success_iff (caller : External Λ → Statement �
         · subst first
           cases raw with
           | nil =>
-              have blocked := LocalRun.not_phaseSuccess caller
+              have blocked := LocalRun.not_phase_success caller
                 (root_right_second_nonnode_localRun caller [] f True.intro regs ctx)
               exact (blocked success).elim
           | cons second raw =>
@@ -1050,17 +1050,17 @@ theorem root_right_phaseResult_success_iff (caller : External Λ → Statement �
                 | none =>
                     obtain ⟨accepted, rest, p, word, opened, stopped⟩ :=
                       (TreeParserMachine.parseTreeRun_none_iff_openPrefix raw).mp parsed
-                    have blocked := LocalRun.not_phaseSuccess caller
+                    have blocked := LocalRun.not_phase_success caller
                       (root_blocked_localRun caller .right opened stopped f regs ctx)
                     apply False.elim (blocked ?_)
                     simpa [scratchFailure, markerWord, word, List.append_assoc] using success
                 | some result =>
                     rcases result with ⟨A, z⟩
                     exact ⟨A, z, by rw [(parseTreeRun_iff raw A z).mp parsed]⟩
-              · have blocked := LocalRun.not_phaseSuccess caller
+              · have blocked := LocalRun.not_phase_success caller
                   (root_right_second_nonnode_localRun caller (second :: raw) f node regs ctx)
                 exact (blocked success).elim
-        · have blocked := LocalRun.not_phaseSuccess caller
+        · have blocked := LocalRun.not_phase_success caller
             (root_nonnode_localRun caller .right (first :: raw) f node regs ctx)
           exact (blocked success).elim
   · rintro ⟨A, z, rfl⟩

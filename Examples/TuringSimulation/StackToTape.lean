@@ -160,16 +160,16 @@ def pushPopBody : TM2.Stmt (fun _ : Unit => Unit) Unit Unit :=
 def pushPopProgram : Unit → TM2.Stmt (fun _ : Unit => Unit) Unit Unit :=
   fun _ => pushPopBody
 
-theorem pushPop_source_step :
+theorem pushPopProgram_source_step :
     TM2.step pushPopProgram ⟨some (), (), emptyFamily⟩ =
       some ⟨none, (), emptyFamily⟩ := by
   simp only [TM2.step, TM2.stepAux, pushPopProgram, pushPopBody,
     Function.update_self, List.tail_cons]
   congr 2
 
-theorem pushPop_tail_steps : tailSteps pushPopBody () emptyFamily = 6 := rfl
+theorem tailSteps_pushPopBody : tailSteps pushPopBody () emptyFamily = 6 := rfl
 
-theorem pushPop_seven_live_halt :
+theorem pushPopProgram_seven_live_halt :
     ∃ b : TM1.Cfg (Γ' Unit (fun _ => Unit))
         (Λ' Unit (fun _ => Unit) Unit Unit) Unit,
       TrCfg (⟨none, (), emptyFamily⟩ : TM2.Cfg (fun _ : Unit => Unit) Unit Unit) b ∧
@@ -178,15 +178,15 @@ theorem pushPop_seven_live_halt :
         run.steps = 7 := by
   have hsource : TM2.stepAux pushPopBody () emptyFamily =
       (⟨none, (), emptyFamily⟩ : TM2.Cfg (fun _ : Unit => Unit) Unit Unit) := by
-    exact Option.some.inj pushPop_source_step
-  simpa only [pushPopProgram, hsource, pushPop_tail_steps] using
+    exact Option.some.inj pushPopProgram_source_step
+  simpa only [pushPopProgram, hsource, tailSteps_pushPopBody] using
     normal_step_witness pushPopProgram () () emptyFamily emptyColumns emptyColumns_projects
 
-theorem pushPop_eight_outer_none :
+theorem pushPopProgram_eight_outer_none :
     ∃ run : StateTransition.EvalsTo (TM1.step (tr pushPopProgram))
       ⟨some (Λ'.normal ()), (), Tape.mk' ∅ (addBottom emptyColumns)⟩ none,
       run.steps = 8 := by
-  obtain ⟨b, hb, run, hrun⟩ := pushPop_seven_live_halt
+  obtain ⟨b, hb, run, hrun⟩ := pushPopProgram_seven_live_halt
   have hhalt : TM1.step (tr pushPopProgram) b = none := by
     cases hb
     rfl

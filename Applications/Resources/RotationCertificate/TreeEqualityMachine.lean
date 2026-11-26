@@ -49,20 +49,20 @@ abbrev Registers (R : Type) := Temporaries × R
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl _ => Tag
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId K) :
-    Fintype (alphabet Γ k) := by
+    Fintype (Alphabet Γ k) := by
   cases k with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def phaseLabel (phase : Phase) : Label Λ := .inl phase
 def resultLabel (result : Result) : Label Λ := .inr (.inl result)
@@ -773,13 +773,13 @@ theorem firstResult_iff (result : Result) (xs ys : Word) (regs : Registers R)
     simp only [resultCfg, same]
 
 omit [Fintype K] in
-theorem firstEqual_code_iff (s t : BinaryTree Unit) (regs : Registers R)
+theorem first_equal_code_iff (s t : BinaryTree Unit) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     FirstResult caller .equal (treeCode s) (treeCode t) regs ctx ↔ s = t := by
   rw [firstResult_iff, wordResult_code_equal_iff]
 
 omit [Fintype K] in
-theorem firstDifferent_code_iff (s t : BinaryTree Unit) (regs : Registers R)
+theorem first_different_code_iff (s t : BinaryTree Unit) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     FirstResult caller .different (treeCode s) (treeCode t) regs ctx ↔ s ≠ t := by
   rw [firstResult_iff, wordResult_code_different_iff]
@@ -819,7 +819,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .source
   k₁ := .inl .source
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := phaseLabel .compare
   σ := Registers R

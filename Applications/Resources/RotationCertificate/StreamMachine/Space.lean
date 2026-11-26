@@ -60,7 +60,7 @@ theorem stackCells_equalityCfg (c : EqualityCfg Γ Λ R) :
   exact FrontEndMachine.Transport.stackEquiv_total_length equalityStackEquiv equalitySymbolEquiv c.stk
 
 omit [DecidableEq K] in
-theorem fuelStackCells_eq_sum (c : FuelCfg Γ Λ R) :
+theorem fuelDispatchMachineStackCells_eq_sum (c : FuelCfg Γ Λ R) :
     FuelDispatchMachine.stackCells c = ∑ k, (c.stk k).length := by
   rw [Fintype.sum_sum_type]
   have localSum (f : Resources.BinaryCounter.FixedWidthMachine.LocalStack → Nat) : ∑ k, f k = f .fuel + f .borrowed := by
@@ -72,7 +72,7 @@ theorem fuelStackCells_eq_sum (c : FuelCfg Γ Λ R) :
 omit [DecidableEq K] in
 theorem stackCells_fuelCfg (c : FuelCfg Γ Λ R) :
     stackCells (fuelCfg c) = FuelDispatchMachine.stackCells c := by
-  rw [fuelStackCells_eq_sum]
+  rw [fuelDispatchMachineStackCells_eq_sum]
   exact FrontEndMachine.Transport.stackEquiv_total_length fuelStackEquiv fuelSymbolEquiv c.stk
 
 omit [DecidableEq K] in

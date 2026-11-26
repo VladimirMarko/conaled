@@ -36,7 +36,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .certificate
   k₁ := .inl .fuel
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := phaseLabel inspectPhase
   σ := Registers R
@@ -51,13 +51,13 @@ def machineAlphabetFintype (initial : R) (k : (machine caller initial).K) :
 theorem machine_inputIndex (initial : R) :
     (machine caller initial).k₀ = Sum.inl LocalStack.certificate := rfl
 
-theorem machine_outputIndex (initial : R) :
+theorem machine_output_index (initial : R) :
     (machine caller initial).k₁ = Sum.inl LocalStack.fuel := rfl
 
 theorem machine_inputAlphabet (initial : R) :
     (machine caller initial).Γ (machine caller initial).k₀ = Tag := rfl
 
-theorem machine_outputAlphabet (initial : R) :
+theorem machine_output_alphabet (initial : R) :
     (machine caller initial).Γ (machine caller initial).k₁ = Bool := rfl
 
 theorem machine_card_stackId (initial : R) :
@@ -128,7 +128,7 @@ variable {K Λ R : Type} {Γ : K → Type}
 section FurtherInstallation
 
 variable {K' Λ' R' : Type} {Γ' : K' → Type}
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 
 def installedCfg (c : Cfg Γ Λ R) : Turing.TM2.Cfg Γ' Λ' R' :=

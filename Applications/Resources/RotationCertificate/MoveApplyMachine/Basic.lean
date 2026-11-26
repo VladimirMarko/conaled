@@ -57,22 +57,22 @@ structure LocalData where
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl .certificate | .inl .source | .inl .saved | .inl .scratch => Tag
   | .inl .moveReverse | .inl .path => Branch
   | .inl .pending => Unit
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId K) :
-    Fintype (alphabet Γ k) := by
+    Fintype (Alphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def moveLabel (q : MoveParserMachine.Phase) : Label Λ := .inl q
 def dispatchLabel (r : MoveParserMachine.Result) : Label Λ := .inr (.inl r)
@@ -230,24 +230,24 @@ instance : Fintype FrontEndProtected where
     .certificateBits, .inputRaw, .targetTree, .fuel, .bitsReverse}
   complete k := by cases k <;> decide
 
-abbrev frontEndAddedAlphabet (Γ : K → Type) : NewBranchStores ⊕ K → Type
+abbrev FrontEndAddedAlphabet (Γ : K → Type) : NewBranchStores ⊕ K → Type
   | .inl _ => Branch
   | .inr k => Γ k
 
-abbrev frontEndProtectedAlphabet (Γ : K → Type) : FrontEndProtected ⊕ K → Type
+abbrev FrontEndProtectedAlphabet (Γ : K → Type) : FrontEndProtected ⊕ K → Type
   | .inl .inputRaw | .inl .targetTree => Tag
   | .inl .framedRaw | .inl .frameFirstReverse | .inl .frameCertReverse
   | .inl .inputBits | .inl .certificateBits | .inl .fuel | .inl .bitsReverse => Bool
   | .inr k => Γ k
 
 instance frontEndAddedFintype [∀ k, Fintype (Γ k)] (k : NewBranchStores ⊕ K) :
-    Fintype (frontEndAddedAlphabet Γ k) := by
+    Fintype (FrontEndAddedAlphabet Γ k) := by
   cases k with
   | inl k => exact inferInstance
   | inr k => exact inferInstance
 
 instance frontEndProtectedFintype [∀ k, Fintype (Γ k)] (k : FrontEndProtected ⊕ K) :
-    Fintype (frontEndProtectedAlphabet Γ k) := by
+    Fintype (FrontEndProtectedAlphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
@@ -305,8 +305,8 @@ def frontEndStackEquiv : FrontEndMachine.StackId (NewBranchStores ⊕ K) ≃
       | inr k => rfl
 
 def frontEndSymbolEquiv (k : FrontEndMachine.StackId (NewBranchStores ⊕ K)) :
-    FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k ≃
-      alphabet (frontEndProtectedAlphabet Γ) (frontEndStackEquiv k) := by
+    FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k ≃
+      Alphabet (FrontEndProtectedAlphabet Γ) (frontEndStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -335,55 +335,55 @@ def frontEndRegisterEquiv : FrontEndMachine.Registers (Option Branch × R) ≃
     reset (frontEndRegisterEquiv (FrontEndMachine.reset regs)) =
       ((none, (none, none)), (BitDecoderMachine.zeroRegisters, regs.2.2.2)) := rfl
 
-theorem frontEnd_newBranch_card : Fintype.card NewBranchStores = 2 := by decide
-theorem frontEnd_protected_card : Fintype.card FrontEndProtected = 9 := by decide
+theorem front_end_newBranchStores_card : Fintype.card NewBranchStores = 2 := by decide
+theorem front_end_protected_card : Fintype.card FrontEndProtected = 9 := by decide
 
-theorem frontEnd_stack_card [Fintype K] :
+theorem front_end_stack_card [Fintype K] :
     Fintype.card (StackId (FrontEndProtected ⊕ K)) = 16 + Fintype.card K := by
-  rw [card_stackId, Fintype.card_sum, frontEnd_protected_card]
+  rw [card_stackId, Fintype.card_sum, front_end_protected_card]
   omega
 
-theorem frontEnd_source_stack_card [Fintype K] :
+theorem front_end_source_stack_card [Fintype K] :
     Fintype.card (FrontEndMachine.StackId (NewBranchStores ⊕ K)) =
       16 + Fintype.card K := by
   rw [Fintype.card_congr (frontEndStackEquiv (K := K))]
-  exact frontEnd_stack_card
+  exact front_end_stack_card
 
-theorem frontEnd_register_card [Fintype R] :
+theorem front_end_register_card [Fintype R] :
     Fintype.card (Registers (OpenDecoderMachine.Temporaries × R)) =
       140454 * Fintype.card R := by
   rw [card_registers, Fintype.card_prod, OpenDecoderMachine.card_temporaries]
   omega
 
-theorem frontEnd_source_register_card [Fintype R] :
+theorem front_end_source_register_card [Fintype R] :
     Fintype.card (FrontEndMachine.Registers (Option Branch × R)) =
       140454 * Fintype.card R := by
   rw [Fintype.card_congr (frontEndRegisterEquiv (R := R))]
-  exact frontEnd_register_card
+  exact front_end_register_card
 
-def frontEndStacks : (∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) ≃
-    (∀ k, List (alphabet (frontEndProtectedAlphabet Γ) k)) :=
+def frontEndStacks : (∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k)) ≃
+    (∀ k, List (Alphabet (FrontEndProtectedAlphabet Γ) k)) :=
   FrontEndMachine.Transport.stackEquiv frontEndStackEquiv frontEndSymbolEquiv
 
 @[simp] theorem frontEndStacks_apply
-    (data : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k))
+    (data : ∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k))
     (k : FrontEndMachine.StackId (NewBranchStores ⊕ K)) :
     frontEndStacks data (frontEndStackEquiv k) = (data k).map (frontEndSymbolEquiv k) :=
   FrontEndMachine.Transport.stackEquiv_apply _ _ _ _
 
-theorem frontEnd_stack_cells [Fintype K]
-    (data : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) :
+theorem front_end_stack_cells [Fintype K]
+    (data : ∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k)) :
     ∑ k, (frontEndStacks data k).length = ∑ k, (data k).length :=
   FrontEndMachine.Transport.stackEquiv_total_length frontEndStackEquiv frontEndSymbolEquiv data
 
 def frontEndAddedContext (B O : List Branch) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (frontEndAddedAlphabet Γ k)
+    ∀ k, List (FrontEndAddedAlphabet Γ k)
   | .inl .moveReverse => B
   | .inl .path => O
   | .inr k => ctx k
 
 def frontEndSuccessContext (target : BinaryTree Unit) (fuel : List Bool)
-    (ctx : ∀ k, List (Γ k)) : ∀ k, List (frontEndProtectedAlphabet Γ k)
+    (ctx : ∀ k, List (Γ k)) : ∀ k, List (FrontEndProtectedAlphabet Γ k)
   | .inl .targetTree => treeCode target
   | .inl .fuel => fuel
   | .inl .inputRaw => []
@@ -396,12 +396,12 @@ def frontEndSuccessData (source : BinaryTree Unit) (cert : Word) (B O : List Bra
 
 /-- The physical view intentionally has no label component. -/
 def frontEndPhysicalData
-    (c : FrontEndMachine.Cfg (frontEndAddedAlphabet Γ) Λ (Option Branch × R)) :
+    (c : FrontEndMachine.Cfg (FrontEndAddedAlphabet Γ) Λ (Option Branch × R)) :
     Registers (OpenDecoderMachine.Temporaries × R) ×
-      (∀ k, List (alphabet (frontEndProtectedAlphabet Γ) k)) :=
+      (∀ k, List (Alphabet (FrontEndProtectedAlphabet Γ) k)) :=
   (frontEndRegisterEquiv c.var, frontEndStacks c.stk)
 
-theorem frontEnd_success_stores
+theorem front_end_success_stores
     (regs : FrontEndMachine.Registers (Option Branch × R)) (B O : List Branch)
     (ctx : ∀ k, List (Γ k)) (source target : BinaryTree Unit) (fuel : List Bool) (cert : Word) :
     frontEndStacks (FrontEndMachine.resultCfg (Λ := Λ) regs (frontEndAddedContext B O ctx)
@@ -419,7 +419,7 @@ theorem frontEnd_success_stores
 
 /-- Consume the real FrontEnd result, retaining both incoming Branch words and
 the stale Branch register. The conclusion compares physical data, not control. -/
-theorem frontEnd_success_physical_data
+theorem front_end_success_physical_data
     (regs : FrontEndMachine.Registers (Option Branch × R)) (B O : List Branch)
     (ctx : ∀ k, List (Γ k)) (source target : BinaryTree Unit) (fuel : List Bool) (cert : Word) :
     frontEndPhysicalData (FrontEndMachine.resultCfg (Λ := Λ) regs
@@ -429,9 +429,9 @@ theorem frontEnd_success_physical_data
           (frontEndSuccessData source cert B O) (frontEndSuccessContext target fuel ctx)).stk) := by
   apply Prod.ext
   · rfl
-  · exact frontEnd_success_stores regs B O ctx source target fuel cert
+  · exact front_end_success_stores regs B O ctx source target fuel cert
 
-theorem frontEnd_protected_sum (f : FrontEndProtected → Nat) :
+theorem front_end_protected_sum (f : FrontEndProtected → Nat) :
     ∑ k, f k = f .framedRaw + f .frameFirstReverse + f .frameCertReverse +
       f .inputBits + f .certificateBits + f .inputRaw + f .targetTree + f .fuel +
       f .bitsReverse := by
@@ -439,11 +439,11 @@ theorem frontEnd_protected_sum (f : FrontEndProtected → Nat) :
     .certificateBits, .inputRaw, .targetTree, .fuel, .bitsReverse} : Finset FrontEndProtected), f k) = _
   simp [Nat.add_comm, Nat.add_left_comm]
 
-theorem frontEnd_success_context_cells [Fintype K] (target : BinaryTree Unit)
+theorem front_end_success_context_cells [Fintype K] (target : BinaryTree Unit)
     (fuel : List Bool) (ctx : ∀ k, List (Γ k)) :
     ∑ k, (frontEndSuccessContext target fuel ctx k).length =
       (treeCode target).length + fuel.length + ∑ k, (ctx k).length := by
-  rw [Fintype.sum_sum_type, frontEnd_protected_sum]
+  rw [Fintype.sum_sum_type, front_end_protected_sum]
   simp [frontEndSuccessContext]
 
 
@@ -454,13 +454,13 @@ instance : Fintype MoveProtected where
   elems := {.source, .saved, .scratch, .pending}
   complete k := by cases k <;> decide
 
-abbrev moveProtectedAlphabet (Γ : K → Type) : MoveProtected ⊕ K → Type
+abbrev MoveProtectedAlphabet (Γ : K → Type) : MoveProtected ⊕ K → Type
   | .inl .source | .inl .saved | .inl .scratch => Tag
   | .inl .pending => Unit
   | .inr k => Γ k
 
 instance moveProtectedFintype [∀ k, Fintype (Γ k)] (k : MoveProtected ⊕ K) :
-    Fintype (moveProtectedAlphabet Γ k) := by
+    Fintype (MoveProtectedAlphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
@@ -468,9 +468,9 @@ instance moveProtectedFintype [∀ k, Fintype (Γ k)] (k : MoveProtected ⊕ K) 
 abbrev MoveCallerRegister (R : Type) := (Option Branch × Option Unit) × R
 abbrev MoveCallerLabel (Λ : Type) := PositionedRotationMachine.Phase ⊕ External Λ
 abbrev MoveCfg (Γ : K → Type) (Λ R : Type) :=
-  MoveParserMachine.Cfg (moveProtectedAlphabet Γ) (MoveCallerLabel Λ) (MoveCallerRegister R)
+  MoveParserMachine.Cfg (MoveProtectedAlphabet Γ) (MoveCallerLabel Λ) (MoveCallerRegister R)
 abbrev MoveStatement (Γ : K → Type) (Λ R : Type) :=
-  MoveParserMachine.Statement (moveProtectedAlphabet Γ) (MoveCallerLabel Λ) (MoveCallerRegister R)
+  MoveParserMachine.Statement (MoveProtectedAlphabet Γ) (MoveCallerLabel Λ) (MoveCallerRegister R)
 
 def moveStackEquiv : MoveParserMachine.StackId (MoveProtected ⊕ K) ≃ StackId K where
   toFun
@@ -503,8 +503,8 @@ def moveStackEquiv : MoveParserMachine.StackId (MoveProtected ⊕ K) ≃ StackId
     | inr k => rfl
 
 def moveSymbolEquiv (k : MoveParserMachine.StackId (MoveProtected ⊕ K)) :
-    MoveParserMachine.alphabet (moveProtectedAlphabet Γ) k ≃
-      alphabet Γ (moveStackEquiv k) := by
+    MoveParserMachine.Alphabet (MoveProtectedAlphabet Γ) k ≃
+      Alphabet Γ (moveStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -533,13 +533,13 @@ instance : Fintype PositionProtected where
   elems := {.certificate, .moveReverse}
   complete k := by cases k <;> decide
 
-abbrev positionProtectedAlphabet (Γ : K → Type) : PositionProtected ⊕ K → Type
+abbrev PositionProtectedAlphabet (Γ : K → Type) : PositionProtected ⊕ K → Type
   | .inl .certificate => Tag
   | .inl .moveReverse => Branch
   | .inr k => Γ k
 
 instance positionProtectedFintype [∀ k, Fintype (Γ k)] (k : PositionProtected ⊕ K) :
-    Fintype (positionProtectedAlphabet Γ k) := by
+    Fintype (PositionProtectedAlphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
@@ -547,9 +547,9 @@ instance positionProtectedFintype [∀ k, Fintype (Γ k)] (k : PositionProtected
 abbrev PositionCallerLabel (Λ : Type) :=
   MoveParserMachine.Phase ⊕ (MoveParserMachine.Result ⊕ (Unit ⊕ Λ))
 abbrev PositionCfg (Γ : K → Type) (Λ R : Type) :=
-  PositionedRotationMachine.Cfg (positionProtectedAlphabet Γ) (PositionCallerLabel Λ) R
+  PositionedRotationMachine.Cfg (PositionProtectedAlphabet Γ) (PositionCallerLabel Λ) R
 abbrev PositionStatement (Γ : K → Type) (Λ R : Type) :=
-  PositionedRotationMachine.Statement (positionProtectedAlphabet Γ) (PositionCallerLabel Λ) R
+  PositionedRotationMachine.Statement (PositionProtectedAlphabet Γ) (PositionCallerLabel Λ) R
 
 def positionStackEquiv :
     PositionedRotationMachine.StackId (PositionProtected ⊕ K) ≃ StackId K where
@@ -583,8 +583,8 @@ def positionStackEquiv :
     | inr k => rfl
 
 def positionSymbolEquiv (k : PositionedRotationMachine.StackId (PositionProtected ⊕ K)) :
-    PositionedRotationMachine.alphabet (positionProtectedAlphabet Γ) k ≃
-      alphabet Γ (positionStackEquiv k) := by
+    PositionedRotationMachine.Alphabet (PositionProtectedAlphabet Γ) k ≃
+      Alphabet Γ (positionStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -617,7 +617,7 @@ def positionLabelEquiv : PositionedRotationMachine.Label (PositionCallerLabel Λ
     positionLabelEquiv (PositionedRotationMachine.resultLabel r) = resultLabel (Λ := Λ) (.inr r) := rfl
 
 def moveContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (moveProtectedAlphabet Γ k)
+    ∀ k, List (MoveProtectedAlphabet Γ k)
   | .inl .source => D.source
   | .inl .saved => D.saved
   | .inl .scratch => D.scratch
@@ -641,7 +641,7 @@ def setPositionData (D : LocalData) (E : PositionedRotationMachine.LocalData) : 
     setPositionData D (positionData D) = D := by cases D; rfl
 
 def positionContext (D : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (positionProtectedAlphabet Γ k)
+    ∀ k, List (PositionProtectedAlphabet Γ k)
   | .inl .certificate => D.certificate
   | .inl .moveReverse => D.moveReverse
   | .inr k => ctx k

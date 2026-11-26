@@ -18,7 +18,7 @@ variable (caller : External Λ → Statement Γ Λ R)
 section FurtherInstallation
 
 variable {K' Λ' R' : Type} {Γ' : K' → Type} [DecidableEq K']
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 
@@ -145,7 +145,7 @@ end FurtherInstallation
 section InstalledPrincipal
 
 variable {K' Λ' R' : Type} {Γ' : K' → Type} [DecidableEq K']
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 variable (installed : ∀ label, Owned (some label) → ambient (labels label) =

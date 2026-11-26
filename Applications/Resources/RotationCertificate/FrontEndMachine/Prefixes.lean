@@ -62,7 +62,7 @@ theorem framer_result_transport (regs : Registers R) (ctx : ∀ k, List (Γ k))
         Equiv.apply_symm_apply]
       rfl
 
-theorem inputDecoder_start_transport (regs : Registers R) (input cert : Bits)
+theorem input_decoder_start_transport (regs : Registers R) (input cert : Bits)
     (ctx : ∀ k, List (Γ k)) :
     inputDecoderCfg (Λ := Λ) (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan))
       (decoderRegisterEquiv.symm (resetFramer regs)) input [] []
@@ -72,7 +72,7 @@ theorem inputDecoder_start_transport (regs : Registers R) (input cert : Bits)
   simp only [Option.map_some, inputDecoderLabelEquiv_phase, Equiv.apply_symm_apply]
   rfl
 
-theorem inputDecoder_result_transport (regs : Registers R) (input cert : Bits)
+theorem input_decoder_result_transport (regs : Registers R) (input cert : Bits)
     (ctx : ∀ k, List (Γ k)) (result : Option Word) :
     inputDecoderCfg (Λ := Λ) (OpenDecoderMachine.resultCfg result [] []
       (decoderRegisterEquiv.symm (resetFramer regs))
@@ -121,7 +121,7 @@ theorem input_result_transport (regs : Registers R) (input : Word) (cert : Bits)
       rw [inputCfg_view]
       rfl
 
-theorem certificateDecoder_start_transport (regs : Registers R) (source target : BinaryTree Unit)
+theorem certificate_decoder_start_transport (regs : Registers R) (source target : BinaryTree Unit)
     (fuel cert : Bits) (ctx : ∀ k, List (Γ k)) :
     certificateDecoderCfg (Λ := Λ) (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan))
       (decoderRegisterEquiv.symm (reset regs)) cert [] []
@@ -132,7 +132,7 @@ theorem certificateDecoder_start_transport (regs : Registers R) (source target :
   simp only [Option.map_some, certificateDecoderLabelEquiv_phase, Equiv.apply_symm_apply]
   rfl
 
-theorem certificateDecoder_result_transport (regs : Registers R) (source target : BinaryTree Unit)
+theorem certificate_decoder_result_transport (regs : Registers R) (source target : BinaryTree Unit)
     (fuel cert : Bits) (ctx : ∀ k, List (Γ k)) (result : Option Word) :
     certificateDecoderCfg (Λ := Λ) (OpenDecoderMachine.resultCfg result [] []
       (decoderRegisterEquiv.symm (reset regs))
@@ -189,7 +189,7 @@ theorem owned_inputDecoderCfg (c : InputDecoderCfg Γ Λ R) (owned : OpenDecoder
           rw [control]
           change Owned (some (inputDecoderLabelEquiv (OpenDecoderMachine.phaseLabel phase)))
           rw [inputDecoderLabelEquiv_phase]
-          exact owned_inputDecoder phase
+          exact owned_input_decoder phase
       | inr exit => rw [control] at owned; cases owned
 
 theorem owned_certificateDecoderCfg (c : CertificateDecoderCfg Γ Λ R)
@@ -203,7 +203,7 @@ theorem owned_certificateDecoderCfg (c : CertificateDecoderCfg Γ Λ R)
           rw [control]
           change Owned (some (certificateDecoderLabelEquiv (OpenDecoderMachine.phaseLabel phase)))
           rw [certificateDecoderLabelEquiv_phase]
-          exact owned_certificateDecoder phase
+          exact owned_certificate_decoder phase
       | inr exit => rw [control] at owned; cases owned
 
 variable [DecidableEq K]
@@ -253,15 +253,15 @@ theorem framer_trace (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)
   rw [framer_start_transport, executed] at translated
   exact ⟨framerCfg reached, translated, owned_framerCfg reached owned⟩
 
-theorem inputDecoder_trace (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k)) :
+theorem input_decoder_trace (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k)) :
     Trace caller (inputDecoderEntry regs input cert ctx)
       (inputDecoderResult regs cert ctx (unpackWordRun input).1) (OpenDecoderMachine.runSteps input) := by
   let localCaller : OpenDecoderMachine.External (InputDecoderCaller Λ) → InputDecoderStatement Γ Λ R := fun _ => .halt
   let localRegs := decoderRegisterEquiv.symm (resetFramer regs)
   let localContext := decoderContext (Γ := Γ) .input (framedData input cert) ctx
-  have whole := inputDecoder_scan_installed caller localCaller input [] [] localRegs localContext
+  have whole := input_decoder_scan_installed caller localCaller input [] [] localRegs localContext
   simp only [List.length_nil, Nat.add_zero] at whole
-  rw [inputDecoder_start_transport, inputDecoder_result_transport] at whole
+  rw [input_decoder_start_transport, input_decoder_result_transport] at whole
   refine ⟨whole, ?_⟩
   intro n strict
   have within : ∀ j, j < OpenDecoderMachine.runSteps input → ∃ reached,
@@ -276,10 +276,10 @@ theorem inputDecoder_trace (regs : Registers R) (input cert : Bits) (ctx : ∀ k
     exact ⟨reached, executed, owned.mp (by simpa only [OpenDecoderMachine.phaseSteps, List.length_nil,
       Nat.add_zero] using small)⟩
   obtain ⟨reached, executed, owned⟩ := within n strict
-  have translated := inputDecoder_prefix_installed caller localCaller n
+  have translated := input_decoder_prefix_installed caller localCaller n
     (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan)) localRegs input [] [] localContext)
     (fun j smaller => within j (by omega))
-  rw [inputDecoder_start_transport, executed] at translated
+  rw [input_decoder_start_transport, executed] at translated
   exact ⟨inputDecoderCfg reached, translated, owned_inputDecoderCfg reached owned⟩
 
 theorem input_trace (regs : Registers R) (input : Word) (cert : Bits) (ctx : ∀ k, List (Γ k)) :
@@ -305,7 +305,7 @@ theorem input_trace (regs : Registers R) (input : Word) (cert : Bits) (ctx : ∀
   rw [input_start_transport, executed] at translated
   exact ⟨inputCfg reached, translated, owned_inputCfg reached owned⟩
 
-theorem certificateDecoder_trace (regs : Registers R) (source target : BinaryTree Unit)
+theorem certificate_decoder_trace (regs : Registers R) (source target : BinaryTree Unit)
     (fuel cert : Bits) (ctx : ∀ k, List (Γ k)) :
     Trace caller (certificateDecoderEntry regs source target fuel cert ctx)
       (certificateDecoderResult regs source target fuel ctx (unpackWordRun cert).1)
@@ -314,9 +314,9 @@ theorem certificateDecoder_trace (regs : Registers R) (source target : BinaryTre
     CertificateDecoderStatement Γ Λ R := fun _ => .halt
   let localRegs := decoderRegisterEquiv.symm (reset regs)
   let localContext := decoderContext (Γ := Γ) .certificate (parsedData source target fuel cert) ctx
-  have whole := certificateDecoder_scan_installed caller localCaller cert [] [] localRegs localContext
+  have whole := certificate_decoder_scan_installed caller localCaller cert [] [] localRegs localContext
   simp only [List.length_nil, Nat.add_zero] at whole
-  rw [certificateDecoder_start_transport, certificateDecoder_result_transport] at whole
+  rw [certificate_decoder_start_transport, certificate_decoder_result_transport] at whole
   refine ⟨whole, ?_⟩
   intro n strict
   have within : ∀ j, j < OpenDecoderMachine.runSteps cert → ∃ reached,
@@ -331,10 +331,10 @@ theorem certificateDecoder_trace (regs : Registers R) (source target : BinaryTre
     exact ⟨reached, executed, owned.mp (by simpa only [OpenDecoderMachine.phaseSteps, List.length_nil,
       Nat.add_zero] using small)⟩
   obtain ⟨reached, executed, owned⟩ := within n strict
-  have translated := certificateDecoder_prefix_installed caller localCaller n
+  have translated := certificate_decoder_prefix_installed caller localCaller n
     (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan)) localRegs cert [] [] localContext)
     (fun j smaller => within j (by omega))
-  rw [certificateDecoder_start_transport, executed] at translated
+  rw [certificate_decoder_start_transport, executed] at translated
   exact ⟨certificateDecoderCfg reached, translated, owned_certificateDecoderCfg reached owned⟩
 
 /-- Unconditional composition follows the actual returned fields at every stage. -/
@@ -346,7 +346,7 @@ theorem run_source_trace (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (�
   | some pair =>
       rcases pair with ⟨input, cert⟩
       rw [framed] at framing
-      have decoding := inputDecoder_trace caller regs input cert ctx
+      have decoding := input_decoder_trace caller regs input cert ctx
       cases decoded : (unpackWordRun input).1 with
       | none =>
           rw [decoded] at decoding
@@ -364,7 +364,7 @@ theorem run_source_trace (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (�
           | some triple =>
               rcases triple with ⟨source, target, fuel⟩
               rw [parsed] at parsing
-              have certificate := certificateDecoder_trace caller regs source target fuel cert ctx
+              have certificate := certificate_decoder_trace caller regs source target fuel cert ctx
               cases certified : (unpackWordRun cert).1 with
               | none =>
                   rw [certified] at certificate
@@ -440,7 +440,7 @@ theorem framer_prefix_lift (regs : Registers R) (raw : Bits) (ctx : ∀ k, List 
   rw [framer_start_transport, executed] at translated
   exact ⟨reached, executed, translated⟩
 
-theorem inputDecoder_prefix_lift (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k))
+theorem input_decoder_prefix_lift (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k))
     (n : Nat) (bound : n ≤ OpenDecoderMachine.runSteps input) :
     ∃ reached : InputDecoderCfg Γ Λ R,
       (OpenDecoderMachine.next (fun _ => .halt))^[n]
@@ -455,13 +455,13 @@ theorem inputDecoder_prefix_lift (regs : Registers R) (input cert : Bits) (ctx :
     simpa only [OpenDecoderMachine.phaseSteps, List.length_nil, Nat.add_zero] using bound
   obtain ⟨reached, executed, _, _, _, _⟩ :=
     OpenDecoderMachine.phase_prefix localCaller .scan input [] [] localRegs localContext n phaseBound
-  have translated := inputDecoder_prefix_installed caller localCaller n
+  have translated := input_decoder_prefix_installed caller localCaller n
     (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan)) localRegs input [] [] localContext) (by
       intro j strict
       obtain ⟨actual, run, _, _, owned, _⟩ :=
         OpenDecoderMachine.phase_prefix localCaller .scan input [] [] localRegs localContext j (by omega)
       exact ⟨actual, run, owned.mp (by omega)⟩)
-  rw [inputDecoder_start_transport, executed] at translated
+  rw [input_decoder_start_transport, executed] at translated
   exact ⟨reached, executed, translated⟩
 
 theorem input_prefix_lift (regs : Registers R) (input : Word) (cert : Bits) (ctx : ∀ k, List (Γ k))
@@ -485,7 +485,7 @@ theorem input_prefix_lift (regs : Registers R) (input : Word) (cert : Bits) (ctx
   rw [input_start_transport, executed] at translated
   exact ⟨reached, executed, translated⟩
 
-theorem certificateDecoder_prefix_lift (regs : Registers R) (source target : BinaryTree Unit)
+theorem certificate_decoder_prefix_lift (regs : Registers R) (source target : BinaryTree Unit)
     (fuel cert : Bits) (ctx : ∀ k, List (Γ k)) (n : Nat)
     (bound : n ≤ OpenDecoderMachine.runSteps cert) :
     ∃ reached : CertificateDecoderCfg Γ Λ R,
@@ -503,13 +503,13 @@ theorem certificateDecoder_prefix_lift (regs : Registers R) (source target : Bin
     simpa only [OpenDecoderMachine.phaseSteps, List.length_nil, Nat.add_zero] using bound
   obtain ⟨reached, executed, _, _, _, _⟩ :=
     OpenDecoderMachine.phase_prefix localCaller .scan cert [] [] localRegs localContext n phaseBound
-  have translated := certificateDecoder_prefix_installed caller localCaller n
+  have translated := certificate_decoder_prefix_installed caller localCaller n
     (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan)) localRegs cert [] [] localContext) (by
       intro j strict
       obtain ⟨actual, run, _, _, owned, _⟩ :=
         OpenDecoderMachine.phase_prefix localCaller .scan cert [] [] localRegs localContext j (by omega)
       exact ⟨actual, run, owned.mp (by omega)⟩)
-  rw [certificateDecoder_start_transport, executed] at translated
+  rw [certificate_decoder_start_transport, executed] at translated
   exact ⟨reached, executed, translated⟩
 
 variable [Fintype K]
@@ -544,7 +544,7 @@ theorem stackCells_cfg (label : Option (Label Λ)) (regs : Registers R) (data : 
   rw [stackCells, Fintype.sum_sum_type, localStack_sum]
   rfl
 
-theorem decoderStackCells_eq_sum {P Q S : Type} {Δ : P → Type} [Fintype P]
+theorem openDecoderMachineStackCells_eq_sum {P Q S : Type} {Δ : P → Type} [Fintype P]
     (c : OpenDecoderMachine.Cfg Δ Q S) :
     OpenDecoderMachine.stackCells c = ∑ k, (c.stk k).length := by
   have localSum (f : OpenDecoderMachine.LocalStack → Nat) :
@@ -555,7 +555,7 @@ theorem decoderStackCells_eq_sum {P Q S : Type} {Δ : P → Type} [Fintype P]
   rw [Fintype.sum_sum_type, localSum]
   rfl
 
-theorem inputStackCells_eq_sum {P Q S : Type} {Δ : P → Type} [Fintype P]
+theorem inputParserMachineStackCells_eq_sum {P Q S : Type} {Δ : P → Type} [Fintype P]
     (c : InputParserMachine.Cfg Δ Q S) :
     InputParserMachine.stackCells c = ∑ k, (c.stk k).length := by
   have treeSum (f : TreeParserMachine.LocalStack InputParserMachine.TreeSide → Nat) :
@@ -591,19 +591,19 @@ theorem stackCells_framerCfg (c : FramerCfg Γ Λ R) :
 omit [DecidableEq K] in
 theorem stackCells_inputCfg (c : InputCfg Γ Λ R) :
     stackCells (inputCfg c) = InputParserMachine.stackCells c := by
-  rw [inputStackCells_eq_sum]
+  rw [inputParserMachineStackCells_eq_sum]
   exact Transport.stackEquiv_total_length inputStackEquiv (inputSymbolEquiv (Γ := Γ)) c.stk
 
 omit [DecidableEq K] in
 theorem stackCells_inputDecoderCfg (c : InputDecoderCfg Γ Λ R) :
     stackCells (inputDecoderCfg c) = OpenDecoderMachine.stackCells c := by
-  rw [decoderStackCells_eq_sum]
+  rw [openDecoderMachineStackCells_eq_sum]
   exact Transport.stackEquiv_total_length (decoderStackEquiv .input) (decoderSymbolEquiv (Γ := Γ) .input) c.stk
 
 omit [DecidableEq K] in
 theorem stackCells_certificateDecoderCfg (c : CertificateDecoderCfg Γ Λ R) :
     stackCells (certificateDecoderCfg c) = OpenDecoderMachine.stackCells c := by
-  rw [decoderStackCells_eq_sum]
+  rw [openDecoderMachineStackCells_eq_sum]
   exact Transport.stackEquiv_total_length (decoderStackEquiv .certificate) (decoderSymbolEquiv (Γ := Γ) .certificate) c.stk
 
 /-- An inclusive bound on actual prefixes of one fixed program. -/
@@ -651,11 +651,11 @@ theorem framer_prefix_bound (regs : Registers R) (raw : Bits) (ctx : ∀ k, List
   rw [contextEq] at localBound
   exact localBound
 
-theorem inputDecoder_prefix_bound (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k)) :
+theorem input_decoder_prefix_bound (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k)) :
     PrefixBound caller (inputDecoderEntry regs input cert ctx) (OpenDecoderMachine.runSteps input)
       (input.length + cert.length + contextCells ctx) := by
   intro n bound reached executed
-  obtain ⟨actual, localRun, globalRun⟩ := inputDecoder_prefix_lift caller regs input cert ctx n bound
+  obtain ⟨actual, localRun, globalRun⟩ := input_decoder_prefix_lift caller regs input cert ctx n bound
   have same : inputDecoderCfg actual = reached := Option.some.inj (globalRun.symm.trans executed)
   subst reached
   have preservation := OpenDecoderMachine.prefix_preserves (fun _ => .halt)
@@ -665,7 +665,7 @@ theorem inputDecoder_prefix_bound (regs : Registers R) (input cert : Bits) (ctx 
         simpa only [OpenDecoderMachine.remainingSteps, OpenDecoderMachine.cfg,
           OpenDecoderMachine.phaseLabel, OpenDecoderMachine.phaseSteps, List.length_nil, Nat.add_zero] using bound) localRun
   rw [← stackCells_inputDecoderCfg actual,
-    ← stackCells_inputDecoderCfg, inputDecoder_start_transport, inputDecoderEntry, stackCells_cfg] at preservation
+    ← stackCells_inputDecoderCfg, input_decoder_start_transport, inputDecoderEntry, stackCells_cfg] at preservation
   simpa only [localCells, framedData, List.length_nil, Nat.add_zero, Nat.zero_add, Nat.add_assoc]
     using preservation.2.2
 
@@ -699,13 +699,13 @@ theorem input_prefix_bound (regs : Registers R) (input : Word) (cert : Bits) (ct
   rw [contextEq] at localBound
   omega
 
-theorem certificateDecoder_prefix_bound (regs : Registers R) (source target : BinaryTree Unit)
+theorem certificate_decoder_prefix_bound (regs : Registers R) (source target : BinaryTree Unit)
     (fuel cert : Bits) (ctx : ∀ k, List (Γ k)) :
     PrefixBound caller (certificateDecoderEntry regs source target fuel cert ctx)
       (OpenDecoderMachine.runSteps cert)
       (cert.length + (treeCode source).length + (treeCode target).length + fuel.length + contextCells ctx) := by
   intro n bound reached executed
-  obtain ⟨actual, localRun, globalRun⟩ := certificateDecoder_prefix_lift caller regs source target fuel cert ctx n bound
+  obtain ⟨actual, localRun, globalRun⟩ := certificate_decoder_prefix_lift caller regs source target fuel cert ctx n bound
   have same : certificateDecoderCfg actual = reached := Option.some.inj (globalRun.symm.trans executed)
   subst reached
   have preservation := OpenDecoderMachine.prefix_preserves (fun _ => .halt)
@@ -715,7 +715,7 @@ theorem certificateDecoder_prefix_bound (regs : Registers R) (source target : Bi
         simpa only [OpenDecoderMachine.remainingSteps, OpenDecoderMachine.cfg,
           OpenDecoderMachine.phaseLabel, OpenDecoderMachine.phaseSteps, List.length_nil, Nat.add_zero] using bound) localRun
   rw [← stackCells_certificateDecoderCfg actual,
-    ← stackCells_certificateDecoderCfg, certificateDecoder_start_transport,
+    ← stackCells_certificateDecoderCfg, certificate_decoder_start_transport,
     certificateDecoderEntry, stackCells_cfg] at preservation
   simpa only [localCells, parsedData, List.length_nil, Nat.add_zero, Nat.zero_add, Nat.add_assoc]
     using preservation.2.2

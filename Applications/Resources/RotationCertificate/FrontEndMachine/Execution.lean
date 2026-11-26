@@ -14,22 +14,22 @@ variable {K Λ R : Type} {Γ : K → Type}
 
 abbrev External (Λ : Type) := TreeParserMachine.Result ⊕ Λ
 abbrev InputStatement (Γ : K → Type) (Λ R : Type) :=
-  InputParserMachine.Statement (inputProtectedAlphabet Γ) (ExtraLabel Λ) (InputRegisterCaller R)
+  InputParserMachine.Statement (InputProtectedAlphabet Γ) (ExtraLabel Λ) (InputRegisterCaller R)
 abbrev FramerStatement (Γ : K → Type) (Λ R : Type) :=
-  OpenFramingMachine.Statement (framerProtectedAlphabet Γ) (FramerCaller Λ) (FramerRegisterCaller R)
+  OpenFramingMachine.Statement (FramerProtectedAlphabet Γ) (FramerCaller Λ) (FramerRegisterCaller R)
 abbrev InputDecoderStatement (Γ : K → Type) (Λ R : Type) :=
-  OpenDecoderMachine.Statement (decoderProtectedAlphabet Γ) (InputDecoderCaller Λ) (DecoderRegisterCaller R)
+  OpenDecoderMachine.Statement (DecoderProtectedAlphabet Γ) (InputDecoderCaller Λ) (DecoderRegisterCaller R)
 abbrev CertificateDecoderStatement (Γ : K → Type) (Λ R : Type) :=
-  OpenDecoderMachine.Statement (decoderProtectedAlphabet Γ) (CertificateDecoderCaller Λ) (DecoderRegisterCaller R)
+  OpenDecoderMachine.Statement (DecoderProtectedAlphabet Γ) (CertificateDecoderCaller Λ) (DecoderRegisterCaller R)
 
 abbrev InputCfg (Γ : K → Type) (Λ R : Type) :=
-  InputParserMachine.Cfg (inputProtectedAlphabet Γ) (ExtraLabel Λ) (InputRegisterCaller R)
+  InputParserMachine.Cfg (InputProtectedAlphabet Γ) (ExtraLabel Λ) (InputRegisterCaller R)
 abbrev FramerCfg (Γ : K → Type) (Λ R : Type) :=
-  OpenFramingMachine.Cfg (framerProtectedAlphabet Γ) (FramerCaller Λ) (FramerRegisterCaller R)
+  OpenFramingMachine.Cfg (FramerProtectedAlphabet Γ) (FramerCaller Λ) (FramerRegisterCaller R)
 abbrev InputDecoderCfg (Γ : K → Type) (Λ R : Type) :=
-  OpenDecoderMachine.Cfg (decoderProtectedAlphabet Γ) (InputDecoderCaller Λ) (DecoderRegisterCaller R)
+  OpenDecoderMachine.Cfg (DecoderProtectedAlphabet Γ) (InputDecoderCaller Λ) (DecoderRegisterCaller R)
 abbrev CertificateDecoderCfg (Γ : K → Type) (Λ R : Type) :=
-  OpenDecoderMachine.Cfg (decoderProtectedAlphabet Γ) (CertificateDecoderCaller Λ) (DecoderRegisterCaller R)
+  OpenDecoderMachine.Cfg (DecoderProtectedAlphabet Γ) (CertificateDecoderCaller Λ) (DecoderRegisterCaller R)
 
 def inputTranslate (body : InputStatement Γ Λ R) : Statement Γ Λ R :=
   Transport.statement inputStackEquiv (inputSymbolEquiv (Γ := Γ)) inputRegisterEquiv inputLabelEquiv body
@@ -79,9 +79,9 @@ theorem program_inputOwned (owned : InputOwned) :
 
 @[simp] theorem program_framer (phase : OpenFramingMachine.Phase) :
     program caller (framerLabel phase) = framerTranslate (OpenFramingMachine.block phase) := rfl
-@[simp] theorem program_inputDecoder (phase : OpenDecoderMachine.Phase) :
+@[simp] theorem program_input_decoder (phase : OpenDecoderMachine.Phase) :
     program caller (inputDecoderLabel phase) = inputDecoderTranslate (OpenDecoderMachine.block phase) := rfl
-@[simp] theorem program_certificateDecoder (phase : OpenDecoderMachine.Phase) :
+@[simp] theorem program_certificate_decoder (phase : OpenDecoderMachine.Phase) :
     program caller (certificateDecoderLabel phase) =
       certificateDecoderTranslate (OpenDecoderMachine.block phase) := by cases phase <;> rfl
 @[simp] theorem program_dispatch : program caller dispatchLabel = caller (.inl .success) := rfl
@@ -125,7 +125,7 @@ theorem installed_framer_owned
   | inl phase => rfl
   | inr external => cases owned
 
-theorem installed_inputDecoder_owned
+theorem installed_input_decoder_owned
     (localCaller : OpenDecoderMachine.External (InputDecoderCaller Λ) → InputDecoderStatement Γ Λ R)
     (label : OpenDecoderMachine.Label (InputDecoderCaller Λ)) (owned : OpenDecoderMachine.Owned (some label)) :
     program caller (inputDecoderLabelEquiv label) = inputDecoderTranslate (OpenDecoderMachine.program localCaller label) := by
@@ -133,7 +133,7 @@ theorem installed_inputDecoder_owned
   | inl phase => rfl
   | inr external => cases owned
 
-theorem installed_certificateDecoder_owned
+theorem installed_certificate_decoder_owned
     (localCaller : OpenDecoderMachine.External (CertificateDecoderCaller Λ) → CertificateDecoderStatement Γ Λ R)
     (label : OpenDecoderMachine.Label (CertificateDecoderCaller Λ)) (owned : OpenDecoderMachine.Owned (some label)) :
     program caller (certificateDecoderLabelEquiv label) =
@@ -171,7 +171,7 @@ theorem input_prefix_installed
     inputRegisterEquiv inputLabelEquiv (InputParserMachine.program localCaller)
     (program caller) InputParserMachine.FullOwned (installed_input_owned caller localCaller) n start within
 
-theorem inputDecoder_prefix_installed
+theorem input_decoder_prefix_installed
     (localCaller : OpenDecoderMachine.External (InputDecoderCaller Λ) → InputDecoderStatement Γ Λ R)
     (n : Nat) (start : InputDecoderCfg Γ Λ R)
     (within : ∀ j, j < n → ∃ reached,
@@ -181,9 +181,9 @@ theorem inputDecoder_prefix_installed
       ((OpenDecoderMachine.next localCaller)^[n] (some start)).map inputDecoderCfg := by
   exact Transport.iterate_owned (decoderStackEquiv .input) (decoderSymbolEquiv (Γ := Γ) .input)
     decoderRegisterEquiv inputDecoderLabelEquiv (OpenDecoderMachine.program localCaller)
-    (program caller) OpenDecoderMachine.Owned (installed_inputDecoder_owned caller localCaller) n start within
+    (program caller) OpenDecoderMachine.Owned (installed_input_decoder_owned caller localCaller) n start within
 
-theorem certificateDecoder_prefix_installed
+theorem certificate_decoder_prefix_installed
     (localCaller : OpenDecoderMachine.External (CertificateDecoderCaller Λ) → CertificateDecoderStatement Γ Λ R)
     (n : Nat) (start : CertificateDecoderCfg Γ Λ R)
     (within : ∀ j, j < n → ∃ reached,
@@ -193,13 +193,13 @@ theorem certificateDecoder_prefix_installed
       ((OpenDecoderMachine.next localCaller)^[n] (some start)).map certificateDecoderCfg := by
   exact Transport.iterate_owned (decoderStackEquiv .certificate) (decoderSymbolEquiv (Γ := Γ) .certificate)
     decoderRegisterEquiv certificateDecoderLabelEquiv (OpenDecoderMachine.program localCaller)
-    (program caller) OpenDecoderMachine.Owned (installed_certificateDecoder_owned caller localCaller) n start within
+    (program caller) OpenDecoderMachine.Owned (installed_certificate_decoder_owned caller localCaller) n start within
 
 /-- The actual complete framer execution under the one installed global program. -/
 theorem framer_run_installed
     (localCaller : OpenFramingMachine.External (FramerCaller Λ) → FramerStatement Γ Λ R)
     (raw : Bits) (regs : OpenFramingMachine.Registers (FramerRegisterCaller R))
-    (ctx : ∀ k, List (framerProtectedAlphabet Γ k)) :
+    (ctx : ∀ k, List (FramerProtectedAlphabet Γ k)) :
     (next caller)^[BitPairFraming.runSteps raw]
         (some (framerCfg (OpenFramingMachine.cfg
           (some (OpenFramingMachine.phaseLabel .scanPrefix)) regs raw [] [] [] [] ctx))) =
@@ -214,7 +214,7 @@ theorem framer_run_installed
 theorem input_run_installed
     (localCaller : InputParserMachine.External (ExtraLabel Λ) → InputStatement Γ Λ R)
     (raw : Word) (regs : InputParserMachine.Registers (InputRegisterCaller R))
-    (ctx : ∀ k, List (inputProtectedAlphabet Γ k)) :
+    (ctx : ∀ k, List (InputProtectedAlphabet Γ k)) :
     (next caller)^[InputParserMachine.inputSteps raw]
         (some (inputCfg (InputParserMachine.entry regs raw ctx))) =
       some (inputCfg (InputParserMachine.resultCfg regs raw ctx (parseInputRun raw).1)) := by
@@ -231,10 +231,10 @@ theorem input_run_installed
   exact run
 
 /-- Generalized dirty-output decoding is transported without erasing any physical data. -/
-theorem inputDecoder_scan_installed
+theorem input_decoder_scan_installed
     (localCaller : OpenDecoderMachine.External (InputDecoderCaller Λ) → InputDecoderStatement Γ Λ R)
     (raw : Bits) (rev out : Word) (regs : OpenDecoderMachine.Registers (DecoderRegisterCaller R))
-    (ctx : ∀ k, List (decoderProtectedAlphabet Γ k)) :
+    (ctx : ∀ k, List (DecoderProtectedAlphabet Γ k)) :
     (next caller)^[OpenDecoderMachine.runSteps raw + rev.length]
         (some (inputDecoderCfg (OpenDecoderMachine.cfg
           (some (OpenDecoderMachine.phaseLabel .scan)) regs raw rev out ctx))) =
@@ -247,15 +247,15 @@ theorem inputDecoder_scan_installed
     obtain ⟨reached, executed, _, _, owned, _⟩ :=
       OpenDecoderMachine.phase_prefix localCaller .scan raw rev out regs ctx j (Nat.le_of_lt strict)
     exact ⟨reached, executed, owned.mp strict⟩
-  have run := inputDecoder_prefix_installed caller localCaller (OpenDecoderMachine.runSteps raw + rev.length)
+  have run := input_decoder_prefix_installed caller localCaller (OpenDecoderMachine.runSteps raw + rev.length)
     (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan)) regs raw rev out ctx) within
   rw [OpenDecoderMachine.scan_iterate] at run
   exact run
 
-theorem certificateDecoder_scan_installed
+theorem certificate_decoder_scan_installed
     (localCaller : OpenDecoderMachine.External (CertificateDecoderCaller Λ) → CertificateDecoderStatement Γ Λ R)
     (raw : Bits) (rev out : Word) (regs : OpenDecoderMachine.Registers (DecoderRegisterCaller R))
-    (ctx : ∀ k, List (decoderProtectedAlphabet Γ k)) :
+    (ctx : ∀ k, List (DecoderProtectedAlphabet Γ k)) :
     (next caller)^[OpenDecoderMachine.runSteps raw + rev.length]
         (some (certificateDecoderCfg (OpenDecoderMachine.cfg
           (some (OpenDecoderMachine.phaseLabel .scan)) regs raw rev out ctx))) =
@@ -268,7 +268,7 @@ theorem certificateDecoder_scan_installed
     obtain ⟨reached, executed, _, _, owned, _⟩ :=
       OpenDecoderMachine.phase_prefix localCaller .scan raw rev out regs ctx j (Nat.le_of_lt strict)
     exact ⟨reached, executed, owned.mp strict⟩
-  have run := certificateDecoder_prefix_installed caller localCaller (OpenDecoderMachine.runSteps raw + rev.length)
+  have run := certificate_decoder_prefix_installed caller localCaller (OpenDecoderMachine.runSteps raw + rev.length)
     (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan)) regs raw rev out ctx) within
   rw [OpenDecoderMachine.scan_iterate] at run
   exact run
@@ -298,7 +298,7 @@ structure LocalData where
   bitsReverse : Bits := []
 
 def stores (data : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (alphabet Γ k)
+    ∀ k, List (Alphabet Γ k)
   | .inl .framedRaw => data.framedRaw
   | .inl .frameFirstReverse => data.frameFirstReverse
   | .inl .frameCertReverse => data.frameCertReverse
@@ -332,7 +332,7 @@ theorem cfg_ext {before after : Cfg Γ Λ R}
   rfl
 
 def framerContext (data : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (framerProtectedAlphabet Γ k)
+    ∀ k, List (FramerProtectedAlphabet Γ k)
   | .inl .inputRaw => data.inputRaw
   | .inl .sourceTree => data.sourceTree
   | .inl .targetTree => data.targetTree
@@ -345,7 +345,7 @@ def framerContext (data : LocalData) (ctx : ∀ k, List (Γ k)) :
   | .inr k => ctx k
 
 def inputContext (data : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (inputProtectedAlphabet Γ k)
+    ∀ k, List (InputProtectedAlphabet Γ k)
   | .inl .framedRaw => data.framedRaw
   | .inl .frameFirstReverse => data.frameFirstReverse
   | .inl .frameCertReverse => data.frameCertReverse
@@ -356,7 +356,7 @@ def inputContext (data : LocalData) (ctx : ∀ k, List (Γ k)) :
   | .inr k => ctx k
 
 def decoderContext (call : DecoderCall) (data : LocalData) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (decoderProtectedAlphabet Γ k)
+    ∀ k, List (DecoderProtectedAlphabet Γ k)
   | .inl .framedRaw => data.framedRaw
   | .inl .frameFirstReverse => data.frameFirstReverse
   | .inl .frameCertReverse => data.frameCertReverse
@@ -489,7 +489,7 @@ def afterInputDecoder (regs : Registers R) : Registers R :=
 def reset (regs : Registers R) : Registers R :=
   ((none, none), BitDecoderMachine.zeroRegisters, regs.2.2)
 
-@[simp] theorem afterInputDecoder_afterFrame (regs : Registers R) :
+@[simp] theorem afterInputDecoder_resetFramer (regs : Registers R) :
     afterInputDecoder (resetFramer regs) = afterInputDecoder regs := rfl
 @[simp] theorem reset_afterInputDecoder (regs : Registers R) :
     reset (afterInputDecoder regs) = reset regs := rfl

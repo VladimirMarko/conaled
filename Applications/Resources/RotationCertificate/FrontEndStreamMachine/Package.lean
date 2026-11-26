@@ -39,7 +39,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .framedRaw
   k₁ := .inl .fuel
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := phaseLabel (.inl (FrontEndMachine.framerLabel .scanPrefix))
   σ := Registers R
@@ -60,7 +60,7 @@ theorem machine_alphabet_finite (initial : R) (k : (machine caller initial).K) :
 theorem machine_inputIndex (initial : R) :
     (machine caller initial).k₀ = Sum.inl FrontEndMachine.LocalStack.framedRaw := rfl
 
-theorem machine_outputIndex (initial : R) :
+theorem machine_output_index (initial : R) :
     (machine caller initial).k₁ = Sum.inl FrontEndMachine.LocalStack.fuel := rfl
 
 theorem machine_input_ne_output (initial : R) :
@@ -71,7 +71,7 @@ theorem machine_input_ne_output (initial : R) :
 theorem machine_inputAlphabet (initial : R) :
     (machine caller initial).Γ (machine caller initial).k₀ = Bool := rfl
 
-theorem machine_outputAlphabet (initial : R) :
+theorem machine_output_alphabet (initial : R) :
     (machine caller initial).Γ (machine caller initial).k₁ = Bool := rfl
 
 theorem machine_main (initial : R) :

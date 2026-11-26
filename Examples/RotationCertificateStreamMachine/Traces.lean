@@ -92,21 +92,21 @@ end FiniteTraceConnections
 
 /-! ### Fixed small local-state certificates; all edges require actual step proofs -/
 
-def trace_a01 : Nat → TracePoint
+def traceA01 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [] [] [] [] [] [], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [] [] [] [] [] [], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [] [] [] [] [] [], .complete⟩
   | 3 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [] [], .complete⟩
 
-def trace_a02 : Nat → TracePoint
+def traceA02 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [15] [] [] [] [] [] [] [] [], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [15] [] [] [] [] [] [] [] [], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreFalse), data [15] [] [] [] [] [] [] [] [], .fuel⟩
   | 3 => ⟨.inl (fuelJoinPhase .zero), data [15] [] [] [] [] [] [] [] [], .fuel⟩
   | _ => ⟨.inr false, data [15] [] [] [] [] [] [] [] [], .complete⟩
 
-def trace_a03 : Nat → TracePoint
+def traceA03 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [0] [] [] [] [] [0], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [0] [] [] [] [] [0], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [0] [] [] [] [] [0], .complete⟩
@@ -114,7 +114,7 @@ def trace_a03 : Nat → TracePoint
   | 4 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [] [], .complete⟩
 
-def trace_a04 : Nat → TracePoint
+def traceA04 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [1, 0, 0] [] [] [] [false] [1, 0, 0], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [1, 0, 0] [] [] [] [false] [1, 0, 0], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [1, 0, 0] [] [] [] [false] [1, 0, 0], .complete⟩
@@ -124,7 +124,7 @@ def trace_a04 : Nat → TracePoint
   | 6 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_a05 : Nat → TracePoint
+def traceA05 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 0, 1, 0, 0], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 0, 1, 0, 0], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 0, 1, 0, 0], .complete⟩
@@ -136,14 +136,14 @@ def trace_a05 : Nat → TracePoint
   | 8 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false, false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false, false] [], .complete⟩
 
-def trace_a06 : Nat → TracePoint
+def traceA06 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [1, 0, 0] [] [] [] [] [0], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [1, 0, 0] [] [] [] [] [0], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [1, 0, 0] [] [] [] [] [0], .complete⟩
   | 3 => ⟨.inl (equalityJoinPhase .different), data [] [] [] [0, 0] [] [] [] [] [], .complete⟩
   | _ => ⟨.inr false, data [] [] [] [0, 0] [] [] [] [] [], .complete⟩
 
-def trace_a07 : Nat → TracePoint
+def traceA07 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [15] [] [] [] [true] [15], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [15] [] [] [] [true] [15], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [15] [] [] [] [true] [15], .complete⟩
@@ -151,7 +151,7 @@ def trace_a07 : Nat → TracePoint
   | 4 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [true] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [true] [], .complete⟩
 
-def trace_a08 : Nat → TracePoint
+def traceA08 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [1, 0, 15, 2] [] [] [] [] [1, 0, 3, 11], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [1, 0, 15, 2] [] [] [] [] [1, 0, 3, 11], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [1, 0, 15, 2] [] [] [] [] [1, 0, 3, 11], .complete⟩
@@ -160,7 +160,7 @@ def trace_a08 : Nat → TracePoint
   | 5 => ⟨.inl (equalityJoinPhase .different), data [] [] [] [2] [] [] [] [] [11], .complete⟩
   | _ => ⟨.inr false, data [] [] [] [2] [] [] [] [] [11], .complete⟩
 
-def trace_a09 : Nat → TracePoint
+def traceA09 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [()] [false] [1, 1, 0, 0, 0], .fuel⟩
@@ -171,7 +171,7 @@ def trace_a09 : Nat → TracePoint
   | 7 => ⟨.inl (fuelJoinPhase .zero), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 1, 0, 0, 0], .fuel⟩
   | _ => ⟨.inr false, data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 1, 0, 0, 0], .complete⟩
 
-def trace_a10 : Nat → TracePoint
+def traceA10 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .fuel⟩
@@ -181,7 +181,7 @@ def trace_a10 : Nat → TracePoint
   | 6 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .complete⟩
 
-def trace_a11 : Nat → TracePoint
+def traceA11 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 8, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 8, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 8, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .fuel⟩
@@ -195,7 +195,7 @@ def trace_a11 : Nat → TracePoint
   | 10 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [6, 8, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [6, 8, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .complete⟩
 
-def trace_a12 : Nat → TracePoint
+def traceA12 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .fuel⟩
@@ -223,7 +223,7 @@ def trace_a12 : Nat → TracePoint
   | 24 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_a13 : Nat → TracePoint
+def traceA13 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [7, 10] [] [] [1, 1, 0, 0, 0] [] [] [] [true] [1, 0, 1, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [7, 10] [] [] [1, 1, 0, 0, 0] [] [] [] [true] [1, 0, 1, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [7, 10] [] [] [1, 1, 0, 0, 0] [] [] [] [false] [1, 0, 1, 0, 0], .fuel⟩
@@ -250,7 +250,7 @@ def trace_a13 : Nat → TracePoint
   | 23 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_a14 : Nat → TracePoint
+def traceA14 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10] [] [] [0] [] [] [] [true] [0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [] [0] [] [] [] [true] [0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10] [] [] [0] [] [] [] [false] [0], .fuel⟩
@@ -266,7 +266,7 @@ def trace_a14 : Nat → TracePoint
   | 12 => ⟨.inl (applyJoinPhase MoveApplyMachine.rotationFailure), data [] [] [] [0] [] [] [] [false] [0], .complete⟩
   | _ => ⟨.inr false, data [] [] [] [0] [] [] [] [false] [0], .complete⟩
 
-def trace_a15 : Nat → TracePoint
+def traceA15 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 8, 8, 10] [] [] [0] [] [] [] [true] [0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 8, 8, 10] [] [] [0] [] [] [] [true] [0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 8, 8, 10] [] [] [0] [] [] [] [false] [0], .fuel⟩
@@ -285,7 +285,7 @@ def trace_a15 : Nat → TracePoint
   | 15 => ⟨.inl (applyJoinPhase MoveApplyMachine.rotationFailure), data [] [] [.left] [0] [] [] [] [false] [0], .complete⟩
   | _ => ⟨.inr false, data [] [] [.left] [0] [] [] [] [false] [0], .complete⟩
 
-def trace_a16 : Nat → TracePoint
+def traceA16 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 8, 10] [] [] [1, 1, 0, 1, 0, 0, 0] [] [] [] [true] [1, 1, 1, 0, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 8, 10] [] [] [1, 1, 0, 1, 0, 0, 0] [] [] [] [true] [1, 1, 1, 0, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 8, 10] [] [] [1, 1, 0, 1, 0, 0, 0] [] [] [] [false] [1, 1, 1, 0, 0, 0, 0], .fuel⟩
@@ -319,7 +319,7 @@ def trace_a16 : Nat → TracePoint
   | 30 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_a17 : Nat → TracePoint
+def traceA17 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 9, 10] [] [] [1, 0, 1, 0, 1, 0, 0] [] [] [] [true] [1, 0, 1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 9, 10] [] [] [1, 0, 1, 0, 1, 0, 0] [] [] [] [true] [1, 0, 1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 9, 10] [] [] [1, 0, 1, 0, 1, 0, 0] [] [] [] [false] [1, 0, 1, 1, 0, 0, 0], .fuel⟩
@@ -355,7 +355,7 @@ def trace_a17 : Nat → TracePoint
   | 32 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_a18 : Nat → TracePoint
+def traceA18 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10, 7, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, true] [1, 0, 1, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10, 7, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, true] [1, 0, 1, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .borrow), data [6, 10, 7, 10] [] [] [1, 0, 1, 0, 0] [] [] [()] [true] [1, 0, 1, 0, 0], .fuel⟩
@@ -400,7 +400,7 @@ def trace_a18 : Nat → TracePoint
   | 41 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false, false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false, false] [], .complete⟩
 
-def trace_a19 : Nat → TracePoint
+def traceA19 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10, 7, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 0, 1, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10, 7, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 0, 1, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10, 7, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 0, 1, 0, 0], .fuel⟩
@@ -425,7 +425,7 @@ def trace_a19 : Nat → TracePoint
   | 21 => ⟨.inl (fuelJoinPhase .zero), data [7, 10] [] [] [1, 1, 0, 0, 0] [] [] [] [false] [1, 0, 1, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [7, 10] [] [] [1, 1, 0, 0, 0] [] [] [] [false] [1, 0, 1, 0, 0], .complete⟩
 
-def trace_a20 : Nat → TracePoint
+def traceA20 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .borrow), data [6, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [()] [true] [1, 1, 0, 0, 0], .fuel⟩
@@ -453,7 +453,7 @@ def trace_a20 : Nat → TracePoint
   | 24 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [15] [] [] [1, 1, 0, 0, 0] [] [] [] [false, false] [1, 1, 0, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [15] [] [] [1, 1, 0, 0, 0] [] [] [] [false, false] [1, 1, 0, 0, 0], .complete⟩
 
-def trace_a21 : Nat → TracePoint
+def traceA21 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10] [] [] [1, 0, 1, 15] [] [] [] [true] [1, 1, 0, 15], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [] [1, 0, 1, 15] [] [] [] [true] [1, 1, 0, 15], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10] [] [] [1, 0, 1, 15] [] [] [] [false] [1, 1, 0, 15], .fuel⟩
@@ -480,14 +480,14 @@ def trace_a21 : Nat → TracePoint
   | 23 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_d01 : Nat → TracePoint
+def traceD01 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [.right, .left] [.right] [] [12] [3] [(), ()] [true] [], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [.right, .left] [.right] [] [12] [3] [(), ()] [true] [], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [.right, .left] [.right] [] [12] [3] [(), ()] [true] [], .complete⟩
   | 3 => ⟨.inl (equalityJoinPhase .equal), data [] [.right, .left] [.right] [] [12] [3] [(), ()] [true] [], .complete⟩
   | _ => ⟨.inr true, data [] [.right, .left] [.right] [] [12] [3] [(), ()] [true] [], .complete⟩
 
-def trace_d02 : Nat → TracePoint
+def traceD02 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [15] [.right, .left] [.right] [15] [12] [3] [(), ()] [true] [2], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [15] [.right, .left] [.right] [15] [12] [3] [(), ()] [true] [2], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [15] [.right, .left] [.right] [15] [12] [3] [(), ()] [false] [2], .fuel⟩
@@ -499,7 +499,7 @@ def trace_d02 : Nat → TracePoint
   | 8 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [15] [.right, .left] [.right] [15] [12] [3] [] [true, true, false] [2], .complete⟩
   | _ => ⟨.inr false, data [15] [.right, .left] [.right] [15] [12] [3] [] [true, true, false] [2], .complete⟩
 
-def trace_d03 : Nat → TracePoint
+def traceD03 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [15] [] [] [] [] [] [(), ()] [] [], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [15] [] [] [] [] [] [(), ()] [] [], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreFalse), data [15] [] [] [] [] [] [(), ()] [] [], .fuel⟩
@@ -508,7 +508,7 @@ def trace_d03 : Nat → TracePoint
   | 5 => ⟨.inl (fuelJoinPhase .zero), data [15] [] [] [] [] [] [] [false, false] [], .fuel⟩
   | _ => ⟨.inr false, data [15] [] [] [] [] [] [] [false, false] [], .complete⟩
 
-def trace_d04 : Nat → TracePoint
+def traceD04 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [15] [.right, .left] [.right] [1] [12] [3] [] [true] [0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [15] [.right, .left] [.right] [1] [12] [3] [] [true] [0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [15] [.right, .left] [.right] [1] [12] [3] [] [false] [0], .fuel⟩
@@ -518,7 +518,7 @@ def trace_d04 : Nat → TracePoint
   | 6 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [15] [.right, .left] [.right] [1] [12] [3] [] [false] [0], .complete⟩
   | _ => ⟨.inr false, data [15] [.right, .left] [.right] [1] [12] [3] [] [false] [0], .complete⟩
 
-def trace_d05 : Nat → TracePoint
+def traceD05 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 8, 15] [.right, .left] [.right] [1] [12] [3] [] [true] [0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 8, 15] [.right, .left] [.right] [1] [12] [3] [] [true] [0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 8, 15] [.right, .left] [.right] [1] [12] [3] [] [false] [0], .fuel⟩
@@ -534,7 +534,7 @@ def trace_d05 : Nat → TracePoint
   | 12 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [6, 8, 9, 8, 15] [] [.right] [1] [12] [3] [] [false] [0], .complete⟩
   | _ => ⟨.inr false, data [6, 8, 9, 8, 15] [] [.right] [1] [12] [3] [] [false] [0], .complete⟩
 
-def trace_d06 : Nat → TracePoint
+def traceD06 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10] [.left] [] [1, 1, 0, 1, 0, 0, 0] [] [] [] [true] [1, 1, 1, 0, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [.left] [] [1, 1, 0, 1, 0, 0, 0] [] [] [] [true] [1, 1, 1, 0, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10] [.left] [] [1, 1, 0, 1, 0, 0, 0] [] [] [] [false] [1, 1, 1, 0, 0, 0, 0], .fuel⟩
@@ -567,7 +567,7 @@ def trace_d06 : Nat → TracePoint
   | 29 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_d07 : Nat → TracePoint
+def traceD07 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10] [] [.left] [1, 1, 0, 1, 0, 0, 0] [] [] [] [true] [1, 1, 1, 0, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [.left] [1, 1, 0, 1, 0, 0, 0] [] [] [] [true] [1, 1, 1, 0, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10] [] [.left] [1, 1, 0, 1, 0, 0, 0] [] [] [] [false] [1, 1, 1, 0, 0, 0, 0], .fuel⟩
@@ -599,7 +599,7 @@ def trace_d07 : Nat → TracePoint
   | 28 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [false] [], .complete⟩
 
-def trace_d08 : Nat → TracePoint
+def traceD08 : Nat → TracePoint
   | 0 => ⟨.inl (applyPhase (MoveApplyMachine.positionPhase (.restorePrefix .success))), data [] [] [.right] [0] [] [15] [(), ()] [] [0], .original⟩
   | 1 => ⟨.inl (applyJoinPhase MoveApplyMachine.success), data [] [] [.right] [0] [] [15] [(), ()] [] [0], .applied⟩
   | 2 => ⟨.inl (inspectPhase), data [] [] [.right] [0] [] [15] [(), ()] [] [0], .complete⟩
@@ -609,7 +609,7 @@ def trace_d08 : Nat → TracePoint
   | 6 => ⟨.inl (equalityJoinPhase .equal), data [] [] [.right] [] [] [15] [(), ()] [] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [.right] [] [] [15] [(), ()] [] [], .complete⟩
 
-def trace_d09 : Nat → TracePoint
+def traceD09 : Nat → TracePoint
   | 0 => ⟨.inl (applyJoinPhase MoveApplyMachine.success), data [] [] [] [] [] [] [] [] [], .original⟩
   | 1 => ⟨.inl (inspectPhase), data [] [] [] [] [] [] [] [] [], .complete⟩
   | 2 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [] [] [] [] [] [], .complete⟩
@@ -617,29 +617,29 @@ def trace_d09 : Nat → TracePoint
   | 4 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [] [], .complete⟩
 
-def trace_d10 : Nat → TracePoint
+def traceD10 : Nat → TracePoint
   | 0 => ⟨.inl (fuelJoinPhase .positive), data [] [] [] [] [] [] [] [] [], .original⟩
   | 1 => ⟨.inl (applyPhase (MoveApplyMachine.movePhase .start)), data [] [] [] [] [] [] [] [] [], .complete⟩
   | 2 => ⟨.inl (applyPhase (MoveApplyMachine.dispatchPhase .failure)), data [] [] [] [] [] [] [] [] [], .complete⟩
   | 3 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [] [] [] [] [] [] [] [] [], .complete⟩
   | _ => ⟨.inr false, data [] [] [] [] [] [] [] [] [], .complete⟩
 
-def trace_d11 : Nat → TracePoint
+def traceD11 : Nat → TracePoint
   | 0 => ⟨.inl (fuelJoinPhase .atEnd), data [15] [] [] [] [] [] [] [] [], .original⟩
   | 1 => ⟨.inl (comparePhase), data [15] [] [] [] [] [] [] [] [], .complete⟩
   | 2 => ⟨.inl (equalityJoinPhase .equal), data [15] [] [] [] [] [] [] [] [], .complete⟩
   | _ => ⟨.inr true, data [15] [] [] [] [] [] [] [] [], .complete⟩
 
-def trace_d12 : Nat → TracePoint
+def traceD12 : Nat → TracePoint
   | 0 => ⟨.inl (comparePhase), data [15] [] [] [] [] [] [] [] [], .original⟩
   | 1 => ⟨.inl (equalityJoinPhase .equal), data [15] [] [] [] [] [] [] [] [], .equality⟩
   | _ => ⟨.inr true, data [15] [] [] [] [] [] [] [] [], .complete⟩
 
-def trace_d13 : Nat → TracePoint
+def traceD13 : Nat → TracePoint
   | 0 => ⟨.inl (equalityJoinPhase .equal), data [15] [] [] [1] [] [] [] [] [0], .original⟩
   | _ => ⟨.inr true, data [15] [] [] [1] [] [] [] [] [0], .complete⟩
 
-def trace_r01 : Nat → TracePoint
+def traceR01 : Nat → TracePoint
   | 0 => ⟨.inl (counterPhase .restoreTrue), data [15] [] [] [1, 0, 1, 0, 0] [] [] [(), ()] [] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .restoreTrue), data [15] [] [] [1, 0, 1, 0, 0] [] [] [()] [true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [true, true] [1, 1, 0, 0, 0], .fuel⟩
@@ -649,14 +649,14 @@ def trace_r01 : Nat → TracePoint
   | 6 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [true, true] [1, 1, 0, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [true, true] [1, 1, 0, 0, 0], .complete⟩
 
-def trace_r02 : Nat → TracePoint
+def traceR02 : Nat → TracePoint
   | 0 => ⟨.inl (counterPhase .restoreFalse), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [(), ()] [true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .restoreFalse), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [()] [false, true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreFalse), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false, true] [1, 1, 0, 0, 0], .fuel⟩
   | 3 => ⟨.inl (fuelJoinPhase .zero), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false, true] [1, 1, 0, 0, 0], .fuel⟩
   | _ => ⟨.inr false, data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false, true] [1, 1, 0, 0, 0], .complete⟩
 
-def trace_r03 : Nat → TracePoint
+def traceR03 : Nat → TracePoint
   | 0 => ⟨.inl (applyPhase (MoveApplyMachine.movePhase (.emit .left))), data [15] [.left] [] [1, 1, 0, 1, 0, 0, 0] [] [] [] [] [1, 1, 1, 0, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (applyPhase (MoveApplyMachine.movePhase (.emit .left))), data [15] [] [.left] [1, 1, 0, 1, 0, 0, 0] [] [] [] [] [1, 1, 1, 0, 0, 0, 0], .parser⟩
   | 2 => ⟨.inl (applyPhase (MoveApplyMachine.dispatchPhase (.success .left))), data [15] [] [.left] [1, 1, 0, 1, 0, 0, 0] [] [] [] [] [1, 1, 1, 0, 0, 0, 0], .parser⟩
@@ -676,7 +676,7 @@ def trace_r03 : Nat → TracePoint
   | 16 => ⟨.inl (fuelJoinPhase .zero), data [15] [] [] [1, 1, 1, 0, 0, 0, 0] [] [] [] [] [1, 1, 1, 0, 0, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [15] [] [] [1, 1, 1, 0, 0, 0, 0] [] [] [] [] [1, 1, 1, 0, 0, 0, 0], .complete⟩
 
-def trace_r04 : Nat → TracePoint
+def traceR04 : Nat → TracePoint
   | 0 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [()] [false, true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [(), ()] [true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10] [] [] [1, 0, 1, 0, 0] [] [] [(), ()] [false] [1, 1, 0, 0, 0], .fuel⟩
@@ -706,7 +706,7 @@ def trace_r04 : Nat → TracePoint
   | 26 => ⟨.inl (equalityJoinPhase .equal), data [] [] [] [] [] [] [] [true, true, false] [], .complete⟩
   | _ => ⟨.inr true, data [] [] [] [] [] [] [] [true, true, false] [], .complete⟩
 
-def trace_r05 : Nat → TracePoint
+def traceR05 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [1, 0] [] [] [] [true] [1, 0, 15, 2], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [1, 0] [] [] [] [true] [1, 0, 15, 2], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [1, 0] [] [] [] [true] [1, 0, 15, 2], .complete⟩
@@ -715,7 +715,7 @@ def trace_r05 : Nat → TracePoint
   | 5 => ⟨.inl (equalityJoinPhase .different), data [] [] [] [] [] [] [] [true] [2], .complete⟩
   | _ => ⟨.inr false, data [] [] [] [] [] [] [] [true] [2], .complete⟩
 
-def trace_r06 : Nat → TracePoint
+def traceR06 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [] [] [] [1, 0, 15, 2] [] [] [] [true] [1, 0], .original⟩
   | 1 => ⟨.inl (fuelJoinPhase .atEnd), data [] [] [] [1, 0, 15, 2] [] [] [] [true] [1, 0], .fuel⟩
   | 2 => ⟨.inl (comparePhase), data [] [] [] [1, 0, 15, 2] [] [] [] [true] [1, 0], .complete⟩
@@ -724,7 +724,7 @@ def trace_r06 : Nat → TracePoint
   | 5 => ⟨.inl (equalityJoinPhase .different), data [] [] [] [2] [] [] [] [true] [], .complete⟩
   | _ => ⟨.inr false, data [] [] [] [2] [] [] [] [true] [], .complete⟩
 
-def trace_r07 : Nat → TracePoint
+def traceR07 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .fuel⟩
@@ -749,7 +749,7 @@ def trace_r07 : Nat → TracePoint
   | 21 => ⟨.inl (fuelJoinPhase .zero), data [15] [] [] [1, 1, 0, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [15] [] [] [1, 1, 0, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .complete⟩
 
-def trace_r08 : Nat → TracePoint
+def traceR08 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10, 7, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, true] [1, 0, 1, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10, 7, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, true] [1, 0, 1, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .borrow), data [6, 10, 7, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [()] [true] [1, 0, 1, 0, 0], .fuel⟩
@@ -793,7 +793,7 @@ def trace_r08 : Nat → TracePoint
   | 40 => ⟨.inl (fuelJoinPhase .zero), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 0, 1, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 0, 1, 0, 0], .complete⟩
 
-def trace_r09 : Nat → TracePoint
+def traceR09 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10, 7, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [true, true] [1, 0, 1, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10, 7, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [true, true] [1, 0, 1, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10, 7, 10, 15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, true] [1, 0, 1, 0, 0], .fuel⟩
@@ -836,7 +836,7 @@ def trace_r09 : Nat → TracePoint
   | 39 => ⟨.inl (applyJoinPhase MoveApplyMachine.parseFailure), data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 0, 1, 0, 0], .complete⟩
   | _ => ⟨.inr false, data [15] [] [] [1, 0, 1, 0, 0] [] [] [] [false, false] [1, 0, 1, 0, 0], .complete⟩
 
-def trace_r10 : Nat → TracePoint
+def traceR10 : Nat → TracePoint
   | 0 => ⟨.inl (inspectPhase), data [6, 10] [.right] [.left] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .original⟩
   | 1 => ⟨.inl (counterPhase .borrow), data [6, 10] [.right] [.left] [1, 0, 1, 0, 0] [] [] [] [true] [1, 1, 0, 0, 0], .fuel⟩
   | 2 => ⟨.inl (counterPhase .restoreTrue), data [6, 10] [.right] [.left] [1, 0, 1, 0, 0] [] [] [] [false] [1, 1, 0, 0, 0], .fuel⟩

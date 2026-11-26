@@ -240,14 +240,14 @@ end FinitePackagePhysicalConnections
 
 section ExplicitFrontEndPhysicalSpace
 variable {K Λ R : Type} {Γ : K → Type} [DecidableEq K] [Fintype K]
-variable (caller : External Λ → Statement (frontEndProtectedAlphabet Γ)
+variable (caller : External Λ → Statement (FrontEndProtectedAlphabet Γ)
   Λ (FrontEndDecoderComplement × R))
 
 theorem a_clean_explicit_front_end_entry_has_the_closed_physical_prefix_bound
     (regs : FrontEndMachine.Registers (Option Branch × R))
     (ctx : ∀ k, List (Γ k)) (source target : BinaryTree Unit) (fuel : Bits) (certificate : Word)
     (n : Nat) (bound : n ≤ runSteps fuel certificate (treeCode source) (treeCode target))
-    (reached : Cfg (frontEndProtectedAlphabet Γ) Λ (FrontEndDecoderComplement × R))
+    (reached : Cfg (FrontEndProtectedAlphabet Γ) Λ (FrontEndDecoderComplement × R))
     (executed : Runs (step caller)
       (frontEndInstalledEntry regs [] [] ctx source target fuel certificate) n reached) :
     physicalCells reached ≤ certificate.length + 2 * (treeCode source).length + fuel.length +
@@ -256,7 +256,7 @@ theorem a_clean_explicit_front_end_entry_has_the_closed_physical_prefix_bound
     (frontEndRegisterEquiv (FrontEndMachine.reset regs)) fuel certificate
     (treeCode source) (treeCode target) (frontEndSuccessContext ctx) n bound reached executed
   have cells : externalCells (frontEndSuccessContext ctx) = externalCells ctx :=
-    frontEnd_success_context_cells ctx
+    front_end_success_context_cells ctx
   simpa only [cells] using bounded
 
 theorem arbitrary_dirty_front_end_branch_words_use_the_meaningful_dirty_allowance
@@ -264,7 +264,7 @@ theorem arbitrary_dirty_front_end_branch_words_use_the_meaningful_dirty_allowanc
     (ctx : ∀ k, List (Γ k)) (source target : BinaryTree Unit) (fuel : Bits) (certificate : Word)
     (n : Nat)
     (bound : n ≤ remainingSteps (frontEndInstalledEntry (Λ := Λ) regs B O ctx source target fuel certificate))
-    (reached : Cfg (frontEndProtectedAlphabet Γ) Λ (FrontEndDecoderComplement × R))
+    (reached : Cfg (FrontEndProtectedAlphabet Γ) Λ (FrontEndDecoderComplement × R))
     (executed : Runs (step caller)
       (frontEndInstalledEntry regs B O ctx source target fuel certificate) n reached) :
     physicalCells reached ≤ inspectAllowance
@@ -350,21 +350,21 @@ theorem actual_packaged_represented_first_booleans_match_the_source_checker
       (checkStreamRun fuel source target certificate).1 = result :=
   represented_firstResult_iff caller regs fuel certificate source target ctx result
 
-def actual_packaged_exact_clean_timing (fuel : Bits) (certificate source target : Word) :
+def machineExactCleanTiming (fuel : Bits) (certificate source target : Word) :
     StateTransition.EvalsToInTime (machine caller initial).step
       (entry regs fuel certificate source target ctx)
       (some (runResult regs fuel certificate source target ctx))
       (runSteps fuel certificate source target) :=
   runInTimeExact caller regs fuel certificate source target ctx
 
-def actual_packaged_polynomial_clean_timing (fuel : Bits) (certificate source target : Word) :
+def machinePolynomialCleanTiming (fuel : Bits) (certificate source target : Word) :
     StateTransition.EvalsToInTime (machine caller initial).step
       (entry regs fuel certificate source target ctx)
       (some (runResult regs fuel certificate source target ctx))
       ((2 * fuel.length + 3 * source.length + 7) * certificate.length + source.length + 4) :=
   runInPolynomialTime caller regs fuel certificate source target ctx
 
-def actual_packaged_exact_represented_timing
+def machineExactRepresentedTiming
     (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
     StateTransition.EvalsToInTime (machine caller initial).step
       (entry regs fuel certificate (treeCode source) (treeCode target) ctx)
@@ -372,7 +372,7 @@ def actual_packaged_exact_represented_timing
       (runSteps fuel certificate (treeCode source) (treeCode target)) :=
   representedInTimeExact caller regs fuel certificate source target ctx
 
-def actual_packaged_polynomial_represented_timing
+def machinePolynomialRepresentedTiming
     (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
     StateTransition.EvalsToInTime (machine caller initial).step
       (entry regs fuel certificate (treeCode source) (treeCode target) ctx)
@@ -382,16 +382,16 @@ def actual_packaged_polynomial_represented_timing
 
 theorem both_actual_packaged_clean_records_store_the_exact_machine_clock
     (fuel : Bits) (certificate source target : Word) :
-    (actual_packaged_exact_clean_timing caller initial regs ctx fuel certificate source target).steps =
+    (machineExactCleanTiming caller initial regs ctx fuel certificate source target).steps =
         runSteps fuel certificate source target ∧
-      (actual_packaged_polynomial_clean_timing caller initial regs ctx fuel certificate source target).steps =
+      (machinePolynomialCleanTiming caller initial regs ctx fuel certificate source target).steps =
         runSteps fuel certificate source target := ⟨rfl, rfl⟩
 
 theorem both_actual_packaged_represented_records_store_the_exact_machine_clock
     (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit) :
-    (actual_packaged_exact_represented_timing caller initial regs ctx fuel certificate source target).steps =
+    (machineExactRepresentedTiming caller initial regs ctx fuel certificate source target).steps =
         runSteps fuel certificate (treeCode source) (treeCode target) ∧
-      (actual_packaged_polynomial_represented_timing caller initial regs ctx fuel certificate source target).steps =
+      (machinePolynomialRepresentedTiming caller initial regs ctx fuel certificate source target).steps =
         runSteps fuel certificate (treeCode source) (treeCode target) := ⟨rfl, rfl⟩
 
 end PackagedSourceConnections
@@ -401,7 +401,7 @@ end PackagedSourceConnections
 section InstalledCompletePrefixConnections
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
 variable [DecidableEq K] [DecidableEq K']
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (caller : External Λ → Statement Γ Λ R)
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
@@ -460,7 +460,7 @@ theorem one_installed_actual_dirty_prefix_has_rank_stages_frame_and_space
     start n bound (allowance start)
     (fun source run => prefix_stackCells_le_dirty caller start n bound source run) reached executed
 
-def exact_installed_clean_timing (regs : Registers R) (fuel : Bits)
+def exactInstalledCleanTiming (regs : Registers R) (fuel : Bits)
     (certificate source target : Word) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels (entry regs fuel certificate source target ctx))
@@ -469,18 +469,18 @@ def exact_installed_clean_timing (regs : Registers R) (fuel : Bits)
   installedOwnedTimed names symbols registers labels caller ambient installed
     (entry regs fuel certificate source target ctx)
 
-def polynomial_installed_clean_timing (regs : Registers R) (fuel : Bits)
+def polynomialInstalledCleanTiming (regs : Registers R) (fuel : Bits)
     (certificate source target : Word) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels (entry regs fuel certificate source target ctx))
       (some (installedCfg names symbols registers labels (runResult regs fuel certificate source target ctx)))
       ((2 * fuel.length + 3 * source.length + 7) * certificate.length + source.length + 4) where
   steps := runSteps fuel certificate source target
-  evals_in_steps := (exact_installed_clean_timing names symbols registers labels caller ambient installed
+  evals_in_steps := (exactInstalledCleanTiming names symbols registers labels caller ambient installed
     regs fuel certificate source target ctx).evals_in_steps
   steps_le_m := runSteps_le fuel certificate source target
 
-def exact_installed_represented_timing (regs : Registers R) (fuel : Bits)
+def exactInstalledRepresentedTiming (regs : Registers R) (fuel : Bits)
     (certificate : Word) (source target : BinaryTree Unit) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels
@@ -488,10 +488,10 @@ def exact_installed_represented_timing (regs : Registers R) (fuel : Bits)
       (some (installedCfg names symbols registers labels
         (runResult regs fuel certificate (treeCode source) (treeCode target) ctx)))
       (runSteps fuel certificate (treeCode source) (treeCode target)) :=
-  exact_installed_clean_timing names symbols registers labels caller ambient installed regs fuel
+  exactInstalledCleanTiming names symbols registers labels caller ambient installed regs fuel
     certificate (treeCode source) (treeCode target) ctx
 
-def polynomial_installed_represented_timing (regs : Registers R) (fuel : Bits)
+def polynomialInstalledRepresentedTiming (regs : Registers R) (fuel : Bits)
     (certificate : Word) (source target : BinaryTree Unit) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels
@@ -500,24 +500,24 @@ def polynomial_installed_represented_timing (regs : Registers R) (fuel : Bits)
         (runResult regs fuel certificate (treeCode source) (treeCode target) ctx)))
       ((2 * fuel.length + 6 * source.numNodes + 10) * certificate.length + 2 * source.numNodes + 5) where
   steps := runSteps fuel certificate (treeCode source) (treeCode target)
-  evals_in_steps := (exact_installed_represented_timing names symbols registers labels caller ambient installed
+  evals_in_steps := (exactInstalledRepresentedTiming names symbols registers labels caller ambient installed
     regs fuel certificate source target ctx).evals_in_steps
   steps_le_m := runSteps_code_le fuel certificate source target
 
 theorem both_installed_clean_time_records_store_the_exact_clock
     (regs : Registers R) (fuel : Bits) (certificate source target : Word) (ctx : ∀ k, List (Γ k)) :
-    (exact_installed_clean_timing names symbols registers labels caller ambient installed
+    (exactInstalledCleanTiming names symbols registers labels caller ambient installed
         regs fuel certificate source target ctx).steps = runSteps fuel certificate source target ∧
-      (polynomial_installed_clean_timing names symbols registers labels caller ambient installed
+      (polynomialInstalledCleanTiming names symbols registers labels caller ambient installed
         regs fuel certificate source target ctx).steps = runSteps fuel certificate source target := ⟨rfl, rfl⟩
 
 theorem both_installed_represented_time_records_store_the_exact_clock
     (regs : Registers R) (fuel : Bits) (certificate : Word) (source target : BinaryTree Unit)
     (ctx : ∀ k, List (Γ k)) :
-    (exact_installed_represented_timing names symbols registers labels caller ambient installed
+    (exactInstalledRepresentedTiming names symbols registers labels caller ambient installed
         regs fuel certificate source target ctx).steps =
         runSteps fuel certificate (treeCode source) (treeCode target) ∧
-      (polynomial_installed_represented_timing names symbols registers labels caller ambient installed
+      (polynomialInstalledRepresentedTiming names symbols registers labels caller ambient installed
         regs fuel certificate source target ctx).steps =
         runSteps fuel certificate (treeCode source) (treeCode target) := ⟨rfl, rfl⟩
 
@@ -573,7 +573,7 @@ theorem every_actual_prefix_after_the_first_paid_join_has_all_four_temporaries_r
     (reached : Cfg Γ Λ R)
     (executed : Runs (step caller) (cfg (some (phaseLabel q)) regs D ctx) n reached) :
     reached.var = resetAll regs :=
-  prefix_reset_after_firstJoin caller q D regs ctx n reached afterJoin bound executed
+  prefix_reset_after_first_join caller q D regs ctx n reached afterJoin bound executed
 
 end GenericStageContracts
 
@@ -599,7 +599,7 @@ end PackagedSharedDirtyWitness
 section InstalledSharedCleanWitness
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
 variable [DecidableEq K] [DecidableEq K'] [Fintype K] [Fintype K']
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (caller : External Λ → Statement Γ Λ R)
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')

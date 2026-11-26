@@ -11,11 +11,11 @@ open Function Turing
 open Resources.TuringSimulation
 open Resources.TuringSimulation.StackToTape
 
-def fixtureAlphabet : Bool → Type
+def FixtureAlphabet : Bool → Type
   | false => Option Bool
   | true => Bool
 
-instance fixtureAlphabetFintype (k : Bool) : Fintype (fixtureAlphabet k) := by
+instance fixtureAlphabetFintype (k : Bool) : Fintype (FixtureAlphabet k) := by
   cases k with
   | false => exact (inferInstance : Fintype (Option Bool))
   | true => exact (inferInstance : Fintype Bool)
@@ -24,7 +24,7 @@ def fixture : FinTM2 where
   K := Bool
   k₀ := false
   k₁ := true
-  Γ := fixtureAlphabet
+  Γ := FixtureAlphabet
   Λ := Bool
   main := true
   σ := Bool
@@ -55,10 +55,10 @@ theorem working_alphabet_has_twenty_four_symbols :
     letI : ∀ k : fixture.K, Fintype (fixture.Γ k) := fixtureAlphabetFintype
     letI : Fintype (OrdinaryPackage.Alphabet fixture) := OrdinaryPackage.alphabetFintype fixture
     Fintype.card (OrdinaryPackage.Alphabet fixture) = 24 := by
-  let : ∀ k : Bool, Fintype (fixtureAlphabet k) := fixtureAlphabetFintype
-  change Fintype.card (Bool × ((k : Bool) → Option (fixtureAlphabet k))) = 24
+  let : ∀ k : Bool, Fintype (FixtureAlphabet k) := fixtureAlphabetFintype
+  change Fintype.card (Bool × ((k : Bool) → Option (FixtureAlphabet k))) = 24
   rw [Fintype.card_prod, Fintype.card_pi,
-    Fintype.prod_bool (fun k : Bool => Fintype.card (Option (fixtureAlphabet k)))]
+    Fintype.prod_bool (fun k : Bool => Fintype.card (Option (FixtureAlphabet k)))]
   change Fintype.card Bool * (Fintype.card (Option Bool) *
     Fintype.card (Option (Option Bool))) = 24
   simp only [Fintype.card_option, Fintype.card_bool]

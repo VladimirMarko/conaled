@@ -88,22 +88,22 @@ structure LocalData where
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl .source | .inl .saved | .inl .scratch => Tag
   | .inl .pending => Unit
   | .inl .path => Branch
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId K) :
-    Fintype (alphabet Γ k) := by
+    Fintype (Alphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def phaseLabel (q : Phase) : Label Λ := .inl q
 def resultLabel (r : Result) : Label Λ := .inr (.inl r)

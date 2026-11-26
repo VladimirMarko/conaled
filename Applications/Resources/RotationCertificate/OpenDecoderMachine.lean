@@ -42,22 +42,22 @@ abbrev Registers (R : Type) := Temporaries × R
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl .input => Bool
   | .inl .reverse => Tag
   | .inl .output => Tag
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId K) :
-    Fintype (alphabet Γ k) := by
+    Fintype (Alphabet Γ k) := by
   cases k with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def phaseLabel (phase : Phase) : Label Λ := .inl phase
 def resultLabel (result : Result) : Label Λ := .inr (.inl result)
@@ -871,7 +871,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .input
   k₁ := .inl .output
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := phaseLabel .scan
   σ := Registers R

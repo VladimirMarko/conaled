@@ -294,7 +294,7 @@ def truncatedPrefixFixture : RawFixture where
   ticks := 20
   peak := 1
 
-def raw_F03 : RawFixture where
+def rawF03 : RawFixture where
   name := "raw/F03"
   raw := [false, true]
   result := false
@@ -310,7 +310,7 @@ def raw_F03 : RawFixture where
   ticks := 22
   peak := 2
 
-def raw_F04 : RawFixture where
+def rawF04 : RawFixture where
   name := "raw/F04"
   raw := [false, true, false]
   result := false
@@ -326,7 +326,7 @@ def raw_F04 : RawFixture where
   ticks := 22
   peak := 3
 
-def raw_F05 : RawFixture where
+def rawF05 : RawFixture where
   name := "raw/F05"
   raw := [true]
   result := false
@@ -342,7 +342,7 @@ def raw_F05 : RawFixture where
   ticks := 29
   peak := 1
 
-def raw_F06 : RawFixture where
+def rawF06 : RawFixture where
   name := "raw/F06"
   raw := [true, true]
   result := false
@@ -358,7 +358,7 @@ def raw_F06 : RawFixture where
   ticks := 32
   peak := 2
 
-def raw_F07 : RawFixture where
+def rawF07 : RawFixture where
   name := "raw/F07"
   raw := [false, true, true]
   result := false
@@ -374,7 +374,7 @@ def raw_F07 : RawFixture where
   ticks := 26
   peak := 3
 
-def raw_F08 : RawFixture where
+def rawF08 : RawFixture where
   name := "raw/F08"
   raw := [false, true, true, false, true, true]
   result := false
@@ -390,7 +390,7 @@ def raw_F08 : RawFixture where
   ticks := 35
   peak := 6
 
-def raw_I01 : RawFixture where
+def rawI01 : RawFixture where
   name := "raw/I01"
   raw := [false, false, false, false, false, false, false, false, true]
   result := false
@@ -406,7 +406,7 @@ def raw_I01 : RawFixture where
   ticks := 44
   peak := 9
 
-def raw_I02 : RawFixture where
+def rawI02 : RawFixture where
   name := "raw/I02"
   raw := [false, true, false, true, false, true, false, true, true, true]
   result := false
@@ -422,7 +422,7 @@ def raw_I02 : RawFixture where
   ticks := 43
   peak := 10
 
-def raw_I03 : RawFixture where
+def rawI03 : RawFixture where
   name := "raw/I03"
   raw := [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true]
   result := false
@@ -438,7 +438,7 @@ def raw_I03 : RawFixture where
   ticks := 77
   peak := 33
 
-def raw_I04 : RawFixture where
+def rawI04 : RawFixture where
   name := "raw/I04"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false, true]
   result := false
@@ -454,7 +454,7 @@ def raw_I04 : RawFixture where
   ticks := 116
   peak := 49
 
-def raw_I05 : RawFixture where
+def rawI05 : RawFixture where
   name := "raw/I05"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, true, false, true, false, true, false, false, false, true, false, false, true]
   result := false
@@ -470,7 +470,7 @@ def raw_I05 : RawFixture where
   ticks := 112
   peak := 49
 
-def raw_I06 : RawFixture where
+def rawI06 : RawFixture where
   name := "raw/I06"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, true, false, true, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, true, false, true, false, true, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true]
   result := false
@@ -486,7 +486,7 @@ def raw_I06 : RawFixture where
   ticks := 192
   peak := 105
 
-def raw_I07 : RawFixture where
+def rawI07 : RawFixture where
   name := "raw/I07"
   raw := [false, true, false, true, false, true, false, true, false, false, false, true, false, false, false, false, false, true, false, true, false, true, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true]
   result := false
@@ -502,7 +502,7 @@ def raw_I07 : RawFixture where
   ticks := 84
   peak := 41
 
-def raw_C01 : RawFixture where
+def rawC01 : RawFixture where
   name := "raw/C01"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true, true]
   result := false
@@ -518,7 +518,7 @@ def raw_C01 : RawFixture where
   ticks := 93
   peak := 42
 
-def raw_C02 : RawFixture where
+def rawC02 : RawFixture where
   name := "raw/C02"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true, true, true, true, true, true]
   result := false
@@ -534,7 +534,7 @@ def raw_C02 : RawFixture where
   ticks := 129
   peak := 62
 
-def raw_C03 : RawFixture where
+def rawC03 : RawFixture where
   name := "raw/C03"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true, false]
   result := false
@@ -550,7 +550,7 @@ def raw_C03 : RawFixture where
   ticks := 230
   peak := 122
 
-def raw_V01 : RawFixture where
+def rawV01 : RawFixture where
   name := "raw/V01"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true]
   result := true
@@ -566,7 +566,7 @@ def raw_V01 : RawFixture where
   ticks := 95
   peak := 41
 
-def raw_V02 : RawFixture where
+def rawV02 : RawFixture where
   name := "raw/V02"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true]
   result := false
@@ -582,7 +582,7 @@ def raw_V02 : RawFixture where
   ticks := 120
   peak := 57
 
-def raw_V03 : RawFixture where
+def rawV03 : RawFixture where
   name := "raw/V03"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true]
   result := true
@@ -598,7 +598,7 @@ def raw_V03 : RawFixture where
   ticks := 244
   peak := 121
 
-def raw_V04 : RawFixture where
+def rawV04 : RawFixture where
   name := "raw/V04"
   raw := [false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, true, true, true, false, false, true, false, true]
   result := true
@@ -614,7 +614,7 @@ def raw_V04 : RawFixture where
   ticks := 243
   peak := 121
 
-def raw_V05 : RawFixture where
+def rawV05 : RawFixture where
   name := "raw/V05"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true, true, true, true, false, false, true, false, true]
   result := true
@@ -630,7 +630,7 @@ def raw_V05 : RawFixture where
   ticks := 294
   peak := 137
 
-def raw_V06 : RawFixture where
+def rawV06 : RawFixture where
   name := "raw/V06"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true, true, true, true, false, false, true, false, true]
   result := false
@@ -646,7 +646,7 @@ def raw_V06 : RawFixture where
   ticks := 273
   peak := 129
 
-def raw_V07 : RawFixture where
+def rawV07 : RawFixture where
   name := "raw/V07"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true]
   result := false
@@ -662,7 +662,7 @@ def raw_V07 : RawFixture where
   ticks := 252
   peak := 129
 
-def raw_V08 : RawFixture where
+def rawV08 : RawFixture where
   name := "raw/V08"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true]
   result := true
@@ -678,7 +678,7 @@ def raw_V08 : RawFixture where
   ticks := 270
   peak := 137
 
-def raw_V09 : RawFixture where
+def rawV09 : RawFixture where
   name := "raw/V09"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false]
   result := false
@@ -694,7 +694,7 @@ def raw_V09 : RawFixture where
   ticks := 229
   peak := 117
 
-def raw_V10 : RawFixture where
+def rawV10 : RawFixture where
   name := "raw/V10"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, true, true, true, true, false, true, false, true]
   result := false
@@ -710,7 +710,7 @@ def raw_V10 : RawFixture where
   ticks := 251
   peak := 125
 
-def raw_V11 : RawFixture where
+def rawV11 : RawFixture where
   name := "raw/V11"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, false, false, true, false, true, false, true]
   result := false
@@ -726,7 +726,7 @@ def raw_V11 : RawFixture where
   ticks := 256
   peak := 125
 
-def raw_V12 : RawFixture where
+def rawV12 : RawFixture where
   name := "raw/V12"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, true, true, true, false, false, true, false, true]
   result := false
@@ -742,7 +742,7 @@ def raw_V12 : RawFixture where
   ticks := 242
   peak := 121
 
-def raw_V13 : RawFixture where
+def rawV13 : RawFixture where
   name := "raw/V13"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, true, false, false, true, false, true, false, true]
   result := true
@@ -758,7 +758,7 @@ def raw_V13 : RawFixture where
   ticks := 310
   peak := 157
 
-def raw_V14 : RawFixture where
+def rawV14 : RawFixture where
   name := "raw/V14"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true, true, true, true, true]
   result := false
@@ -774,7 +774,7 @@ def raw_V14 : RawFixture where
   ticks := 262
   peak := 125
 
-def raw_V15 : RawFixture where
+def rawV15 : RawFixture where
   name := "raw/V15"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, true, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true]
   result := true
@@ -790,7 +790,7 @@ def raw_V15 : RawFixture where
   ticks := 121
   peak := 57
 
-def raw_V16 : RawFixture where
+def rawV16 : RawFixture where
   name := "raw/V16"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, true, true, true, true]
   result := false
@@ -806,7 +806,7 @@ def raw_V16 : RawFixture where
   ticks := 227
   peak := 117
 
-def raw_V17 : RawFixture where
+def rawV17 : RawFixture where
   name := "raw/V17"
   raw := [false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true]
   result := false
@@ -822,7 +822,7 @@ def raw_V17 : RawFixture where
   ticks := 138
   peak := 57
 
-def raw_V18 : RawFixture where
+def rawV18 : RawFixture where
   name := "raw/V18"
   raw := [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, true, false, true, true, false, false, true, false, true]
   result := false
@@ -839,7 +839,7 @@ def raw_V18 : RawFixture where
   peak := 113
 
 def rawCases : List RawFixture :=
-  [emptyRawFixture, truncatedPrefixFixture, raw_F03, raw_F04, raw_F05, raw_F06, raw_F07, raw_F08, raw_I01, raw_I02, raw_I03, raw_I04, raw_I05, raw_I06, raw_I07, raw_C01, raw_C02, raw_C03, raw_V01, raw_V02, raw_V03, raw_V04, raw_V05, raw_V06, raw_V07, raw_V08, raw_V09, raw_V10, raw_V11, raw_V12, raw_V13, raw_V14, raw_V15, raw_V16, raw_V17, raw_V18]
+  [emptyRawFixture, truncatedPrefixFixture, rawF03, rawF04, rawF05, rawF06, rawF07, rawF08, rawI01, rawI02, rawI03, rawI04, rawI05, rawI06, rawI07, rawC01, rawC02, rawC03, rawV01, rawV02, rawV03, rawV04, rawV05, rawV06, rawV07, rawV08, rawV09, rawV10, rawV11, rawV12, rawV13, rawV14, rawV15, rawV16, rawV17, rawV18]
 
 theorem raw_cases_count : rawCases.length = 36 := rfl
 
@@ -848,7 +848,7 @@ theorem raw_cases_count : rawCases.length = 36 := rfl
 def dirtyData : LocalData :=
   localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true]
 
-def clear_C00 : CleanupFixture where
+def cleanupC00 : CleanupFixture where
   name := "additional/C00"
   phase := clearPhase 0
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -858,14 +858,14 @@ def clear_C00 : CleanupFixture where
   peak := 32
   index := 0
 
-def clear_C00_boundaries : List Boundary :=
+def cleanupC00Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 0), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 0), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 3, phase := some (clearPhase 1), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 48, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 0 },
    { ticks := 49, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [true], cells := 1 }]
 
-def clear_C00E : CleanupFixture where
+def cleanupC00E : CleanupFixture where
   name := "additional/C00E"
   phase := clearPhase 0
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -875,13 +875,13 @@ def clear_C00E : CleanupFixture where
   peak := 30
   index := 0
 
-def clear_C00E_boundaries : List Boundary :=
+def cleanupC00EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 0), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 1, phase := some (clearPhase 1), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 46, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 0 },
    { ticks := 47, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [false], cells := 1 }]
 
-def clear_C01 : CleanupFixture where
+def cleanupC01 : CleanupFixture where
   name := "additional/C01"
   phase := clearPhase 1
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -891,14 +891,14 @@ def clear_C01 : CleanupFixture where
   peak := 32
   index := 1
 
-def clear_C01_boundaries : List Boundary :=
+def cleanupC01Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 1), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 1, phase := some (clearPhase 1), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 2, phase := some (clearPhase 2), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 45, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 2 },
    { ticks := 46, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [true], cells := 3 }]
 
-def clear_C01E : CleanupFixture where
+def cleanupC01E : CleanupFixture where
   name := "additional/C01E"
   phase := clearPhase 1
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -908,13 +908,13 @@ def clear_C01E : CleanupFixture where
   peak := 31
   index := 1
 
-def clear_C01E_boundaries : List Boundary :=
+def cleanupC01EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 1), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 1, phase := some (clearPhase 2), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 44, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 2 },
    { ticks := 45, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [false], cells := 3 }]
 
-def clear_C02 : CleanupFixture where
+def cleanupC02 : CleanupFixture where
   name := "additional/C02"
   phase := clearPhase 2
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -924,14 +924,14 @@ def clear_C02 : CleanupFixture where
   peak := 32
   index := 2
 
-def clear_C02_boundaries : List Boundary :=
+def cleanupC02Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 2), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 2), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 3, phase := some (clearPhase 3), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 43, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 3 },
    { ticks := 44, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [] [] [] [] [] [] [] [] [] [] [] [] [] [true], cells := 4 }]
 
-def clear_C02E : CleanupFixture where
+def cleanupC02E : CleanupFixture where
   name := "additional/C02E"
   phase := clearPhase 2
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -941,13 +941,13 @@ def clear_C02E : CleanupFixture where
   peak := 30
   index := 2
 
-def clear_C02E_boundaries : List Boundary :=
+def cleanupC02EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 2), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 1, phase := some (clearPhase 3), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 41, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 3 },
    { ticks := 42, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [] [] [] [] [] [] [] [] [] [] [] [] [] [false], cells := 4 }]
 
-def clear_C03 : CleanupFixture where
+def cleanupC03 : CleanupFixture where
   name := "additional/C03"
   phase := clearPhase 3
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -957,14 +957,14 @@ def clear_C03 : CleanupFixture where
   peak := 32
   index := 3
 
-def clear_C03_boundaries : List Boundary :=
+def cleanupC03Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 3), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 1, phase := some (clearPhase 3), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 2, phase := some (clearPhase 4), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 40, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 5 },
    { ticks := 41, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [] [] [] [] [] [] [] [] [] [] [] [] [true], cells := 6 }]
 
-def clear_C03E : CleanupFixture where
+def cleanupC03E : CleanupFixture where
   name := "additional/C03E"
   phase := clearPhase 3
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -974,13 +974,13 @@ def clear_C03E : CleanupFixture where
   peak := 31
   index := 3
 
-def clear_C03E_boundaries : List Boundary :=
+def cleanupC03EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 3), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 1, phase := some (clearPhase 4), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 39, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [] [] [] [] [] [] [] [] [] [] [] [] [], cells := 5 },
    { ticks := 40, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [] [] [] [] [] [] [] [] [] [] [] [] [false], cells := 6 }]
 
-def clear_C04 : CleanupFixture where
+def cleanupC04 : CleanupFixture where
   name := "additional/C04"
   phase := clearPhase 4
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -990,14 +990,14 @@ def clear_C04 : CleanupFixture where
   peak := 32
   index := 4
 
-def clear_C04_boundaries : List Boundary :=
+def cleanupC04Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 4), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 3, phase := some (clearPhase 4), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 4, phase := some (clearPhase 5), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 38, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [] [] [] [] [] [] [] [] [] [] [] [], cells := 6 },
    { ticks := 39, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [] [] [] [] [] [] [] [] [] [] [] [true], cells := 7 }]
 
-def clear_C04E : CleanupFixture where
+def cleanupC04E : CleanupFixture where
   name := "additional/C04E"
   phase := clearPhase 4
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1007,13 +1007,13 @@ def clear_C04E : CleanupFixture where
   peak := 29
   index := 4
 
-def clear_C04E_boundaries : List Boundary :=
+def cleanupC04EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 4), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 1, phase := some (clearPhase 5), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 35, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [] [] [] [] [] [] [] [] [] [] [] [], cells := 6 },
    { ticks := 36, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [] [] [] [] [] [] [] [] [] [] [] [false], cells := 7 }]
 
-def clear_C05 : CleanupFixture where
+def cleanupC05 : CleanupFixture where
   name := "additional/C05"
   phase := clearPhase 5
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1023,14 +1023,14 @@ def clear_C05 : CleanupFixture where
   peak := 32
   index := 5
 
-def clear_C05_boundaries : List Boundary :=
+def cleanupC05Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 5), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 5), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 3, phase := some (clearPhase 6), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 34, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [] [] [] [] [] [] [] [] [] [], cells := 9 },
    { ticks := 35, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [] [] [] [] [] [] [] [] [] [true], cells := 10 }]
 
-def clear_C05E : CleanupFixture where
+def cleanupC05E : CleanupFixture where
   name := "additional/C05E"
   phase := clearPhase 5
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1040,13 +1040,13 @@ def clear_C05E : CleanupFixture where
   peak := 30
   index := 5
 
-def clear_C05E_boundaries : List Boundary :=
+def cleanupC05EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 5), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 1, phase := some (clearPhase 6), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 32, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [] [] [] [] [] [] [] [] [] [], cells := 9 },
    { ticks := 33, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [] [] [] [] [] [] [] [] [] [] [false], cells := 10 }]
 
-def clear_C06 : CleanupFixture where
+def cleanupC06 : CleanupFixture where
   name := "additional/C06"
   phase := clearPhase 6
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1056,14 +1056,14 @@ def clear_C06 : CleanupFixture where
   peak := 32
   index := 6
 
-def clear_C06_boundaries : List Boundary :=
+def cleanupC06Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 6), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 1, phase := some (clearPhase 6), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 2, phase := some (clearPhase 7), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 31, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [] [] [] [] [] [] [] [] [], cells := 11 },
    { ticks := 32, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [] [] [] [] [] [] [] [] [true], cells := 12 }]
 
-def clear_C06E : CleanupFixture where
+def cleanupC06E : CleanupFixture where
   name := "additional/C06E"
   phase := clearPhase 6
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1073,13 +1073,13 @@ def clear_C06E : CleanupFixture where
   peak := 31
   index := 6
 
-def clear_C06E_boundaries : List Boundary :=
+def cleanupC06EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 6), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 1, phase := some (clearPhase 7), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 30, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [] [] [] [] [] [] [] [] [], cells := 11 },
    { ticks := 31, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [] [] [] [] [] [] [] [] [] [false], cells := 12 }]
 
-def clear_C07 : CleanupFixture where
+def cleanupC07 : CleanupFixture where
   name := "additional/C07"
   phase := clearPhase 7
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1089,14 +1089,14 @@ def clear_C07 : CleanupFixture where
   peak := 32
   index := 7
 
-def clear_C07_boundaries : List Boundary :=
+def cleanupC07Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 7), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 7), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 3, phase := some (clearPhase 8), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 29, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [] [] [] [] [] [] [] [], cells := 12 },
    { ticks := 30, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [] [] [] [] [] [] [] [true], cells := 13 }]
 
-def clear_C07E : CleanupFixture where
+def cleanupC07E : CleanupFixture where
   name := "additional/C07E"
   phase := clearPhase 7
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1106,13 +1106,13 @@ def clear_C07E : CleanupFixture where
   peak := 30
   index := 7
 
-def clear_C07E_boundaries : List Boundary :=
+def cleanupC07EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 7), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 1, phase := some (clearPhase 8), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 27, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [] [] [] [] [] [] [] [], cells := 12 },
    { ticks := 28, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [] [] [] [] [] [] [] [] [false], cells := 13 }]
 
-def clear_C08 : CleanupFixture where
+def cleanupC08 : CleanupFixture where
   name := "additional/C08"
   phase := clearPhase 8
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1122,14 +1122,14 @@ def clear_C08 : CleanupFixture where
   peak := 32
   index := 8
 
-def clear_C08_boundaries : List Boundary :=
+def cleanupC08Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 8), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 3, phase := some (clearPhase 8), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 4, phase := some (clearPhase 9), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 26, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [] [] [] [] [] [] [], cells := 14 },
    { ticks := 27, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [] [] [] [] [] [] [true], cells := 15 }]
 
-def clear_C08E : CleanupFixture where
+def cleanupC08E : CleanupFixture where
   name := "additional/C08E"
   phase := clearPhase 8
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1139,13 +1139,13 @@ def clear_C08E : CleanupFixture where
   peak := 29
   index := 8
 
-def clear_C08E_boundaries : List Boundary :=
+def cleanupC08EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 8), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 1, phase := some (clearPhase 9), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 23, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [] [] [] [] [] [] [], cells := 14 },
    { ticks := 24, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [] [] [] [] [] [] [] [false], cells := 15 }]
 
-def clear_C09 : CleanupFixture where
+def cleanupC09 : CleanupFixture where
   name := "additional/C09"
   phase := clearPhase 9
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1155,14 +1155,14 @@ def clear_C09 : CleanupFixture where
   peak := 32
   index := 9
 
-def clear_C09_boundaries : List Boundary :=
+def cleanupC09Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 9), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 1, phase := some (clearPhase 9), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 2, phase := some (clearPhase 10), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 22, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [] [] [] [] [] [], cells := 17 },
    { ticks := 23, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [] [] [] [] [] [true], cells := 18 }]
 
-def clear_C09E : CleanupFixture where
+def cleanupC09E : CleanupFixture where
   name := "additional/C09E"
   phase := clearPhase 9
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1172,13 +1172,13 @@ def clear_C09E : CleanupFixture where
   peak := 31
   index := 9
 
-def clear_C09E_boundaries : List Boundary :=
+def cleanupC09EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 9), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 1, phase := some (clearPhase 10), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 31 },
    { ticks := 21, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [] [] [] [] [] [], cells := 17 },
    { ticks := 22, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [] [] [] [] [] [] [false], cells := 18 }]
 
-def clear_C10 : CleanupFixture where
+def cleanupC10 : CleanupFixture where
   name := "additional/C10"
   phase := clearPhase 10
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1188,14 +1188,14 @@ def clear_C10 : CleanupFixture where
   peak := 32
   index := 10
 
-def clear_C10_boundaries : List Boundary :=
+def cleanupC10Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 10), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 10), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 3, phase := some (clearPhase 11), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 20, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [] [] [] [] [], cells := 18 },
    { ticks := 21, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [] [] [] [] [true], cells := 19 }]
 
-def clear_C10E : CleanupFixture where
+def cleanupC10E : CleanupFixture where
   name := "additional/C10E"
   phase := clearPhase 10
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1205,13 +1205,13 @@ def clear_C10E : CleanupFixture where
   peak := 30
   index := 10
 
-def clear_C10E_boundaries : List Boundary :=
+def cleanupC10EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 10), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 1, phase := some (clearPhase 11), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 18, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [] [] [] [] [], cells := 18 },
    { ticks := 19, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [] [] [] [] [] [false], cells := 19 }]
 
-def clear_C11 : CleanupFixture where
+def cleanupC11 : CleanupFixture where
   name := "additional/C11"
   phase := clearPhase 11
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1221,14 +1221,14 @@ def clear_C11 : CleanupFixture where
   peak := 32
   index := 11
 
-def clear_C11_boundaries : List Boundary :=
+def cleanupC11Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 11), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 11), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 3, phase := some (clearPhase 12), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 17, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [] [] [] [], cells := 20 },
    { ticks := 18, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [] [] [] [true], cells := 21 }]
 
-def clear_C11E : CleanupFixture where
+def cleanupC11E : CleanupFixture where
   name := "additional/C11E"
   phase := clearPhase 11
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1238,13 +1238,13 @@ def clear_C11E : CleanupFixture where
   peak := 30
   index := 11
 
-def clear_C11E_boundaries : List Boundary :=
+def cleanupC11EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 11), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 1, phase := some (clearPhase 12), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 15, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [] [] [] [], cells := 20 },
    { ticks := 16, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [] [] [] [] [false], cells := 21 }]
 
-def clear_C12 : CleanupFixture where
+def cleanupC12 : CleanupFixture where
   name := "additional/C12"
   phase := clearPhase 12
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1254,14 +1254,14 @@ def clear_C12 : CleanupFixture where
   peak := 32
   index := 12
 
-def clear_C12_boundaries : List Boundary :=
+def cleanupC12Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 12), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 3, phase := some (clearPhase 12), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 4, phase := some (clearPhase 13), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 14, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [] [] [], cells := 22 },
    { ticks := 15, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [] [] [true], cells := 23 }]
 
-def clear_C12E : CleanupFixture where
+def cleanupC12E : CleanupFixture where
   name := "additional/C12E"
   phase := clearPhase 12
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1271,13 +1271,13 @@ def clear_C12E : CleanupFixture where
   peak := 29
   index := 12
 
-def clear_C12E_boundaries : List Boundary :=
+def cleanupC12EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 12), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 1, phase := some (clearPhase 13), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [.right, .left] [.left, .right, .left] [false, true], cells := 29 },
    { ticks := 11, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [] [] [], cells := 22 },
    { ticks := 12, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [] [] [] [false], cells := 23 }]
 
-def clear_C13 : CleanupFixture where
+def cleanupC13 : CleanupFixture where
   name := "additional/C13"
   phase := clearPhase 13
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1287,14 +1287,14 @@ def clear_C13 : CleanupFixture where
   peak := 32
   index := 13
 
-def clear_C13_boundaries : List Boundary :=
+def cleanupC13Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 13), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 13), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 3, phase := some (clearPhase 14), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 10, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [] [], cells := 25 },
    { ticks := 11, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [] [true], cells := 26 }]
 
-def clear_C13E : CleanupFixture where
+def cleanupC13E : CleanupFixture where
   name := "additional/C13E"
   phase := clearPhase 13
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1304,13 +1304,13 @@ def clear_C13E : CleanupFixture where
   peak := 30
   index := 13
 
-def clear_C13E_boundaries : List Boundary :=
+def cleanupC13EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 13), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 1, phase := some (clearPhase 14), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [.left, .right, .left] [false, true], cells := 30 },
    { ticks := 8, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [] [], cells := 25 },
    { ticks := 9, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [] [] [false], cells := 26 }]
 
-def clear_C14 : CleanupFixture where
+def cleanupC14 : CleanupFixture where
   name := "additional/C14"
   phase := clearPhase 14
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1320,14 +1320,14 @@ def clear_C14 : CleanupFixture where
   peak := 32
   index := 14
 
-def clear_C14_boundaries : List Boundary :=
+def cleanupC14Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 14), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 3, phase := some (clearPhase 14), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [false, true], cells := 29 },
    { ticks := 4, phase := some (clearPhase 15), fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [false, true], cells := 29 },
    { ticks := 7, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [], cells := 27 },
    { ticks := 8, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [true], cells := 28 }]
 
-def clear_C14E : CleanupFixture where
+def cleanupC14E : CleanupFixture where
   name := "additional/C14E"
   phase := clearPhase 14
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1337,13 +1337,13 @@ def clear_C14E : CleanupFixture where
   peak := 29
   index := 14
 
-def clear_C14E_boundaries : List Boundary :=
+def cleanupC14EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 14), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [false, true], cells := 29 },
    { ticks := 1, phase := some (clearPhase 15), fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [false, true], cells := 29 },
    { ticks := 4, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [], cells := 27 },
    { ticks := 5, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [] [false], cells := 28 }]
 
-def clear_C15 : CleanupFixture where
+def cleanupC15 : CleanupFixture where
   name := "additional/C15"
   phase := clearPhase 15
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1353,13 +1353,13 @@ def clear_C15 : CleanupFixture where
   peak := 32
   index := 15
 
-def clear_C15_boundaries : List Boundary :=
+def cleanupC15Boundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 15), fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true], cells := 32 },
    { ticks := 2, phase := some (clearPhase 15), fields := ⟨some 15, some (), some true, some true, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [], cells := 30 },
    { ticks := 3, phase := some emitPhase, fields := ⟨some 15, some (), some true, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [], cells := 30 },
    { ticks := 4, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [true], cells := 31 }]
 
-def clear_C15E : CleanupFixture where
+def cleanupC15E : CleanupFixture where
   name := "additional/C15E"
   phase := clearPhase 15
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1369,12 +1369,12 @@ def clear_C15E : CleanupFixture where
   peak := 31
   index := 15
 
-def clear_C15E_boundaries : List Boundary :=
+def cleanupC15EBoundaries : List Boundary :=
   [{ ticks := 0, phase := some (clearPhase 15), fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [], cells := 30 },
    { ticks := 1, phase := some emitPhase, fields := ⟨some 15, some (), none, some false, some false, some true, some 11, some .right⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [], cells := 30 },
    { ticks := 2, phase := none, fields := ⟨none, none, none, none, none, none, none, none⟩, words := localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false], cells := 31 }]
 
-def emit_E00 : EmitFixture where
+def emitE00 : EmitFixture where
   name := "additional/E00"
   phase := emitPhase
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1383,7 +1383,7 @@ def emit_E00 : EmitFixture where
   ticks := 1
   peak := 33
 
-def emit_E01 : EmitFixture where
+def emitE01 : EmitFixture where
   name := "additional/E01"
   phase := emitPhase
   fields := ⟨some 15, some (), some false, none, some false, some true, some 11, some .right⟩
@@ -1392,7 +1392,7 @@ def emit_E01 : EmitFixture where
   ticks := 1
   peak := 33
 
-def emit_E02 : EmitFixture where
+def emitE02 : EmitFixture where
   name := "additional/E02"
   phase := emitPhase
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1401,7 +1401,7 @@ def emit_E02 : EmitFixture where
   ticks := 1
   peak := 33
 
-def emit_E03 : EmitFixture where
+def emitE03 : EmitFixture where
   name := "additional/E03"
   phase := emitPhase
   fields := ⟨some 15, some (), none, none, some false, some true, some 11, some .right⟩
@@ -1410,7 +1410,7 @@ def emit_E03 : EmitFixture where
   ticks := 1
   peak := 1
 
-def join_J00 : JoinFixture where
+def joinJ00 : JoinFixture where
   name := "additional/J00"
   phase := rejectPhase
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1422,7 +1422,7 @@ def join_J00 : JoinFixture where
   nextFields := ⟨none, none, some false, none, none, none, none, none⟩
   stream := none
 
-def join_J01 : JoinFixture where
+def joinJ01 : JoinFixture where
   name := "additional/J01"
   phase := resultPhase false
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1434,7 +1434,7 @@ def join_J01 : JoinFixture where
   nextFields := ⟨none, none, some false, none, none, none, none, none⟩
   stream := none
 
-def join_J02 : JoinFixture where
+def joinJ02 : JoinFixture where
   name := "additional/J02"
   phase := resultPhase true
   fields := ⟨some 15, some (), some false, none, some false, some true, some 11, some .right⟩
@@ -1446,7 +1446,7 @@ def join_J02 : JoinFixture where
   nextFields := ⟨none, none, some true, none, none, none, none, none⟩
   stream := none
 
-def join_J03 : JoinFixture where
+def joinJ03 : JoinFixture where
   name := "additional/J03"
   phase := dispatchPhase
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1458,7 +1458,7 @@ def join_J03 : JoinFixture where
   nextFields := ⟨none, none, none, none, none, none, none, none⟩
   stream := some { before := localData [true, false] [false] [] [] [true] [11] [3] [] [] [] [12] [(), ()] [false, true] [.right, .left] [.right] [true], after := localData [true, false] [false] [] [] [true] [11] [3] [] [] [] [12] [(), ()] [false, true] [.right, .left] [.right] [true], ticks := 4, peak := 15, result := true }
 
-def dirty_D00 : DirtyFrontEndFixture where
+def dirtyD00 : DirtyFrontEndFixture where
   name := "additional/D00"
   phase := .inl (FrontEndMachine.certificateDecoderLabel .emit)
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1471,7 +1471,7 @@ def dirty_D00 : DirtyFrontEndFixture where
   stream := { before := localData [true, false] [] [] [] [false, true] [11] [] [6, 10, 7, 10] [1, 0, 1, 0, 0] [1, 0, 1, 0, 0] [] [] [true] [] [] [false, true], after := localData [true, false] [] [] [] [false, true] [11] [] [] [] [] [] [] [true] [] [] [false, false], ticks := 42, peak := 22, result := true }
   physicalPath := []
 
-def dirty_D01 : DirtyFrontEndFixture where
+def dirtyD01 : DirtyFrontEndFixture where
   name := "additional/D01"
   phase := rawEntryPhase
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1484,7 +1484,7 @@ def dirty_D01 : DirtyFrontEndFixture where
   stream := { before := localData [] [] [] [] [] [] [] [6, 10] [1, 0, 1, 0, 0] [1, 1, 0, 0, 0] [] [] [] [.right] [.left] [true], after := localData [] [] [] [] [] [] [] [] [1, 0, 1, 0, 0] [1, 1, 0, 0, 0] [] [] [] [] [] [false], ticks := 20, peak := 15, result := false }
   physicalPath := [.right, .left]
 
-def dirty_D02 : DirtyFrontEndFixture where
+def dirtyD02 : DirtyFrontEndFixture where
   name := "additional/D02"
   phase := rawEntryPhase
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1497,7 +1497,7 @@ def dirty_D02 : DirtyFrontEndFixture where
   stream := { before := localData [] [] [] [] [] [] [] [6, 9, 10] [1, 0, 1, 0, 1, 0, 0] [1, 0, 1, 1, 0, 0, 0] [] [] [] [.right, .left] [.left, .right] [true], after := localData [] [] [] [] [] [] [] [] [1, 0, 1, 0, 1, 0, 0] [1, 0, 1, 1, 0, 0, 0] [] [] [] [] [.right, .left, .right] [false], ticks := 18, peak := 22, result := false }
   physicalPath := [.left, .right, .right, .left, .right]
 
-def dirty_D03 : DirtyFrontEndFixture where
+def dirtyD03 : DirtyFrontEndFixture where
   name := "additional/D03"
   phase := rawEntryPhase
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1510,7 +1510,7 @@ def dirty_D03 : DirtyFrontEndFixture where
   stream := { before := localData [] [] [] [] [] [] [] [6, 10] [1, 0, 1, 0, 0] [1, 1, 0, 0, 0] [] [] [] [] [] [true], after := localData [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [false], ticks := 25, peak := 13, result := true }
   physicalPath := []
 
-def clear_CZERO : CleanupFixture where
+def emptyCleanupFixture : CleanupFixture where
   name := "additional/CZERO"
   phase := clearPhase 0
   fields := ⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩
@@ -1521,80 +1521,80 @@ def clear_CZERO : CleanupFixture where
   index := 0
 
 def partialClearCases : List CleanupFixture :=
-  [clear_C00, clear_C00E, clear_C01, clear_C01E, clear_C02, clear_C02E, clear_C03, clear_C03E, clear_C04, clear_C04E, clear_C05, clear_C05E, clear_C06, clear_C06E, clear_C07, clear_C07E, clear_C08, clear_C08E, clear_C09, clear_C09E, clear_C10, clear_C10E, clear_C11, clear_C11E, clear_C12, clear_C12E, clear_C13, clear_C13E, clear_C14, clear_C14E, clear_C15, clear_C15E]
+  [cleanupC00, cleanupC00E, cleanupC01, cleanupC01E, cleanupC02, cleanupC02E, cleanupC03, cleanupC03E, cleanupC04, cleanupC04E, cleanupC05, cleanupC05E, cleanupC06, cleanupC06E, cleanupC07, cleanupC07E, cleanupC08, cleanupC08E, cleanupC09, cleanupC09E, cleanupC10, cleanupC10E, cleanupC11, cleanupC11E, cleanupC12, cleanupC12E, cleanupC13, cleanupC13E, cleanupC14, cleanupC14E, cleanupC15, cleanupC15E]
 
 theorem partialClearCases_count : partialClearCases.length = 32 := rfl
 
 def emitCases : List EmitFixture :=
-  [emit_E00, emit_E01, emit_E02, emit_E03]
+  [emitE00, emitE01, emitE02, emitE03]
 
 theorem emitCases_count : emitCases.length = 4 := rfl
 
 def joinCases : List JoinFixture :=
-  [join_J00, join_J01, join_J02, join_J03]
+  [joinJ00, joinJ01, joinJ02, joinJ03]
 
 theorem joinCases_count : joinCases.length = 4 := rfl
 
 def dirtyFrontEndCases : List DirtyFrontEndFixture :=
-  [dirty_D00, dirty_D01, dirty_D02, dirty_D03]
+  [dirtyD00, dirtyD01, dirtyD02, dirtyD03]
 
 theorem dirtyFrontEndCases_count : dirtyFrontEndCases.length = 4 := rfl
 
 def partialClearBoundaries : List (CleanupFixture × List Boundary) :=
-  [(clear_C00, clear_C00_boundaries),
-   (clear_C00E, clear_C00E_boundaries),
-   (clear_C01, clear_C01_boundaries),
-   (clear_C01E, clear_C01E_boundaries),
-   (clear_C02, clear_C02_boundaries),
-   (clear_C02E, clear_C02E_boundaries),
-   (clear_C03, clear_C03_boundaries),
-   (clear_C03E, clear_C03E_boundaries),
-   (clear_C04, clear_C04_boundaries),
-   (clear_C04E, clear_C04E_boundaries),
-   (clear_C05, clear_C05_boundaries),
-   (clear_C05E, clear_C05E_boundaries),
-   (clear_C06, clear_C06_boundaries),
-   (clear_C06E, clear_C06E_boundaries),
-   (clear_C07, clear_C07_boundaries),
-   (clear_C07E, clear_C07E_boundaries),
-   (clear_C08, clear_C08_boundaries),
-   (clear_C08E, clear_C08E_boundaries),
-   (clear_C09, clear_C09_boundaries),
-   (clear_C09E, clear_C09E_boundaries),
-   (clear_C10, clear_C10_boundaries),
-   (clear_C10E, clear_C10E_boundaries),
-   (clear_C11, clear_C11_boundaries),
-   (clear_C11E, clear_C11E_boundaries),
-   (clear_C12, clear_C12_boundaries),
-   (clear_C12E, clear_C12E_boundaries),
-   (clear_C13, clear_C13_boundaries),
-   (clear_C13E, clear_C13E_boundaries),
-   (clear_C14, clear_C14_boundaries),
-   (clear_C14E, clear_C14E_boundaries),
-   (clear_C15, clear_C15_boundaries),
-   (clear_C15E, clear_C15E_boundaries)]
+  [(cleanupC00, cleanupC00Boundaries),
+   (cleanupC00E, cleanupC00EBoundaries),
+   (cleanupC01, cleanupC01Boundaries),
+   (cleanupC01E, cleanupC01EBoundaries),
+   (cleanupC02, cleanupC02Boundaries),
+   (cleanupC02E, cleanupC02EBoundaries),
+   (cleanupC03, cleanupC03Boundaries),
+   (cleanupC03E, cleanupC03EBoundaries),
+   (cleanupC04, cleanupC04Boundaries),
+   (cleanupC04E, cleanupC04EBoundaries),
+   (cleanupC05, cleanupC05Boundaries),
+   (cleanupC05E, cleanupC05EBoundaries),
+   (cleanupC06, cleanupC06Boundaries),
+   (cleanupC06E, cleanupC06EBoundaries),
+   (cleanupC07, cleanupC07Boundaries),
+   (cleanupC07E, cleanupC07EBoundaries),
+   (cleanupC08, cleanupC08Boundaries),
+   (cleanupC08E, cleanupC08EBoundaries),
+   (cleanupC09, cleanupC09Boundaries),
+   (cleanupC09E, cleanupC09EBoundaries),
+   (cleanupC10, cleanupC10Boundaries),
+   (cleanupC10E, cleanupC10EBoundaries),
+   (cleanupC11, cleanupC11Boundaries),
+   (cleanupC11E, cleanupC11EBoundaries),
+   (cleanupC12, cleanupC12Boundaries),
+   (cleanupC12E, cleanupC12EBoundaries),
+   (cleanupC13, cleanupC13Boundaries),
+   (cleanupC13E, cleanupC13EBoundaries),
+   (cleanupC14, cleanupC14Boundaries),
+   (cleanupC14E, cleanupC14EBoundaries),
+   (cleanupC15, cleanupC15Boundaries),
+   (cleanupC15E, cleanupC15EBoundaries)]
 
 theorem partial_clear_boundary_count : (partialClearBoundaries.map (fun p => p.2.length)).sum = 142 := rfl
 
 /-! ## Three distinct liveness records -/
 
-def liveness_L00 : LivenessFixture :=
+def livenessL00 : LivenessFixture :=
   .liveHalt "liveness/L00" (⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩) (localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true]) 32
 
-def liveness_L01 : LivenessFixture :=
+def livenessL01 : LivenessFixture :=
   .outerNone "liveness/L01"
 
-def liveness_L02 : LivenessFixture :=
+def livenessL02 : LivenessFixture :=
   .externalAllocator "liveness/L02" 42 (⟨some 15, some (), some true, none, some false, some true, some 11, some .right⟩) (localData [true, false] [false] [false, true] [true] [true, false, true] [11, 15] [3] [6, 10] [1, 0, 0] [0] [12, 2] [(), ()] [false, false, true] [.right, .left] [.left, .right, .left] [false, true]) [true, true, false, true] [11, 15] 38
 
-def livenessCases : List LivenessFixture := [liveness_L00, liveness_L01, liveness_L02]
+def livenessCases : List LivenessFixture := [livenessL00, livenessL01, livenessL02]
 
 theorem liveness_cases_count : livenessCases.length = 3 := rfl
 
 def allClosedCases : List ClosedFixture :=
   rawCases.map RawFixture.toClosed ++ partialClearCases.map CleanupFixture.toClosedFixture ++
     emitCases.map EmitFixture.toClosedFixture ++ joinCases.map JoinFixture.toClosedFixture ++
-    dirtyFrontEndCases.map DirtyFrontEndFixture.toClosedFixture ++ [clear_CZERO.toClosedFixture]
+    dirtyFrontEndCases.map DirtyFrontEndFixture.toClosedFixture ++ [emptyCleanupFixture.toClosedFixture]
 
 theorem all_positive_closed_cases_count : allClosedCases.length = 81 := rfl
 
@@ -1602,199 +1602,199 @@ theorem all_frozen_case_records_count : allClosedCases.length + livenessCases.le
 
 /-! ## All 96 owned control domains, independently listed -/
 
-def frontend_framer_scanPrefix : Phase := .inl (FrontEndMachine.framerLabel .scanPrefix)
-def frontend_framer_copyCert : Phase := .inl (FrontEndMachine.framerLabel .copyCert)
-def frontend_framer_emitCert : Phase := .inl (FrontEndMachine.framerLabel .emitCert)
-def frontend_framer_emitFirst : Phase := .inl (FrontEndMachine.framerLabel .emitFirst)
-def frontend_framer_clearFirst : Phase := .inl (FrontEndMachine.framerLabel .clearFirst)
-def frontend_inputDecoder_scan : Phase := .inl (FrontEndMachine.inputDecoderLabel .scan)
-def frontend_inputDecoder_emit : Phase := .inl (FrontEndMachine.inputDecoderLabel .emit)
-def frontend_inputDecoder_clear : Phase := .inl (FrontEndMachine.inputDecoderLabel .clear)
-def frontend_sourceTree_init : Phase := .inl (InputParserMachine.treeLabel .source .init)
-def frontend_sourceTree_scan : Phase := .inl (InputParserMachine.treeLabel .source .scan)
-def frontend_sourceTree_emit : Phase := .inl (InputParserMachine.treeLabel .source .emit)
-def frontend_sourceTree_undo : Phase := .inl (InputParserMachine.treeLabel .source .undo)
-def frontend_sourceTree_dropPending : Phase := .inl (InputParserMachine.treeLabel .source .dropPending)
-def frontend_targetTree_init : Phase := .inl (InputParserMachine.treeLabel .target .init)
-def frontend_targetTree_scan : Phase := .inl (InputParserMachine.treeLabel .target .scan)
-def frontend_targetTree_emit : Phase := .inl (InputParserMachine.treeLabel .target .emit)
-def frontend_targetTree_undo : Phase := .inl (InputParserMachine.treeLabel .target .undo)
-def frontend_targetTree_dropPending : Phase := .inl (InputParserMachine.treeLabel .target .dropPending)
-def frontend_input_bitsScan : Phase := .inl (InputParserMachine.phaseLabel .bitsScan)
-def frontend_input_bitsEmit : Phase := .inl (InputParserMachine.phaseLabel .bitsEmit)
-def frontend_input_eof : Phase := .inl (InputParserMachine.phaseLabel .eof)
-def frontend_input_restoreEnd : Phase := .inl (InputParserMachine.phaseLabel .restoreEnd)
-def frontend_input_fuelUndo : Phase := .inl (InputParserMachine.phaseLabel .fuelUndo)
-def frontend_input_bitsUndo : Phase := .inl (InputParserMachine.phaseLabel .bitsUndo)
-def frontend_input_restoreSep2 : Phase := .inl (InputParserMachine.phaseLabel .restoreSep2)
-def frontend_input_targetToReverse : Phase := .inl (InputParserMachine.phaseLabel .targetToReverse)
-def frontend_input_targetToRaw : Phase := .inl (InputParserMachine.phaseLabel .targetToRaw)
-def frontend_input_restoreSep1 : Phase := .inl (InputParserMachine.phaseLabel .restoreSep1)
-def frontend_input_sourceToReverse : Phase := .inl (InputParserMachine.phaseLabel .sourceToReverse)
-def frontend_input_sourceToRaw : Phase := .inl (InputParserMachine.phaseLabel .sourceToRaw)
-def frontend_source_success : Phase := .inl (InputParserMachine.treeResultLabel .source .success)
-def frontend_target_success : Phase := .inl (InputParserMachine.treeResultLabel .target .success)
-def frontend_target_failure : Phase := .inl (InputParserMachine.treeResultLabel .target .failure)
-def frontend_certificateDecoder_scan : Phase := .inl (FrontEndMachine.certificateDecoderLabel .scan)
-def frontend_certificateDecoder_emit : Phase := .inl (FrontEndMachine.certificateDecoderLabel .emit)
-def frontend_certificateDecoder_clear : Phase := .inl (FrontEndMachine.certificateDecoderLabel .clear)
-def frontend_dispatch : Phase := .inl (FrontEndMachine.dispatchLabel)
-def frontend_reject : Phase := .inl (FrontEndMachine.rejectLabel)
-def stream_inspect : Phase := streamPhase (StreamMachine.inspectPhase)
-def stream_counter_borrow : Phase := streamPhase (StreamMachine.counterPhase .borrow)
-def stream_counter_restoreTrue : Phase := streamPhase (StreamMachine.counterPhase .restoreTrue)
-def stream_counter_restoreFalse : Phase := streamPhase (StreamMachine.counterPhase .restoreFalse)
-def stream_fuelJoin_atEnd : Phase := streamPhase (StreamMachine.fuelJoinPhase .atEnd)
-def stream_fuelJoin_positive : Phase := streamPhase (StreamMachine.fuelJoinPhase .positive)
-def stream_fuelJoin_zero : Phase := streamPhase (StreamMachine.fuelJoinPhase .zero)
-def stream_move_start : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.start)))
-def stream_move_scan_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.scan .left)))
-def stream_move_scan_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.scan .right)))
-def stream_move_emit_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.emit .left)))
-def stream_move_emit_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.emit .right)))
-def stream_move_undo_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.undo .left)))
-def stream_move_undo_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.undo .right)))
-def stream_moveDispatch_success_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.dispatchPhase (.success .left)))
-def stream_moveDispatch_success_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.dispatchPhase (.success .right)))
-def stream_moveDispatch_failure : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.dispatchPhase (.failure)))
-def stream_position_seek_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.seek .left)))
-def stream_position_seek_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.seek .right)))
-def stream_position_scanPrefix_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanPrefix .left)))
-def stream_position_scanPrefix_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanPrefix .right)))
-def stream_position_start_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.start .left)))
-def stream_position_start_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.start .right)))
-def stream_position_scanScratch_left : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanScratch .left)))
-def stream_position_scanScratch_right : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanScratch .right)))
-def stream_position_checkRight : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.checkRight)))
-def stream_position_restoreScratch_successLeft : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .successLeft)))
-def stream_position_restoreScratch_successRight : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .successRight)))
-def stream_position_restoreScratch_failureLeft : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .failureLeft)))
-def stream_position_restoreScratch_failureRight : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .failureRight)))
-def stream_position_dropPending : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.dropPending)))
-def stream_position_restorePrefix_success : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restorePrefix .success)))
-def stream_position_restorePrefix_failure : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restorePrefix .failure)))
-def stream_applyJoin_parseFailure : Phase := streamPhase (StreamMachine.applyJoinPhase MoveApplyMachine.parseFailure)
-def stream_applyJoin_rotationFailure : Phase := streamPhase (StreamMachine.applyJoinPhase MoveApplyMachine.rotationFailure)
-def stream_applyJoin_success : Phase := streamPhase (StreamMachine.applyJoinPhase MoveApplyMachine.success)
-def stream_compare : Phase := streamPhase (StreamMachine.comparePhase)
-def stream_equalityJoin_equal : Phase := streamPhase (StreamMachine.equalityJoinPhase .equal)
-def stream_equalityJoin_different : Phase := streamPhase (StreamMachine.equalityJoinPhase .different)
-def stream_result_false : Phase := resultPhase false
-def stream_result_true : Phase := resultPhase true
-def clear_00 : Phase := clearPhase 0
-def clear_01 : Phase := clearPhase 1
-def clear_02 : Phase := clearPhase 2
-def clear_03 : Phase := clearPhase 3
-def clear_04 : Phase := clearPhase 4
-def clear_05 : Phase := clearPhase 5
-def clear_06 : Phase := clearPhase 6
-def clear_07 : Phase := clearPhase 7
-def clear_08 : Phase := clearPhase 8
-def clear_09 : Phase := clearPhase 9
-def clear_10 : Phase := clearPhase 10
-def clear_11 : Phase := clearPhase 11
-def clear_12 : Phase := clearPhase 12
-def clear_13 : Phase := clearPhase 13
-def clear_14 : Phase := clearPhase 14
-def clear_15 : Phase := clearPhase 15
+def frontEndFramerScanPrefixPhase : Phase := .inl (FrontEndMachine.framerLabel .scanPrefix)
+def frontEndFramerCopyCertPhase : Phase := .inl (FrontEndMachine.framerLabel .copyCert)
+def frontEndFramerEmitCertPhase : Phase := .inl (FrontEndMachine.framerLabel .emitCert)
+def frontEndFramerEmitFirstPhase : Phase := .inl (FrontEndMachine.framerLabel .emitFirst)
+def frontEndFramerClearFirstPhase : Phase := .inl (FrontEndMachine.framerLabel .clearFirst)
+def frontEndInputDecoderScanPhase : Phase := .inl (FrontEndMachine.inputDecoderLabel .scan)
+def frontEndInputDecoderEmitPhase : Phase := .inl (FrontEndMachine.inputDecoderLabel .emit)
+def frontEndInputDecoderClearPhase : Phase := .inl (FrontEndMachine.inputDecoderLabel .clear)
+def frontEndSourceTreeInitPhase : Phase := .inl (InputParserMachine.treeLabel .source .init)
+def frontEndSourceTreeScanPhase : Phase := .inl (InputParserMachine.treeLabel .source .scan)
+def frontEndSourceTreeEmitPhase : Phase := .inl (InputParserMachine.treeLabel .source .emit)
+def frontEndSourceTreeUndoPhase : Phase := .inl (InputParserMachine.treeLabel .source .undo)
+def frontEndSourceTreeDropPendingPhase : Phase := .inl (InputParserMachine.treeLabel .source .dropPending)
+def frontEndTargetTreeInitPhase : Phase := .inl (InputParserMachine.treeLabel .target .init)
+def frontEndTargetTreeScanPhase : Phase := .inl (InputParserMachine.treeLabel .target .scan)
+def frontEndTargetTreeEmitPhase : Phase := .inl (InputParserMachine.treeLabel .target .emit)
+def frontEndTargetTreeUndoPhase : Phase := .inl (InputParserMachine.treeLabel .target .undo)
+def frontEndTargetTreeDropPendingPhase : Phase := .inl (InputParserMachine.treeLabel .target .dropPending)
+def frontEndInputBitsScanPhase : Phase := .inl (InputParserMachine.phaseLabel .bitsScan)
+def frontEndInputBitsEmitPhase : Phase := .inl (InputParserMachine.phaseLabel .bitsEmit)
+def frontEndInputEOFPhase : Phase := .inl (InputParserMachine.phaseLabel .eof)
+def frontEndInputRestoreEndPhase : Phase := .inl (InputParserMachine.phaseLabel .restoreEnd)
+def frontEndInputFuelUndoPhase : Phase := .inl (InputParserMachine.phaseLabel .fuelUndo)
+def frontEndInputBitsUndoPhase : Phase := .inl (InputParserMachine.phaseLabel .bitsUndo)
+def frontEndInputRestoreSep2Phase : Phase := .inl (InputParserMachine.phaseLabel .restoreSep2)
+def frontEndInputTargetToReversePhase : Phase := .inl (InputParserMachine.phaseLabel .targetToReverse)
+def frontEndInputTargetToRawPhase : Phase := .inl (InputParserMachine.phaseLabel .targetToRaw)
+def frontEndInputRestoreSep1Phase : Phase := .inl (InputParserMachine.phaseLabel .restoreSep1)
+def frontEndInputSourceToReversePhase : Phase := .inl (InputParserMachine.phaseLabel .sourceToReverse)
+def frontEndInputSourceToRawPhase : Phase := .inl (InputParserMachine.phaseLabel .sourceToRaw)
+def frontEndSourceSuccessPhase : Phase := .inl (InputParserMachine.treeResultLabel .source .success)
+def frontEndTargetSuccessPhase : Phase := .inl (InputParserMachine.treeResultLabel .target .success)
+def frontEndTargetFailurePhase : Phase := .inl (InputParserMachine.treeResultLabel .target .failure)
+def frontEndCertificateDecoderScanPhase : Phase := .inl (FrontEndMachine.certificateDecoderLabel .scan)
+def frontEndCertificateDecoderEmitPhase : Phase := .inl (FrontEndMachine.certificateDecoderLabel .emit)
+def frontEndCertificateDecoderClearPhase : Phase := .inl (FrontEndMachine.certificateDecoderLabel .clear)
+def frontEndDispatchPhase : Phase := .inl (FrontEndMachine.dispatchLabel)
+def frontEndRejectPhase : Phase := .inl (FrontEndMachine.rejectLabel)
+def streamInspectPhase : Phase := streamPhase (StreamMachine.inspectPhase)
+def streamCounterBorrowPhase : Phase := streamPhase (StreamMachine.counterPhase .borrow)
+def streamCounterRestoreTruePhase : Phase := streamPhase (StreamMachine.counterPhase .restoreTrue)
+def streamCounterRestoreFalsePhase : Phase := streamPhase (StreamMachine.counterPhase .restoreFalse)
+def streamFuelJoinAtEndPhase : Phase := streamPhase (StreamMachine.fuelJoinPhase .atEnd)
+def streamFuelJoinPositivePhase : Phase := streamPhase (StreamMachine.fuelJoinPhase .positive)
+def streamFuelJoinZeroPhase : Phase := streamPhase (StreamMachine.fuelJoinPhase .zero)
+def streamMoveStartPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.start)))
+def streamMoveScanLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.scan .left)))
+def streamMoveScanRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.scan .right)))
+def streamMoveEmitLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.emit .left)))
+def streamMoveEmitRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.emit .right)))
+def streamMoveUndoLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.undo .left)))
+def streamMoveUndoRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.movePhase (.undo .right)))
+def streamMoveDispatchSuccessLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.dispatchPhase (.success .left)))
+def streamMoveDispatchSuccessRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.dispatchPhase (.success .right)))
+def streamMoveDispatchFailurePhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.dispatchPhase (.failure)))
+def streamPositionSeekLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.seek .left)))
+def streamPositionSeekRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.seek .right)))
+def streamPositionScanPrefixLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanPrefix .left)))
+def streamPositionScanPrefixRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanPrefix .right)))
+def streamPositionStartLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.start .left)))
+def streamPositionStartRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.start .right)))
+def streamPositionScanScratchLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanScratch .left)))
+def streamPositionScanScratchRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.scanScratch .right)))
+def streamPositionCheckRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.checkRight)))
+def streamPositionRestoreScratchSuccessLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .successLeft)))
+def streamPositionRestoreScratchSuccessRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .successRight)))
+def streamPositionRestoreScratchFailureLeftPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .failureLeft)))
+def streamPositionRestoreScratchFailureRightPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restoreScratch .failureRight)))
+def streamPositionDropPendingPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.dropPending)))
+def streamPositionRestorePrefixSuccessPhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restorePrefix .success)))
+def streamPositionRestorePrefixFailurePhase : Phase := streamPhase (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.restorePrefix .failure)))
+def streamApplyJoinParseFailurePhase : Phase := streamPhase (StreamMachine.applyJoinPhase MoveApplyMachine.parseFailure)
+def streamApplyJoinRotationFailurePhase : Phase := streamPhase (StreamMachine.applyJoinPhase MoveApplyMachine.rotationFailure)
+def streamApplyJoinSuccessPhase : Phase := streamPhase (StreamMachine.applyJoinPhase MoveApplyMachine.success)
+def streamComparePhase : Phase := streamPhase (StreamMachine.comparePhase)
+def streamEqualityJoinEqualPhase : Phase := streamPhase (StreamMachine.equalityJoinPhase .equal)
+def streamEqualityJoinDifferentPhase : Phase := streamPhase (StreamMachine.equalityJoinPhase .different)
+def streamResultFalsePhase : Phase := resultPhase false
+def streamResultTruePhase : Phase := resultPhase true
+def clearPhase00 : Phase := clearPhase 0
+def clearPhase01 : Phase := clearPhase 1
+def clearPhase02 : Phase := clearPhase 2
+def clearPhase03 : Phase := clearPhase 3
+def clearPhase04 : Phase := clearPhase 4
+def clearPhase05 : Phase := clearPhase 5
+def clearPhase06 : Phase := clearPhase 6
+def clearPhase07 : Phase := clearPhase 7
+def clearPhase08 : Phase := clearPhase 8
+def clearPhase09 : Phase := clearPhase 9
+def clearPhase10 : Phase := clearPhase 10
+def clearPhase11 : Phase := clearPhase 11
+def clearPhase12 : Phase := clearPhase 12
+def clearPhase13 : Phase := clearPhase 13
+def clearPhase14 : Phase := clearPhase 14
+def clearPhase15 : Phase := clearPhase 15
 def emit : Phase := emitPhase
 
 def phaseDomains : List Phase :=
-  [frontend_framer_scanPrefix,
-   frontend_framer_copyCert,
-   frontend_framer_emitCert,
-   frontend_framer_emitFirst,
-   frontend_framer_clearFirst,
-   frontend_inputDecoder_scan,
-   frontend_inputDecoder_emit,
-   frontend_inputDecoder_clear,
-   frontend_sourceTree_init,
-   frontend_sourceTree_scan,
-   frontend_sourceTree_emit,
-   frontend_sourceTree_undo,
-   frontend_sourceTree_dropPending,
-   frontend_targetTree_init,
-   frontend_targetTree_scan,
-   frontend_targetTree_emit,
-   frontend_targetTree_undo,
-   frontend_targetTree_dropPending,
-   frontend_input_bitsScan,
-   frontend_input_bitsEmit,
-   frontend_input_eof,
-   frontend_input_restoreEnd,
-   frontend_input_fuelUndo,
-   frontend_input_bitsUndo,
-   frontend_input_restoreSep2,
-   frontend_input_targetToReverse,
-   frontend_input_targetToRaw,
-   frontend_input_restoreSep1,
-   frontend_input_sourceToReverse,
-   frontend_input_sourceToRaw,
-   frontend_source_success,
-   frontend_target_success,
-   frontend_target_failure,
-   frontend_certificateDecoder_scan,
-   frontend_certificateDecoder_emit,
-   frontend_certificateDecoder_clear,
-   frontend_dispatch,
-   frontend_reject,
-   stream_inspect,
-   stream_counter_borrow,
-   stream_counter_restoreTrue,
-   stream_counter_restoreFalse,
-   stream_fuelJoin_atEnd,
-   stream_fuelJoin_positive,
-   stream_fuelJoin_zero,
-   stream_move_start,
-   stream_move_scan_left,
-   stream_move_scan_right,
-   stream_move_emit_left,
-   stream_move_emit_right,
-   stream_move_undo_left,
-   stream_move_undo_right,
-   stream_moveDispatch_success_left,
-   stream_moveDispatch_success_right,
-   stream_moveDispatch_failure,
-   stream_position_seek_left,
-   stream_position_seek_right,
-   stream_position_scanPrefix_left,
-   stream_position_scanPrefix_right,
-   stream_position_start_left,
-   stream_position_start_right,
-   stream_position_scanScratch_left,
-   stream_position_scanScratch_right,
-   stream_position_checkRight,
-   stream_position_restoreScratch_successLeft,
-   stream_position_restoreScratch_successRight,
-   stream_position_restoreScratch_failureLeft,
-   stream_position_restoreScratch_failureRight,
-   stream_position_dropPending,
-   stream_position_restorePrefix_success,
-   stream_position_restorePrefix_failure,
-   stream_applyJoin_parseFailure,
-   stream_applyJoin_rotationFailure,
-   stream_applyJoin_success,
-   stream_compare,
-   stream_equalityJoin_equal,
-   stream_equalityJoin_different,
-   stream_result_false,
-   stream_result_true,
-   clear_00,
-   clear_01,
-   clear_02,
-   clear_03,
-   clear_04,
-   clear_05,
-   clear_06,
-   clear_07,
-   clear_08,
-   clear_09,
-   clear_10,
-   clear_11,
-   clear_12,
-   clear_13,
-   clear_14,
-   clear_15,
+  [frontEndFramerScanPrefixPhase,
+   frontEndFramerCopyCertPhase,
+   frontEndFramerEmitCertPhase,
+   frontEndFramerEmitFirstPhase,
+   frontEndFramerClearFirstPhase,
+   frontEndInputDecoderScanPhase,
+   frontEndInputDecoderEmitPhase,
+   frontEndInputDecoderClearPhase,
+   frontEndSourceTreeInitPhase,
+   frontEndSourceTreeScanPhase,
+   frontEndSourceTreeEmitPhase,
+   frontEndSourceTreeUndoPhase,
+   frontEndSourceTreeDropPendingPhase,
+   frontEndTargetTreeInitPhase,
+   frontEndTargetTreeScanPhase,
+   frontEndTargetTreeEmitPhase,
+   frontEndTargetTreeUndoPhase,
+   frontEndTargetTreeDropPendingPhase,
+   frontEndInputBitsScanPhase,
+   frontEndInputBitsEmitPhase,
+   frontEndInputEOFPhase,
+   frontEndInputRestoreEndPhase,
+   frontEndInputFuelUndoPhase,
+   frontEndInputBitsUndoPhase,
+   frontEndInputRestoreSep2Phase,
+   frontEndInputTargetToReversePhase,
+   frontEndInputTargetToRawPhase,
+   frontEndInputRestoreSep1Phase,
+   frontEndInputSourceToReversePhase,
+   frontEndInputSourceToRawPhase,
+   frontEndSourceSuccessPhase,
+   frontEndTargetSuccessPhase,
+   frontEndTargetFailurePhase,
+   frontEndCertificateDecoderScanPhase,
+   frontEndCertificateDecoderEmitPhase,
+   frontEndCertificateDecoderClearPhase,
+   frontEndDispatchPhase,
+   frontEndRejectPhase,
+   streamInspectPhase,
+   streamCounterBorrowPhase,
+   streamCounterRestoreTruePhase,
+   streamCounterRestoreFalsePhase,
+   streamFuelJoinAtEndPhase,
+   streamFuelJoinPositivePhase,
+   streamFuelJoinZeroPhase,
+   streamMoveStartPhase,
+   streamMoveScanLeftPhase,
+   streamMoveScanRightPhase,
+   streamMoveEmitLeftPhase,
+   streamMoveEmitRightPhase,
+   streamMoveUndoLeftPhase,
+   streamMoveUndoRightPhase,
+   streamMoveDispatchSuccessLeftPhase,
+   streamMoveDispatchSuccessRightPhase,
+   streamMoveDispatchFailurePhase,
+   streamPositionSeekLeftPhase,
+   streamPositionSeekRightPhase,
+   streamPositionScanPrefixLeftPhase,
+   streamPositionScanPrefixRightPhase,
+   streamPositionStartLeftPhase,
+   streamPositionStartRightPhase,
+   streamPositionScanScratchLeftPhase,
+   streamPositionScanScratchRightPhase,
+   streamPositionCheckRightPhase,
+   streamPositionRestoreScratchSuccessLeftPhase,
+   streamPositionRestoreScratchSuccessRightPhase,
+   streamPositionRestoreScratchFailureLeftPhase,
+   streamPositionRestoreScratchFailureRightPhase,
+   streamPositionDropPendingPhase,
+   streamPositionRestorePrefixSuccessPhase,
+   streamPositionRestorePrefixFailurePhase,
+   streamApplyJoinParseFailurePhase,
+   streamApplyJoinRotationFailurePhase,
+   streamApplyJoinSuccessPhase,
+   streamComparePhase,
+   streamEqualityJoinEqualPhase,
+   streamEqualityJoinDifferentPhase,
+   streamResultFalsePhase,
+   streamResultTruePhase,
+   clearPhase00,
+   clearPhase01,
+   clearPhase02,
+   clearPhase03,
+   clearPhase04,
+   clearPhase05,
+   clearPhase06,
+   clearPhase07,
+   clearPhase08,
+   clearPhase09,
+   clearPhase10,
+   clearPhase11,
+   clearPhase12,
+   clearPhase13,
+   clearPhase14,
+   clearPhase15,
    emit]
 
 theorem phase_domains_count : phaseDomains.length = 96 := rfl

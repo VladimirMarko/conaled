@@ -97,12 +97,12 @@ end PolynomialCheckingRelation
 /-- The selected conventional verifier characterization. Both the checking
 machine and witness exponent precede all inputs and witnesses. -/
 structure ConventionalVerifierCriterion (language : Bits → Prop) where
-  relation : Bits → Bits → Prop
-  checking : PolynomialCheckingRelation relation
+  Relation : Bits → Bits → Prop
+  checking : PolynomialCheckingRelation Relation
   witnessExponent : Nat
   witness_iff : ∀ input : Bits,
     language input ↔ ∃ cert : Bits,
-      cert.length ≤ input.length ^ witnessExponent ∧ relation input cert
+      cert.length ≤ input.length ^ witnessExponent ∧ Relation input cert
 
 namespace ConventionalVerifierCriterion
 

@@ -206,18 +206,18 @@ instance : Fintype Label where
 abbrev Registers := Option Bool
 def zeroRegisters : Registers := none
 
-abbrev alphabet : StackId → Type
+abbrev Alphabet : StackId → Type
   | .input | .firstReverse | .certReverse => Bool
   | .output => Option Bool
 
-instance alphabetFintype (stack : StackId) : Fintype (alphabet stack) := by
+instance alphabetFintype (stack : StackId) : Fintype (Alphabet stack) := by
   cases stack with
   | input => exact inferInstanceAs (Fintype Bool)
   | firstReverse => exact inferInstanceAs (Fintype Bool)
   | certReverse => exact inferInstanceAs (Fintype Bool)
   | output => exact inferInstanceAs (Fintype (Option Bool))
 
-abbrev Statement := Turing.TM2.Stmt alphabet Label Registers
+abbrev Statement := Turing.TM2.Stmt Alphabet Label Registers
 
 def store (_ : Registers) (bit : Option Bool) : Registers := bit
 
@@ -255,7 +255,7 @@ abbrev machine : Turing.FinTM2 where
   K := StackId
   k₀ := .input
   k₁ := .output
-  Γ := alphabet
+  Γ := Alphabet
   Λ := Label
   main := .scanPrefix
   σ := Registers

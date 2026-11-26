@@ -122,8 +122,8 @@ theorem boundary_expected_of_actual_trace (c : RunFixture) (points : Nat → Tra
 theorem all_thirteen_root_left_literal_boundaries_have_their_actual_rank_and_cells :
     ∀ b ∈ rootLeftBoundaries, b.Expected (step caller) (a12.start regs ctx) regs ctx := by
   intro b member
-  apply boundary_expected_of_actual_trace caller regs ctx a12 trace_a12
-    a12_literal_evaluation rfl (trace_a12_steps caller regs ctx) b
+  apply boundary_expected_of_actual_trace caller regs ctx a12 traceA12
+    a12_literal_evaluation rfl (traceA12_steps caller regs ctx) b
   all_goals
     simp only [rootLeftBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
     rcases member with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
@@ -132,8 +132,8 @@ theorem all_thirteen_root_left_literal_boundaries_have_their_actual_rank_and_cel
 theorem all_five_dirty_branch_boundaries_have_their_actual_rank_and_cells :
     ∀ b ∈ frontEndDirtyBoundaries, b.Expected (step caller) (r10.start regs ctx) regs ctx := by
   intro b member
-  apply boundary_expected_of_actual_trace caller regs ctx r10 trace_r10
-    r10_literal_evaluation rfl (trace_r10_steps caller regs ctx) b
+  apply boundary_expected_of_actual_trace caller regs ctx r10 traceR10
+    r10_literal_evaluation rfl (traceR10_steps caller regs ctx) b
   all_goals
     simp only [frontEndDirtyBoundaries, List.mem_cons, List.not_mem_nil, or_false] at member
     rcases member with rfl | rfl | rfl | rfl | rfl
@@ -411,20 +411,20 @@ theorem equality_prefix_preserves_seven_local_complements_and_the_external_frame
       ∀ k, middle.stk (.inr k) = start.stk (.inr k) :=
   equality_prefix_frame caller localCaller start n bound reached executed
 
-def exact_phase_timing (q : Phase) (D : LocalData) (regs : Registers R)
+def exactPhaseTiming (q : Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller) (cfg (some (phaseLabel q)) regs D ctx)
       (some (phaseResult q regs D ctx)) (phaseSteps q D) := phaseInTime caller q D regs ctx
 
-def exact_configuration_timing (start : Cfg Γ Λ R) :
+def exactConfigurationTiming (start : Cfg Γ Λ R) :
     StateTransition.EvalsToInTime (step caller) start (some (finalCfg start)) (remainingSteps start) :=
   cfgInTime caller start
 
-def exact_dirty_inspection_timing (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+def exactDirtyInspectionTiming (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller) (cfg (some (phaseLabel inspectPhase)) regs D ctx)
       (some (inspectResult regs D ctx)) (inspectSteps D) := inspectInTime caller D regs ctx
 
-def exact_dirty_counter_stage_timing (q : Resources.BinaryCounter.FixedWidthMachine.Phase)
+def exactDirtyCounterStageTiming (q : Resources.BinaryCounter.FixedWidthMachine.Phase)
     (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel (counterPhase q))) regs D ctx)
@@ -432,40 +432,40 @@ def exact_dirty_counter_stage_timing (q : Resources.BinaryCounter.FixedWidthMach
         (resetFuel regs) (counterFinish q D).data ctx)) (counterFinish q D).steps :=
   counterStageInTime caller q D regs ctx
 
-def exact_dirty_inspection_stage_timing (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+def exactDirtyInspectionStageTiming (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller) (cfg (some (phaseLabel inspectPhase)) regs D ctx)
       (some (cfg (some (phaseLabel (fuelJoinPhase (inspectStageFinish D).result)))
         (resetFuel regs) (inspectStageFinish D).data ctx)) (inspectStageFinish D).steps :=
   fuelStageInTime caller D regs ctx
 
-def exact_dirty_apply_stage_timing (q : MoveApplyMachine.Phase) (D : LocalData)
+def exactDirtyApplyStageTiming (q : MoveApplyMachine.Phase) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller) (cfg (some (phaseLabel (applyPhase q))) regs D ctx)
       (some (cfg (some (phaseLabel (applyJoinPhase (applyFinish q D).result)))
         (resetApply regs) (applyFinish q D).data ctx)) (applyFinish q D).steps :=
   applyStageInTime caller q D regs ctx
 
-def exact_raw_equality_stage_timing (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+def exactRawEqualityStageTiming (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller) (cfg (some (phaseLabel comparePhase)) regs D ctx)
       (some (cfg (some (phaseLabel (equalityJoinPhase (equalityFinish D).result)))
         (resetEquality regs) (equalityFinish D).data ctx)) (equalityFinish D).steps :=
   equalityStageInTime caller D regs ctx
 
-def every_fuel_join_is_a_one_step_typed_value (r : FuelDispatchMachine.Exit)
+def fuelJoinTiming (r : FuelDispatchMachine.Exit)
     (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel (fuelJoinPhase r))) regs D ctx)
       (some (cfg (some (fuelJoinTarget r)) (resetAll regs) D ctx)) 1 :=
   fuelJoinInTime caller r D regs ctx
 
-def every_apply_join_is_a_one_step_typed_value (r : MoveApplyMachine.FinalResult)
+def applyJoinTiming (r : MoveApplyMachine.FinalResult)
     (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel (applyJoinPhase r))) regs D ctx)
       (some (cfg (some (applyJoinTarget r)) (resetAll regs) D ctx)) 1 :=
   applyJoinInTime caller r D regs ctx
 
-def every_equality_join_is_a_one_step_typed_value (r : TreeEqualityMachine.Result)
+def equalityJoinTiming (r : TreeEqualityMachine.Result)
     (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller)
       (cfg (some (phaseLabel (equalityJoinPhase r))) regs D ctx)
@@ -475,21 +475,21 @@ def every_equality_join_is_a_one_step_typed_value (r : TreeEqualityMachine.Resul
 theorem all_eight_join_time_records_store_one
     (f : FuelDispatchMachine.Exit) (h : MoveApplyMachine.FinalResult) (e : TreeEqualityMachine.Result)
     (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (every_fuel_join_is_a_one_step_typed_value caller f D regs ctx).steps = 1 ∧
-      (every_apply_join_is_a_one_step_typed_value caller h D regs ctx).steps = 1 ∧
-      (every_equality_join_is_a_one_step_typed_value caller e D regs ctx).steps = 1 := ⟨rfl, rfl, rfl⟩
+    (fuelJoinTiming caller f D regs ctx).steps = 1 ∧
+      (applyJoinTiming caller h D regs ctx).steps = 1 ∧
+      (equalityJoinTiming caller e D regs ctx).steps = 1 := ⟨rfl, rfl, rfl⟩
 
 theorem global_and_component_typed_records_retain_exact_counts
     (q : Phase) (w : Resources.BinaryCounter.FixedWidthMachine.Phase)
     (h : MoveApplyMachine.Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) (start : Cfg Γ Λ R) :
-    (exact_phase_timing caller q D regs ctx).steps = phaseSteps q D ∧
-    (exact_configuration_timing caller start).steps = remainingSteps start ∧
-    (exact_dirty_inspection_timing caller D regs ctx).steps = inspectSteps D ∧
-    (exact_dirty_counter_stage_timing caller w D regs ctx).steps = (counterFinish w D).steps ∧
-    (exact_dirty_inspection_stage_timing caller D regs ctx).steps = (inspectStageFinish D).steps ∧
-    (exact_dirty_apply_stage_timing caller h D regs ctx).steps = (applyFinish h D).steps ∧
-    (exact_raw_equality_stage_timing caller D regs ctx).steps = (equalityFinish D).steps :=
+    (exactPhaseTiming caller q D regs ctx).steps = phaseSteps q D ∧
+    (exactConfigurationTiming caller start).steps = remainingSteps start ∧
+    (exactDirtyInspectionTiming caller D regs ctx).steps = inspectSteps D ∧
+    (exactDirtyCounterStageTiming caller w D regs ctx).steps = (counterFinish w D).steps ∧
+    (exactDirtyInspectionStageTiming caller D regs ctx).steps = (inspectStageFinish D).steps ∧
+    (exactDirtyApplyStageTiming caller h D regs ctx).steps = (applyFinish h D).steps ∧
+    (exactRawEqualityStageTiming caller D regs ctx).steps = (equalityFinish D).steps :=
   ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 end ComponentPrefixContracts

@@ -39,12 +39,12 @@ instance : Fintype Label where
   elems := {.scan, .emit, .clear}
   complete label := by cases label <;> decide
 
-abbrev alphabet : StackId → Type
+abbrev Alphabet : StackId → Type
   | .input => Bool
   | .reverse => Tag
   | .output => Option Tag
 
-instance alphabetFintype (k : StackId) : Fintype (alphabet k) := by
+instance alphabetFintype (k : StackId) : Fintype (Alphabet k) := by
   cases k with
   | input => exact inferInstanceAs (Fintype Bool)
   | reverse => exact inferInstanceAs (Fintype Tag)
@@ -78,7 +78,7 @@ theorem resultCode_injective : Function.Injective resultCode := by
         exact congrArg some
           ((List.map_injective_iff.mpr (Option.some_injective Tag)) mapped)
 
-abbrev Statement := Turing.TM2.Stmt alphabet Label Registers
+abbrev Statement := Turing.TM2.Stmt Alphabet Label Registers
 
 def store0 (r : Registers) (b : Option Bool) : Registers := { r with b0 := b }
 def store1 (r : Registers) (b : Option Bool) : Registers := { r with b1 := b }
@@ -120,7 +120,7 @@ abbrev machine : Turing.FinTM2 where
   K := StackId
   k₀ := .input
   k₁ := .output
-  Γ := alphabet
+  Γ := Alphabet
   Λ := Label
   main := .scan
   σ := Registers

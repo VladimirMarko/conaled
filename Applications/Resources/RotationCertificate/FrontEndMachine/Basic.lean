@@ -25,7 +25,7 @@ abbrev StackId (K : Type) := LocalStack ⊕ K
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl .framedRaw | .inl .frameFirstReverse | .inl .frameCertReverse
   | .inl .inputBits | .inl .certificateBits | .inl .fuel | .inl .bitsReverse => Bool
   | .inl .inputRaw | .inl .decodeReverse | .inl .certificateWord
@@ -34,7 +34,7 @@ abbrev alphabet (Γ : K → Type) : StackId K → Type
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (slot : StackId K) :
-    Fintype (alphabet Γ slot) := by
+    Fintype (Alphabet Γ slot) := by
   cases slot with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
@@ -49,14 +49,14 @@ instance : Fintype InputProtected where
     .decodeReverse, .certificateWord}
   complete slot := by cases slot <;> decide
 
-abbrev inputProtectedAlphabet (Γ : K → Type) : InputProtected ⊕ K → Type
+abbrev InputProtectedAlphabet (Γ : K → Type) : InputProtected ⊕ K → Type
   | .inl .framedRaw | .inl .frameFirstReverse | .inl .frameCertReverse
   | .inl .inputBits | .inl .certificateBits => Bool
   | .inl .decodeReverse | .inl .certificateWord => Tag
   | .inr k => Γ k
 
 instance inputProtectedFintype [∀ k, Fintype (Γ k)] (slot : InputProtected ⊕ K) :
-    Fintype (inputProtectedAlphabet Γ slot) := by
+    Fintype (InputProtectedAlphabet Γ slot) := by
   cases slot with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
@@ -113,8 +113,8 @@ def inputStackEquiv : InputParserMachine.StackId (InputProtected ⊕ K) ≃ Stac
     | inr k => rfl
 
 def inputSymbolEquiv (slot : InputParserMachine.StackId (InputProtected ⊕ K)) :
-    InputParserMachine.alphabet (inputProtectedAlphabet Γ) slot ≃
-      alphabet Γ (inputStackEquiv slot) := by
+    InputParserMachine.Alphabet (InputProtectedAlphabet Γ) slot ≃
+      Alphabet Γ (inputStackEquiv slot) := by
   cases slot with
   | inl slot => cases slot with
     | raw => exact Equiv.refl _
@@ -137,7 +137,7 @@ instance : Fintype FramerProtected where
     .decodeReverse, .certificateWord}
   complete slot := by cases slot <;> decide
 
-abbrev framerProtectedAlphabet (Γ : K → Type) : FramerProtected ⊕ K → Type
+abbrev FramerProtectedAlphabet (Γ : K → Type) : FramerProtected ⊕ K → Type
   | .inl .inputRaw | .inl .sourceTree | .inl .targetTree | .inl .treeReverse
   | .inl .decodeReverse | .inl .certificateWord => Tag
   | .inl .pending => Unit
@@ -145,7 +145,7 @@ abbrev framerProtectedAlphabet (Γ : K → Type) : FramerProtected ⊕ K → Typ
   | .inr k => Γ k
 
 instance framerProtectedFintype [∀ k, Fintype (Γ k)] (slot : FramerProtected ⊕ K) :
-    Fintype (framerProtectedAlphabet Γ slot) := by
+    Fintype (FramerProtectedAlphabet Γ slot) := by
   cases slot with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
@@ -195,8 +195,8 @@ def framerStackEquiv : OpenFramingMachine.StackId (FramerProtected ⊕ K) ≃ St
     | inr k => rfl
 
 def framerSymbolEquiv (slot : OpenFramingMachine.StackId (FramerProtected ⊕ K)) :
-    OpenFramingMachine.alphabet (framerProtectedAlphabet Γ) slot ≃
-      alphabet Γ (framerStackEquiv slot) := by
+    OpenFramingMachine.Alphabet (FramerProtectedAlphabet Γ) slot ≃
+      Alphabet Γ (framerStackEquiv slot) := by
   cases slot with
   | inl slot => cases slot <;> exact Equiv.refl _
   | inr rest => cases rest with
@@ -220,7 +220,7 @@ instance : Fintype DecoderProtected where
     .sourceTree, .targetTree, .treeReverse, .pending, .fuel, .bitsReverse}
   complete slot := by cases slot <;> decide
 
-abbrev decoderProtectedAlphabet (Γ : K → Type) : DecoderProtected ⊕ K → Type
+abbrev DecoderProtectedAlphabet (Γ : K → Type) : DecoderProtected ⊕ K → Type
   | .inl .framedRaw | .inl .frameFirstReverse | .inl .frameCertReverse
   | .inl .otherBits | .inl .fuel | .inl .bitsReverse => Bool
   | .inl .otherWord | .inl .sourceTree | .inl .targetTree | .inl .treeReverse => Tag
@@ -228,7 +228,7 @@ abbrev decoderProtectedAlphabet (Γ : K → Type) : DecoderProtected ⊕ K → T
   | .inr k => Γ k
 
 instance decoderProtectedFintype [∀ k, Fintype (Γ k)] (slot : DecoderProtected ⊕ K) :
-    Fintype (decoderProtectedAlphabet Γ slot) := by
+    Fintype (DecoderProtectedAlphabet Γ slot) := by
   cases slot with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
@@ -302,8 +302,8 @@ def decoderStackEquiv (call : DecoderCall) :
 
 def decoderSymbolEquiv (call : DecoderCall)
     (slot : OpenDecoderMachine.StackId (DecoderProtected ⊕ K)) :
-    OpenDecoderMachine.alphabet (decoderProtectedAlphabet Γ) slot ≃
-      alphabet Γ (decoderStackEquiv call slot) := by
+    OpenDecoderMachine.Alphabet (DecoderProtectedAlphabet Γ) slot ≃
+      Alphabet Γ (decoderStackEquiv call slot) := by
   cases call <;> cases slot with
   | inl slot => cases slot <;> exact Equiv.refl _
   | inr rest => cases rest with
@@ -364,8 +364,8 @@ def tailPhase : DecoderTail → OpenDecoderMachine.Phase
 abbrev ExtraLabel (Λ : Type) := OpenFramingMachine.Phase ⊕
   (OpenDecoderMachine.Phase ⊕ (DecoderTail ⊕ (Unit ⊕ Λ)))
 abbrev Label (Λ : Type) := InputParserMachine.Label (ExtraLabel Λ)
-abbrev Statement (Γ : K → Type) (Λ R : Type) := Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
-abbrev Cfg (Γ : K → Type) (Λ R : Type) := Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+abbrev Statement (Γ : K → Type) (Λ R : Type) := Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
+abbrev Cfg (Γ : K → Type) (Λ R : Type) := Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def framerLabel (phase : OpenFramingMachine.Phase) : Label Λ :=
   InputParserMachine.callerLabel (.inl phase)
@@ -796,9 +796,9 @@ theorem input_fullOwned_owned (label : Label Λ) (owned : InputParserMachine.Ful
 
 @[simp] theorem owned_framer (phase : OpenFramingMachine.Phase) :
     Owned (some (framerLabel (Λ := Λ) phase)) := True.intro
-@[simp] theorem owned_inputDecoder (phase : OpenDecoderMachine.Phase) :
+@[simp] theorem owned_input_decoder (phase : OpenDecoderMachine.Phase) :
     Owned (some (inputDecoderLabel (Λ := Λ) phase)) := True.intro
-@[simp] theorem owned_certificateDecoder (phase : OpenDecoderMachine.Phase) :
+@[simp] theorem owned_certificate_decoder (phase : OpenDecoderMachine.Phase) :
     Owned (some (certificateDecoderLabel (Λ := Λ) phase)) := by cases phase <;> trivial
 @[simp] theorem not_owned_dispatch : ¬ Owned (some (dispatchLabel (Λ := Λ))) := id
 @[simp] theorem not_owned_reject : ¬ Owned (some (rejectLabel (Λ := Λ))) := id
@@ -818,14 +818,14 @@ theorem decoderProtected_card : Fintype.card DecoderProtected = 11 := by decide
 theorem inputOwned_card : Fintype.card InputOwned = 25 := by decide
 theorem inputAfterEntry_card : Fintype.card InputAfterEntry = 24 := by decide
 theorem decoderTail_card : Fintype.card DecoderTail = 2 := by decide
-theorem framerPhase_card : Fintype.card OpenFramingMachine.Phase = 5 := by decide
-theorem decoderPhase_card : Fintype.card OpenDecoderMachine.Phase = 3 := by decide
+theorem openFramingMachinePhase_card : Fintype.card OpenFramingMachine.Phase = 5 := by decide
+theorem openDecoderMachinePhase_card : Fintype.card OpenDecoderMachine.Phase = 3 := by decide
 
 theorem stackId_card [Fintype K] : Fintype.card (StackId K) = 14 + Fintype.card K := by
   rw [Fintype.card_sum, localStack_card]
 
 theorem extraLabel_card [Fintype Λ] : Fintype.card (ExtraLabel Λ) = 11 + Fintype.card Λ := by
-  simp only [Fintype.card_sum, Fintype.card_unit, framerPhase_card, decoderPhase_card, decoderTail_card]
+  simp only [Fintype.card_sum, Fintype.card_unit, openFramingMachinePhase_card, openDecoderMachinePhase_card, decoderTail_card]
   omega
 
 theorem label_card [Fintype Λ] : Fintype.card (Label Λ) = 38 + Fintype.card Λ := by
@@ -852,19 +852,19 @@ theorem decoderRegisterCaller_card [Fintype R] :
 
 theorem framerCaller_card [Fintype Λ] : Fintype.card (FramerCaller Λ) = 31 + Fintype.card Λ := by
   rw [Fintype.card_sum, inputOwned_card, Fintype.card_sum, decoderTail_card,
-    Fintype.card_sum, decoderPhase_card, Fintype.card_sum, Fintype.card_unit]
+    Fintype.card_sum, openDecoderMachinePhase_card, Fintype.card_sum, Fintype.card_unit]
   omega
 
 theorem inputDecoderCaller_card [Fintype Λ] :
     Fintype.card (InputDecoderCaller Λ) = 33 + Fintype.card Λ := by
-  rw [Fintype.card_sum, framerPhase_card, Fintype.card_sum, inputAfterEntry_card,
-    Fintype.card_sum, decoderPhase_card, Fintype.card_sum, Fintype.card_unit]
+  rw [Fintype.card_sum, openFramingMachinePhase_card, Fintype.card_sum, inputAfterEntry_card,
+    Fintype.card_sum, openDecoderMachinePhase_card, Fintype.card_sum, Fintype.card_unit]
   omega
 
 theorem certificateDecoderCaller_card [Fintype Λ] :
     Fintype.card (CertificateDecoderCaller Λ) = 33 + Fintype.card Λ := by
-  rw [Fintype.card_sum, inputOwned_card, Fintype.card_sum, framerPhase_card,
-    Fintype.card_sum, decoderPhase_card]
+  rw [Fintype.card_sum, inputOwned_card, Fintype.card_sum, openFramingMachinePhase_card,
+    Fintype.card_sum, openDecoderMachinePhase_card]
   omega
 
 theorem ownedLabels_card : Fintype.card OwnedLabels = 36 := by decide

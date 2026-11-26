@@ -60,7 +60,7 @@ theorem predSpec_replicate_false (width : Nat) :
   | zero => rfl
   | succ width ih => simp only [List.replicate_succ, predSpec, ih]
 
-theorem bitWord_cases (fuel : Bits) :
+theorem bit_word_cases (fuel : Bits) :
     (∃ width, fuel = List.replicate width false) ∨
       ∃ zeros tail, fuel = List.replicate zeros false ++ true :: tail := by
   induction fuel with
@@ -75,7 +75,7 @@ theorem bitWord_cases (fuel : Bits) :
 
 theorem predSpec_spec (fuel : Bits) :
     PredSpec fuel (predSpec fuel).1 (predSpec fuel).2 := by
-  rcases bitWord_cases fuel with ⟨width, rfl⟩ | ⟨zeros, tail, rfl⟩
+  rcases bit_word_cases fuel with ⟨width, rfl⟩ | ⟨zeros, tail, rfl⟩
   · rw [predSpec_replicate_false]
     exact .zero width
   · rw [predSpec_first_true]
@@ -167,7 +167,7 @@ theorem runSteps_le (fuel : Bits) : runSteps fuel ≤ 2 * fuel.length + 2 := by
   | cons bit tail ih => cases bit <;> simp only [runSteps, List.length_cons] <;> omega
 
 theorem runSteps_le_source_cost (fuel : Bits) : runSteps fuel ≤ (decFixedRun fuel).2 := by
-  rcases bitWord_cases fuel with ⟨width, rfl⟩ | ⟨zeros, tail, rfl⟩
+  rcases bit_word_cases fuel with ⟨width, rfl⟩ | ⟨zeros, tail, rfl⟩
   · rw [runSteps_replicate_false, decFixedRun_replicate_false]
   · rw [runSteps_first_true, decFixedRun_first_true]
     omega
@@ -195,21 +195,21 @@ abbrev Registers (R : Type) := Option Bool × R
 
 variable {K Λ R : Type} {Γ : K → Type}
 
-abbrev alphabet (Γ : K → Type) : StackId K → Type
+abbrev Alphabet (Γ : K → Type) : StackId K → Type
   | .inl .fuel => Bool
   | .inl .borrowed => Unit
   | .inr k => Γ k
 
 instance alphabetFintype [∀ k, Fintype (Γ k)] (k : StackId K) :
-    Fintype (alphabet Γ k) := by
+    Fintype (Alphabet Γ k) := by
   cases k with
   | inl slot => cases slot <;> exact inferInstance
   | inr k => exact inferInstance
 
 abbrev Statement (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Stmt (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Stmt (Alphabet Γ) (Label Λ) (Registers R)
 abbrev Cfg (Γ : K → Type) (Λ R : Type) :=
-  Turing.TM2.Cfg (alphabet Γ) (Label Λ) (Registers R)
+  Turing.TM2.Cfg (Alphabet Γ) (Label Λ) (Registers R)
 
 def phaseLabel (phase : Phase) : Label Λ := .inl phase
 def resultLabel (result : Result) : Label Λ := .inr (.inl result)
@@ -441,7 +441,7 @@ theorem borrow_iterate (raw : Bits) (borrowed : List Unit) (regs : Registers R)
       some (cfg
         (some (resultLabel (predSpec (List.replicate borrowed.length false ++ raw)).1))
         (reset regs) (predSpec (List.replicate borrowed.length false ++ raw)).2 [] ctx) := by
-  rcases bitWord_cases raw with ⟨width, rfl⟩ | ⟨zeros, tail, rfl⟩
+  rcases bit_word_cases raw with ⟨width, rfl⟩ | ⟨zeros, tail, rfl⟩
   · rw [← List.replicate_add, predSpec_replicate_false, runSteps_replicate_false]
     rw [show 2 * width + 2 + borrowed.length = 2 * width + borrowed.length + 2 by omega]
     exact borrow_zero_iterate caller width borrowed regs ctx

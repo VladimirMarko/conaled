@@ -151,7 +151,7 @@ section FurtherInstallationConnections
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
 variable [DecidableEq K] [DecidableEq K']
 variable (caller : External Λ → Statement Γ Λ R)
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
 variable (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 variable (installed : ∀ label, Owned (some label) →
@@ -231,19 +231,19 @@ section FrontEndOneCallSpace
 variable {K Λ R : Type} {Γ : K → Type} [DecidableEq K] [Fintype K]
 
 theorem clean_added_branch_words_give_the_fixed_front_end_one_call_bound
-    (physicalCaller : External Λ → Statement (frontEndProtectedAlphabet Γ) Λ
+    (physicalCaller : External Λ → Statement (FrontEndProtectedAlphabet Γ) Λ
       (OpenDecoderMachine.Temporaries × R))
     (regs : FrontEndMachine.Registers (Option Branch × R))
     (source target : BinaryTree Unit) (fuel : List Bool) (cert : Word)
     (ctx : ∀ k, List (Γ k)) (n : Nat)
     (bound : n ≤ phaseSteps (movePhase .start) (frontEndSuccessData source cert [] []))
-    (reached : Cfg (frontEndProtectedAlphabet Γ) Λ (OpenDecoderMachine.Temporaries × R))
+    (reached : Cfg (FrontEndProtectedAlphabet Γ) Λ (OpenDecoderMachine.Temporaries × R))
     (actual : Runs physicalCaller
       (cfg (Λ := Λ) (some (moveLabel .start)) (frontEndRegisterEquiv (FrontEndMachine.reset regs))
         (frontEndSuccessData source cert [] []) (frontEndSuccessContext target fuel ctx)) n reached) :
     stackCells reached ≤ cert.length + 2 * (treeCode source).length +
       (treeCode target).length + fuel.length + ∑ k, (ctx k).length :=
-  frontEnd_success_prefix_space physicalCaller regs source target fuel cert ctx n bound reached actual
+  front_end_success_prefix_space physicalCaller regs source target fuel cert ctx n bound reached actual
 
 end FrontEndOneCallSpace
 
@@ -471,7 +471,7 @@ section InstalledRepresentedTiming
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
 variable [DecidableEq K] [DecidableEq K']
 variable (caller : External Λ → Statement Γ Λ R)
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
 variable (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 variable (installed : ∀ label, Owned (some label) → ambient (labels label) =

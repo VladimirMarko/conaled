@@ -302,7 +302,7 @@ theorem every_clean_run_has_no_earlier_caller_transition (raw : Bits) :
   run_first_return caller raw regs ctx
 
 /-- The continuation premise is actual execution of this same program on its actual dirty result. -/
-def compose_after_the_actual_dirty_scan (raw firstRev certRev input cert : Bits)
+def dirtyScanThenContinuationTiming (raw firstRev certRev input cert : Bits)
     (finish : Option (Cfg Γ Λ R)) (budget : Nat)
     (continued : StateTransition.EvalsToInTime (step caller)
       (scanResult regs firstRev certRev input cert ctx (BitPairFraming.unframe raw)) finish budget) :
@@ -396,7 +396,7 @@ theorem literal_prefixes_retain_two_nonpalindromic_sentinels
   exact ⟨reached, executed, register, contextEq false, contextEq true, cells⟩
 
 /-- The finite package runs the same open program; it does not assert a halted function result. -/
-def actual_finite_machine_uniform_time (raw : Bits) :
+def finiteMachineUniformTiming (raw : Bits) :
     StateTransition.EvalsToInTime (machine haltCaller true).step
       (Turing.initList (machine haltCaller true) raw)
       (some (scanResult (none, true) [] [] [] [] (smallContext [] []) (BitPairFraming.unframe raw)))

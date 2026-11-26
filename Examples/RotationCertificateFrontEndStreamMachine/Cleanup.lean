@@ -136,398 +136,398 @@ theorem boolean_join_has_the_exact_cleanup_peak
     Nat.max_eq_right (Nat.add_le_add_right (Nat.le_max_left _ _) _)
   exact equation ▸ joined
 
-theorem clear_C00_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C00.toClosedFixture.start value ctx) clear_C00.ticks
-      (clear_C00.peak + externalCells ctx) :=
+theorem cleanupC00_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC00.toClosedFixture.start value ctx) cleanupC00.ticks
+      (cleanupC00.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 0
-    clear_C00.before (clear_C00.fields.withUser value) ctx
+    cleanupC00.before (cleanupC00.fields.withUser value) ctx
 
-theorem clear_C00_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C00.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C00_actual_first_halt caller value ctx, clear_C00_actual_exact_peak caller value ctx⟩
+theorem cleanupC00_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC00.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC00_actual_first_halt caller value ctx, cleanupC00_actual_exact_peak caller value ctx⟩
 
-theorem clear_C00E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C00E.toClosedFixture.start value ctx) clear_C00E.ticks
-      (clear_C00E.peak + externalCells ctx) :=
+theorem cleanupC00E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC00E.toClosedFixture.start value ctx) cleanupC00E.ticks
+      (cleanupC00E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 0
-    clear_C00E.before (clear_C00E.fields.withUser value) ctx
+    cleanupC00E.before (cleanupC00E.fields.withUser value) ctx
 
-theorem clear_C00E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C00E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C00E_actual_first_halt caller value ctx, clear_C00E_actual_exact_peak caller value ctx⟩
+theorem cleanupC00E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC00E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC00E_actual_first_halt caller value ctx, cleanupC00E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C01_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C01.toClosedFixture.start value ctx) clear_C01.ticks
-      (clear_C01.peak + externalCells ctx) :=
+theorem cleanupC01_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC01.toClosedFixture.start value ctx) cleanupC01.ticks
+      (cleanupC01.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 1
-    clear_C01.before (clear_C01.fields.withUser value) ctx
+    cleanupC01.before (cleanupC01.fields.withUser value) ctx
 
-theorem clear_C01_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C01.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C01_actual_first_halt caller value ctx, clear_C01_actual_exact_peak caller value ctx⟩
+theorem cleanupC01_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC01.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC01_actual_first_halt caller value ctx, cleanupC01_actual_exact_peak caller value ctx⟩
 
-theorem clear_C01E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C01E.toClosedFixture.start value ctx) clear_C01E.ticks
-      (clear_C01E.peak + externalCells ctx) :=
+theorem cleanupC01E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC01E.toClosedFixture.start value ctx) cleanupC01E.ticks
+      (cleanupC01E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 1
-    clear_C01E.before (clear_C01E.fields.withUser value) ctx
+    cleanupC01E.before (cleanupC01E.fields.withUser value) ctx
 
-theorem clear_C01E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C01E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C01E_actual_first_halt caller value ctx, clear_C01E_actual_exact_peak caller value ctx⟩
+theorem cleanupC01E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC01E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC01E_actual_first_halt caller value ctx, cleanupC01E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C02_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C02.toClosedFixture.start value ctx) clear_C02.ticks
-      (clear_C02.peak + externalCells ctx) :=
+theorem cleanupC02_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC02.toClosedFixture.start value ctx) cleanupC02.ticks
+      (cleanupC02.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 2
-    clear_C02.before (clear_C02.fields.withUser value) ctx
+    cleanupC02.before (cleanupC02.fields.withUser value) ctx
 
-theorem clear_C02_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C02.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C02_actual_first_halt caller value ctx, clear_C02_actual_exact_peak caller value ctx⟩
+theorem cleanupC02_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC02.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC02_actual_first_halt caller value ctx, cleanupC02_actual_exact_peak caller value ctx⟩
 
-theorem clear_C02E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C02E.toClosedFixture.start value ctx) clear_C02E.ticks
-      (clear_C02E.peak + externalCells ctx) :=
+theorem cleanupC02E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC02E.toClosedFixture.start value ctx) cleanupC02E.ticks
+      (cleanupC02E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 2
-    clear_C02E.before (clear_C02E.fields.withUser value) ctx
+    cleanupC02E.before (cleanupC02E.fields.withUser value) ctx
 
-theorem clear_C02E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C02E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C02E_actual_first_halt caller value ctx, clear_C02E_actual_exact_peak caller value ctx⟩
+theorem cleanupC02E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC02E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC02E_actual_first_halt caller value ctx, cleanupC02E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C03_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C03.toClosedFixture.start value ctx) clear_C03.ticks
-      (clear_C03.peak + externalCells ctx) :=
+theorem cleanupC03_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC03.toClosedFixture.start value ctx) cleanupC03.ticks
+      (cleanupC03.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 3
-    clear_C03.before (clear_C03.fields.withUser value) ctx
+    cleanupC03.before (cleanupC03.fields.withUser value) ctx
 
-theorem clear_C03_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C03.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C03_actual_first_halt caller value ctx, clear_C03_actual_exact_peak caller value ctx⟩
+theorem cleanupC03_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC03.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC03_actual_first_halt caller value ctx, cleanupC03_actual_exact_peak caller value ctx⟩
 
-theorem clear_C03E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C03E.toClosedFixture.start value ctx) clear_C03E.ticks
-      (clear_C03E.peak + externalCells ctx) :=
+theorem cleanupC03E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC03E.toClosedFixture.start value ctx) cleanupC03E.ticks
+      (cleanupC03E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 3
-    clear_C03E.before (clear_C03E.fields.withUser value) ctx
+    cleanupC03E.before (cleanupC03E.fields.withUser value) ctx
 
-theorem clear_C03E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C03E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C03E_actual_first_halt caller value ctx, clear_C03E_actual_exact_peak caller value ctx⟩
+theorem cleanupC03E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC03E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC03E_actual_first_halt caller value ctx, cleanupC03E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C04_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C04.toClosedFixture.start value ctx) clear_C04.ticks
-      (clear_C04.peak + externalCells ctx) :=
+theorem cleanupC04_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC04.toClosedFixture.start value ctx) cleanupC04.ticks
+      (cleanupC04.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 4
-    clear_C04.before (clear_C04.fields.withUser value) ctx
+    cleanupC04.before (cleanupC04.fields.withUser value) ctx
 
-theorem clear_C04_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C04.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C04_actual_first_halt caller value ctx, clear_C04_actual_exact_peak caller value ctx⟩
+theorem cleanupC04_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC04.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC04_actual_first_halt caller value ctx, cleanupC04_actual_exact_peak caller value ctx⟩
 
-theorem clear_C04E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C04E.toClosedFixture.start value ctx) clear_C04E.ticks
-      (clear_C04E.peak + externalCells ctx) :=
+theorem cleanupC04E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC04E.toClosedFixture.start value ctx) cleanupC04E.ticks
+      (cleanupC04E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 4
-    clear_C04E.before (clear_C04E.fields.withUser value) ctx
+    cleanupC04E.before (cleanupC04E.fields.withUser value) ctx
 
-theorem clear_C04E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C04E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C04E_actual_first_halt caller value ctx, clear_C04E_actual_exact_peak caller value ctx⟩
+theorem cleanupC04E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC04E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC04E_actual_first_halt caller value ctx, cleanupC04E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C05_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C05.toClosedFixture.start value ctx) clear_C05.ticks
-      (clear_C05.peak + externalCells ctx) :=
+theorem cleanupC05_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC05.toClosedFixture.start value ctx) cleanupC05.ticks
+      (cleanupC05.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 5
-    clear_C05.before (clear_C05.fields.withUser value) ctx
+    cleanupC05.before (cleanupC05.fields.withUser value) ctx
 
-theorem clear_C05_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C05.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C05_actual_first_halt caller value ctx, clear_C05_actual_exact_peak caller value ctx⟩
+theorem cleanupC05_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC05.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC05_actual_first_halt caller value ctx, cleanupC05_actual_exact_peak caller value ctx⟩
 
-theorem clear_C05E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C05E.toClosedFixture.start value ctx) clear_C05E.ticks
-      (clear_C05E.peak + externalCells ctx) :=
+theorem cleanupC05E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC05E.toClosedFixture.start value ctx) cleanupC05E.ticks
+      (cleanupC05E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 5
-    clear_C05E.before (clear_C05E.fields.withUser value) ctx
+    cleanupC05E.before (cleanupC05E.fields.withUser value) ctx
 
-theorem clear_C05E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C05E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C05E_actual_first_halt caller value ctx, clear_C05E_actual_exact_peak caller value ctx⟩
+theorem cleanupC05E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC05E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC05E_actual_first_halt caller value ctx, cleanupC05E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C06_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C06.toClosedFixture.start value ctx) clear_C06.ticks
-      (clear_C06.peak + externalCells ctx) :=
+theorem cleanupC06_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC06.toClosedFixture.start value ctx) cleanupC06.ticks
+      (cleanupC06.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 6
-    clear_C06.before (clear_C06.fields.withUser value) ctx
+    cleanupC06.before (cleanupC06.fields.withUser value) ctx
 
-theorem clear_C06_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C06.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C06_actual_first_halt caller value ctx, clear_C06_actual_exact_peak caller value ctx⟩
+theorem cleanupC06_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC06.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC06_actual_first_halt caller value ctx, cleanupC06_actual_exact_peak caller value ctx⟩
 
-theorem clear_C06E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C06E.toClosedFixture.start value ctx) clear_C06E.ticks
-      (clear_C06E.peak + externalCells ctx) :=
+theorem cleanupC06E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC06E.toClosedFixture.start value ctx) cleanupC06E.ticks
+      (cleanupC06E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 6
-    clear_C06E.before (clear_C06E.fields.withUser value) ctx
+    cleanupC06E.before (cleanupC06E.fields.withUser value) ctx
 
-theorem clear_C06E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C06E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C06E_actual_first_halt caller value ctx, clear_C06E_actual_exact_peak caller value ctx⟩
+theorem cleanupC06E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC06E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC06E_actual_first_halt caller value ctx, cleanupC06E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C07_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C07.toClosedFixture.start value ctx) clear_C07.ticks
-      (clear_C07.peak + externalCells ctx) :=
+theorem cleanupC07_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC07.toClosedFixture.start value ctx) cleanupC07.ticks
+      (cleanupC07.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 7
-    clear_C07.before (clear_C07.fields.withUser value) ctx
+    cleanupC07.before (cleanupC07.fields.withUser value) ctx
 
-theorem clear_C07_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C07.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C07_actual_first_halt caller value ctx, clear_C07_actual_exact_peak caller value ctx⟩
+theorem cleanupC07_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC07.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC07_actual_first_halt caller value ctx, cleanupC07_actual_exact_peak caller value ctx⟩
 
-theorem clear_C07E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C07E.toClosedFixture.start value ctx) clear_C07E.ticks
-      (clear_C07E.peak + externalCells ctx) :=
+theorem cleanupC07E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC07E.toClosedFixture.start value ctx) cleanupC07E.ticks
+      (cleanupC07E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 7
-    clear_C07E.before (clear_C07E.fields.withUser value) ctx
+    cleanupC07E.before (cleanupC07E.fields.withUser value) ctx
 
-theorem clear_C07E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C07E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C07E_actual_first_halt caller value ctx, clear_C07E_actual_exact_peak caller value ctx⟩
+theorem cleanupC07E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC07E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC07E_actual_first_halt caller value ctx, cleanupC07E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C08_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C08.toClosedFixture.start value ctx) clear_C08.ticks
-      (clear_C08.peak + externalCells ctx) :=
+theorem cleanupC08_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC08.toClosedFixture.start value ctx) cleanupC08.ticks
+      (cleanupC08.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 8
-    clear_C08.before (clear_C08.fields.withUser value) ctx
+    cleanupC08.before (cleanupC08.fields.withUser value) ctx
 
-theorem clear_C08_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C08.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C08_actual_first_halt caller value ctx, clear_C08_actual_exact_peak caller value ctx⟩
+theorem cleanupC08_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC08.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC08_actual_first_halt caller value ctx, cleanupC08_actual_exact_peak caller value ctx⟩
 
-theorem clear_C08E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C08E.toClosedFixture.start value ctx) clear_C08E.ticks
-      (clear_C08E.peak + externalCells ctx) :=
+theorem cleanupC08E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC08E.toClosedFixture.start value ctx) cleanupC08E.ticks
+      (cleanupC08E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 8
-    clear_C08E.before (clear_C08E.fields.withUser value) ctx
+    cleanupC08E.before (cleanupC08E.fields.withUser value) ctx
 
-theorem clear_C08E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C08E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C08E_actual_first_halt caller value ctx, clear_C08E_actual_exact_peak caller value ctx⟩
+theorem cleanupC08E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC08E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC08E_actual_first_halt caller value ctx, cleanupC08E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C09_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C09.toClosedFixture.start value ctx) clear_C09.ticks
-      (clear_C09.peak + externalCells ctx) :=
+theorem cleanupC09_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC09.toClosedFixture.start value ctx) cleanupC09.ticks
+      (cleanupC09.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 9
-    clear_C09.before (clear_C09.fields.withUser value) ctx
+    cleanupC09.before (cleanupC09.fields.withUser value) ctx
 
-theorem clear_C09_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C09.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C09_actual_first_halt caller value ctx, clear_C09_actual_exact_peak caller value ctx⟩
+theorem cleanupC09_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC09.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC09_actual_first_halt caller value ctx, cleanupC09_actual_exact_peak caller value ctx⟩
 
-theorem clear_C09E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C09E.toClosedFixture.start value ctx) clear_C09E.ticks
-      (clear_C09E.peak + externalCells ctx) :=
+theorem cleanupC09E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC09E.toClosedFixture.start value ctx) cleanupC09E.ticks
+      (cleanupC09E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 9
-    clear_C09E.before (clear_C09E.fields.withUser value) ctx
+    cleanupC09E.before (cleanupC09E.fields.withUser value) ctx
 
-theorem clear_C09E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C09E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C09E_actual_first_halt caller value ctx, clear_C09E_actual_exact_peak caller value ctx⟩
+theorem cleanupC09E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC09E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC09E_actual_first_halt caller value ctx, cleanupC09E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C10_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C10.toClosedFixture.start value ctx) clear_C10.ticks
-      (clear_C10.peak + externalCells ctx) :=
+theorem cleanupC10_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC10.toClosedFixture.start value ctx) cleanupC10.ticks
+      (cleanupC10.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 10
-    clear_C10.before (clear_C10.fields.withUser value) ctx
+    cleanupC10.before (cleanupC10.fields.withUser value) ctx
 
-theorem clear_C10_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C10.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C10_actual_first_halt caller value ctx, clear_C10_actual_exact_peak caller value ctx⟩
+theorem cleanupC10_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC10.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC10_actual_first_halt caller value ctx, cleanupC10_actual_exact_peak caller value ctx⟩
 
-theorem clear_C10E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C10E.toClosedFixture.start value ctx) clear_C10E.ticks
-      (clear_C10E.peak + externalCells ctx) :=
+theorem cleanupC10E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC10E.toClosedFixture.start value ctx) cleanupC10E.ticks
+      (cleanupC10E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 10
-    clear_C10E.before (clear_C10E.fields.withUser value) ctx
+    cleanupC10E.before (cleanupC10E.fields.withUser value) ctx
 
-theorem clear_C10E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C10E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C10E_actual_first_halt caller value ctx, clear_C10E_actual_exact_peak caller value ctx⟩
+theorem cleanupC10E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC10E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC10E_actual_first_halt caller value ctx, cleanupC10E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C11_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C11.toClosedFixture.start value ctx) clear_C11.ticks
-      (clear_C11.peak + externalCells ctx) :=
+theorem cleanupC11_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC11.toClosedFixture.start value ctx) cleanupC11.ticks
+      (cleanupC11.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 11
-    clear_C11.before (clear_C11.fields.withUser value) ctx
+    cleanupC11.before (cleanupC11.fields.withUser value) ctx
 
-theorem clear_C11_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C11.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C11_actual_first_halt caller value ctx, clear_C11_actual_exact_peak caller value ctx⟩
+theorem cleanupC11_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC11.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC11_actual_first_halt caller value ctx, cleanupC11_actual_exact_peak caller value ctx⟩
 
-theorem clear_C11E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C11E.toClosedFixture.start value ctx) clear_C11E.ticks
-      (clear_C11E.peak + externalCells ctx) :=
+theorem cleanupC11E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC11E.toClosedFixture.start value ctx) cleanupC11E.ticks
+      (cleanupC11E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 11
-    clear_C11E.before (clear_C11E.fields.withUser value) ctx
+    cleanupC11E.before (cleanupC11E.fields.withUser value) ctx
 
-theorem clear_C11E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C11E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C11E_actual_first_halt caller value ctx, clear_C11E_actual_exact_peak caller value ctx⟩
+theorem cleanupC11E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC11E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC11E_actual_first_halt caller value ctx, cleanupC11E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C12_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C12.toClosedFixture.start value ctx) clear_C12.ticks
-      (clear_C12.peak + externalCells ctx) :=
+theorem cleanupC12_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC12.toClosedFixture.start value ctx) cleanupC12.ticks
+      (cleanupC12.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 12
-    clear_C12.before (clear_C12.fields.withUser value) ctx
+    cleanupC12.before (cleanupC12.fields.withUser value) ctx
 
-theorem clear_C12_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C12.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C12_actual_first_halt caller value ctx, clear_C12_actual_exact_peak caller value ctx⟩
+theorem cleanupC12_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC12.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC12_actual_first_halt caller value ctx, cleanupC12_actual_exact_peak caller value ctx⟩
 
-theorem clear_C12E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C12E.toClosedFixture.start value ctx) clear_C12E.ticks
-      (clear_C12E.peak + externalCells ctx) :=
+theorem cleanupC12E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC12E.toClosedFixture.start value ctx) cleanupC12E.ticks
+      (cleanupC12E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 12
-    clear_C12E.before (clear_C12E.fields.withUser value) ctx
+    cleanupC12E.before (cleanupC12E.fields.withUser value) ctx
 
-theorem clear_C12E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C12E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C12E_actual_first_halt caller value ctx, clear_C12E_actual_exact_peak caller value ctx⟩
+theorem cleanupC12E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC12E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC12E_actual_first_halt caller value ctx, cleanupC12E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C13_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C13.toClosedFixture.start value ctx) clear_C13.ticks
-      (clear_C13.peak + externalCells ctx) :=
+theorem cleanupC13_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC13.toClosedFixture.start value ctx) cleanupC13.ticks
+      (cleanupC13.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 13
-    clear_C13.before (clear_C13.fields.withUser value) ctx
+    cleanupC13.before (cleanupC13.fields.withUser value) ctx
 
-theorem clear_C13_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C13.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C13_actual_first_halt caller value ctx, clear_C13_actual_exact_peak caller value ctx⟩
+theorem cleanupC13_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC13.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC13_actual_first_halt caller value ctx, cleanupC13_actual_exact_peak caller value ctx⟩
 
-theorem clear_C13E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C13E.toClosedFixture.start value ctx) clear_C13E.ticks
-      (clear_C13E.peak + externalCells ctx) :=
+theorem cleanupC13E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC13E.toClosedFixture.start value ctx) cleanupC13E.ticks
+      (cleanupC13E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 13
-    clear_C13E.before (clear_C13E.fields.withUser value) ctx
+    cleanupC13E.before (cleanupC13E.fields.withUser value) ctx
 
-theorem clear_C13E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C13E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C13E_actual_first_halt caller value ctx, clear_C13E_actual_exact_peak caller value ctx⟩
+theorem cleanupC13E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC13E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC13E_actual_first_halt caller value ctx, cleanupC13E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C14_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C14.toClosedFixture.start value ctx) clear_C14.ticks
-      (clear_C14.peak + externalCells ctx) :=
+theorem cleanupC14_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC14.toClosedFixture.start value ctx) cleanupC14.ticks
+      (cleanupC14.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 14
-    clear_C14.before (clear_C14.fields.withUser value) ctx
+    cleanupC14.before (cleanupC14.fields.withUser value) ctx
 
-theorem clear_C14_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C14.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C14_actual_first_halt caller value ctx, clear_C14_actual_exact_peak caller value ctx⟩
+theorem cleanupC14_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC14.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC14_actual_first_halt caller value ctx, cleanupC14_actual_exact_peak caller value ctx⟩
 
-theorem clear_C14E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C14E.toClosedFixture.start value ctx) clear_C14E.ticks
-      (clear_C14E.peak + externalCells ctx) :=
+theorem cleanupC14E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC14E.toClosedFixture.start value ctx) cleanupC14E.ticks
+      (cleanupC14E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 14
-    clear_C14E.before (clear_C14E.fields.withUser value) ctx
+    cleanupC14E.before (cleanupC14E.fields.withUser value) ctx
 
-theorem clear_C14E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C14E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C14E_actual_first_halt caller value ctx, clear_C14E_actual_exact_peak caller value ctx⟩
+theorem cleanupC14E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC14E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC14E_actual_first_halt caller value ctx, cleanupC14E_actual_exact_peak caller value ctx⟩
 
-theorem clear_C15_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C15.toClosedFixture.start value ctx) clear_C15.ticks
-      (clear_C15.peak + externalCells ctx) :=
+theorem cleanupC15_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC15.toClosedFixture.start value ctx) cleanupC15.ticks
+      (cleanupC15.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 15
-    clear_C15.before (clear_C15.fields.withUser value) ctx
+    cleanupC15.before (cleanupC15.fields.withUser value) ctx
 
-theorem clear_C15_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C15.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C15_actual_first_halt caller value ctx, clear_C15_actual_exact_peak caller value ctx⟩
+theorem cleanupC15_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC15.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC15_actual_first_halt caller value ctx, cleanupC15_actual_exact_peak caller value ctx⟩
 
-theorem clear_C15E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_C15E.toClosedFixture.start value ctx) clear_C15E.ticks
-      (clear_C15E.peak + externalCells ctx) :=
+theorem cleanupC15E_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (cleanupC15E.toClosedFixture.start value ctx) cleanupC15E.ticks
+      (cleanupC15E.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 15
-    clear_C15E.before (clear_C15E.fields.withUser value) ctx
+    cleanupC15E.before (cleanupC15E.fields.withUser value) ctx
 
-theorem clear_C15E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_C15E.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_C15E_actual_first_halt caller value ctx, clear_C15E_actual_exact_peak caller value ctx⟩
+theorem cleanupC15E_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    cleanupC15E.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨cleanupC15E_actual_first_halt caller value ctx, cleanupC15E_actual_exact_peak caller value ctx⟩
 
-theorem emit_E00_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (emit_E00.toClosedFixture.start value ctx) emit_E00.ticks
-      (emit_E00.peak + externalCells ctx) :=
-  direct_emitter_has_exact_inclusive_peak caller emit_E00.before (emit_E00.fields.withUser value) ctx
+theorem emitE00_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (emitE00.toClosedFixture.start value ctx) emitE00.ticks
+      (emitE00.peak + externalCells ctx) :=
+  direct_emitter_has_exact_inclusive_peak caller emitE00.before (emitE00.fields.withUser value) ctx
 
-theorem emit_E00_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    emit_E00.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨emit_E00_actual_first_halt caller value ctx, emit_E00_actual_exact_peak caller value ctx⟩
+theorem emitE00_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    emitE00.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨emitE00_actual_first_halt caller value ctx, emitE00_actual_exact_peak caller value ctx⟩
 
-theorem emit_E01_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (emit_E01.toClosedFixture.start value ctx) emit_E01.ticks
-      (emit_E01.peak + externalCells ctx) :=
-  direct_emitter_has_exact_inclusive_peak caller emit_E01.before (emit_E01.fields.withUser value) ctx
+theorem emitE01_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (emitE01.toClosedFixture.start value ctx) emitE01.ticks
+      (emitE01.peak + externalCells ctx) :=
+  direct_emitter_has_exact_inclusive_peak caller emitE01.before (emitE01.fields.withUser value) ctx
 
-theorem emit_E01_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    emit_E01.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨emit_E01_actual_first_halt caller value ctx, emit_E01_actual_exact_peak caller value ctx⟩
+theorem emitE01_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    emitE01.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨emitE01_actual_first_halt caller value ctx, emitE01_actual_exact_peak caller value ctx⟩
 
-theorem emit_E02_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (emit_E02.toClosedFixture.start value ctx) emit_E02.ticks
-      (emit_E02.peak + externalCells ctx) :=
-  direct_emitter_has_exact_inclusive_peak caller emit_E02.before (emit_E02.fields.withUser value) ctx
+theorem emitE02_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (emitE02.toClosedFixture.start value ctx) emitE02.ticks
+      (emitE02.peak + externalCells ctx) :=
+  direct_emitter_has_exact_inclusive_peak caller emitE02.before (emitE02.fields.withUser value) ctx
 
-theorem emit_E02_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    emit_E02.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨emit_E02_actual_first_halt caller value ctx, emit_E02_actual_exact_peak caller value ctx⟩
+theorem emitE02_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    emitE02.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨emitE02_actual_first_halt caller value ctx, emitE02_actual_exact_peak caller value ctx⟩
 
-theorem emit_E03_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (emit_E03.toClosedFixture.start value ctx) emit_E03.ticks
-      (emit_E03.peak + externalCells ctx) :=
-  direct_emitter_has_exact_inclusive_peak caller emit_E03.before (emit_E03.fields.withUser value) ctx
+theorem emitE03_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (emitE03.toClosedFixture.start value ctx) emitE03.ticks
+      (emitE03.peak + externalCells ctx) :=
+  direct_emitter_has_exact_inclusive_peak caller emitE03.before (emitE03.fields.withUser value) ctx
 
-theorem emit_E03_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    emit_E03.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨emit_E03_actual_first_halt caller value ctx, emit_E03_actual_exact_peak caller value ctx⟩
+theorem emitE03_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    emitE03.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨emitE03_actual_first_halt caller value ctx, emitE03_actual_exact_peak caller value ctx⟩
 
-theorem join_J00_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (join_J00.toClosedFixture.start value ctx) join_J00.ticks
-      (join_J00.peak + externalCells ctx) :=
-  rejecting_join_has_the_exact_cleanup_peak caller join_J00.before (join_J00.fields.withUser value) ctx
+theorem joinJ00_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (joinJ00.toClosedFixture.start value ctx) joinJ00.ticks
+      (joinJ00.peak + externalCells ctx) :=
+  rejecting_join_has_the_exact_cleanup_peak caller joinJ00.before (joinJ00.fields.withUser value) ctx
 
-theorem join_J00_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    join_J00.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨join_J00_actual_first_halt caller value ctx, join_J00_actual_exact_peak caller value ctx⟩
+theorem joinJ00_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    joinJ00.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨joinJ00_actual_first_halt caller value ctx, joinJ00_actual_exact_peak caller value ctx⟩
 
-theorem join_J01_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (join_J01.toClosedFixture.start value ctx) join_J01.ticks
-      (join_J01.peak + externalCells ctx) :=
-  boolean_join_has_the_exact_cleanup_peak caller false join_J01.before (join_J01.fields.withUser value) ctx
+theorem joinJ01_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (joinJ01.toClosedFixture.start value ctx) joinJ01.ticks
+      (joinJ01.peak + externalCells ctx) :=
+  boolean_join_has_the_exact_cleanup_peak caller false joinJ01.before (joinJ01.fields.withUser value) ctx
 
-theorem join_J01_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    join_J01.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨join_J01_actual_first_halt caller value ctx, join_J01_actual_exact_peak caller value ctx⟩
+theorem joinJ01_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    joinJ01.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨joinJ01_actual_first_halt caller value ctx, joinJ01_actual_exact_peak caller value ctx⟩
 
-theorem join_J02_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (join_J02.toClosedFixture.start value ctx) join_J02.ticks
-      (join_J02.peak + externalCells ctx) :=
-  boolean_join_has_the_exact_cleanup_peak caller true join_J02.before (join_J02.fields.withUser value) ctx
+theorem joinJ02_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (joinJ02.toClosedFixture.start value ctx) joinJ02.ticks
+      (joinJ02.peak + externalCells ctx) :=
+  boolean_join_has_the_exact_cleanup_peak caller true joinJ02.before (joinJ02.fields.withUser value) ctx
 
-theorem join_J02_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    join_J02.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨join_J02_actual_first_halt caller value ctx, join_J02_actual_exact_peak caller value ctx⟩
+theorem joinJ02_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    joinJ02.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨joinJ02_actual_first_halt caller value ctx, joinJ02_actual_exact_peak caller value ctx⟩
 
-theorem clear_CZERO_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (clear_CZERO.toClosedFixture.start value ctx) clear_CZERO.ticks
-      (clear_CZERO.peak + externalCells ctx) :=
+theorem emptyCleanupFixture_actual_exact_peak (value : R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (emptyCleanupFixture.toClosedFixture.start value ctx) emptyCleanupFixture.ticks
+      (emptyCleanupFixture.peak + externalCells ctx) :=
   arbitrary_cleanup_has_both_its_upper_bound_and_an_attained_peak caller 0
-    clear_CZERO.before (clear_CZERO.fields.withUser value) ctx
+    emptyCleanupFixture.before (emptyCleanupFixture.fields.withUser value) ctx
 
-theorem clear_CZERO_expected (value : R) (ctx : ∀ k, List (Γ k)) :
-    clear_CZERO.toClosedFixture.Expected (step caller) value ctx :=
-  ⟨clear_CZERO_actual_first_halt caller value ctx, clear_CZERO_actual_exact_peak caller value ctx⟩
+theorem emptyCleanupFixture_expected (value : R) (ctx : ∀ k, List (Γ k)) :
+    emptyCleanupFixture.toClosedFixture.Expected (step caller) value ctx :=
+  ⟨emptyCleanupFixture_actual_first_halt caller value ctx, emptyCleanupFixture_actual_exact_peak caller value ctx⟩
 
 end ExactPhysicalConnections
 

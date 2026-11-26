@@ -209,7 +209,7 @@ theorem clearing_preserves_an_arbitrary_output_suffix
 
 theorem every_machine_stack_has_a_finite_alphabet (stack : StackId) :
     Finite (machine.Γ stack) := by
-  change Finite (alphabet stack)
+  change Finite (Alphabet stack)
   infer_instance
 
 theorem each_reachable_stack_has_a_linear_bound (raw : Bits) (reached : machine.Cfg)

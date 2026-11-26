@@ -309,7 +309,7 @@ theorem owned_labels_stay_finite_with_nat_callers :
   ⟨card_ownedLabel, card_ownedLabel⟩
 
 theorem every_actual_stack_alphabet_is_finite (k : StackId (Fin 2)) :
-    Nonempty (Fintype (alphabet ProtectedAlphabet k)) := ⟨inferInstance⟩
+    Nonempty (Fintype (Alphabet ProtectedAlphabet k)) := ⟨inferInstance⟩
 
 /-- All finite observations can be stale without changing the caller projection. -/
 theorem reset_all_102_temporary_values (temps : Temporaries) (flag : Bool) :

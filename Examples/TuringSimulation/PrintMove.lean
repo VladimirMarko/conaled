@@ -241,13 +241,13 @@ def rightLeftDecisionRun :
     (normalCfg rightLeftFinish) _ rightLeftNormalRun
     (decisionRun rightLeftMachine bit rightLeftFinish false rfl rfl)
 
-theorem rightLeft_counts : rightLeftNormalRun.steps = 2 ∧ rightLeftDecisionRun.steps = 3 := by decide
+theorem rightLeftMachine_counts : rightLeftNormalRun.steps = 2 ∧ rightLeftDecisionRun.steps = 3 := by decide
 
-theorem rightLeft_positions :
+theorem rightLeftMachine_positions :
     (List.range 4).map (Trace.headPosition (adapter rightLeftMachine (some true))
       (normalCfg rightLeftStart) 0) = [0, 1, 0, 1] := by decide
 
-theorem rightLeft_visits :
+theorem rightLeftMachine_visits :
     Trace.visitedCells (adapter rightLeftMachine (some true)) (normalCfg rightLeftStart) 0 3 =
       {0, 1} := by decide
 
@@ -271,22 +271,22 @@ def writeEraseNormalRun :
     exact (StateTransition.EvalsTo.trans (step (adapter writeEraseMachine (some true)))
       _ _ _ first second).evals_in_steps
 
-theorem writeErase_count : writeEraseNormalRun.steps = 4 := rfl
+theorem writeEraseMachine_count : writeEraseNormalRun.steps = 4 := rfl
 
-theorem writeErase_positions :
+theorem writeEraseMachine_positions :
     (List.range 5).map (Trace.headPosition (adapter writeEraseMachine (some true))
       (normalCfg writeEraseStart) 0) = [0, 1, 0, 1, 0] := by decide
 
-theorem writeErase_visits :
+theorem writeEraseMachine_visits :
     Trace.visitedCells (adapter writeEraseMachine (some true)) (normalCfg writeEraseStart) 0 4 =
       {0, 1} := by decide
 
-theorem writeErase_interval :
+theorem writeEraseMachine_interval :
     Trace.visitedInterval (adapter writeEraseMachine (some true))
       (normalCfg writeEraseStart) 0 0 4 = Finset.Icc 0 1 := by decide
 
 /-- This remains a simulation case, not a Boolean decider output assertion. -/
-theorem writeErase_head_is_blank : writeEraseFinish.Tape.head = none := rfl
+theorem writeEraseMachine_head_is_blank : writeEraseFinish.Tape.head = none := rfl
 
 theorem finite_bool_control_count : Fintype.card (Control Bool) = 6 := by
   simpa using (card_control (Q := Bool))

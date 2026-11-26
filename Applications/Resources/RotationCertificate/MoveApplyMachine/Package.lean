@@ -26,7 +26,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .certificate
   k₁ := .inl .source
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := moveLabel .start
   σ := Registers R
@@ -177,7 +177,7 @@ theorem initClock_eq (raw : Word) :
       · omega
 
 include caller in
-theorem initResult_eq (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+theorem init_result_eq (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     runResult (Λ := Λ) regs raw [] [] [] [] [] ctx =
       cfg (some (resultLabel (initOutcome raw))) (reset regs) (initData raw) ctx := by
   cases parsed : (parseMoveRun raw).1 with
@@ -213,7 +213,7 @@ theorem machine_init_first_result (initial : R) (raw : Word) :
     change (fun c : Option (Cfg Γ Λ R) => c.bind (machine caller initial).step)^[
       runSteps raw [] [] [] [] []] (some (Turing.initList (machine caller initial) raw)) =
       some (runResult (initialRegisters initial) raw [] [] [] [] [] (fun _ => [])) at run
-    rw [initClock_eq, initResult_eq caller] at run
+    rw [initClock_eq, init_result_eq caller] at run
     exact run
   · intro j before
     have clock : phaseSteps (movePhase .start) { certificate := raw } = initClock raw :=
@@ -356,14 +356,14 @@ section FrontEndPhysicalSpace
 
 variable [Fintype K]
 
-theorem frontEnd_success_prefix_space
-    (physicalCaller : External Λ → Statement (frontEndProtectedAlphabet Γ) Λ
+theorem front_end_success_prefix_space
+    (physicalCaller : External Λ → Statement (FrontEndProtectedAlphabet Γ) Λ
       (OpenDecoderMachine.Temporaries × R))
     (regs : FrontEndMachine.Registers (Option Branch × R))
     (source target : BinaryTree Unit) (fuel : List Bool) (cert : Word)
     (ctx : ∀ k, List (Γ k)) (n : Nat)
     (bound : n ≤ phaseSteps (movePhase .start) (frontEndSuccessData source cert [] []))
-    (reached : Cfg (frontEndProtectedAlphabet Γ) Λ (OpenDecoderMachine.Temporaries × R))
+    (reached : Cfg (FrontEndProtectedAlphabet Γ) Λ (OpenDecoderMachine.Temporaries × R))
     (executed : (next physicalCaller)^[n]
       (some (cfg (some (moveLabel .start))
         (frontEndRegisterEquiv (FrontEndMachine.reset regs))
@@ -379,7 +379,7 @@ theorem frontEnd_success_prefix_space
   change stackCells reached ≤ localCells (frontEndSuccessData source cert [] []) +
     phaseDebt (movePhase .start) + phaseCredit (movePhase .start) (frontEndSuccessData source cert [] []) +
     (∑ k, (frontEndSuccessContext target fuel ctx k).length) at mass
-  rw [frontEnd_success_context_cells] at mass
+  rw [front_end_success_context_cells] at mass
   simp only [localCells, frontEndSuccessData, phaseDebt, phaseCredit, movePhase,
     MoveParserMachine.phaseDebt, List.length_nil, Nat.add_zero] at mass
   omega

@@ -26,7 +26,7 @@ def machine (d : RotationDirection) (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .source
   k₁ := .inl .source
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := phaseLabel (.seek d)
   σ := Registers R

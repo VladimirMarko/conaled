@@ -110,11 +110,11 @@ theorem framer_prefix_protected (regs : Registers R) (raw : Bits) (ctx : ∀ k, 
     rw [framerCfg_outside]
     exact frame (.inr k)
 
-theorem inputDecoder_prefix_protected (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k)) :
+theorem input_decoder_prefix_protected (regs : Registers R) (input cert : Bits) (ctx : ∀ k, List (Γ k)) :
     PrefixProperty caller (Protected regs ctx) (inputDecoderEntry regs input cert ctx)
       (OpenDecoderMachine.runSteps input) := by
   intro n bound reached executed
-  obtain ⟨actual, localRun, globalRun⟩ := inputDecoder_prefix_lift caller regs input cert ctx n bound
+  obtain ⟨actual, localRun, globalRun⟩ := input_decoder_prefix_lift caller regs input cert ctx n bound
   have same : inputDecoderCfg actual = reached := Option.some.inj (globalRun.symm.trans executed)
   subst reached
   obtain ⟨registers, frame⟩ := OpenDecoderMachine.prefix_frame (fun _ => .halt)
@@ -147,12 +147,12 @@ theorem input_prefix_protected (regs : Registers R) (input : Word) (cert : Bits)
     rw [inputCfg_outside]
     exact frame (.inr k)
 
-theorem certificateDecoder_prefix_protected (regs : Registers R) (source target : BinaryTree Unit)
+theorem certificate_decoder_prefix_protected (regs : Registers R) (source target : BinaryTree Unit)
     (fuel cert : Bits) (ctx : ∀ k, List (Γ k)) :
     PrefixProperty caller (Protected regs ctx) (certificateDecoderEntry regs source target fuel cert ctx)
       (OpenDecoderMachine.runSteps cert) := by
   intro n bound reached executed
-  obtain ⟨actual, localRun, globalRun⟩ := certificateDecoder_prefix_lift caller regs source target fuel cert ctx n bound
+  obtain ⟨actual, localRun, globalRun⟩ := certificate_decoder_prefix_lift caller regs source target fuel cert ctx n bound
   have same : certificateDecoderCfg actual = reached := Option.some.inj (globalRun.symm.trans executed)
   subst reached
   obtain ⟨registers, frame⟩ := OpenDecoderMachine.prefix_frame (fun _ => .halt)
@@ -169,12 +169,12 @@ theorem certificateDecoder_prefix_protected (regs : Registers R) (source target 
     exact frame (.inr k)
 
 /-- Input decoding protects every actual certificate bit, including a malformed ending. -/
-theorem inputDecoder_prefix_certificate (regs : Registers R) (input cert : Bits)
+theorem input_decoder_prefix_certificate (regs : Registers R) (input cert : Bits)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ OpenDecoderMachine.runSteps input)
     (reached : Cfg Γ Λ R)
     (executed : (next caller)^[n] (some (inputDecoderEntry regs input cert ctx)) = some reached) :
     reached.stk (.inl .certificateBits) = cert := by
-  obtain ⟨actual, localRun, globalRun⟩ := inputDecoder_prefix_lift caller regs input cert ctx n bound
+  obtain ⟨actual, localRun, globalRun⟩ := input_decoder_prefix_lift caller regs input cert ctx n bound
   have same : inputDecoderCfg actual = reached := Option.some.inj (globalRun.symm.trans executed)
   subst reached
   obtain ⟨_, frame⟩ := OpenDecoderMachine.prefix_frame (fun _ => .halt)
@@ -210,13 +210,13 @@ theorem prefix_protected (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (�
       rcases pair with ⟨input, cert⟩
       have frameRun := (framer_trace caller regs raw ctx).run
       rw [framed] at frameRun
-      have decoding := inputDecoder_prefix_protected caller regs input cert ctx
+      have decoding := input_decoder_prefix_protected caller regs input cert ctx
       cases decoded : (unpackWordRun input).1 with
       | none =>
           simpa only [runSteps, framed, decoded, Nat.add_zero, framerResult] using
             PrefixProperty.trans caller frameRun framing decoding
       | some word =>
-          have decodeRun := (inputDecoder_trace caller regs input cert ctx).run
+          have decodeRun := (input_decoder_trace caller regs input cert ctx).run
           rw [decoded] at decodeRun
           have parsing := input_prefix_protected caller regs word cert ctx
           cases parsed : (parseInputRun word).1 with
@@ -228,7 +228,7 @@ theorem prefix_protected (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (�
               rcases triple with ⟨source, target, fuel⟩
               have parseRun := (input_trace caller regs word cert ctx).run
               rw [parsed] at parseRun
-              have certificate := certificateDecoder_prefix_protected caller regs source target fuel cert ctx
+              have certificate := certificate_decoder_prefix_protected caller regs source target fuel cert ctx
               simpa only [runSteps, framed, decoded, parsed, framerResult, inputDecoderResult, inputResult]
                 using PrefixProperty.trans caller frameRun framing
                   (PrefixProperty.trans caller decodeRun decoding
@@ -380,7 +380,7 @@ theorem prefix_bound (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)
         rw [(BitPairFraming.unframe_iff raw input cert).mp framed, BitPairFraming.frame_length]
       have frameRun := (framer_trace caller regs raw ctx).run
       rw [framed] at frameRun
-      have decoding := PrefixBound.mono caller (inputDecoder_prefix_bound caller regs input cert ctx)
+      have decoding := PrefixBound.mono caller (input_decoder_prefix_bound caller regs input cert ctx)
         (show input.length + cert.length + contextCells ctx ≤ raw.length + contextCells ctx by omega)
       cases decoded : (unpackWordRun input).1 with
       | none =>
@@ -389,7 +389,7 @@ theorem prefix_bound (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)
       | some word =>
           have inputSize : input.length = 4 * word.length := by
             rw [(unpackWordRun_iff input word).mp decoded, wordBits_length]
-          have decodeRun := (inputDecoder_trace caller regs input cert ctx).run
+          have decodeRun := (input_decoder_trace caller regs input cert ctx).run
           rw [decoded] at decodeRun
           have parsing := PrefixBound.mono caller (input_prefix_bound caller regs word cert ctx)
             (show 2 * word.length + cert.length + contextCells ctx + 1 ≤
@@ -409,7 +409,7 @@ theorem prefix_bound (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)
               have parseRun := (input_trace caller regs word cert ctx).run
               rw [parsed] at parseRun
               have certificate := PrefixBound.mono caller
-                (certificateDecoder_prefix_bound caller regs source target fuel cert ctx)
+                (certificate_decoder_prefix_bound caller regs source target fuel cert ctx)
                 (show cert.length + (treeCode source).length + (treeCode target).length +
                   fuel.length + contextCells ctx ≤ raw.length + contextCells ctx by omega)
               simpa only [runSteps, framed, decoded, parsed, framerResult, inputDecoderResult, inputResult]
@@ -463,7 +463,7 @@ def machine (initial : R) : Turing.FinTM2 where
   K := StackId K
   k₀ := .inl .framedRaw
   k₁ := .inl .certificateWord
-  Γ := alphabet Γ
+  Γ := Alphabet Γ
   Λ := Label Λ
   main := framerLabel .scanPrefix
   σ := Registers R

@@ -82,8 +82,8 @@ theorem the_three_internal_handoffs_are_owned :
       ¬ Owned (some (dispatchLabel (Λ := Unit))) ∧
       ¬ Owned (some (rejectLabel (Λ := Unit))) := by
   refine ⟨framerLabelEquiv_success, inputDecoderLabelEquiv_success,
-    input_success_is_certificate_scan, owned_inputDecoder .scan, ?_,
-    owned_certificateDecoder .scan, not_owned_dispatch, not_owned_reject⟩
+    input_success_is_certificate_scan, owned_input_decoder .scan, ?_,
+    owned_certificate_decoder .scan, not_owned_dispatch, not_owned_reject⟩
   exact input_fullOwned_owned _ True.intro
 
 section Generic
@@ -102,7 +102,7 @@ theorem the_input_decoder_returns_the_actual_word (word : Word) (cert : Bits) :
     Trace caller (inputDecoderEntry regs (wordBits word) cert ctx)
       (inputEntry regs word cert ctx) (2 * word.length + 2) := by
   simpa only [unpackWordRun_code, OpenDecoderMachine.runSteps_code, inputDecoderResult] using
-    inputDecoder_trace caller regs (wordBits word) cert ctx
+    input_decoder_trace caller regs (wordBits word) cert ctx
 
 theorem the_input_parser_returns_actual_fields (source target : BinaryTree Unit)
     (fuel cert : Bits) :
@@ -122,7 +122,7 @@ theorem the_certificate_decoder_returns_a_word_not_a_move_proof
           fuel := fuel, certificateWord := cert } ctx) (2 * cert.length + 2) := by
   simpa only [unpackWordRun_code, OpenDecoderMachine.runSteps_code,
     certificateDecoderResult, resultCfg, successData] using
-    certificateDecoder_trace caller regs source target fuel (wordBits cert) ctx
+    certificate_decoder_trace caller regs source target fuel (wordBits cert) ctx
 
 /-- All four executions share one program and the literal state at each boundary. -/
 theorem encoded_fields_have_all_four_actual_handoffs
@@ -514,7 +514,7 @@ theorem dirty_input_decoding_runs_in_the_installed_global_program (data : LocalD
       afterInputDecoder regs := by
     rcases regs with ⟨tree, decoder, callerState⟩
     rfl
-  have transported := inputDecoder_scan_installed caller localCaller data.inputBits data.decodeReverse
+  have transported := input_decoder_scan_installed caller localCaller data.inputBits data.decodeReverse
     data.inputRaw localRegs (decoderContext .input data ctx)
   change (next caller)^[_]
       (some (inputDecoderCfg (inputDecoderView (some (OpenDecoderMachine.phaseLabel .scan))
@@ -559,7 +559,7 @@ theorem dirty_certificate_decoding_runs_in_the_installed_global_program (data : 
       afterInputDecoder regs := by
     rcases regs with ⟨tree, decoder, callerState⟩
     rfl
-  have transported := certificateDecoder_scan_installed caller localCaller data.certificateBits
+  have transported := certificate_decoder_scan_installed caller localCaller data.certificateBits
     data.decodeReverse data.certificateWord localRegs (decoderContext .certificate data ctx)
   change (next caller)^[_]
       (some (certificateDecoderCfg (certificateDecoderView (some (OpenDecoderMachine.phaseLabel .scan))
@@ -692,8 +692,8 @@ theorem input_decoding_preserves_an_undecoded_certificate (input cert : Bits)
     (n : Nat) (bound : n ≤ OpenDecoderMachine.runSteps input) (reached : Cfg Γ Λ R)
     (executed : (next caller)^[n] (some (inputDecoderEntry regs input cert ctx)) = some reached) :
     reached.stk (.inl .certificateBits) = cert ∧ reached.stk (.inl .certificateWord) = [] := by
-  refine ⟨inputDecoder_prefix_certificate caller regs input cert ctx n bound reached executed, ?_⟩
-  obtain ⟨actual, localRun, globalRun⟩ := inputDecoder_prefix_lift caller regs input cert ctx n bound
+  refine ⟨input_decoder_prefix_certificate caller regs input cert ctx n bound reached executed, ?_⟩
+  obtain ⟨actual, localRun, globalRun⟩ := input_decoder_prefix_lift caller regs input cert ctx n bound
   have same : inputDecoderCfg actual = reached := Option.some.inj (globalRun.symm.trans executed)
   obtain ⟨_, preserved⟩ := OpenDecoderMachine.prefix_frame (fun _ => .halt)
     (OpenDecoderMachine.cfg (some (OpenDecoderMachine.phaseLabel .scan))
@@ -740,7 +740,7 @@ theorem framed_input_decode_prefixes_leave_the_certificate_undecoded
       (next caller)^[2 * input.length + 2 * cert.length + 4 + n]
         (some (entry regs (frame input cert) ctx)) = some reached ∧
       reached.stk (.inl .certificateBits) = cert ∧ reached.stk (.inl .certificateWord) = [] := by
-  obtain ⟨actual, _, localRun⟩ := inputDecoder_prefix_lift caller regs input cert ctx n bound
+  obtain ⟨actual, _, localRun⟩ := input_decoder_prefix_lift caller regs input cert ctx n bound
   refine ⟨inputDecoderCfg actual,
     iterate_trans caller (framing_returns_the_actual_two_fields caller regs ctx input cert).run localRun, ?_⟩
   exact input_decoding_preserves_an_undecoded_certificate caller regs ctx input cert n bound _ localRun
@@ -1235,7 +1235,7 @@ theorem input_decode_prefixes_have_the_exact_borrowed_register_effect (input cer
     rw [← same]
     rfl
   · rw [ite_eq_right zero]
-    obtain ⟨actual, localRun, globalRun⟩ := inputDecoder_prefix_lift caller regs input cert ctx n bound
+    obtain ⟨actual, localRun, globalRun⟩ := input_decoder_prefix_lift caller regs input cert ctx n bound
     have same : inputDecoderCfg actual = reached := Option.some.inj (globalRun.symm.trans executed)
     let localRegs := decoderRegisterEquiv.symm (resetFramer regs)
     let localCtx := decoderContext (Γ := Γ) .input (framedData input cert) ctx

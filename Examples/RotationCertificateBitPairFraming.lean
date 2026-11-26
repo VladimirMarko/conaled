@@ -284,7 +284,7 @@ theorem clearing_does_not_erase_an_unrelated_certificate_stack
 
 theorem every_work_alphabet_is_finite (stack : StackId) :
     Finite (machine.Γ stack) := by
-  change Finite (alphabet stack)
+  change Finite (Alphabet stack)
   infer_instance
 
 /-! A real four-step path attains the extra-cell workspace bound. -/

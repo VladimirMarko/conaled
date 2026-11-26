@@ -33,7 +33,7 @@ theorem init_evaluate (raw : Word) :
 theorem initClock_eq (raw : Word) : phaseSteps inspectPhase { certificate := raw } = 4 := by
   exact congrArg Evaluation.steps (init_evaluate raw)
 
-theorem initResult_eq (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+theorem init_result_eq (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     phaseResult (Λ := Λ) inspectPhase regs { certificate := raw } ctx =
       cfg (some (resultLabel raw.isEmpty)) (resetAll regs) { certificate := raw } ctx := by
   simp only [phaseResult, init_evaluate, evaluationCfg]
@@ -45,7 +45,7 @@ theorem init_input_firstRun (raw : Word) (regs : Registers R) (ctx : ∀ k, List
     FirstRun caller (cfg (some (phaseLabel inspectPhase)) regs { certificate := raw } ctx)
       4 (cfg (some (resultLabel raw.isEmpty)) (resetAll regs) { certificate := raw } ctx) := by
   have actual := phase_firstRun caller inspectPhase { certificate := raw } regs ctx
-  rw [initClock_eq, initResult_eq] at actual
+  rw [initClock_eq, init_result_eq] at actual
   exact actual
 
 section StreamPackageExecution
@@ -53,7 +53,7 @@ section StreamPackageExecution
 variable [Fintype K] [Fintype Λ] [Fintype R] [∀ k, Fintype (Γ k)]
 
 /-- The predicate uses the actual package step on the supplied installed cfg. -/
-def machineFirstRun (initial : R) (start : Cfg Γ Λ R) (n : Nat) (finish : Cfg Γ Λ R) : Prop :=
+def MachineFirstRun (initial : R) (start : Cfg Γ Λ R) (n : Nat) (finish : Cfg Γ Λ R) : Prop :=
   (fun c : Option (Cfg Γ Λ R) => c.bind (machine caller initial).step)^[n]
       (some start) = some finish ∧
     ¬ Owned finish.l ∧
@@ -61,8 +61,8 @@ def machineFirstRun (initial : R) (start : Cfg Γ Λ R) (n : Nat) (finish : Cfg 
       (fun c : Option (Cfg Γ Λ R) => c.bind (machine caller initial).step)^[j]
         (some start) = some reached ∧ Owned reached.l
 
-def machineFirstResult (initial : R) (start : Cfg Γ Λ R) (b : Bool) : Prop :=
-  ∃ n finish, machineFirstRun caller initial start n finish ∧
+def MachineFirstResult (initial : R) (start : Cfg Γ Λ R) (b : Bool) : Prop :=
+  ∃ n finish, MachineFirstRun caller initial start n finish ∧
     finish.l = some (resultLabel b)
 
 theorem machine_phase_run (initial : R) (q : Phase) (D : LocalData)
@@ -77,19 +77,19 @@ theorem machine_cfg_run (initial : R) (start : Cfg Γ Λ R) :
 
 theorem machine_phase_first_return (initial : R) (q : Phase) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    machineFirstRun caller initial (cfg (some (phaseLabel q)) regs D ctx)
+    MachineFirstRun caller initial (cfg (some (phaseLabel q)) regs D ctx)
       (phaseSteps q D) (phaseResult q regs D ctx) := phase_firstRun caller q D regs ctx
 
 theorem machine_cfg_first_return (initial : R) (start : Cfg Γ Λ R) :
-    machineFirstRun caller initial start (remainingSteps start) (finalCfg start) :=
+    MachineFirstRun caller initial start (remainingSteps start) (finalCfg start) :=
   cfg_firstRun caller start
 
 theorem machineFirstRun_iff (initial : R) (start finish : Cfg Γ Λ R) (n : Nat) :
-    machineFirstRun caller initial start n finish ↔
+    MachineFirstRun caller initial start n finish ↔
       n = remainingSteps start ∧ finish = finalCfg start := firstRun_iff caller start finish n
 
 theorem machineFirstResult_iff (initial : R) (start : Cfg Γ Λ R) (b : Bool) :
-    machineFirstResult caller initial start b ↔ (finalCfg start).l = some (resultLabel b) :=
+    MachineFirstResult caller initial start b ↔ (finalCfg start).l = some (resultLabel b) :=
   firstResult_iff_finalCfg caller start b
 
 theorem machine_owned_prefix (initial : R) (start : Cfg Γ Λ R) (n : Nat)
@@ -148,7 +148,7 @@ theorem machine_init_run (initial : R) (raw : Word) :
   exact (init_input_firstRun caller raw (initialRegisters initial) (fun _ => [])).1
 
 theorem machine_init_first_return (initial : R) (raw : Word) :
-    machineFirstRun caller initial (Turing.initList (machine caller initial) raw) 4
+    MachineFirstRun caller initial (Turing.initList (machine caller initial) raw) 4
       (cfg (some (resultLabel raw.isEmpty)) (initialRegisters initial)
         { certificate := raw } (fun _ => [])) := by
   rw [initList_eq]
@@ -162,7 +162,7 @@ theorem machine_init_finalCfg (initial : R) (raw : Word) :
     finalCfg (Turing.initList (machine caller initial) raw) =
       cfg (some (resultLabel raw.isEmpty)) (initialRegisters initial)
         { certificate := raw } (fun _ => []) := by
-  rw [initList_eq, finalCfg_phase_cfg, initResult_eq, resetAll_initialRegisters]
+  rw [initList_eq, finalCfg_phase_cfg, init_result_eq, resetAll_initialRegisters]
 
 def machineInitInTimeExact (initial : R) (raw : Word) :
     StateTransition.EvalsToInTime (machine caller initial).step
@@ -177,11 +177,11 @@ def machineInitInTimeExact (initial : R) (raw : Word) :
     (machineInitInTimeExact caller initial raw).steps = 4 := rfl
 
 theorem machine_init_true (initial : R) :
-    machineFirstResult caller initial (Turing.initList (machine caller initial) ([] : Word)) true := by
+    MachineFirstResult caller initial (Turing.initList (machine caller initial) ([] : Word)) true := by
   exact ⟨4, _, machine_init_first_return caller initial ([] : Word), rfl⟩
 
 theorem machine_init_nonempty_false (initial : R) (tag : Tag) (raw : Word) :
-    machineFirstResult caller initial (Turing.initList (machine caller initial) (tag :: raw)) false := by
+    MachineFirstResult caller initial (Turing.initList (machine caller initial) (tag :: raw)) false := by
   exact ⟨4, _, machine_init_first_return caller initial (tag :: raw), rfl⟩
 
 theorem machine_init_endpoint_live (initial : R) (raw : Word) :
@@ -214,26 +214,26 @@ end Resources.RotationCertificate.StreamMachine
 namespace Resources.RotationCertificate.StreamMachine
 
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 
-def installedOwned (label : Option Λ') : Prop := Owned (label.map labels.symm)
+def InstalledOwned (label : Option Λ') : Prop := Owned (label.map labels.symm)
 
 @[simp] theorem installedCfg_owned_iff (c : Cfg Γ Λ R) :
-    installedOwned labels (installedCfg names symbols registers labels c).l ↔ Owned c.l := by
-  cases label : c.l <;> simp [installedOwned, installedCfg, FrontEndMachine.Transport.cfg, label]
+    InstalledOwned labels (installedCfg names symbols registers labels c).l ↔ Owned c.l := by
+  cases label : c.l <;> simp [InstalledOwned, installedCfg, FrontEndMachine.Transport.cfg, label]
 
 variable [DecidableEq K] [DecidableEq K']
 variable (caller : External Λ → Statement Γ Λ R)
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 
-def installedFirstRun (start : Turing.TM2.Cfg Γ' Λ' R') (n : Nat)
+def InstalledFirstRun (start : Turing.TM2.Cfg Γ' Λ' R') (n : Nat)
     (finish : Turing.TM2.Cfg Γ' Λ' R') : Prop :=
   (FrontEndMachine.Transport.next ambient)^[n] (some start) = some finish ∧
-    ¬ installedOwned labels finish.l ∧
+    ¬ InstalledOwned labels finish.l ∧
     ∀ j, j < n → ∃ reached,
       (FrontEndMachine.Transport.next ambient)^[j] (some start) = some reached ∧
-        installedOwned labels reached.l
+        InstalledOwned labels reached.l
 
 /-- Only the 39 owned bodies, including all eight paid joins, are installed. -/
 theorem installed_owned_prefix
@@ -254,7 +254,7 @@ theorem installed_owned_firstRun
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) :
-    installedFirstRun labels ambient (installedCfg names symbols registers labels start)
+    InstalledFirstRun labels ambient (installedCfg names symbols registers labels start)
       (remainingSteps start) (installedCfg names symbols registers labels (finalCfg start)) := by
   refine ⟨?_, ?_, ?_⟩
   · rw [installed_owned_prefix names symbols registers labels caller ambient installed start
@@ -278,7 +278,7 @@ theorem installed_firstRun_iff
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (n : Nat) (finish : Turing.TM2.Cfg Γ' Λ' R') :
-    installedFirstRun labels ambient (installedCfg names symbols registers labels start) n finish ↔
+    InstalledFirstRun labels ambient (installedCfg names symbols registers labels start) n finish ↔
       n = remainingSteps start ∧
         finish = installedCfg names symbols registers labels (finalCfg start) := by
   have canonical := installed_owned_firstRun names symbols registers labels caller ambient installed start
@@ -389,23 +389,23 @@ def initPrefixLabel (raw : Word) : Nat → Label Λ
 def initPrefixCfg (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) (n : Nat) : Cfg Γ Λ R :=
   cfg (some (initPrefixLabel raw n)) (initialRegisters initial) { certificate := raw } ctx
 
-theorem initPrefix_data (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) (n : Nat) :
+theorem init_prefix_data (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) (n : Nat) :
     dataOfCfg (initPrefixCfg (Λ := Λ) initial raw ctx n) = { certificate := raw } := rfl
 
-theorem initPrefix_registers (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) (n : Nat) :
+theorem init_prefix_registers (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) (n : Nat) :
     (initPrefixCfg (Λ := Λ) initial raw ctx n).var = initialRegisters initial := rfl
 
-theorem initPrefix_context (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) (n : Nat) :
+theorem init_prefix_context (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) (n : Nat) :
     contextOfCfg (initPrefixCfg (Λ := Λ) initial raw ctx n) = ctx := rfl
 
-theorem initPrefix_owned_iff (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
+theorem init_prefix_owned_iff (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
     (n : Nat) (bound : n ≤ 4) :
     Owned (initPrefixCfg (Λ := Λ) initial raw ctx n).l ↔ n < 4 := by
   have possibilities : n = 0 ∨ n = 1 ∨ n = 2 ∨ n = 3 ∨ n = 4 := by omega
   rcases possibilities with rfl | rfl | rfl | rfl | rfl
   all_goals cases raw <;> simp [initPrefixCfg, initPrefixLabel, cfg]
 
-theorem initPrefix_cells [Fintype K] (initial : R) (raw : Word)
+theorem init_prefix_cells [Fintype K] (initial : R) (raw : Word)
     (ctx : ∀ k, List (Γ k)) (n : Nat) :
     ∑ k, ((initPrefixCfg (Λ := Λ) initial raw ctx n).stk k).length =
       raw.length + ∑ k, (ctx k).length := by
@@ -467,7 +467,7 @@ theorem init_compare_step (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k)) 
   simpa only [Option.map_some, equalityLabelEquiv_result, equalityRegisterEquiv_reset,
     Equiv.apply_symm_apply, D, resetEquality, initialRegisters] using actual
 
-theorem initPrefix_step (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
+theorem init_prefix_step (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
     (n : Nat) (strict : n < 4) :
     step caller (initPrefixCfg initial raw ctx n) = some (initPrefixCfg initial raw ctx (n + 1)) := by
   have possibilities : n = 0 ∨ n = 1 ∨ n = 2 ∨ n = 3 := by omega
@@ -489,7 +489,7 @@ theorem initPrefix_step (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
         exact fuel_join_step caller .zero { certificate := tag :: raw }
           (initialRegisters initial) ctx
 
-theorem initPrefix_iterate (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
+theorem init_prefix_iterate (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
     (n : Nat) (bound : n ≤ 4) :
     (next caller)^[n] (some (cfg (some (phaseLabel inspectPhase)) (initialRegisters initial)
       { certificate := raw } ctx)) = some (initPrefixCfg initial raw ctx n) := by
@@ -497,11 +497,11 @@ theorem initPrefix_iterate (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
   | zero => rfl
   | succ n ih =>
       rw [Function.iterate_succ_apply', ih (by omega), next_some,
-        initPrefix_step caller initial raw ctx n (by omega)]
+        init_prefix_step caller initial raw ctx n (by omega)]
 
 /-- The inclusive prefix's exact cells, complete data and ownership describe
 the same supplied reached configuration. -/
-theorem initPrefix_exact [Fintype K] (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
+theorem init_prefix_exact [Fintype K] (initial : R) (raw : Word) (ctx : ∀ k, List (Γ k))
     (n : Nat) (bound : n ≤ 4) (reached : Cfg Γ Λ R)
     (executed : (next caller)^[n]
       (some (cfg (some (phaseLabel inspectPhase)) (initialRegisters initial)
@@ -512,10 +512,10 @@ theorem initPrefix_exact [Fintype K] (initial : R) (raw : Word) (ctx : ∀ k, Li
       (Owned reached.l ↔ n < 4) ∧
       (∑ k, (reached.stk k).length) = raw.length + ∑ k, (ctx k).length := by
   have same : reached = initPrefixCfg initial raw ctx n :=
-    Option.some.inj (executed.symm.trans (initPrefix_iterate caller initial raw ctx n bound))
+    Option.some.inj (executed.symm.trans (init_prefix_iterate caller initial raw ctx n bound))
   subst reached
-  exact ⟨rfl, rfl, rfl, rfl, initPrefix_owned_iff initial raw ctx n bound,
-    initPrefix_cells initial raw ctx n⟩
+  exact ⟨rfl, rfl, rfl, rfl, init_prefix_owned_iff initial raw ctx n bound,
+    init_prefix_cells initial raw ctx n⟩
 
 section StreamInitializerPrefixPackage
 
@@ -526,7 +526,7 @@ theorem machine_init_prefix (initial : R) (raw : Word) (n : Nat) (bound : n ≤ 
       (some (Turing.initList (machine caller initial) raw)) =
       some (initPrefixCfg initial raw (fun _ => []) n) := by
   rw [initList_eq]
-  exact initPrefix_iterate caller initial raw (fun _ => []) n bound
+  exact init_prefix_iterate caller initial raw (fun _ => []) n bound
 
 theorem machine_init_prefix_cells (initial : R) (raw : Word) (n : Nat) (bound : n ≤ 4)
     (reached : Cfg Γ Λ R)
@@ -535,7 +535,7 @@ theorem machine_init_prefix_cells (initial : R) (raw : Word) (n : Nat) (bound : 
     (∑ k, (reached.stk k).length) = raw.length := by
   have same : reached = initPrefixCfg initial raw (fun _ => []) n :=
     Option.some.inj (executed.symm.trans (machine_init_prefix caller initial raw n bound))
-  rw [same, initPrefix_cells]
+  rw [same, init_prefix_cells]
   simp
 
 theorem machine_init_exact_peak (initial : R) (raw : Word) :
@@ -661,7 +661,7 @@ theorem firstJoinCfg_var (q : Phase) (regs : Registers R) (D : LocalData)
 variable [DecidableEq K]
 variable (caller : External Λ → Statement Γ Λ R)
 
-theorem firstJoin_localRun (q : Phase) (D : LocalData) (regs : Registers R)
+theorem first_join_localRun (q : Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     LocalRun caller (firstJoinSteps q D) (cfg (some (phaseLabel q)) regs D ctx)
       (firstJoinCfg q regs D ctx) := by
@@ -720,16 +720,16 @@ omit [DecidableEq K] in
 theorem firstJoinSteps_le_phaseSteps (q : Phase) (D : LocalData) : firstJoinSteps q D ≤ phaseSteps q D := by
   let localCaller : External Empty → Statement (fun _ : Empty => Empty) Empty Unit := fun _ => .halt
   let regs : Registers Unit := (none, ((none, (none, none)), ()))
-  have rank := LocalRun.remaining localCaller (firstJoin_localRun localCaller q D regs (fun k : Empty => Empty.elim k))
+  have rank := LocalRun.remaining localCaller (first_join_localRun localCaller q D regs (fun k : Empty => Empty.elim k))
   rw [remainingSteps_phase_cfg] at rank
   omega
 
-theorem prefix_reset_after_firstJoin (q : Phase) (D : LocalData) (regs : Registers R)
+theorem prefix_reset_after_first_join (q : Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (reached : Cfg Γ Λ R)
     (afterJoin : firstJoinSteps q D ≤ n) (bound : n ≤ phaseSteps q D)
     (executed : (next caller)^[n] (some (cfg (some (phaseLabel q)) regs D ctx)) = some reached) :
     reached.var = resetAll regs := by
-  have segment := firstJoin_localRun caller q D regs ctx
+  have segment := first_join_localRun caller q D regs ctx
   have rank := LocalRun.remaining caller segment
   rw [remainingSteps_phase_cfg] at rank
   have count : firstJoinSteps q D + (n - firstJoinSteps q D) = n := by omega
@@ -913,7 +913,7 @@ theorem phase_prefix_reset (q : Phase) (D : LocalData) (regs : Registers R)
       · change n < 1 at early; omega
       · exact Empty.elim impossible
   · simp only [phaseRegistersAt, zero, ite_false, early]
-    exact prefix_reset_after_firstJoin caller q D regs ctx n reached (by omega) bound executed
+    exact prefix_reset_after_first_join caller q D regs ctx n reached (by omega) bound executed
 
 theorem prefix_reset (start reached : Cfg Γ Λ R) (n : Nat) (bound : n ≤ remainingSteps start)
     (executed : (next caller)^[n] (some start) = some reached) : reached.var = registersAt start n := by

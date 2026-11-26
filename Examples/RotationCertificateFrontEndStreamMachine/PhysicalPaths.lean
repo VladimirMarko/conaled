@@ -66,96 +66,96 @@ theorem a_literal_stream_prefix_is_an_actual_common_carrier_prefix
   rw [initial, common_stream_start_is_the_complete_view] at actual
   exact actual
 
-def dirty_D01_physical_path_data : LocalData :=
-  withStream dirty_D01.stream.before (Examples.RotationCertificateStreamMachine.trace_r10 9).stores
+def dirtyD01PhysicalPathData : LocalData :=
+  withStream dirtyD01.stream.before (Examples.RotationCertificateStreamMachine.traceR10 9).stores
 
-def dirty_D02_physical_path_data : LocalData :=
-  withStream dirty_D02.stream.before (StreamCertificates.trace_segment_d02 12).stores
+def dirtyD02PhysicalPathData : LocalData :=
+  withStream dirtyD02.stream.before (StreamCertificates.traceSegmentD02 12).stores
 
-def dirty_D02_consumed_failing_head_data : LocalData :=
-  withStream dirty_D02.stream.before (StreamCertificates.trace_segment_d02 14).stores
+def dirtyD02ConsumedFailingHeadData : LocalData :=
+  withStream dirtyD02.stream.before (StreamCertificates.traceSegmentD02 14).stores
 
-theorem dirty_D01_actual_physical_path_is_reverse_old_reverse_followed_by_old_path
+theorem dirtyD01_actual_physical_path_is_reverse_old_reverse_followed_by_old_path
     (value : R) (ctx : ∀ k, List (Γ k)) :
-    Runs (step caller) (dirty_D01.toClosedFixture.start value ctx) 209
+    Runs (step caller) (dirtyD01.toClosedFixture.start value ctx) 209
       (cfg (some (phaseLabel (streamPhase (StreamMachine.applyPhase
-        (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirty_D01_physical_path_data ctx) ∧
-    dirty_D01_physical_path_data.path = [.right, .left] ∧
-    dirty_D01_physical_path_data.moveReverse = [] ∧
-    dirty_D01_physical_path_data.sourceTree = [1, 0, 1, 0, 0] := by
+        (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirtyD01PhysicalPathData ctx) ∧
+    dirtyD01PhysicalPathData.path = [.right, .left] ∧
+    dirtyD01PhysicalPathData.moveReverse = [] ∧
+    dirtyD01PhysicalPathData.sourceTree = [1, 0, 1, 0, 0] := by
   let localCaller : StreamMachine.External (StreamCallerLabel Λ) → StreamStatement Γ Λ R := fun _ => .halt
   have source := a_literal_stream_prefix_is_an_actual_common_carrier_prefix caller
-    Examples.RotationCertificateStreamMachine.trace_r10 20 9 dirty_D01.stream.before
+    Examples.RotationCertificateStreamMachine.traceR10 20 9 dirtyD01.stream.before
     (clean value) ctx localCaller rfl
-    (Examples.RotationCertificateStreamMachine.trace_r10_steps localCaller
-      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirty_D01.stream.before ctx))
-    Examples.RotationCertificateStreamMachine.trace_r10_owned (by decide)
-  have endpoint : streamCfg (Λ := Λ) ((Examples.RotationCertificateStreamMachine.trace_r10 9).reached
-      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirty_D01.stream.before ctx)) =
+    (Examples.RotationCertificateStreamMachine.traceR10_steps localCaller
+      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirtyD01.stream.before ctx))
+    Examples.RotationCertificateStreamMachine.traceR10_owned (by decide)
+  have endpoint : streamCfg (Λ := Λ) ((Examples.RotationCertificateStreamMachine.traceR10 9).reached
+      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirtyD01.stream.before ctx)) =
     cfg (some (phaseLabel (streamPhase (StreamMachine.applyPhase
-      (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirty_D01_physical_path_data ctx :=
+      (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirtyD01PhysicalPathData ctx :=
     a_stream_phase_view_reinserts_all_the_front_end_complement_words (Λ := Λ)
       (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.seek .left)))
-      dirty_D01.stream.before (Examples.RotationCertificateStreamMachine.trace_r10 9).stores
+      dirtyD01.stream.before (Examples.RotationCertificateStreamMachine.traceR10 9).stores
       (clean value) ctx
   rw [endpoint] at source
-  have first := dirty_D01_frontend_actual_local_run caller value ctx
-  have joined := phase_step_localRun caller (dispatch_step caller dirty_D01.frontEndAfter
-    (FrontEndMachine.reset (dirty_D01.fields.withUser value)) ctx)
+  have first := dirtyD01_frontend_actual_local_run caller value ctx
+  have joined := phase_step_localRun caller (dispatch_step caller dirtyD01.frontEndAfter
+    (FrontEndMachine.reset (dirtyD01.fields.withUser value)) ctx)
   exact ⟨(LocalRun.trans caller (LocalRun.trans caller first joined) source).iterate caller, rfl, rfl, rfl⟩
 
-theorem dirty_D02_actual_physical_path_keeps_both_old_branch_words_in_order
+theorem dirtyD02_actual_physical_path_keeps_both_old_branch_words_in_order
     (value : R) (ctx : ∀ k, List (Γ k)) :
-    Runs (step caller) (dirty_D02.toClosedFixture.start value ctx) 270
+    Runs (step caller) (dirtyD02.toClosedFixture.start value ctx) 270
       (cfg (some (phaseLabel (streamPhase (StreamMachine.applyPhase
-        (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirty_D02_physical_path_data ctx) ∧
-    dirty_D02_physical_path_data.path = [.left, .right, .right, .left, .right] ∧
-    dirty_D02_physical_path_data.moveReverse = [] ∧
-    dirty_D02_physical_path_data.sourceTree = [1, 0, 1, 0, 1, 0, 0] := by
+        (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirtyD02PhysicalPathData ctx) ∧
+    dirtyD02PhysicalPathData.path = [.left, .right, .right, .left, .right] ∧
+    dirtyD02PhysicalPathData.moveReverse = [] ∧
+    dirtyD02PhysicalPathData.sourceTree = [1, 0, 1, 0, 1, 0, 0] := by
   let localCaller : StreamMachine.External (StreamCallerLabel Λ) → StreamStatement Γ Λ R := fun _ => .halt
   have source := a_literal_stream_prefix_is_an_actual_common_carrier_prefix caller
-    StreamCertificates.trace_segment_d02 18 12 dirty_D02.stream.before (clean value) ctx localCaller rfl
-    (StreamCertificates.trace_segment_d02_steps localCaller
-      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirty_D02.stream.before ctx))
-    StreamCertificates.trace_segment_d02_owned (by decide)
-  have endpoint : streamCfg (Λ := Λ) ((StreamCertificates.trace_segment_d02 12).reached
-      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirty_D02.stream.before ctx)) =
+    StreamCertificates.traceSegmentD02 18 12 dirtyD02.stream.before (clean value) ctx localCaller rfl
+    (StreamCertificates.traceSegmentD02_steps localCaller
+      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirtyD02.stream.before ctx))
+    StreamCertificates.traceSegmentD02_owned (by decide)
+  have endpoint : streamCfg (Λ := Λ) ((StreamCertificates.traceSegmentD02 12).reached
+      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirtyD02.stream.before ctx)) =
     cfg (some (phaseLabel (streamPhase (StreamMachine.applyPhase
-      (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirty_D02_physical_path_data ctx :=
+      (MoveApplyMachine.positionPhase (.seek .left)))))) (clean value) dirtyD02PhysicalPathData ctx :=
     a_stream_phase_view_reinserts_all_the_front_end_complement_words (Λ := Λ)
       (StreamMachine.applyPhase (MoveApplyMachine.positionPhase (.seek .left)))
-      dirty_D02.stream.before (StreamCertificates.trace_segment_d02 12).stores (clean value) ctx
+      dirtyD02.stream.before (StreamCertificates.traceSegmentD02 12).stores (clean value) ctx
   rw [endpoint] at source
-  have first := dirty_D02_frontend_actual_local_run caller value ctx
-  have joined := phase_step_localRun caller (dispatch_step caller dirty_D02.frontEndAfter
-    (FrontEndMachine.reset (dirty_D02.fields.withUser value)) ctx)
+  have first := dirtyD02_frontend_actual_local_run caller value ctx
+  have joined := phase_step_localRun caller (dispatch_step caller dirtyD02.frontEndAfter
+    (FrontEndMachine.reset (dirtyD02.fields.withUser value)) ctx)
   exact ⟨(LocalRun.trans caller (LocalRun.trans caller first joined) source).iterate caller, rfl, rfl, rfl⟩
 
-theorem dirty_D02_actual_failure_has_already_consumed_the_failing_path_head
+theorem dirtyD02_actual_failure_has_already_consumed_the_failing_path_head
     (value : R) (ctx : ∀ k, List (Γ k)) :
-    Runs (step caller) (dirty_D02.toClosedFixture.start value ctx) 272
+    Runs (step caller) (dirtyD02.toClosedFixture.start value ctx) 272
       (cfg (some (phaseLabel (streamPhase (StreamMachine.applyPhase
-        (MoveApplyMachine.positionPhase .dropPending))))) (clean value) dirty_D02_consumed_failing_head_data ctx) ∧
-    dirty_D02_consumed_failing_head_data.path = [.right, .left, .right] ∧
-    dirty_D02_consumed_failing_head_data.sourceTree = [0, 1, 0, 1, 0, 0] ∧
-    dirty_D02_consumed_failing_head_data.treeReverse = [1] := by
+        (MoveApplyMachine.positionPhase .dropPending))))) (clean value) dirtyD02ConsumedFailingHeadData ctx) ∧
+    dirtyD02ConsumedFailingHeadData.path = [.right, .left, .right] ∧
+    dirtyD02ConsumedFailingHeadData.sourceTree = [0, 1, 0, 1, 0, 0] ∧
+    dirtyD02ConsumedFailingHeadData.treeReverse = [1] := by
   let localCaller : StreamMachine.External (StreamCallerLabel Λ) → StreamStatement Γ Λ R := fun _ => .halt
   have source := a_literal_stream_prefix_is_an_actual_common_carrier_prefix caller
-    StreamCertificates.trace_segment_d02 18 14 dirty_D02.stream.before (clean value) ctx localCaller rfl
-    (StreamCertificates.trace_segment_d02_steps localCaller
-      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirty_D02.stream.before ctx))
-    StreamCertificates.trace_segment_d02_owned (by decide)
-  have endpoint : streamCfg (Λ := Λ) ((StreamCertificates.trace_segment_d02 14).reached
-      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirty_D02.stream.before ctx)) =
+    StreamCertificates.traceSegmentD02 18 14 dirtyD02.stream.before (clean value) ctx localCaller rfl
+    (StreamCertificates.traceSegmentD02_steps localCaller
+      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirtyD02.stream.before ctx))
+    StreamCertificates.traceSegmentD02_owned (by decide)
+  have endpoint : streamCfg (Λ := Λ) ((StreamCertificates.traceSegmentD02 14).reached
+      (StreamMachine.frontEndRegisterEquiv (clean value)) (streamContext dirtyD02.stream.before ctx)) =
     cfg (some (phaseLabel (streamPhase (StreamMachine.applyPhase
-      (MoveApplyMachine.positionPhase .dropPending))))) (clean value) dirty_D02_consumed_failing_head_data ctx :=
+      (MoveApplyMachine.positionPhase .dropPending))))) (clean value) dirtyD02ConsumedFailingHeadData ctx :=
     a_stream_phase_view_reinserts_all_the_front_end_complement_words (Λ := Λ)
       (StreamMachine.applyPhase (MoveApplyMachine.positionPhase .dropPending))
-      dirty_D02.stream.before (StreamCertificates.trace_segment_d02 14).stores (clean value) ctx
+      dirtyD02.stream.before (StreamCertificates.traceSegmentD02 14).stores (clean value) ctx
   rw [endpoint] at source
-  have first := dirty_D02_frontend_actual_local_run caller value ctx
-  have joined := phase_step_localRun caller (dispatch_step caller dirty_D02.frontEndAfter
-    (FrontEndMachine.reset (dirty_D02.fields.withUser value)) ctx)
+  have first := dirtyD02_frontend_actual_local_run caller value ctx
+  have joined := phase_step_localRun caller (dispatch_step caller dirtyD02.frontEndAfter
+    (FrontEndMachine.reset (dirtyD02.fields.withUser value)) ctx)
   exact ⟨(LocalRun.trans caller (LocalRun.trans caller first joined) source).iterate caller, rfl, rfl, rfl⟩
 
 end LiteralDirtyPhysicalPaths
@@ -175,119 +175,119 @@ theorem all_81_positive_closed_cases_have_their_actual_first_halt_and_exact_peak
     exact ⟨checked.1, checked.2.2.2⟩
   · have checked := truncatedPrefixFixture_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_F03_expected caller (staleFields.withUser value) ctx
+  · have checked := rawF03_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_F04_expected caller (staleFields.withUser value) ctx
+  · have checked := rawF04_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_F05_expected caller (staleFields.withUser value) ctx
+  · have checked := rawF05_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_F06_expected caller (staleFields.withUser value) ctx
+  · have checked := rawF06_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_F07_expected caller (staleFields.withUser value) ctx
+  · have checked := rawF07_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_F08_expected caller (staleFields.withUser value) ctx
+  · have checked := rawF08_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_I01_expected caller (staleFields.withUser value) ctx
+  · have checked := rawI01_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_I02_expected caller (staleFields.withUser value) ctx
+  · have checked := rawI02_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_I03_expected caller (staleFields.withUser value) ctx
+  · have checked := rawI03_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_I04_expected caller (staleFields.withUser value) ctx
+  · have checked := rawI04_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_I05_expected caller (staleFields.withUser value) ctx
+  · have checked := rawI05_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_I06_expected caller (staleFields.withUser value) ctx
+  · have checked := rawI06_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_I07_expected caller (staleFields.withUser value) ctx
+  · have checked := rawI07_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_C01_expected caller (staleFields.withUser value) ctx
+  · have checked := rawC01_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_C02_expected caller (staleFields.withUser value) ctx
+  · have checked := rawC02_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_C03_expected caller (staleFields.withUser value) ctx
+  · have checked := rawC03_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V01_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV01_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V02_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV02_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V03_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV03_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V04_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV04_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V05_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV05_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V06_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV06_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V07_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV07_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V08_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV08_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V09_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV09_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V10_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV10_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V11_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV11_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V12_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV12_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V13_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV13_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V14_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV14_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V15_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV15_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V16_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV16_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V17_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV17_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_V18_expected caller (staleFields.withUser value) ctx
+  · have checked := rawV18_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · exact clear_C00_expected caller value ctx
-  · exact clear_C00E_expected caller value ctx
-  · exact clear_C01_expected caller value ctx
-  · exact clear_C01E_expected caller value ctx
-  · exact clear_C02_expected caller value ctx
-  · exact clear_C02E_expected caller value ctx
-  · exact clear_C03_expected caller value ctx
-  · exact clear_C03E_expected caller value ctx
-  · exact clear_C04_expected caller value ctx
-  · exact clear_C04E_expected caller value ctx
-  · exact clear_C05_expected caller value ctx
-  · exact clear_C05E_expected caller value ctx
-  · exact clear_C06_expected caller value ctx
-  · exact clear_C06E_expected caller value ctx
-  · exact clear_C07_expected caller value ctx
-  · exact clear_C07E_expected caller value ctx
-  · exact clear_C08_expected caller value ctx
-  · exact clear_C08E_expected caller value ctx
-  · exact clear_C09_expected caller value ctx
-  · exact clear_C09E_expected caller value ctx
-  · exact clear_C10_expected caller value ctx
-  · exact clear_C10E_expected caller value ctx
-  · exact clear_C11_expected caller value ctx
-  · exact clear_C11E_expected caller value ctx
-  · exact clear_C12_expected caller value ctx
-  · exact clear_C12E_expected caller value ctx
-  · exact clear_C13_expected caller value ctx
-  · exact clear_C13E_expected caller value ctx
-  · exact clear_C14_expected caller value ctx
-  · exact clear_C14E_expected caller value ctx
-  · exact clear_C15_expected caller value ctx
-  · exact clear_C15E_expected caller value ctx
-  · exact emit_E00_expected caller value ctx
-  · exact emit_E01_expected caller value ctx
-  · exact emit_E02_expected caller value ctx
-  · exact emit_E03_expected caller value ctx
-  · exact join_J00_expected caller value ctx
-  · exact join_J01_expected caller value ctx
-  · exact join_J02_expected caller value ctx
-  · exact join_J03_expected caller value ctx
-  · exact dirty_D00_expected caller value ctx
-  · exact dirty_D01_expected caller value ctx
-  · exact dirty_D02_expected caller value ctx
-  · exact dirty_D03_expected caller value ctx
-  · exact clear_CZERO_expected caller value ctx
+  · exact cleanupC00_expected caller value ctx
+  · exact cleanupC00E_expected caller value ctx
+  · exact cleanupC01_expected caller value ctx
+  · exact cleanupC01E_expected caller value ctx
+  · exact cleanupC02_expected caller value ctx
+  · exact cleanupC02E_expected caller value ctx
+  · exact cleanupC03_expected caller value ctx
+  · exact cleanupC03E_expected caller value ctx
+  · exact cleanupC04_expected caller value ctx
+  · exact cleanupC04E_expected caller value ctx
+  · exact cleanupC05_expected caller value ctx
+  · exact cleanupC05E_expected caller value ctx
+  · exact cleanupC06_expected caller value ctx
+  · exact cleanupC06E_expected caller value ctx
+  · exact cleanupC07_expected caller value ctx
+  · exact cleanupC07E_expected caller value ctx
+  · exact cleanupC08_expected caller value ctx
+  · exact cleanupC08E_expected caller value ctx
+  · exact cleanupC09_expected caller value ctx
+  · exact cleanupC09E_expected caller value ctx
+  · exact cleanupC10_expected caller value ctx
+  · exact cleanupC10E_expected caller value ctx
+  · exact cleanupC11_expected caller value ctx
+  · exact cleanupC11E_expected caller value ctx
+  · exact cleanupC12_expected caller value ctx
+  · exact cleanupC12E_expected caller value ctx
+  · exact cleanupC13_expected caller value ctx
+  · exact cleanupC13E_expected caller value ctx
+  · exact cleanupC14_expected caller value ctx
+  · exact cleanupC14E_expected caller value ctx
+  · exact cleanupC15_expected caller value ctx
+  · exact cleanupC15E_expected caller value ctx
+  · exact emitE00_expected caller value ctx
+  · exact emitE01_expected caller value ctx
+  · exact emitE02_expected caller value ctx
+  · exact emitE03_expected caller value ctx
+  · exact joinJ00_expected caller value ctx
+  · exact joinJ01_expected caller value ctx
+  · exact joinJ02_expected caller value ctx
+  · exact joinJ03_expected caller value ctx
+  · exact dirtyD00_expected caller value ctx
+  · exact dirtyD01_expected caller value ctx
+  · exact dirtyD02_expected caller value ctx
+  · exact dirtyD03_expected caller value ctx
+  · exact emptyCleanupFixture_expected caller value ctx
 
 theorem the_fixed_84_records_keep_81_positive_runs_separate_from_the_three_liveness_domains :
     allClosedCases.length = 81 ∧ livenessCases.length = 3 ∧
@@ -369,10 +369,10 @@ theorem all_36_front_end_domains_have_the_actual_complete_dirty_first_boundary
       (FrontEndMachine.next caller)^[n]
         (some (FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv phase).val) regs data ctx)) =
       some reached ∧ FrontEndMachine.Owned reached.l :=
-  ⟨frontEnd_phase_iterate caller phase data regs ctx,
+  ⟨front_end_phase_iterate caller phase data regs ctx,
     frontEndFinishCfg_not_owned (frontEndPhaseFinish phase data) regs ctx,
     frontEndPhaseSteps_pos phase data,
-    frontEnd_phase_owned_prefix caller phase data regs ctx⟩
+    front_end_phase_owned_prefix caller phase data regs ctx⟩
 
 theorem the_front_end_canonical_boundary_is_exact_for_every_initial_configuration
     (start : FrontEndMachine.Cfg Γ Λ R) :
@@ -381,8 +381,8 @@ theorem the_front_end_canonical_boundary_is_exact_for_every_initial_configuratio
     ¬ FrontEndMachine.Owned (frontEndFinalCfg start).l ∧
     ∀ n, n < frontEndRemainingSteps start → ∃ reached,
       (FrontEndMachine.next caller)^[n] (some start) = some reached ∧ FrontEndMachine.Owned reached.l :=
-  ⟨frontEnd_cfg_iterate caller start, frontEndFinalCfg_not_owned start,
-    (frontEnd_cfg_trace caller start).owned_prefix⟩
+  ⟨front_end_cfg_iterate caller start, frontEndFinalCfg_not_owned start,
+    (front_end_cfg_trace caller start).owned_prefix⟩
 
 theorem the_front_end_first_boundary_converse_requires_actual_earlier_ownership
     (start reached : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
@@ -391,27 +391,27 @@ theorem the_front_end_first_boundary_converse_requires_actual_earlier_ownership
     (earlier : ∀ j, j < n → ∃ actual,
       (FrontEndMachine.next caller)^[j] (some start) = some actual ∧ FrontEndMachine.Owned actual.l) :
     n = frontEndRemainingSteps start ∧ reached = frontEndFinalCfg start :=
-  frontEnd_first_return_unique caller start reached n executed outside earlier
+  front_end_first_return_unique caller start reached n executed outside earlier
 
 theorem an_actual_front_end_step_decreases_rank_and_preserves_the_entire_canonical_endpoint
     (before after : FrontEndMachine.Cfg Γ Λ R) (owned : FrontEndMachine.Owned before.l)
     (executed : FrontEndMachine.step caller before = some after) :
     frontEndRemainingSteps before = frontEndRemainingSteps after + 1 ∧
       frontEndFinalCfg before = frontEndFinalCfg after :=
-  frontEnd_local_step_remaining caller owned executed
+  front_end_local_step_remaining caller owned executed
 
 omit caller [DecidableEq K] in
 theorem an_external_front_end_label_has_zero_rank_and_identity_boundary
     (start : FrontEndMachine.Cfg Γ Λ R) (outside : ¬ FrontEndMachine.Owned start.l) :
     frontEndRemainingSteps start = 0 ∧ frontEndFinalCfg start = start :=
-  frontEnd_nonowned_identity start outside
+  front_end_nonowned_identity start outside
 
 theorem clean_front_end_entry_agrees_with_the_existing_public_runtime_and_endpoint
     (regs : FrontEndMachine.Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     frontEndRemainingSteps (FrontEndMachine.entry (Λ := Λ) regs raw ctx) = FrontEndMachine.runSteps raw ∧
     frontEndFinalCfg (FrontEndMachine.entry (Λ := Λ) regs raw ctx) =
       FrontEndMachine.resultCfg regs ctx (FrontEndMachine.sourceOutcome raw) :=
-  frontEnd_clean_alignment (Λ := Λ) (fun _ => .halt) regs raw ctx
+  front_end_clean_alignment (Λ := Λ) (fun _ => .halt) regs raw ctx
 
 def frontEndPhaseExactTime (phase : FrontEndMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R) (ctx : ∀ k, List (Γ k)) :
@@ -438,7 +438,7 @@ theorem an_actual_dirty_front_end_step_does_not_increase_its_full_physical_poten
     (before after : FrontEndMachine.Cfg Γ Λ R) (owned : FrontEndMachine.Owned before.l)
     (executed : FrontEndMachine.step caller before = some after) :
     frontEndPotential after ≤ frontEndPotential before :=
-  frontEnd_local_step_potential caller owned executed
+  front_end_local_step_potential caller owned executed
 
 theorem one_front_end_prefix_witness_carries_rank_masks_frame_credit_and_the_final_endpoint
     (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat) (bound : n ≤ frontEndRemainingSteps start) :
@@ -454,7 +454,7 @@ theorem one_front_end_prefix_witness_carries_rank_masks_frame_credit_and_the_fin
       FrontEndMachine.stackCells reached ≤ frontEndPotential start ∧
       frontEndFinalCfg reached = frontEndFinalCfg start ∧
       (n = frontEndRemainingSteps start → reached = frontEndFinalCfg start) :=
-  frontEnd_owned_prefix caller start n bound
+  front_end_owned_prefix caller start n bound
 
 theorem a_dirty_front_end_phase_has_one_witness_for_its_literal_mask_schedule_and_space
     (phase : FrontEndMachine.OwnedLabels) (data : FrontEndMachine.LocalData)
@@ -470,7 +470,7 @@ theorem a_dirty_front_end_phase_has_one_witness_for_its_literal_mask_schedule_an
       (n < frontEndPhaseSteps phase data ↔ FrontEndMachine.Owned reached.l) ∧
       (n = 0 → reached = FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv phase).val) regs data ctx) ∧
       (n = frontEndPhaseSteps phase data → reached = frontEndPhaseResult phase regs data ctx) :=
-  frontEnd_phase_shared_prefix caller phase data regs ctx n bound
+  front_end_phase_shared_prefix caller phase data regs ctx n bound
 
 end CompleteFrontEnd
 end DirtyComponentConnections

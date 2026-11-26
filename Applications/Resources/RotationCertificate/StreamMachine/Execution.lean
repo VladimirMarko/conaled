@@ -634,7 +634,7 @@ omit [DecidableEq K] in
 /-- A literal parser activation through both complete physical transports. -/
 theorem apply_move_step_of_step
     (localCaller : MoveParserMachine.External (MoveApplyMachine.MoveCallerLabel (ApplyCallerLabel Λ)) →
-      MoveApplyMachine.MoveStatement (applyProtectedAlphabet Γ) (ApplyCallerLabel Λ) (ApplyCallerRegister R))
+      MoveApplyMachine.MoveStatement (ApplyProtectedAlphabet Γ) (ApplyCallerLabel Λ) (ApplyCallerRegister R))
     (q : MoveParserMachine.Phase) (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k))
     (label : Option (MoveParserMachine.Label (MoveApplyMachine.MoveCallerLabel (ApplyCallerLabel Λ))))
     (outRegs : MoveParserMachine.Registers (MoveApplyMachine.MoveCallerRegister (ApplyCallerRegister R)))

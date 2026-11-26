@@ -16,7 +16,7 @@ theorem frontEndAdvance_potential (phase : FrontEndMachine.OwnedLabels)
       frontEndLocalPotential (.inl phase) data := by
   cases phase with
   | inl phase =>
-      exact frontEndInputAdvance_potential (K := Unit) (Γ := fun _ => Unit) phase data
+      exact front_end_inputAdvance_potential (K := Unit) (Γ := fun _ => Unit) phase data
         ((none, none), (BitDecoderMachine.zeroRegisters, ())) (fun _ => [])
   | inr phase =>
       cases phase with
@@ -37,7 +37,7 @@ variable [DecidableEq K]
 variable (caller : FrontEndMachine.External Λ → FrontEndMachine.Statement Γ Λ R)
 
 /-- A typed description of the actual prefix, carrying the fixed local potential. -/
-theorem frontEnd_phase_prefix_description (phase : FrontEndMachine.OwnedLabels)
+theorem front_end_phase_prefix_description (phase : FrontEndMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ frontEndPhaseSteps phase data) :
     ∃ control current currentRegs,
@@ -54,7 +54,7 @@ theorem frontEnd_phase_prefix_description (phase : FrontEndMachine.OwnedLabels)
       intro bound
       obtain ⟨control, current, currentRegs, executed, potential⟩ := ih (by omega)
       obtain ⟨actual, actualRun, actualOwned⟩ :=
-        frontEnd_phase_owned_prefix caller phase data regs ctx n (by omega)
+        front_end_phase_owned_prefix caller phase data regs ctx n (by omega)
       have same := Option.some.inj (actualRun.symm.trans executed)
       subst actual
       cases control with
@@ -70,7 +70,7 @@ theorem frontEnd_phase_prefix_description (phase : FrontEndMachine.OwnedLabels)
 variable [Fintype K]
 
 /-- The actual inclusive component prefix is bounded by the fixed phase credit. -/
-theorem frontEnd_phase_prefix_cells (phase : FrontEndMachine.OwnedLabels)
+theorem front_end_phase_prefix_cells (phase : FrontEndMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ frontEndPhaseSteps phase data)
     (reached : FrontEndMachine.Cfg Γ Λ R)
@@ -80,7 +80,7 @@ theorem frontEnd_phase_prefix_cells (phase : FrontEndMachine.OwnedLabels)
     FrontEndMachine.stackCells reached ≤ FrontEndMachine.localCells data +
       frontEndPhaseCredit phase data + FrontEndMachine.contextCells ctx := by
   obtain ⟨control, current, currentRegs, actual, potential⟩ :=
-    frontEnd_phase_prefix_description caller phase data regs ctx n bound
+    front_end_phase_prefix_description caller phase data regs ctx n bound
   have same := Option.some.inj (executed.symm.trans actual)
   subst reached
   rw [FrontEndMachine.stackCells_cfg]
@@ -90,7 +90,7 @@ theorem frontEnd_phase_prefix_cells (phase : FrontEndMachine.OwnedLabels)
   omega
 
 /-- Execution, the staged register mask, the protected context, and cells share one witness. -/
-theorem frontEnd_phase_shared_prefix (phase : FrontEndMachine.OwnedLabels)
+theorem front_end_phase_shared_prefix (phase : FrontEndMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R)
     (ctx : ∀ k, List (Γ k)) (n : Nat) (bound : n ≤ frontEndPhaseSteps phase data) :
     ∃ reached : FrontEndMachine.Cfg Γ Λ R,
@@ -107,21 +107,21 @@ theorem frontEnd_phase_shared_prefix (phase : FrontEndMachine.OwnedLabels)
         (some (FrontEndMachine.ownedLabelEquiv phase).val) regs data ctx) ∧
       (n = frontEndPhaseSteps phase data → reached = frontEndPhaseResult phase regs data ctx) := by
   obtain ⟨control, current, currentRegs, executed, _⟩ :=
-    frontEnd_phase_prefix_description caller phase data regs ctx n bound
+    front_end_phase_prefix_description caller phase data regs ctx n bound
   let reached : FrontEndMachine.Cfg Γ Λ R :=
     FrontEndMachine.cfg (some (frontEndControlLabel control)) currentRegs current ctx
-  have state := frontEnd_phase_prefix_state caller phase data regs ctx n bound reached executed
+  have state := front_end_phase_prefix_state caller phase data regs ctx n bound reached executed
   have atEnd : n = frontEndPhaseSteps phase data → reached = frontEndPhaseResult phase regs data ctx := by
     intro finalTime
-    rw [finalTime, frontEnd_phase_iterate] at executed
+    rw [finalTime, front_end_phase_iterate] at executed
     exact (Option.some.inj executed).symm
   refine ⟨reached, executed, state.1, ?_, state.2,
-    frontEnd_phase_prefix_cells caller phase data regs ctx n bound reached executed, ?_, ?_, atEnd⟩
+    front_end_phase_prefix_cells caller phase data regs ctx n bound reached executed, ?_, ?_, atEnd⟩
   · rw [state.1]
     exact frontEndPhaseRegisters_caller phase data regs n
   · constructor
     · intro strict
-      obtain ⟨actual, actualRun, actualOwned⟩ := frontEnd_phase_owned_prefix caller phase data regs ctx n strict
+      obtain ⟨actual, actualRun, actualOwned⟩ := front_end_phase_owned_prefix caller phase data regs ctx n strict
       have same : actual = reached := Option.some.inj (actualRun.symm.trans executed)
       rw [← same]
       exact actualOwned
@@ -233,7 +233,7 @@ def frontEndContextOf (c : FrontEndMachine.Cfg Γ Λ R) (k : K) : List (Γ k) :=
     (regs : FrontEndMachine.Registers R) (data : FrontEndMachine.LocalData)
     (ctx : ∀ k, List (Γ k)) : frontEndContextOf (FrontEndMachine.cfg label regs data ctx) = ctx := rfl
 
-theorem frontEnd_cfg_eta (c : FrontEndMachine.Cfg Γ Λ R) :
+theorem front_end_cfg_eta (c : FrontEndMachine.Cfg Γ Λ R) :
     FrontEndMachine.cfg c.l c.var (frontEndDataOf c) (frontEndContextOf c) = c := by
   apply FrontEndMachine.cfg_ext
   · rfl
@@ -281,7 +281,7 @@ def frontEndRegistersAt (c : FrontEndMachine.Cfg Γ Λ R) (n : Nat) : FrontEndMa
         (frontEndContextOf (FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv phase).val) regs data ctx))) = _
   rw [frontEndPhaseOf_owned, frontEndDataOf_cfg, frontEndContextOf_cfg]
 
-theorem frontEnd_nonowned_identity (c : FrontEndMachine.Cfg Γ Λ R)
+theorem front_end_nonowned_identity (c : FrontEndMachine.Cfg Γ Λ R)
     (outside : ¬ FrontEndMachine.Owned c.l) :
     frontEndRemainingSteps c = 0 ∧ frontEndFinalCfg c = c := by
   have absent := (frontEndPhaseOf_none_iff c.l).mpr outside
@@ -298,7 +298,7 @@ theorem frontEndFinalCfg_not_owned (c : FrontEndMachine.Cfg Γ Λ R) :
         frontEndFinishCfg_not_owned (Λ := Λ) (frontEndPhaseFinish phase (frontEndDataOf c))
           c.var (frontEndContextOf c)
 
-theorem frontEnd_owned_view (c : FrontEndMachine.Cfg Γ Λ R) (owned : FrontEndMachine.Owned c.l) :
+theorem front_end_owned_view (c : FrontEndMachine.Cfg Γ Λ R) (owned : FrontEndMachine.Owned c.l) :
     ∃ phase, c = FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv phase).val)
       c.var (frontEndDataOf c) (frontEndContextOf c) := by
   cases selected : frontEndPhaseOf c.l with
@@ -306,7 +306,7 @@ theorem frontEnd_owned_view (c : FrontEndMachine.Cfg Γ Λ R) (owned : FrontEndM
   | some phase =>
       have control : c.l = some (FrontEndMachine.ownedLabelEquiv phase).val := by
         simpa only [selected] using frontEndPhaseOf_spec c.l
-      have rebuilt := frontEnd_cfg_eta c
+      have rebuilt := front_end_cfg_eta c
       rw [control] at rebuilt
       exact ⟨phase, rebuilt.symm⟩
 
@@ -314,7 +314,7 @@ section FrontEndCfgExecution
 variable [DecidableEq K]
 variable (caller : FrontEndMachine.External Λ → FrontEndMachine.Statement Γ Λ R)
 
-theorem frontEnd_cfg_trace (c : FrontEndMachine.Cfg Γ Λ R) :
+theorem front_end_cfg_trace (c : FrontEndMachine.Cfg Γ Λ R) :
     FrontEndMachine.Trace caller c (frontEndFinalCfg c) (frontEndRemainingSteps c) := by
   cases selected : frontEndPhaseOf c.l with
   | none =>
@@ -325,15 +325,15 @@ theorem frontEnd_cfg_trace (c : FrontEndMachine.Cfg Γ Λ R) :
   | some phase =>
       have control : c.l = some (FrontEndMachine.ownedLabelEquiv phase).val := by
         simpa only [selected] using frontEndPhaseOf_spec c.l
-      have trace := frontEnd_phase_trace caller phase (frontEndDataOf c) c.var (frontEndContextOf c)
-      rw [← control, frontEnd_cfg_eta] at trace
+      have trace := front_end_phase_trace caller phase (frontEndDataOf c) c.var (frontEndContextOf c)
+      rw [← control, front_end_cfg_eta] at trace
       simpa only [frontEndRemainingSteps, frontEndFinalCfg, selected] using trace
 
-theorem frontEnd_cfg_iterate (c : FrontEndMachine.Cfg Γ Λ R) :
+theorem front_end_cfg_iterate (c : FrontEndMachine.Cfg Γ Λ R) :
     (FrontEndMachine.next caller)^[frontEndRemainingSteps c] (some c) = some (frontEndFinalCfg c) :=
-  (frontEnd_cfg_trace caller c).run
+  (front_end_cfg_trace caller c).run
 
-theorem frontEnd_trace_first_unique {start first last : FrontEndMachine.Cfg Γ Λ R} {m n : Nat}
+theorem front_end_trace_first_unique {start first last : FrontEndMachine.Cfg Γ Λ R} {m n : Nat}
     (before : FrontEndMachine.Trace caller start first m)
     (after : FrontEndMachine.Trace caller start last n)
     (firstExit : ¬ FrontEndMachine.Owned first.l)
@@ -351,13 +351,13 @@ theorem frontEnd_trace_first_unique {start first last : FrontEndMachine.Cfg Γ �
   subst n
   exact Option.some.inj (before.run.symm.trans after.run)
 
-theorem frontEnd_first_return_unique (start reached : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
+theorem front_end_first_return_unique (start reached : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
     (executed : (FrontEndMachine.next caller)^[n] (some start) = some reached)
     (outside : ¬ FrontEndMachine.Owned reached.l)
     (earlier : ∀ j, j < n → ∃ actual,
       (FrontEndMachine.next caller)^[j] (some start) = some actual ∧ FrontEndMachine.Owned actual.l) :
     n = frontEndRemainingSteps start ∧ reached = frontEndFinalCfg start :=
-  frontEnd_trace_first_unique caller ⟨executed, earlier⟩ (frontEnd_cfg_trace caller start)
+  front_end_trace_first_unique caller ⟨executed, earlier⟩ (front_end_cfg_trace caller start)
     outside (frontEndFinalCfg_not_owned start)
 
 include caller in
@@ -365,13 +365,13 @@ theorem frontEndRemainingSteps_pos_iff (c : FrontEndMachine.Cfg Γ Λ R) :
     0 < frontEndRemainingSteps c ↔ FrontEndMachine.Owned c.l := by
   constructor
   · intro positive
-    obtain ⟨reached, executed, owned⟩ := (frontEnd_cfg_trace caller c).owned_prefix 0 positive
+    obtain ⟨reached, executed, owned⟩ := (front_end_cfg_trace caller c).owned_prefix 0 positive
     have same := Option.some.inj executed
     exact same.symm ▸ owned
   · intro owned
     by_contra notPositive
     have zero : frontEndRemainingSteps c = 0 := by omega
-    have run := frontEnd_cfg_iterate caller c
+    have run := front_end_cfg_iterate caller c
     rw [zero] at run
     have same := Option.some.inj run
     exact frontEndFinalCfg_not_owned c (same ▸ owned)
@@ -389,7 +389,7 @@ theorem frontEndPhaseSteps_pos (phase : FrontEndMachine.OwnedLabels)
     (FrontEndMachine.ownedLabelEquiv phase).property
   simpa only [frontEndRemainingSteps_phase] using positive
 
-theorem frontEnd_local_step_remaining {before after : FrontEndMachine.Cfg Γ Λ R}
+theorem front_end_local_step_remaining {before after : FrontEndMachine.Cfg Γ Λ R}
     (owned : FrontEndMachine.Owned before.l)
     (executed : FrontEndMachine.step caller before = some after) :
     frontEndRemainingSteps before = frontEndRemainingSteps after + 1 ∧
@@ -400,36 +400,36 @@ theorem frontEnd_local_step_remaining {before after : FrontEndMachine.Cfg Γ Λ 
     have zero : n = 0 := by omega
     subst n
     exact ⟨before, rfl, owned⟩
-  have joined := first.trans caller (frontEnd_cfg_trace caller after)
-  have unique := frontEnd_trace_first_unique caller (frontEnd_cfg_trace caller before) joined
+  have joined := first.trans caller (front_end_cfg_trace caller after)
+  have unique := front_end_trace_first_unique caller (front_end_cfg_trace caller before) joined
     (frontEndFinalCfg_not_owned before) (frontEndFinalCfg_not_owned after)
   exact ⟨by omega, unique.2⟩
 
-theorem frontEnd_trace_after {start reached finish : FrontEndMachine.Cfg Γ Λ R} {n total : Nat}
+theorem front_end_trace_after {start reached finish : FrontEndMachine.Cfg Γ Λ R} {n total : Nat}
     (whole : FrontEndMachine.Trace caller start finish total)
     (bound : n ≤ total)
     (executed : (FrontEndMachine.next caller)^[n] (some start) = some reached) :
     FrontEndMachine.Trace caller reached finish (total - n) := by
-  refine ⟨frontEnd_prefix_after caller executed bound whole.run, ?_⟩
+  refine ⟨front_end_prefix_after caller executed bound whole.run, ?_⟩
   intro j strict
   obtain ⟨actual, actualRun, actualOwned⟩ := whole.owned_prefix (n + j) (by omega)
-  have after := frontEnd_prefix_after caller executed (Nat.le_add_right n j) actualRun
+  have after := front_end_prefix_after caller executed (Nat.le_add_right n j) actualRun
   have count : n + j - n = j := by omega
   exact ⟨actual, by simpa only [count] using after, actualOwned⟩
 
-theorem frontEnd_prefix_remaining (start reached : FrontEndMachine.Cfg Γ Λ R)
+theorem front_end_prefix_remaining (start reached : FrontEndMachine.Cfg Γ Λ R)
     (n : Nat) (bound : n ≤ frontEndRemainingSteps start)
     (executed : (FrontEndMachine.next caller)^[n] (some start) = some reached) :
     frontEndRemainingSteps reached = frontEndRemainingSteps start - n ∧
       frontEndFinalCfg reached = frontEndFinalCfg start := by
-  exact frontEnd_trace_first_unique caller (frontEnd_cfg_trace caller reached)
-    (frontEnd_trace_after caller (frontEnd_cfg_trace caller start) bound executed)
+  exact front_end_trace_first_unique caller (front_end_cfg_trace caller reached)
+    (front_end_trace_after caller (front_end_cfg_trace caller start) bound executed)
     (frontEndFinalCfg_not_owned reached) (frontEndFinalCfg_not_owned start)
 
 def FrontEndLocalStep (before after : FrontEndMachine.Cfg Γ Λ R) : Prop :=
   FrontEndMachine.Owned before.l ∧ FrontEndMachine.step caller before = some after
 
-theorem frontEnd_prefix_reachable (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
+theorem front_end_prefix_reachable (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
     (bound : n ≤ frontEndRemainingSteps start) (reached : FrontEndMachine.Cfg Γ Λ R)
     (executed : (FrontEndMachine.next caller)^[n] (some start) = some reached) :
     Relation.ReflTransGen (FrontEndLocalStep caller) start reached := by
@@ -442,13 +442,13 @@ theorem frontEnd_prefix_reachable (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat
       exact .refl
   | succ n ih =>
       intro bound reached executed
-      obtain ⟨middle, first, owned⟩ := (frontEnd_cfg_trace caller start).owned_prefix n (by omega)
+      obtain ⟨middle, first, owned⟩ := (front_end_cfg_trace caller start).owned_prefix n (by omega)
       have before := ih (by omega) middle first
       have transition : FrontEndMachine.step caller middle = some reached := by
         simpa only [Function.iterate_succ_apply', first, FrontEndMachine.next, Option.bind_some] using executed
       exact before.trans (.single ⟨owned, transition⟩)
 
-theorem frontEnd_cfg_prefix_state (start reached : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
+theorem front_end_cfg_prefix_state (start reached : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
     (bound : n ≤ frontEndRemainingSteps start)
     (executed : (FrontEndMachine.next caller)^[n] (some start) = some reached) :
     reached.var = frontEndRegistersAt start n ∧
@@ -467,25 +467,25 @@ theorem frontEnd_cfg_prefix_state (start reached : FrontEndMachine.Cfg Γ Λ R) 
       have explicitRun : (FrontEndMachine.next caller)^[n]
           (some (FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv phase).val)
             start.var (frontEndDataOf start) (frontEndContextOf start))) = some reached := by
-        rw [← control, frontEnd_cfg_eta]
+        rw [← control, front_end_cfg_eta]
         exact executed
       have actualBound : n ≤ frontEndPhaseSteps phase (frontEndDataOf start) := by
         simpa only [frontEndRemainingSteps, selected] using bound
-      have state := frontEnd_phase_prefix_state caller phase (frontEndDataOf start) start.var
+      have state := front_end_phase_prefix_state caller phase (frontEndDataOf start) start.var
         (frontEndContextOf start) n actualBound reached explicitRun
       refine ⟨?_, ?_, state.2⟩
       · simpa only [frontEndRegistersAt, selected] using state.1
       · rw [state.1]
         exact frontEndPhaseRegisters_caller phase (frontEndDataOf start) start.var n
 
-theorem frontEnd_cfg_prefix_exists (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
+theorem front_end_cfg_prefix_exists (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
     (bound : n ≤ frontEndRemainingSteps start) :
     ∃ reached, (FrontEndMachine.next caller)^[n] (some start) = some reached ∧
       (n < frontEndRemainingSteps start ↔ FrontEndMachine.Owned reached.l) ∧
       (n = 0 → reached = start) ∧
       (n = frontEndRemainingSteps start → reached = frontEndFinalCfg start) := by
   by_cases strict : n < frontEndRemainingSteps start
-  · obtain ⟨reached, executed, owned⟩ := (frontEnd_cfg_trace caller start).owned_prefix n strict
+  · obtain ⟨reached, executed, owned⟩ := (front_end_cfg_trace caller start).owned_prefix n strict
     refine ⟨reached, executed, iff_of_true strict owned, ?_, ?_⟩
     · intro zero
       subst n
@@ -494,10 +494,10 @@ theorem frontEnd_cfg_prefix_exists (start : FrontEndMachine.Cfg Γ Λ R) (n : Na
       omega
   · have finalTime : n = frontEndRemainingSteps start := by omega
     subst n
-    refine ⟨frontEndFinalCfg start, frontEnd_cfg_iterate caller start,
+    refine ⟨frontEndFinalCfg start, front_end_cfg_iterate caller start,
       iff_of_false (Nat.lt_irrefl _) (frontEndFinalCfg_not_owned start), ?_, fun _ => rfl⟩
     intro zero
-    have actual := frontEnd_cfg_iterate caller start
+    have actual := front_end_cfg_iterate caller start
     rw [zero] at actual
     exact (Option.some.inj actual).symm
 
@@ -507,7 +507,7 @@ def frontEndPhaseInTime (phase : FrontEndMachine.OwnedLabels)
       (FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv phase).val) regs data ctx)
       (some (frontEndPhaseResult phase regs data ctx)) (frontEndPhaseSteps phase data) where
   steps := frontEndPhaseSteps phase data
-  evals_in_steps := frontEnd_phase_iterate caller phase data regs ctx
+  evals_in_steps := front_end_phase_iterate caller phase data regs ctx
   steps_le_m := Nat.le_refl _
 
 @[simp] theorem frontEndPhaseInTime_steps (phase : FrontEndMachine.OwnedLabels)
@@ -518,20 +518,20 @@ def frontEndCfgInTime (c : FrontEndMachine.Cfg Γ Λ R) :
     StateTransition.EvalsToInTime (FrontEndMachine.step caller) c
       (some (frontEndFinalCfg c)) (frontEndRemainingSteps c) where
   steps := frontEndRemainingSteps c
-  evals_in_steps := frontEnd_cfg_iterate caller c
+  evals_in_steps := front_end_cfg_iterate caller c
   steps_le_m := Nat.le_refl _
 
 @[simp] theorem frontEndCfgInTime_steps (c : FrontEndMachine.Cfg Γ Λ R) :
     (frontEndCfgInTime caller c).steps = frontEndRemainingSteps c := rfl
 
 include caller in
-theorem frontEnd_clean_alignment (regs : FrontEndMachine.Registers R) (raw : Bits)
+theorem front_end_clean_alignment (regs : FrontEndMachine.Registers R) (raw : Bits)
     (ctx : ∀ k, List (Γ k)) :
     frontEndRemainingSteps (FrontEndMachine.entry (Λ := Λ) regs raw ctx) = FrontEndMachine.runSteps raw ∧
       frontEndFinalCfg (FrontEndMachine.entry (Λ := Λ) regs raw ctx) =
         FrontEndMachine.resultCfg regs ctx (FrontEndMachine.sourceOutcome raw) := by
-  exact frontEnd_trace_first_unique caller
-    (frontEnd_cfg_trace caller (FrontEndMachine.entry regs raw ctx))
+  exact front_end_trace_first_unique caller
+    (front_end_cfg_trace caller (FrontEndMachine.entry regs raw ctx))
     (FrontEndMachine.run_source_trace caller regs raw ctx)
     (frontEndFinalCfg_not_owned _) (FrontEndMachine.resultCfg_not_owned regs ctx _)
 
@@ -581,7 +581,7 @@ theorem frontEndPotential_control_cfg (control : FrontEndControl)
 variable [DecidableEq K]
 variable (caller : FrontEndMachine.External Λ → FrontEndMachine.Statement Γ Λ R)
 
-theorem frontEnd_phase_step_potential (phase : FrontEndMachine.OwnedLabels)
+theorem front_end_phase_step_potential (phase : FrontEndMachine.OwnedLabels)
     (data : FrontEndMachine.LocalData) (regs : FrontEndMachine.Registers R) (ctx : ∀ k, List (Γ k))
     (after : FrontEndMachine.Cfg Γ Λ R)
     (executed : FrontEndMachine.step caller
@@ -597,24 +597,24 @@ theorem frontEnd_phase_step_potential (phase : FrontEndMachine.OwnedLabels)
   rw [frontEndPotential_control_cfg]
   exact Nat.add_le_add_right (frontEndAdvance_potential phase data) _
 
-theorem frontEnd_local_step_potential {before after : FrontEndMachine.Cfg Γ Λ R}
+theorem front_end_local_step_potential {before after : FrontEndMachine.Cfg Γ Λ R}
     (owned : FrontEndMachine.Owned before.l)
     (executed : FrontEndMachine.step caller before = some after) :
     frontEndPotential after ≤ frontEndPotential before := by
-  obtain ⟨phase, rebuilt⟩ := frontEnd_owned_view before owned
+  obtain ⟨phase, rebuilt⟩ := front_end_owned_view before owned
   rw [rebuilt] at executed ⊢
-  exact frontEnd_phase_step_potential caller phase _ _ _ after executed
+  exact front_end_phase_step_potential caller phase _ _ _ after executed
 
-theorem frontEnd_reaches_potential {start reached : FrontEndMachine.Cfg Γ Λ R}
+theorem front_end_reaches_potential {start reached : FrontEndMachine.Cfg Γ Λ R}
     (path : Relation.ReflTransGen (FrontEndLocalStep caller) start reached) :
     frontEndPotential reached ≤ frontEndPotential start := by
   induction path with
   | refl => exact Nat.le_refl _
   | @tail before after _ transition ih =>
-      exact (frontEnd_local_step_potential caller transition.1 transition.2).trans ih
+      exact (front_end_local_step_potential caller transition.1 transition.2).trans ih
 
 /-- One actual inclusive witness carries rank, ownership, masks, frame and the physical allowance. -/
-theorem frontEnd_owned_prefix (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
+theorem front_end_owned_prefix (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
     (bound : n ≤ frontEndRemainingSteps start) :
     ∃ reached, (FrontEndMachine.next caller)^[n] (some start) = some reached ∧
       frontEndRemainingSteps reached = frontEndRemainingSteps start - n ∧
@@ -628,11 +628,11 @@ theorem frontEnd_owned_prefix (start : FrontEndMachine.Cfg Γ Λ R) (n : Nat)
       FrontEndMachine.stackCells reached ≤ frontEndPotential start ∧
       frontEndFinalCfg reached = frontEndFinalCfg start ∧
       (n = frontEndRemainingSteps start → reached = frontEndFinalCfg start) := by
-  obtain ⟨reached, executed, owned, zero, final⟩ := frontEnd_cfg_prefix_exists caller start n bound
-  have remaining := frontEnd_prefix_remaining caller start reached n bound executed
-  have path := frontEnd_prefix_reachable caller start n bound reached executed
-  have state := frontEnd_cfg_prefix_state caller start reached n bound executed
-  have potential := frontEnd_reaches_potential caller path
+  obtain ⟨reached, executed, owned, zero, final⟩ := front_end_cfg_prefix_exists caller start n bound
+  have remaining := front_end_prefix_remaining caller start reached n bound executed
+  have path := front_end_prefix_reachable caller start n bound reached executed
+  have state := front_end_cfg_prefix_state caller start reached n bound executed
+  have potential := front_end_reaches_potential caller path
   refine ⟨reached, executed, remaining.1, path, owned, zero, state.1, state.2.1, state.2.2,
     potential, ?_, remaining.2, final⟩
   unfold frontEndPotential at potential ⊢

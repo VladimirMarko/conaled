@@ -39,24 +39,24 @@ instance : Fintype FrontEndProtected where
     .certificateBits, .inputRaw, .bitsReverse}
   complete k := by cases k <;> decide
 
-abbrev frontEndAddedAlphabet (Γ : K → Type) : NewBranchStores ⊕ K → Type
+abbrev FrontEndAddedAlphabet (Γ : K → Type) : NewBranchStores ⊕ K → Type
   | .inl _ => Branch
   | .inr k => Γ k
 
-abbrev frontEndProtectedAlphabet (Γ : K → Type) : FrontEndProtected ⊕ K → Type
+abbrev FrontEndProtectedAlphabet (Γ : K → Type) : FrontEndProtected ⊕ K → Type
   | .inl .inputRaw => Tag
   | .inl .framedRaw | .inl .frameFirstReverse | .inl .frameCertReverse
   | .inl .inputBits | .inl .certificateBits | .inl .bitsReverse => Bool
   | .inr k => Γ k
 
 instance frontEndAddedFintype [∀ k, Fintype (Γ k)] (k : NewBranchStores ⊕ K) :
-    Fintype (frontEndAddedAlphabet Γ k) := by
+    Fintype (FrontEndAddedAlphabet Γ k) := by
   cases k with
   | inl k => exact inferInstance
   | inr k => exact inferInstance
 
 instance frontEndProtectedFintype [∀ k, Fintype (Γ k)] (k : FrontEndProtected ⊕ K) :
-    Fintype (frontEndProtectedAlphabet Γ k) := by
+    Fintype (FrontEndProtectedAlphabet Γ k) := by
   cases k with
   | inl k => cases k <;> exact inferInstance
   | inr k => exact inferInstance
@@ -115,8 +115,8 @@ def frontEndStackEquiv : FrontEndMachine.StackId (NewBranchStores ⊕ K) ≃
       | inr k => rfl
 
 def frontEndSymbolEquiv (k : FrontEndMachine.StackId (NewBranchStores ⊕ K)) :
-    FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k ≃
-      alphabet (frontEndProtectedAlphabet Γ) (frontEndStackEquiv k) := by
+    FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k ≃
+      Alphabet (FrontEndProtectedAlphabet Γ) (frontEndStackEquiv k) := by
   cases k with
   | inl k => cases k <;> exact Equiv.refl _
   | inr k => cases k with
@@ -165,58 +165,58 @@ def frontEndRegisterEquiv : FrontEndMachine.Registers (Option Branch × R) ≃
     (resetAll (frontEndRegisterEquiv regs)).2.2 =
       ((regs.2.1.b1, regs.2.1.b2, regs.2.1.b3, regs.2.1.tag), regs.2.2.2) := rfl
 
-theorem frontEnd_newBranch_card : Fintype.card NewBranchStores = 2 := by decide
-theorem frontEnd_protected_card : Fintype.card FrontEndProtected = 7 := by decide
+theorem front_end_newBranchStores_card : Fintype.card NewBranchStores = 2 := by decide
+theorem front_end_protected_card : Fintype.card FrontEndProtected = 7 := by decide
 
-theorem frontEnd_decoder_complement_card : Fintype.card FrontEndDecoderComplement = 459 := by
+theorem front_end_decoder_complement_card : Fintype.card FrontEndDecoderComplement = 459 := by
   simp [FrontEndDecoderComplement]
 
-theorem frontEnd_stack_card [Fintype K] :
+theorem front_end_stack_card [Fintype K] :
     Fintype.card (StackId (FrontEndProtected ⊕ K)) = 16 + Fintype.card K := by
-  rw [card_stackId, Fintype.card_sum, frontEnd_protected_card]
+  rw [card_stackId, Fintype.card_sum, front_end_protected_card]
   omega
 
-theorem frontEnd_source_stack_card [Fintype K] :
+theorem front_end_source_stack_card [Fintype K] :
     Fintype.card (FrontEndMachine.StackId (NewBranchStores ⊕ K)) =
       16 + Fintype.card K := by
   rw [Fintype.card_congr (frontEndStackEquiv (K := K))]
-  exact frontEnd_stack_card
+  exact front_end_stack_card
 
-theorem frontEnd_register_card [Fintype R] :
+theorem front_end_register_card [Fintype R] :
     Fintype.card (Registers (FrontEndDecoderComplement × R)) =
       140454 * Fintype.card R := by
-  rw [card_registers, Fintype.card_prod, frontEnd_decoder_complement_card]
+  rw [card_registers, Fintype.card_prod, front_end_decoder_complement_card]
   omega
 
-theorem frontEnd_source_register_card [Fintype R] :
+theorem front_end_source_register_card [Fintype R] :
     Fintype.card (FrontEndMachine.Registers (Option Branch × R)) =
       140454 * Fintype.card R := by
   rw [Fintype.card_congr (frontEndRegisterEquiv (R := R))]
-  exact frontEnd_register_card
+  exact front_end_register_card
 
-def frontEndStacks : (∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) ≃
-    (∀ k, List (alphabet (frontEndProtectedAlphabet Γ) k)) :=
+def frontEndStacks : (∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k)) ≃
+    (∀ k, List (Alphabet (FrontEndProtectedAlphabet Γ) k)) :=
   FrontEndMachine.Transport.stackEquiv frontEndStackEquiv frontEndSymbolEquiv
 
 @[simp] theorem frontEndStacks_apply
-    (data : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k))
+    (data : ∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k))
     (k : FrontEndMachine.StackId (NewBranchStores ⊕ K)) :
     frontEndStacks data (frontEndStackEquiv k) = (data k).map (frontEndSymbolEquiv k) :=
   FrontEndMachine.Transport.stackEquiv_apply _ _ _ _
 
-theorem frontEnd_stack_cells [Fintype K]
-    (data : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) :
+theorem front_end_stack_cells [Fintype K]
+    (data : ∀ k, List (FrontEndMachine.Alphabet (FrontEndAddedAlphabet Γ) k)) :
     ∑ k, (frontEndStacks data k).length = ∑ k, (data k).length :=
   FrontEndMachine.Transport.stackEquiv_total_length frontEndStackEquiv frontEndSymbolEquiv data
 
 def frontEndAddedContext (B O : List Branch) (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (frontEndAddedAlphabet Γ k)
+    ∀ k, List (FrontEndAddedAlphabet Γ k)
   | .inl .moveReverse => B
   | .inl .path => O
   | .inr k => ctx k
 
 def frontEndSuccessContext (ctx : ∀ k, List (Γ k)) :
-    ∀ k, List (frontEndProtectedAlphabet Γ k)
+    ∀ k, List (FrontEndProtectedAlphabet Γ k)
   | .inl .inputRaw => []
   | .inl .framedRaw | .inl .frameFirstReverse | .inl .frameCertReverse
   | .inl .inputBits | .inl .certificateBits | .inl .bitsReverse => []
@@ -229,12 +229,12 @@ def frontEndSuccessData (source target : BinaryTree Unit) (fuel : List Bool)
 
 /-- The complete physical view has no label component. -/
 def frontEndPhysicalData
-    (c : FrontEndMachine.Cfg (frontEndAddedAlphabet Γ) Λ (Option Branch × R)) :
+    (c : FrontEndMachine.Cfg (FrontEndAddedAlphabet Γ) Λ (Option Branch × R)) :
     Registers (FrontEndDecoderComplement × R) ×
-      (∀ k, List (alphabet (frontEndProtectedAlphabet Γ) k)) :=
+      (∀ k, List (Alphabet (FrontEndProtectedAlphabet Γ) k)) :=
   (frontEndRegisterEquiv c.var, frontEndStacks c.stk)
 
-theorem frontEnd_success_stores
+theorem front_end_success_stores
     (regs : FrontEndMachine.Registers (Option Branch × R)) (B O : List Branch)
     (ctx : ∀ k, List (Γ k)) (source target : BinaryTree Unit) (fuel : List Bool) (cert : Word) :
     frontEndStacks (FrontEndMachine.resultCfg (Λ := Λ) regs (frontEndAddedContext B O ctx)
@@ -252,7 +252,7 @@ theorem frontEnd_success_stores
 
 /-- FE's actual success endpoint retains both incoming Branch words and its
 stale Branch register. The conclusion compares physical data only. -/
-theorem frontEnd_success_physical_data
+theorem front_end_success_physical_data
     (regs : FrontEndMachine.Registers (Option Branch × R)) (B O : List Branch)
     (ctx : ∀ k, List (Γ k)) (source target : BinaryTree Unit) (fuel : List Bool) (cert : Word) :
     frontEndPhysicalData (FrontEndMachine.resultCfg (Λ := Λ) regs
@@ -262,18 +262,18 @@ theorem frontEnd_success_physical_data
           (frontEndSuccessData source target fuel cert B O) (frontEndSuccessContext ctx)).stk) := by
   apply Prod.ext
   · rfl
-  · exact frontEnd_success_stores regs B O ctx source target fuel cert
+  · exact front_end_success_stores regs B O ctx source target fuel cert
 
-theorem frontEnd_protected_sum (f : FrontEndProtected → Nat) :
+theorem front_end_protected_sum (f : FrontEndProtected → Nat) :
     ∑ k, f k = f .framedRaw + f .frameFirstReverse + f .frameCertReverse +
       f .inputBits + f .certificateBits + f .inputRaw + f .bitsReverse := by
   change (∑ k ∈ ({.framedRaw, .frameFirstReverse, .frameCertReverse, .inputBits,
     .certificateBits, .inputRaw, .bitsReverse} : Finset FrontEndProtected), f k) = _
   simp [Nat.add_comm, Nat.add_left_comm]
 
-theorem frontEnd_success_context_cells [Fintype K] (ctx : ∀ k, List (Γ k)) :
+theorem front_end_success_context_cells [Fintype K] (ctx : ∀ k, List (Γ k)) :
     ∑ k, (frontEndSuccessContext ctx k).length = ∑ k, (ctx k).length := by
-  rw [Fintype.sum_sum_type, frontEnd_protected_sum]
+  rw [Fintype.sum_sum_type, front_end_protected_sum]
   simp [frontEndSuccessContext]
 
 end Resources.RotationCertificate.StreamMachine

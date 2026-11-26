@@ -107,7 +107,7 @@ section InstalledCanonicalTiming
 
 variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
 variable [DecidableEq K] [DecidableEq K']
-variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
+variable (names : StackId K ≃ K') (symbols : ∀ k, Alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 variable (caller : Λ → Statement Γ Λ R) (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 variable (installed : ∀ label, Owned (some label) →
@@ -123,7 +123,7 @@ theorem the_actual_installed_first_halt_iff_needs_only_owned_body_agreement
       ∀ j, j < n → ∃ reached,
         (FrontEndMachine.Transport.next ambient)^[j]
           (some (installedCfg names symbols registers labels start)) = some reached ∧
-        installedOwned labels reached.l) ↔
+        InstalledOwned labels reached.l) ↔
       n = remainingSteps start ∧ finish = installedCfg names symbols registers labels (finalCfg start) :=
   installed_first_halt_iff names symbols registers labels caller ambient installed start owned n finish
 
@@ -144,7 +144,7 @@ theorem one_installed_prefix_witness_has_source_and_ambient_execution_and_the_co
         some (installedCfg names symbols registers labels reached) ∧
       remainingSteps reached = remainingSteps start - n ∧
       Relation.ReflTransGen (LocalStep caller) start reached ∧
-      (n < remainingSteps start ↔ installedOwned labels (installedCfg names symbols registers labels reached).l) ∧
+      (n < remainingSteps start ↔ InstalledOwned labels (installedCfg names symbols registers labels reached).l) ∧
       (n = 0 → reached = start) ∧
       (installedCfg names symbols registers labels reached).var = registers (registersAt start n) ∧
       user reached.var = user start.var ∧
@@ -195,7 +195,7 @@ theorem the_same_installed_prefix_witness_carries_the_actual_full_physical_bound
         some (installedCfg names symbols registers labels reached) ∧
       remainingSteps reached = remainingSteps start - n ∧
       Relation.ReflTransGen (LocalStep caller) start reached ∧
-      (n < remainingSteps start ↔ installedOwned labels (installedCfg names symbols registers labels reached).l) ∧
+      (n < remainingSteps start ↔ InstalledOwned labels (installedCfg names symbols registers labels reached).l) ∧
       (n = 0 → reached = start) ∧
       (installedCfg names symbols registers labels reached).var = registers (registersAt start n) ∧
       user reached.var = user start.var ∧
@@ -226,7 +226,7 @@ theorem all_seven_owned_class_clock_formulas_use_the_actual_component_endpoint
     phaseSteps (resultPhase bit) D = localCells D + 18 ∧
     phaseSteps (clearPhase i) D = suffixCells i D + (16 - i.val) + 1 ∧
     phaseSteps emitPhase D = 1 :=
-  ⟨phaseSteps_frontEnd f D, phaseSteps_reject D, phaseSteps_dispatch D,
+  ⟨phaseSteps_frontEndPhase f D, phaseSteps_reject D, phaseSteps_dispatch D,
     phaseSteps_stream s D, phaseSteps_result bit D, phaseSteps_clear i D, phaseSteps_emit D⟩
 
 theorem all_seven_owned_class_endpoints_keep_the_direct_cleaner_answer_and_dirty_emit_fuel
@@ -245,7 +245,7 @@ theorem all_seven_owned_class_endpoints_keep_the_direct_cleaner_answer_and_dirty
       cfg none (fullReset regs) (cleanupData i (answer regs) D) ctx ∧
     phaseResult (Λ := Λ) emitPhase regs D ctx =
       cfg none (fullReset regs) { D with fuel := answer regs :: D.fuel } ctx :=
-  ⟨phaseResult_frontEnd f regs D ctx, phaseResult_reject regs D ctx,
+  ⟨phaseResult_frontEndPhase f regs D ctx, phaseResult_reject regs D ctx,
     phaseResult_dispatch regs D ctx, phaseResult_stream s regs D ctx,
     phaseResult_result bit regs D ctx, phaseResult_clear i regs D ctx, phaseResult_emit regs D ctx⟩
 
@@ -261,7 +261,7 @@ theorem an_actual_front_end_prefix_uses_its_component_masks_before_the_paid_join
     (executed : Runs (step caller) (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx) n reached) :
     reached.var = DirtyFrontEnd.frontEndPhaseRegisters q (frontEndData D) regs n ∧
     user reached.var = user regs ∧ ∀ k, reached.stk (.inr (.inr k)) = ctx k :=
-  frontEnd_component_prefix_state caller q D regs ctx n bound reached executed
+  front_end_component_prefix_state caller q D regs ctx n bound reached executed
 
 theorem an_actual_stream_prefix_keeps_the_complete_decoder_complement_and_staged_masks
     (q : StreamMachine.Phase) (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k))
@@ -441,7 +441,7 @@ theorem each_literal_local_slot_has_its_unique_physical_index
 
 theorem every_symbol_equivalence_has_a_complete_inverse
     (k : StreamMachine.StackId (StreamMachine.FrontEndProtected ⊕ K))
-    (symbol : StreamMachine.alphabet (StreamMachine.frontEndProtectedAlphabet Γ) k) :
+    (symbol : StreamMachine.Alphabet (StreamMachine.FrontEndProtectedAlphabet Γ) k) :
     (streamSymbolEquiv k).symm (streamSymbolEquiv k symbol) = symbol :=
   (streamSymbolEquiv k).symm_apply_apply symbol
 
@@ -519,7 +519,7 @@ theorem all_36_front_end_domains_reach_their_complete_owned_join_before_the_glob
         n reached ∧ Owned reached.l) ∧
     FirstHalt (step caller) (cfg (some (phaseLabel (frontEndPhase q))) regs D ctx)
       (phaseSteps (frontEndPhase q) D) (phaseResult (frontEndPhase q) regs D ctx) := by
-  have component := frontEnd_phase_localRun caller q D regs ctx
+  have component := front_end_phase_localRun caller q D regs ctx
   refine ⟨component.iterate caller, ?_, component.owned_prefix caller,
     phase_first_halt caller (frontEndPhase q) D regs ctx⟩
   exact owned_phase _

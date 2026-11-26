@@ -28,7 +28,7 @@ variable {K Λ R : Type} {Γ : K → Type} [DecidableEq K]
 
 theorem emptyRawFixture_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     LocalRun caller emptyRawFixture.frontEndTicks (emptyRawFixture.start regs ctx) (emptyRawFixture.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs emptyRawFixture.raw ctx
+  front_end_clean_localRun caller regs emptyRawFixture.raw ctx
 
 theorem emptyRawFixture_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     emptyRawFixture.IntermediateExpected (step caller) regs ctx := by
@@ -56,7 +56,7 @@ theorem emptyRawFixture_actual_first_halt (regs : Registers R) (ctx : ∀ k, Lis
 
 theorem truncatedPrefixFixture_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     LocalRun caller truncatedPrefixFixture.frontEndTicks (truncatedPrefixFixture.start regs ctx) (truncatedPrefixFixture.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs truncatedPrefixFixture.raw ctx
+  front_end_clean_localRun caller regs truncatedPrefixFixture.raw ctx
 
 theorem truncatedPrefixFixture_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     truncatedPrefixFixture.IntermediateExpected (step caller) regs ctx := by
@@ -82,1044 +82,1044 @@ theorem truncatedPrefixFixture_actual_first_halt (regs : Registers R) (ctx : ∀
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_F03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_F03.frontEndTicks (raw_F03.start regs ctx) (raw_F03.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_F03.raw ctx
+theorem rawF03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawF03.frontEndTicks (rawF03.start regs ctx) (rawF03.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawF03.raw ctx
 
-theorem raw_F03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F03.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_F03_frontend_actual_local_run caller regs ctx
+theorem rawF03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF03.IntermediateExpected (step caller) regs ctx := by
+  have first := rawF03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F03.frontEndAfter (raw_F03.frontEndKind.registers regs) ctx)
+    (reject_step caller rawF03.frontEndAfter (rawF03.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_F03.frontEndTicks + 1] (some (raw_F03.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_F03.beforeClear ctx)
-  have sameData : raw_F03.frontEndAfter = raw_F03.beforeClear := rfl
+  change (next caller)^[rawF03.frontEndTicks + 1] (some (rawF03.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawF03.beforeClear ctx)
+  have sameData : rawF03.frontEndAfter = rawF03.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_F03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F03.RunExpected (step caller) regs ctx := by
-  have first := raw_F03_frontend_actual_local_run caller regs ctx
+theorem rawF03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF03.RunExpected (step caller) regs ctx := by
+  have first := rawF03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F03.frontEndAfter (raw_F03.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_F03.frontEndAfter
-    (answerRegisters false (raw_F03.frontEndKind.registers regs)) ctx
+    (reject_step caller rawF03.frontEndAfter (rawF03.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawF03.frontEndAfter
+    (answerRegisters false (rawF03.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_F04_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_F04.frontEndTicks (raw_F04.start regs ctx) (raw_F04.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_F04.raw ctx
+theorem rawF04_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawF04.frontEndTicks (rawF04.start regs ctx) (rawF04.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawF04.raw ctx
 
-theorem raw_F04_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F04.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_F04_frontend_actual_local_run caller regs ctx
+theorem rawF04_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF04.IntermediateExpected (step caller) regs ctx := by
+  have first := rawF04_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F04.frontEndAfter (raw_F04.frontEndKind.registers regs) ctx)
+    (reject_step caller rawF04.frontEndAfter (rawF04.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_F04.frontEndTicks + 1] (some (raw_F04.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_F04.beforeClear ctx)
-  have sameData : raw_F04.frontEndAfter = raw_F04.beforeClear := rfl
+  change (next caller)^[rawF04.frontEndTicks + 1] (some (rawF04.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawF04.beforeClear ctx)
+  have sameData : rawF04.frontEndAfter = rawF04.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_F04_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F04.RunExpected (step caller) regs ctx := by
-  have first := raw_F04_frontend_actual_local_run caller regs ctx
+theorem rawF04_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF04.RunExpected (step caller) regs ctx := by
+  have first := rawF04_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F04.frontEndAfter (raw_F04.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_F04.frontEndAfter
-    (answerRegisters false (raw_F04.frontEndKind.registers regs)) ctx
+    (reject_step caller rawF04.frontEndAfter (rawF04.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawF04.frontEndAfter
+    (answerRegisters false (rawF04.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_F05_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_F05.frontEndTicks (raw_F05.start regs ctx) (raw_F05.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_F05.raw ctx
+theorem rawF05_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawF05.frontEndTicks (rawF05.start regs ctx) (rawF05.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawF05.raw ctx
 
-theorem raw_F05_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F05.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_F05_frontend_actual_local_run caller regs ctx
+theorem rawF05_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF05.IntermediateExpected (step caller) regs ctx := by
+  have first := rawF05_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F05.frontEndAfter (raw_F05.frontEndKind.registers regs) ctx)
+    (reject_step caller rawF05.frontEndAfter (rawF05.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_F05.frontEndTicks + 1] (some (raw_F05.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_F05.beforeClear ctx)
-  have sameData : raw_F05.frontEndAfter = raw_F05.beforeClear := rfl
+  change (next caller)^[rawF05.frontEndTicks + 1] (some (rawF05.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawF05.beforeClear ctx)
+  have sameData : rawF05.frontEndAfter = rawF05.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_F05_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F05.RunExpected (step caller) regs ctx := by
-  have first := raw_F05_frontend_actual_local_run caller regs ctx
+theorem rawF05_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF05.RunExpected (step caller) regs ctx := by
+  have first := rawF05_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F05.frontEndAfter (raw_F05.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_F05.frontEndAfter
-    (answerRegisters false (raw_F05.frontEndKind.registers regs)) ctx
+    (reject_step caller rawF05.frontEndAfter (rawF05.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawF05.frontEndAfter
+    (answerRegisters false (rawF05.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_F06_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_F06.frontEndTicks (raw_F06.start regs ctx) (raw_F06.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_F06.raw ctx
+theorem rawF06_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawF06.frontEndTicks (rawF06.start regs ctx) (rawF06.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawF06.raw ctx
 
-theorem raw_F06_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F06.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_F06_frontend_actual_local_run caller regs ctx
+theorem rawF06_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF06.IntermediateExpected (step caller) regs ctx := by
+  have first := rawF06_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F06.frontEndAfter (raw_F06.frontEndKind.registers regs) ctx)
+    (reject_step caller rawF06.frontEndAfter (rawF06.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_F06.frontEndTicks + 1] (some (raw_F06.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_F06.beforeClear ctx)
-  have sameData : raw_F06.frontEndAfter = raw_F06.beforeClear := rfl
+  change (next caller)^[rawF06.frontEndTicks + 1] (some (rawF06.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawF06.beforeClear ctx)
+  have sameData : rawF06.frontEndAfter = rawF06.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_F06_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F06.RunExpected (step caller) regs ctx := by
-  have first := raw_F06_frontend_actual_local_run caller regs ctx
+theorem rawF06_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF06.RunExpected (step caller) regs ctx := by
+  have first := rawF06_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F06.frontEndAfter (raw_F06.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_F06.frontEndAfter
-    (answerRegisters false (raw_F06.frontEndKind.registers regs)) ctx
+    (reject_step caller rawF06.frontEndAfter (rawF06.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawF06.frontEndAfter
+    (answerRegisters false (rawF06.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_F07_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_F07.frontEndTicks (raw_F07.start regs ctx) (raw_F07.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_F07.raw ctx
+theorem rawF07_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawF07.frontEndTicks (rawF07.start regs ctx) (rawF07.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawF07.raw ctx
 
-theorem raw_F07_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F07.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_F07_frontend_actual_local_run caller regs ctx
+theorem rawF07_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF07.IntermediateExpected (step caller) regs ctx := by
+  have first := rawF07_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F07.frontEndAfter (raw_F07.frontEndKind.registers regs) ctx)
+    (reject_step caller rawF07.frontEndAfter (rawF07.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_F07.frontEndTicks + 1] (some (raw_F07.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_F07.beforeClear ctx)
-  have sameData : raw_F07.frontEndAfter = raw_F07.beforeClear := rfl
+  change (next caller)^[rawF07.frontEndTicks + 1] (some (rawF07.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawF07.beforeClear ctx)
+  have sameData : rawF07.frontEndAfter = rawF07.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_F07_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F07.RunExpected (step caller) regs ctx := by
-  have first := raw_F07_frontend_actual_local_run caller regs ctx
+theorem rawF07_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF07.RunExpected (step caller) regs ctx := by
+  have first := rawF07_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F07.frontEndAfter (raw_F07.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_F07.frontEndAfter
-    (answerRegisters false (raw_F07.frontEndKind.registers regs)) ctx
+    (reject_step caller rawF07.frontEndAfter (rawF07.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawF07.frontEndAfter
+    (answerRegisters false (rawF07.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_F08_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_F08.frontEndTicks (raw_F08.start regs ctx) (raw_F08.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_F08.raw ctx
+theorem rawF08_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawF08.frontEndTicks (rawF08.start regs ctx) (rawF08.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawF08.raw ctx
 
-theorem raw_F08_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F08.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_F08_frontend_actual_local_run caller regs ctx
+theorem rawF08_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF08.IntermediateExpected (step caller) regs ctx := by
+  have first := rawF08_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F08.frontEndAfter (raw_F08.frontEndKind.registers regs) ctx)
+    (reject_step caller rawF08.frontEndAfter (rawF08.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_F08.frontEndTicks + 1] (some (raw_F08.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_F08.beforeClear ctx)
-  have sameData : raw_F08.frontEndAfter = raw_F08.beforeClear := rfl
+  change (next caller)^[rawF08.frontEndTicks + 1] (some (rawF08.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawF08.beforeClear ctx)
+  have sameData : rawF08.frontEndAfter = rawF08.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_F08_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F08.RunExpected (step caller) regs ctx := by
-  have first := raw_F08_frontend_actual_local_run caller regs ctx
+theorem rawF08_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF08.RunExpected (step caller) regs ctx := by
+  have first := rawF08_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_F08.frontEndAfter (raw_F08.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_F08.frontEndAfter
-    (answerRegisters false (raw_F08.frontEndKind.registers regs)) ctx
+    (reject_step caller rawF08.frontEndAfter (rawF08.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawF08.frontEndAfter
+    (answerRegisters false (rawF08.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_I01_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_I01.frontEndTicks (raw_I01.start regs ctx) (raw_I01.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_I01.raw ctx
+theorem rawI01_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawI01.frontEndTicks (rawI01.start regs ctx) (rawI01.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawI01.raw ctx
 
-theorem raw_I01_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I01.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_I01_frontend_actual_local_run caller regs ctx
+theorem rawI01_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI01.IntermediateExpected (step caller) regs ctx := by
+  have first := rawI01_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I01.frontEndAfter (raw_I01.frontEndKind.registers regs) ctx)
+    (reject_step caller rawI01.frontEndAfter (rawI01.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_I01.frontEndTicks + 1] (some (raw_I01.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_I01.beforeClear ctx)
-  have sameData : raw_I01.frontEndAfter = raw_I01.beforeClear := rfl
+  change (next caller)^[rawI01.frontEndTicks + 1] (some (rawI01.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawI01.beforeClear ctx)
+  have sameData : rawI01.frontEndAfter = rawI01.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_I01_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I01.RunExpected (step caller) regs ctx := by
-  have first := raw_I01_frontend_actual_local_run caller regs ctx
+theorem rawI01_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI01.RunExpected (step caller) regs ctx := by
+  have first := rawI01_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I01.frontEndAfter (raw_I01.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_I01.frontEndAfter
-    (answerRegisters false (raw_I01.frontEndKind.registers regs)) ctx
+    (reject_step caller rawI01.frontEndAfter (rawI01.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawI01.frontEndAfter
+    (answerRegisters false (rawI01.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_I02_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_I02.frontEndTicks (raw_I02.start regs ctx) (raw_I02.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_I02.raw ctx
+theorem rawI02_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawI02.frontEndTicks (rawI02.start regs ctx) (rawI02.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawI02.raw ctx
 
-theorem raw_I02_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I02.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_I02_frontend_actual_local_run caller regs ctx
+theorem rawI02_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI02.IntermediateExpected (step caller) regs ctx := by
+  have first := rawI02_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I02.frontEndAfter (raw_I02.frontEndKind.registers regs) ctx)
+    (reject_step caller rawI02.frontEndAfter (rawI02.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_I02.frontEndTicks + 1] (some (raw_I02.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_I02.beforeClear ctx)
-  have sameData : raw_I02.frontEndAfter = raw_I02.beforeClear := rfl
+  change (next caller)^[rawI02.frontEndTicks + 1] (some (rawI02.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawI02.beforeClear ctx)
+  have sameData : rawI02.frontEndAfter = rawI02.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_I02_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I02.RunExpected (step caller) regs ctx := by
-  have first := raw_I02_frontend_actual_local_run caller regs ctx
+theorem rawI02_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI02.RunExpected (step caller) regs ctx := by
+  have first := rawI02_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I02.frontEndAfter (raw_I02.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_I02.frontEndAfter
-    (answerRegisters false (raw_I02.frontEndKind.registers regs)) ctx
+    (reject_step caller rawI02.frontEndAfter (rawI02.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawI02.frontEndAfter
+    (answerRegisters false (rawI02.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_I03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_I03.frontEndTicks (raw_I03.start regs ctx) (raw_I03.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_I03.raw ctx
+theorem rawI03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawI03.frontEndTicks (rawI03.start regs ctx) (rawI03.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawI03.raw ctx
 
-theorem raw_I03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I03.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_I03_frontend_actual_local_run caller regs ctx
+theorem rawI03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI03.IntermediateExpected (step caller) regs ctx := by
+  have first := rawI03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I03.frontEndAfter (raw_I03.frontEndKind.registers regs) ctx)
+    (reject_step caller rawI03.frontEndAfter (rawI03.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_I03.frontEndTicks + 1] (some (raw_I03.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_I03.beforeClear ctx)
-  have sameData : raw_I03.frontEndAfter = raw_I03.beforeClear := rfl
+  change (next caller)^[rawI03.frontEndTicks + 1] (some (rawI03.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawI03.beforeClear ctx)
+  have sameData : rawI03.frontEndAfter = rawI03.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_I03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I03.RunExpected (step caller) regs ctx := by
-  have first := raw_I03_frontend_actual_local_run caller regs ctx
+theorem rawI03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI03.RunExpected (step caller) regs ctx := by
+  have first := rawI03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I03.frontEndAfter (raw_I03.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_I03.frontEndAfter
-    (answerRegisters false (raw_I03.frontEndKind.registers regs)) ctx
+    (reject_step caller rawI03.frontEndAfter (rawI03.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawI03.frontEndAfter
+    (answerRegisters false (rawI03.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_I04_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_I04.frontEndTicks (raw_I04.start regs ctx) (raw_I04.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_I04.raw ctx
+theorem rawI04_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawI04.frontEndTicks (rawI04.start regs ctx) (rawI04.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawI04.raw ctx
 
-theorem raw_I04_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I04.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_I04_frontend_actual_local_run caller regs ctx
+theorem rawI04_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI04.IntermediateExpected (step caller) regs ctx := by
+  have first := rawI04_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I04.frontEndAfter (raw_I04.frontEndKind.registers regs) ctx)
+    (reject_step caller rawI04.frontEndAfter (rawI04.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_I04.frontEndTicks + 1] (some (raw_I04.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_I04.beforeClear ctx)
-  have sameData : raw_I04.frontEndAfter = raw_I04.beforeClear := rfl
+  change (next caller)^[rawI04.frontEndTicks + 1] (some (rawI04.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawI04.beforeClear ctx)
+  have sameData : rawI04.frontEndAfter = rawI04.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_I04_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I04.RunExpected (step caller) regs ctx := by
-  have first := raw_I04_frontend_actual_local_run caller regs ctx
+theorem rawI04_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI04.RunExpected (step caller) regs ctx := by
+  have first := rawI04_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I04.frontEndAfter (raw_I04.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_I04.frontEndAfter
-    (answerRegisters false (raw_I04.frontEndKind.registers regs)) ctx
+    (reject_step caller rawI04.frontEndAfter (rawI04.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawI04.frontEndAfter
+    (answerRegisters false (rawI04.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_I05_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_I05.frontEndTicks (raw_I05.start regs ctx) (raw_I05.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_I05.raw ctx
+theorem rawI05_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawI05.frontEndTicks (rawI05.start regs ctx) (rawI05.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawI05.raw ctx
 
-theorem raw_I05_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I05.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_I05_frontend_actual_local_run caller regs ctx
+theorem rawI05_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI05.IntermediateExpected (step caller) regs ctx := by
+  have first := rawI05_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I05.frontEndAfter (raw_I05.frontEndKind.registers regs) ctx)
+    (reject_step caller rawI05.frontEndAfter (rawI05.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_I05.frontEndTicks + 1] (some (raw_I05.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_I05.beforeClear ctx)
-  have sameData : raw_I05.frontEndAfter = raw_I05.beforeClear := rfl
+  change (next caller)^[rawI05.frontEndTicks + 1] (some (rawI05.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawI05.beforeClear ctx)
+  have sameData : rawI05.frontEndAfter = rawI05.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_I05_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I05.RunExpected (step caller) regs ctx := by
-  have first := raw_I05_frontend_actual_local_run caller regs ctx
+theorem rawI05_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI05.RunExpected (step caller) regs ctx := by
+  have first := rawI05_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I05.frontEndAfter (raw_I05.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_I05.frontEndAfter
-    (answerRegisters false (raw_I05.frontEndKind.registers regs)) ctx
+    (reject_step caller rawI05.frontEndAfter (rawI05.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawI05.frontEndAfter
+    (answerRegisters false (rawI05.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_I06_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_I06.frontEndTicks (raw_I06.start regs ctx) (raw_I06.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_I06.raw ctx
+theorem rawI06_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawI06.frontEndTicks (rawI06.start regs ctx) (rawI06.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawI06.raw ctx
 
-theorem raw_I06_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I06.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_I06_frontend_actual_local_run caller regs ctx
+theorem rawI06_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI06.IntermediateExpected (step caller) regs ctx := by
+  have first := rawI06_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I06.frontEndAfter (raw_I06.frontEndKind.registers regs) ctx)
+    (reject_step caller rawI06.frontEndAfter (rawI06.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_I06.frontEndTicks + 1] (some (raw_I06.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_I06.beforeClear ctx)
-  have sameData : raw_I06.frontEndAfter = raw_I06.beforeClear := rfl
+  change (next caller)^[rawI06.frontEndTicks + 1] (some (rawI06.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawI06.beforeClear ctx)
+  have sameData : rawI06.frontEndAfter = rawI06.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_I06_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I06.RunExpected (step caller) regs ctx := by
-  have first := raw_I06_frontend_actual_local_run caller regs ctx
+theorem rawI06_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI06.RunExpected (step caller) regs ctx := by
+  have first := rawI06_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I06.frontEndAfter (raw_I06.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_I06.frontEndAfter
-    (answerRegisters false (raw_I06.frontEndKind.registers regs)) ctx
+    (reject_step caller rawI06.frontEndAfter (rawI06.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawI06.frontEndAfter
+    (answerRegisters false (rawI06.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_I07_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_I07.frontEndTicks (raw_I07.start regs ctx) (raw_I07.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_I07.raw ctx
+theorem rawI07_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawI07.frontEndTicks (rawI07.start regs ctx) (rawI07.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawI07.raw ctx
 
-theorem raw_I07_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I07.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_I07_frontend_actual_local_run caller regs ctx
+theorem rawI07_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI07.IntermediateExpected (step caller) regs ctx := by
+  have first := rawI07_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I07.frontEndAfter (raw_I07.frontEndKind.registers regs) ctx)
+    (reject_step caller rawI07.frontEndAfter (rawI07.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_I07.frontEndTicks + 1] (some (raw_I07.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_I07.beforeClear ctx)
-  have sameData : raw_I07.frontEndAfter = raw_I07.beforeClear := rfl
+  change (next caller)^[rawI07.frontEndTicks + 1] (some (rawI07.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawI07.beforeClear ctx)
+  have sameData : rawI07.frontEndAfter = rawI07.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_I07_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I07.RunExpected (step caller) regs ctx := by
-  have first := raw_I07_frontend_actual_local_run caller regs ctx
+theorem rawI07_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI07.RunExpected (step caller) regs ctx := by
+  have first := rawI07_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_I07.frontEndAfter (raw_I07.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_I07.frontEndAfter
-    (answerRegisters false (raw_I07.frontEndKind.registers regs)) ctx
+    (reject_step caller rawI07.frontEndAfter (rawI07.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawI07.frontEndAfter
+    (answerRegisters false (rawI07.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_C01_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_C01.frontEndTicks (raw_C01.start regs ctx) (raw_C01.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_C01.raw ctx
+theorem rawC01_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawC01.frontEndTicks (rawC01.start regs ctx) (rawC01.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawC01.raw ctx
 
-theorem raw_C01_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C01.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_C01_frontend_actual_local_run caller regs ctx
+theorem rawC01_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC01.IntermediateExpected (step caller) regs ctx := by
+  have first := rawC01_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_C01.frontEndAfter (raw_C01.frontEndKind.registers regs) ctx)
+    (reject_step caller rawC01.frontEndAfter (rawC01.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_C01.frontEndTicks + 1] (some (raw_C01.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_C01.beforeClear ctx)
-  have sameData : raw_C01.frontEndAfter = raw_C01.beforeClear := rfl
+  change (next caller)^[rawC01.frontEndTicks + 1] (some (rawC01.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawC01.beforeClear ctx)
+  have sameData : rawC01.frontEndAfter = rawC01.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_C01_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C01.RunExpected (step caller) regs ctx := by
-  have first := raw_C01_frontend_actual_local_run caller regs ctx
+theorem rawC01_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC01.RunExpected (step caller) regs ctx := by
+  have first := rawC01_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_C01.frontEndAfter (raw_C01.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_C01.frontEndAfter
-    (answerRegisters false (raw_C01.frontEndKind.registers regs)) ctx
+    (reject_step caller rawC01.frontEndAfter (rawC01.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawC01.frontEndAfter
+    (answerRegisters false (rawC01.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_C02_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_C02.frontEndTicks (raw_C02.start regs ctx) (raw_C02.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_C02.raw ctx
+theorem rawC02_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawC02.frontEndTicks (rawC02.start regs ctx) (rawC02.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawC02.raw ctx
 
-theorem raw_C02_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C02.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_C02_frontend_actual_local_run caller regs ctx
+theorem rawC02_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC02.IntermediateExpected (step caller) regs ctx := by
+  have first := rawC02_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_C02.frontEndAfter (raw_C02.frontEndKind.registers regs) ctx)
+    (reject_step caller rawC02.frontEndAfter (rawC02.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_C02.frontEndTicks + 1] (some (raw_C02.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_C02.beforeClear ctx)
-  have sameData : raw_C02.frontEndAfter = raw_C02.beforeClear := rfl
+  change (next caller)^[rawC02.frontEndTicks + 1] (some (rawC02.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawC02.beforeClear ctx)
+  have sameData : rawC02.frontEndAfter = rawC02.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_C02_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C02.RunExpected (step caller) regs ctx := by
-  have first := raw_C02_frontend_actual_local_run caller regs ctx
+theorem rawC02_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC02.RunExpected (step caller) regs ctx := by
+  have first := rawC02_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_C02.frontEndAfter (raw_C02.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_C02.frontEndAfter
-    (answerRegisters false (raw_C02.frontEndKind.registers regs)) ctx
+    (reject_step caller rawC02.frontEndAfter (rawC02.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawC02.frontEndAfter
+    (answerRegisters false (rawC02.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_C03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_C03.frontEndTicks (raw_C03.start regs ctx) (raw_C03.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_C03.raw ctx
+theorem rawC03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawC03.frontEndTicks (rawC03.start regs ctx) (rawC03.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawC03.raw ctx
 
-theorem raw_C03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C03.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_C03_frontend_actual_local_run caller regs ctx
+theorem rawC03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC03.IntermediateExpected (step caller) regs ctx := by
+  have first := rawC03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_C03.frontEndAfter (raw_C03.frontEndKind.registers regs) ctx)
+    (reject_step caller rawC03.frontEndAfter (rawC03.frontEndKind.registers regs) ctx)
   refine ⟨first.iterate caller, ?_⟩
   have joined := LocalRun.trans caller first join
-  change (next caller)^[raw_C03.frontEndTicks + 1] (some (raw_C03.start regs ctx)) =
-    some (cfg (some (clearLabel 0)) (answerRegisters false regs) raw_C03.beforeClear ctx)
-  have sameData : raw_C03.frontEndAfter = raw_C03.beforeClear := rfl
+  change (next caller)^[rawC03.frontEndTicks + 1] (some (rawC03.start regs ctx)) =
+    some (cfg (some (clearLabel 0)) (answerRegisters false regs) rawC03.beforeClear ctx)
+  have sameData : rawC03.frontEndAfter = rawC03.beforeClear := rfl
   simpa only [answer_after_any_front_end_outcome, sameData] using joined.iterate caller
 
-theorem raw_C03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C03.RunExpected (step caller) regs ctx := by
-  have first := raw_C03_frontend_actual_local_run caller regs ctx
+theorem rawC03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC03.RunExpected (step caller) regs ctx := by
+  have first := rawC03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (reject_step caller raw_C03.frontEndAfter (raw_C03.frontEndKind.registers regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_C03.frontEndAfter
-    (answerRegisters false (raw_C03.frontEndKind.registers regs)) ctx
+    (reject_step caller rawC03.frontEndAfter (rawC03.frontEndKind.registers regs) ctx)
+  have tail := cleanup_localRun caller 0 rawC03.frontEndAfter
+    (answerRegisters false (rawC03.frontEndKind.registers regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller first join) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters,
     full_reset_after_any_front_end_outcome] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V01_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V01.frontEndTicks (raw_V01.start regs ctx) (raw_V01.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V01.raw ctx
+theorem rawV01_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV01.frontEndTicks (rawV01.start regs ctx) (rawV01.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV01.raw ctx
 
-theorem raw_V01_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V01.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V01_frontend_actual_local_run caller regs ctx
+theorem rawV01_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV01.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV01_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V01.frontEndAfter (raw_V01.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV01.frontEndAfter (rawV01.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V01_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV01_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V01.result raw_V01.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV01.result rawV01.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V01_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V01.RunExpected (step caller) regs ctx := by
-  have first := raw_V01_frontend_actual_local_run caller regs ctx
+theorem rawV01_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV01.RunExpected (step caller) regs ctx := by
+  have first := rawV01_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V01.frontEndAfter (raw_V01.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV01.frontEndAfter (rawV01.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V01_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV01_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V01.result raw_V01.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V01.beforeClear
-    (answerRegisters raw_V01.result (fullReset regs)) ctx
+    (result_step caller rawV01.result rawV01.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV01.beforeClear
+    (answerRegisters rawV01.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V02_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V02.frontEndTicks (raw_V02.start regs ctx) (raw_V02.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V02.raw ctx
+theorem rawV02_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV02.frontEndTicks (rawV02.start regs ctx) (rawV02.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV02.raw ctx
 
-theorem raw_V02_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V02.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V02_frontend_actual_local_run caller regs ctx
+theorem rawV02_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV02.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV02_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V02.frontEndAfter (raw_V02.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV02.frontEndAfter (rawV02.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V02_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV02_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V02.result raw_V02.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV02.result rawV02.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V02_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V02.RunExpected (step caller) regs ctx := by
-  have first := raw_V02_frontend_actual_local_run caller regs ctx
+theorem rawV02_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV02.RunExpected (step caller) regs ctx := by
+  have first := rawV02_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V02.frontEndAfter (raw_V02.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV02.frontEndAfter (rawV02.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V02_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV02_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V02.result raw_V02.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V02.beforeClear
-    (answerRegisters raw_V02.result (fullReset regs)) ctx
+    (result_step caller rawV02.result rawV02.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV02.beforeClear
+    (answerRegisters rawV02.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V03.frontEndTicks (raw_V03.start regs ctx) (raw_V03.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V03.raw ctx
+theorem rawV03_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV03.frontEndTicks (rawV03.start regs ctx) (rawV03.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV03.raw ctx
 
-theorem raw_V03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V03.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V03_frontend_actual_local_run caller regs ctx
+theorem rawV03_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV03.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V03.frontEndAfter (raw_V03.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV03.frontEndAfter (rawV03.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V03_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV03_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V03.result raw_V03.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV03.result rawV03.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V03.RunExpected (step caller) regs ctx := by
-  have first := raw_V03_frontend_actual_local_run caller regs ctx
+theorem rawV03_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV03.RunExpected (step caller) regs ctx := by
+  have first := rawV03_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V03.frontEndAfter (raw_V03.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV03.frontEndAfter (rawV03.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V03_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV03_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V03.result raw_V03.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V03.beforeClear
-    (answerRegisters raw_V03.result (fullReset regs)) ctx
+    (result_step caller rawV03.result rawV03.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV03.beforeClear
+    (answerRegisters rawV03.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V04_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V04.frontEndTicks (raw_V04.start regs ctx) (raw_V04.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V04.raw ctx
+theorem rawV04_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV04.frontEndTicks (rawV04.start regs ctx) (rawV04.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV04.raw ctx
 
-theorem raw_V04_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V04.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V04_frontend_actual_local_run caller regs ctx
+theorem rawV04_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV04.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV04_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V04.frontEndAfter (raw_V04.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV04.frontEndAfter (rawV04.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V04_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV04_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V04.result raw_V04.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV04.result rawV04.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V04_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V04.RunExpected (step caller) regs ctx := by
-  have first := raw_V04_frontend_actual_local_run caller regs ctx
+theorem rawV04_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV04.RunExpected (step caller) regs ctx := by
+  have first := rawV04_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V04.frontEndAfter (raw_V04.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV04.frontEndAfter (rawV04.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V04_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV04_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V04.result raw_V04.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V04.beforeClear
-    (answerRegisters raw_V04.result (fullReset regs)) ctx
+    (result_step caller rawV04.result rawV04.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV04.beforeClear
+    (answerRegisters rawV04.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V05_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V05.frontEndTicks (raw_V05.start regs ctx) (raw_V05.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V05.raw ctx
+theorem rawV05_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV05.frontEndTicks (rawV05.start regs ctx) (rawV05.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV05.raw ctx
 
-theorem raw_V05_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V05.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V05_frontend_actual_local_run caller regs ctx
+theorem rawV05_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV05.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV05_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V05.frontEndAfter (raw_V05.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV05.frontEndAfter (rawV05.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V05_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV05_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V05.result raw_V05.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV05.result rawV05.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V05_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V05.RunExpected (step caller) regs ctx := by
-  have first := raw_V05_frontend_actual_local_run caller regs ctx
+theorem rawV05_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV05.RunExpected (step caller) regs ctx := by
+  have first := rawV05_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V05.frontEndAfter (raw_V05.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV05.frontEndAfter (rawV05.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V05_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV05_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V05.result raw_V05.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V05.beforeClear
-    (answerRegisters raw_V05.result (fullReset regs)) ctx
+    (result_step caller rawV05.result rawV05.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV05.beforeClear
+    (answerRegisters rawV05.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V06_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V06.frontEndTicks (raw_V06.start regs ctx) (raw_V06.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V06.raw ctx
+theorem rawV06_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV06.frontEndTicks (rawV06.start regs ctx) (rawV06.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV06.raw ctx
 
-theorem raw_V06_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V06.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V06_frontend_actual_local_run caller regs ctx
+theorem rawV06_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV06.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV06_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V06.frontEndAfter (raw_V06.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV06.frontEndAfter (rawV06.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V06_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV06_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V06.result raw_V06.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV06.result rawV06.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V06_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V06.RunExpected (step caller) regs ctx := by
-  have first := raw_V06_frontend_actual_local_run caller regs ctx
+theorem rawV06_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV06.RunExpected (step caller) regs ctx := by
+  have first := rawV06_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V06.frontEndAfter (raw_V06.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV06.frontEndAfter (rawV06.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V06_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV06_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V06.result raw_V06.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V06.beforeClear
-    (answerRegisters raw_V06.result (fullReset regs)) ctx
+    (result_step caller rawV06.result rawV06.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV06.beforeClear
+    (answerRegisters rawV06.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V07_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V07.frontEndTicks (raw_V07.start regs ctx) (raw_V07.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V07.raw ctx
+theorem rawV07_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV07.frontEndTicks (rawV07.start regs ctx) (rawV07.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV07.raw ctx
 
-theorem raw_V07_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V07.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V07_frontend_actual_local_run caller regs ctx
+theorem rawV07_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV07.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV07_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V07.frontEndAfter (raw_V07.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV07.frontEndAfter (rawV07.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V07_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV07_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V07.result raw_V07.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV07.result rawV07.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V07_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V07.RunExpected (step caller) regs ctx := by
-  have first := raw_V07_frontend_actual_local_run caller regs ctx
+theorem rawV07_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV07.RunExpected (step caller) regs ctx := by
+  have first := rawV07_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V07.frontEndAfter (raw_V07.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV07.frontEndAfter (rawV07.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V07_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV07_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V07.result raw_V07.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V07.beforeClear
-    (answerRegisters raw_V07.result (fullReset regs)) ctx
+    (result_step caller rawV07.result rawV07.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV07.beforeClear
+    (answerRegisters rawV07.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V08_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V08.frontEndTicks (raw_V08.start regs ctx) (raw_V08.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V08.raw ctx
+theorem rawV08_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV08.frontEndTicks (rawV08.start regs ctx) (rawV08.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV08.raw ctx
 
-theorem raw_V08_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V08.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V08_frontend_actual_local_run caller regs ctx
+theorem rawV08_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV08.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV08_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V08.frontEndAfter (raw_V08.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV08.frontEndAfter (rawV08.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V08_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV08_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V08.result raw_V08.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV08.result rawV08.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V08_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V08.RunExpected (step caller) regs ctx := by
-  have first := raw_V08_frontend_actual_local_run caller regs ctx
+theorem rawV08_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV08.RunExpected (step caller) regs ctx := by
+  have first := rawV08_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V08.frontEndAfter (raw_V08.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV08.frontEndAfter (rawV08.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V08_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV08_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V08.result raw_V08.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V08.beforeClear
-    (answerRegisters raw_V08.result (fullReset regs)) ctx
+    (result_step caller rawV08.result rawV08.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV08.beforeClear
+    (answerRegisters rawV08.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V09_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V09.frontEndTicks (raw_V09.start regs ctx) (raw_V09.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V09.raw ctx
+theorem rawV09_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV09.frontEndTicks (rawV09.start regs ctx) (rawV09.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV09.raw ctx
 
-theorem raw_V09_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V09.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V09_frontend_actual_local_run caller regs ctx
+theorem rawV09_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV09.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV09_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V09.frontEndAfter (raw_V09.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV09.frontEndAfter (rawV09.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V09_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV09_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V09.result raw_V09.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV09.result rawV09.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V09_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V09.RunExpected (step caller) regs ctx := by
-  have first := raw_V09_frontend_actual_local_run caller regs ctx
+theorem rawV09_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV09.RunExpected (step caller) regs ctx := by
+  have first := rawV09_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V09.frontEndAfter (raw_V09.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV09.frontEndAfter (rawV09.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V09_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV09_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V09.result raw_V09.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V09.beforeClear
-    (answerRegisters raw_V09.result (fullReset regs)) ctx
+    (result_step caller rawV09.result rawV09.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV09.beforeClear
+    (answerRegisters rawV09.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V10_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V10.frontEndTicks (raw_V10.start regs ctx) (raw_V10.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V10.raw ctx
+theorem rawV10_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV10.frontEndTicks (rawV10.start regs ctx) (rawV10.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV10.raw ctx
 
-theorem raw_V10_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V10.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V10_frontend_actual_local_run caller regs ctx
+theorem rawV10_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV10.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV10_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V10.frontEndAfter (raw_V10.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV10.frontEndAfter (rawV10.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V10_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV10_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V10.result raw_V10.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV10.result rawV10.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V10_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V10.RunExpected (step caller) regs ctx := by
-  have first := raw_V10_frontend_actual_local_run caller regs ctx
+theorem rawV10_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV10.RunExpected (step caller) regs ctx := by
+  have first := rawV10_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V10.frontEndAfter (raw_V10.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV10.frontEndAfter (rawV10.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V10_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV10_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V10.result raw_V10.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V10.beforeClear
-    (answerRegisters raw_V10.result (fullReset regs)) ctx
+    (result_step caller rawV10.result rawV10.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV10.beforeClear
+    (answerRegisters rawV10.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V11_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V11.frontEndTicks (raw_V11.start regs ctx) (raw_V11.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V11.raw ctx
+theorem rawV11_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV11.frontEndTicks (rawV11.start regs ctx) (rawV11.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV11.raw ctx
 
-theorem raw_V11_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V11.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V11_frontend_actual_local_run caller regs ctx
+theorem rawV11_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV11.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV11_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V11.frontEndAfter (raw_V11.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV11.frontEndAfter (rawV11.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V11_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV11_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V11.result raw_V11.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV11.result rawV11.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V11_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V11.RunExpected (step caller) regs ctx := by
-  have first := raw_V11_frontend_actual_local_run caller regs ctx
+theorem rawV11_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV11.RunExpected (step caller) regs ctx := by
+  have first := rawV11_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V11.frontEndAfter (raw_V11.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV11.frontEndAfter (rawV11.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V11_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV11_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V11.result raw_V11.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V11.beforeClear
-    (answerRegisters raw_V11.result (fullReset regs)) ctx
+    (result_step caller rawV11.result rawV11.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV11.beforeClear
+    (answerRegisters rawV11.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V12_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V12.frontEndTicks (raw_V12.start regs ctx) (raw_V12.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V12.raw ctx
+theorem rawV12_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV12.frontEndTicks (rawV12.start regs ctx) (rawV12.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV12.raw ctx
 
-theorem raw_V12_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V12.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V12_frontend_actual_local_run caller regs ctx
+theorem rawV12_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV12.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV12_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V12.frontEndAfter (raw_V12.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV12.frontEndAfter (rawV12.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V12_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV12_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V12.result raw_V12.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV12.result rawV12.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V12_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V12.RunExpected (step caller) regs ctx := by
-  have first := raw_V12_frontend_actual_local_run caller regs ctx
+theorem rawV12_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV12.RunExpected (step caller) regs ctx := by
+  have first := rawV12_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V12.frontEndAfter (raw_V12.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV12.frontEndAfter (rawV12.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V12_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV12_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V12.result raw_V12.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V12.beforeClear
-    (answerRegisters raw_V12.result (fullReset regs)) ctx
+    (result_step caller rawV12.result rawV12.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV12.beforeClear
+    (answerRegisters rawV12.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V13_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V13.frontEndTicks (raw_V13.start regs ctx) (raw_V13.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V13.raw ctx
+theorem rawV13_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV13.frontEndTicks (rawV13.start regs ctx) (rawV13.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV13.raw ctx
 
-theorem raw_V13_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V13.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V13_frontend_actual_local_run caller regs ctx
+theorem rawV13_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV13.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV13_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V13.frontEndAfter (raw_V13.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV13.frontEndAfter (rawV13.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V13_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV13_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V13.result raw_V13.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV13.result rawV13.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V13_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V13.RunExpected (step caller) regs ctx := by
-  have first := raw_V13_frontend_actual_local_run caller regs ctx
+theorem rawV13_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV13.RunExpected (step caller) regs ctx := by
+  have first := rawV13_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V13.frontEndAfter (raw_V13.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV13.frontEndAfter (rawV13.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V13_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV13_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V13.result raw_V13.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V13.beforeClear
-    (answerRegisters raw_V13.result (fullReset regs)) ctx
+    (result_step caller rawV13.result rawV13.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV13.beforeClear
+    (answerRegisters rawV13.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V14_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V14.frontEndTicks (raw_V14.start regs ctx) (raw_V14.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V14.raw ctx
+theorem rawV14_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV14.frontEndTicks (rawV14.start regs ctx) (rawV14.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV14.raw ctx
 
-theorem raw_V14_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V14.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V14_frontend_actual_local_run caller regs ctx
+theorem rawV14_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV14.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV14_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V14.frontEndAfter (raw_V14.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV14.frontEndAfter (rawV14.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V14_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV14_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V14.result raw_V14.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV14.result rawV14.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V14_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V14.RunExpected (step caller) regs ctx := by
-  have first := raw_V14_frontend_actual_local_run caller regs ctx
+theorem rawV14_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV14.RunExpected (step caller) regs ctx := by
+  have first := rawV14_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V14.frontEndAfter (raw_V14.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV14.frontEndAfter (rawV14.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V14_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV14_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V14.result raw_V14.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V14.beforeClear
-    (answerRegisters raw_V14.result (fullReset regs)) ctx
+    (result_step caller rawV14.result rawV14.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV14.beforeClear
+    (answerRegisters rawV14.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V15_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V15.frontEndTicks (raw_V15.start regs ctx) (raw_V15.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V15.raw ctx
+theorem rawV15_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV15.frontEndTicks (rawV15.start regs ctx) (rawV15.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV15.raw ctx
 
-theorem raw_V15_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V15.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V15_frontend_actual_local_run caller regs ctx
+theorem rawV15_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV15.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV15_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V15.frontEndAfter (raw_V15.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV15.frontEndAfter (rawV15.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V15_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV15_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V15.result raw_V15.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV15.result rawV15.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V15_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V15.RunExpected (step caller) regs ctx := by
-  have first := raw_V15_frontend_actual_local_run caller regs ctx
+theorem rawV15_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV15.RunExpected (step caller) regs ctx := by
+  have first := rawV15_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V15.frontEndAfter (raw_V15.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV15.frontEndAfter (rawV15.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V15_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV15_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V15.result raw_V15.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V15.beforeClear
-    (answerRegisters raw_V15.result (fullReset regs)) ctx
+    (result_step caller rawV15.result rawV15.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV15.beforeClear
+    (answerRegisters rawV15.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V16_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V16.frontEndTicks (raw_V16.start regs ctx) (raw_V16.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V16.raw ctx
+theorem rawV16_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV16.frontEndTicks (rawV16.start regs ctx) (rawV16.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV16.raw ctx
 
-theorem raw_V16_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V16.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V16_frontend_actual_local_run caller regs ctx
+theorem rawV16_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV16.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV16_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V16.frontEndAfter (raw_V16.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV16.frontEndAfter (rawV16.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V16_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV16_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V16.result raw_V16.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV16.result rawV16.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V16_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V16.RunExpected (step caller) regs ctx := by
-  have first := raw_V16_frontend_actual_local_run caller regs ctx
+theorem rawV16_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV16.RunExpected (step caller) regs ctx := by
+  have first := rawV16_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V16.frontEndAfter (raw_V16.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV16.frontEndAfter (rawV16.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V16_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV16_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V16.result raw_V16.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V16.beforeClear
-    (answerRegisters raw_V16.result (fullReset regs)) ctx
+    (result_step caller rawV16.result rawV16.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV16.beforeClear
+    (answerRegisters rawV16.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V17_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V17.frontEndTicks (raw_V17.start regs ctx) (raw_V17.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V17.raw ctx
+theorem rawV17_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV17.frontEndTicks (rawV17.start regs ctx) (rawV17.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV17.raw ctx
 
-theorem raw_V17_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V17.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V17_frontend_actual_local_run caller regs ctx
+theorem rawV17_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV17.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV17_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V17.frontEndAfter (raw_V17.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV17.frontEndAfter (rawV17.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V17_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV17_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V17.result raw_V17.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV17.result rawV17.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V17_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V17.RunExpected (step caller) regs ctx := by
-  have first := raw_V17_frontend_actual_local_run caller regs ctx
+theorem rawV17_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV17.RunExpected (step caller) regs ctx := by
+  have first := rawV17_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V17.frontEndAfter (raw_V17.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV17.frontEndAfter (rawV17.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V17_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV17_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V17.result raw_V17.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V17.beforeClear
-    (answerRegisters raw_V17.result (fullReset regs)) ctx
+    (result_step caller rawV17.result rawV17.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV17.beforeClear
+    (answerRegisters rawV17.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
 
-theorem raw_V18_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    LocalRun caller raw_V18.frontEndTicks (raw_V18.start regs ctx) (raw_V18.frontEndFinish regs ctx) :=
-  frontEnd_clean_localRun caller regs raw_V18.raw ctx
+theorem rawV18_frontend_actual_local_run (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    LocalRun caller rawV18.frontEndTicks (rawV18.start regs ctx) (rawV18.frontEndFinish regs ctx) :=
+  front_end_clean_localRun caller regs rawV18.raw ctx
 
-theorem raw_V18_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V18.IntermediateExpected (step caller) regs ctx := by
-  have first := raw_V18_frontend_actual_local_run caller regs ctx
+theorem rawV18_actual_intermediates (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV18.IntermediateExpected (step caller) regs ctx := by
+  have first := rawV18_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V18.frontEndAfter (raw_V18.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV18.frontEndAfter (rawV18.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V18_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV18_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V18.result raw_V18.beforeClear (fullReset regs) ctx)
+    (result_step caller rawV18.result rawV18.beforeClear (fullReset regs) ctx)
   have answered := LocalRun.trans caller streamed answerJoin
   exact ⟨first.iterate caller, before.iterate caller, streamed.iterate caller, answered.iterate caller⟩
 
-theorem raw_V18_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V18.RunExpected (step caller) regs ctx := by
-  have first := raw_V18_frontend_actual_local_run caller regs ctx
+theorem rawV18_actual_first_halt (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV18.RunExpected (step caller) regs ctx := by
+  have first := rawV18_frontend_actual_local_run caller regs ctx
   have join := phase_step_localRun caller
-    (dispatch_step caller raw_V18.frontEndAfter (raw_V18.frontEndKind.registers regs) ctx)
+    (dispatch_step caller rawV18.frontEndAfter (rawV18.frontEndKind.registers regs) ctx)
   simp only [full_reset_after_any_front_end_outcome] at join
   have before := LocalRun.trans caller first join
-  have streamed := LocalRun.trans caller before (raw_V18_stream_actual_local_run caller regs ctx)
+  have streamed := LocalRun.trans caller before (rawV18_stream_actual_local_run caller regs ctx)
   have answerJoin := phase_step_localRun caller
-    (result_step caller raw_V18.result raw_V18.beforeClear (fullReset regs) ctx)
-  have tail := cleanup_localRun caller 0 raw_V18.beforeClear
-    (answerRegisters raw_V18.result (fullReset regs)) ctx
+    (result_step caller rawV18.result rawV18.beforeClear (fullReset regs) ctx)
+  have tail := cleanup_localRun caller 0 rawV18.beforeClear
+    (answerRegisters rawV18.result (fullReset regs)) ctx
   have joined := LocalRun.trans caller (LocalRun.trans caller streamed answerJoin) tail
   simp only [fullReset_answerRegisters, answer_answerRegisters, fullReset_fullReset] at joined
   exact first_halt_of_actual_local_run caller joined rfl
@@ -1164,483 +1164,483 @@ theorem truncatedPrefixFixture_expected (regs : Registers R) (ctx : ∀ k, List 
   ⟨truncatedPrefixFixture_actual_first_halt caller regs ctx, truncatedPrefixFixture_actual_intermediates caller regs ctx,
     by trivial, truncatedPrefixFixture_actual_exact_peak caller regs ctx⟩
 
-theorem raw_F03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_F03.start regs ctx) raw_F03.ticks (raw_F03.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_F03 regs ctx
-    (raw_F03_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_F03.raw ctx)
+theorem rawF03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawF03.start regs ctx) rawF03.ticks (rawF03.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawF03 regs ctx
+    (rawF03_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawF03.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_F03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F03.Expected (step caller) regs ctx :=
-  ⟨raw_F03_actual_first_halt caller regs ctx, raw_F03_actual_intermediates caller regs ctx,
-    by trivial, raw_F03_actual_exact_peak caller regs ctx⟩
+theorem rawF03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF03.Expected (step caller) regs ctx :=
+  ⟨rawF03_actual_first_halt caller regs ctx, rawF03_actual_intermediates caller regs ctx,
+    by trivial, rawF03_actual_exact_peak caller regs ctx⟩
 
-theorem raw_F04_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_F04.start regs ctx) raw_F04.ticks (raw_F04.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_F04 regs ctx
-    (raw_F04_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_F04.raw ctx)
+theorem rawF04_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawF04.start regs ctx) rawF04.ticks (rawF04.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawF04 regs ctx
+    (rawF04_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawF04.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_F04_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F04.Expected (step caller) regs ctx :=
-  ⟨raw_F04_actual_first_halt caller regs ctx, raw_F04_actual_intermediates caller regs ctx,
-    by trivial, raw_F04_actual_exact_peak caller regs ctx⟩
+theorem rawF04_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF04.Expected (step caller) regs ctx :=
+  ⟨rawF04_actual_first_halt caller regs ctx, rawF04_actual_intermediates caller regs ctx,
+    by trivial, rawF04_actual_exact_peak caller regs ctx⟩
 
-theorem raw_F05_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_F05.start regs ctx) raw_F05.ticks (raw_F05.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_F05 regs ctx
-    (raw_F05_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_F05.raw ctx)
+theorem rawF05_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawF05.start regs ctx) rawF05.ticks (rawF05.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawF05 regs ctx
+    (rawF05_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawF05.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_F05_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F05.Expected (step caller) regs ctx :=
-  ⟨raw_F05_actual_first_halt caller regs ctx, raw_F05_actual_intermediates caller regs ctx,
-    by trivial, raw_F05_actual_exact_peak caller regs ctx⟩
+theorem rawF05_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF05.Expected (step caller) regs ctx :=
+  ⟨rawF05_actual_first_halt caller regs ctx, rawF05_actual_intermediates caller regs ctx,
+    by trivial, rawF05_actual_exact_peak caller regs ctx⟩
 
-theorem raw_F06_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_F06.start regs ctx) raw_F06.ticks (raw_F06.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_F06 regs ctx
-    (raw_F06_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_F06.raw ctx)
+theorem rawF06_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawF06.start regs ctx) rawF06.ticks (rawF06.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawF06 regs ctx
+    (rawF06_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawF06.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_F06_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F06.Expected (step caller) regs ctx :=
-  ⟨raw_F06_actual_first_halt caller regs ctx, raw_F06_actual_intermediates caller regs ctx,
-    by trivial, raw_F06_actual_exact_peak caller regs ctx⟩
+theorem rawF06_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF06.Expected (step caller) regs ctx :=
+  ⟨rawF06_actual_first_halt caller regs ctx, rawF06_actual_intermediates caller regs ctx,
+    by trivial, rawF06_actual_exact_peak caller regs ctx⟩
 
-theorem raw_F07_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_F07.start regs ctx) raw_F07.ticks (raw_F07.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_F07 regs ctx
-    (raw_F07_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_F07.raw ctx)
+theorem rawF07_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawF07.start regs ctx) rawF07.ticks (rawF07.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawF07 regs ctx
+    (rawF07_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawF07.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_F07_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F07.Expected (step caller) regs ctx :=
-  ⟨raw_F07_actual_first_halt caller regs ctx, raw_F07_actual_intermediates caller regs ctx,
-    by trivial, raw_F07_actual_exact_peak caller regs ctx⟩
+theorem rawF07_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF07.Expected (step caller) regs ctx :=
+  ⟨rawF07_actual_first_halt caller regs ctx, rawF07_actual_intermediates caller regs ctx,
+    by trivial, rawF07_actual_exact_peak caller regs ctx⟩
 
-theorem raw_F08_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_F08.start regs ctx) raw_F08.ticks (raw_F08.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_F08 regs ctx
-    (raw_F08_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_F08.raw ctx)
+theorem rawF08_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawF08.start regs ctx) rawF08.ticks (rawF08.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawF08 regs ctx
+    (rawF08_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawF08.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_F08_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_F08.Expected (step caller) regs ctx :=
-  ⟨raw_F08_actual_first_halt caller regs ctx, raw_F08_actual_intermediates caller regs ctx,
-    by trivial, raw_F08_actual_exact_peak caller regs ctx⟩
+theorem rawF08_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawF08.Expected (step caller) regs ctx :=
+  ⟨rawF08_actual_first_halt caller regs ctx, rawF08_actual_intermediates caller regs ctx,
+    by trivial, rawF08_actual_exact_peak caller regs ctx⟩
 
-theorem raw_I01_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_I01.start regs ctx) raw_I01.ticks (raw_I01.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_I01 regs ctx
-    (raw_I01_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_I01.raw ctx)
+theorem rawI01_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawI01.start regs ctx) rawI01.ticks (rawI01.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawI01 regs ctx
+    (rawI01_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawI01.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_I01_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I01.Expected (step caller) regs ctx :=
-  ⟨raw_I01_actual_first_halt caller regs ctx, raw_I01_actual_intermediates caller regs ctx,
-    by trivial, raw_I01_actual_exact_peak caller regs ctx⟩
+theorem rawI01_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI01.Expected (step caller) regs ctx :=
+  ⟨rawI01_actual_first_halt caller regs ctx, rawI01_actual_intermediates caller regs ctx,
+    by trivial, rawI01_actual_exact_peak caller regs ctx⟩
 
-theorem raw_I02_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_I02.start regs ctx) raw_I02.ticks (raw_I02.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_I02 regs ctx
-    (raw_I02_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_I02.raw ctx)
+theorem rawI02_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawI02.start regs ctx) rawI02.ticks (rawI02.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawI02 regs ctx
+    (rawI02_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawI02.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_I02_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I02.Expected (step caller) regs ctx :=
-  ⟨raw_I02_actual_first_halt caller regs ctx, raw_I02_actual_intermediates caller regs ctx,
-    by trivial, raw_I02_actual_exact_peak caller regs ctx⟩
+theorem rawI02_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI02.Expected (step caller) regs ctx :=
+  ⟨rawI02_actual_first_halt caller regs ctx, rawI02_actual_intermediates caller regs ctx,
+    by trivial, rawI02_actual_exact_peak caller regs ctx⟩
 
-theorem raw_I03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_I03.start regs ctx) raw_I03.ticks (raw_I03.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_I03 regs ctx
-    (raw_I03_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_I03.raw ctx)
+theorem rawI03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawI03.start regs ctx) rawI03.ticks (rawI03.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawI03 regs ctx
+    (rawI03_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawI03.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_I03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I03.Expected (step caller) regs ctx :=
-  ⟨raw_I03_actual_first_halt caller regs ctx, raw_I03_actual_intermediates caller regs ctx,
-    by trivial, raw_I03_actual_exact_peak caller regs ctx⟩
+theorem rawI03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI03.Expected (step caller) regs ctx :=
+  ⟨rawI03_actual_first_halt caller regs ctx, rawI03_actual_intermediates caller regs ctx,
+    by trivial, rawI03_actual_exact_peak caller regs ctx⟩
 
-theorem raw_I04_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_I04.start regs ctx) raw_I04.ticks (raw_I04.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_I04 regs ctx
-    (raw_I04_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_I04.raw ctx)
+theorem rawI04_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawI04.start regs ctx) rawI04.ticks (rawI04.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawI04 regs ctx
+    (rawI04_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawI04.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_I04_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I04.Expected (step caller) regs ctx :=
-  ⟨raw_I04_actual_first_halt caller regs ctx, raw_I04_actual_intermediates caller regs ctx,
-    by trivial, raw_I04_actual_exact_peak caller regs ctx⟩
+theorem rawI04_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI04.Expected (step caller) regs ctx :=
+  ⟨rawI04_actual_first_halt caller regs ctx, rawI04_actual_intermediates caller regs ctx,
+    by trivial, rawI04_actual_exact_peak caller regs ctx⟩
 
-theorem raw_I05_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_I05.start regs ctx) raw_I05.ticks (raw_I05.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_I05 regs ctx
-    (raw_I05_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_I05.raw ctx)
+theorem rawI05_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawI05.start regs ctx) rawI05.ticks (rawI05.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawI05 regs ctx
+    (rawI05_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawI05.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_I05_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I05.Expected (step caller) regs ctx :=
-  ⟨raw_I05_actual_first_halt caller regs ctx, raw_I05_actual_intermediates caller regs ctx,
-    by trivial, raw_I05_actual_exact_peak caller regs ctx⟩
+theorem rawI05_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI05.Expected (step caller) regs ctx :=
+  ⟨rawI05_actual_first_halt caller regs ctx, rawI05_actual_intermediates caller regs ctx,
+    by trivial, rawI05_actual_exact_peak caller regs ctx⟩
 
-theorem raw_I06_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_I06.start regs ctx) raw_I06.ticks (raw_I06.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_I06 regs ctx
-    (raw_I06_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_I06.raw ctx)
+theorem rawI06_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawI06.start regs ctx) rawI06.ticks (rawI06.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawI06 regs ctx
+    (rawI06_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawI06.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_I06_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I06.Expected (step caller) regs ctx :=
-  ⟨raw_I06_actual_first_halt caller regs ctx, raw_I06_actual_intermediates caller regs ctx,
-    by trivial, raw_I06_actual_exact_peak caller regs ctx⟩
+theorem rawI06_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI06.Expected (step caller) regs ctx :=
+  ⟨rawI06_actual_first_halt caller regs ctx, rawI06_actual_intermediates caller regs ctx,
+    by trivial, rawI06_actual_exact_peak caller regs ctx⟩
 
-theorem raw_I07_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_I07.start regs ctx) raw_I07.ticks (raw_I07.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_I07 regs ctx
-    (raw_I07_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_I07.raw ctx)
+theorem rawI07_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawI07.start regs ctx) rawI07.ticks (rawI07.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawI07 regs ctx
+    (rawI07_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawI07.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_I07_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_I07.Expected (step caller) regs ctx :=
-  ⟨raw_I07_actual_first_halt caller regs ctx, raw_I07_actual_intermediates caller regs ctx,
-    by trivial, raw_I07_actual_exact_peak caller regs ctx⟩
+theorem rawI07_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawI07.Expected (step caller) regs ctx :=
+  ⟨rawI07_actual_first_halt caller regs ctx, rawI07_actual_intermediates caller regs ctx,
+    by trivial, rawI07_actual_exact_peak caller regs ctx⟩
 
-theorem raw_C01_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_C01.start regs ctx) raw_C01.ticks (raw_C01.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_C01 regs ctx
-    (raw_C01_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_C01.raw ctx)
+theorem rawC01_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawC01.start regs ctx) rawC01.ticks (rawC01.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawC01 regs ctx
+    (rawC01_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawC01.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_C01_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C01.Expected (step caller) regs ctx :=
-  ⟨raw_C01_actual_first_halt caller regs ctx, raw_C01_actual_intermediates caller regs ctx,
-    by trivial, raw_C01_actual_exact_peak caller regs ctx⟩
+theorem rawC01_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC01.Expected (step caller) regs ctx :=
+  ⟨rawC01_actual_first_halt caller regs ctx, rawC01_actual_intermediates caller regs ctx,
+    by trivial, rawC01_actual_exact_peak caller regs ctx⟩
 
-theorem raw_C02_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_C02.start regs ctx) raw_C02.ticks (raw_C02.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_C02 regs ctx
-    (raw_C02_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_C02.raw ctx)
+theorem rawC02_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawC02.start regs ctx) rawC02.ticks (rawC02.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawC02 regs ctx
+    (rawC02_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawC02.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_C02_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C02.Expected (step caller) regs ctx :=
-  ⟨raw_C02_actual_first_halt caller regs ctx, raw_C02_actual_intermediates caller regs ctx,
-    by trivial, raw_C02_actual_exact_peak caller regs ctx⟩
+theorem rawC02_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC02.Expected (step caller) regs ctx :=
+  ⟨rawC02_actual_first_halt caller regs ctx, rawC02_actual_intermediates caller regs ctx,
+    by trivial, rawC02_actual_exact_peak caller regs ctx⟩
 
-theorem raw_C03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_C03.start regs ctx) raw_C03.ticks (raw_C03.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_C03 regs ctx
-    (raw_C03_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_C03.raw ctx)
+theorem rawC03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawC03.start regs ctx) rawC03.ticks (rawC03.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawC03 regs ctx
+    (rawC03_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawC03.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_C03.raw.length 1 = raw_C03.peak := by
-    norm_num [raw_C03]
+  have literalPeak : max rawC03.raw.length 1 = rawC03.peak := by
+    norm_num [rawC03]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_C03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_C03.Expected (step caller) regs ctx :=
-  ⟨raw_C03_actual_first_halt caller regs ctx, raw_C03_actual_intermediates caller regs ctx,
-    by trivial, raw_C03_actual_exact_peak caller regs ctx⟩
+theorem rawC03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawC03.Expected (step caller) regs ctx :=
+  ⟨rawC03_actual_first_halt caller regs ctx, rawC03_actual_intermediates caller regs ctx,
+    by trivial, rawC03_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V01_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V01.start regs ctx) raw_V01.ticks (raw_V01.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V01 regs ctx
-    (raw_V01_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V01.raw ctx)
+theorem rawV01_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV01.start regs ctx) rawV01.ticks (rawV01.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV01 regs ctx
+    (rawV01_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV01.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_V01_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V01.Expected (step caller) regs ctx :=
-  ⟨raw_V01_actual_first_halt caller regs ctx, raw_V01_actual_intermediates caller regs ctx,
-    raw_V01_stream_actual_exact_peak caller regs ctx, raw_V01_actual_exact_peak caller regs ctx⟩
+theorem rawV01_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV01.Expected (step caller) regs ctx :=
+  ⟨rawV01_actual_first_halt caller regs ctx, rawV01_actual_intermediates caller regs ctx,
+    rawV01_stream_actual_exact_peak caller regs ctx, rawV01_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V02_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V02.start regs ctx) raw_V02.ticks (raw_V02.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V02 regs ctx
-    (raw_V02_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V02.raw ctx)
+theorem rawV02_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV02.start regs ctx) rawV02.ticks (rawV02.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV02 regs ctx
+    (rawV02_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV02.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_V02_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V02.Expected (step caller) regs ctx :=
-  ⟨raw_V02_actual_first_halt caller regs ctx, raw_V02_actual_intermediates caller regs ctx,
-    raw_V02_stream_actual_exact_peak caller regs ctx, raw_V02_actual_exact_peak caller regs ctx⟩
+theorem rawV02_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV02.Expected (step caller) regs ctx :=
+  ⟨rawV02_actual_first_halt caller regs ctx, rawV02_actual_intermediates caller regs ctx,
+    rawV02_stream_actual_exact_peak caller regs ctx, rawV02_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V03.start regs ctx) raw_V03.ticks (raw_V03.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V03 regs ctx
-    (raw_V03_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V03.raw ctx)
+theorem rawV03_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV03.start regs ctx) rawV03.ticks (rawV03.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV03 regs ctx
+    (rawV03_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV03.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V03.raw.length 1 = raw_V03.peak := by
-    norm_num [raw_V03]
+  have literalPeak : max rawV03.raw.length 1 = rawV03.peak := by
+    norm_num [rawV03]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V03.Expected (step caller) regs ctx :=
-  ⟨raw_V03_actual_first_halt caller regs ctx, raw_V03_actual_intermediates caller regs ctx,
-    raw_V03_stream_actual_exact_peak caller regs ctx, raw_V03_actual_exact_peak caller regs ctx⟩
+theorem rawV03_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV03.Expected (step caller) regs ctx :=
+  ⟨rawV03_actual_first_halt caller regs ctx, rawV03_actual_intermediates caller regs ctx,
+    rawV03_stream_actual_exact_peak caller regs ctx, rawV03_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V04_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V04.start regs ctx) raw_V04.ticks (raw_V04.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V04 regs ctx
-    (raw_V04_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V04.raw ctx)
+theorem rawV04_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV04.start regs ctx) rawV04.ticks (rawV04.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV04 regs ctx
+    (rawV04_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV04.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V04.raw.length 1 = raw_V04.peak := by
-    norm_num [raw_V04]
+  have literalPeak : max rawV04.raw.length 1 = rawV04.peak := by
+    norm_num [rawV04]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V04_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V04.Expected (step caller) regs ctx :=
-  ⟨raw_V04_actual_first_halt caller regs ctx, raw_V04_actual_intermediates caller regs ctx,
-    raw_V04_stream_actual_exact_peak caller regs ctx, raw_V04_actual_exact_peak caller regs ctx⟩
+theorem rawV04_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV04.Expected (step caller) regs ctx :=
+  ⟨rawV04_actual_first_halt caller regs ctx, rawV04_actual_intermediates caller regs ctx,
+    rawV04_stream_actual_exact_peak caller regs ctx, rawV04_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V05_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V05.start regs ctx) raw_V05.ticks (raw_V05.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V05 regs ctx
-    (raw_V05_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V05.raw ctx)
+theorem rawV05_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV05.start regs ctx) rawV05.ticks (rawV05.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV05 regs ctx
+    (rawV05_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV05.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V05.raw.length 1 = raw_V05.peak := by
-    norm_num [raw_V05]
+  have literalPeak : max rawV05.raw.length 1 = rawV05.peak := by
+    norm_num [rawV05]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V05_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V05.Expected (step caller) regs ctx :=
-  ⟨raw_V05_actual_first_halt caller regs ctx, raw_V05_actual_intermediates caller regs ctx,
-    raw_V05_stream_actual_exact_peak caller regs ctx, raw_V05_actual_exact_peak caller regs ctx⟩
+theorem rawV05_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV05.Expected (step caller) regs ctx :=
+  ⟨rawV05_actual_first_halt caller regs ctx, rawV05_actual_intermediates caller regs ctx,
+    rawV05_stream_actual_exact_peak caller regs ctx, rawV05_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V06_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V06.start regs ctx) raw_V06.ticks (raw_V06.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V06 regs ctx
-    (raw_V06_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V06.raw ctx)
+theorem rawV06_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV06.start regs ctx) rawV06.ticks (rawV06.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV06 regs ctx
+    (rawV06_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV06.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V06.raw.length 1 = raw_V06.peak := by
-    norm_num [raw_V06]
+  have literalPeak : max rawV06.raw.length 1 = rawV06.peak := by
+    norm_num [rawV06]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V06_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V06.Expected (step caller) regs ctx :=
-  ⟨raw_V06_actual_first_halt caller regs ctx, raw_V06_actual_intermediates caller regs ctx,
-    raw_V06_stream_actual_exact_peak caller regs ctx, raw_V06_actual_exact_peak caller regs ctx⟩
+theorem rawV06_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV06.Expected (step caller) regs ctx :=
+  ⟨rawV06_actual_first_halt caller regs ctx, rawV06_actual_intermediates caller regs ctx,
+    rawV06_stream_actual_exact_peak caller regs ctx, rawV06_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V07_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V07.start regs ctx) raw_V07.ticks (raw_V07.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V07 regs ctx
-    (raw_V07_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V07.raw ctx)
+theorem rawV07_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV07.start regs ctx) rawV07.ticks (rawV07.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV07 regs ctx
+    (rawV07_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV07.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V07.raw.length 1 = raw_V07.peak := by
-    norm_num [raw_V07]
+  have literalPeak : max rawV07.raw.length 1 = rawV07.peak := by
+    norm_num [rawV07]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V07_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V07.Expected (step caller) regs ctx :=
-  ⟨raw_V07_actual_first_halt caller regs ctx, raw_V07_actual_intermediates caller regs ctx,
-    raw_V07_stream_actual_exact_peak caller regs ctx, raw_V07_actual_exact_peak caller regs ctx⟩
+theorem rawV07_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV07.Expected (step caller) regs ctx :=
+  ⟨rawV07_actual_first_halt caller regs ctx, rawV07_actual_intermediates caller regs ctx,
+    rawV07_stream_actual_exact_peak caller regs ctx, rawV07_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V08_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V08.start regs ctx) raw_V08.ticks (raw_V08.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V08 regs ctx
-    (raw_V08_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V08.raw ctx)
+theorem rawV08_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV08.start regs ctx) rawV08.ticks (rawV08.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV08 regs ctx
+    (rawV08_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV08.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V08.raw.length 1 = raw_V08.peak := by
-    norm_num [raw_V08]
+  have literalPeak : max rawV08.raw.length 1 = rawV08.peak := by
+    norm_num [rawV08]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V08_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V08.Expected (step caller) regs ctx :=
-  ⟨raw_V08_actual_first_halt caller regs ctx, raw_V08_actual_intermediates caller regs ctx,
-    raw_V08_stream_actual_exact_peak caller regs ctx, raw_V08_actual_exact_peak caller regs ctx⟩
+theorem rawV08_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV08.Expected (step caller) regs ctx :=
+  ⟨rawV08_actual_first_halt caller regs ctx, rawV08_actual_intermediates caller regs ctx,
+    rawV08_stream_actual_exact_peak caller regs ctx, rawV08_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V09_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V09.start regs ctx) raw_V09.ticks (raw_V09.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V09 regs ctx
-    (raw_V09_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V09.raw ctx)
+theorem rawV09_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV09.start regs ctx) rawV09.ticks (rawV09.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV09 regs ctx
+    (rawV09_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV09.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_V09_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V09.Expected (step caller) regs ctx :=
-  ⟨raw_V09_actual_first_halt caller regs ctx, raw_V09_actual_intermediates caller regs ctx,
-    raw_V09_stream_actual_exact_peak caller regs ctx, raw_V09_actual_exact_peak caller regs ctx⟩
+theorem rawV09_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV09.Expected (step caller) regs ctx :=
+  ⟨rawV09_actual_first_halt caller regs ctx, rawV09_actual_intermediates caller regs ctx,
+    rawV09_stream_actual_exact_peak caller regs ctx, rawV09_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V10_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V10.start regs ctx) raw_V10.ticks (raw_V10.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V10 regs ctx
-    (raw_V10_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V10.raw ctx)
+theorem rawV10_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV10.start regs ctx) rawV10.ticks (rawV10.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV10 regs ctx
+    (rawV10_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV10.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V10.raw.length 1 = raw_V10.peak := by
-    norm_num [raw_V10]
+  have literalPeak : max rawV10.raw.length 1 = rawV10.peak := by
+    norm_num [rawV10]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V10_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V10.Expected (step caller) regs ctx :=
-  ⟨raw_V10_actual_first_halt caller regs ctx, raw_V10_actual_intermediates caller regs ctx,
-    raw_V10_stream_actual_exact_peak caller regs ctx, raw_V10_actual_exact_peak caller regs ctx⟩
+theorem rawV10_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV10.Expected (step caller) regs ctx :=
+  ⟨rawV10_actual_first_halt caller regs ctx, rawV10_actual_intermediates caller regs ctx,
+    rawV10_stream_actual_exact_peak caller regs ctx, rawV10_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V11_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V11.start regs ctx) raw_V11.ticks (raw_V11.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V11 regs ctx
-    (raw_V11_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V11.raw ctx)
+theorem rawV11_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV11.start regs ctx) rawV11.ticks (rawV11.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV11 regs ctx
+    (rawV11_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV11.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V11.raw.length 1 = raw_V11.peak := by
-    norm_num [raw_V11]
+  have literalPeak : max rawV11.raw.length 1 = rawV11.peak := by
+    norm_num [rawV11]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V11_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V11.Expected (step caller) regs ctx :=
-  ⟨raw_V11_actual_first_halt caller regs ctx, raw_V11_actual_intermediates caller regs ctx,
-    raw_V11_stream_actual_exact_peak caller regs ctx, raw_V11_actual_exact_peak caller regs ctx⟩
+theorem rawV11_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV11.Expected (step caller) regs ctx :=
+  ⟨rawV11_actual_first_halt caller regs ctx, rawV11_actual_intermediates caller regs ctx,
+    rawV11_stream_actual_exact_peak caller regs ctx, rawV11_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V12_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V12.start regs ctx) raw_V12.ticks (raw_V12.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V12 regs ctx
-    (raw_V12_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V12.raw ctx)
+theorem rawV12_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV12.start regs ctx) rawV12.ticks (rawV12.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV12 regs ctx
+    (rawV12_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV12.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V12.raw.length 1 = raw_V12.peak := by
-    norm_num [raw_V12]
+  have literalPeak : max rawV12.raw.length 1 = rawV12.peak := by
+    norm_num [rawV12]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V12_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V12.Expected (step caller) regs ctx :=
-  ⟨raw_V12_actual_first_halt caller regs ctx, raw_V12_actual_intermediates caller regs ctx,
-    raw_V12_stream_actual_exact_peak caller regs ctx, raw_V12_actual_exact_peak caller regs ctx⟩
+theorem rawV12_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV12.Expected (step caller) regs ctx :=
+  ⟨rawV12_actual_first_halt caller regs ctx, rawV12_actual_intermediates caller regs ctx,
+    rawV12_stream_actual_exact_peak caller regs ctx, rawV12_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V13_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V13.start regs ctx) raw_V13.ticks (raw_V13.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V13 regs ctx
-    (raw_V13_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V13.raw ctx)
+theorem rawV13_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV13.start regs ctx) rawV13.ticks (rawV13.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV13 regs ctx
+    (rawV13_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV13.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V13.raw.length 1 = raw_V13.peak := by
-    norm_num [raw_V13]
+  have literalPeak : max rawV13.raw.length 1 = rawV13.peak := by
+    norm_num [rawV13]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V13_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V13.Expected (step caller) regs ctx :=
-  ⟨raw_V13_actual_first_halt caller regs ctx, raw_V13_actual_intermediates caller regs ctx,
-    raw_V13_stream_actual_exact_peak caller regs ctx, raw_V13_actual_exact_peak caller regs ctx⟩
+theorem rawV13_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV13.Expected (step caller) regs ctx :=
+  ⟨rawV13_actual_first_halt caller regs ctx, rawV13_actual_intermediates caller regs ctx,
+    rawV13_stream_actual_exact_peak caller regs ctx, rawV13_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V14_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V14.start regs ctx) raw_V14.ticks (raw_V14.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V14 regs ctx
-    (raw_V14_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V14.raw ctx)
+theorem rawV14_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV14.start regs ctx) rawV14.ticks (rawV14.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV14 regs ctx
+    (rawV14_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV14.raw ctx)
   rw [← clock] at peak
-  have literalPeak : max raw_V14.raw.length 1 = raw_V14.peak := by
-    norm_num [raw_V14]
+  have literalPeak : max rawV14.raw.length 1 = rawV14.peak := by
+    norm_num [rawV14]
   rw [literalPeak] at peak
   exact peak
 
-theorem raw_V14_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V14.Expected (step caller) regs ctx :=
-  ⟨raw_V14_actual_first_halt caller regs ctx, raw_V14_actual_intermediates caller regs ctx,
-    raw_V14_stream_actual_exact_peak caller regs ctx, raw_V14_actual_exact_peak caller regs ctx⟩
+theorem rawV14_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV14.Expected (step caller) regs ctx :=
+  ⟨rawV14_actual_first_halt caller regs ctx, rawV14_actual_intermediates caller regs ctx,
+    rawV14_stream_actual_exact_peak caller regs ctx, rawV14_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V15_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V15.start regs ctx) raw_V15.ticks (raw_V15.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V15 regs ctx
-    (raw_V15_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V15.raw ctx)
+theorem rawV15_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV15.start regs ctx) rawV15.ticks (rawV15.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV15 regs ctx
+    (rawV15_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV15.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_V15_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V15.Expected (step caller) regs ctx :=
-  ⟨raw_V15_actual_first_halt caller regs ctx, raw_V15_actual_intermediates caller regs ctx,
-    raw_V15_stream_actual_exact_peak caller regs ctx, raw_V15_actual_exact_peak caller regs ctx⟩
+theorem rawV15_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV15.Expected (step caller) regs ctx :=
+  ⟨rawV15_actual_first_halt caller regs ctx, rawV15_actual_intermediates caller regs ctx,
+    rawV15_stream_actual_exact_peak caller regs ctx, rawV15_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V16_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V16.start regs ctx) raw_V16.ticks (raw_V16.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V16 regs ctx
-    (raw_V16_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V16.raw ctx)
+theorem rawV16_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV16.start regs ctx) rawV16.ticks (rawV16.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV16 regs ctx
+    (rawV16_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV16.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_V16_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V16.Expected (step caller) regs ctx :=
-  ⟨raw_V16_actual_first_halt caller regs ctx, raw_V16_actual_intermediates caller regs ctx,
-    raw_V16_stream_actual_exact_peak caller regs ctx, raw_V16_actual_exact_peak caller regs ctx⟩
+theorem rawV16_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV16.Expected (step caller) regs ctx :=
+  ⟨rawV16_actual_first_halt caller regs ctx, rawV16_actual_intermediates caller regs ctx,
+    rawV16_stream_actual_exact_peak caller regs ctx, rawV16_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V17_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V17.start regs ctx) raw_V17.ticks (raw_V17.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V17 regs ctx
-    (raw_V17_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V17.raw ctx)
+theorem rawV17_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV17.start regs ctx) rawV17.ticks (rawV17.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV17 regs ctx
+    (rawV17_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV17.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_V17_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V17.Expected (step caller) regs ctx :=
-  ⟨raw_V17_actual_first_halt caller regs ctx, raw_V17_actual_intermediates caller regs ctx,
-    raw_V17_stream_actual_exact_peak caller regs ctx, raw_V17_actual_exact_peak caller regs ctx⟩
+theorem rawV17_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV17.Expected (step caller) regs ctx :=
+  ⟨rawV17_actual_first_halt caller regs ctx, rawV17_actual_intermediates caller regs ctx,
+    rawV17_stream_actual_exact_peak caller regs ctx, rawV17_actual_exact_peak caller regs ctx⟩
 
-theorem raw_V18_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    ExactPeak (step caller) (raw_V18.start regs ctx) raw_V18.ticks (raw_V18.peak + externalCells ctx) := by
-  have clock := an_actual_raw_fixture_has_the_canonical_clock caller raw_V18 regs ctx
-    (raw_V18_actual_first_halt caller regs ctx)
-  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs raw_V18.raw ctx)
+theorem rawV18_actual_exact_peak (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    ExactPeak (step caller) (rawV18.start regs ctx) rawV18.ticks (rawV18.peak + externalCells ctx) := by
+  have clock := an_actual_raw_fixture_has_the_canonical_clock caller rawV18 regs ctx
+    (rawV18_actual_first_halt caller regs ctx)
+  have peak := exact_peak_from_the_actual_public_prefix_contract caller (run_peak caller regs rawV18.raw ctx)
   rw [← clock] at peak
   exact peak
 
-theorem raw_V18_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    raw_V18.Expected (step caller) regs ctx :=
-  ⟨raw_V18_actual_first_halt caller regs ctx, raw_V18_actual_intermediates caller regs ctx,
-    raw_V18_stream_actual_exact_peak caller regs ctx, raw_V18_actual_exact_peak caller regs ctx⟩
+theorem rawV18_expected (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
+    rawV18.Expected (step caller) regs ctx :=
+  ⟨rawV18_actual_first_halt caller regs ctx, rawV18_actual_intermediates caller regs ctx,
+    rawV18_stream_actual_exact_peak caller regs ctx, rawV18_actual_exact_peak caller regs ctx⟩
 
 theorem all_original_raw_rows_execute_with_their_complete_endpoints_and_peaks
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
@@ -1650,40 +1650,40 @@ theorem all_original_raw_rows_execute_with_their_complete_endpoints_and_peaks
   rcases member with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact emptyRawFixture_expected caller regs ctx
   · exact truncatedPrefixFixture_expected caller regs ctx
-  · exact raw_F03_expected caller regs ctx
-  · exact raw_F04_expected caller regs ctx
-  · exact raw_F05_expected caller regs ctx
-  · exact raw_F06_expected caller regs ctx
-  · exact raw_F07_expected caller regs ctx
-  · exact raw_F08_expected caller regs ctx
-  · exact raw_I01_expected caller regs ctx
-  · exact raw_I02_expected caller regs ctx
-  · exact raw_I03_expected caller regs ctx
-  · exact raw_I04_expected caller regs ctx
-  · exact raw_I05_expected caller regs ctx
-  · exact raw_I06_expected caller regs ctx
-  · exact raw_I07_expected caller regs ctx
-  · exact raw_C01_expected caller regs ctx
-  · exact raw_C02_expected caller regs ctx
-  · exact raw_C03_expected caller regs ctx
-  · exact raw_V01_expected caller regs ctx
-  · exact raw_V02_expected caller regs ctx
-  · exact raw_V03_expected caller regs ctx
-  · exact raw_V04_expected caller regs ctx
-  · exact raw_V05_expected caller regs ctx
-  · exact raw_V06_expected caller regs ctx
-  · exact raw_V07_expected caller regs ctx
-  · exact raw_V08_expected caller regs ctx
-  · exact raw_V09_expected caller regs ctx
-  · exact raw_V10_expected caller regs ctx
-  · exact raw_V11_expected caller regs ctx
-  · exact raw_V12_expected caller regs ctx
-  · exact raw_V13_expected caller regs ctx
-  · exact raw_V14_expected caller regs ctx
-  · exact raw_V15_expected caller regs ctx
-  · exact raw_V16_expected caller regs ctx
-  · exact raw_V17_expected caller regs ctx
-  · exact raw_V18_expected caller regs ctx
+  · exact rawF03_expected caller regs ctx
+  · exact rawF04_expected caller regs ctx
+  · exact rawF05_expected caller regs ctx
+  · exact rawF06_expected caller regs ctx
+  · exact rawF07_expected caller regs ctx
+  · exact rawF08_expected caller regs ctx
+  · exact rawI01_expected caller regs ctx
+  · exact rawI02_expected caller regs ctx
+  · exact rawI03_expected caller regs ctx
+  · exact rawI04_expected caller regs ctx
+  · exact rawI05_expected caller regs ctx
+  · exact rawI06_expected caller regs ctx
+  · exact rawI07_expected caller regs ctx
+  · exact rawC01_expected caller regs ctx
+  · exact rawC02_expected caller regs ctx
+  · exact rawC03_expected caller regs ctx
+  · exact rawV01_expected caller regs ctx
+  · exact rawV02_expected caller regs ctx
+  · exact rawV03_expected caller regs ctx
+  · exact rawV04_expected caller regs ctx
+  · exact rawV05_expected caller regs ctx
+  · exact rawV06_expected caller regs ctx
+  · exact rawV07_expected caller regs ctx
+  · exact rawV08_expected caller regs ctx
+  · exact rawV09_expected caller regs ctx
+  · exact rawV10_expected caller regs ctx
+  · exact rawV11_expected caller regs ctx
+  · exact rawV12_expected caller regs ctx
+  · exact rawV13_expected caller regs ctx
+  · exact rawV14_expected caller regs ctx
+  · exact rawV15_expected caller regs ctx
+  · exact rawV16_expected caller regs ctx
+  · exact rawV17_expected caller regs ctx
+  · exact rawV18_expected caller regs ctx
 
 end LiteralRawRuns
 
@@ -1698,40 +1698,40 @@ theorem all_original_raw_rows_have_their_actual_first_halt
   rcases member with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact emptyRawFixture_actual_first_halt caller regs ctx
   · exact truncatedPrefixFixture_actual_first_halt caller regs ctx
-  · exact raw_F03_actual_first_halt caller regs ctx
-  · exact raw_F04_actual_first_halt caller regs ctx
-  · exact raw_F05_actual_first_halt caller regs ctx
-  · exact raw_F06_actual_first_halt caller regs ctx
-  · exact raw_F07_actual_first_halt caller regs ctx
-  · exact raw_F08_actual_first_halt caller regs ctx
-  · exact raw_I01_actual_first_halt caller regs ctx
-  · exact raw_I02_actual_first_halt caller regs ctx
-  · exact raw_I03_actual_first_halt caller regs ctx
-  · exact raw_I04_actual_first_halt caller regs ctx
-  · exact raw_I05_actual_first_halt caller regs ctx
-  · exact raw_I06_actual_first_halt caller regs ctx
-  · exact raw_I07_actual_first_halt caller regs ctx
-  · exact raw_C01_actual_first_halt caller regs ctx
-  · exact raw_C02_actual_first_halt caller regs ctx
-  · exact raw_C03_actual_first_halt caller regs ctx
-  · exact raw_V01_actual_first_halt caller regs ctx
-  · exact raw_V02_actual_first_halt caller regs ctx
-  · exact raw_V03_actual_first_halt caller regs ctx
-  · exact raw_V04_actual_first_halt caller regs ctx
-  · exact raw_V05_actual_first_halt caller regs ctx
-  · exact raw_V06_actual_first_halt caller regs ctx
-  · exact raw_V07_actual_first_halt caller regs ctx
-  · exact raw_V08_actual_first_halt caller regs ctx
-  · exact raw_V09_actual_first_halt caller regs ctx
-  · exact raw_V10_actual_first_halt caller regs ctx
-  · exact raw_V11_actual_first_halt caller regs ctx
-  · exact raw_V12_actual_first_halt caller regs ctx
-  · exact raw_V13_actual_first_halt caller regs ctx
-  · exact raw_V14_actual_first_halt caller regs ctx
-  · exact raw_V15_actual_first_halt caller regs ctx
-  · exact raw_V16_actual_first_halt caller regs ctx
-  · exact raw_V17_actual_first_halt caller regs ctx
-  · exact raw_V18_actual_first_halt caller regs ctx
+  · exact rawF03_actual_first_halt caller regs ctx
+  · exact rawF04_actual_first_halt caller regs ctx
+  · exact rawF05_actual_first_halt caller regs ctx
+  · exact rawF06_actual_first_halt caller regs ctx
+  · exact rawF07_actual_first_halt caller regs ctx
+  · exact rawF08_actual_first_halt caller regs ctx
+  · exact rawI01_actual_first_halt caller regs ctx
+  · exact rawI02_actual_first_halt caller regs ctx
+  · exact rawI03_actual_first_halt caller regs ctx
+  · exact rawI04_actual_first_halt caller regs ctx
+  · exact rawI05_actual_first_halt caller regs ctx
+  · exact rawI06_actual_first_halt caller regs ctx
+  · exact rawI07_actual_first_halt caller regs ctx
+  · exact rawC01_actual_first_halt caller regs ctx
+  · exact rawC02_actual_first_halt caller regs ctx
+  · exact rawC03_actual_first_halt caller regs ctx
+  · exact rawV01_actual_first_halt caller regs ctx
+  · exact rawV02_actual_first_halt caller regs ctx
+  · exact rawV03_actual_first_halt caller regs ctx
+  · exact rawV04_actual_first_halt caller regs ctx
+  · exact rawV05_actual_first_halt caller regs ctx
+  · exact rawV06_actual_first_halt caller regs ctx
+  · exact rawV07_actual_first_halt caller regs ctx
+  · exact rawV08_actual_first_halt caller regs ctx
+  · exact rawV09_actual_first_halt caller regs ctx
+  · exact rawV10_actual_first_halt caller regs ctx
+  · exact rawV11_actual_first_halt caller regs ctx
+  · exact rawV12_actual_first_halt caller regs ctx
+  · exact rawV13_actual_first_halt caller regs ctx
+  · exact rawV14_actual_first_halt caller regs ctx
+  · exact rawV15_actual_first_halt caller regs ctx
+  · exact rawV16_actual_first_halt caller regs ctx
+  · exact rawV17_actual_first_halt caller regs ctx
+  · exact rawV18_actual_first_halt caller regs ctx
 
 
 end Examples.RotationCertificateFrontEndStreamMachine
