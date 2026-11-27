@@ -1,5 +1,6 @@
 import Mathlib.CategoryTheory.FiberedCategory.Grothendieck
 import Mathlib.CategoryTheory.Bicategory.Modification.Pseudo
+import SquareKit.BasedCartesian
 
 set_option autoImplicit false
 
@@ -112,21 +113,14 @@ set_option backward.defeqAttrib.useBackward true
 theorem map_cartesian (α : F ⟶ G) {x y : Pseudofunctor.CoGrothendieck F}
     (f : x ⟶ y) [(forget F).IsCartesian f.base f] :
     (forget G).IsCartesian f.base ((Pseudofunctor.CoGrothendieck.map α).map f) := by
-  let T := Pseudofunctor.CoGrothendieck.map α
-  have : (forget F).IsCartesian f.base (cartesianLift y.fiber f.base) :=
+  let T : BasedFunctor (BasedCategory.ofFunctor (forget F))
+      (BasedCategory.ofFunctor (forget G)) := ⟨Pseudofunctor.CoGrothendieck.map α, rfl⟩
+  have hcan : (forget F).IsCartesian f.base (cartesianLift y.fiber f.base) :=
     (isStronglyCartesian_homCartesianLift y.fiber f.base).isCartesian_of_isStronglyCartesian
-  let e := IsCartesian.domainUniqueUpToIso (forget F) f.base (cartesianLift y.fiber f.base) f
-  have he : e.hom ≫ cartesianLift y.fiber f.base = f := IsCartesian.fac (forget F) f.base (cartesianLift y.fiber f.base) f
-  have hb : e.hom.base = 𝟙 x.base := by
-    simpa using (IsHomLift.fac' (forget F) (𝟙 x.base) e.hom)
-  have : (forget G).IsHomLift (𝟙 x.base) (T.mapIso e).hom := by
-    apply IsHomLift.of_fac _ _ _ rfl rfl
-    simpa [T, Pseudofunctor.CoGrothendieck.map] using hb.symm
-  have : (forget G).IsCartesian f.base (T.map (cartesianLift y.fiber f.base)) :=
+  have htarget : (forget G).IsCartesian f.base (T.map (cartesianLift y.fiber f.base)) :=
     map_cartesianLift α y.fiber f.base
-  have h := IsCartesian.of_iso_comp (forget G) f.base (T.map (cartesianLift y.fiber f.base))
-    (T.mapIso e)
-  simpa only [Functor.mapIso_hom, ← T.map_comp, he] using h
+  exact T.map_isCartesian_of_map_isCartesian f.base (cartesianLift y.fiber f.base) f
+    (hφ := hcan) (hψ := ‹(forget F).IsCartesian f.base f›) (hT := htarget)
 end SquareKit.CoGrothendieckMap
 
 namespace SquareKit.CoGrothendieckMap

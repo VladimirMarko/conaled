@@ -782,10 +782,9 @@ def inverseSquare : R₀₁ ⋙ E₁.inverse ≅ E₀.inverse :=
 @[reassoc] theorem inverseSquare_spec (d : D₀) :
     E₁.counitIso.inv.app (R₀₁.obj d) ≫ E₁.functor.map ((inverseSquare E₀ E₁ R₀₁ i₀₁).hom.app d) =
       R₀₁.map (E₀.counitIso.inv.app d) ≫ i₀₁.hom.app (E₀.inverse.obj d) := by
-  dsimp [inverseSquare, Iso.isoCompInverse, Iso.inverseCompIso]
-  simp only [Category.id_comp, Category.comp_id, Functor.map_comp, Category.assoc]
-  rw [← E₁.counit_app_functor]
-  simp [Equivalence.fun_inv_map, Category.assoc]
+  convert inverseSquareAcross_spec E₀ E₁ R₀₁ (𝟭 A)
+    (i₀₁ ≪≫ E₁.functor.leftUnitor.symm) d using 1 <;>
+    simp [inverseSquare, inverseSquareAcross, Iso.isoCompInverse, Iso.inverseCompIso]
 
 set_option backward.isDefEq.respectTransparency false in
 theorem inverseSquare_comp (c : R₀₁ ⋙ R₁₂ ≅ R₀₂)
@@ -794,20 +793,11 @@ theorem inverseSquare_comp (c : R₀₁ ⋙ R₁₂ ≅ R₀₂)
     (inverseSquare E₁ E₂ R₁₂ i₁₂).hom.app (R₀₁.obj d) ≫
       (inverseSquare E₀ E₁ R₀₁ i₀₁).hom.app d =
     E₂.inverse.map (c.hom.app d) ≫ (inverseSquare E₀ E₂ R₀₂ i₀₂).hom.app d := by
-  apply E₂.functor.map_injective
-  apply (cancel_epi (E₂.counitIso.inv.app (R₁₂.obj (R₀₁.obj d)))).mp
-  simp only [Functor.map_comp]
-  rw [inverseSquare_spec_assoc]
-  simp only [Equivalence.fun_inv_map, Category.assoc, Equivalence.counit, Equivalence.counitInv]
-  rw [inverseSquare_spec]
-  rw [← i₁₂.hom.naturality]
-  simp only [Functor.comp_map]
-  rw [← Functor.map_comp_assoc, inverseSquare_spec]
-  rw [Functor.map_comp, Category.assoc, hc]
-  have hn := c.hom.naturality (E₀.counitIso.inv.app d)
-  dsimp at hn
-  rw [← Category.assoc, hn]
-  simp [Functor.comp_obj]
+  have h := inverseSquareAcross_comp E₀ E₁ E₂ R₀₁ R₁₂ R₀₂ (𝟭 A) (𝟭 A) (𝟭 A)
+    (i₀₁ ≪≫ E₁.functor.leftUnitor.symm) (i₁₂ ≪≫ E₂.functor.leftUnitor.symm)
+    (i₀₂ ≪≫ E₂.functor.leftUnitor.symm) c (Functor.leftUnitor (𝟭 A))
+    (by simpa using hc) d
+  simpa [inverseSquare, inverseSquareAcross, Iso.isoCompInverse, Iso.inverseCompIso] using h
 
 
 variable (L : A ⥤ A) (l : L ≅ 𝟭 A) (j : E₀.functor ⋙ R₀₁ ≅ L ⋙ E₁.functor)
@@ -1218,17 +1208,9 @@ variable (i : E₀.functor ⋙ R ≅ E₁.functor)
 theorem inverseSquare_canonical (a : A) :
     E₁.inverse.map (i.hom.app a) ≫ E₁.unitIso.inv.app a =
       (inverseSquare E₀ E₁ R i).hom.app (E₀.functor.obj a) ≫ E₀.unitIso.inv.app a := by
-  apply E₁.functor.map_injective
-  apply (cancel_epi (E₁.counitIso.inv.app (R.obj (E₀.functor.obj a)))).mp
-  simp only [Functor.map_comp]
-  rw [inverseSquare_spec_assoc]
-  rw [← E₁.counit_app_functor]
-  simp only [Equivalence.fun_inv_map, Equivalence.counit, Equivalence.counitInv,
-    Category.assoc, Iso.inv_hom_id_app]
-  have hn := i.hom.naturality (E₀.unitIso.inv.app a)
-  dsimp at hn
-  rw [← hn, ← Functor.map_comp_assoc, ← E₀.counit_app_functor]
-  simp
+  simpa [inverseSquare, inverseSquareAcross, Iso.isoCompInverse, Iso.inverseCompIso] using
+    inverseSquareAcross_canonical E₀ E₁ R (𝟭 A)
+      (i ≪≫ E₁.functor.leftUnitor.symm) a
 
 end CategoryTheory
 
