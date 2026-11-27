@@ -1268,6 +1268,13 @@ import Examples.ProperLocalBranches
 import Examples.SmoothBranchRealization
 import Examples.SmoothBranchAction
 import Examples.SmoothBranchRestriction
+import Examples.SmoothActionGroupoid
+import Examples.IndependentBranchCharts
+import Examples.GroupoidCompletion
+import Examples.GroupoidAtlasComparison
+import Examples.IndependentBranchCompletion
+import SquareKit.SheafGroupoidChartPresentation
+import SquareKit.SheafGroupoidCompletionRecovery
 
 import Examples.RetainedFirstHit
 import Examples.GroupoidCorrespondence
