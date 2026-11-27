@@ -144,7 +144,9 @@ universe. This is a separate contract from code-side coherent-sheaf totalization
 it does not supply that adapter's missing coherence proofs.
 
 Further family adapters remain research in #708 under #235/#289/#647, with their
-own concrete consumer contracts. This result does not require any of them and supplies no
+own concrete consumer contracts. The [coherent-sheaf assessment](coherent-sheaf-totalization.md)
+recommends a bounded total-arrow comparison, with a universe-packaging checkpoint;
+the adapter is not implemented. This result does not require any of them and supplies no
 new dependency on #704 or #706.
 
 The focused example target includes the unchanged direct clients and checks the

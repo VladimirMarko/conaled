@@ -421,10 +421,14 @@ existing `pairProjection` and `diagonal` with `pairDisplay` and `collapse`.
 Their composites distinguish identity on Bool from `(true, false) ↦ (true, true)`
 on pairs; a total bridge would need to retain that base order and the
 noninvertible fiber map. This is a proposed test, not a checked totalization.
-Assess it during #708's already-required family-adapter selection, with #235's
-next planning review as the fallback event. Further textbook delivery is not a
-prerequisite. This records the missing construction without requiring a new
-wrapper solely to label the current caller migrated.
+The [subsequent #708 assessment](coherent-sheaf-totalization.md) recommends the
+bounded native-arrow contract and generic diagram recovery, with an explicit
+universe-packaging checkpoint. It separates existing decoder compatibility
+proofs from the remaining derivable coherence; implementation remains ahead.
+Compare its priority with the other routes during #708's remaining family-adapter
+assessment. Further textbook delivery is not a prerequisite. The recommended
+construction serves coherent recovery over contexts, rather than merely marking
+an existing caller migrated.
 
 These dispositions complete the selected #712 adoption checkpoint: the earlier
 Linear adoption remains, the geometric comparison now reuses its shared provider,
