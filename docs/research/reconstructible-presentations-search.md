@@ -334,7 +334,7 @@ existing comparison. It does not establish a general reduction in author effort.
 | Comma universal properties: [CommaVertical](../../SquareKit/CommaVertical.lean) and [WitnessCommaVertical](../../SquareKit/WitnessCommaVertical.lean) | Retain primitive vertical pasting: it accepts target congruence/associativity and a middle-arrow relation, with Type-valued connectors in the witness version. Replacing it with an ordinary lawful comma cone would strengthen assumptions. `ofSquare_vertical` and `erase_vertical` retain the corresponding data/erasure contracts. | At the next #235 planning review inspect a lawful comma client such as MatrixDoubling for a repeated cone construction that the delivered universal-property adapter can replace. |
 | Lawful quotient equivalence: [CommaLawful](../../SquareKit/CommaLawful.lean) | Retain the raw-operation quotient bridge and `quotientMap_eq_iff` component-class observation. It does not start with the ordinary category and congruent `HomRel` required by the settled lawful equivalence in [CategoryQuotient](../../SquareKit/CategoryQuotient.lean). No representative recovery follows. | At the same review inspect old ordinary-category quotient consumers against those source-law requirements. The inspected textbook dependencies supplied no duplicated lawful quotient construction. |
 | Canonical spans: [SpanInterpretation](../../SquareKit/SpanInterpretation.lean), [composition](../../SquareKit/SpanInterpretationComposition.lean), [DependentBaseChange](../../SquareKit/DependentBaseChange.lean) | Retain existing constructors from functors, chosen pullbacks and pullback preservation. Keep full comparison arrows and operation restrictions; ordinary lawful slice clients can keep Mathlib natural transformations. No duplicate older constructor was identified in this sample. | At the same review inspect callers constructing `compositionIso` or `actionIso` manually, comparing full maps and preservation hypotheses before choosing a migration. |
-| Coherent-family totalization: [CoherentSheafOver](../../SquareKit/Internal/CoherentSheafOver.lean) versus [CoherentFamilyFibration](../../SquareKit/Internal/CoherentFamilyFibration.lean) | Retain fiberwise sheaf classification and its local-property full subcategory, together with the existing varying-context `reindex`, `reindexId`, `reindexComp` and decode compatibility equations. These are not yet packaged as a total category. The selected total bridge separately covers its particular coherent-family system and cartesian arrows. | At the same review assess whether the existing substitution data can be packaged through the shared totalization machinery, including the remaining coherence obligations, dense-site assumptions, locality and universes. Select a base-changing arrow client before claiming recovery; adapters beyond the settled bridge remain #708 research. |
+| Coherent-family totalization: [CoherentSheafOver](../../SquareKit/Internal/CoherentSheafOver.lean) versus [CoherentFamilyFibration](../../SquareKit/Internal/CoherentFamilyFibration.lean) | Retain fiberwise sheaf classification and its local-property full subcategory, together with the existing varying-context `reindex`, `reindexId`, `reindexComp` and decode compatibility equations. The #725 adapter now packages their total category and recovery, with the same hypotheses and universes. The selected total bridge separately covers its particular coherent-family system and cartesian arrows. | At the same review assess whether the existing substitution data can be packaged through the shared totalization machinery, including the remaining coherence obligations, dense-site assumptions, locality and universes. Select a base-changing arrow client before claiming recovery; adapters beyond the settled bridge remain #708 research. |
 
 ### Remaining adoption decisions, 27 November 2026
 
@@ -406,12 +406,12 @@ precomposition and supplied strong transformations/recovery modifications. It
 cannot replace the sheaf fibers without proving additional coherence.
 
 Mathlib's `GrothendieckTopology.pseudofunctorOver` already supplies the sheaf
-*target* totalization. A code-side bridge would still need associativity/unit
-coherence for the existing reindexing, a strong decoder and inverse, and
-compatible unit/counit modifications. No duplicated sheaf total-category
+*target* totalization. The #725 [code-side bridge](../../SquareKit/Internal/CoherentSheafFibration.lean)
+now derives associativity/unit coherence for the existing reindexing and supplies
+a heterogeneous total decoder/inverse with compatible vertical recovery. No duplicated sheaf total-category
 packaging or existing total-arrow consumer was found. Retain the fiberwise API;
-additional sheaf totalization is #708 research, not an unfinished application of
-the selected #705 bridge. Preserve full faithfulness, cover density, the specified
+the sheaf totalization is a separate #725 construction under #708, with different
+fibres from the selected #705 bridge. Preserve full faithfulness, cover density, the specified
 limits and independent site/value universes. Subcanonicity is needed by the
 represented-display comparison, not by general sheaf substitution, and does not
 replace cover density (`support_map_not_iso`).
@@ -420,11 +420,11 @@ For #708's adapter comparison, an explicit possible acceptance case uses the
 existing `pairProjection` and `diagonal` with `pairDisplay` and `collapse`.
 Their composites distinguish identity on Bool from `(true, false) ↦ (true, true)`
 on pairs; a total bridge would need to retain that base order and the
-noninvertible fiber map. This is a proposed test, not a checked totalization.
+noninvertible fiber map. The #725 [total-arrow application](../../Examples/CoherentSheafFibration.lean) now checks this case, including noninvertibility and recovery naturality.
 The [subsequent #708 assessment](coherent-sheaf-totalization.md) recommends the
 bounded native-arrow contract and generic diagram recovery, with an explicit
 universe-packaging checkpoint. It separates existing decoder compatibility
-proofs from the remaining derivable coherence; implementation remains ahead.
+proofs from the remaining derivable coherence; the subsequent #725 implementation supplies that bridge and its diagram/Boolean applications.
 Compare its priority with the other routes during #708's remaining family-adapter
 assessment. Further textbook delivery is not a prerequisite. The recommended
 construction serves coherent recovery over contexts, rather than merely marking

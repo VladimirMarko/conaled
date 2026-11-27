@@ -141,12 +141,12 @@ stackification of labelled sheaf-group action charts and independence under
 locally surjective atlas refinements. Its universal mapping equivalences retain
 strong transformations and modifications into target stacks in the fixed Cat
 universe. This is a separate contract from code-side coherent-sheaf totalization;
-it does not supply that adapter's missing coherence proofs.
+the #725 adapter derives its own substitution coherence.
 
 Further family adapters remain research in #708 under #235/#289/#647, with their
 own concrete consumer contracts. The [coherent-sheaf assessment](coherent-sheaf-totalization.md)
-recommends a bounded total-arrow comparison, with a universe-packaging checkpoint;
-the adapter is not implemented. This result does not require any of them and supplies no
+now has a separate [local-sheaf total adapter](../../SquareKit/Internal/CoherentSheafFibration.lean)
+from #725, preserving its own density, limit and universe contract. This result does not require any of them and supplies no
 new dependency on #704 or #706.
 
 The focused example target includes the unchanged direct clients and checks the
