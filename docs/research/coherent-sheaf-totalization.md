@@ -109,9 +109,9 @@ fibrewise decoder comparisons by hand; a coherent total bridge discharges
 that work once. The generic diagram application checks projected recovery, arrow naturality,
 compatible natural transformations and preservation of cartesian transitions.
 It uses ordinary functors and whiskered recovery without introducing a new
-framework of sections. A category of diagrams
-over fixed `K` would require the corresponding restriction proof in addition
-to the unrestricted functor-category equivalence.
+framework of sections. The subsequent [fixed-context diagram interface](coherent-sheaf-diagrams.md)
+packages the category over `K` and proves the required restriction; the
+unrestricted functor-category equivalence alone does not enforce vertical maps.
 
 For a separating concrete case, reuse
 [pairProjection, diagonal and collapse](../../Examples/CoherentSheafOver.lean).
@@ -265,3 +265,13 @@ independent Standards/Spec review of the exact candidate; focused compilation
 alone does not replace them. Broader facade-aware usage sampling,
 remaining-family ranking, deeper categorical coverage and other #708 acceptance
 items remain open.
+
+## Categories of systems over a fixed context diagram
+
+The [follow-on assessment](coherent-sheaf-diagrams.md) selects a bounded
+fixed-context diagram-category equivalence and its cartesian restriction under
+[#726](https://github.com/VladimirMarko/conaled/issues/726). It uses Mathlib's
+based functors to retain exactly the vertical natural transformations. The
+benefit is transport of universal properties among whole systems, with the
+original diagram recovery supplying the comparison data. Equalizer existence
+is a separate hypothesis; cartesian sections retain noninvertible vertical maps.

@@ -1245,6 +1245,7 @@ import Examples.RotationCertificateCodecs
 import Examples.ClassifierSheafPi
 import Examples.CoherentSheafOver
 import Examples.CoherentSheafFibration
+import Examples.CoherentSheafDiagrams
 import Examples.SheafFamilyDescent
 import Examples.SheafDisplayDescent
 
