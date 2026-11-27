@@ -1,0 +1,11 @@
+# Arrow sheafification assessment (#729)
+
+Base: 0af1f2eaabbadf660bb2b0d1f4d5b20a1d05c067, clean master. User assigned ordered queue #729, #700, #701, #654, #721, #722 with full completion. This assessment concerns #729 only. Read /tmp/conaled-729/issue.json for full saved requirements.
+
+Decision: choose a bounded non-sheaf-arrow example and a representation bridge into the general sheaf-groupoid completion, while distinguishing internal presheaf groupoids from arbitrary groupoid-valued pseudofunctors. No prior production consumer required. Preserve full arrows/isotropy, actual unit, substitution and already-sheaf recovery. Full transformation/modification universal contract must be specified; remaining general proofs may be scoped successors, honestly distinguished from checked results.
+
+Candidate routes, not decisions: (A) internal presheaf groupoids sent through left-exact sheafification of objects/arrows/composable pairs, then #727; (B) homwise prestackification of a groupoid-valued pseudofunctor, then descent completion. Candidate bounded case: constant nontrivial group presheaf on opens of a discrete two-point space, compared to locally varying labels. Another small explicit site is allowed if its cover semantics and representability bridge are proved. Distinguish failure at empty open from genuinely new arrows on disconnected nonempty open. No object-stackification theorem follows just from set-valued sheafification.
+
+Inspect SquareKit/SheafGroupoid*.lean, SheafGroup.lean, SheafAction*.lean, existing constant sheaf/open-cover examples, pinned Mathlib CategoryTheory/Sites/{Sheafification,LeftExact,...} and topology sheaves. Exact Mathlib revision in lake-manifest. No source edits exist for729 yet.
+
+Three independent lenses: contract/foundations, implementation/use, alternatives/generality. Each inspect source independently, propose exact reusable route and discriminating controls, identify hidden hypotheses and universe/representation gaps. Save own report outside repo; do not read others or contact them. May make isolated /tmp Lean probes, no target edits or issue operations. External claims need primary sources; distinguish checked probes, inspected declarations and proposed mathematics. No recursive design challenge. Root will synthesize and implement; these are design assessments, not Standards/Spec acceptance.
