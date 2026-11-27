@@ -1340,4 +1340,7 @@ import Examples.RotationCertificateStreamMachine
 import Applications.Resources.RotationCertificate.FrontEndStreamMachine
 import Examples.RotationCertificateFrontEndStreamMachine
 
+import Examples.ActionStackification
+import Examples.ActionMorita
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
