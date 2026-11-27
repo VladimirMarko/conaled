@@ -1,0 +1,74 @@
+# Alternatives and generality assessment for #727
+
+I recommend principal groupoid bundles as the concrete completion, with descent data retained as its construction and comparison interface. This is a scoped recommendation for represented groupoids in the existing sheaf topos. A completion defined directly by descent data remains mathematically sound and has an advantage for functoriality in the input groupoid. The evidence does not establish a general productivity advantage for either encoding.
+
+The strongest reason for the bundle route is the existing effective descent of actual split sheaf families, including maps and recovery. It permits a completion with concrete objects and equivariant arrows, without constructing morphisms between every pair of cover presentations. Its principal extra obligation is to descend the anchor and partially defined action. Existing group-torsor descent does not discharge that obligation automatically.
+
+Assessment base: repository commit `48ebca7024a29c8eef8d9452a3854f63d044d082`; Mathlib revision `56a005855ea17e0b0958f73ec801ae140b0a1679` from `lake-manifest.json`. I inspected the shared brief, issue text, current interfaces, descent implementations and primary sources independently. I did not read another assessor's report. No Lean experiment or build was run, and no target files were edited. The constructions below are paper arguments and proposed proof boundaries, not newly checked theorems.
+
+## Supported mathematical setting
+
+Keep the input `SheafGroupoid.Operations J` plus `Operations.Laws`, or the existing bundled `SheafGroupoid J`. In `SquareKit/SheafGroupoid.lean:17`, operations are morphisms of object and arrow sheaves; composition has the actual pullback as domain. Laws quantify over generalized arrows. These data suffice mathematically; a group action presentation, a final stack, unit full faithfulness and local generation are not additional input fields.
+
+Write `w = max u v`, with `C : Type u`, `[Category.{v} C]`, and arbitrary `J`. The current contract uses `E = Sheaf J (Type w)`. The output is a pseudofunctor on `E`, with `SheafCover.topology`, not directly on `C` with `J`. The topology's covering sieves contain a single `J`-locally-surjective sheaf map (`SquareKit/SheafContextTopology.lean:15`). This matters: singleton local generation is justified here by the bundle's total sheaf, even when the original site has no single covering object.
+
+Neither subcanonicity of `J`, enough points, pullbacks in `C`, a global section of a cover, smooth representability, étaleness nor properness is mathematically required for this construction. Sheaf pullbacks and split families supply the needed limits. Claims about smooth total spaces require separate hypotheses and theorems.
+
+The intended output sizes are the existing ones: objects in `Type (w + 1)`, arrows in `Type w`, hence `Cat.{w, w + 1}`. A split family quantifies over small section categories and has `Type w` fibers; the type of all such families already occupies `Type (w + 1)`. The bundle route should need no further enlargement. A direct descent route with one cover `Y → X` and transition maps on its pullbacks can also fit these sizes. Do not claim descent data necessarily forces another universe: the cover object `Y : E` is already at the output object universe. Arbitrarily sized indexing families or an unrestricted localization can enlarge it. These proposed declarations still need Lean elaboration checks.
+
+## Principal groupoid bundles
+
+For `G = (G₁ ⇉ G₀)`, an object over `X` should have:
+
+- A split sheaf family `P` over `X`, with locally surjective total projection.
+- An anchor `P.total → G₀`.
+- A left action: an arrow `g : a(p) → b` sends `p` to `g · p`, with anchor `b`. It satisfies unit, composition and restriction laws.
+- Principality: for any two sections `p,q` of the same fiber, there is exactly one arrow `g : a(p) → a(q)` with `g · p = q`.
+
+Equivalently, the action identifies its domain `P ×_{a,G₀,s} G₁` with `P ×_X P`. This is a condition on the actual arrow sheaf, so ineffective isotropy is retained. Local existence must remain separate: principality is vacuous on an empty fiber. Requiring an inhabited fiber at every section would incorrectly impose global triviality.
+
+Arrows are anchor-preserving equivariant maps of the actual families. Their invertibility follows from principality and local existence. One may store an equivariant isomorphism for consistency with `SheafTorsor.Arrow`, but then prove that every equivariant map is invertible so the interface accounts for all arrows. Do not add independent inverse-action axioms or chosen inverses for descent transport where the groupoid laws and cocycle already imply them.
+
+The unit at `m : X → G₀` is the source fiber of `G₁` over `m`, with target anchor and postcomposition action. For `f : m → n`, its map sends `h : m → b` to `f⁻¹ ≫ h : n → b`. Evaluation at the identity section, followed by inverse, recovers `f`. This gives a direct proof of unit full faithfulness and fixes the same inverse-label convention used by the current action quotient. Pulling any bundle back along its total projection gives a tautological section. Principality then identifies that pullback with the regular bundle of its anchor, proving singleton local generation.
+
+This formulation has primary-source precedent: Noohi defines a groupoid torsor by a cover together with a cartesian map from its Čech groupoid and proves equivalence with the quotient stack in Theorem 12.6. His statement concerns topological groupoids on the topological site, not arbitrary Lean sheaf sites; the preceding proposed generalization must be proved using this repository's sheaf descent. See [Foundations of Topological Stacks I, §12](https://webspace.maths.qmul.ac.uk/b.noohi/papers/FoundationsI.pdf).
+
+The code to reuse is concrete. `SplitSheafDescent.family` constructs the descended family as compatible sections, `evaluationIso` recovers its restriction, and `Map.descend` constructs descended maps (`SquareKit/SplitSheafDescent.lean:119`, `:284`, `:358`). `SheafTorsor.Descent` delegates its underlying family to that construction (`SquareKit/SheafTorsorDescent.lean:107`). A general groupoid bundle needs a new layer over those same primitives, rather than copying the underlying compatible-section argument.
+
+The difficult step is anchor descent. When a base section has no cover lift, its anchor cannot be defined by evaluating at a chosen lift at that stage. Instead, use local lifts and the sheaf condition on `G₀`; anchor preservation of transition maps supplies matching. Then descend the action over the appropriate pullback, prove principality by local existence and unique matching of arrows in `G₁`, and descend morphisms. These are real proof obligations, not extra assumptions. The current group-torsor action has a globally available group section, so adapting it by changing the acting type is insufficient.
+
+## Completion directly from descent data
+
+An alternative object over `X` is a locally surjective map `p : Y → X`, an object `m : Y → G₀`, and a compatible arrow on `Y ×_X Y` with identity and cocycle laws. The unit uses the identity cover. Morphisms between objects on `Y` and `Z` can be compatible arrows on `Y ×_X Z`. Composition descends a composite defined over `Y ×_X Z ×_X W` along its projection to `Y ×_X W`, using the source prestack property. One need not quotient the objects by cover refinement, nor quotient all morphisms by refinements, for a prestack input. Treating such quotients as unavoidable would unfairly reject this route.
+
+This is the last stage of the Stacks Project's explicit construction. For a fibred category whose morphism presheaves are already sheaves, the new objects are cover/descent-data pairs and arrows are compatible maps over common overlaps. The remaining duties include composition, pullback and effectiveness of descent. The earlier sheafification of morphisms is unnecessary once the represented input's prestack property is proved. See [Stacks Project, Lemma 8.8.1](https://stacks.math.columbia.edu/tag/02ZN).
+
+The inspected Mathlib supplies `Pseudofunctor.DescentData`, `IsPrestack`, and `IsStack`. `DescentDataPrime.lean` also has descent data on chosen pair and triple pullbacks, and `descentDataEquivalence` at line 321. These are useful building blocks. The inspected directory and a search for stackification declarations in Mathlib's category theory source did not expose a completed stackification constructor. `F.DescentData p` describes descent for one fixed family; it does not by itself assemble varying covers into the required new stack.
+
+This route has a meaningful advantage: a strict internal groupoid functor acts on descent data by applying its object and arrow maps. It avoids needing a direct extension-of-structure-groupoid construction on arbitrary principal bundles. Its cost is the construction and coherence of cross-cover arrows, their descended composition, pullback choices, and flattening iterated descent. Mathlib's chosen-pullback variant reduces the amount of primitive input but does not discharge these obligations.
+
+The bundle route and this route can be connected constructively: glue regular bundles using a descent cocycle in one direction; use the total-space cover and division arrows of a bundle in the other. Require categorical equivalence and substitution-compatible recovery, not merely bijections of isomorphism classes. A full second completion implementation is unnecessary for #727; a descent presentation interface with checked recovery is enough to preserve this useful perspective.
+
+## Functoriality and recovery
+
+A general internal functor `G → H` does not turn a principal `G`-bundle into a principal `H`-bundle merely by applying the functor to its anchor and action. Extension of structure needs another construction. This is a concrete limitation of the bundle presentation, not a defect in its completion theorem. For #727, avoid importing unrestricted balanced bibundle composition: construct the actual functor between the input groupoids, compose with the target unit, and extend using the proved mapping-category universal property. Identity and composition comparisons then require explicit modifications and their coherence.
+
+For an atlas `U → G₀`, the existing `Chart.atlasOperations` already constructs the groupoid with object sheaf `U` and its actual pullback arrow sheaf (`SquareKit/SheafGroupoidAtlas.lean:34`). The atlas comparison is fully faithful by the arrow pullback, and locally generating when the atlas is locally surjective. Arrow-coordinate isomorphisms have explicit operation transport in `SheafGroupoid.Operations.changeArrows`. These should remain actual input comparisons before using completion universality. Do not manufacture atlas equivalences by declaring both outputs to be the old action quotient.
+
+For a group action, general principal bundles recover ordinary group torsors with equivariant target maps. Prove this on objects, all arrows and restriction, with the regular-bundle comparison matching the actual new unit. The inverse-label convention above is material. The analogous statement in the fppf algebraic-space setting is [Stacks Project, Proposition 95.15.3](https://stacks.math.columbia.edu/tag/04WM); it is evidence for the recovery contract, not a theorem about the repository's arbitrary site.
+
+Once the new stack, fully faithful unit and local generation are proved, reuse `StackificationUniversal.universalEquivalence` (`SquareKit/StackificationUniversal.lean:3356`). Its forward functor is definitionally `StackLocalGeneration.restriction`; it includes modifications. It proves a mapping-category statement for any fully faithful locally generating transformation into the proposed completion, but does not itself construct the completion or prove that it is a stack. The source prestack property can be established directly by sheaf descent of arrow maps, or subsequently through the fully faithful map into the constructed stack. Neither route requires it as a supplied field.
+
+## Separating evidence and unresolved risks
+
+The established gap is the current completion's dependence on an action `a` and arrow isomorphism `e` (`SquareKit/SheafGroupoidCompletion.lean:34–41`). Its output is an abbreviation for that action's quotient. The general input operations and atlas operations already exist; their existence does not resolve this gap.
+
+The decisive control for local existence is a Čech groupoid of a locally surjective sheaf map `Y → X` with no section. Its canonical descent datum should produce an object over `X` outside the global unit image. `Examples/TorsorStack.lean` already supplies a locally surjective total-space map with no section, from the smooth clutching torsor. This isolates the missing-global-chart issue without needing to prove that an atlas groupoid admits no alternative global action presentation.
+
+For the already-stack control, use a discrete internal groupoid on a sheaf `M`. Its principal bundle projection is both locally surjective and mono and should therefore be an isomorphism. Descend the anchor through that isomorphism to construct the inverse of the actual new unit `M(X) → Completion(G)(X)`, including the substitution comparison. An identity functor on the output does not test this.
+
+For the geometric consumer, construct both atlas-pullback groupoids of `Examples.ActionMorita`, and the common-refinement maps, using their object and arrow sheaves. Existing examples show arrows between distinct origin lifts and distinguish their labels (`Examples/ActionMorita.lean:107–132`). Keep a separate ineffective-action control: the faithful quarter-turn action's isotropy at the origin alone does not establish retention of globally ineffective group elements. A trivial nontrivial-group action supplies that distinction.
+
+The smallest useful implementation checkpoint is a regular bundle, its arrow-recovery equivalence, strict substitution, and one genuinely varying-anchor descent constructor. These determine whether the bundle encoding exposes manageable obligations. If anchor descent or all-arrow descent becomes entangled with repeated section transports, compare a bounded implementation of cross-cover arrows and their composition using `DescentData'`. That test can discriminate implementation cost without changing the mathematical contract or silently introducing stronger assumptions.
+
+The largest remaining risks are encoding costs, not known mathematical impossibilities: evaluation of the represented operations on sections; preservation of small hom universes; descent of the anchor and partial action; and coherence of extension-induced atlas comparisons. None was tested in Lean during this assessment. The recommendation should be revisited if the bounded checkpoint fails to produce the exact unit and substitution contracts above.

@@ -1352,4 +1352,8 @@ import Examples.RotationCertificateFrontEndStreamMachine
 import Examples.ActionStackification
 import Examples.ActionMorita
 
+import SquareKit.SheafGroupoidAtlasComparison
+import SquareKit.SheafGroupoidStackificationRecovery
+import Examples.GeneralGroupoidCompletion
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
