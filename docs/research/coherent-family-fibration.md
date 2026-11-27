@@ -136,10 +136,15 @@ ordinary Grothendieck machinery for underlying total 1-arrow laws. Its dependent
 project nor establishes preservation of those dependent cells. It does not
 solve #700/#701 cubical coherence, #702 universe/decoder admission, or #703's
 fixed dependent-cell correspondence. Those scopes remain independent.
-#679 stackification and #678 Morita comparison are also unchanged.
+The later [#678/#679 construction](action-stackification-morita.md) supplies
+stackification of labelled sheaf-group action charts and independence under
+locally surjective atlas refinements. Its universal mapping equivalences retain
+strong transformations and modifications into target stacks in the fixed Cat
+universe. This is a separate contract from code-side coherent-sheaf totalization;
+it does not supply that adapter's missing coherence proofs.
 
-Further family adapters remain with #235/#289/#647 under their own concrete
-consumer contracts. This result does not require any of them and supplies no
+Further family adapters remain research in #708 under #235/#289/#647, with their
+own concrete consumer contracts. This result does not require any of them and supplies no
 new dependency on #704 or #706.
 
 The focused example target includes the unchanged direct clients and checks the
