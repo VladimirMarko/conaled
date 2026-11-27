@@ -95,7 +95,7 @@ in the family bridge must not be generalized silently.
 
 | Presentation | Existing declaration or entry point | Assumptions and morphism/coherence coverage | Recovery guarantee | Remaining work |
 |---|---|---|---|---|
-| Raw categories/maps → lawful quotient | `HomQuotient.category`, `RawMap.quotientFunctor`, `LawfulQuotient.equivalence` | Semantic equivalence, congruence and laws; the Mathlib quotient comparison takes an ordinary category and congruent hom relation. Functors preserve composition. | Quotient classes and their arrows, not representatives. | Available; assess older quotient callers under #712. Total-arrow/internal-category comparison is outside the inspected bridge. |
+| Raw categories/maps → lawful quotient | `HomQuotient.category`, `RawMap.quotientFunctor`, `LawfulQuotient.equivalence` | Semantic equivalence, congruence and laws; the Mathlib quotient comparison takes an ordinary category and congruent hom relation. Functors preserve composition. | Quotient classes and their arrows, not representatives. | Available; inspected older callers have explicit dispositions in the #712 ledger. Total-arrow/internal-category comparison is outside the inspected bridge. |
 | Raw transformations → ordinary transformations | `RawTransformation.Natural`, `quotient`, `quotient_eq_iff`, `toNatTrans`/`ofNatTrans` | Fixed raw maps; target laws/congruence where used; postwhiskering requires preservation. Quotient boundary also requires source laws. Independent source/target universes. | Pointwise semantic relation exactly matches quotient transformation equality; lawful specialization round trip. | Available; adoption ledger #712. No automatic Type-valued witness coherence. |
 | Monoids/groups → one-object categories | Mathlib `SingleObj.toEnd`, `mapHom`; `SetoidMonoid` | Monoid maps correspond to functors; groups give groupoids. | One-object map correspondence. | Available. Full two-dimensional correspondence needs specified intertwining cells and pointedness; research only. |
 | Products/pullbacks/limits → representability | `CartesianMapQuotient.binaryFanIsLimit`; Mathlib `IsLimit.homEquiv`, `representableBy`, `ofRepresentableBy` | Raw beta/eta and congruence for the quotient bridge; ordinary cones and natural cone maps afterward. Chosen pullback substitution uses comparison isomorphisms. | Universal-property recovery and uniqueness up to the stated isomorphism. | Available; #706 checks a product client. Further raw adapters need a selected construction. |
@@ -122,7 +122,9 @@ Local-import checks locate `RawTransformation` in `Examples.RawTransformations`,
 through the pullback module). `CategoryQuotient` is imported by
 `Examples.CategoryInstances` and `Examples.CategoryCharacterizations`.
 These are concrete entry points, not a proof-call census or evidence of broad
-migration. #712 must inspect old callers before claiming removable duplication.
+migration. The [#712 caller assessment](reconstructible-presentations-search.md#remaining-adoption-decisions-27-november-2026)
+records the subsequent adoption and retain decisions; this earlier import sample
+is not their coverage claim.
 
 The included families are the rows above. Deferred depth includes the full
 presheaf/sheaf developments, general higher coherence, converse fibration
@@ -482,21 +484,15 @@ extension study in #704, and the selected coherent-family bridge in #705.
 #703 additionally checks finite dependent witness retention and independent
 representation maps; it does not supply a general higher comma construction.
 
-[#712](https://github.com/VladimirMarko/conaled/issues/712) tracks adoption of
-these settled interfaces in older callers. Its ledger must name the caller,
-change, preserved assumptions and observations, benefit, acceptance example,
-and disposition. External textbook work targets current or recent interfaces.
-Before replacing those interfaces, identify the incoming development and its
-target revision and prefer integrating it first where practical. Earlier
-changes must preserve its contracts through compatible adapters and checked
-clients; additive work can proceed when those contracts remain intact.
-
-Revisit adoption at the next #235 planning checkpoint and at intake/integration
-review of that external work, whichever happens first. The external artifact
-and delivery date are not identified here. Each deferral must name a delivery
-or review event and a fallback planning checkpoint if it slips. Waiting for
-external work must not become indefinite, nor depend on completing the entire
-textbook programme.
+[#712](https://github.com/VladimirMarko/conaled/issues/712)'s
+[adoption ledger](reconstructible-presentations-search.md#remaining-adoption-decisions-27-november-2026)
+records the completed caller checkpoint. Linear decoding uses raw transformations;
+geometric mixed base change now specializes the shared comparison and pasting
+proofs. The inspected comma, quotient, span and coherent-sheaf callers have
+explicit retain decisions under their original contracts. The final textbook
+source was integrated at `6e6805dc` before this assessment; external delivery is
+no longer a waiting condition. The ledger distinguishes its bounded caller
+search from the remaining broader survey.
 
 [#708](https://github.com/VladimirMarko/conaled/issues/708) tracks further
 coverage and interface research. It retains the remaining facade-aware usage

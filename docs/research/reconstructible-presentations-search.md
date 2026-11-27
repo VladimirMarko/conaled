@@ -328,7 +328,7 @@ needs no semiring instance; matrix evaluation retains its original commutative
 semiring assumption. This exposes reusable composition and whiskering for one
 existing comparison. It does not establish a general reduction in author effort.
 
-| Settled direction and inspected caller | Decision, retained contract and checked evidence | Next checkpoint |
+| Settled direction and inspected caller | Decision, retained contract and checked evidence | Initial next checkpoint |
 |---|---|---|
 | Raw transformations: `Linear.Maps.interpretation_commutes` | Adopt `coordinateDecode` and its prewhiskered matrix interpretation. Preserve actual decode components, arbitrary inputs and the old equality orientation. `compile_decode` connects the public transformation to compiled source evaluation; the Bool unit-to-product case checks the weaker coordinate assumptions. | Review this batch with original matrix/compiler clients. At the next #235 planning review inspect another repeated interpretation comparison before broadening migration. |
 | Comma universal properties: [CommaVertical](../../SquareKit/CommaVertical.lean) and [WitnessCommaVertical](../../SquareKit/WitnessCommaVertical.lean) | Retain primitive vertical pasting: it accepts target congruence/associativity and a middle-arrow relation, with Type-valued connectors in the witness version. Replacing it with an ordinary lawful comma cone would strengthen assumptions. `ofSquare_vertical` and `erase_vertical` retain the corresponding data/erasure contracts. | At the next #235 planning review inspect a lawful comma client such as MatrixDoubling for a repeated cone construction that the delivered universal-property adapter can replace. |
@@ -336,9 +336,100 @@ existing comparison. It does not establish a general reduction in author effort.
 | Canonical spans: [SpanInterpretation](../../SquareKit/SpanInterpretation.lean), [composition](../../SquareKit/SpanInterpretationComposition.lean), [DependentBaseChange](../../SquareKit/DependentBaseChange.lean) | Retain existing constructors from functors, chosen pullbacks and pullback preservation. Keep full comparison arrows and operation restrictions; ordinary lawful slice clients can keep Mathlib natural transformations. No duplicate older constructor was identified in this sample. | At the same review inspect callers constructing `compositionIso` or `actionIso` manually, comparing full maps and preservation hypotheses before choosing a migration. |
 | Coherent-family totalization: [CoherentSheafOver](../../SquareKit/Internal/CoherentSheafOver.lean) versus [CoherentFamilyFibration](../../SquareKit/Internal/CoherentFamilyFibration.lean) | Retain fiberwise sheaf classification and its local-property full subcategory, together with the existing varying-context `reindex`, `reindexId`, `reindexComp` and decode compatibility equations. These are not yet packaged as a total category. The selected total bridge separately covers its particular coherent-family system and cartesian arrows. | At the same review assess whether the existing substitution data can be packaged through the shared totalization machinery, including the remaining coherence obligations, dense-site assumptions, locality and universes. Select a base-changing arrow client before claiming recovery; adapters beyond the settled bridge remain #708 research. |
 
-These are bounded caller dispositions, not completion of #712. The next #235
-planning review is the review event even if no further textbook delivery occurs;
-the four-book programme is no longer a waiting condition. A new consequential
-architecture choice still needs its own assessment. #618's naming migration
-can accompany a selected caller while preserving valid embedded identifiers,
-acronyms and the mathematical distinctions above.
+### Remaining adoption decisions, 27 November 2026
+
+The named follow-up checkpoint was assessed against `0273973f`, after the final
+textbook integration and naming migration. The table above records the first
+batch and its original next steps; the dispositions below supersede those steps.
+This is a caller assessment of the settled interfaces, not a repository-wide
+categorical redesign or the broader presentation survey owned by #708.
+
+The additional implementation specializes
+[GeometricMixedChange](../../SquareKit/Internal/GeometricMixedChange.lean) through
+[MixedBaseChange](../../SquareKit/MixedBaseChange.lean). `pullbackPost` now uses
+`MixedBaseChange.iso`; its two projection laws, identity and ambient-composition
+laws use the shared comparison results. `mixedContextPaste` and
+`pullbackPost_context_composition` use the shared context-pasting construction
+and law. Previously the geometric module repeated the naturality construction
+and pullback-extensionality proof. Its public statements, independent object/hom
+universes, selected maps, both projections and geometric adjunction assumptions
+remain unchanged. The general construction still needs only a functor and
+pullbacks for comparison, with preservation supplying invertibility.
+
+[Existing recovery clients](../../Examples/MatesBaseChange.lean) compare the
+whole natural transformation, isomorphism and context-pasting map, and exercise
+both ambient and context composition. The slice-forgetting client retains its
+weaker assumptions, including the proof that it need not preserve finite limits.
+[SliceUniversal](../../Examples/SliceUniversal.lean) checks actual slice geometric
+morphisms and their projections/pasting; [Kunneth](../../Examples/Kunneth.lean)
+retains the mixed comparison in its original geometric application. These
+existing cases suffice for this proof refactor; no mathematical claim is weakened.
+
+The remaining caller decisions are:
+
+| Direction and actual caller | Disposition and evidence | Acceptance or future review |
+|---|---|---|
+| Further raw comparison: `Schreier.interpretation_equivariant` and `twiceChanged_agrees` in [Equivariant](../../Applications/GroupActions/Equivariant.lean) | Retain the equality of whole functors. `equivariant_label` already performs path induction once; the twice-changed result reuses it twice and shared `RawMap.comp_laws` supplies map laws. An identity-component transformation would add packaging and expose less than the existing functor equality. | Preserve generator compatibility, action labels and directed paths. The named next raw-caller inspection is complete. A later genuinely different object interpretation can motivate a separate adoption. |
+| Comma: [MatrixDoubling](../../SquareKit/MatrixDoubling.lean) and [MatrixCompilerPreservation](../../Examples/MatrixCompilerPreservation.lean) | Retain the raw executable interface. The target matrices have an ordinary category, but the tagged sources expose `CategoryOps`. `embedArrow` owns one square proof; identity/composition are `rfl`, and `compiled_square` consumes that proof for arbitrary terms. A lawful `Comma.Universal.lift` would require extra category/functor packaging without removing a repeated proof. | Keep the nonidentity shuffle, actual matrices, arbitrary coordinates and empty-coordinate terminal maps. `triple_entries`, `comparison_nonidentity` and the product laws retain these observations. |
+| Ordinary comma consumers: [GroupoidCorrespondence](../../SquareKit/GroupoidCorrespondence.lean), `forgetBoolean` and `headFromRight`; [FiniteDependentCorrespondence](../../SquareKit/FiniteDependentCorrespondence.lean), `mapBoundary` and `mapRight` | Retain. The two manual functors have direct object/map fields without duplicated cone laws. Units and representation changes already use Mathlib comma comparisons; finite dependent maps use `Comma.map` and explicit alignment. A universal lift does not discharge that alignment. | Keep full boundary labels, Boolean apex recovery and actual dependent cells. The named ordinary-comma checkpoint is complete. |
+| Lawful quotients: [CategoryCharacterizations](../../Examples/CategoryCharacterizations.lean), `Quotients` | Already adopted: `LawfulQuotient.equivalence` compares classes under the first-factor relation on `SingleObj (Nat × Nat)`. | `erased`, `retained`, `raw_distinct`, `recovered` and `mapped_composite` check loss, distinctions, recovery and composition. No duplicate comparison remains in this caller. |
+| Raw and expression quotients: [CommaLawful](../../SquareKit/CommaLawful.lean), [CategoryMaps](../../Examples/CategoryMaps.lean), [InitialTransport](../../Examples/InitialTransport.lean), generated substitutions, `Cube.Hom` and [Lawvere.Concrete](../../SquareKit/Lawvere/Concrete.lean) | Retain. Raw syntax/generated derivations have category laws modulo their relations, not equality of representatives. Cube's raw substitution laws can support an ordinary category, but its clients do not need another quotient presentation. Lawvere's `cubeHomEquiv` additionally distributes a substitution quotient into tuples of operation classes; the lawful hom-quotient equivalence does not prove that interchange. | Preserve `quotientMap_eq_iff`, raw nonuniqueness, source-typing witnesses and both tuple/class round trips. The named quotient checkpoint is complete. |
+| Canonical spans and their clients: [SpanInterpretation](../../SquareKit/SpanInterpretation.lean), [composition](../../SquareKit/SpanInterpretationComposition.lean), [SpanAction](../../SquareKit/SpanAction.lean), [Family](../../SquareKit/Family.lean) | Retain these shared providers. Ambient mapped-span comparison, action composition within one category, and iterated context pullback have different endpoints. Composition modifications already consume the shared action-composition law. The duplicated geometric specialization identified in this search is replaced as described above. | Existing [span examples](../../Examples/SpanInterpretation.lean) and [successive interpretation examples](../../Examples/SpanInterpretationComposition.lean) retain payload/apex observations, noninvertible apex maps, ordered composition and the weaker pullback-preservation assumption. |
+
+The search followed declarations and their consumers in maintained `SquareKit`,
+`Applications` and `Examples` at the recorded baseline. Additional inspected raw
+map owners were Orbifolds coordinate change, Incremental compiler, Probability
+table meaning, FRPSpec homomorphisms, FirstOrder/STLC naturality and optional
+comparison transport. They already use ordinary equivalences, raw-map
+composition or operation-specific preservation; none of the inspected blocks
+contains a second parallel-interpretation naturality proof removed by the raw
+transformation API. In particular, finite-update correctness, probability mass,
+event semantics and selected inverse witnesses are not consequences of raw
+naturality alone. Type-valued witnesses remain distinct from its Prop-valued
+semantic observation.
+
+Other `compositionIso`/`actionIso` hits in torsor reindexing and native cubical
+structure transport have different endpoints and retain their own equality or
+chosen-inverse data. Wire corelation quotients glue nodes, and optional/cartesian
+quotient modules descend chosen operations; they are not duplicate ordinary
+hom-quotient equivalences. This is a bounded assessment of the listed callers,
+not a claim that every categorical encoding or isolated experiment was audited.
+
+The coherent-sheaf row is retained after inspecting its actual substitution
+clients. [CoherentSheafOver](../../Examples/CoherentSheafOver.lean) already tests
+nonidentity Boolean negation, repeated substitution and noninvertible collapse.
+Its `LocalCode` fibers are local-sheaf full subcategories on represented sites;
+`reindex` conjugates sheaf pullback through dense-site equivalences. The selected
+[CoherentFamilyFibration](../../SquareKit/Internal/CoherentFamilyFibration.lean)
+instead has coherent diagrams and direct functors on `Γ.Elements`, with strict
+precomposition and supplied strong transformations/recovery modifications. It
+cannot replace the sheaf fibers without proving additional coherence.
+
+Mathlib's `GrothendieckTopology.pseudofunctorOver` already supplies the sheaf
+*target* totalization. A code-side bridge would still need associativity/unit
+coherence for the existing reindexing, a strong decoder and inverse, and
+compatible unit/counit modifications. No duplicated sheaf total-category
+packaging or existing total-arrow consumer was found. Retain the fiberwise API;
+additional sheaf totalization is #708 research, not an unfinished application of
+the selected #705 bridge. Preserve full faithfulness, cover density, the specified
+limits and independent site/value universes. Subcanonicity is needed by the
+represented-display comparison, not by general sheaf substitution, and does not
+replace cover density (`support_map_not_iso`).
+
+For #708's adapter comparison, an explicit possible acceptance case uses the
+existing `pairProjection` and `diagonal` with `pairDisplay` and `collapse`.
+Their composites distinguish identity on Bool from `(true, false) ↦ (true, true)`
+on pairs; a total bridge would need to retain that base order and the
+noninvertible fiber map. This is a proposed test, not a checked totalization.
+Assess it during #708's already-required family-adapter selection, with #235's
+next planning review as the fallback event. Further textbook delivery is not a
+prerequisite. This records the missing construction without requiring a new
+wrapper solely to label the current caller migrated.
+
+These dispositions complete the selected #712 adoption checkpoint: the earlier
+Linear adoption remains, the geometric comparison now reuses its shared provider,
+and every named remaining row has an explicit implementation or retain decision.
+No row waits for external textbook work. #708 owns additional adapters and the
+broader facade-aware survey; #235 owns reassessment when new mathematical needs,
+repeated proofs or changed author/tooling capabilities justify it. This does not
+mandate a repository-wide rewrite or establish a general productivity advantage.
