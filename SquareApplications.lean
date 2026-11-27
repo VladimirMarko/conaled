@@ -1262,6 +1262,10 @@ import Examples.SmoothCoordinatePullbacks
 import Examples.SmoothTransversePullback
 
 import Examples.SmoothTransverseRealization
+import Examples.ProperLocalBranches
+import Examples.SmoothBranchRealization
+import Examples.SmoothBranchAction
+import Examples.SmoothBranchRestriction
 
 import Examples.RetainedFirstHit
 import Examples.GroupoidCorrespondence
