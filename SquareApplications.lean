@@ -1363,4 +1363,9 @@ import Examples.GeneralGroupoidAtlasInvariance
 import Examples.DecoderSheafification
 import Examples.FiniteHigherCompletion
 
+import Examples.PrincipalBibundle
+import Examples.PrincipalBibundleNoninvertible
+import Examples.PrincipalBibundleNoncommuting
+import Examples.PrincipalBibundleBicategory
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
