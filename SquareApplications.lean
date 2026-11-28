@@ -1358,6 +1358,7 @@ import Examples.ActionMorita
 import SquareKit.SheafGroupoidAtlasComparison
 import SquareKit.SheafGroupoidStackificationRecovery
 import Examples.GeneralGroupoidCompletion
+import Examples.GeneralGroupoidAtlasInvariance
 
 import Examples.DecoderSheafification
 import Examples.FiniteHigherCompletion
