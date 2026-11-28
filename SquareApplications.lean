@@ -1368,4 +1368,6 @@ import Examples.PrincipalBibundleNoninvertible
 import Examples.PrincipalBibundleNoncommuting
 import Examples.PrincipalBibundleBicategory
 
+import Examples.AffinePolynomialCompiler
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
