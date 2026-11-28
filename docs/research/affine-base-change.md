@@ -1,0 +1,35 @@
+# Affine compiler base change
+
+Issue #741 extends the [affine polynomial compiler](affine-polynomial-compilation.md) along an arbitrary ring homomorphism φ : R → S. The [library](../../Applications/AlgebraicGeometry/BaseChange.lean) proves coefficient transport, identifies its geometric realization with a scheme fibre product, and compares identity and successive base changes. The root Std-only source compiler is unchanged.
+
+## Coefficients, tensors and schemes
+
+`PolynomialMap.changeCoefficients φ` applies `MvPolynomial.map φ` to each output polynomial. It preserves identity maps and polynomial substitution. For f : Aⁿ_R → Aᵐ_R, the coordinate map runs from R[y₁,…,yₘ] to R[x₁,…,xₙ]. `coordHom_changeCoefficients` says that coefficient translation commutes with this substitution map, in that contravariant direction.
+
+`tensorComparison` is Mathlib's equivalence S ⊗_R R[x] ≃ S[x]. Its pure-tensor formula sends s ⊗ p to s·φ(p); `tensorComparison_natural` compares the tensor extension of the coordinate homomorphism with substitution by the translated polynomials. The algebra presentation uses an `Algebra R S` instance. The geometric interface accepts any explicit ring map and installs its algebra structure locally when constructing the pushout.
+
+`scalarMap φ a` is Spec of coefficient translation on the coordinate ring. `scalarMap_isPullback` proves that its square over Spec S → Spec R is a pullback in the category of schemes, using Mathlib's polynomial algebra pushout and contravariance of Spec. `baseChangeIso` compares the selected affine object over S with the chosen scheme fibre product. Its two projection equations identify the comparison uniquely.
+
+`baseChangedHom` acts on every geometric arrow between the selected affine spaces over R. It uses the exact coordinate recovery from #740, then translates and realizes. `pullbackHom` independently constructs the arrow between fibre products by their universal lifting property. `baseChangedHom_compare` identifies these arrows under `baseChangeIso`. Thus coefficient translation describes actual geometric base change, beyond its action on points or source-generated maps. Identity, composition and pairing are preserved.
+
+The coefficient and geometric operations satisfy strict identity and successive-change laws on the selected affine objects. `iteratedBaseChangeIso` compares the twice-chosen fibre product with the final selected object. `baseChangeIso_comp` proves agreement with Mathlib's canonical pullback-pasting isomorphism. `baseChangeIso_id_fst` gives the identity comparison by its first projection; its second projection is the base map. These equations retain the choice of pullbacks explicitly.
+
+## Compilation and checked clients
+
+`coefficientTarget φ` interprets the original `Prim R` vocabulary over S: a literal r becomes φ(r), and addition and multiplication keep their usual meanings. It does not require an AST translation or identification of the two coefficient rings. The local `coefficient_preserves` obligations and existing `FirstOrderNaturality.naturality` prove `compile_changeCoefficients` for every term and context. A second application of that same theorem compares coordinate realization with the geometric target. `compile_baseChange` and `compile_pullback` then give the geometric compiler contract. No domain-specific syntax induction is added.
+
+Products, substitution and let interpretation follow from the cartesian and composition laws used by shared preservation. `compile_coefficients_comp` and `compile_baseChange_comp` retain the original source vocabulary across two coefficient changes. The scheme/compiler specialization keeps the small universe of #740; the direct coefficient-map operations allow independent universes. No field, injectivity, flatness or nontriviality assumption is imposed on the base-change construction.
+
+The [checked applications](../../Examples/AffineBaseChange.lean) include ℤ → F₂, followed by F₂ → F₂[t]. The direct polynomial `(x+2)²` specializes to `x²`, and the compiled let expression has the same specialized coordinates and the required fibre-product comparison. Both successive coefficient changes and the actual pullback-pasting comparison are checked. Distinct constant scheme maps `2` and `0` over ℤ become equal over F₂. This proves failure of reflection without disputing preservation.
+
+## Higher-order assessment for #739
+
+The unit-domain exponential is available within this fragment: b^1 is b. `unitCurryEquiv` supplies the full hom-set bijection, `unitCurry_beta` and `unitCurry_unique` give evaluation and uniqueness, and `unitCurry_changeCoefficients` proves transport for every ring map. `unitExponentialComparison` is the actual geometric identity on b over S; its invertibility and its currying comparison are proved.
+
+General exponentials require a larger setting. `no_ground_exponential` proves that, over any finite nontrivial ring, no selected affine object can represent the ground-type exponential. Maps from the unit object to a selected affine space form a finite set. Polynomial maps from the ground object to itself form an infinite set. Even a currying map with an uncurrying left inverse at this test object is therefore impossible. `no_geometric_ground_exponential` transfers the obstruction to actual scheme maps through exact recovery; the examples specialize it to F₂. This is a mathematical obstruction for the selected affine objects, not an elaboration failure or a claim about all possible ambient categories.
+
+The ambient examples reuse `SquareKit.ClosedComparison` and Mathlib's canonical `expComparison`: curry the transported evaluation after the product comparison. They check the currying equation and invertibility under an explicit Frobenius hypothesis for a left adjoint. A full faithful right adjoint with a product-preserving left adjoint is a checked sufficient case. Product preservation of the interpretation functor alone supplies the comparison, not its inverse. These examples assume cartesian closed source and target categories; no such instances are asserted for affine schemes or arbitrary scheme base change.
+
+#739 retains selection of a closed ambient interpretation, the geometric embedding and endpoint recovery, and the extra conditions ensuring its exponential comparison is invertible. Dependent products require their own existence and Beck–Chevalley conditions. This issue supplies neither an unrestricted higher-order geometric compiler nor dependent-product preservation. #742 retains non-affine site/descent clients.
+
+The geometric contract is the scheme fibre-product universal property in [Stacks, Section 26.17](https://stacks.math.columbia.edu/tag/01JO). The checked implementation uses the pinned Mathlib polynomial tensor, ring pushout, Spec and pullback-pasting results. The affine/base-change pair demonstrates reuse of the existing first-order preservation theorem by direct algebraic and compiled geometric clients; it does not yet establish an ambient higher-order recovery theorem.
