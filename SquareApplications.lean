@@ -1359,4 +1359,6 @@ import SquareKit.SheafGroupoidAtlasComparison
 import SquareKit.SheafGroupoidStackificationRecovery
 import Examples.GeneralGroupoidCompletion
 
+import Examples.DecoderSheafification
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
