@@ -1068,6 +1068,7 @@ import Examples.CubicalLargeConstructors
 import Examples.CartesianLargeFamilyConstructors
 import Examples.CartesianConstructorTransport
 import Examples.NativeStructureCoherence
+import Examples.NativeFiniteCoherence
 import Examples.NativeStructureSethood
 import Examples.NativeStructureDescriptions
 import Examples.NativeStructureIdentity
